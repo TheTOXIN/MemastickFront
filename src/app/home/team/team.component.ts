@@ -13,13 +13,13 @@ export class TeamComponent {
 
     // Team Carousel
     public team = [{
-        image: 'assets/images/1.jpg',
+        image: 'assets/images/info/1.png',
         social: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>'),
       }, {
-        image: 'assets/images/2.jpg',
+        image: 'assets/images/info/2.png',
         social: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>'),
       }, {
-        image: 'assets/images/1.jpg',
+        image: 'assets/images/info/3.png',
         social: this._sanitizer.bypassSecurityTrustHtml('<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>'),
       }]
 
