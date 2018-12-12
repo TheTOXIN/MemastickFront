@@ -15,26 +15,25 @@ export class PriceComponent implements OnInit {
 
   // Pricing Carousel
     public price = [{
-        type: 'Basic',
+      image: 'assets/images/roadmap/chain.png',
+      type: 'Basic',
         price: '30',
         duration: 'year',
         feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
       },{
+      image: 'assets/images/roadmap/ai.png',
         type: 'Standard',
         price: '50',
         duration: 'year',
         feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
       },{
+      image: 'assets/images/roadmap/clans.png',
         type: 'Premium',
         price: '100',
         duration: 'year',
         feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
-      },{
-        type: 'Professional',
-        price: '150',
-        duration: 'year',
-        feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
-    }]
+      }
+      ]
 
 
     // Pricing Carousel Options

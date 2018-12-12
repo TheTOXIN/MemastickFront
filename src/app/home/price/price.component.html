@@ -13,16 +13,10 @@
             <owl-carousel [options]="pricingCarousel" [items]="price" [carouselClasses]="['plan-slider owl-carousel owl-theme']">
                <div class="item" *ngFor="let prices of price">
                   <div class="package-box">
-                     <h3>{{prices.type}}</h3>
-                     <div class="price-box">
-                        <span>$</span><h2>{{prices.price}}</h2>
-                        <h5 class="plan-clr">
-                           <span class="d-block">{{prices.duration}}</span>
-                        </h5>
-                     </div>
-                     <div class="price-plan text-center">
+                    <img [src]="prices.image" alt="1" class="img-fluid align-self-center">
+                    <div class="price-plan text-center">
                         <ul [innerHTML]="prices.feature"></ul>
-                        <div class="price-plan-btn">Select Plan</div>
+                        <div class="price-plan-btn">VOTE</div>
                      </div>
                   </div>
                </div>
