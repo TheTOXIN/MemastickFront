@@ -112,7 +112,8 @@
     padding-bottom: 70px;
   }
   .profile-2{
-    left: 50px;
+    top: 0;
+    left: 140px;
     transform: scale(0.6);
   }
   .profile-1{
@@ -120,7 +121,8 @@
     transform: scale(0.6);
   }
   .profile-3{
-    right: 50px;
+    left: 15px;
+    top: 50%;
     transform: scale(0.6);
   }
   .profile-1 {
@@ -138,18 +140,17 @@
     min-height: 600px;
   }
   .profile-1 {
-    bottom: 0;
+    bottom: 30px;
   }
   .profile-msg{
     width: 240px;
-    left: 60px;
-    top: 45%;
+    left: 50px;
+    top: 40%;
   }
   .awesome {
-    top: 45%;
+    top: 50%;
     width: 240px;
-    right: 80px;
-
+    right: 50px;
   }
   .blog-text h3 {
     margin-bottom: 10px;
