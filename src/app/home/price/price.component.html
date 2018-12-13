@@ -13,7 +13,7 @@
             <owl-carousel [options]="pricingCarousel" [items]="price" [carouselClasses]="['plan-slider owl-carousel owl-theme']">
                <div class="item" *ngFor="let prices of price">
                   <div class="package-box">
-                    <img [src]="prices.image" alt="1" class="img-fluid align-self-center">
+                    <img [src]="prices.image" alt="1" class="img-fluid align-self-center road-img">
                     <div class="price-plan text-center">
                         <ul [innerHTML]="prices.feature"></ul>
                         <div class="price-plan-btn">VOTE</div>
