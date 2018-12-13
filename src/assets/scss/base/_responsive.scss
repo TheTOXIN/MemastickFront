@@ -702,7 +702,7 @@
       .row {
         .home-right {
           justify-content: center;
-          margin-top: 20px;
+          margin-bottom: 20px;
         }
       }
     }
@@ -1030,12 +1030,8 @@
   .sm-hidden {
     display: none;
   }
-  .profile-2 {
-    left: -15px;
-    top: -6%;
-  }
   .awesome {
-    top: 47%;
+    top: 85%;
     right: 0;
   }
   .profile-msg {
@@ -1343,7 +1339,7 @@
 
   .profile-msg {
     left: 0;
-    top: 25%;
+    top: -15%;
   }
   .timeline {
     text-align: center;
