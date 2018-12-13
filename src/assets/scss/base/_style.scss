@@ -531,14 +531,6 @@ section {
         z-index: 0;
     }
 }
-.emoji {
-    position: absolute;
-    left: 10%;
-    bottom: 15%;
-    img {
-        animation: moveleftbounce 2.1s linear infinite;
-    }
-}
 .profile-2 {
     position: absolute;
     left: 0;
@@ -555,6 +547,23 @@ section {
         border-radius: 50%;
         z-index: 0;
     }
+}
+.profile-3 {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  &:before {
+    animation: 2.5s anim-effct-slide1 0s linear infinite;
+    box-shadow: 0 0 0 80px rgba(232, 232, 232, 0.1);
+    position: absolute;
+    content: '';
+    width: 110px;
+    height: 110px;
+    top: 26%;
+    left: 26%;
+    border-radius: 50%;
+    z-index: 0;
+  }
 }
 @-webkit-keyframes anim-effct-slide {
     0% {
@@ -2644,11 +2653,6 @@ li.nav-item.dropdown {
     .profile-2 {
         left: 90px;
         top: 0;
-    }
-    .emoji {
-        right: 120px;
-        bottom: -50px;
-        left: unset;
     }
     .home-right {
         width: 400px;

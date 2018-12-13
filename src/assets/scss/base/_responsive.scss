@@ -23,10 +23,6 @@
     .profile-1 {
       bottom: -80px;
     }
-    .emoji {
-      bottom: 11%;
-      right: 150px;
-    }
   }
   .mobile-slid{margin-top: -10px;}
   .contact {
@@ -123,8 +119,9 @@
     right: 50px;
     transform: scale(0.6);
   }
-  .emoji {
-    left: 15%;
+  .profile-3{
+    right: 50px;
+    transform: scale(0.6);
   }
   .profile-1 {
     right: 50px;
@@ -142,11 +139,6 @@
   }
   .profile-1 {
     bottom: 0;
-  }
-  .emoji {
-    bottom: 10%;
-    width: 80px;
-    left: 24%;
   }
   .profile-msg{
     width: 190px;
@@ -297,14 +289,9 @@
   .footer-logo {
     padding: 0;
   }
-  .emoji {
-    left: unset;
-    bottom: 11%;
-    right: 190px;
-  }
   .profile-1 {
     right: -83px;
-    bottom: -4%;
+    bottom: 10%;
   }
   .profile-msg {
     top: 44%;
@@ -316,11 +303,15 @@
     top: 190px;
   }
   .profile-1 {
-    right: -90px;
+    right: -115px;
   }
   .profile-2 {
     left: unset;
-    right: 120px;
+    right: 105px;
+  }
+  .profile-3 {
+    left: unset;
+    right: 100px;
   }
   .slider-mobile {
     width: 210px;
@@ -517,13 +508,13 @@
     }
   }
   .profile-2 {
-    top: 5%;
+    top: -25%;
+  }
+  .profile-3 {
+    top: 40%;
   }
   h1 {
     font-size: 35px;
-  }
-  .emoji {
-    bottom: 10%;
   }
   .slider-mobile {
     display: none;
@@ -820,6 +811,11 @@
       display:none;
     }
   }
+  .profile-3{
+    &:before{
+      display:none;
+    }
+  }
   ol{
     &.breadcrumb{
       &.bg-transparent{
@@ -880,11 +876,10 @@
   .profile-1 {
     right: -53px;
   }
-  .emoji {
-    bottom: 5%;
-    left: 8%;
-  }
   .profile-2 {
+    left: -34px;
+  }
+  .profile-3 {
     left: -34px;
   }
   .chat-box {
@@ -1049,9 +1044,9 @@
     right: -45px;
     bottom: -5%;
   }
-  .emoji {
-    bottom: 5%;
-    left: 8%;
+  .profile-3 {
+    right: -45px;
+    bottom: -5%;
   }
   .chat-box {
     border-right: none;
@@ -1349,9 +1344,6 @@
     left: 0;
     top: 25%;
   }
-  .emoji {
-    left: 2%;
-  }
   .timeline {
     text-align: center;
     &:before {
@@ -1648,11 +1640,11 @@
   .profile-1{
     bottom: 13%;
   }
-  .emoji  {
-    bottom: 23%;
-  }
   .profile-2{
     top: 15%;
+  }
+  .profile-3{
+    top: 20%;
   }
 }
 
@@ -1718,7 +1710,7 @@
   @media(max-width: 767px) {
 
     .grab-img{
-      .profile-msg,.awesome,.emoji,.profile-2{
+      .profile-msg,.awesome{
         display: none;
       }
     }
