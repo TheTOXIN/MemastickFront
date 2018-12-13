@@ -1066,17 +1066,17 @@ section {
 }
 .team-box {
     position: relative;
-    padding: 30px;
-    border: 1px solid $color_alto_approx;
-    border-radius: 15px;
+    padding: 25px;
+    border: 5px solid $color_alto_approx;
+    border-radius: 50px;
 }
 .team-under-box {
     border: 2px solid transparent;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: all 0.8s;
     img {
         border: 1px solid $color_alto_approx;
-        border-radius: 5px;
+        border-radius: 50px;
         transition: all 0.5s;
     }
     &:hover {
