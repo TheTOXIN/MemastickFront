@@ -1004,8 +1004,8 @@ section {
     padding: 30px 25px 25px;
     &:hover{
         .bg-icon {
-            transform: scale(2.5) rotate(5deg);
-            transition: all 0.3s ease;
+            transform: scale(2.5) rotate(90deg);
+            transition: all 0.5s ease;
         }
     }
     .bg-icon {
@@ -1020,7 +1020,7 @@ section {
         margin-bottom: 0;
     }
     img{
-        height: 60px;
+        height: 70px;
     }
     h3{
         margin-top: 30px;
