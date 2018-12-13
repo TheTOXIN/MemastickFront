@@ -185,8 +185,8 @@
   }
   .swiper-slide {
     img {
-      margin-top: -15px;
-      margin-bottom: -15px;
+      margin-top: 0;
+      margin-bottom: -30px;
     }
   }
   .slide-bg {
@@ -291,7 +291,7 @@
   }
   .profile-1 {
     right: -83px;
-    bottom: 10%;
+    bottom: 20%;
   }
   .profile-msg {
     top: 35%;
@@ -307,7 +307,7 @@
   }
   .profile-2 {
     left: unset;
-    right: 105px;
+    right: 100px;
   }
   .profile-3 {
     left: unset;
@@ -508,7 +508,7 @@
     }
   }
   .profile-2 {
-    top: -25%;
+    top: -20%;
   }
   .profile-3 {
     top: 40%;
@@ -1514,8 +1514,8 @@
     }
   }
   .swiper-slide img {
-    margin-bottom: -25px;
-    margin-top: -25px;
+    margin-bottom: -30px;
+    margin-top: 0;
   }
   .slider-mobile {
     display: none;
