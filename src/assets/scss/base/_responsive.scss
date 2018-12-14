@@ -6,6 +6,14 @@
     margin-top: -30px;
   }
 }
+
+@media (min-width: 1500px) {
+  .profile-3 {
+    left: -40px;
+    top: 65%;
+  }
+}
+
 @media(min-width: 1367px) and(max-width: 1500px) {
   .pc-bg {
     width: 400px;
@@ -17,6 +25,11 @@
     width: calc(100% - 40px);
     height: calc(100% - 57px);
     top: 11px; }
+
+  .profile-3 {
+    left: -40px;
+    top: 65%;
+  }
 }
 @media(max-width: 1366px) {
   .auth-page{
@@ -59,8 +72,8 @@
     padding: 20px 0;
   }
   .inner-page section {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   .slid-btn {
     > a {
@@ -112,7 +125,7 @@
     padding-bottom: 70px;
   }
   .profile-2{
-    top: 0;
+    top: 135px;
     left: 140px;
     transform: scale(0.6);
   }
@@ -140,7 +153,7 @@
     min-height: 600px;
   }
   .profile-1 {
-    bottom: 30px;
+    bottom: 180px;
   }
   .profile-msg{
     width: 240px;
@@ -1118,7 +1131,7 @@
     margin-bottom: 50px;
   }
   .slide-text{
-    margin-top: 15px;
+    margin-top: -100px;
   }
   .process-box {
     img{
