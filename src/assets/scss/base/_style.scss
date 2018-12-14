@@ -1080,6 +1080,7 @@ section {
         transition: all 0.5s;
     }
     &:hover {
+      border-radius: 50px;
         border: 2px solid $primary_color;
         position: relative;
         .team-under-box-button {
@@ -1097,15 +1098,15 @@ section {
 }
 .team-under-box-button {
     position: absolute;
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
     background-color: $primary_color;
     display: none;
     justify-content: center;
     align-items: center;
     right: -1px;
     transition: all 0.5s;
-    border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 50px;
     cursor: pointer;
 }
 .social-icon {
@@ -1115,10 +1116,11 @@ section {
     text-align: center;
     transition: all 0.3s;
     position: absolute;
-    border-radius: 3px;
+    border-radius: 0 0 30px 30px;
     bottom: 0;
     left: -1px;
     width: calc(100% + 2.5px);
+    color: white;
     li {
         display: inline-block;
         font-size: 16px;
