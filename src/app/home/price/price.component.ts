@@ -19,19 +19,19 @@ export class PriceComponent implements OnInit {
       type: 'Basic',
         price: '30',
         duration: 'year',
-        feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
+        feature: this._sanitizer.bypassSecurityTrustHtml('BLOCKCHAIN'),
       },{
       image: 'assets/images/roadmap/ai.png',
         type: 'Standard',
         price: '50',
         duration: 'year',
-        feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
+        feature: this._sanitizer.bypassSecurityTrustHtml('AI'),
       },{
       image: 'assets/images/roadmap/clans.png',
         type: 'Premium',
         price: '100',
         duration: 'year',
-        feature: this._sanitizer.bypassSecurityTrustHtml('<li>1 GB of space</li><li>real time sync</li><li>unlimited attachment</li><li>priority email support</li>'),
+        feature: this._sanitizer.bypassSecurityTrustHtml('CLANS'),
       }
       ]
 

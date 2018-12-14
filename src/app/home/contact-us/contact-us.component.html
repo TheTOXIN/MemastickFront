@@ -4,13 +4,13 @@
       <div class="row">
          <div class="col-md-6">
             <div class="section-title">
-               <h2>Get In Touch</h2>
+               <h2>ГО К НАМ</h2>
             </div>
             <form class="auth-form">
                <div class="form-group">
-                  <label for="exampleInputName1">Name</label>
+                  <label for="exampleInputName1">Никнейм</label>
                   <i class="fa fa-user"></i>
-                  <input required=""  name="name" [formControl]="contactForm.controls['name']" type="text" class="form-control" id="exampleInputName1" placeholder="User name">
+                  <input required=""  name="name" [formControl]="contactForm.controls['name']" type="text" class="form-control" id="exampleInputName1" placeholder="NICK">
                   <div *ngIf="contactForm.controls.name.touched && contactForm.controls.name.errors?.required" class="text text-danger">Name is required</div>
                </div>
                <div class="form-group">
@@ -20,7 +20,7 @@
                   <div *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.email" class="text text-danger">Invalid Email</div>
                </div>
                <div class="form-group mb-0">
-                  <button class="btn-theme" [disabled]="!contactForm.valid" type="submit">Send Message</button>
+                  <button class="btn-theme" [disabled]="!contactForm.valid" type="submit">ОТПРАВИТЬ</button>
                </div>
             </form>
          </div>
@@ -28,15 +28,15 @@
             <div class="section-title">
                <h2>Contact Info</h2>
             </div>
-            <p>Lorem ipsum dolor sit amet, consecte adipisicing elit sed do eiusmod tempor incididunt.</p>
+            <p>Искать нас можешь тут</p>
             <ul class="contact-box">
                <li>
                   <div class="contact-circle">
                      <i class="fa fa-rocket" aria-hidden="true"></i>
                   </div>
                   <div class="contact-text">
-                     <h3>Location</h3>
-                     <p>123 Business Avenue, Hoston, USA</p>
+                     <h3>Стартап</h3>
+                     <p>%ссылка%</p>
                   </div>
                </li>
                <li>
@@ -44,8 +44,8 @@
                      <i class="fa fa-paper-plane" aria-hidden="true"></i>
                   </div>
                   <div class="contact-text">
-                     <h3>Call US</h3>
-                     <p>+91 123-456-7890</p>
+                     <h3>Телеграмм</h3>
+                     <p>%канал%</p>
                   </div>
                </li>
                <li>
@@ -53,8 +53,8 @@
                      <i class="fa fa-envelope" aria-hidden="true"></i>
                   </div>
                   <div class="contact-text">
-                     <h3>Email Us</h3>
-                     <p>support@gmail.com</p>
+                     <h3>Email</h3>
+                     <p>%мыло%</p>
                   </div>
                </li>
             </ul>

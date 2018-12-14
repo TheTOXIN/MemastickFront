@@ -14,36 +14,36 @@ export class TestimonialComponent implements OnInit {
   // Testimonial Carousel
     public testimonial = [{
         image: 'assets/images/tokens/1.png',
-        name: 'Mark jkcno',
-        designation: 'Designer',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+        name: 'Органика',
+        designation: 'Токен создания',
+        description: 'сроки горят, релиз через год!!!!!!',
       }, {
         image: 'assets/images/tokens/2.png',
-        name: 'Adegoke Yusuff',
-        designation: 'Content Writer',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text.',
+        name: 'Фитнес',
+        designation: 'Токен оценки',
+        description: 'сроки горят, релиз через год!!!!!!',
       }, {
         image: 'assets/images/tokens/3.png',
-        name: 'John Shipmen',
-        designation: 'Lead Developer',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+        name: 'Антибиотик',
+        designation: 'Токен выживания',
+        description: 'сроки горят, релиз через год!!!!!!',
       },
       {
         image: 'assets/images/tokens/4.png',
-        name: 'John Shipmen',
-        designation: 'Lead Developer',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+        name: 'Кроссовер',
+        designation: 'Токе скрещивания',
+        description: 'сроки горят, релиз через год!!!!!!',
       },
       {
         image: 'assets/images/tokens/5.png',
-        name: 'John Shipmen',
-        designation: 'Lead Developer',
-        description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Contrary to popular belief, Lorem Ipsum is not simply random text. ',
+        name: 'Мутаген',
+        designation: 'Токен мутации',
+        description: 'сроки горят, релиз через год!!!!!!',
       }
     ]
 
     // Testimonial Carousel Options
-	public testimonialCarousel: any ={
+	public testimonialCarousel: any = {
 	    loop:true,
         margin:10,
         nav:false,

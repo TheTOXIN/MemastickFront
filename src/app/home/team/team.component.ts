@@ -14,10 +14,10 @@ export class TeamComponent {
     // Team Carousel
     public team = [{
         image: 'assets/images/info/1.png',
-        social: this._sanitizer.bypassSecurityTrustHtml('BLOCKCHAIN'),
+        social: this._sanitizer.bypassSecurityTrustHtml('MEMCOIN'),
       }, {
         image: 'assets/images/info/2.png',
-        social: this._sanitizer.bypassSecurityTrustHtml('CLANS'),
+        social: this._sanitizer.bypassSecurityTrustHtml('BATTLE'),
       }, {
         image: 'assets/images/info/3.png',
         social: this._sanitizer.bypassSecurityTrustHtml('MEMOTYPE'),
