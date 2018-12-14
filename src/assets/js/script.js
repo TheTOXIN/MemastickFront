@@ -101,21 +101,21 @@ $(document).ready(function(){
     var swiper = new Swiper('.swiper-screenshots-container-1', {
         effect: 'coverflow',
         grabCursor: true,
-        initialSlide: 2,
+        initialSlide: 0,
         centeredSlides: true,
         loop: true,
         spaceBetween: 0,
         slidesPerView: 4,
-        pagination: false,
+        pagination: true,
         coverflowEffect: {
             rotate: 0,
             stretch: 0,
             depth: 100,
             modifier: 1.43,
-            slideShadows: false,
+            slideShadows: true,
         },
         autoplay: {
-            delay: 5000,
+            delay: 3000,
         },
         breakpoints: {
             360: {
