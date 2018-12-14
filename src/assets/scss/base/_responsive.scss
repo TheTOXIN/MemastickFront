@@ -125,7 +125,7 @@
     padding-bottom: 70px;
   }
   .profile-2{
-    top: 135px;
+    top: -10px;
     left: 140px;
     transform: scale(0.6);
   }
@@ -153,7 +153,7 @@
     min-height: 600px;
   }
   .profile-1 {
-    bottom: 180px;
+    bottom: 50px;
   }
   .profile-msg{
     width: 240px;
@@ -271,10 +271,12 @@
   }
   .future-mobile {
     text-align: center !important;
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
+  }
+  .future-mobile{
+    display: flex;
   }
   .mobile-slid {
     text-align: right;
@@ -470,6 +472,9 @@
     width: 100%;
   }
   .future-mobile{
+    display: none;
+  }
+  .memas-banner{
     display: none;
   }
   .home-right {
