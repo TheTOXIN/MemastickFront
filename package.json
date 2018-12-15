@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod",
-    "start": "start server.js",
+    "start": "node server.js",
     "start-local": "ng serve"
   },
   "private": true,
