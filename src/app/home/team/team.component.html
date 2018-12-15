@@ -17,7 +17,7 @@
           <!-- If images array is dynamically changing pass this array to [items] input -->
            <owl-carousel [options]="teamCarousel" [items]="team" [carouselClasses]="['team-slider owl-carousel owl-theme']">
                <div class="item" *ngFor="let teams of team">
-                  <div class="team-box">
+                  <div class="team-box" [style.border-color]="teams.borderColor">
                      <div class="team-under-box">
                         <div class="team-under-box-button text-white" (mouseenter)="changeCurrent(teams)">
                            <i class="fa fa-question" aria-hidden="true"></i>

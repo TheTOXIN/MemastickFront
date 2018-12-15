@@ -1067,7 +1067,7 @@ section {
 .team-box {
     position: relative;
     padding: 25px;
-    border: 5px solid $color_alto_approx;
+    border: 5px solid;
     border-radius: 50px;
 }
 .team-under-box {
@@ -1120,7 +1120,7 @@ section {
     border-radius: 0 0 30px 30px;
     bottom: -2px;
     left: -2px;
-    width: calc(100% + 2.5px);
+    width: calc(100% + 3.5px);
     color: white;
     li {
         display: inline-block;

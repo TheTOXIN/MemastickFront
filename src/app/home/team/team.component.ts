@@ -16,18 +16,21 @@ export class TeamComponent {
         image: 'assets/images/info/1.png',
         social: this._sanitizer.bypassSecurityTrustHtml('MEMCOIN'),
         message: 'баблишко',
-        description: 'бабалбалабалба'
+        description: 'бабалбалабалба',
+        borderColor: 'gold'
       }, {
         image: 'assets/images/info/2.png',
         social: this._sanitizer.bypassSecurityTrustHtml('BATTLE'),
         message: 'пвп или засал?',
-        description: 'блбал'
+        description: 'бабалбалабалба',
+        borderColor: '#999999'
       }, {
         image: 'assets/images/info/3.png',
         social: this._sanitizer.bypassSecurityTrustHtml('MEMOTYPE'),
         message: 'собери их всех',
-        description: 'балбалабалбалба'
-      }]
+        description: 'балбалабалбалба',
+        borderColor: 'cornflowerblue'
+      }];
 
      public current = this.team[0];
 
