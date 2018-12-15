@@ -1104,7 +1104,8 @@ section {
     display: none;
     justify-content: center;
     align-items: center;
-    right: -1px;
+    right: -2px;
+    top: -2px;
     transition: all 0.5s;
     border-radius: 0 0 0 50px;
     cursor: pointer;
@@ -1117,8 +1118,8 @@ section {
     transition: all 0.3s;
     position: absolute;
     border-radius: 0 0 30px 30px;
-    bottom: 0;
-    left: -1px;
+    bottom: -2px;
+    left: -2px;
     width: calc(100% + 2.5px);
     color: white;
     li {

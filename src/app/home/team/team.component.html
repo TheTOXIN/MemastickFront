@@ -19,7 +19,7 @@
                <div class="item" *ngFor="let teams of team">
                   <div class="team-box">
                      <div class="team-under-box">
-                        <div class="team-under-box-button text-white">
+                        <div class="team-under-box-button text-white" (mouseenter)="changeCurrent(teams)">
                            <i class="fa fa-question" aria-hidden="true"></i>
                         </div>
                         <img [src]="teams.image" alt="1" class="img-fluid">
@@ -39,7 +39,7 @@
                <div class="row">
                   <div class="col-md-4">
                      <div  class="team-profile">
-                        <img src="assets/images/info/1.png" alt="1" class="img-fluid">
+                        <img [src]='current.image' alt="1" class="img-fluid">
                      </div>
                   </div>
                   <div class="col-md-8">
@@ -48,17 +48,16 @@
                            <div class="team-close-btn">
                               <a ><i class="fa fa-times" aria-hidden="true"></i></a>
                            </div>
-                           <h3>Mark Jecno</h3>
-                           <h4 class="m-0 text-muted">ВОТ ТЕБЕ И ХЕРОВИНА</h4>
-                           <h5>ХУЙ ЗНАЕТ ЗАЕМ ЭТО</h5>
-                           <p> БЛАБЛАБАЛАБЛАБЛАБАЛАБАБАЛБАЛАБЛАБЛАБ </p>
+                           <h4 class="m-0 text-muted" [innerHTML]="current.social"></h4>
+                           <h5>{{current.message}}</h5>
+                           <p>{{current.description}}</p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         
+
       </div>
    </div>
 </section>

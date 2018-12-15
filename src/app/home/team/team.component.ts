@@ -15,14 +15,25 @@ export class TeamComponent {
     public team = [{
         image: 'assets/images/info/1.png',
         social: this._sanitizer.bypassSecurityTrustHtml('MEMCOIN'),
+        message: 'баблишко',
+        description: 'бабалбалабалба'
       }, {
         image: 'assets/images/info/2.png',
         social: this._sanitizer.bypassSecurityTrustHtml('BATTLE'),
+        message: 'пвп или засал?',
+        description: 'блбал'
       }, {
         image: 'assets/images/info/3.png',
         social: this._sanitizer.bypassSecurityTrustHtml('MEMOTYPE'),
+        message: 'собери их всех',
+        description: 'балбалабалбалба'
       }]
 
+     public current = this.team[0];
+
+    changeCurrent(team: any) {
+      this.current = team;
+    }
 
     // Team Carousel Options
 	public teamCarousel: any ={
