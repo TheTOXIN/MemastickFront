@@ -20,6 +20,7 @@ import { FaqComponent } from './faq/faq.component';
 import { DownloadComponent } from './download/download.component';
 import { NewsLetterComponent } from './news-letter/news-letter.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {MemLogoComponent} from './mem-logo/mem-logo.component';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
-    OwlModule
+    OwlModule,
+    NgxPageScrollModule
   ],
   declarations: [
     HomeComponent,

@@ -72,6 +72,10 @@ export class PriceComponent implements OnInit {
                 dots:false               
             }
         }
-	}
+	};
+
+	showVote() {
+    alert("TEST VOTE");
+  }
 
 }
