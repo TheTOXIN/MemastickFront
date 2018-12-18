@@ -30,7 +30,13 @@ export class TeamComponent {
         message: 'собери их всех',
         description: 'балбалабалбалба',
         borderColor: 'cornflowerblue'
-      }];
+      }, {
+        image: 'assets/images/info/3.png',
+        social: this._sanitizer.bypassSecurityTrustHtml('MOTIVATORS'),
+        message: 'это все тебе',
+        description: 'балбалабалбалба',
+        borderColor: '#960015'
+    }];
 
      public current = this.team[0];
 
@@ -40,11 +46,11 @@ export class TeamComponent {
 
     // Team Carousel Options
 	public teamCarousel: any ={
-	    loop:false,
+	      loop:true,
         margin:15,
         nav:false,
-        autoplay:false,
-        autoplayTimeout:2000,
+        autoplay:true,
+        autoplayTimeout:3000,
         autoplayHoverPause:true,
         dots:false,
         responsive:{

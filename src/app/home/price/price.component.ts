@@ -38,7 +38,7 @@ export class PriceComponent implements OnInit {
 
     // Pricing Carousel Options
 	public pricingCarousel: any ={
-	    loop:true,
+	    loop:false,
         items:3,
         margin:15,
         navClass: ['owl-prev', 'owl-next'],
