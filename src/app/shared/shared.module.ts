@@ -9,12 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 // Services
 import { WINDOW_PROVIDERS } from "./services/windows.service";
 import { LandingFixService } from '../shared/services/landing-fix.service';
+import {IntroModalComponent} from './intro-modal/intro-modal.component';
 
 @NgModule({
   exports: [
     CommonModule,
     HeaderComponent,
     FooterComponent,
+    IntroModalComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { LandingFixService } from '../shared/services/landing-fix.service';
   ],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    IntroModalComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
