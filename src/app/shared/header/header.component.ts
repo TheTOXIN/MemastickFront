@@ -1,6 +1,7 @@
-import { Component, HostListener, Inject, OnInit } from "@angular/core";
-import { DOCUMENT } from '@angular/platform-browser';
-import { WINDOW } from "../services/windows.service";
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {DOCUMENT} from '@angular/platform-browser';
+import {WINDOW} from '../services/windows.service';
+
 declare var $: any;
 
 @Component({
@@ -10,26 +11,27 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
-  public darkHeader: boolean = false;  
+  public darkHeader: boolean = false;
   public menuItems: any[];
-  
+
   // Inject Document object
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-     $.getScript('./assets/js/script.js');
-     $.getScript('./assets/js/tilt.jquery.js');
-   }
-  
+    $.getScript('./assets/js/script.js');
+    $.getScript('./assets/js/tilt.jquery.js');
+  }
+
 
   // @HostListener Decorator
-  @HostListener("window:scroll", [])
+  @HostListener('window:scroll', [])
   onWindowScroll() {
     let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 60) { 
+    if (number >= 60) {
       this.darkHeader = true;
     } else {
       this.darkHeader = false;

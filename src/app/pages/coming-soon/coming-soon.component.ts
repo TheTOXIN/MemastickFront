@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 declare var $: any;
 
 @Component({
@@ -8,10 +9,11 @@ declare var $: any;
 })
 export class ComingSoonComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-  	$.getScript('./assets/js/timer.js');
+    $.getScript('./assets/js/timer.js');
   }
 
 }

@@ -1,41 +1,41 @@
 <!--Nav start-->
-<nav class="navbar navbar-expand-lg  theme-nav fixed-top" [class.darkHeader]="darkHeader">
+<nav [class.darkHeader]="darkHeader" class="navbar navbar-expand-lg  theme-nav fixed-top">
   <div class="container">
-    <a class="navbar-brand" [routerLink]="''">
+    <a [routerLink]="''" class="navbar-brand">
       <div>
-        <img src="assets/images/favicon.png" alt="favicon" class="img-fluid">
+        <img alt="favicon" class="img-fluid" src="assets/images/favicon.png">
         <span class="header-message">COMING SOON</span>
       </div>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><i class="fa fa-align-justify" aria-hidden="true"></i></span>
+    <button aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#mainmenu" data-toggle="collapse"
+            type="button">
+      <span class="navbar-toggler-icon"><i aria-hidden="true" class="fa fa-align-justify"></i></span>
     </button>
     <div class="collapse navbar-collapse" id="mainmenu">
       <ul class="navbar-nav ml-auto" id="mymenu">
         <li class="nav-item ">
-          <a class="nav-link" href="#home" [pageScrollOffset]="75" pageScroll>ГДЕ Я?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#home" pageScroll>ГДЕ Я?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about" [pageScrollOffset]="75" pageScroll>КТО ВЫ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#about" pageScroll>КТО ВЫ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#feature" [pageScrollOffset]="75" pageScroll>ЧТО ДЕЛАЙТЕ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#feature" pageScroll>ЧТО ДЕЛАЙТЕ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#work" [pageScrollOffset]="75" pageScroll>ЧО ЕСТЬ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#work" pageScroll>ЧО ЕСТЬ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#screenshots" [pageScrollOffset]="75" pageScroll>А КАК?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#screenshots" pageScroll>А КАК?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#team" [pageScrollOffset]="75" pageScroll>ПОЧЕМУ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#team" pageScroll>ПОЧЕМУ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#package" [pageScrollOffset]="75" pageScroll>НУ А ПОТОМ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#package" pageScroll>НУ А ПОТОМ?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact" [pageScrollOffset]="75" pageScroll>ГДЕ ВЫ?</a>
+          <a [pageScrollOffset]="75" class="nav-link" href="#contact" pageScroll>ГДЕ ВЫ?</a>
         </li>
       </ul>
     </div>

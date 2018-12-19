@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-news-letter',
@@ -7,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsLetterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   onSubmit(name) {
-  	if(!name) return false
-  	const form = document.createElement('form');
+    if (!name) return false;
+    const form = document.createElement('form');
     const element1 = document.createElement('input');
 
     form.method = 'POST';

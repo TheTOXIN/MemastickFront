@@ -1,32 +1,32 @@
-import { Routes, RouterModule } from '@angular/router';
-import { DemoComponent } from './demo/demo.component';
-import { BlogComponent } from './blog/blog.component';
+import {Routes} from '@angular/router';
+import {DemoComponent} from './demo/demo.component';
+import {BlogComponent} from './blog/blog.component';
 
 export const rootRouterConfig: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     redirectTo: 'home',
-    pathMatch: 'full' 
+    pathMatch: 'full'
   },
-  { 
+  {
     path: 'demo',
     component: DemoComponent
   },
-  { 
-    path: 'home', 
+  {
+    path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },
-  { 
+  {
     path: 'blog',
     component: BlogComponent,
-    loadChildren: './blog/blog.module#BlogModule'   
+    loadChildren: './blog/blog.module#BlogModule'
   },
-  { 
+  {
     path: 'pages',
-    loadChildren: './pages/pages.module#PagesModule'  
+    loadChildren: './pages/pages.module#PagesModule'
   },
-  { 
-    path: '**', 
+  {
+    path: '**',
     redirectTo: 'home'
   }
 ];

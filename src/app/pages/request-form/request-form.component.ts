@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LandingFixService } from '../../shared/services/landing-fix.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {LandingFixService} from '../../shared/services/landing-fix.service';
 
 @Component({
   selector: 'app-request-form',
@@ -9,8 +9,9 @@ import { LandingFixService } from '../../shared/services/landing-fix.service';
 export class RequestFormComponent implements OnInit, OnDestroy {
 
   constructor(
-      private fix: LandingFixService
-  ) { }
+    private fix: LandingFixService
+  ) {
+  }
 
   ngOnInit() {
     this.fix.addFixPages();
