@@ -12,7 +12,7 @@
     <div class="row faq-row">
       <div class="col-lg-6">
         <div class="accordion" id="accordionExample">
-          <div *ngFor="let step of steps" class="card mb-3">
+          <div *ngFor="let step of steps" [ngClass]="{'card': true, 'mb-3': step.number != 7}">
             <div class="card-header" [attr.id]="step.idHeading">
               <p class="mb-0">
                 <button [attr.aria-controls]="step.idHeading" aria-expanded="false" class="faq-link" [attr.data-target]="'#' + step.idCollapse"
