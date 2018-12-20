@@ -8,6 +8,7 @@ import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
 import {DemoComponent} from './demo/demo.component';
 import {BlogComponent} from './blog/blog.component';
+import {NgbAlertModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import {BlogComponent} from './blog/blog.component';
     HttpModule,
     BrowserAnimationsModule,
     SharedModule,
+    NgbPaginationModule,
+    NgbAlertModule,
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})
   ],
   providers: [],
