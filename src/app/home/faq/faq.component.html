@@ -12,120 +12,23 @@
     <div class="row faq-row">
       <div class="col-lg-6">
         <div class="accordion" id="accordionExample">
-          <div class="card mb-3">
-            <div class="card-header" id="headingzero">
-              <h5 class="mb-0">
-                <button aria-controls="collapsezero" aria-expanded="false" class="faq-link" data-target="#collapsezero"
-                        data-toggle="collapse" type="button">
-                  00 ???
+          <div *ngFor="let step of steps" class="card mb-3">
+            <div class="card-header" [attr.id]="step.idHeading">
+              <p class="mb-0">
+                <button [attr.aria-controls]="step.idHeading" aria-expanded="false" class="faq-link" [attr.data-target]="'#' + step.idCollapse"
+                        data-toggle="collapse" type="button" >
+                  {{step.number}} <span class="stepName" [style.color]="step.color">{{step.name}}</span>
                   <i class="fa fa-angle-down pull-right"></i>
                 </button>
-              </h5>
+              </p>
             </div>
+            <div [attr.aria-labelledby]="step.idHeading" class="collapse" data-parent="#accordionExample" [attr.id]="step.idCollapse">
+              <div class="card-body">
+                {{step.description}}
+              </div>
+            </div>
+          </div>
 
-            <div aria-labelledby="headingzero" class="collapse" data-parent="#accordionExample" id="collapsezero">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button aria-controls="collapseOne" aria-expanded="false" class="faq-link" data-target="#collapseOne"
-                        data-toggle="collapse" type="button">
-                  01 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-
-            <div aria-labelledby="headingOne" class="collapse" data-parent="#accordionExample" id="collapseOne">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
-                <button aria-controls="collapseTwo" aria-expanded="false" class="faq-link" data-target="#collapseTwo"
-                        data-toggle="collapse" type="button">
-                  02 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionExample" id="collapseTwo">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button aria-controls="collapseThree" aria-expanded="false" class="faq-link" data-target="#collapseThree"
-                        data-toggle="collapse" type="button">
-                  03 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-            <div aria-labelledby="headingThree" class="collapse" data-parent="#accordionExample" id="collapseThree">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingFour">
-              <h5 class="mb-0">
-                <button aria-controls="collapseFour" aria-expanded="false" class="faq-link" data-target="#collapseFour"
-                        data-toggle="collapse" type="button">
-                  04 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-            <div aria-labelledby="headingFour" class="collapse" data-parent="#accordionExample" id="collapseFour">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingFive">
-              <h5 class="mb-0">
-                <button aria-controls="collapseFive" aria-expanded="false" class="faq-link" data-target="#collapseFive"
-                        data-toggle="collapse" type="button">
-                  05 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-            <div aria-labelledby="headingFive" class="collapse" data-parent="#accordionExample" id="collapseFive">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-header" id="headingSix">
-              <h5 class="mb-0">
-                <button aria-controls="collapseSix" aria-expanded="false" class="faq-link" data-target="#collapseSix"
-                        data-toggle="collapse" type="button">
-                  06 ???
-                  <i class="fa fa-angle-down pull-right"></i>
-                </button>
-              </h5>
-            </div>
-            <div aria-labelledby="headingSix" class="collapse" data-parent="#accordionExample" id="collapseSix">
-              <div class="card-body">
-                блаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблабблаблабалаблааблабалаблабалбалаблаблаблаб
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="col-lg-6 text-center">
