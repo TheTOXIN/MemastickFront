@@ -101,7 +101,6 @@
   }
   .future-mobile {
     img {
-      width: 80%;
       margin: 20px auto;
     }
   }
@@ -470,7 +469,9 @@
 
   .faq-row {
     .text-center {
-      display: none;
+      display: block;
+      margin-top: 40px;
+      width: 70%;
     }
   }
   .testimonil-box .owl-dots {
