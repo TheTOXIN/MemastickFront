@@ -28,11 +28,11 @@ export class TeamComponent {
     description: 'балбалабалбалба',
     borderColor: 'cornflowerblue'
   }, {
-    image: 'assets/images/info/3.png',
+    image: 'assets/images/info/4.png',
     social: this._sanitizer.bypassSecurityTrustHtml('MOTIVATORS'),
     message: 'это все тебе',
     description: 'балбалабалбалба',
-    borderColor: '#960015'
+    borderColor: '#b10800'
   }];
   public current = this.team[0];
   // Team Carousel Options
