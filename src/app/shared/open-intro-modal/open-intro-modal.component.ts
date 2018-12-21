@@ -13,10 +13,10 @@ export class OpenIntroModalComponent {
   }
 
   @Input()
-  private content: string;
+  public content: string;
 
   @Input()
-  private title: string;
+  public title: string;
 
   open() {
     const modalRef = this.modalService.open(IntroModalComponent);

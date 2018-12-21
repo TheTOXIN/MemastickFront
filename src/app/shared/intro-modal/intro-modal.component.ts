@@ -9,10 +9,10 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class IntroModalComponent {
 
   @Input()
-  private content: string;
+  public content: string;
 
   @Input()
-  private title: string;
+  public title: string;
 
   constructor(public activeModal: NgbActiveModal) {
   }
