@@ -14,19 +14,22 @@ export class PriceComponent implements OnInit {
     type: 'Basic',
     price: '30',
     duration: 'year',
-    feature: this._sanitizer.bypassSecurityTrustHtml('BLOCKCHAIN'),
+    feature: this._sanitizer.bypassSecurityTrustHtml('БЛОКЧЕЙН'),
+    text: 'привязка мемкойна к блокчейну'
   }, {
     image: 'assets/images/roadmap/ai.png',
     type: 'Standard',
     price: '50',
     duration: 'year',
-    feature: this._sanitizer.bypassSecurityTrustHtml('AI'),
+    feature: this._sanitizer.bypassSecurityTrustHtml('ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ'),
+    text: 'ИИ для поиска баянов и классификации'
   }, {
     image: 'assets/images/roadmap/clans.png',
     type: 'Premium',
     price: '100',
     duration: 'year',
-    feature: this._sanitizer.bypassSecurityTrustHtml('CLANS'),
+    feature: this._sanitizer.bypassSecurityTrustHtml('КЛАНЫ'),
+    text: 'маштабные битвы за определные ценности'
   }
   ];
   // Pricing Carousel Options

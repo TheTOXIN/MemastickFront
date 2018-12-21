@@ -11,27 +11,27 @@ export class TeamComponent {
   // Team Carousel
   public team = [{
     image: 'assets/images/info/1.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('MEMCOIN'),
-    message: 'баблишко',
-    description: 'бабалбалабалба',
+    social: this._sanitizer.bypassSecurityTrustHtml('МЕМКОЙНЫ'),
+    message: 'Это как биткойны, только не биткойны',
+    description: 'Мемкойны - местаная валюта, которую можно получить только победу в батлах. Мемкойны свободный ресурс и его можно будет передовать другим. Потрать мемкойны можно на покупку мемотипов, или воскрешение мема',
     borderColor: 'gold'
   }, {
     image: 'assets/images/info/2.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('BATTLE'),
-    message: 'пвп или засал?',
-    description: 'бабалбалабалба',
+    social: this._sanitizer.bypassSecurityTrustHtml('БАТЛЫ'),
+    message: 'ПВП или засал?',
+    description: 'Если ваш мем достиг состояние особи, вы можете вызывать на поединок других особей. Битва происходит методом голосования. Мем собравший большие кол-во голосов считается победившим. Проигравший мем погибает.',
     borderColor: '#999999'
   }, {
     image: 'assets/images/info/3.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('MEMOTYPE'),
-    message: 'собери их всех',
-    description: 'балбалабалбалба',
+    social: this._sanitizer.bypassSecurityTrustHtml('МЕМОТИПЫ'),
+    message: 'Собери их всех',
+    description: 'Мемотипы это аналог - "стикеров", на темы самых популярных мемов. Они делятся на 5 видов редкости: КЛАССИЧЕСКИЙ, ГОДНЫЙ, ОРНЫЙ, МЕМИЧЕСКИЙ, СВЕРХ МЕМОТИП. Мемотипы можно: покупать, торговать и обмениваться',
     borderColor: 'cornflowerblue'
   }, {
     image: 'assets/images/info/4.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('MOTIVATORS'),
-    message: 'это все тебе',
-    description: 'балбалабалбалба',
+    social: this._sanitizer.bypassSecurityTrustHtml('МОТИВАТОРЫ'),
+    message: 'Это все тебе',
+    description: 'Вознаграждения которые даются за заслуги в исследованиях. Бывают 3 видов: ПОСОБИЕ - содержит токены, дается ежедневно, зависит от уровня меметика. ПРЕМИИ - содержит токены и днк, дается за переодичные достижения в системе. ГРАНТЫ - получают за определеные цели и иследования, дают новые возможности меметикам',
     borderColor: '#b10800'
   }];
   public current = this.team[0];

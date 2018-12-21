@@ -16,7 +16,8 @@
             <div class="package-box">
               <img [src]="prices.image" alt="1" class="img-fluid align-self-center road-img">
               <div class="price-plan text-center">
-                <ul [innerHTML]="prices.feature"></ul>
+                <ul class="f-bold" [innerHTML]="prices.feature"></ul>
+                {{prices.text}}
                 <div (click)="showVote()" class="price-plan-btn">ХОЧУ</div>
               </div>
             </div>
