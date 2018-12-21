@@ -22,6 +22,7 @@ import {NewsLetterComponent} from './news-letter/news-letter.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
 
 @NgModule({
   imports: [
@@ -50,6 +51,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     DownloadComponent,
     NewsLetterComponent,
     MemLogoComponent
+  ],
+  entryComponents: [
+    IntroModalComponent
   ]
 })
 export class HomeModule {

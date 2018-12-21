@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {IntroModalComponent} from '../../shared/intro-modal/intro-modal.component';
 
 @Component({
   selector: 'app-price',
@@ -71,14 +73,19 @@ export class PriceComponent implements OnInit {
   };
 
   // DomSanitizer for safe html content.
-  constructor(private _sanitizer: DomSanitizer) {
+  constructor(
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
+  ) {
   }
 
   ngOnInit() {
   }
 
   showVote() {
-    alert('TEST VOTE');
+    const modalRef = this.modalService.open(IntroModalComponent);
+    modalRef.componentInstance.content = 'ГОЛОСОВАНИЕ ЗА НОВЫЕ ФИЧИ В ПРОЦЕССЕ РАЗРАБОТКИ';
+    modalRef.componentInstance.title = 'ОЙ :(';
   }
 
 }
