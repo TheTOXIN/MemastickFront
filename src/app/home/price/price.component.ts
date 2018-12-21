@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {IntroModalComponent} from '../../shared/intro-modal/intro-modal.component';
 
 @Component({
   selector: 'app-price',
@@ -15,7 +17,7 @@ export class PriceComponent implements OnInit {
     price: '30',
     duration: 'year',
     feature: this._sanitizer.bypassSecurityTrustHtml('БЛОКЧЕЙН'),
-    text: 'привязка мемкойна к блокчейну'
+    text: 'Привязка мемкойна к блокчейну'
   }, {
     image: 'assets/images/roadmap/ai.png',
     type: 'Standard',
@@ -29,7 +31,7 @@ export class PriceComponent implements OnInit {
     price: '100',
     duration: 'year',
     feature: this._sanitizer.bypassSecurityTrustHtml('КЛАНЫ'),
-    text: 'маштабные битвы за определные ценности'
+    text: 'Масштабные битвы меметиков'
   }
   ];
   // Pricing Carousel Options
@@ -71,14 +73,19 @@ export class PriceComponent implements OnInit {
   };
 
   // DomSanitizer for safe html content.
-  constructor(private _sanitizer: DomSanitizer) {
+  constructor(
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
+  ) {
   }
 
   ngOnInit() {
   }
 
   showVote() {
-    alert('TEST VOTE');
+    const modalRef = this.modalService.open(IntroModalComponent);
+    modalRef.componentInstance.content = 'ГОЛОСОВАНИЕ ЗА НОВЫЕ ФИЧИ В ПРОЦЕССЕ РАЗРАБОТКИ';
+    modalRef.componentInstance.title = 'ОЙ :(';
   }
 
 }

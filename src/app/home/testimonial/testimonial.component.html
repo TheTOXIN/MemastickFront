@@ -5,11 +5,15 @@
     <i></i>
     <i></i>
   </div>
+  <div #modalText style="display: none">
+    Токены это русурс благодаря которому меметики проводят свои исследования. На каждый этап эволюции есть свой токен. Токены выдают ежедневно в пособиях. Чем выше уровень меметика тем больше токенов он получает. Так же токены можно получить за различные достижения и 'Капсулы Шрёдингера'
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center tokens-title">
         <div class="section-title">
           <h2>ТОКЕНЫ</h2>
+          <app-open-intro-modal [content]="modalText.textContent" [title]="'ТОКЕНЫ'"></app-open-intro-modal>
           <img alt="title-line" class="img-fluid" src="assets/images/title-line.png">
         </div>
       </div>

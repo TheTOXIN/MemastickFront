@@ -9,27 +9,35 @@ import {FooterComponent} from './footer/footer.component';
 import {WINDOW_PROVIDERS} from './services/windows.service';
 import {LandingFixService} from '../shared/services/landing-fix.service';
 import {IntroModalComponent} from './intro-modal/intro-modal.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
 
 @NgModule({
   exports: [
     CommonModule,
     HeaderComponent,
     FooterComponent,
-    IntroModalComponent
+    IntroModalComponent,
+    OpenIntroModalComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    NgbModule,
   ],
   declarations: [
     HeaderComponent,
     FooterComponent,
-    IntroModalComponent
+    IntroModalComponent,
+    OpenIntroModalComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
     LandingFixService
+  ],
+  entryComponents: [
+    IntroModalComponent
   ]
 })
 export class SharedModule {

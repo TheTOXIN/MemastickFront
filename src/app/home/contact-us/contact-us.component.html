@@ -10,14 +10,14 @@
           <div class="form-group">
             <label for="exampleInputName1">Никнейм</label>
             <i class="fa fa-user"></i>
-            <input [formControl]="contactForm.controls['name']" class="form-control" id="exampleInputName1" name="name" placeholder="NICK"
+            <input [formControl]="contactForm.controls['name']" class="form-control" id="exampleInputName1" name="name" placeholder="Nick"
                    required="" type="text">
             <div *ngIf="contactForm.controls.name.touched && contactForm.controls.name.errors?.required"
                  class="text text-danger">Name is required
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail12">Email</label>
+            <label for="exampleInputEmail12">Почта</label>
             <i class="fa fa-envelope-o"></i>
             <input [formControl]="contactForm.controls['email']" class="form-control" id="exampleInputEmail12" name="email"
                    placeholder="Email" required="">
