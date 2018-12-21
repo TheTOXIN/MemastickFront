@@ -51,7 +51,7 @@ export class FaqComponent implements OnInit {
     idCollapse: 'collapseStep6',
   }, {
     number: 7,
-    name: 'МЁРТВЫЙ',
+    name: 'ТРУП',
     description: 'Да, такое случается... Возможно ваш мем проиграл в битве или умер на этапе отбора. Но ничего страшнего если у вас есть парочка мемкойнов :)',
     color: '#878684',
     idHeading: 'headingStep7',
