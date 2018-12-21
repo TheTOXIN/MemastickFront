@@ -11,6 +11,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
   <meta content="8e929240f5bb56eb" name="yandex-verification"/>
   <meta name="theme-color" content="#5f57ea">
+  <link rel="manifest" href="manifest.json">
   <link href="assets/images/favicon.png" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
   <link href="assets/images/favicon.png" rel="icon" sizes="64x64">
@@ -49,5 +50,15 @@
 </div>
 <!-- facebook chat section end -->
 </body>
-
+<script>
+  if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function (reg) {
+        console.log("Yes, it did.");
+      }).catch(function (err) {
+      console.log("No it didn't. This happened: ", err)
+    });
+  }
+</script>
 </html>

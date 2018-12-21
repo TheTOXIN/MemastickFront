@@ -1,0 +1,15 @@
+{
+  "short_name": "МЕМАСТИК",
+  "name": "МЕМАСТИК",
+  "icons": [
+    {
+      "src":"src/assets/images/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "https://memastick-front.herokuapp.com/",
+  "background_color": "#fff",
+  "theme_color": "#5f57ea",
+  "display": "standalone"
+}
