@@ -21,6 +21,7 @@ import {DownloadComponent} from './download/download.component';
 import {NewsLetterComponent} from './news-letter/news-letter.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
     ReactiveFormsModule,
     FormsModule,
     OwlModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    NgbModule
   ],
   declarations: [
     HomeComponent,

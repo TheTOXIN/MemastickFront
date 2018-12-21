@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Component, Input} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-intro-modal',
@@ -8,28 +8,13 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class IntroModalComponent {
 
-  closeResult: string;
+  @Input()
+  private content: string;
 
-  constructor(private modalService: NgbModal) {}
+  @Input()
+  private title: string;
 
-  openBackDropCustomClass(content) {
-    this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
-  }
-
-  openWindowCustomClass(content) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
-  }
-
-  openSm(content) {
-    this.modalService.open(content, { size: 'sm' });
-  }
-
-  openLg(content) {
-    this.modalService.open(content, { size: 'lg' });
-  }
-
-  openVerticallyCentered(content) {
-    this.modalService.open(content, { centered: true });
+  constructor(public activeModal: NgbActiveModal) {
   }
 
 }

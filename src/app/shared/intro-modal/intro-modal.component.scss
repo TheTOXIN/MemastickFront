@@ -1,10 +1,36 @@
-.dark-modal .modal-content {
-  background-color: #292b2c;
-  color: white;
+.modal-header {
+  font-size: 36px;
+  color: black;
+  padding-bottom: 10px;
 }
-.dark-modal .close {
-  color: white;
+
+.modal-body {
+  text-align: center;
+  background: white;
+  p {
+    color: black;
+    margin-bottom: 0;
+  }
 }
-.light-blue-backdrop {
-  background-color: #5cb3fd;
+
+.modal-footer {
+
+}
+
+.modal-close {
+  font-size: 64px;
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  line-height: 50px;
+}
+
+.modal-section {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
 }
