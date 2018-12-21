@@ -19,7 +19,7 @@
           <div *ngFor="let step of steps" [ngClass]="{'card': true, 'mb-3': step.number != 7}">
             <div class="card-header" [attr.id]="step.idHeading">
               <p class="mb-0">
-                <button [attr.aria-controls]="step.idHeading" aria-expanded="false" class="faq-link" [attr.data-target]="'#' + step.idCollapse"
+                <button [attr.aria-controls]="step.idHeading" aria-expanded="false" class="faq-link my-btn" [attr.data-target]="'#' + step.idCollapse"
                         data-toggle="collapse" type="button" >
                   {{step.number}} <span class="stepName" [style.color]="step.color">{{step.name}}</span>
                   <i class="fa fa-angle-down pull-right"></i>

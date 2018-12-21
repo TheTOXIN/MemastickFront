@@ -1,22 +1,14 @@
-*{
-  font-size: 16px;
-}
-
-.my-btn {
+.info-btn {
   border-radius: 15px;
-}
-
-.btn-outline-primary {
   color: white;
   background-color: #ee9c1b;
-  background-image: none;
-  border: 0;
+  font-size: 25px;
+  width: 100px;
+  margin: 10px;
+  padding: 1px;
 }
 
- i {
-   font-size: 24px;
- }
-
- .open {
-   padding-bottom: 5px;
- }
+i:hover {
+  background-color: #485bee;
+  border: 2px solid white;
+}
