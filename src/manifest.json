@@ -10,6 +10,6 @@
   ],
   "start_url": "https://memastick-front.herokuapp.com/",
   "background_color": "#fff",
-  "theme_color": "#9647db",
+  "theme_color": "#794fe2",
   "display": "standalone"
 }
