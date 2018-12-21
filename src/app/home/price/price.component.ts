@@ -15,7 +15,7 @@ export class PriceComponent implements OnInit {
     price: '30',
     duration: 'year',
     feature: this._sanitizer.bypassSecurityTrustHtml('БЛОКЧЕЙН'),
-    text: 'привязка мемкойна к блокчейну'
+    text: 'Привязка мемкойна к блокчейну'
   }, {
     image: 'assets/images/roadmap/ai.png',
     type: 'Standard',
@@ -29,7 +29,7 @@ export class PriceComponent implements OnInit {
     price: '100',
     duration: 'year',
     feature: this._sanitizer.bypassSecurityTrustHtml('КЛАНЫ'),
-    text: 'маштабные битвы за определные ценности'
+    text: 'Масштабные битвы меметиков'
   }
   ];
   // Pricing Carousel Options
