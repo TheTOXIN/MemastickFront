@@ -10,33 +10,30 @@ export class TestimonialComponent implements OnInit {
   // Testimonial Carousel
   public testimonial = [{
     image: 'assets/images/tokens/1.png',
-    name: 'Органика',
+    name: 'Инициализация',
     designation: 'Токен создания',
-    description: 'сроки горят, релиз через год!!!!!!',
+    description: 'используется для создания нового мема',
   }, {
     image: 'assets/images/tokens/2.png',
-    name: 'Фитнес',
+    name: 'Фитнесинг',
     designation: 'Токен оценки',
-    description: 'сроки горят, релиз через год!!!!!!',
+    description: 'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
   }, {
     image: 'assets/images/tokens/3.png',
-    name: 'Антибиотик',
+    name: 'Селекшен',
     designation: 'Токен выживания',
-    description: 'сроки горят, релиз через год!!!!!!',
-  },
-    {
-      image: 'assets/images/tokens/4.png',
-      name: 'Кроссовер',
-      designation: 'Токе скрещивания',
-      description: 'сроки горят, релиз через год!!!!!!',
-    },
-    {
-      image: 'assets/images/tokens/5.png',
-      name: 'Мутаген',
-      designation: 'Токен мутации',
-      description: 'сроки горят, релиз через год!!!!!!',
-    }
-  ];
+    description: 'удваивает у мема шанс выжить в x2 раз',
+  }, {
+    image: 'assets/images/tokens/4.png',
+    name: 'Кроссовер',
+    designation: 'Токе скрещивания',
+    description: 'позволяет создать новый мем на основе двух дргуих',
+  }, {
+    image: 'assets/images/tokens/5.png',
+    name: 'Мутаген',
+    designation: 'Токен мутации',
+    description: 'с его помощью можно оставлять комментарии под мемами',
+  }];
   // Testimonial Carousel Options
   public testimonialCarousel: any = {
     loop: true,
