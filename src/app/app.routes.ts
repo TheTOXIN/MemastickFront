@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-import {DemoComponent} from './demo/demo.component';
 import {BlogComponent} from './blog/blog.component';
 
 export const rootRouterConfig: Routes = [
@@ -7,10 +6,6 @@ export const rootRouterConfig: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'demo',
-    component: DemoComponent
   },
   {
     path: 'home',
