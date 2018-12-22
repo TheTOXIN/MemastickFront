@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="ru">
-
 <head>
   <base href="/">
   <title>МЕМАСТИК</title>
@@ -15,49 +14,14 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
   <link href="assets/images/favicon.png" rel="icon" sizes="192x192">
 </head>
-
 <body data-offset="75" data-spy="scroll" data-target=".navbar">
 <app-root>
-  <!-- loader -->
   <div class="loader-wrapper">
     <div id="loader">
       <div id="shadow"></div>
       <div id="box"></div>
     </div>
   </div>
-  <!-- loader end -->
 </app-root>
-<div id="fb-root"></div>
-<script>
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-  }
-  (document, 'script', 'facebook-jssdk'));
-</script>
-<!-- Your customer chat code -->
-<div attribution=setup_tool
-     class="fb-customerchat"
-     logged_in_greeting="Hi! Welcome to Memastick. How can we help you?"
-     logged_out_greeting="Hi! Welcome to Memastick. How can we help you?"
-     page_id="2123438804574660"
-     theme_color="#5f57ea">
-</div>
-<!-- facebook chat section end -->
 </body>
-<script>
-  if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function (reg) {
-        console.log("Yes, it did.");
-      }).catch(function (err) {
-      console.log("No it didn't. This happened: ", err)
-    });
-  }
-</script>
 </html>
