@@ -1394,7 +1394,7 @@
 @media(max-width: 480px) {
   .d-flex-1 {
     min-height: calc(100vh - 100px);
-    margin-top: -15px;
+    margin-top: 20px;
   }
   .auth-page {
     .profile-msg {
@@ -1544,7 +1544,7 @@
     max-height: 350px;
   }
   .social-icon {
-    padding: 5px;
+    padding: 10px;
     height: auto;
   }
   .slider-mobile {
