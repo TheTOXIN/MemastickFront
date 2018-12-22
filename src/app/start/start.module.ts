@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HomeRoutingModule} from './home-routing.module';
+import {StartRoutingModule} from './start-routing.module';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {OwlModule} from 'ngx-owl-carousel';
 
-import {HomeComponent} from './home.component';
+import {StartComponent} from './start.component';
 import {IntroComponent} from './intro/intro.component';
 import {AboutComponent} from './about/about.component';
 import {FeatureComponent} from './feature/feature.component';
@@ -27,7 +27,7 @@ import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    StartRoutingModule,
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
@@ -36,7 +36,7 @@ import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
     NgbModule
   ],
   declarations: [
-    HomeComponent,
+    StartComponent,
     IntroComponent,
     AboutComponent,
     FeatureComponent,
@@ -56,5 +56,5 @@ import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
     IntroModalComponent
   ]
 })
-export class HomeModule {
+export class StartModule {
 }

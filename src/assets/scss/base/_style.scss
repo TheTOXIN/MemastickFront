@@ -10,7 +10,7 @@
 
 01.General CSS
 02.Pre-loader & tap on top css
-03.Home page css
+03.Start page css
 04.about section css
 05.feature section css
 06.testimonial section css
@@ -386,7 +386,7 @@ section {
 ==========================*/
 
 /*=====================
-    03.Home page css start
+    03.Start page css start
 ==========================*/
 .theme-nav {
   padding-top: 0px;
@@ -509,7 +509,7 @@ section {
     .row {
       height: 100%;
 
-      .home-right {
+      .start-right {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -728,7 +728,7 @@ section {
 }
 
 /*=====================
-    03.Home page css ends
+    03.Start page css ends
 ==========================*/
 
 /*=====================
@@ -2553,7 +2553,7 @@ li.nav-item.dropdown {
  20.coming soon pages css start
 ==========================*/
 .cooming-soon {
-  .home-right {
+  .start-right {
     .mobile-slid {
       position: relative;
     }
@@ -3078,7 +3078,7 @@ li.nav-item.dropdown {
     top: 0;
   }
 
-  .home-right {
+  .start-right {
     width: 400px;
     float: right;
     position: relative;
@@ -3129,7 +3129,7 @@ li.nav-item.dropdown {
     left: 0;
   }
 
-  .home-contain {
+  .start-contain {
     height: 100%;
     display: flex;
     align-items: center;

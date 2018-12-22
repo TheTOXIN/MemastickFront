@@ -4,12 +4,12 @@ import {BlogComponent} from './blog/blog.component';
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'start',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    path: 'start',
+    loadChildren: './start/start.module#StartModule'
   },
   {
     path: 'blog',
@@ -22,7 +22,7 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'start'
   }
 ];
 
