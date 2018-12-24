@@ -7,23 +7,25 @@
           <h2>ИНВАЙТ</h2>
           <span class="msg-invite">*сервис находится в процессе разработки, но ты можешь получить инвайт код на тестирование заранее*</span>
         </div>
-        <form class="auth-form">
+        <form class="auth-form" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="exampleInputName1">Никнейм</label>
             <i class="fa fa-user"></i>
-            <input [formControl]="contactForm.controls['name']" class="form-control" id="exampleInputName1" name="name" placeholder="Nick"
+            <input [formControl]="contactForm.controls['nick']" class="form-control" id="exampleInputName1" name="nick"
+                   placeholder="Nick"
                    required="" type="text">
-            <div *ngIf="contactForm.controls.name.touched && contactForm.controls.name.errors?.required"
-                 class="text text-danger">Name is required
+            <div *ngIf="contactForm.controls.nick.touched && contactForm.controls.nick.errors?.required"
+                 class="text text-danger">Никнейм пуст
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail12">Почта</label>
             <i class="fa fa-envelope-o"></i>
-            <input [formControl]="contactForm.controls['email']" class="form-control" id="exampleInputEmail12" name="email"
+            <input [formControl]="contactForm.controls['email']" class="form-control" id="exampleInputEmail12"
+                   name="email"
                    placeholder="Email" required="">
             <div *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.email"
-                 class="text text-danger">Invalid Email
+                 class="text text-danger">Кривое мыло
             </div>
           </div>
           <div class="form-group mb-0">

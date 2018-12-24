@@ -7,6 +7,7 @@ import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
 import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
+import {InviteService} from './services/invite-service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import {NgModule} from '@angular/core';
     SharedModule,
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})
   ],
-  providers: [],
+  providers: [
+    InviteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
