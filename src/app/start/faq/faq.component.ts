@@ -16,7 +16,7 @@ export class FaqComponent implements OnInit {
     idCollapse: 'collapseStep1',
   }, {
     number: 2,
-    name: 'ПРИСПОСАБЛИВАЮЩИЙСЯ',
+    name: 'РАЗВИВАЮЩИЙСЯ',
     description: 'Наш мемасик уже совсем большой. В этом состоянии он получает свои хромосомы, от которох зависит его шанс выжить. Для этого используйте фитнес токен.',
     color: '#FCD006',
     idHeading: 'headingStep2',

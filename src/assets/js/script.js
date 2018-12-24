@@ -114,7 +114,7 @@ $(document).ready(function () {
       slideShadows: true,
     },
     autoplay: {
-      delay: 3000,
+      delay: 2000,
     },
     breakpoints: {
       360: {

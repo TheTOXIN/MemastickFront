@@ -22,7 +22,7 @@ export class TestimonialComponent implements OnInit {
     image: 'assets/images/tokens/3.png',
     name: 'Селекшен',
     designation: 'Токен выживания',
-    description: 'удваивает у мема шанс выжить в x2 раз',
+    description: 'гарантирует 100% выживаемость мема',
   }, {
     image: 'assets/images/tokens/4.png',
     name: 'Кроссовер',
