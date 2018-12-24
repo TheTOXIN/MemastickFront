@@ -57,6 +57,22 @@ $(document).ready(function () {
     }, 600);
     return false;
   });
+
+  /*------------------------
+   Intro slider
+   --------------------------*/
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 600) {
+      $('.intro-slider').fadeOut();
+    }
+  });
+  $('.intro-slider').on('click', function () {
+    $("html, body").animate({
+      scrollTop: 610
+    }, 1000);
+    return false;
+  });
+
   /*------------------------
    How it Work
    --------------------------*/
