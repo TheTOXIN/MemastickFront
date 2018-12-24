@@ -380,6 +380,30 @@ section {
   border-radius: 3px;
 }
 
+#load-logo {
+  width: 50px;
+  height: 50px;
+  animation: animate-dna .5s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes animate-dna {
+  25% {
+    transform: translateY(9px) scale(1);
+  }
+  50% {
+    transform: translateY(18px) scale(.6);
+  }
+  75% {
+    transform: translateY(9px) scale(1);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @keyframes animate {
   17% {
     border-bottom-right-radius: 3px;
