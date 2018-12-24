@@ -22,7 +22,11 @@ export class ContactUsComponent implements OnInit {
   // Form Validator
   ngOnInit() {
     this.contactForm = this.fb.group({
-      nick: ['', Validators.required],
+      nick: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(24)
+      ])],
       email: ['', Validators.email],
     });
   }

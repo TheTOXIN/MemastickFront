@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HelloService} from '../services/hello-service';
 
 @Component({
   selector: 'app-start',
@@ -7,10 +8,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class StartComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private hello: HelloService
+  ) {
   }
 
   ngOnInit() {
+    this.hello.sendHello();
   }
 
 }

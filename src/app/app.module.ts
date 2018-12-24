@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
 import {InviteService} from './services/invite-service';
+import {HelloService} from './services/hello-service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {InviteService} from './services/invite-service';
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})
   ],
   providers: [
-    InviteService
+    InviteService,
+    HelloService
   ],
   bootstrap: [AppComponent]
 })
