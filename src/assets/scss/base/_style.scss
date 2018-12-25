@@ -1240,6 +1240,15 @@ section {
 /*=====================
     09.Team section start
 ==========================*/
+
+.owl-theme.owl-carousel .owl-nav button.owl-next, .owl-theme.owl-carousel .owl-nav button.owl-prev {
+  font-size: 64px;
+}
+
+.team-slider .owl-nav {
+  margin-top: 0 !important;
+}
+
 .team-hover {
   border: 1px solid $primary_color;
   border-radius: 5px;
