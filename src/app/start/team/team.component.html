@@ -20,7 +20,7 @@
           <div *ngFor="let teams of team" class="item">
             <div [style.border-color]="teams.borderColor" class="team-box">
               <div class="team-under-box">
-                <div (mouseenter)="changeCurrent(teams)" class="team-under-box-button text-white">
+                <div (click)="changeCurrent(teams)" class="team-under-box-button text-white">
                   <i aria-hidden="true" class="fa fa-question"></i>
                 </div>
                 <img [src]="teams.image" alt="1" class="img-fluid">

@@ -31,7 +31,7 @@ export class TeamComponent {
     image: 'assets/images/info/4.png',
     social: this._sanitizer.bypassSecurityTrustHtml('МОТИВАТОРЫ'),
     message: 'Это все тебе',
-    description: 'Вознаграждения которые даются за заслуги в исследованиях. Бывают 3 видов: ПОСОБИЕ - содержит токены, дается ежедневно, зависит от уровня меметика. ПРЕМИИ - содержит токены и днк, дается за переодичные достижения в системе. ГРАНТЫ - получают за определеные цели и иследования, дают новые возможности меметикам',
+    description: 'Мотиваторы - это вознаграждения которые даются за заслуги в исследованиях. Бывают 3 видов: ПОСОБИЕ - содержит токены, дается ежедневно, зависит от уровня меметика. ПРЕМИИ - содержит токены и днк, дается за переодичные достижения в системе. ГРАНТЫ - получают за определеные цели и иследования, дают новые возможности меметикам',
     borderColor: '#B10800'
   }];
   public current = this.team[0];
@@ -39,9 +39,9 @@ export class TeamComponent {
   public teamCarousel: any = {
     loop: true,
     margin: 15,
-    nav: false,
+    nav: true,
     autoplay: true,
-    autoplayTimeout: 3000,
+    autoplayTimeout: 2000,
     autoplayHoverPause: true,
     dots: false,
     responsive: {
