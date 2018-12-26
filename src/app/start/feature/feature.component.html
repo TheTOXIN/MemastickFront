@@ -37,8 +37,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 future-mobile">
-        <img alt="feature-mob" class="img-fluid" src="assets/images/feature-mob.png">
+      <div class="col-md-4 future-mobile" (click)="animate()">
+        <span class="secret" [@memasikState]='stateMemasik' [ngStyle]="{'color': color}">{{text}}</span>
+        <img alt="feature-mob" class="img-fluid" src="assets/images/feature-mob.png" [@atomState]='stateAtom'>
       </div>
       <div class="col-lg-4 col-sm-6">
         <div class="future-box">
