@@ -1250,9 +1250,7 @@ section {
 }
 
 .team-hover {
-  border: 1px solid $primary_color;
-  border-radius: 5px;
-  padding: 15px;
+  padding: 30px;
 }
 
 .hover-text {
@@ -1273,16 +1271,17 @@ section {
 
 .team-close-btn {
   position: absolute;
-  background-color: $secondary_color;
-  color: $white;
+  background-color: #9647db;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  right: 15px;
-  width: 35px;
-  height: 35px;
+  border-radius: 15px;
+  right: 0;
+  width: 45px;
+  height: 45px;
   top: 0;
+  font-size: 25px;
 }
 
 .team-box {

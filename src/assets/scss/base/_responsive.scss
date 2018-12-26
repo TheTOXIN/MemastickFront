@@ -1392,10 +1392,6 @@
 }
 
 @media(max-width: 480px) {
-  .d-flex-1 {
-    min-height: calc(100vh - 100px);
-    margin-top: 20px;
-  }
   .auth-page {
     .profile-msg {
       left: 0;

@@ -23,8 +23,12 @@ import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
+import {TeamModalComponent} from './team/team-modal/team-modal.component';
 
 @NgModule({
+  exports: [
+    TeamModalComponent
+  ],
   imports: [
     CommonModule,
     StartRoutingModule,
@@ -50,10 +54,12 @@ import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
     FaqComponent,
     DownloadComponent,
     NewsLetterComponent,
-    MemLogoComponent
+    MemLogoComponent,
+    TeamModalComponent
   ],
   entryComponents: [
-    IntroModalComponent
+    IntroModalComponent,
+    TeamModalComponent,
   ]
 })
 export class StartModule {

@@ -40,7 +40,6 @@ $(document).ready(function () {
     });
   }
 
-
   /*------------------------
    Tap to top
    --------------------------*/
@@ -79,35 +78,6 @@ $(document).ready(function () {
   $(".work-link").on('click', function (event) {
     $('.nav-item').removeClass('active');
     $(this).parent().addClass('active');
-  });
-
-
-  /*-----------------------
-   Team
-   -------------------------*/
-  $("#hide").on('click', function (event) {
-    $("p").hide();
-  });
-  $("#show").on('click', function (event) {
-    $("p").show();
-  });
-  $('.team-hover').hide();
-
-  $(".team-under-box-button").on('click', function (event) {
-    $('.team-box').hide(1000);
-    $('.team-hover').show(1000);
-    $('.team-hover').fadeIn("slow");
-  });
-  $(".team-close-btn").on('click', function (event) {
-    $(".team-hover").hide(1000);
-    $('.team-box').show(1000);
-    $('.team-box').fadeIn("slow");
-  });
-
-
-  $("#mymenu li a").on('click', function (event) {
-    $('a.nav-link').removeClass('active');
-    $(this).addClass('active');
   });
 
   /*----------------------

@@ -14,13 +14,11 @@
         </div>
       </div>
       <div class="col-md-12">
-        <!-- If images array is dynamically changing pass this array to [items] input -->
-        <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [items]="team"
-                      [options]="teamCarousel">
+        <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="teamCarousel">
           <div *ngFor="let teams of team" class="item">
             <div [style.border-color]="teams.borderColor" class="team-box">
               <div class="team-under-box">
-                <div (click)="changeCurrent(teams)" class="team-under-box-button text-white">
+                <div class="team-under-box-button text-white" (click)="showModal(teams.id)">
                   <i aria-hidden="true" class="fa fa-question"></i>
                 </div>
                 <img [src]="teams.image" alt="1" class="img-fluid">
@@ -34,31 +32,6 @@
           </div>
         </owl-carousel>
       </div>
-
-      <div class="col-md-12">
-        <div class="team-hover">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-profile">
-                <img [src]='current.image' alt="1" class="img-fluid">
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="d-flex-1">
-                <div class="hover-text">
-                  <div class="team-close-btn">
-                    <a><i aria-hidden="true" class="fa fa-times"></i></a>
-                  </div>
-                  <h4 [innerHTML]="current.social" class="m-0 text-muted"></h4>
-                  <h5>{{current.message}}</h5>
-                  <p>{{current.description}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>

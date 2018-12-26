@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <div class="team-close-btn" (click)="activeModal.dismiss('Cross click')">
+    <a><i aria-hidden="true" class="fa fa-times"></i></a>
+  </div>
+  <div class="team-hover">
+    <div class="row">
+      <div class="col-md-4 team-info">
+        <div class="team-profile">
+          <img [src]='current.image' alt="1" class="img-fluid">
+        </div>
+        <p [innerHTML]="current.social" class="m-0"></p>
+      </div>
+      <div class="col-md-8">
+        <div class="d-flex-1">
+          <div class="hover-text">
+            <h5>{{current.message}}</h5>
+            <p>{{current.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,11 +9,12 @@ import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
 import {InviteService} from './services/invite-service';
 import {HelloService} from './services/hello-service';
+import { TeamModalComponent } from './start/team/team-modal/team-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
