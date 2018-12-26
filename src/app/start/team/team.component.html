@@ -15,14 +15,14 @@
       </div>
       <div class="col-md-12">
         <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="teamCarousel">
-          <div *ngFor="let teams of team" class="item">
+          <div *ngFor="let teams of team; let i = index" class="item">
             <div [style.border-color]="teams.borderColor" class="team-box">
               <div class="team-under-box">
-                <div class="team-under-box-button text-white" (click)="showModal(teams.id)">
+                <div class="team-under-box-button text-white" (click)="showModal(i)">
                   <i aria-hidden="true" class="fa fa-question"></i>
                 </div>
                 <img [src]="teams.image" alt="1" class="img-fluid">
-                <div class="team-overlay">
+                <div class="team-overlay" (click)="showModal(i)">
                   <div class="social-icon">
                     <ul [innerHTML]="teams.social"></ul>
                   </div>
