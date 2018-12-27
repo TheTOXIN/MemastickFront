@@ -38,7 +38,7 @@ export class TeamComponent {
   }];
   // Team Carousel Options
   public teamCarousel: any = {
-    loop: true,
+    loop: false,
     margin: 15,
     nav: true,
     dots: false,
