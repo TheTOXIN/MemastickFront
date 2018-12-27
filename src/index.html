@@ -13,11 +13,28 @@
   <link href="assets/images/favicon.png" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
   <link href="assets/images/favicon.png" rel="icon" sizes="192x192">
+  <script>
+    messages = [
+      'Загружаемся',
+      'Эволюцеонируем',
+      'Собираем гены',
+      'Ищим сервер',
+      'Кодируем ДНК',
+      'Достаем мемотип',
+      'Синтезируемся',
+      'Передёргиваем мемастик',
+      'Подготавливаем мемасики',
+      'Скоро всё будет',
+    ];
+  </script>
 </head>
 <body data-offset="75" data-spy="scroll" data-target=".navbar">
 <app-root>
 <div class="loader-wrapper">
   <div id="hello-text"></div>
+  <script>
+    document.getElementById('hello-text').innerHTML = messages[Math.floor(Math.random() * messages.length)] + '...';
+  </script>
   <div id="loader">
     <div id="shadow"></div>
     <div id="box"></div>
