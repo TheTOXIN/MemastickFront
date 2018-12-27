@@ -11,19 +11,7 @@ import {TeamModalComponent} from './team-modal/team-modal.component';
 export class TeamComponent {
 
   // Team Carousel
-  public team = [{
-    image: 'assets/images/info/1.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('МЕМКОЙНЫ'),
-    message: 'Это как биткойны, только не биткойны',
-    description: 'Мемкойны - местаная валюта, которую можно получить только за победу в батлах. Мемкойны свободный ресурс и его можно будет передовать другим. Потрать мемкойны можно на покупку мемотипов, или воскрешение мема',
-    borderColor: 'gold'
-  }, {
-    image: 'assets/images/info/2.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('БАТЛЫ'),
-    message: 'ПВП или засал?',
-    description: 'Если ваш мем достиг состояние особи, вы можете вызывать на поединок других особей. Битва происходит методом голосования. Мем собравший большие кол-во голосов считается победившим. Проигравший мем погибает.',
-    borderColor: '#999999'
-  }, {
+  public team = [ {
     image: 'assets/images/info/3.png',
     social: this._sanitizer.bypassSecurityTrustHtml('МЕМОТИПЫ'),
     message: 'Собери их всех',
@@ -35,6 +23,18 @@ export class TeamComponent {
     message: 'Это все тебе',
     description: 'Мотиваторы - это вознаграждения которые даются за заслуги в исследованиях. Бывают 3 видов: ПОСОБИЕ - содержит токены, дается ежедневно, зависит от уровня меметика. ПРЕМИИ - содержит токены и днк, дается за переодичные достижения в системе. ГРАНТЫ - получают за определеные цели и иследования, дают новые возможности меметикам',
     borderColor: '#B10800'
+  }, {
+    image: 'assets/images/info/1.png',
+    social: this._sanitizer.bypassSecurityTrustHtml('МЕМКОЙНЫ'),
+    message: 'Это как биткойны, только не биткойны',
+    description: 'Мемкойны - местаная валюта, которую можно получить только за победу в батлах. Мемкойны свободный ресурс и его можно будет передовать другим. Потрать мемкойны можно на покупку мемотипов, или воскрешение мема',
+    borderColor: 'gold'
+  }, {
+    image: 'assets/images/info/2.png',
+    social: this._sanitizer.bypassSecurityTrustHtml('БАТЛЫ'),
+    message: 'ПВП или засал?',
+    description: 'Если ваш мем достиг состояние особи, вы можете вызывать на поединок других особей. Битва происходит методом голосования. Мем собравший большие кол-во голосов считается победившим. Проигравший мем погибает.',
+    borderColor: '#999999'
   }];
   // Team Carousel Options
   public teamCarousel: any = {
