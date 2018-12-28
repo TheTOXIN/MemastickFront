@@ -443,6 +443,10 @@
 }
 
 @media(max-width: 991px) {
+  .for-mobile {
+    display: block;
+  }
+
   .work {
     .row {
       .col-lg-4 {

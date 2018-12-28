@@ -48,13 +48,14 @@
         </div>
         <div class="col-md-12">
           <div class="chat-slide">
-            <h3>МЕМ == ГЕН ?</h3>
+            <h3>Что такое мем?</h3>
+            <app-open-intro-modal class="for-mobile" [content]="qote.textContent" [title]="'МЕМ == ГЕН ?'"></app-open-intro-modal>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid text-center dokenzTable" (click)="dokenzShow(qote.textContent)">
+  <div class="container-fluid text-center dokenzTable">
     <img alt="banner.png" class="img-fluid full-banner" src="assets/images/banner.png">
   </div>
 </section>
