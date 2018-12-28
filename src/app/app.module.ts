@@ -9,7 +9,9 @@ import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
 import {InviteService} from './services/invite-service';
 import {HelloService} from './services/hello-service';
-import { TeamModalComponent } from './start/team/team-modal/team-modal.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { TeamModalComponent } from './start/team/team-modal/team-modal.component
     HttpModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})
+    RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     InviteService,
