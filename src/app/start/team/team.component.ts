@@ -30,6 +30,12 @@ export class TeamComponent {
     description: 'Мемкойны - местаная валюта, которую можно получить только за победу в батлах. Мемкойны свободный ресурс и его можно будет передовать другим. Потрать мемкойны можно на покупку мемотипов, или воскрешение мема',
     borderColor: 'gold'
   }, {
+    image: 'assets/images/info/5.png',
+    social: this._sanitizer.bypassSecurityTrustHtml('ЗВАНИЯ'),
+    message: 'Мама я хочу быть мемологом',
+    description: 'Чем больше ДНК, тем выше ваше звание, чем выше звание, тем больше у вас возможностей.',
+    borderColor: '#34992c'
+  }, {
     image: 'assets/images/info/2.png',
     social: this._sanitizer.bypassSecurityTrustHtml('БАТЛЫ'),
     message: 'ПВП или засал?',
