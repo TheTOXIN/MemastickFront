@@ -15,24 +15,24 @@ export class TestimonialComponent implements OnInit {
     description: 'используется для создания нового мема',
   }, {
     image: 'assets/images/tokens/2.png',
-    name: 'Фитнесинг',
+    name: 'Фитнесcинг',
     designation: 'Токен оценки',
     description: 'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
   }, {
     image: 'assets/images/tokens/3.png',
-    name: 'Селекшен',
-    designation: 'Токен выживания',
-    description: 'гарантирует 100% выживаемость мема',
-  }, {
-    image: 'assets/images/tokens/4.png',
-    name: 'Кроссовер',
-    designation: 'Токе скрещивания',
-    description: 'позволяет создать новый мем на основе двух дргуих',
-  }, {
-    image: 'assets/images/tokens/5.png',
     name: 'Мутаген',
     designation: 'Токен мутации',
     description: 'с его помощью можно оставлять комментарии под мемами',
+  }, {
+    image: 'assets/images/tokens/4.png',
+    name: 'Кроссовер',
+    designation: 'Токен скрещивания',
+    description: 'позволяет создать новый мем на основе дргуих мемов',
+  }, {
+    image: 'assets/images/tokens/5.png',
+    name: 'Селекшен',
+    designation: 'Токен выживания',
+    description: 'гарантирует 100% выживаемость мема',
   }];
   // Testimonial Carousel Options
   public testimonialCarousel: any = {
