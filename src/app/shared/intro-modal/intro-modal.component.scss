@@ -24,6 +24,11 @@
   background: transparent;
   color: white;
   line-height: 50px;
+
+  &:hover {
+    color: #ff433d;
+  }
+
 }
 
 .modal-section {

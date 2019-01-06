@@ -2,3 +2,10 @@
   color: red;
   font-size: 18px;
 }
+
+.contact-href {
+  color: #595959;
+  &:hover {
+    color: #5f57ea;
+  }
+}
