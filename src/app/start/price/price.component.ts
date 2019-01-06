@@ -24,7 +24,7 @@ export class PriceComponent implements OnInit {
     price: '50',
     duration: 'year',
     feature: this._sanitizer.bypassSecurityTrustHtml('ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ'),
-    text: 'ИИ для поиска баянов и классификации'
+    text: 'Поиск баянов и классификация'
   }, {
     image: 'assets/images/roadmap/clans.png',
     type: 'Premium',

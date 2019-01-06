@@ -15,7 +15,7 @@ export class TestimonialComponent implements OnInit {
     description: 'используется для создания нового мема',
   }, {
     image: 'assets/images/tokens/2.png',
-    name: 'Синтез',
+    name: 'Фитнесс',
     designation: 'Токен оценки',
     description: 'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
   }, {
