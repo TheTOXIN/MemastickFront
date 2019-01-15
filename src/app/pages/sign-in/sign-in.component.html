@@ -21,19 +21,19 @@
         <div class="form-group" [style.display]="signType === 'email' ? 'block' : 'none'">
           <label for="exampleInputEmail1">Почта</label>
           <i class="fa fa-envelope-o"></i>
-          <input [formControl]="signForm.controls['email']" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" required="" type="email">
+          <input [formControl]="signForm.controls['email']" class="form-control" id="exampleInputEmail1" name="email" placeholder="Почта" required="" type="email">
           <span class="icon-form icon-form-email" (click)="signType = 'login'">Логин</span>
         </div>
         <div class="form-group" [style.display]="signType === 'login' ? 'block' : 'none'">
           <label for="exampleInputLogin1">Логин</label>
           <i class="fa fa-user"></i>
-          <input [formControl]="signForm.controls['login']" class="form-control" id="exampleInputLogin1" name="login" placeholder="Login" required="" type="text">
+          <input [formControl]="signForm.controls['login']" class="form-control" id="exampleInputLogin1" name="login" placeholder="Логин" required="" type="text">
           <span class="icon-form icon-form-login" (click)="signType = 'email'">Почта</span>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Пароль</label>
           <i class="fa fa-lock"></i>
-          <input [formControl]="signForm.controls['password']" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required="" type="password">
+          <input [formControl]="signForm.controls['password']" class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль" required="" type="password">
           <span class="icon-form" [routerLink]="'/pages/forget-password'">Забыл?</span>
           <div *ngIf="signForm.controls.password.touched && signForm.controls.password.errors?.required" class="text text-danger">Пароль пуст</div>
         </div>
