@@ -2,6 +2,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {URLS} from '../consts/URLS';
+import {Cookie} from 'ng2-cookies';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -10,7 +11,10 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     req = req.clone({
-      url: this.URL + req.url
+      url: this.URL + req.url,
+      setHeaders: {
+        Authorization: `Bearer ${Cookie.get('access_token')}`
+      }
     });
     return next.handle(req);
   }
