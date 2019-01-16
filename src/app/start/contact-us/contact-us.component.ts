@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {InviteService} from '../../services/invite-service';
+import {InviteApiService} from '../../services/invite-api-service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class ContactUsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: InviteService,
+    private service: InviteApiService,
     private router: Router
   ) {
   }

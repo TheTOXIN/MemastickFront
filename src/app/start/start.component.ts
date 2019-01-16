@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HelloService} from '../services/hello-service';
+import {HelloApiService} from '../services/hello-api-service';
 
 @Component({
   selector: 'app-start',
@@ -9,7 +9,7 @@ import {HelloService} from '../services/hello-service';
 export class StartComponent implements OnInit {
 
   constructor(
-    private hello: HelloService
+    private hello: HelloApiService
   ) {
   }
 

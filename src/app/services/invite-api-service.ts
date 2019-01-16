@@ -1,17 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
-export class InviteService {
+export class InviteApiService {
 
-  private URL = 'https://memastick-back.herokuapp.com';
   private API = '/invite/registration';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   public sendInvite(email, nick) {
     this.http.post(
-      this.URL + this.API,
+      this.API,
       {
         email: email,
         nick: nick
