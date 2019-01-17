@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MyHttpInterceptor} from './configs/my-http-interceptor';
 import {OAuthModule} from 'angular-oauth2-oidc';
+import {OauthApiService} from './services/oauth-api-service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {OAuthModule} from 'angular-oauth2-oidc';
   providers: [
     InviteApiService,
     HelloApiService,
+    OauthApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

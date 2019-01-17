@@ -1,21 +1,36 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {URLS} from '../consts/URLS';
+import {API} from '../consts/API';
 import {Cookie} from 'ng2-cookies';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
 
-  private URL: String = URLS.API_URL;
+  private URL: String = API.BASE_URL;
+
+  private anonymus: Array<String> = [
+    API.OAUTH_TOKEN,
+    API.HELLO,
+    API.INVITE_REGISTRATION,
+    API.REGISTRATION,
+    API.RESET_PASSWORD_TAKE,
+    API.RESET_PASSWORD_SEND,
+  ];
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (!this.anonymus.includes(req.url)) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${Cookie.get('access_token')}`
+        }
+      });
+    }
+
     req = req.clone({
       url: this.URL + req.url,
-      setHeaders: {
-        Authorization: `Bearer ${Cookie.get('access_token')}`
-      }
     });
+
     return next.handle(req);
   }
 

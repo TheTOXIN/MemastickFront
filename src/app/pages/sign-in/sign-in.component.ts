@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {OAuthService} from 'angular-oauth2-oidc';
+import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,6 +26,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private oauth: OauthApiService,
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -39,18 +42,30 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     if (
-      this.signForm.value.email == null || this.signForm.value.email === '' &&
-      this.signForm.value.password == null || this.signForm.value.password === ''
+      (this.signForm.value.email == null || this.signForm.value.email === '') &&
+      (this.signForm.value.login == null || this.signForm.value.login === '')
     ) {
-      this.error = true;
-      this.message = 'Введите логин или почту!';
+      this.setErrorMessage('Введите логин или почту!');
+      return;
     }
 
-    console.log(
-      this.signForm.value.login,
-      this.signForm.value.email,
-      this.signForm.value.password
-    );
+    let username = this.signForm.value.login;
+    const password = this.signForm.value.password;
+
+    if (username == null || username === '') {
+      username = this.signForm.value.email;
+    }
+
+    const isLogin = this.oauth.login(username, password);
+
+    if (!isLogin) {
+      this.setErrorMessage('Неверные данные для входа');
+    }
+  }
+
+  setErrorMessage(mes: String) {
+    this.error = true;
+    this.message = mes;
   }
 
 }
