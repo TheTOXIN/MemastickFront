@@ -12,6 +12,10 @@ export const rootRouterConfig: Routes = [
     loadChildren: './start/start.module#StartModule'
   },
   {
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
+  },
+  {
     path: 'blog',
     component: BlogComponent,
     loadChildren: './blog/blog.module#BlogModule'

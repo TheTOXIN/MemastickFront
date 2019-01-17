@@ -14,6 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MyHttpInterceptor} from './configs/my-http-interceptor';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {OauthApiService} from './services/oauth-api-service';
+import {HomeModule} from './home/home.module';
 
 
 @NgModule({
