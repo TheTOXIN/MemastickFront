@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {OAuthService} from 'angular-oauth2-oidc';
 import {OauthApiService} from '../../services/oauth-api-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,6 +27,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private oauth: OauthApiService,
+    private router: Router,
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -56,11 +57,12 @@ export class SignInComponent implements OnInit {
       username = this.signForm.value.email;
     }
 
-    const isLogin = this.oauth.login(username, password);
-
-    if (!isLogin) {
-      this.setErrorMessage('Неверные данные для входа');
-    }
+    this.oauth
+      .login(username, password)
+      .subscribe(
+        () => this.router.navigateByUrl('/home'),
+        () => this.setErrorMessage('Неверные данные для входа')
+      );
   }
 
   setErrorMessage(mes: String) {
