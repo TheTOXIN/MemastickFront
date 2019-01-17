@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {API} from '../consts/API';
 
 @Injectable()
 export class HelloApiService {
-
-  private API = '/hello';
 
   constructor(
     private http: HttpClient,
@@ -15,7 +14,7 @@ export class HelloApiService {
   public sendHello() {
     this.http
       .get(
-        this.API,
+        API.HELLO,
         {responseType: 'text'}
       )
       .toPromise()

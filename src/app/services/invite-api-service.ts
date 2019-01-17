@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {API} from '../consts/API';
 
 @Injectable()
 export class InviteApiService {
 
-  private API = '/invite/registration';
 
   constructor(private http: HttpClient) {}
 
   public sendInvite(email, nick) {
     this.http.post(
-      this.API,
+      API.INVITE_REGISTRATION,
       {
         email: email,
         nick: nick
