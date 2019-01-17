@@ -6,5 +6,5 @@ export enum API {
   REGISTRATION = '/registration',
   PASSWORD_RESET_TAKE = '/password-reset/take',
   PASSWORD_RESET_SEND = '/password-reset/send',
-  MEMETICK_ME = 'memetick/me'
+  MEMETICK_ME = '/memetick/me'
 }

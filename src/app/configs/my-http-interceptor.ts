@@ -14,8 +14,8 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.HELLO,
     API.INVITE_REGISTRATION,
     API.REGISTRATION,
-    API.RESET_PASSWORD_TAKE,
-    API.RESET_PASSWORD_SEND,
+    API.PASSWORD_RESET_SEND,
+    API.PASSWORD_RESET_TAKE,
   ];
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
