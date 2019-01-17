@@ -24,6 +24,8 @@ export class SignInComponent implements OnInit {
   public signForm: FormGroup;
   public signType: String = 'login';
 
+  public isLoading = false;
+
   constructor(
     private fb: FormBuilder,
     private oauth: OauthApiService,
@@ -50,6 +52,8 @@ export class SignInComponent implements OnInit {
       return;
     }
 
+    this.isLoading = true;
+
     let username = this.signForm.value.login;
     const password = this.signForm.value.password;
 
@@ -59,9 +63,10 @@ export class SignInComponent implements OnInit {
 
     this.oauth
       .login(username, password)
+      .pipe()
       .subscribe(
         () => this.router.navigateByUrl('/home'),
-        () => this.setErrorMessage('Неверные данные для входа')
+        () => { this.setErrorMessage('Неверные данные для входа'); this.isLoading = false; },
       );
   }
 

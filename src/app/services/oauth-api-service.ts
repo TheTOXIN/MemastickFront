@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Cookie} from 'ng2-cookies';
 import { HttpHeaders } from '@angular/common/http';
 import {API} from '../consts/API';
+import {tap} from 'rxjs/operators';
 
 @Injectable()
 export class OauthApiService {
@@ -36,7 +37,9 @@ export class OauthApiService {
       API.OAUTH_TOKEN,
       params.toString(),
       options
-    ).pipe();
+    ).pipe(
+      tap(data => this.saveToken(data))
+    );
   }
 
   public logout() {
