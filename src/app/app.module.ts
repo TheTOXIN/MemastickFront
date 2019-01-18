@@ -15,6 +15,8 @@ import {MyHttpInterceptor} from './configs/my-http-interceptor';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {OauthApiService} from './services/oauth-api-service';
 import {MemetickApiService} from './services/memetick-api-service';
+import {PasswordApiService} from './services/password-api-service';
+import {RegistrationApiService} from './services/registration-api-service';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import {MemetickApiService} from './services/memetick-api-service';
     HelloApiService,
     OauthApiService,
     MemetickApiService,
+    PasswordApiService,
+    RegistrationApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

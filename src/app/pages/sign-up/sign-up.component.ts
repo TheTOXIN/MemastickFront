@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RegistrationApiService} from '../../services/registration-api-service';
+import {Registration} from '../../model/Registration';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,11 +21,14 @@ export class SignUpComponent implements OnInit {
 
   public message: String;
   public error = false;
+  public isLoading = false;
 
   public signForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
+    private reg: RegistrationApiService,
+    private router: Router
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -39,12 +45,22 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(
-      this.signForm.value.login,
-      this.signForm.value.email,
-      this.signForm.value.password,
-      this.signForm.value.passwordRepeat,
-      this.signForm.value.invite,
+    this.isLoading = true;
+    this.reg.registration(
+      new Registration(
+        this.signForm.value.email,
+        this.signForm.value.login,
+        this.signForm.value.password,
+        this.signForm.value.passwordRepeat,
+        this.signForm.value.invite
+      )
+    ).subscribe(
+      () => this.router.navigateByUrl('/pages/sign-in'),
+      error => {
+        this.message = error;
+        this.error = true;
+        this.isLoading = false;
+      }
     );
   }
 

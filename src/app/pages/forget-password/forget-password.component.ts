@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {PasswordApiService} from '../../services/password-api-service';
 
 @Component({
   selector: 'app-forget-password',
@@ -17,6 +18,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   public message: String;
   public error = false;
+  public isLoading = false;
   public stepNumber = 0;
 
   public sendForm: FormGroup;
@@ -24,7 +26,8 @@ export class ForgetPasswordComponent implements OnInit {
   public changeForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private reset: PasswordApiService
   ) {
     this.sendForm = new FormGroup({});
     this.acceptForm = new FormGroup({});
@@ -47,21 +50,42 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   onSend() {
-    console.log(this.sendForm.value.email);
+    this.isLoading = true;
+    this.reset.send(this.acceptForm.value.email).subscribe(
+      () => this.nextStep(),
+      () => this.makeError('Ошибка отправки сообщения')
+    );
     this.nextStep();
   }
 
   onAccept() {
-    console.log(this.acceptForm.value.code);
     this.nextStep();
   }
 
   onChange() {
-    console.log(this.changeForm.value.password, this.changeForm.value.passwordRepeat);
+    this.isLoading = true;
+
+    this.reset.take(
+      this.changeForm.value.code,
+      this.changeForm.value.password,
+      this.changeForm.value.passwordRepeat
+    ).subscribe(
+      () => this.nextStep(),
+      error => this.makeError(error)
+    );
+
     this.nextStep();
   }
 
+  makeError(msg: String) {
+    this.isLoading = false;
+    this.error = true;
+    this.message = msg;
+  }
+
   nextStep() {
+    this.isLoading = false;
+    this.error = false;
     this.stepNumber++;
     this.message = this.messages[this.stepNumber - 1];
   }
