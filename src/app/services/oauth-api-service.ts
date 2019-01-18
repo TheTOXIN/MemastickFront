@@ -9,11 +9,13 @@ import {tap} from 'rxjs/operators';
 @Injectable()
 export class OauthApiService {
 
+  public statuses = [];
+
   constructor(
     private router: Router,
     private http: HttpClient,
   ) {
-
+    this.initStatuses();
   }
 
   public login(username, password) {
@@ -57,6 +59,18 @@ export class OauthApiService {
     if (!Cookie.check('access_token')) {
       this.router.navigateByUrl('/start');
     }
+  }
+
+  private initStatuses() {
+    this.statuses['SUCCESSFUL'] = 'Успешная операция!';
+    this.statuses['ERROR:'] = 'Ошибка операции!';
+    this.statuses['PASSWORD_WEAK'] = 'Слабый или неподходящий пароль';
+    this.statuses['PASSWORD_REPEAT'] = 'Неверно  подтвержден пароль';
+    this.statuses['LOGIN_EXIST'] = 'Логин уже занят';
+    this.statuses['EMAIL_EXIST'] = 'Почта уже используется';
+    this.statuses['LOGIN_INVALID'] = 'Некорректный логин';
+    this.statuses['EMAIL_INVALID'] = 'Некорректная почта';
+    this.statuses['INVITE'] = 'Инвайт-код не действителен';
   }
 
 }

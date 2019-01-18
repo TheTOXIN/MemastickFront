@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RegistrationApiService} from '../../services/registration-api-service';
 import {Registration} from '../../model/Registration';
 import {Router} from '@angular/router';
+import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,6 +29,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private reg: RegistrationApiService,
+    private oauth: OauthApiService,
     private router: Router
   ) {
     this.signForm = new FormGroup({});
@@ -55,13 +57,25 @@ export class SignUpComponent implements OnInit {
         this.signForm.value.invite
       )
     ).subscribe(
-      () => this.router.navigateByUrl('/pages/sign-in'),
-      error => {
-        this.message = error;
-        this.error = true;
-        this.isLoading = false;
-      }
+      () => this.toLogin(),
+      error => this.setError(error)
     );
+  }
+
+  toLogin() {
+    this.oauth.login(
+      this.signForm.value.password,
+      this.signForm.value.login
+    ).subscribe(
+      () => this.router.navigateByUrl('/home'),
+      () => this.router.navigateByUrl('/pages/sign-in'),
+    );
+  }
+
+  setError(error: any) {
+    this.error = true;
+    this.isLoading = false;
+    this.message = this.oauth.statuses[error.error];
   }
 
 }
