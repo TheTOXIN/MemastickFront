@@ -13,8 +13,8 @@
   <div class="auth-card">
     <div class="text-center">
       <h2>РЕГИСТРАЦИЯ</h2>
+      <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
       <div class="sign-info">
-        <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
         <p class="sign-message" [style.color]="error ? '#dc3545' : ''" [style.display]="isLoading ? 'none' : 'block'">{{message}}</p>
         <i class="fa fa-circle-o-notch fa-spin sign-spinner" [style.display]="isLoading ? 'block' : 'none'"></i>
       </div>
@@ -25,31 +25,36 @@
           <label for="exampleInputLogin">Логин</label>
           <i class="fa fa-user"></i>
           <input class="form-control" id="exampleInputLogin" name="login" placeholder="Логин" required="" type="text"
-                 [formControl]="signForm.controls['login']" (click)="message = 'Логин должен быть от 4 до 20 символов, с цифрами или латинскими буквами, начиная с буквы'">
+                 [formControl]="signForm.controls['login']"
+                 (click)="message = 'Логин должен быть от 4 до 20 символов, с цифрами или латинскими буквами, начиная с буквы'">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Почта</label>
           <i class="fa fa-envelope-o"></i>
           <input class="form-control" id="exampleInputEmail1" name="email" placeholder="Почта" required="" type="email"
-                 [formControl]="signForm.controls['email']" (click)="message = 'Почта нужна для подтверждения и авторизации'">
+                 [formControl]="signForm.controls['email']"
+                 (click)="message = 'Почта нужна для подтверждения и авторизации'">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Пароль: </label>
           <i class="fa fa-lock"></i>
           <input class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль" required="" type="password"
-                 [formControl]="signForm.controls['password']" (click)="message = 'Пароль должен быть от 6 до 20 символов, латинсике буквы, большие и маленькие, включая цифры'">
+                 [formControl]="signForm.controls['password']"
+                 (click)="message = 'Пароль должен быть от 6 до 20 символов, латинсике буквы, большие и маленькие, включая цифры'">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword2">Пароль</label>
           <i class="fa fa-lock"></i>
           <input class="form-control" id="exampleInputPassword2" name="passwordRepeat" placeholder="Повтор пароля" required="" type="password"
-                 [formControl]="signForm.controls['passwordRepeat']" (click)="message = 'Подтвердите пароль'">
+                 [formControl]="signForm.controls['passwordRepeat']"
+                 (click)="message = 'Подтвердите ваш пароль'">
         </div>
         <div class="form-group">
           <label for="exampleInputInvite">Инвайт</label>
           <i class="fa fa-info"></i>
           <input class="form-control" id="exampleInputInvite" name="invite" placeholder="Инвайт код" required="" type="text"
-                 [formControl]="signForm.controls['invite']" (click)="message = 'Инвайт-код можно получить на главной странице'">
+                 [formControl]="signForm.controls['invite']"
+                 (click)="message = 'Инвайт-код можно получить на стартовой странице'">
         </div>
         <div class="form-group sign-button">
           <button [disabled]="!signForm.valid" class="btn submit" type="submit">ГОТОВО</button>
