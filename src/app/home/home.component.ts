@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Memetick} from '../model/Memetick';
 import {MemetickApiService} from '../services/memetick-api-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   );
 
   constructor(
-    private memetickApi: MemetickApiService
+    private router: Router,
+  private memetickApi: MemetickApiService
   ) {
 
   }
@@ -28,6 +30,10 @@ export class HomeComponent implements OnInit {
     this.memetickApi.me().subscribe(data => {
       this.memetick = data;
     });
+  }
+
+  memasiki() {
+    this.router.navigateByUrl('/home/memes');
   }
 
 }

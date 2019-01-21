@@ -1,0 +1,9 @@
+<div>
+  <h1>МЕМАСИКИ</h1>
+  <label>
+    <input type="file" (change)="detectFiles($event)">
+  </label>
+  <button [disabled]="!selectedFiles" (click)="uploadSingle()">
+    ЗАГРУЗИТЬ
+  </button>
+</div>
