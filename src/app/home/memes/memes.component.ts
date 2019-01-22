@@ -8,8 +8,6 @@ import {MemFireService} from '../../services/mem-fire-service';
 })
 export class MemesComponent implements OnInit {
 
-  selectedFiles: FileList;
-
   constructor(
     private memFire: MemFireService
   ) {
@@ -19,12 +17,8 @@ export class MemesComponent implements OnInit {
   ngOnInit() {
   }
 
-  detectFiles(event) {
-    this.selectedFiles = event.target.files;
-  }
-
-  uploadSingle() {
-    this.memFire.startUpload(this.selectedFiles);
+  upload(event) {
+    this.memFire.startUpload(event.target.files);
   }
 
 }
