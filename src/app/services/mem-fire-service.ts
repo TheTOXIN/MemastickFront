@@ -27,7 +27,8 @@ export class MemFireService {
       ref.getDownloadURL().subscribe(url => {
         this.db.collection('memes').add({
           uuid: uuid,
-          url: url
+          url: url,
+          date: new Date(),
         });
       });
     });

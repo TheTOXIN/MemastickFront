@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Memetick} from '../model/Memetick';
 import {MemetickApiService} from '../services/memetick-api-service';
 import {Router} from '@angular/router';
+import {MemFireService} from '../services/mem-fire-service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-  private memetickApi: MemetickApiService
+    private memFire: MemFireService,
+    private memetickApi: MemetickApiService
   ) {
 
   }
@@ -30,6 +32,11 @@ export class HomeComponent implements OnInit {
     this.memetickApi.me().subscribe(data => {
       this.memetick = data;
     });
+  }
+
+  upload(event) {
+    this.memFire.startUpload(event.target.files);
+    this.memasiki();
   }
 
   memasiki() {

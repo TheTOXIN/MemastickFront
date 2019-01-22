@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MemFireService} from '../../services/mem-fire-service';
+import {PaginationService} from '../../services/pagination-service';
 
 @Component({
   selector: 'app-memes',
@@ -9,16 +9,19 @@ import {MemFireService} from '../../services/mem-fire-service';
 export class MemesComponent implements OnInit {
 
   constructor(
-    private memFire: MemFireService
+    public page: PaginationService
   ) {
 
   }
 
   ngOnInit() {
+    this.page.init('memes', 'date', { reverse: true, prepend: false });
   }
 
-  upload(event) {
-    this.memFire.startUpload(event.target.files);
+  scrollHandler(e) {
+    if (e === 'bottom') {
+      this.page.more();
+    }
   }
 
 }

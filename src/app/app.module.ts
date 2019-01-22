@@ -22,6 +22,7 @@ import {MemFireService} from './services/mem-fire-service';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {PaginationService} from './services/pagination-service';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
     MemFireService,
     AngularFireStorage,
     AngularFirestore,
+    PaginationService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,10 @@
-<div class="text-center-absolute">
-  <h1>МЕМАСИКИ</h1>
-  <label>
-    <input type="file" (change)="upload($event)" accept=".png,.jpg"/>
-  </label>
+<div class="back">
+  <h1 class="title">МЕМАСИКИ</h1>
+  <div class="content" appScrollable (scrollPosition)="scrollHandler($event)">
+  <div *ngFor="let mem of page.data | async">
+    <img class="memes" [src]="mem.url">
+  </div>
+  <app-spinner *ngIf="page.loading | async"></app-spinner>
 </div>
+</div>
+

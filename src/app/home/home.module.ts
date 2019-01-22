@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {HomeRoutingModule} from './home-routing.modules';
 import {MemesComponent} from './memes/memes.component';
-import {Router} from '@angular/router';
+import {SpinnerComponent} from './spinner/spinner.component';
+import {ScrollableDirective} from '../directivies/scrollable.directive';
 
 @NgModule({
   imports: [
@@ -12,7 +13,9 @@ import {Router} from '@angular/router';
   ],
   declarations: [
     HomeComponent,
-    MemesComponent
+    MemesComponent,
+    SpinnerComponent,
+    ScrollableDirective
   ]
 })
 export class HomeModule {

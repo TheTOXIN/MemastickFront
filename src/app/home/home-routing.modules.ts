@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from '../home/home.component';
 import {NgModule} from '@angular/core';
 import {MemesComponent} from './memes/memes.component';
+import {HomeComponent} from './home.component';
 
 const routes: Routes = [
   {
@@ -9,7 +9,11 @@ const routes: Routes = [
     children: [
       {
         path: 'memes',
-        component: MemesComponent,
+        component: MemesComponent
+      },
+      {
+        path: '',
+        component: HomeComponent
       }
     ]
   }
