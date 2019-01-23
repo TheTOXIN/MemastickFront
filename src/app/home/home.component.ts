@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
 
   myStyle: object = {};
   myParams: object = {};
-  width: number = 100;
-  height: number = 100;
 
   public memetick: Memetick = new Memetick(
     '',

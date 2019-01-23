@@ -8,6 +8,7 @@ import {ScrollableDirective} from '../directivies/scrollable.directive';
 import {MemetickComponent} from './memetick/memetick.component';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {ParticlesModule} from 'angular-particle';
+import {DropZoneDirective} from '../directivies/drop-zone.directive';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {ParticlesModule} from 'angular-particle';
     SpinnerComponent,
     MemeCreatorComponent,
     MemetickComponent,
-    ScrollableDirective
+    ScrollableDirective,
+    DropZoneDirective
   ]
 })
 export class HomeModule {

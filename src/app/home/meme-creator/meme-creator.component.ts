@@ -9,6 +9,8 @@ import {MemFireService} from '../../services/mem-fire-service';
 })
 export class MemeCreatorComponent implements OnInit {
 
+  isHovering: boolean;
+
   constructor(
     private router: Router,
     private memFire: MemFireService,
@@ -19,8 +21,13 @@ export class MemeCreatorComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleHover(event: boolean) {
+    this.isHovering = event;
+    console.log(this.isHovering);
+  }
+
   upload(event) {
-    this.memFire.startUpload(event.target.files);
+    this.memFire.startUpload(event);
     this.router.navigateByUrl('/home');
   }
 

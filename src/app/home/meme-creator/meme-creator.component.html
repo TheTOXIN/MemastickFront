@@ -1,6 +1,11 @@
 <div class="text-center-absolute">
-  <p>CREATE MEM</p>
-  <div>
-    <input type="file" (change)="upload($event)" accept=".png,.jpg"/>
+  <div class="dropzone" appDropZone (hovered)="toggleHover($event)" (dropped)="upload($event)" [class.hovering]="isHovering">
+    <p>CREATE MEM</p>
+    <p>ПЕРЕТАЩИТЕ ИЛИ ВЫБЕРИТЕ ФАЙЛ</p>
+    <div class="file">
+      <label class="file-label">
+        <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
+      </label>
+    </div>
   </div>
 </div>
