@@ -1,19 +1,15 @@
+<particles [style]="myStyle" [width]="width" [height]="height" [params]="myParams"></particles>
 <div>
-  <div class="animation-circle">
-    <i></i>
-    <i></i>
-    <i></i>
-  </div>
-  <div class="text-center-absolute">
+  <div class="home-table text-center-absolute">
     <p class="home-hello animated bounce">😎 ПРИВЕТ {{memetick.nick}} !!!</p>
     <p class="home-info">*скоро тут будет мемастик, а пока потыкай тут*</p>
-    <div class="form-group mem-button">
+    <div class="form-group home-button">
       <button class="btn-theme" type="submit" (click)="memes()">МЕМАСИКИ</button>
     </div>
-    <div class="form-group mem-button">
+    <div class="form-group home-button">
       <button class="btn-theme" type="submit" (click)="memeCreator()">СОЗДАТЬ</button>
     </div>
-    <div class="form-group mem-button">
+    <div class="form-group home-button">
       <button class="btn-theme" type="submit" (click)="memetickMe()">ПРОФИЛЬ</button>
     </div>
   </div>

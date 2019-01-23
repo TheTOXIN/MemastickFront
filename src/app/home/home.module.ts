@@ -7,11 +7,13 @@ import {SpinnerComponent} from './spinner/spinner.component';
 import {ScrollableDirective} from '../directivies/scrollable.directive';
 import {MemetickComponent} from './memetick/memetick.component';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ParticlesModule,
   ],
   declarations: [
     HomeComponent,
