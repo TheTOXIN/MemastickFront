@@ -24,7 +24,6 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {PaginationService} from './services/pagination-service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

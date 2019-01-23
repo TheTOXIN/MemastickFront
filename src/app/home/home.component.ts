@@ -34,13 +34,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  upload(event) {
-    this.memFire.startUpload(event.target.files);
-    this.memasiki();
+  memes() {
+    this.router.navigateByUrl('/home/memes');
   }
 
-  memasiki() {
-    this.router.navigateByUrl('/home/memes');
+  memeCreator() {
+    this.router.navigateByUrl('/home/memes/create');
+  }
+
+  memetickMe() {
+    this.router.navigateByUrl('/home/memetick/me');
   }
 
 }

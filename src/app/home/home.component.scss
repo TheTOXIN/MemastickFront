@@ -5,12 +5,18 @@
   line-height: 64px;
 }
 
+.home-info {
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
 .mem-button {
-  padding: 15px;
+  padding: 10px;
 
   button {
     border-radius: 30px;
     font-size: 22px;
+    width: 250px;
   }
 }
 
