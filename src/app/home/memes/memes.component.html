@@ -1,10 +1,9 @@
 <div class="back">
-  <h1 class="title">МЕМАСИКИ</h1>
-  <div class="content" appScrollable (scrollPosition)="scrollHandler($event)">
+  <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
   <div *ngFor="let mem of page.data | async">
-    <img class="memes" [src]="mem.url">
+    <img class="memes img-fluid" [src]="mem.url">
   </div>
   <app-spinner *ngIf="page.loading | async"></app-spinner>
-</div>
+  </div>
 </div>
 

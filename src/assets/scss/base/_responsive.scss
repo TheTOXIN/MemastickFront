@@ -739,6 +739,9 @@
 }
 
 @media(max-width: 767px) {
+  .content-scroll {
+    width: 100%;
+  }
   .slid-btn {
     > a {
       img {

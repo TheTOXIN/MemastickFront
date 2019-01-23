@@ -3213,3 +3213,14 @@ li.nav-item.dropdown {
 /*========================
  22.landing page css ends
 ==========================*/
+
+.content-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100vh;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+  &::-webkit-scrollbar {width:0;}
+}
