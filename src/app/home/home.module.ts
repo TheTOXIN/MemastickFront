@@ -9,6 +9,7 @@ import {MemetickComponent} from './memetick/memetick.component';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {ParticlesModule} from 'angular-particle';
 import {DropZoneDirective} from '../directivies/drop-zone.directive';
+import {StatisticComponent} from './statistic/statistic.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {DropZoneDirective} from '../directivies/drop-zone.directive';
     SpinnerComponent,
     MemeCreatorComponent,
     MemetickComponent,
+    StatisticComponent,
     ScrollableDirective,
     DropZoneDirective
   ]

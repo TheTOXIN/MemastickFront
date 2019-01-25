@@ -23,6 +23,7 @@ import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {PaginationService} from './services/pagination-service';
+import {StatisticApiService} from './services/statistic-api-service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {PaginationService} from './services/pagination-service';
     OauthApiService,
     MemetickApiService,
     PasswordApiService,
+    StatisticApiService,
     RegistrationApiService,
     MemFireService,
     AngularFireStorage,
