@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {StatisticApiService} from '../../services/statistic-api-service';
 import {Statistic} from '../../model/Statistic';
 import {UUID} from 'angular2-uuid';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-statistic',
@@ -12,8 +13,8 @@ export class StatisticComponent implements OnInit {
 
   @Input()
   public memetickId: UUID;
-
   public stats: Statistic;
+  public isLoading = false;
 
   constructor(
     private statisticApi: StatisticApiService
@@ -27,6 +28,8 @@ export class StatisticComponent implements OnInit {
     } else {
       this.stats = this.statisticApi.global();
     }
+
+    this.isLoading = true;
   }
 
 }

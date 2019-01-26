@@ -1,4 +1,5 @@
-<div class="stats-table">
+<app-spinner [style.display]="isLoading ? 'none' : 'block'"></app-spinner>
+<div class="stats-table" [style.display]="isLoading ? 'block' : 'none'">
   <div class="stats-info">
     <span class="stats-title">ОСОБЕЙ</span>
     <span class="stats-img animated bounceIn"> <img class="img-fluid" src="assets/images/icon/1.png"></span>
