@@ -1,4 +1,4 @@
-<div class="back">
+<div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
   <div *ngFor="let mem of page.data | async">
     <img class="memes img-fluid" [src]="mem.url">
