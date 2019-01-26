@@ -5,6 +5,21 @@
   line-height: 64px;
 }
 
+.home-logo {
+  border-radius: 0 0 30px 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: fixed;
+  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+  img {
+    padding: 15px;
+  }
+}
+
+.home-table-hello {
+  padding: 15px;
+}
+
 .home-table {
   margin-top: 30px;
   border-radius: 50px;
