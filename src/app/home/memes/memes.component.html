@@ -13,12 +13,12 @@
         <div class="memes-likes">
           <div class="likes-delimer"></div>
           <div id="like1">
-            <img class="img-fluid likes-image-1" src="assets/images/icon/2.png">
+            <img class="img-fluid" [@rotatedState]='chromosomeState' (click)="triggerChromosome()" src="assets/images/icon/2.png">
             <span class="likes-count">{{memInfo.chromosome}}</span>
           </div>
           <div id="like2">
             <span class="likes-count">{{memInfo.like}}</span>
-            <img class="img-fluid likes-image-2"
+            <img class="img-fluid" [@bouncedState]='likeState' (click)="triggerLike()"
                  [src]="memInfo.meLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
           </div>
         </div>
