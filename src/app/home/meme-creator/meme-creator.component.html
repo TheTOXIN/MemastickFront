@@ -3,8 +3,8 @@
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
   <div class="text-center-absolute">
-    <div class="create-preview" [style.display]="isPreview ? 'block' : 'none'">
-      <img class="img-fluid" [src]="imgURL">
+    <div class="create-preview" *ngIf="isPreview">
+      <img [src]="imgURL">
     </div>
     <div class="dropzone"
          appDropZone

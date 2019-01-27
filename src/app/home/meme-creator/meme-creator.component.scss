@@ -119,8 +119,11 @@
 }
 
 .create-preview {
-  width: 720px;
   margin: auto;
+  img {
+    max-height: 400px;
+    max-width: 100%;
+  }
 }
 
 .stars {

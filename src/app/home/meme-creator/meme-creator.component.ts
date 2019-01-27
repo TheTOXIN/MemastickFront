@@ -35,8 +35,9 @@ export class MemeCreatorComponent implements OnInit {
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) { return; }
 
-    const reader = new FileReader();
     this.imagePath = files;
+
+    const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => this.imgURL = reader.result;
 
@@ -44,8 +45,7 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   upload() {
-    // this.memFire.startUpload(event);
-    // this.router.navigateByUrl('/home');
+    this.memFire.startUpload(this.imagePath);
     this.isPreview = false;
   }
 
