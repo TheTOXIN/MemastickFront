@@ -13,18 +13,114 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 300px;
-  border: 2px dashed #f16624;
-  border-radius: 5px;
-  margin: 10px 0;
-
+  width: 400px;
+  height: 400px;
+  border: 5px dashed #ffc107;
+  border-radius: 30px;
+  margin: auto;
   &.hovering {
-    border: 2px solid #f16624;
+    border: 6px solid #ffc107;
+  }
+  &.hovering .create-tap {
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+    animation-name: bounceIn;
+  }
+}
+
+.animated-circle {
+  position: relative;
+  top: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.create-tap {
+  width: 105px;
+  &:hover {
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+    animation-name: bounceIn;
+  }
+}
+
+.create-tap input[type=file] {
+  font-size: 110px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(1.0);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.0);
   }
 }
 
 .create-help {
+  top: 45px;
+  position: absolute;
+  p {
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
 
+.create-help-down {
+  bottom: 28px;
+  position: absolute;
+  p {
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
+
+.create-button {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-bottom: 30px;
+  button {
+    font-size: 24px;
+    font-family: FuturaRound, serif;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 5px white;
+  }
+}
+
+.create-title {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+  p {
+    line-height: 64px;
+    font-family: Futurica, serif;
+    font-size: 50px;
+    color: #ffffff;
+    margin-top: 30px;
+  }
+}
+
+.create-preview {
+  width: 720px;
+  margin: auto;
 }
 
 .stars {

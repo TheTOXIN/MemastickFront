@@ -9,7 +9,11 @@ import {MemFireService} from '../../services/mem-fire-service';
 })
 export class MemeCreatorComponent implements OnInit {
 
+  isPreview = false;
   isHovering: boolean;
+
+  public imagePath;
+  public imgURL: any;
 
   constructor(
     private router: Router,
@@ -23,12 +27,26 @@ export class MemeCreatorComponent implements OnInit {
 
   toggleHover(event: boolean) {
     this.isHovering = event;
-    console.log(this.isHovering);
   }
 
-  upload(event) {
-    this.memFire.startUpload(event);
-    this.router.navigateByUrl('/home');
+  showMeme(files) {
+    if (files.length !== 1) { return; }
+
+    const mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) { return; }
+
+    const reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = () => this.imgURL = reader.result;
+
+    this.isPreview = true;
+  }
+
+  upload() {
+    // this.memFire.startUpload(event);
+    // this.router.navigateByUrl('/home');
+    this.isPreview = false;
   }
 
 }
