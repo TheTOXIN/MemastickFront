@@ -16,4 +16,12 @@ export class MemetickAvatarApiService {
     return API.BASE_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
   }
 
+  public uploadAvatar(file: File) {
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+    return this.http
+      .post(API.BASE_URL + API.MEMETICK_AVATAR_UPLOAD, uploadData)
+      .pipe();
+  }
+
 }

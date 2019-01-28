@@ -12,6 +12,8 @@ import {IntroModalComponent} from './intro-modal/intro-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
 import {LogoutModalComponent} from './logout-modal/logout-modal.component';
+import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
+import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
 
 @NgModule({
   exports: [
@@ -20,7 +22,9 @@ import {LogoutModalComponent} from './logout-modal/logout-modal.component';
     FooterComponent,
     IntroModalComponent,
     OpenIntroModalComponent,
-    LogoutModalComponent
+    LogoutModalComponent,
+    ChangeNickModalComponent,
+    ChangeAvatarModalComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +37,9 @@ import {LogoutModalComponent} from './logout-modal/logout-modal.component';
     FooterComponent,
     IntroModalComponent,
     OpenIntroModalComponent,
-    LogoutModalComponent
+    LogoutModalComponent,
+    ChangeNickModalComponent,
+    ChangeAvatarModalComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
@@ -42,6 +48,8 @@ import {LogoutModalComponent} from './logout-modal/logout-modal.component';
   entryComponents: [
     IntroModalComponent,
     LogoutModalComponent,
+    ChangeNickModalComponent,
+    ChangeAvatarModalComponent
   ]
 })
 export class SharedModule {
