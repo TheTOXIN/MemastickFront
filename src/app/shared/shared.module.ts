@@ -11,6 +11,7 @@ import {LandingFixService} from '../shared/services/landing-fix.service';
 import {IntroModalComponent} from './intro-modal/intro-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
+import {LogoutModalComponent} from './logout-modal/logout-modal.component';
 
 @NgModule({
   exports: [
@@ -18,7 +19,8 @@ import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.compo
     HeaderComponent,
     FooterComponent,
     IntroModalComponent,
-    OpenIntroModalComponent
+    OpenIntroModalComponent,
+    LogoutModalComponent
   ],
   imports: [
     CommonModule,
@@ -30,14 +32,16 @@ import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.compo
     HeaderComponent,
     FooterComponent,
     IntroModalComponent,
-    OpenIntroModalComponent
+    OpenIntroModalComponent,
+    LogoutModalComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
     LandingFixService
   ],
   entryComponents: [
-    IntroModalComponent
+    IntroModalComponent,
+    LogoutModalComponent,
   ]
 })
 export class SharedModule {

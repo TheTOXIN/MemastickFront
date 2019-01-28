@@ -24,6 +24,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {PaginationService} from './services/pagination-service';
 import {StatisticApiService} from './services/statistic-api-service';
+import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {StatisticApiService} from './services/statistic-api-service';
     AngularFireStorage,
     AngularFirestore,
     PaginationService,
+    MemetickAvatarApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

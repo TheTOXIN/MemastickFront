@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {MemetickApiService} from '../../services/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
+import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {Router} from '@angular/router';
+import {OauthApiService} from '../../services/oauth-api-service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {LogoutModalComponent} from '../../shared/logout-modal/logout-modal.component';
 
 @Component({
   selector: 'app-memetick',
@@ -9,15 +15,21 @@ import {Memetick} from '../../model/Memetick';
 })
 export class MemetickComponent implements OnInit {
 
-  public avatarURL: String = 'dasdasdasdasd';
+  memetickLoad = false;
+
+  public avatarURL: String = '';
 
   public memetick: Memetick = new Memetick(
-    'asdasdasdasd',
-    'SUKA BLYAT'
+    '',
+    ''
   );
 
   constructor(
     private memetickApi: MemetickApiService,
+    public memetickAvatarsApi: MemetickAvatarApiService,
+    public router: Router,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {
 
   }
@@ -25,7 +37,21 @@ export class MemetickComponent implements OnInit {
   ngOnInit() {
     this.memetickApi.me().subscribe(data => {
       this.memetick = data;
+      this.avatarURL = this.memetickAvatarsApi.dowloadAvatar(this.memetick.id);
+      this.memetickLoad = true;
     });
+  }
+
+  changeAvatar() {
+
+  }
+
+  changeNick() {
+
+  }
+
+  logOut() {
+    this.modalService.open(LogoutModalComponent);
   }
 
 }

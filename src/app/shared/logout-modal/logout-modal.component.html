@@ -1,0 +1,12 @@
+<div>
+  <div class="modal-header modal-section">
+    <p>УЖЕ УХОДИТЕ?</p>
+  </div>
+  <div class="modal-body">
+    <p>Вы Хотите выйти?</p>
+  </div>
+  <div class="modal-footer modal-section">
+    <button (click)="oauth.logout(); activeModal.dismiss('Cross click')">ДА</button>
+    <button (click)="activeModal.dismiss('Cross click')">НЕТ</button>
+  </div>
+</div>

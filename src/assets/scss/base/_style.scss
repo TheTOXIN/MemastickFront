@@ -3224,3 +3224,33 @@ li.nav-item.dropdown {
   padding: 1em;
   &::-webkit-scrollbar {width:0;}
 }
+
+//MODAL
+.modal-header {
+  font-size: 36px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.modal-body {
+  text-align: center;
+  background: white;
+  p {
+    color: black;
+    margin-bottom: 0;
+  }
+}
+
+.modal-footer {
+
+}
+
+.modal-section {
+  border-radius: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+}

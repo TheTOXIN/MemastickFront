@@ -10,12 +10,14 @@ import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {ParticlesModule} from 'angular-particle';
 import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {StatisticComponent} from './statistic/statistic.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
     ParticlesModule,
+    SharedModule
   ],
   declarations: [
     HomeComponent,

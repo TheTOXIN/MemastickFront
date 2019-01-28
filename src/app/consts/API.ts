@@ -9,4 +9,6 @@ export enum API {
   MEMETICK_VIEW_ME = '/memeticks/view/me',
   STATS_MEMETICK = '/statistics/memetick',
   STATS_GLOBAL = '/statistics/global',
+  MEMETICK_AVATAR_DOWNLOAD = '/memetick-avatars/download',
+  MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload'
 }
