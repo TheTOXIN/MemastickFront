@@ -50,7 +50,7 @@ export class MemetickComponent implements OnInit {
 
   changeNick() {
     const modalRef = this.modalService.open(ChangeNickModalComponent);
-    modalRef.componentInstance.nicl = this.memetick.nick;
+    modalRef.componentInstance.nick = this.memetick.nick;
   }
 
   logOut() {

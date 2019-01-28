@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {PaginationService} from '../../services/pagination-service';
 import {Memetick} from '../../model/Memetick';
 import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {TeamModalComponent} from '../../start/team/team-modal/team-modal.component';
+import {ImageViewModalComponent} from '../../shared/image-view-modal/image-view-modal.component';
 
 
 @Component({
@@ -11,8 +15,8 @@ import {animate, animation, keyframes, state, style, transition, trigger, useAni
   animations: [
     trigger('rotatedState', [
       transition('* => *', [
-        style({transform: 'rotate(-180deg)'}),
-        animate('400ms ease-out')
+        style({transform: 'rotate(-90deg)'}),
+        animate('200ms ease-out')
       ])
     ]),
     trigger('bouncedState', [
@@ -60,7 +64,9 @@ export class MemesComponent implements OnInit {
   );
 
   constructor(
-    public page: PaginationService
+    public page: PaginationService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {
 
   }
@@ -88,6 +94,11 @@ export class MemesComponent implements OnInit {
     this.memInfo.meLike = !this.memInfo.meLike;
     this.memInfo.like = this.memInfo.meLike ? this.memInfo.like + 1 : this.memInfo.like - 1;
     this.likeState = (this.likeState === 'default' ? 'bounced' : 'default');
+  }
+
+  imageView(meme: String) {
+    const modalRef = this.modalService.open(ImageViewModalComponent, {centered: true});
+    modalRef.componentInstance.meme = meme;
   }
 
 }

@@ -15,6 +15,7 @@ import {LogoutModalComponent} from './logout-modal/logout-modal.component';
 import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ImageViewModalComponent} from './image-view-modal/image-view-modal.component';
 
 @NgModule({
   exports: [
@@ -25,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     OpenIntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
-    ChangeAvatarModalComponent
+    ChangeAvatarModalComponent,
+    ImageViewModalComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     OpenIntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
-    ChangeAvatarModalComponent
+    ChangeAvatarModalComponent,
+    ImageViewModalComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
@@ -52,7 +55,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
-    ChangeAvatarModalComponent
+    ChangeAvatarModalComponent,
+    ImageViewModalComponent
   ]
 })
 export class SharedModule {
