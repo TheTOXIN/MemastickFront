@@ -126,6 +126,17 @@
   }
 }
 
+.create-done {
+  i {
+    box-shadow: 0 0 0 80px rgba(232, 232, 232, 0.1);
+    font-size: 100px;
+    background-color: #212529;
+    border-radius: 100%;
+    padding: 10px;
+    color: #28a745;
+  }
+}
+
 .stars {
   width: 1px;
   height: 1px;

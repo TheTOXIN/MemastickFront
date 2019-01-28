@@ -10,6 +10,7 @@ import {MemFireService} from '../../services/mem-fire-service';
 export class MemeCreatorComponent implements OnInit {
 
   isPreview = false;
+  isCreate = false;
   isHovering: boolean;
 
   public imagePath;
@@ -45,8 +46,9 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   upload() {
+    if (!this.isPreview) { return; }
     this.memFire.startUpload(this.imagePath);
-    this.isPreview = false;
+    this.isCreate = true;
   }
 
 }

@@ -6,6 +6,9 @@
     <div class="create-preview" *ngIf="isPreview">
       <img [src]="imgURL">
     </div>
+    <div class="create-done text-center-absolute" [style.display]="isCreate ? 'block' : 'none'">
+      <p class="done animated rotateIn slow"><i class="fa fa-check"></i></p>
+    </div>
     <div class="dropzone"
          appDropZone
          (hovered)="toggleHover($event)"
