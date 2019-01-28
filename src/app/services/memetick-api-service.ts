@@ -15,7 +15,7 @@ export class MemetickApiService {
 
   public me(): Observable<Memetick> {
     return this.http
-      .get<Memetick>(API.MEMETICK_ME)
+      .get<Memetick>(API.MEMETICK_VIEW_ME)
       .pipe();
   }
 
