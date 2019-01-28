@@ -4,21 +4,21 @@
   </div>
   <div class="modal-body">
     <p>{{message}}</p>
-    <form>
+    <form (ngSubmit)="changeNick()">
       <div class="form-group">
-        <label for="inputNick">Никнейм</label>
+        <label for="exampleInputNick">Никнейм</label>
         <i class="fa fa-user"></i>
-        <input [formControl]="nickForm.controls['nick']" class="form-control" id="inputNick" name="nick"
-               placeholder={{nick}}
+        <input [formControl]="nickForm.controls['nick']" class="form-control" id="exampleInputNick" name="nick"
+               placeholder="Nick"
                required="" type="text">
-        <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required" class="text text-danger">
-          Никнейм пуст
+        <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required"
+             class="text text-danger">Никнейм пуст
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer modal-section">
-    <button (click)="changeNick()">СМЕНИТЬ</button>
+    <button [disabled]="!nickForm.valid" (click)="changeNick()">СМЕНИТЬ</button>
     <button (click)="activeModal.dismiss('Cross click')">ЗАКРЫТЬ</button>
   </div>
 </div>

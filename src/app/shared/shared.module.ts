@@ -14,6 +14,7 @@ import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.compo
 import {LogoutModalComponent} from './logout-modal/logout-modal.component';
 import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   exports: [
@@ -31,6 +32,8 @@ import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.co
     RouterModule,
     NgxPageScrollModule,
     NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     HeaderComponent,
