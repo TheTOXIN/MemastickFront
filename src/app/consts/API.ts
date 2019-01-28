@@ -10,5 +10,6 @@ export enum API {
   STATS_MEMETICK = '/statistics/memetick',
   STATS_GLOBAL = '/statistics/global',
   MEMETICK_AVATAR_DOWNLOAD = '/memetick-avatars/download',
-  MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload'
+  MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
+  MEMETICK_NICK_CHANE = '/memeticks/nick/change'
 }

@@ -19,4 +19,10 @@ export class MemetickApiService {
       .pipe();
   }
 
+  public changeNick(nick: String) {
+    return this.http
+      .put(API.MEMETICK_NICK_CHANE, {nick: nick})
+      .pipe();
+  }
+
 }

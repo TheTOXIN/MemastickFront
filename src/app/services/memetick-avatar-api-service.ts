@@ -20,7 +20,7 @@ export class MemetickAvatarApiService {
     const uploadData = new FormData();
     uploadData.append('file', file);
     return this.http
-      .post(API.BASE_URL + API.MEMETICK_AVATAR_UPLOAD, uploadData)
+      .post(API.MEMETICK_AVATAR_UPLOAD, uploadData)
       .pipe();
   }
 

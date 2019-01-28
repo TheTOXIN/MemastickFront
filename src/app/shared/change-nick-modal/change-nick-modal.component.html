@@ -1,11 +1,24 @@
 <div>
   <div class="modal-header modal-section">
-
+    <p>СМЕНА НИКА</p>
   </div>
   <div class="modal-body">
-
+    <p>{{message}}</p>
+    <form>
+      <div class="form-group">
+        <label for="inputNick">Никнейм</label>
+        <i class="fa fa-user"></i>
+        <input [formControl]="nickForm.controls['nick']" class="form-control" id="inputNick" name="nick"
+               placeholder={{nick}}
+               required="" type="text">
+        <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required" class="text text-danger">
+          Никнейм пуст
+        </div>
+      </div>
+    </form>
   </div>
   <div class="modal-footer modal-section">
-
+    <button (click)="changeNick()">СМЕНИТЬ</button>
+    <button (click)="activeModal.dismiss('Cross click')">ЗАКРЫТЬ</button>
   </div>
 </div>

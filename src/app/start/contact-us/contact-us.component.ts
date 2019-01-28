@@ -25,7 +25,7 @@ export class ContactUsComponent implements OnInit {
       nick: ['', Validators.compose([
         Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(24)
+        Validators.maxLength(15)
       ])],
       email: ['', Validators.email],
     });

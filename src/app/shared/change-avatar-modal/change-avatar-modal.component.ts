@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,6 +14,9 @@ export class ChangeAvatarModalComponent implements OnInit {
 
   public isPreview = false;
   public message = 'ФОРМАТ JPG ИЛИ PNG';
+
+  @Input()
+  public nick = '';
 
   constructor(
     public avatarApi: MemetickAvatarApiService,
@@ -48,8 +51,7 @@ export class ChangeAvatarModalComponent implements OnInit {
         this.activeModal.dismiss('Cross click');
         window.location.reload();
       },
-      (error) => {
-        console.log(error);
+      () => {
         this.message = 'НЕ ПРАВИЛЬНЫЙ ФОРМАТ';
         this.isPreview = false;
       }
