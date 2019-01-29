@@ -1,14 +1,14 @@
 <div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
     <!--<div *ngFor="let mem of page.data | async">-->
-    <div *ngFor="let mem of memes">
+    <div *ngFor="let meme of memes">
       <div class="memes-table">
         <div class="memes-memtick">
           <img [src]="avatarURL" onError="this.src='assets/images/review.png';">
           <span> {{memetick.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
-          <img [src]="mem">
+          <img (click)='imageView(meme)' [src]="meme">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
