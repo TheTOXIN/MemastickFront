@@ -18,13 +18,13 @@ import {MemetickApiService} from './services/memetick-api-service';
 import {PasswordApiService} from './services/password-api-service';
 import {RegistrationApiService} from './services/registration-api-service';
 import {AngularFireModule} from '@angular/fire';
-import {MemFireService} from './services/mem-fire-service';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {PaginationService} from './services/pagination-service';
 import {StatisticApiService} from './services/statistic-api-service';
 import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
+import {MemeApiService} from './services/meme-api-service';
 
 @NgModule({
   declarations: [
@@ -50,11 +50,11 @@ import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
     PasswordApiService,
     StatisticApiService,
     RegistrationApiService,
-    MemFireService,
     AngularFireStorage,
     AngularFirestore,
     PaginationService,
     MemetickAvatarApiService,
+    MemeApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

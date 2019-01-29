@@ -6,8 +6,16 @@
     <div class="create-preview" *ngIf="isPreview">
       <img [src]="imgURL">
     </div>
-    <div class="create-done text-center-absolute" [style.display]="isCreate ? 'block' : 'none'">
-      <p class="done animated rotateIn slow"><i class="fa fa-check"></i></p>
+    <div class="create-done">
+      <div class="text-center-absolute" [style.display]="isCreate ? 'block' : 'none'">
+        <p class="animated rotateIn slow"><i class="fa fa-check"></i></p>
+      </div>
+    </div>
+    <div class="create-error">
+      <p>{{errorMessage}}<p>
+      <div class="text-center-absolute" [style.display]="isError ? 'block' : 'none'">
+        <p class="animated rotateIn slow"><i class="fa fa-times"></i></p>
+      </div>
     </div>
     <div class="dropzone"
          appDropZone
@@ -27,8 +35,11 @@
       </div>
     </div>
   </div>
-  <div class="create-button">
+  <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
     <button class="btn-theme" (click)="upload()">СОЗДАТЬ</button>
+  </div>
+  <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
+     <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
   </div>
   <div class='stars'></div>
   <div class='stars2'></div>
