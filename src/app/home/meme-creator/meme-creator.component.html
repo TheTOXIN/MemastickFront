@@ -1,62 +1,37 @@
 <div class="back">
-
   <div class="create-title">
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
-
   <div class="text-center-absolute">
     <div class="create-preview" *ngIf="isPreview">
       <img [src]="imgURL" alt="">
     </div>
-
-    <div class="create-done" (click)="toHome()">
-      <div class="text-center-absolute" [style.display]="isCreate ? 'block' : 'none'">
-        <p class="animated rotateIn slow"><i class="fa fa-check create-status"></i></p>
+    <div class="dropzone"
+         appDropZone
+         (hovered)="toggleHover($event)"
+         (dropped)="upload($event)"
+         [class.hovering]="isHovering"
+         [style.display]="isPreview ? 'none' : 'flex'">
+      <div class="create-help" [style.display]="isHovering ? 'none' : 'block'">
+        <p>ПЕРЕТАЩИ ИЛИ НАЖМИ</p>
+      </div>
+      <div class="animated-circle create-tap">
+        <img class="img-fluid align-self-center" src="assets/images/tokens/tmp.png">
+        <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
+      </div>
+      <div class="create-help-down" [style.display]="isHovering ? 'none' : 'block'">
+        <p>1 ДЕНЬ == 1 МЕМ</p>
       </div>
     </div>
-
-    <div class="create-error" (click)="toHome()">
-      <div class="text-center-absolute" [style.display]="isError ? 'block' : 'none'">
-        <p class="animated rotateIn slow"><i class="fa fa-times create-status"></i></p>
-      </div>
-      <p class="animated bounce">{{errorMessage}}</p>
-    </div>
-
-  <div class="create-load">
-    <div class="text-center-absolute" [style.display]="isLoading ? 'block' : 'none'">
-      <p class="animated fadeIn"><i class="fa fa-circle-o-notch fa-spin create-status"></i></p>
-    </div>
   </div>
-
-  <div class="dropzone"
-       appDropZone
-       (hovered)="toggleHover($event)"
-       (dropped)="upload($event)"
-       [class.hovering]="isHovering"
-       [style.display]="isPreview ? 'none' : 'flex'">
-    <div class="create-help" [style.display]="isHovering ? 'none' : 'block'">
-      <p>ПЕРЕТАЩИ ИЛИ НАЖМИ</p>
-    </div>
-    <div class="animated-circle create-tap">
-      <img class="img-fluid align-self-center" src="assets/images/tokens/tmp.png">
-      <input type="file" (change)="showMeme($event.target.files)" accept=".png,.jpg"/>
-    </div>
-    <div class="create-help-down" [style.display]="isHovering ? 'none' : 'block'">
-      <p>1 ДЕНЬ == 1 МЕМ</p>
-    </div>
+  <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
+    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
   </div>
-</div>
-
-<div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
-  <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
-</div>
-
-<div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
-  <button class="btn-theme" (click)="toMemes()">МЕМАСЫ</button>
-</div>
-
-<div class='stars'></div>
-<div class='stars2'></div>
-<div class='stars3'></div>
-
+  <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
+    <button class="btn-theme" (click)="toMemes()">МЕМАСЫ</button>
+  </div>
+  <app-loader [message]="message" [status]="status"></app-loader>
+  <div class='stars'></div>
+  <div class='stars2'></div>
+  <div class='stars3'></div>
 </div>

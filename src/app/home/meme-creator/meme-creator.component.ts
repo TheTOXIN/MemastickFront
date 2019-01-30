@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
+import {LoaderStatus} from '../../consts/LoaderStatus';
 
 @Component({
   selector: 'app-meme-creator',
@@ -10,17 +11,15 @@ import {UUID} from 'angular2-uuid';
 })
 export class MemeCreatorComponent implements OnDestroy {
 
+  public status;
+  public message;
+
   isHovering = false;
   isPreview = false;
-
   isCreate = false;
-  isError = false;
-  isLoading = false;
 
   public imageFile: File;
   public imgURL: any;
-
-  public errorMessage;
 
   private fireId: UUID;
 
@@ -34,7 +33,8 @@ export class MemeCreatorComponent implements OnDestroy {
     private router: Router,
     private memeApi: MemeApiService,
   ) {
-
+    this.status = LoaderStatus.NONE;
+    this.message = '';
   }
 
   toggleHover(event: boolean) {
@@ -47,31 +47,30 @@ export class MemeCreatorComponent implements OnDestroy {
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) { return; }
 
-    this.isLoading = true;
     this.isPreview = true;
 
     this.imageFile = files[0];
     this.fireId = UUID.UUID();
 
     this.memeApi.memeUpload(this.imageFile, this.fireId).then(
-      () => {this.show();},
-      () => {this.error('Ошибка загрузки, попробуйте позже');}
+      () => { this.show(); },
+      () => { this.error('Ошибка загрузки, попробуйте позже'); }
     );
   }
 
   create() {
+    this.status = LoaderStatus.DONE;
+    this.message = "МЕМ создан!";
     if (!this.isPreview) { return; }
     // TODO не давать создавать когда бдует список токенов
-    this.isLoading = true;
 
     this.memeApi.memeCreate(this.fireId).subscribe(
       () => {
-        this.isLoading = false;
         this.isCreate = true;
       },
       (error) => {
         this.memeApi.memeRemove(this.fireId);
-        if (error.error.code === 'LESS_TOKEN') { //TODO бля
+        if (error.error.code === 'LESS_TOKEN') { // TODO бля
           this.error('Вы уже создвали МЕМ в этот день');
         } else {
           this.error('Ошибка создания МЕМА');
@@ -84,7 +83,6 @@ export class MemeCreatorComponent implements OnDestroy {
     const reader = new FileReader();
     reader.readAsDataURL(this.imageFile);
     reader.onload = () => this.imgURL = reader.result;
-    this.isLoading = false;
   }
 
   toMemes() {
@@ -95,10 +93,8 @@ export class MemeCreatorComponent implements OnDestroy {
     this.router.navigateByUrl('/home');
   }
 
-  error(message: String) {
-    this.errorMessage = message;
-    this.isLoading = false;
-    this.isError = true;
+  error(message: string) {
+    this.message = message;
   }
 
 }

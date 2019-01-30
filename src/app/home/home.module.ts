@@ -11,7 +11,7 @@ import {ParticlesModule} from 'angular-particle';
 import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   imports: [
@@ -28,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MemetickComponent,
     StatisticComponent,
     ScrollableDirective,
-    DropZoneDirective
+    DropZoneDirective,
+    LoaderComponent
   ]
 })
 export class HomeModule {
