@@ -30,13 +30,32 @@ export class MemeApiService {
     return this.storage.upload(path, image).then(() => {
       this.storage.ref(path).getDownloadURL().subscribe(
         url => {
-          this.db.collection('memes').add({
+          this.db.collection('memes').doc(fireId + '').set({
             uuid: fireId,
             url: url,
             date: new Date(),
           });
         },
       );
+    });
+  }
+
+  public memeRemove(fireId: UUID) {
+    console.log(this.db.collection('memes').doc(fireId + '').ref.path);
+    this.db.collection('memes').doc(fireId + '').delete();
+  }
+
+  public memeRead(fireId: UUID) {
+    console.log('READ - ' + fireId);
+
+    this.db.collection('memes').doc(fireId + '').ref.get().then(function(doc) {
+      if (doc.exists) {
+        console.log('Document data:', doc.data());
+      } else {
+        console.log('No such document!');
+      }
+    }).catch(function(error) {
+      console.log('Error getting document:', error);
     });
   }
 

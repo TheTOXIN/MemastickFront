@@ -128,11 +128,6 @@
 
 .create-done {
   i {
-    box-shadow: 0 0 0 80px rgba(232, 232, 232, 0.1);
-    font-size: 100px;
-    background-color: #212529;
-    border-radius: 100%;
-    padding: 10px;
     color: #28a745;
   }
 }
@@ -145,13 +140,23 @@
   }
   i {
     width: 120px;
-    box-shadow: 0 0 0 80px rgba(232, 232, 232, 0.1);
-    font-size: 100px;
-    background-color: #212529;
-    border-radius: 100%;
-    padding: 10px;
     color: rgba(160, 0, 0, 0.89);
   }
+}
+
+.create-load {
+  i {
+    color: #ff8800;
+  }
+}
+
+.create-status {
+  z-index: -1;
+  box-shadow: 0 0 0 80px rgba(232, 232, 232, 0.1);
+  font-size: 100px;
+  background-color: #212529;
+  border-radius: 100%;
+  padding: 10px;
 }
 
 .stars {
