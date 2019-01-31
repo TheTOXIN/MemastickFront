@@ -3,13 +3,19 @@
   font-size: 64px;
   padding-bottom: 15px;
   line-height: 64px;
+  overflow-x: hidden;
+  @media(max-width: 991px) {
+    font-size: 40px;
+  }
 }
 
 .home-logo {
   border-radius: 0 0 30px 30px;
   left: 50%;
+  top: 0;
   transform: translate(-50%, 0);
   position: fixed;
+  width: 300px;
   background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
   img {
     padding: 15px;
@@ -25,10 +31,8 @@
   border-radius: 50px;
   background-color: #0000000f;
   p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
-  //align-items: center;
-  //justify-content: center;
 }
 
 .home-info {
@@ -50,7 +54,15 @@
   }
 }
 
+.home-container {
+  margin-top: 200px;
+  @media(max-width: 991px) {
+    margin-top: 100px;
+  }
+}
+
 .home-stats {
 
 }
+
 

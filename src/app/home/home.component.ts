@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {Memetick} from '../model/Memetick';
 import {MemetickApiService} from '../services/memetick-api-service';
 import {Router} from '@angular/router';
+import {WINDOW} from '../shared/services/windows.service';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +20,14 @@ export class HomeComponent implements OnInit {
     ''
   );
 
+  public showLogo: boolean = true;
+
+
   constructor(
     private router: Router,
-    private memetickApi: MemetickApiService
+    private memetickApi: MemetickApiService,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(WINDOW) private window
   ) {
 
   }
@@ -28,6 +35,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.initParticles();
     this.takeMe();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+    if (number >= 60) {
+      this.showLogo = false;
+    } else {
+      this.showLogo = true;
+    }
   }
 
   private takeMe() {

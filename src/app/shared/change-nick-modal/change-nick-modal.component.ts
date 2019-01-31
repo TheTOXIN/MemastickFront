@@ -26,7 +26,7 @@ export class ChangeNickModalComponent implements OnInit {
       nick: ['', Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(15)
+        Validators.maxLength(16)
       ])],
     });
   }
