@@ -25,6 +25,7 @@ import {MemesPaginationService} from './services/memes-pagination.service';
 import {StatisticApiService} from './services/statistic-api-service';
 import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
 import {MemeApiService} from './services/meme-api-service';
+import {MemeLikeApiService} from './services/meme-like-api-service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MemeApiService} from './services/meme-api-service';
     MemesPaginationService,
     MemetickAvatarApiService,
     MemeApiService,
+    MemeLikeApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
@@ -7,7 +7,10 @@ import 'rxjs/add/operator/take';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from './meme-api-service';
 import {Meme} from '../model/Meme';
-
+import {MemePage} from '../model/MemePage';
+import {MemeLikeApiService} from './meme-like-api-service';
+import {MemetickApiService} from './memetick-api-service';
+import {MemetickAvatarApiService} from './memetick-avatar-api-service';
 
 interface QueryConfig {
   page: number;
@@ -19,17 +22,19 @@ interface QueryConfig {
 @Injectable()
 export class MemesPaginationService {
 
-  private _loading = new BehaviorSubject(false);
-  private _data = new BehaviorSubject([]);
-
   private query: QueryConfig;
 
-  public data: Observable<any>;
+  public _loading = new BehaviorSubject(false);
   public loading: Observable<boolean> = this._loading.asObservable();
+
+  public data: MemePage[] = [];
 
   constructor(
     private afs: AngularFirestore,
-    private memeApi: MemeApiService
+    private memeApi: MemeApiService,
+    private memetickApi: MemetickApiService,
+    private avatarApi: MemetickAvatarApiService,
+    private likeApi: MemeLikeApiService
   ) {
 
   }
@@ -42,17 +47,21 @@ export class MemesPaginationService {
       reverse: isReverse,
     };
 
-    if (this.query.reverse) { this.query.sort += ',desc'; }
+    if (this.query.reverse) {
+      this.query.sort += ',desc';
+    }
 
     this.more();
     this.query.size = sizePage;
-    this.data = this._data.asObservable().scan((acc, val) => {
-        return acc.concat(val);
-    });
+    // this.data = this._data.asObservable().scan((acc, val) => {
+    //   return acc.concat(val);
+    // });
   }
 
   public more() {
-    if (this._loading.value) { return; }
+    if (this._loading.value) {
+      return;
+    }
 
     this._loading.next(true);
 
@@ -60,14 +69,29 @@ export class MemesPaginationService {
       this.query.page,
       this.query.size,
       this.query.sort
-    ).subscribe((data) => {
-      const memes: Meme[] = data;
-
-      this._data.next(memes);
-      this._loading.next(false);
-
-      this.query.page++;
+    ).subscribe((memes) => {
+      for (const meme of memes) {
+        const key = meme.id + '';
+        const page: MemePage = new MemePage(meme.id);
+        this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
+          page.memetick = memetick;
+          page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
+          this.likeApi.read(meme.id).subscribe((like) => {
+            page.like = like;
+            page.image = 'TMP';
+            page[key] = page;
+            console.log(page);
+            this.data.push(page);
+            this.next();// TODO СУКА БЛЯТЬ ЭТО ПИЗДЕЦ
+          });
+        });
+      }
     });
+  }
+
+  private next() {
+    this._loading.next(false);
+    this.query.page++;
   }
 
 }
