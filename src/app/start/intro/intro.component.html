@@ -13,14 +13,10 @@
             <div>
               <app-mem-logo></app-mem-logo>
               <div class="slid-btn">
-                <a [pageScrollOffset]="75" href="#contact" pageScroll>
-                  <img alt="app1" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
-                       data-tilt-speed="350" src="assets/images/app1.png">
-                </a>
-                <a [pageScrollOffset]="75" href="#contact" pageScroll>
-                  <img alt="app2" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
-                       data-tilt-speed="350" src="assets/images/app2.png">
-                </a>
+                <img alt="app1" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
+                       data-tilt-speed="350" src="assets/images/app1.png" (click)="toSignUp()">
+                <img alt="app2" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
+                       data-tilt-speed="350" src="assets/images/app2.png" (click)="toSignIn()">
               </div>
             </div>
           </div>
