@@ -38,8 +38,6 @@ export class MemesComponent implements OnInit {
   chromosomeState = 'default';
   likeState = 'default';
 
-  public avatarURL: String = 'dasdasdasdasd';
-
   public memInfo = {
     chromosome: 100500,
     like: 777,
@@ -87,19 +85,9 @@ export class MemesComponent implements OnInit {
     this.likeState = (this.likeState === 'default' ? 'bounced' : 'default');
   }
 
-  imageView(meme: String) {
+  imageView(url: String) {
     const modalRef = this.modalService.open(ImageViewModalComponent, {centered: true});
-    modalRef.componentInstance.meme = meme;
-  }
-
-  getAvatar(memetickId: UUID) {
-    console.log('AVATAR');
-    return this.avatarApi.dowloadAvatar(memetickId);
-  }
-
-  readMeme(fireId: UUID) {
-    console.log('READ');
-    return this.memeApi.memeRead(fireId);
+    modalRef.componentInstance.meme = url;
   }
 
 }

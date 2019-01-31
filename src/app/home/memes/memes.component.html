@@ -3,11 +3,11 @@
     <div *ngFor="let meme of page.data | async">
       <div class="memes-table">
         <div class="memes-memtick">
-          <img [src]="meme.memetickId" onError="this.src='assets/images/review.png';">
+          <img [src]="tmp" onError="this.src='assets/images/review.png';">
           <span> {{memetick.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
-          <img (click)='imageView(meme)' [src]="adsasd" [alt]="meme.id">
+          <img (click)='imageView(meme.image)' [src]="tmp" [alt]="meme.id">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
