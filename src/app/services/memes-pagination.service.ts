@@ -8,16 +8,17 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from './meme-api-service';
 import {Meme} from '../model/Meme';
 
+
 interface QueryConfig {
-  sort?: string;
-  page?: number;
-  size?: number;
-  reverse?: boolean;
-  prepend?: boolean;
+  page: number;
+  size: number;
+  sort: string;
+  reverse: boolean;
+  prepend: boolean;
 }
 
 @Injectable()
-export class MemesPaginationService implements OnInit {
+export class MemesPaginationService {
 
   private _done = new BehaviorSubject(false);
   private _loading = new BehaviorSubject(false);
@@ -36,16 +37,20 @@ export class MemesPaginationService implements OnInit {
 
   }
 
-  ngOnInit() {
+  init(sizePage, sizeInit, sortFiled, isReverse) {
     this.query = {
       page: 0,
-      size: 3,
-      sort: 'date',
-      reverse: false,
+      size: sizeInit,
+      sort: sortFiled,
+      reverse: isReverse,
       prepend: false,
     };
 
+    if (this.query.reverse) { this.query.sort += ',desc'; }
+
     this.more();
+
+    this.query.size = sizePage;
 
     this.data = this._data.asObservable()
       .scan((acc, val) => {
@@ -60,7 +65,7 @@ export class MemesPaginationService implements OnInit {
 
     this._loading.next(true);
 
-    return this.memeApi.memePage(
+    this.memeApi.memePage(
       this.query.page,
       this.query.size,
       this.query.sort

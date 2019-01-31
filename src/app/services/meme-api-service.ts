@@ -58,7 +58,6 @@ export class MemeApiService {
   }
 
   public memeRemove(fireId: UUID) {
-    console.log(this.db.collection('memes').doc(fireId + '').ref.path);
     this.db.collection('memes').doc(fireId + '').delete();
   }
 
@@ -67,7 +66,7 @@ export class MemeApiService {
 
     this.db.collection('memes').doc(fireId + '').ref.get().then(function(doc) {
       if (doc.exists) {
-        console.log('Document data:', doc.data());
+        console.log('Document data:', doc.data().url);
       } else {
         console.log('No such document!');
       }

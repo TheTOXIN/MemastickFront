@@ -1,4 +1,4 @@
-import {Component, HostListener, OnDestroy} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
@@ -47,8 +47,6 @@ export class MemeCreatorComponent {
     this.status = LoaderStatus.LOAD;
     this.imageFile = files[0];
     this.fireId = UUID.UUID();
-
-    console.log('UPLOAD');
 
     this.memeApi.memeUpload(this.imageFile, this.fireId).then(
       () => { this.show(); },

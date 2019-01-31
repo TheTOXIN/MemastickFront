@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {Memetick} from '../../model/Memetick';
-import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {TeamModalComponent} from '../../start/team/team-modal/team-modal.component';
 import {ImageViewModalComponent} from '../../shared/image-view-modal/image-view-modal.component';
+import {UUID} from 'angular2-uuid';
+import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {MemeApiService} from '../../services/meme-api-service';
 
 
 @Component({
@@ -38,19 +40,6 @@ export class MemesComponent implements OnInit {
 
   public avatarURL: String = 'dasdasdasdasd';
 
-  public memes = [
-    'assets/memes/1.jpg',
-    'assets/memes/2.jpg',
-    'assets/memes/3.jpg',
-    'assets/memes/4.jpg',
-    'assets/memes/5.jpg',
-    'assets/memes/6.jpg',
-    'assets/memes/7.jpg',
-    'assets/memes/8.jpg',
-    'assets/memes/9.jpg',
-    'assets/memes/10.jpg',
-  ];
-
   public memInfo = {
     chromosome: 100500,
     like: 777,
@@ -65,6 +54,8 @@ export class MemesComponent implements OnInit {
 
   constructor(
     public page: MemesPaginationService,
+    public avatarApi: MemetickAvatarApiService,
+    private memeApi: MemeApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {
@@ -72,6 +63,7 @@ export class MemesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.page.init(1, 5, 'creating', true);
   }
 
   scrollHandler(e) {
@@ -98,6 +90,16 @@ export class MemesComponent implements OnInit {
   imageView(meme: String) {
     const modalRef = this.modalService.open(ImageViewModalComponent, {centered: true});
     modalRef.componentInstance.meme = meme;
+  }
+
+  getAvatar(memetickId: UUID) {
+    console.log('AVATAR');
+    return this.avatarApi.dowloadAvatar(memetickId);
+  }
+
+  readMeme(fireId: UUID) {
+    console.log('READ');
+    return this.memeApi.memeRead(fireId);
   }
 
 }

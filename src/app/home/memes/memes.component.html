@@ -1,14 +1,13 @@
 <div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
-    <!--<div *ngFor="let mem of page.data | async">-->
-    <div *ngFor="let meme of memes">
+    <div *ngFor="let meme of page.data | async">
       <div class="memes-table">
         <div class="memes-memtick">
-          <img [src]="avatarURL" onError="this.src='assets/images/review.png';">
+          <img [src]="meme.memetickId" onError="this.src='assets/images/review.png';">
           <span> {{memetick.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
-          <img (click)='imageView(meme)' [src]="meme">
+          <img (click)='imageView(meme)' [src]="adsasd" [alt]="meme.id">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
@@ -24,8 +23,7 @@
         </div>
       </div>
     </div>
-    <!--</div>-->
-    <!--<app-spinner *ngIf="page.loading | async"></app-spinner>-->
+    <app-spinner *ngIf="page.loading | async"></app-spinner>
   </div>
 </div>
 
