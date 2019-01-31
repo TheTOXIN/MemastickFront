@@ -44,57 +44,68 @@ export class MemeCreatorComponent implements OnDestroy {
   upload(files) {
     if (files.length !== 1) { return; }
 
+    this.status = LoaderStatus.LOAD;
+
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) { return; }
-
-    this.isPreview = true;
 
     this.imageFile = files[0];
     this.fireId = UUID.UUID();
 
     this.memeApi.memeUpload(this.imageFile, this.fireId).then(
       () => { this.show(); },
-      () => { this.error('Ошибка загрузки, попробуйте позже'); }
+      () => { this.error('Ошибка загрузки'); }
     );
   }
 
   create() {
-    this.status = LoaderStatus.DONE;
-    this.message = "МЕМ создан!";
-    if (!this.isPreview) { return; }
+    if (!this.isPreview || this.isCreate) { return; }
     // TODO не давать создавать когда бдует список токенов
+    this.status = LoaderStatus.LOAD;
 
     this.memeApi.memeCreate(this.fireId).subscribe(
-      () => {
-        this.isCreate = true;
-      },
-      (error) => {
-        this.memeApi.memeRemove(this.fireId);
-        if (error.error.code === 'LESS_TOKEN') { // TODO бля
-          this.error('Вы уже создвали МЕМ в этот день');
-        } else {
-          this.error('Ошибка создания МЕМА');
-        }
-      }
+      () => { this.createDone(); },
+      (error) => { this.createError(error); }
     );
   }
 
-  show() {
-    const reader = new FileReader();
-    reader.readAsDataURL(this.imageFile);
-    reader.onload = () => this.imgURL = reader.result;
+  createDone() {
+    this.isCreate = true;
+    this.status = LoaderStatus.DONE;
+    this.message = 'МЕМ создан!';
   }
 
-  toMemes() {
-    this.router.navigateByUrl('/home/memes');
-  }
+  createError(error: any) {
+    this.memeApi.memeRemove(this.fireId);
 
-  toHome() {
-    this.router.navigateByUrl('/home');
+    var errorMessage = '';
+
+    if (error.error.code === 'LESS_TOKEN') { // TODO бля
+      errorMessage = 'Вы уже создвали МЕМ';
+    } else {
+      errorMessage = 'Ошибка создания';
+    }
+
+    this.error(errorMessage);
   }
 
   error(message: string) {
     this.message = message;
+    this.status = LoaderStatus.ERROR;
+  }
+
+  show() {
+    this.isPreview = true;
+    this.status = LoaderStatus.NONE;
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(this.imageFile);
+    reader.onload = () => this.imgURL = reader.result;
+  }
+
+  memes() {
+    this.router.navigateByUrl('/home/memes');
   }
 
 }
