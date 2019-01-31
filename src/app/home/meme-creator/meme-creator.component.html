@@ -2,7 +2,7 @@
   <div class="create-title">
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
-  <div class="text-center-absolute">
+  <div class="create-table">
     <div class="create-preview" *ngIf="isPreview">
       <img [src]="imgURL" alt="">
     </div>
@@ -12,14 +12,14 @@
          (dropped)="upload($event)"
          [class.hovering]="isHovering"
          [style.display]="isPreview ? 'none' : 'flex'">
-      <div class="create-help" [style.display]="isHovering ? 'none' : 'block'">
+      <div class="create-help create-help-up" [style.display]="isHovering ? 'none' : 'block'">
         <p>ПЕРЕТАЩИ ИЛИ НАЖМИ</p>
       </div>
       <div class="animated-circle create-tap">
         <img class="img-fluid align-self-center" src="assets/images/tokens/tmp.png">
         <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
       </div>
-      <div class="create-help-down" [style.display]="isHovering ? 'none' : 'block'">
+      <div class="create-help create-help-down" [style.display]="isHovering ? 'none' : 'block'">
         <p>1 ДЕНЬ == 1 МЕМ</p>
       </div>
     </div>

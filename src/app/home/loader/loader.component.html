@@ -1,18 +1,18 @@
 <div *ngIf="isShow()">
 <div class="animated fadeIn loader">
   <div class="loader-done" (click)="doneTrigger()" *ngIf="isDone()">
-    <div class="animated rotateIn slow">
-        <i class="fa fa-check loader-status"></i>
+    <div class="loader-status animated rotateIn slow">
+        <i class="fa fa-check loader-icon"></i>
     </div>
   </div>
   <div class="loader-error" (click)="errorTrigger()" *ngIf="isError()">
-    <div class="animated rotateIn slow">
-        <i class="fa fa-times loader-status"></i>
+    <div class="loader-status animated rotateIn slow">
+        <i class="fa fa-times loader-icon"></i>
     </div>
   </div>
   <div class="loader-load" *ngIf="isLoad()">
-    <div class="animated fadeIn">
-        <i class="fa fa-circle-o-notch fa-spin loader-status"></i>
+    <div class="loader-status animated fadeIn">
+        <i class="fa fa-circle-o-notch fa-spin loader-icon"></i>
     </div>
   </div>
   <div class="loader-message" *ngIf="isMessage()">

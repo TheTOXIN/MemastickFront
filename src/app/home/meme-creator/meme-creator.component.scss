@@ -8,6 +8,19 @@
   width: 100%;
 }
 
+.create-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
 .dropzone {
   display: flex;
   align-items: center;
@@ -70,22 +83,24 @@
   }
 }
 
+
+
 .create-help {
-  top: 45px;
   position: absolute;
+  width: 100%;
+  text-align: center;
   p {
     font-size: 16px;
     color: #ffffff;
   }
 }
 
+.create-help-up {
+  margin-top: -150px;
+}
+
 .create-help-down {
-  bottom: 28px;
-  position: absolute;
-  p {
-    font-size: 16px;
-    color: #ffffff;
-  }
+  margin-top: 170px;
 }
 
 .create-button {

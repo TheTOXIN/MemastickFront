@@ -43,14 +43,13 @@ export class MemeCreatorComponent implements OnDestroy {
 
   upload(files) {
     if (files.length !== 1) { return; }
+    if (files[0].type.match(/image\/*/) == null) { return; }
 
     this.status = LoaderStatus.LOAD;
-
-    const mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) { return; }
-
     this.imageFile = files[0];
     this.fireId = UUID.UUID();
+
+    console.log('UPLOAD');
 
     this.memeApi.memeUpload(this.imageFile, this.fireId).then(
       () => { this.show(); },

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoaderStatus} from '../../consts/LoaderStatus';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-loader',
@@ -15,10 +16,10 @@ export class LoaderComponent implements OnInit {
   public status: LoaderStatus;
 
   constructor(
-
+    private router: Router
   ) {
-    this.message = 'TEST';
-    this.status = LoaderStatus.LOAD;
+    this.message = '';
+    this.status = LoaderStatus.NONE;
   }
 
   ngOnInit() {
@@ -45,11 +46,11 @@ export class LoaderComponent implements OnInit {
   }
 
   doneTrigger() {
-    console.log('DONE');
+    window.location.reload();
   }
 
   errorTrigger() {
-    console.log('ERROR');
+    this.router.navigateByUrl('/home');
   }
 
 }
