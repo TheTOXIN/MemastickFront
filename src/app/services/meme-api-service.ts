@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {UUID} from 'angular2-uuid';
 import {API} from '../consts/API';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
+import {HttpParamsOptions} from '@angular/common/http/src/params';
+import {Meme} from '../model/Meme';
 
 
 @Injectable()
@@ -21,6 +23,21 @@ export class MemeApiService {
   public memeCreate(fireId: UUID): Observable<any> {
     return this.http
       .post(API.MEMES_CREATE, {fireId: fireId})
+      .pipe();
+  }
+
+  public memePage(page, size, sort): Observable<Meme[]> {
+    const params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+      .set('sort', sort);
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
+    return this.http
+      .get<Meme[]>(API.MEMES_READ, {headers, params})
       .pipe();
   }
 

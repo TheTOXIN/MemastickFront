@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PaginationService} from '../../services/pagination-service';
+import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {Memetick} from '../../model/Memetick';
 import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -64,7 +64,7 @@ export class MemesComponent implements OnInit {
   );
 
   constructor(
-    public page: PaginationService,
+    public page: MemesPaginationService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {
@@ -72,7 +72,6 @@ export class MemesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.page.init('memes', 'date', {reverse: true, prepend: false});
   }
 
   scrollHandler(e) {

@@ -21,7 +21,7 @@ import {AngularFireModule} from '@angular/fire';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {PaginationService} from './services/pagination-service';
+import {MemesPaginationService} from './services/memes-pagination.service';
 import {StatisticApiService} from './services/statistic-api-service';
 import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
 import {MemeApiService} from './services/meme-api-service';
@@ -52,7 +52,7 @@ import {MemeApiService} from './services/meme-api-service';
     RegistrationApiService,
     AngularFireStorage,
     AngularFirestore,
-    PaginationService,
+    MemesPaginationService,
     MemetickAvatarApiService,
     MemeApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
