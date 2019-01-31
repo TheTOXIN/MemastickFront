@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, HostListener, OnDestroy} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
@@ -9,7 +9,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
   templateUrl: './meme-creator.component.html',
   styleUrls: ['./meme-creator.component.scss']
 })
-export class MemeCreatorComponent implements OnDestroy {
+export class MemeCreatorComponent {
 
   public status;
   public message;
@@ -23,10 +23,9 @@ export class MemeCreatorComponent implements OnDestroy {
 
   private fireId: UUID;
 
-  ngOnDestroy() {
-    if (!this.isCreate) {
-      this.memeApi.memeRemove(this.fireId);
-    }
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event) {
+    this.remove();
   }
 
   constructor(
@@ -75,7 +74,7 @@ export class MemeCreatorComponent implements OnDestroy {
   }
 
   createError(error: any) {
-    this.memeApi.memeRemove(this.fireId);
+    this.remove();
 
     var errorMessage = '';
 
@@ -105,6 +104,13 @@ export class MemeCreatorComponent implements OnDestroy {
 
   memes() {
     this.router.navigateByUrl('/home/memes');
+  }
+
+  remove() {
+    if (!this.isCreate && this.fireId != null && this.fireId !== '') {
+      this.memeApi.memeRemove(this.fireId);
+      this.fireId = null;
+    }
   }
 
 }
