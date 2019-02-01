@@ -9,12 +9,14 @@ import {WINDOW_PROVIDERS} from './services/windows.service';
 import {LandingFixService} from '../shared/services/landing-fix.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   exports: [
     CommonModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     HeaderComponent,
     FooterComponent,
+    LoaderComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
