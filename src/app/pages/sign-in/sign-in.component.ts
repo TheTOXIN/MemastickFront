@@ -75,4 +75,24 @@ export class SignInComponent implements OnInit {
     this.message = mes;
   }
 
+  onValid(): boolean {
+    if (
+      (this.signForm.value.email == null || this.signForm.value.email === '') &&
+      (this.signForm.value.login == null || this.signForm.value.login === '')
+    ) {
+      this.setErrorMessage('Введите логин или почту!');
+      return false;
+    }
+
+    if (
+      (this.signForm.value.password.length < 6 || this.signForm.value.password.length > 20) ||
+      (this.signForm.value.login.length < 4 || this.signForm.value.login.length > 20)
+    ) {
+      this.setErrorMessage('Неверные данные для входа');
+      return false;
+    }
+
+    return true;
+  }
+
 }
