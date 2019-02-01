@@ -1,6 +1,6 @@
 <div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
-    <div *ngFor="let meme of page.data">
+    <div *ngFor="let meme of page.data | async">
       <div class="memes-table">
         <div class="memes-memtick">
           <img [src]="meme.avatar" onError="this.src='assets/images/review.png';">
@@ -23,10 +23,10 @@
         </div>
       </div>
     </div>
-    <div class="triggerMore" (click)="page.more()" [style.display]="false ? 'none' : 'block'">
+    <app-spinner *ngIf="(page.loading) | async"></app-spinner>
+    <div class="triggerMore" (click)="page.more()">
       <i class="fa fa-angle-double-down"></i>
     </div>
-    <app-spinner *ngIf="page.loading | async"></app-spinner>
   </div>
 </div>
 
