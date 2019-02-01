@@ -22,18 +22,14 @@ import {NewsLetterComponent} from './news-letter/news-letter.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {IntroModalComponent} from '../shared/intro-modal/intro-modal.component';
-import {TeamModalComponent} from './team/team-modal/team-modal.component';
+import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
 
 @NgModule({
-  exports: [
-    TeamModalComponent
-  ],
   imports: [
     CommonModule,
     StartRoutingModule,
-    SharedModule,
     ReactiveFormsModule,
+    SharedModule,
     FormsModule,
     OwlModule,
     NgxPageScrollModule,
@@ -55,11 +51,7 @@ import {TeamModalComponent} from './team/team-modal/team-modal.component';
     DownloadComponent,
     NewsLetterComponent,
     MemLogoComponent,
-    TeamModalComponent
-  ],
-  entryComponents: [
-    IntroModalComponent,
-    TeamModalComponent,
+    OpenIntroModalComponent
   ]
 })
 export class StartModule {
