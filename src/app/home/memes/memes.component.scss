@@ -77,25 +77,6 @@ likes-count2 {
   display: inline-block;
 }
 
-.triggerMore {
-  font-size: 50px;
-  color: white;
-  -webkit-animation-name: slider;
-  animation-name: slider;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-  i {
-    vertical-align: middle;
-  }
-
-  animation-name: slider;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
-
 @keyframes slider {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0)

@@ -63,14 +63,11 @@ export class MemesComponent implements OnInit {
      meme.like.myChromosomes++;
      meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
 
-     this.chromosomeCounter[meme.id + '']++;
-
+    this.likeApi.chromosome(meme.id, 1);
   }
 
   sendChromosome(meme: MemePage) {
-    console.log('SUKA');
-    this.likeApi.chromosome(meme.id, this.chromosomeCounter[meme.id + '']);
-    this.chromosomeCounter[meme.id + ''] = 0;
+    console.log('TEST');
   }
 
   triggerLike(meme: MemePage) {

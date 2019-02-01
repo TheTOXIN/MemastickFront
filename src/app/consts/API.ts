@@ -1,5 +1,5 @@
 export enum API {
-  BASE_URL = 'http://localhost:8080',
+  BASE_URL = 'http://192.168.0.7:8080',
   OAUTH_TOKEN = '/oauth/token',
   HELLO = '/hello',
   INVITE_REGISTRATION = '/invite/registration',

@@ -7,7 +7,7 @@
           <span> {{meme.memetick.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
-          <img (click)='imageView(meme?.image)' [src]="tmp" [alt]="meme?.id">
+          <img (click)='imageView(meme.image)' [src]="meme.image" [alt]="meme?.id">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
@@ -15,7 +15,7 @@
             <img class="img-fluid" [@rotatedState]='meme.chromosomeState' (click)="triggerChromosome(meme)" src="assets/images/icon/2.png">
             <span class="likes-count">{{meme.like.chromosomes}}</span>
           </div>
-          <div id="like2" (mouseleave)="sendChromosome(meme)">
+          <div id="like2">
             <span class="likes-count">{{meme.like.likes}}</span>
             <img class="img-fluid" [@bouncedState]='meme.likeState' (click)="triggerLike(meme)"
                  [src]="meme.like.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
@@ -24,9 +24,6 @@
       </div>
     </div>
     <app-spinner *ngIf="(page.loading) | async"></app-spinner>
-    <div class="triggerMore" (click)="page.more()">
-      <i class="fa fa-angle-double-down"></i>
-    </div>
   </div>
 </div>
 

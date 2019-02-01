@@ -70,13 +70,13 @@ export class MemesPaginationService {
       this.query.sort
     ).subscribe((memes) => {
       if (memes.length === 0 || memes == null) {
-        this.query.page = -1;
-        this.next();
+        this._loading.next(false);
       }
       for (const meme of memes) {
         const page: MemePage = new MemePage(meme.id);
         this.memeApi.memeRead(meme.fireId).then(data => {
           page.image = data.data().url;
+          console.log(page.image);
           this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
             page.memetick = memetick;
             page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
