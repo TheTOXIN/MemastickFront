@@ -19,7 +19,6 @@ export class ContactUsComponent implements OnInit {
   ) {
   }
 
-  // TODO добавить огранечения и вынести константы
   ngOnInit() {
     this.contactForm = this.fb.group({
       nick: ['', Validators.compose([

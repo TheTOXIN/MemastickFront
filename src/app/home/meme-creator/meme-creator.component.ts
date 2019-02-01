@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
+import {ErrorStatus} from '../../consts/ErrorStatus';
 
 @Component({
   selector: 'app-meme-creator',
@@ -75,7 +76,7 @@ export class MemeCreatorComponent {
 
     var errorMessage = '';
 
-    if (error.error.code === 'LESS_TOKEN') { // TODO бля
+    if (error.error.code === ErrorStatus.LESS_TOKEN) {
       errorMessage = 'Вы уже создвали МЕМ';
     } else {
       errorMessage = 'Ошибка создания';

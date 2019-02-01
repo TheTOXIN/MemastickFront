@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickApiService} from '../../services/memetick-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -12,6 +12,9 @@ export class ChangeNickModalComponent implements OnInit {
 
   public nickForm: FormGroup;
   public message = 'Длина ника от 3 до 16 символов. Менять ник можно раз в неделю';
+
+  @Input()
+  public nick = '';
 
   constructor(
     private fb: FormBuilder,

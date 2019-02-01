@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-change-avatar-modal',
@@ -15,9 +16,6 @@ export class ChangeAvatarModalComponent implements OnInit {
   public isPreview = false;
   public message = 'ФОРМАТ JPG ИЛИ PNG';
 
-  @Input()
-  public nick = '';
-
   constructor(
     public avatarApi: MemetickAvatarApiService,
     public activeModal: NgbActiveModal
@@ -29,7 +27,15 @@ export class ChangeAvatarModalComponent implements OnInit {
   }
 
   showAvatar(files) {
-    if (files.length !== 1) { return; }
+    if (files.length !== 1) {
+      this.message = 'НУЖЕН ТОЛЬКО 1 ФАЙЛ';
+      return;
+    }
+
+    if (files[0].size > ValidConst.MAX_AVATAR_SIZE) {
+      this.message = 'МАКСИМУМ 1 МБ';
+      return;
+    }
 
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) { return; }
@@ -52,7 +58,7 @@ export class ChangeAvatarModalComponent implements OnInit {
         window.location.reload();
       },
       () => {
-        this.message = 'НЕ ПРАВИЛЬНЫЙ ФОРМАТ';
+        this.message = 'НЕПРАВИЛЬНЫЙ ФОРМАТ';
         this.isPreview = false;
       }
     );

@@ -11,7 +11,7 @@
           <i class="fa fa-user"></i>
         </div>
         <input [formControl]="nickForm.controls['nick']" class="form-control" id="exampleInputNick" name="nick"
-               placeholder="Nick"
+               placeholder="{{nick}}"
                required="" type="text">
         <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required"
              class="text text-danger">Никнейм пуст
