@@ -56,7 +56,6 @@ export class MemeCreatorComponent {
 
   create() {
     if (!this.isPreview || this.isCreate) { return; }
-    // TODO не давать создавать когда бдует список токенов
     this.status = LoaderStatus.LOAD;
 
     this.memeApi.memeCreate(this.fireId).subscribe(
