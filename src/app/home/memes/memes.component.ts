@@ -44,7 +44,7 @@ export class MemesComponent implements OnInit {
 
   }
 
-  private chromosomeCounter: number[] = [];
+  private chromosomeCounter = 0;
 
   ngOnInit() {
     this.page.init(1, 3, 'creating', true);
@@ -63,11 +63,14 @@ export class MemesComponent implements OnInit {
      meme.like.myChromosomes++;
      meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
 
-    this.likeApi.chromosome(meme.id, 1);
+    this.chromosomeCounter++;
   }
 
   sendChromosome(meme: MemePage) {
-    console.log('TEST');
+    if (this.chromosomeCounter === 0) return;
+
+    this.likeApi.chromosome(meme.id, this.chromosomeCounter);
+    this.chromosomeCounter = 0;
   }
 
   triggerLike(meme: MemePage) {

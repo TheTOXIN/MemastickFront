@@ -11,7 +11,7 @@
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
-          <div id="like1">
+          <div id="like1" (mouseleave)="sendChromosome(meme)">
             <img class="img-fluid" [@rotatedState]='meme.chromosomeState' (click)="triggerChromosome(meme)" src="assets/images/icon/2.png">
             <span class="likes-count">{{meme.like.chromosomes}}</span>
           </div>

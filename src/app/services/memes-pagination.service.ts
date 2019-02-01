@@ -76,7 +76,6 @@ export class MemesPaginationService {
         const page: MemePage = new MemePage(meme.id);
         this.memeApi.memeRead(meme.fireId).then(data => {
           page.image = data.data().url;
-          console.log(page.image);
           this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
             page.memetick = memetick;
             page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
