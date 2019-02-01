@@ -1,12 +1,19 @@
 <div>
-  <div class="modal-header modal-section">
+  <div class="modal-header modal-section my-header my-section">
     <p>УЖЕ УХОДИТЕ?</p>
   </div>
-  <div class="modal-body">
-    <p>Вы Хотите выйти?</p>
+  <div class="modal-body my-body">
+    <img src="assets/images/feature-mob.png" alt="...">
+    <p>Вы точно хотите выйти?</p>
   </div>
-  <div class="modal-footer modal-section">
-    <button (click)="oauth.logout(); activeModal.dismiss('Cross click')">ДА</button>
-    <button (click)="activeModal.dismiss('Cross click')">НЕТ</button>
+  <div class="modal-footer modal-section my-header my-section">
+    <button class="btn-theme-inverse" (click)="oauth.logout(); activeModal.dismiss('Cross click')">
+      ДА
+      <i class="fa fa-check button-check"></i>
+    </button>
+    <button class="btn-theme-inverse" (click)="activeModal.dismiss('Cross click')">
+      НЕТ
+      <i class="fa fa-close button-close"></i>
+    </button>
   </div>
 </div>

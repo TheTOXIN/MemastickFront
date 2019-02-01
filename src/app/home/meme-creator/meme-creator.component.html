@@ -17,6 +17,7 @@
       </div>
       <div class="animated-circle create-tap">
         <img class="img-fluid align-self-center" src="assets/images/tokens/tmp.png">
+        <!--// TODO проверить область инпута-->
         <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
       </div>
       <div class="create-help create-help-down" [style.display]="isHovering ? 'none' : 'block'">

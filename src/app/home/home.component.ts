@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
 
   public showLogo: boolean = true;
 
-
   constructor(
     private router: Router,
     private memetickApi: MemetickApiService,

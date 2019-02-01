@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ChangeNickModalComponent implements OnInit {
 
   public nickForm: FormGroup;
-  public message = 'Длина ника от 3 до 15 символов. Менять ник можно раз в неделю';
+  public message = 'Длина ника от 3 до 16 символов. Менять ник можно раз в неделю';
 
   constructor(
     private fb: FormBuilder,
