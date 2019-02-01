@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
-import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ImageViewModalComponent} from '../../shared/image-view-modal/image-view-modal.component';
@@ -15,10 +15,10 @@ import {MemePage} from '../../model/MemePage';
   styleUrls: ['./memes.component.scss'],
   animations: [
     trigger('rotatedState', [
-      transition('* => *', [
-        style({transform: 'rotate(180deg)'}),
-        animate('150ms ease-out')
-      ])
+      state('default', style({ transform: 'rotate(0)' })),
+      state('rotated', style({ transform: 'rotate(-180deg)' })),
+      transition('default => rotated', [style({transform: 'rotate(-360deg)'}), animate('150ms ease-out')]),
+      transition('rotated => default', animate('150ms ease-in'))
     ]),
     trigger('bouncedState', [
       transition('* => *', [
@@ -44,6 +44,8 @@ export class MemesComponent implements OnInit {
 
   }
 
+  private chromosomeCounter: number[] = [];
+
   ngOnInit() {
     this.page.init(1, 3, 'creating', true);
   }
@@ -61,7 +63,14 @@ export class MemesComponent implements OnInit {
      meme.like.myChromosomes++;
      meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
 
-     this.likeApi.chromosome(meme.id, 1);
+     this.chromosomeCounter[meme.id + '']++;
+
+  }
+
+  sendChromosome(meme: MemePage) {
+    console.log('SUKA');
+    this.likeApi.chromosome(meme.id, this.chromosomeCounter[meme.id + '']);
+    this.chromosomeCounter[meme.id + ''] = 0;
   }
 
   triggerLike(meme: MemePage) {
