@@ -16,5 +16,7 @@ export enum API {
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMES_CREATE = '/memes/create',
   MEMES_READ = '/memes/read',
-  MEME_LIKES_READ = '/meme-likes/read'
+  MEME_LIKES_READ = '/meme-likes/read',
+  MEME_LIKES_TRIGGER = '/meme-likes/trigger',
+  MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome'
 }

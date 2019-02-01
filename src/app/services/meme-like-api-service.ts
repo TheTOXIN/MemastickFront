@@ -19,4 +19,12 @@ export class MemeLikeApiService {
       .pipe();
   }
 
+  public trigger(memeId: UUID) {
+    this.http.patch(API.MEME_LIKES_TRIGGER + '/' + memeId, {}).toPromise();
+  }
+
+  public chromosome(memeId: UUID, count: number) {
+    this.http.patch(API.MEME_LIKES_CHROMOSOME + '/' + memeId + '/' + count, {}).toPromise();
+  }
+
 }

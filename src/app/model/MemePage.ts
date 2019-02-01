@@ -10,6 +10,9 @@ export class MemePage {
   public image: String;
   public avatar: String;
 
+  chromosomeState = 'default';
+  likeState = 'default';
+
   constructor(
     id: UUID
   ){

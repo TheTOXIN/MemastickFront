@@ -6,6 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ImageViewModalComponent} from '../../shared/image-view-modal/image-view-modal.component';
 import {MemeApiService} from '../../services/meme-api-service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
+import {MemePage} from '../../model/MemePage';
 
 
 @Component({
@@ -15,8 +16,8 @@ import {MemeLikeApiService} from '../../services/meme-like-api-service';
   animations: [
     trigger('rotatedState', [
       transition('* => *', [
-        style({transform: 'rotate(-90deg)'}),
-        animate('200ms ease-out')
+        style({transform: 'rotate(180deg)'}),
+        animate('150ms ease-out')
       ])
     ]),
     trigger('bouncedState', [
@@ -32,9 +33,6 @@ import {MemeLikeApiService} from '../../services/meme-like-api-service';
   ]
 })
 export class MemesComponent implements OnInit {
-
-  chromosomeState = 'default';
-  likeState = 'default';
 
   constructor(
     public page: MemesPaginationService,
@@ -56,17 +54,28 @@ export class MemesComponent implements OnInit {
     }
   }
 
-  triggerChromosome() {
-    // if (this.memInfo.myChromosome >= 30) {return;}
-    // this.memInfo.chromosome++;
-    // this.memInfo.myChromosome++;
-    this.chromosomeState = (this.chromosomeState === 'default' ? 'rotated' : 'default');
+  triggerChromosome(meme: MemePage) {
+     if (meme.like.myChromosomes >= 30) { return; }
+
+     meme.like.chromosomes++;
+     meme.like.myChromosomes++;
+     meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
+
+     this.likeApi.chromosome(meme.id, 1);
   }
 
-  triggerLike() {
-    // this.memInfo.meLike = !this.memInfo.meLike;
-    // this.memInfo.like = this.memInfo.meLike ? this.memInfo.like + 1 : this.memInfo.like - 1;
-    this.likeState = (this.likeState === 'default' ? 'bounced' : 'default');
+  triggerLike(meme: MemePage) {
+    meme.like.myLike = !meme.like.myLike;
+
+    if (meme.like.myLike) {
+      meme.like.likes++;
+    } else {
+      meme.like.likes--;
+    }
+
+    meme.likeState = (meme.likeState === 'default' ? 'bounced' : 'default');
+
+    this.likeApi.trigger(meme.id);
   }
 
   imageView(url: String) {
