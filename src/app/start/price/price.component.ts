@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {IntroModalComponent} from '../../shared/intro-modal/intro-modal.component';
+import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 
 @Component({
   selector: 'app-price',

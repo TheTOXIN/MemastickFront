@@ -3,7 +3,7 @@ import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ImageViewModalComponent} from '../../shared/image-view-modal/image-view-modal.component';
+import {ImageViewModalComponent} from '../../modals/image-view-modal/image-view-modal.component';
 import {MemeApiService} from '../../services/meme-api-service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemePage} from '../../model/MemePage';

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {TeamModalComponent} from '../../shared/team-modal/team-modal.component';
+import {TeamModalComponent} from '../../modals/team-modal/team-modal.component';
 
 @Component({
   selector: 'app-team',

@@ -6,9 +6,9 @@ import {Router} from '@angular/router';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {LogoutModalComponent} from '../../shared/logout-modal/logout-modal.component';
-import {ChangeAvatarModalComponent} from '../../shared/change-avatar-modal/change-avatar-modal.component';
-import {ChangeNickModalComponent} from '../../shared/change-nick-modal/change-nick-modal.component';
+import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
+import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
+import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 
 @Component({
   selector: 'app-memetick',

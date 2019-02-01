@@ -26,6 +26,7 @@ import {StatisticApiService} from './services/statistic-api-service';
 import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
 import {MemeApiService} from './services/meme-api-service';
 import {MemeLikeApiService} from './services/meme-like-api-service';
+import {ModalsModule} from './modals/modals.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MemeLikeApiService} from './services/meme-like-api-service';
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
+    ModalsModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),

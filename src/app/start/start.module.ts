@@ -23,6 +23,7 @@ import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
+import {ModalsModule} from '../modals/modals.module';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.compo
     StartRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    ModalsModule,
     FormsModule,
     OwlModule,
     NgxPageScrollModule,

@@ -13,12 +13,14 @@ import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
 import {ComingSoonComponent} from './coming-soon/coming-soon.component';
 import {RequestFormComponent} from './request-form/request-form.component';
+import {ModalsModule} from '../modals/modals.module';
 
 @NgModule({
   imports: [
     CommonModule,
     PagesRoutingModule,
     SharedModule,
+    ModalsModule,
     FormsModule,
     ReactiveFormsModule
   ],
