@@ -3,8 +3,8 @@
     <div *ngFor="let meme of page.data">
       <div class="memes-table">
         <div class="memes-memtick">
-          <img [src]="tmp" onError="this.src='assets/images/review.png';">
-          <span> {{memetick.nick}} </span>
+          <img [src]="meme.avatar" onError="this.src='assets/images/review.png';">
+          <span> {{meme.memetick.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
           <img (click)='imageView(meme?.image)' [src]="tmp" [alt]="meme?.id">
@@ -13,15 +13,18 @@
           <div class="likes-delimer"></div>
           <div id="like1">
             <img class="img-fluid" [@rotatedState]='chromosomeState' (click)="triggerChromosome()" src="assets/images/icon/2.png">
-            <span class="likes-count">{{memInfo.chromosome}}</span>
+            <span class="likes-count">{{meme.like.chromosomes}}</span>
           </div>
           <div id="like2">
-            <span class="likes-count">{{memInfo.like}}</span>
+            <span class="likes-count">{{meme.like.likes}}</span>
             <img class="img-fluid" [@bouncedState]='likeState' (click)="triggerLike()"
-                 [src]="memInfo.meLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
+                 [src]="meme.like.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
           </div>
         </div>
       </div>
+    </div>
+    <div class="triggerMore" (click)="page.more()" [style.display]="false ? 'none' : 'block'">
+      <i class="fa fa-angle-double-down"></i>
     </div>
     <app-spinner *ngIf="page.loading | async"></app-spinner>
   </div>
