@@ -62,17 +62,7 @@ export class MemeApiService {
   }
 
   public memeRead(fireId: UUID) {
-    console.log('READ - ' + fireId);
-
-    this.db.collection('memes').doc(fireId + '').ref.get().then(function(doc) {
-      if (doc.exists) {
-        console.log('Document data:', doc.data().url);
-      } else {
-        console.log('No such document!');
-      }
-    }).catch(function(error) {
-      console.log('Error getting document:', error);
-    });
+    return this.db.collection('memes').doc(fireId + '').ref.get();
   }
 
 }

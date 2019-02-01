@@ -75,14 +75,16 @@ export class MemesPaginationService {
       }
       for (const meme of memes) {
         const page: MemePage = new MemePage(meme.id);
-        this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
-          page.memetick = memetick;
-          page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
-          this.likeApi.read(meme.id).subscribe((like) => {
-            page.like = like;
-            page.image = 'TMP'; // TODO test
-            this.pages.push(page);
-            this.next();
+        this.memeApi.memeRead(meme.fireId).then(data => {
+          page.image = data.data().url;
+          this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
+            page.memetick = memetick;
+            page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
+            this.likeApi.read(meme.id).subscribe((like) => {
+              page.like = like;
+              this.pages.push(page);
+              this.next();
+            });
           });
         });
       }
