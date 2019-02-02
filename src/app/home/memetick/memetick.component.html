@@ -1,7 +1,8 @@
 <div class="mem-back">
 <div class="memetick-container container">
   <div class="memetick-info">
-    <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL" onError="this.src='assets/images/review.png';">
+    <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''"
+         onError="this.src='assets/images/review.png';">
     <p class="memetick-nick">{{memetick?.nick}}</p>
   </div>
   <div class="memetick-stats" *ngIf='memetickLoad'>

@@ -50,6 +50,9 @@ export class MyHttpInterceptor implements HttpInterceptor {
             () => this.router.navigateByUrl('/start')
           );
         }
+        if (error.status === 404) {
+          console.log('SUKA');
+        }
       }
     ));
   }

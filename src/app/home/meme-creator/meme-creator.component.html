@@ -4,7 +4,7 @@
   </div>
   <div class="create-table flex-center-absolute">
     <div class="create-preview" *ngIf="isPreview">
-      <img [src]="imgURL" alt="">
+      <img [src]="imgURL || ''" alt="">
     </div>
     <div class="dropzone"
          appDropZone
