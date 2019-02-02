@@ -11,3 +11,14 @@
   padding-left: 12px;
   font-family: FuturaRound, serif;
 }
+
+.logo-border {
+  border: solid;
+  border-color: white;
+  border-width: 3px;
+  border-radius: 20px;
+
+  @media(max-width: 991px) {
+    border-radius: 10px;
+  }
+}
