@@ -30,6 +30,10 @@
     animation-iteration-count: infinite;
     animation-name: bounceIn;
   }
+
+  @media(max-width: 991px) {
+    border-style: none;
+  }
 }
 
 .animated-circle {

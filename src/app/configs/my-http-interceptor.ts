@@ -44,14 +44,11 @@ export class MyHttpInterceptor implements HttpInterceptor {
       () => {
       },
       (error) => {
-        if (error.status === 401) {
+        if (error.status === 401 && this.oauthApi.expireToken()) {
           this.oauthApi.refresh().pipe().subscribe(
             () => window.location.reload(),
             () => this.router.navigateByUrl('/start')
           );
-        }
-        if (error.status === 404) {
-          console.log('SUKA');
         }
       }
     ));

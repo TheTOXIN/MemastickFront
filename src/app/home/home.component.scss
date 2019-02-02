@@ -15,10 +15,12 @@
   top: 0;
   transform: translate(-50%, 0);
   position: fixed;
-  width: 300px;
+  width: 250px;
   background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
   img {
     padding: 15px;
+    max-width: 250px;
+    height: auto;
   }
 }
 
@@ -56,6 +58,9 @@
 
 .home-container {
   margin-top: 100px;
+  @media(max-width: 991px) {
+    margin-top: 70px;
+  }
 }
 
 .home-stats {

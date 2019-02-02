@@ -6,9 +6,8 @@
           <img [src]="meme?.avatar || ''" onError="this.src='assets/images/review.png';">
           <span> {{meme?.memetick?.nick}} </span>
         </div>
-        <div class="memes-image animated fadeIn">
-          <img (click)='imageView(meme?.image)' [src]="meme?.image || ''"
-               onError="this.src='assets/images/tokens/tmp.png';">
+        <div class="memes-image animated zoomIn">
+          <img *ngIf="meme.image" (click)='imageView(meme?.image)' [src]="meme?.image || ''">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
@@ -26,6 +25,7 @@
       </div>
     </div>
     <app-spinner *ngIf="(page.loading) | async"></app-spinner>
+    <div class="meme-empty"></div>
   </div>
 </div>
 

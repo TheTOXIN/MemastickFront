@@ -1,17 +1,33 @@
-<div class="mem-back">
 <div class="memetick-container container">
-  <div class="memetick-info">
-    <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''"
-         onError="this.src='assets/images/review.png';">
-    <p class="memetick-nick">{{memetick?.nick}}</p>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="memetick-info">
+        <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''"
+             onError="this.src='assets/images/review.png';">
+        <p class="memetick-nick">{{memetick?.nick}}</p>
+      </div>
+    </div>
   </div>
-  <div class="memetick-stats" *ngIf='memetickLoad'>
-    <app-statistic [memetickId]="memetick.id"></app-statistic>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="memetick-stats" *ngIf='memetickLoad'>
+        <app-statistic [memetickId]="memetick.id"></app-statistic>
+      </div>
+    </div>
   </div>
-  <div class="memetick-control" *ngIf="memetickMe">
-    <button class="memetick-button btn-theme" (click)="changeAvatar()">ВЫБРАТЬ АВАТАР<i class="fa fa-user"></i></button>
-    <button class="memetick-button btn-theme" (click)="logOut()">ВЫЙТИ С АККАУНТА<i class="fa fa-close"></i></button>
-    <button class="memetick-button btn-theme" (click)="changeNick()">СМЕНИТЬ НИК<i class="fa fa-edit"></i></button>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="memetick-control" *ngIf="memetickMe">
+        <button class="memetick-button btn-theme" (click)="changeAvatar()">ВЫБРАТЬ АВАТАР<i class="fa fa-user"></i>
+        </button>
+        <button class="memetick-button btn-theme" (click)="logOut()">ВЫЙТИ С АККАУНТА<i class="fa fa-close"></i>
+        </button>
+        <button class="memetick-button btn-theme" (click)="changeNick()">СМЕНИТЬ НИК<i class="fa fa-edit"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
-</div>
+
+<div class="memetick-back mem-back"></div>
+

@@ -1,7 +1,8 @@
 .memetick-container {
   background: whitesmoke;
   border-radius: 50px;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.5);
 }
@@ -49,3 +50,6 @@
   }
 }
 
+.memetick-back {
+  z-index: -1;
+}
