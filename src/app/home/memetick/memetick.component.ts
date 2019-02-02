@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../services/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
 import {Router} from '@angular/router';
-import {OauthApiService} from '../../services/oauth-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
@@ -20,7 +19,6 @@ export class MemetickComponent implements OnInit {
   memetickLoad = false;
 
   public avatarURL: String = '';
-
   public memetick: Memetick = new Memetick(
     '',
     ''

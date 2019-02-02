@@ -1,6 +1,8 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {WINDOW} from '../services/windows.service';
+import {GlobalConst} from '../../consts/GlobalConst';
+import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -11,13 +13,13 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
+  public headMessage = 'ВЕРСИЯ: ' + GlobalConst.VERSION;
   public darkHeader: boolean = false;
-  public menuItems: any[];
 
-  // Inject Document object
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window
+    @Inject(WINDOW) private window,
+    private router: Router
   ) {
   }
 
@@ -26,8 +28,6 @@ export class HeaderComponent implements OnInit {
     $.getScript('./assets/js/tilt.jquery.js');
   }
 
-
-  // @HostListener Decorator
   @HostListener('window:scroll', [])
   onWindowScroll() {
     let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
@@ -36,6 +36,10 @@ export class HeaderComponent implements OnInit {
     } else {
       this.darkHeader = false;
     }
+  }
+
+  toHome() {
+    this.router.navigateByUrl('/home');
   }
 
 }
