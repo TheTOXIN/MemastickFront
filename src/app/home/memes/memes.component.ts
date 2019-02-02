@@ -7,6 +7,8 @@ import {ImageViewModalComponent} from '../../modals/image-view-modal/image-view-
 import {MemeApiService} from '../../services/meme-api-service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemePage} from '../../model/MemePage';
+import {UUID} from 'angular2-uuid';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -39,7 +41,8 @@ export class MemesComponent implements OnInit {
     private likeApi: MemeLikeApiService,
     private memeApi: MemeApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) {
 
   }
@@ -90,6 +93,10 @@ export class MemesComponent implements OnInit {
   imageView(url: String) {
     const modalRef = this.modalService.open(ImageViewModalComponent, {centered: true});
     modalRef.componentInstance.meme = url;
+  }
+
+  memetickView(memetickId: UUID) {
+    this.router.navigate(['/home/memetick', memetickId]);
   }
 
 }

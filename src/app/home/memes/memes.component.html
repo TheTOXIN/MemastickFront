@@ -2,7 +2,7 @@
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
     <div *ngFor="let meme of page.data | async">
       <div class="memes-table">
-        <div class="memes-memtick">
+        <div class="memes-memtick" (click)="memetickView(meme.memetick.id)">
           <img [src]="meme.avatar" onError="this.src='assets/images/review.png';">
           <span> {{meme.memetick.nick}} </span>
         </div>

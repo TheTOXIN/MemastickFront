@@ -22,6 +22,10 @@ const routes: Routes = [
         component: MemetickComponent
       },
       {
+        path: 'memetick/:id',
+        component: MemetickComponent
+      },
+      {
         path: '',
         component: HomeComponent
       }

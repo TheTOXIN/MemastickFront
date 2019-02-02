@@ -82,7 +82,7 @@ export class OauthApiService {
     const dateRefresh = new Date();
 
     dateAccess.setSeconds(dateAccess.getSeconds() + token.expires_in);
-    dateRefresh.setSeconds(dateRefresh.getSeconds() + token.expires_in * 2);
+    dateRefresh.setSeconds(dateRefresh.getSeconds() + token.expires_in * 24 * 7);
 
     Cookie.set(this.keyAccess, token.access_token, dateAccess, '/');
     Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
