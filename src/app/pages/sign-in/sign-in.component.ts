@@ -51,6 +51,9 @@ export class SignInComponent implements OnInit {
       this.setErrorMessage('Введите логин или почту!');
       return;
     }
+    if (!this.onValid()) {
+      return;
+    }
 
     this.isLoading = true;
 
