@@ -2,23 +2,24 @@
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
     <div *ngFor="let meme of page.data | async">
       <div class="memes-table animated zoomIn">
-        <div class="memes-memtick" (click)="memetickView(meme.memetick.id)">
-          <img [src]="meme.avatar" onError="this.src='assets/images/review.png';">
-          <span> {{meme.memetick.nick}} </span>
+        <div class="memes-memtick" (click)="memetickView(meme?.memetick.id)">
+          <img [src]="meme?.avatar" onError="this.src='assets/images/review.png';">
+          <span> {{meme?.memetick?.nick}} </span>
         </div>
         <div class="memes-image animated fadeIn">
-          <img (click)='imageView(meme.image)' [src]="meme.image" [alt]="meme?.id">
+          <img (click)='imageView(meme?.image)' [src]="meme?.image" onError="this.src='assets/images/tokens/tmp.png';">
         </div>
         <div class="memes-likes">
           <div class="likes-delimer"></div>
           <div id="like1" (mouseleave)="sendChromosome(meme)">
-            <img class="img-fluid" [@rotatedState]='meme.chromosomeState' (click)="triggerChromosome(meme)" src="assets/images/icon/2.png">
-            <span class="likes-count">{{meme.like.chromosomes}}</span>
+            <img class="img-fluid" [@rotatedState]='meme?.chromosomeState' (click)="triggerChromosome(meme)"
+                 src="assets/images/icon/2.png">
+            <span class="likes-count">{{meme?.like?.chromosomes}}</span>
           </div>
           <div id="like2">
-            <span class="likes-count">{{meme.like.likes}}</span>
-            <img class="img-fluid" [@bouncedState]='meme.likeState' (click)="triggerLike(meme)"
-                 [src]="meme.like.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
+            <span class="likes-count">{{meme?.like?.likes}}</span>
+            <img class="img-fluid" [@bouncedState]='meme?.likeState' (click)="triggerLike(meme)"
+                 [src]="meme?.like?.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
           </div>
         </div>
       </div>

@@ -67,22 +67,30 @@ export class MemesPaginationService {
       this.query.size,
       this.query.sort
     ).subscribe((memes) => {
-      if (memes.length === 0 || memes == null) this._loading.next(false);
+      if (memes.length === 0 || memes == null) {
+        this._loading.next(false);
+      }
+      
       const pages: MemePage[] = [];
+
       for (const meme of memes) {
         const page: MemePage = new MemePage(meme.id);
         pages.push(page);
+
         this.memeApi.memeRead(meme.fireId).then(data => {
           page.image = data.data().url;
-          this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
-            page.memetick = memetick;
-            page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
-            this.likeApi.read(meme.id).subscribe((like) => {
-              page.like = like;
-            });
-          });
+        });
+
+        this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
+          page.memetick = memetick;
+          page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
+        });
+
+        this.likeApi.read(meme.id).subscribe((like) => {
+          page.like = like;
         });
       }
+
       this.next(pages);
     });
   }
