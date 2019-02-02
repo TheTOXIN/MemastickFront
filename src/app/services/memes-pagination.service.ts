@@ -29,8 +29,6 @@ export class MemesPaginationService {
   public loading: Observable<boolean> = this._loading.asObservable();
   public data: Observable<MemePage[]>;
 
-  public pages: MemePage[] = [];
-
   constructor(
     private afs: AngularFirestore,
     private memeApi: MemeApiService,
@@ -41,10 +39,10 @@ export class MemesPaginationService {
 
   }
 
-  init(sizePage, sizeInit, sortFiled, isReverse) {
+  init(sizePage, sortFiled, isReverse) {
     this.query = {
       page: 0,
-      size: sizeInit,
+      size: sizePage,
       sort: sortFiled,
       reverse: isReverse,
     };
@@ -53,27 +51,27 @@ export class MemesPaginationService {
       this.query.sort += ',desc';
     }
 
-    this.more();
     this.query.size = sizePage;
     this.data = this._data.asObservable().scan((acc, val) => {
       return acc.concat(val);
     });
+
+    this.more();
   }
 
   public more() {
     if (this._loading.value) {return;}
     this._loading.next(true);
-
     this.memeApi.memePage(
       this.query.page,
       this.query.size,
       this.query.sort
     ).subscribe((memes) => {
-      if (memes.length === 0 || memes == null) {
-        this._loading.next(false);
-      }
+      if (memes.length === 0 || memes == null) this._loading.next(false);
+      const pages: MemePage[] = [];
       for (const meme of memes) {
         const page: MemePage = new MemePage(meme.id);
+        pages.push(page);
         this.memeApi.memeRead(meme.fireId).then(data => {
           page.image = data.data().url;
           this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
@@ -81,20 +79,18 @@ export class MemesPaginationService {
             page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
             this.likeApi.read(meme.id).subscribe((like) => {
               page.like = like;
-              this.pages.push(page);
-              this.next();
             });
           });
         });
       }
+      this.next(pages);
     });
   }
 
-  private next() {
-    this._data.next(this.pages);
+  private next(pages: MemePage[]) {
+    this._data.next(pages);
     this._loading.next(false);
     this.query.page++;
-    this.pages = [];
   }
 
 }

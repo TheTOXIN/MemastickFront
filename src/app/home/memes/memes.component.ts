@@ -50,7 +50,7 @@ export class MemesComponent implements OnInit {
   private chromosomeCounter = 0;
 
   ngOnInit() {
-    this.page.init(1, 3, 'creating', true);
+    this.page.init(3, 'creating', true);
   }
 
   scrollHandler(e) {
@@ -70,7 +70,9 @@ export class MemesComponent implements OnInit {
   }
 
   sendChromosome(meme: MemePage) {
-    if (this.chromosomeCounter === 0) return;
+    if (this.chromosomeCounter === 0) {
+      return;
+    }
 
     this.likeApi.chromosome(meme.id, this.chromosomeCounter);
     this.chromosomeCounter = 0;
