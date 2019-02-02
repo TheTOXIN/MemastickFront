@@ -10,6 +10,9 @@ export class OauthApiService {
 
   public statuses = [];
 
+  private keyAccess = 'access_token_meme';
+  private keyRefresh = 'refresh_token_meme';
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -46,7 +49,7 @@ export class OauthApiService {
   public refresh() {
     const params = new URLSearchParams();
 
-    params.append('refresh_token', Cookie.get('refresh_token'));
+    params.append('refresh_token', Cookie.get(this.keyRefresh));
     params.append('grant_type', 'refresh_token');
     params.append('client_id', 'memastick-client');
 
@@ -69,8 +72,8 @@ export class OauthApiService {
   }
 
   public logout() {
-    Cookie.delete('access_token');
-    Cookie.delete('refresh_token');
+    Cookie.delete(this.keyAccess);
+    Cookie.delete(this.keyRefresh);
     this.router.navigateByUrl('/start');
   }
 
@@ -79,10 +82,18 @@ export class OauthApiService {
     const dateRefresh = new Date();
 
     dateAccess.setSeconds(dateAccess.getSeconds() + token.expires_in);
-    dateRefresh.setSeconds(dateRefresh.getSeconds() + token.expires_in * 24 * 7);
+    dateRefresh.setSeconds(dateRefresh.getSeconds() + token.expires_in * 2);
 
-    Cookie.set('access_token', token.access_token, dateAccess, '/');
-    Cookie.set('refresh_token', token.refresh_token, dateRefresh, '/');
+    Cookie.set(this.keyAccess, token.access_token, dateAccess, '/');
+    Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
+  }
+
+  public expireToken() {
+    return !Cookie.check(this.keyAccess);
+  }
+
+  public readToken() {
+    return Cookie.get(this.keyAccess);
   }
 
   private initStatuses() {

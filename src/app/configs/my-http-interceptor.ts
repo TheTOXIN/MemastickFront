@@ -2,7 +2,6 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {API} from '../consts/API';
-import {Cookie} from 'ng2-cookies';
 import {tap} from 'rxjs/operators';
 import {OauthApiService} from '../services/oauth-api-service';
 import {Router} from '@angular/router';
@@ -32,7 +31,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
     if (!this.anonymus.includes(req.url)) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${Cookie.get('access_token')}`
+          Authorization: `Bearer ${this.oauthApi.readToken()}`
         }
       });
     }
