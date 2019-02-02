@@ -6,7 +6,7 @@
           <img [src]="meme?.avatar || ''" onError="this.src='assets/images/review.png';">
           <span> {{meme?.memetick?.nick}} </span>
         </div>
-        <div class="memes-image animated zoomIn">
+        <div class="memes-image animated zoomIn slow">
           <img *ngIf="meme.image" (click)='imageView(meme?.image)' [src]="meme?.image || ''">
         </div>
         <div class="memes-likes">
