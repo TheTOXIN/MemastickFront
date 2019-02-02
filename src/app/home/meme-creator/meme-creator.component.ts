@@ -24,6 +24,11 @@ export class MemeCreatorComponent {
 
   private fireId: UUID;
 
+  @HostListener('window:popstate', ['$event'])
+  onPopStateHandler(event) {
+    this.remove();
+  }
+
   @HostListener('window:beforeunload', ['$event'])
   unloadHandler(event) {
     this.remove();

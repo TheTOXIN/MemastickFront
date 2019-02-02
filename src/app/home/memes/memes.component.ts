@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -47,10 +47,21 @@ export class MemesComponent implements OnInit {
 
   }
 
+  private chromosomeId = '';
   private chromosomeCounter = 0;
 
   ngOnInit() {
     this.page.init(3, 'creating', true);
+  }
+
+  @HostListener('window:popstate', ['$event'])
+  onPopStateHandler(event) {
+    this.sendChromosome();
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event) {
+    this.sendChromosome();
   }
 
   scrollHandler(e) {
@@ -66,16 +77,23 @@ export class MemesComponent implements OnInit {
      meme.like.myChromosomes++;
      meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
 
-    this.chromosomeCounter++;
+     if (this.chromosomeId === '') { this.chromosomeId = meme.id + ''; }
+     if (this.chromosomeId !== meme.id + '') {
+       this.sendChromosome();
+       this.chromosomeId = meme.id + '';
+       this.chromosomeCounter = 0;
+     }
+
+     this.chromosomeCounter++;
   }
 
-  sendChromosome(meme: MemePage) {
-    if (this.chromosomeCounter === 0) {
-      return;
-    }
+  sendChromosome() {
+    if (this.chromosomeCounter === 0) { return; }
+    this.likeApi.chromosome(this.chromosomeId, this.chromosomeCounter);
+  }
 
-    this.likeApi.chromosome(meme.id, this.chromosomeCounter);
-    this.chromosomeCounter = 0;
+  fullChromosome(meme: MemePage) {
+    return meme.like.myChromosomes >= 30;
   }
 
   triggerLike(meme: MemePage) {
