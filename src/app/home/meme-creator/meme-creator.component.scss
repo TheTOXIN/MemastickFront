@@ -121,12 +121,19 @@
   text-align: center;
   left: 0;
   right: 0;
+
   p {
     line-height: 64px;
     font-family: Futurica, serif;
     font-size: 50px;
     color: #ffffff;
     margin-top: 30px;
+  }
+
+  @media(max-width: 600px) {
+    p {
+      font-size: 32px;
+    }
   }
 }
 
