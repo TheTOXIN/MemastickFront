@@ -18,11 +18,8 @@ $(document).ready(function () {
   if (mobile_menu < 991) {
     $("nav a.nav-link").on('click', function (event) {
       if (!$(this).hasClass('dropdown-toggle')) {
-
-        console.log('click');
         $(".navbar-collapse").collapse('hide');
       }
-
     });
   }
 

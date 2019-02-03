@@ -1,12 +1,10 @@
 <!--Nav start-->
 <nav [class.darkHeader]="darkHeader" class="navbar navbar-expand-lg  theme-nav fixed-top">
   <div class="container">
-    <a [routerLink]="''" class="navbar-brand">
-      <div>
-        <img alt="favicon" class="img-fluid" src="assets/images/title-logo.png">
-        <span class="header-message">COMING SOON</span>
+    <div class="navbar-brand" (click)="toHome()">
+      <img alt="favicon" class="img-fluid" src="assets/images/title-logo.png">
+        <span class="header-message">{{headMessage}}</span>
       </div>
-    </a>
     <button aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#mainmenu" data-toggle="collapse"
             type="button">
       <span class="navbar-toggler-icon"><i aria-hidden="true" class="fa fa-align-justify"></i></span>

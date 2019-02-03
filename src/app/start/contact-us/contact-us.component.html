@@ -12,7 +12,7 @@
             <label for="exampleInputName1">Никнейм</label>
             <i class="fa fa-user"></i>
             <input [formControl]="contactForm.controls['nick']" class="form-control" id="exampleInputName1" name="nick"
-                   placeholder="Nick"
+                   placeholder="Никнейм"
                    required="" type="text">
             <div *ngIf="contactForm.controls.nick.touched && contactForm.controls.nick.errors?.required"
                  class="text text-danger">Никнейм пуст

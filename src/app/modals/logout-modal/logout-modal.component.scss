@@ -1,0 +1,52 @@
+.modal-logout {
+
+}
+
+.my-header {
+  p {
+    width: 100%;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+.my-footer {
+  button {
+    border-radius: 50px;
+  }
+}
+
+.my-section {
+  text-align: center;
+  height: 50px;
+}
+
+.my-body {
+  img {
+    width: 200px;
+    animation: 10s linear 0s normal none infinite running rotate;
+  }
+  p {
+    font-size: 24px;
+    font-family: Gost, serif;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button-check {
+  color: darkgreen;
+}
+
+.button-close {
+  color: darkred;
+}
+

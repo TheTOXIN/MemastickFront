@@ -1,0 +1,40 @@
+.stats-table {
+  text-align: center;
+}
+
+.stats-info {
+  padding: 10px;
+  @media(max-width: 600px) {
+    padding: 5px;
+  }
+}
+
+.stats-title {
+  padding-right: 15px;
+  color: black;
+  font-family: FuturaRound, serif;
+  font-size: 24px;
+  @media(max-width: 600px) {
+      font-size: 18px;
+  }
+}
+
+.stats-img {
+  img {
+    width: 64px;
+  }
+
+  @media(max-width: 600px) {
+    img {
+      width: 48px;
+    }
+  }
+}
+
+.stats-value {
+  padding-left: 15px;
+  font-size: 24px;
+  @media(max-width: 600px) {
+    font-size: 18px;
+  }
+}

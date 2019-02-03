@@ -1,0 +1,44 @@
+.my-header {
+  p {
+    width: 100%;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+.my-footer {
+  button {
+    border-radius: 50px;
+  }
+}
+
+.my-section {
+  text-align: center;
+  height: 50px;
+}
+
+.avatar-choose {
+  button {
+    margin-top: 15px;
+    border-radius: 50px;
+  }
+}
+
+.avatar-choose input[type=file] {
+  font-size: 60px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.button-check {
+  color: darkgreen;
+}
+
+.button-close {
+  color: darkred;
+}
+

@@ -1,10 +1,22 @@
 export enum API {
-  BASE_URL = 'https://memastick-back.herokuapp.com',
+  BASE_URL = 'http://192.168.0.7:8080',
   OAUTH_TOKEN = '/oauth/token',
   HELLO = '/hello',
   INVITE_REGISTRATION = '/invite/registration',
   REGISTRATION = '/registration',
   PASSWORD_RESET_TAKE = '/password-reset/take',
   PASSWORD_RESET_SEND = '/password-reset/send',
-  MEMETICK_ME = '/memetick/me'
+  MEMETICK_VIEW_ME = '/memeticks/view/me',
+  MEMETICK_VIEW = '/memeticks/view',
+  MEMETICK_PREVIEW = '/memeticks/preview',
+  STATS_MEMETICK = '/statistics/memetick',
+  STATS_GLOBAL = '/statistics/global',
+  MEMETICK_AVATAR_DOWNLOAD = '/memetick-avatars/download',
+  MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
+  MEMETICK_NICK_CHANE = '/memeticks/nick/change',
+  MEMES_CREATE = '/memes/create',
+  MEMES_READ = '/memes/read',
+  MEME_LIKES_READ = '/meme-likes/read',
+  MEME_LIKES_TRIGGER = '/meme-likes/trigger',
+  MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome'
 }

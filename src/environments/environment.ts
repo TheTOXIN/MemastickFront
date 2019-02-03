@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: '',
+    authDomain: 'memastick-test.firebaseapp.com',
+    databaseURL: 'https://memastick-test.firebaseio.com',
+    projectId: 'memastick-test',
+    storageBucket: 'memastick-test.appspot.com',
+    messagingSenderId: ''
+  }
 };
 
 /*

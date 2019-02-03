@@ -1,0 +1,32 @@
+<div>
+  <div class="modal-header modal-section my-header my-section">
+    <p>СМЕНА НИКА</p>
+  </div>
+  <div class="modal-body my-body">
+    <p>{{message}}</p>
+    <form class="modal-form" (ngSubmit)="changeNick()">
+      <div class="form-group">
+        <div class="form-help">
+          <label for="exampleInputNick">Никнейм</label>
+          <i class="fa fa-user"></i>
+        </div>
+        <input [formControl]="nickForm.controls['nick']" class="form-control" id="exampleInputNick" name="nick"
+               placeholder="{{nick}}"
+               required="" type="text">
+        <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required"
+             class="text text-danger">Никнейм пуст
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer modal-section my-footer my-section">
+    <button class="btn-theme-inverse" [disabled]="!nickForm.valid" (click)="changeNick()">
+      СМЕНИТЬ
+      <i class="fa fa-check button-check"></i>
+    </button>
+    <button class="btn-theme-inverse" (click)="activeModal.dismiss('Cross click')">
+      ЗАКРЫТЬ
+      <i class="fa fa-close button-close"></i>
+    </button>
+  </div>
+</div>

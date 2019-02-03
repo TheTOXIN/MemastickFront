@@ -1,0 +1,25 @@
+<div>
+  <div class="modal-header modal-section my-header my-section">
+    <p>ВЫБЕРИТЕ АВАТАР</p>
+  </div>
+  <div class="modal-body">
+    <div class="avatar-preview" *ngIf="isPreview">
+      <img class="img-fluid" [src]="avatarPreviewURL || ''">
+    </div>
+    <div class="avatar-choose">
+      <p class="animated fadeInDown" *ngIf="!isPreview">{{message}}</p>
+      <button class="btn-theme">ВЫБРАТЬ ФАЙЛ</button>
+      <input type="file" (change)="showAvatar($event.target.files)" accept=".png,.jpg"/>
+    </div>
+  </div>
+  <div class="modal-footer modal-section my-section my-footer">
+    <button class="btn-theme-inverse" (click)="uploadAvatar()">
+      ГОТОВО
+      <i class="fa fa-check button-check"></i>
+    </button>
+    <button class="btn-theme-inverse" (click)="activeModal.dismiss('Cross click')">
+      ЗАКРЫТЬ
+      <i class="fa fa-close button-close"></i>
+    </button>
+  </div>
+</div>

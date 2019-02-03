@@ -15,7 +15,8 @@
       <h2>АВТОРИЗАЦИЯ</h2>
       <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
       <div class="sign-info">
-        <p class="sign-message" [style.color]="error ? '#dc3545' : ''" [style.display]="isLoading ? 'none' : 'block'">{{message}}</p>
+        <p class="sign-message animated bounceIn" [style.color]="error ? '#dc3545' : ''"
+           [style.display]="isLoading ? 'none' : 'block'">{{message}}</p>
         <i class="fa fa-circle-o-notch fa-spin sign-spinner" [style.display]="isLoading ? 'block' : 'none'"></i>
       </div>
     </div>

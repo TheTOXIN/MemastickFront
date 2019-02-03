@@ -36,6 +36,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.oauth.expireToken()) { this.router.navigateByUrl('/home'); }
     this.signForm = this.fb.group({
       password: ['', Validators.required],
       email: [],
@@ -49,6 +50,9 @@ export class SignInComponent implements OnInit {
       (this.signForm.value.login == null || this.signForm.value.login === '')
     ) {
       this.setErrorMessage('Введите логин или почту!');
+      return;
+    }
+    if (!this.onValid()) {
       return;
     }
 
@@ -73,6 +77,26 @@ export class SignInComponent implements OnInit {
   setErrorMessage(mes: String) {
     this.error = true;
     this.message = mes;
+  }
+
+  onValid(): boolean {
+    if (
+      (this.signForm.value.email == null || this.signForm.value.email === '') &&
+      (this.signForm.value.login == null || this.signForm.value.login === '')
+    ) {
+      this.setErrorMessage('Введите логин или почту!');
+      return false;
+    }
+
+    if (
+      (this.signForm.value.password.length < 6 || this.signForm.value.password.length > 20) ||
+      (this.signForm.value.login.length < 4 || this.signForm.value.login.length > 20)
+    ) {
+      this.setErrorMessage('Неверные данные для входа');
+      return false;
+    }
+
+    return true;
   }
 
 }

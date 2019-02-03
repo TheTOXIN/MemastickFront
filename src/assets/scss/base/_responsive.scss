@@ -189,6 +189,11 @@
       height: 50px;
     }
   }
+  .slid-btn {
+    img {
+      width: 200px;
+    }
+  }
 }
 
 @media(max-width: 1199px) {
@@ -445,6 +450,10 @@
 @media(max-width: 991px) {
   .for-mobile {
     display: block;
+  }
+
+  .home-container {
+    margin-top: 100px;
   }
 
   .work {
@@ -739,6 +748,9 @@
 }
 
 @media(max-width: 767px) {
+  .content-scroll {
+    width: 100%;
+  }
   .slid-btn {
     > a {
       img {

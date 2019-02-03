@@ -5,39 +5,35 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
-// Services
 import {WINDOW_PROVIDERS} from './services/windows.service';
 import {LandingFixService} from '../shared/services/landing-fix.service';
-import {IntroModalComponent} from './intro-modal/intro-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   exports: [
     CommonModule,
     HeaderComponent,
     FooterComponent,
-    IntroModalComponent,
-    OpenIntroModalComponent
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     NgxPageScrollModule,
     NgbModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
     HeaderComponent,
     FooterComponent,
-    IntroModalComponent,
-    OpenIntroModalComponent
+    LoaderComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
     LandingFixService
-  ],
-  entryComponents: [
-    IntroModalComponent
   ]
 })
 export class SharedModule {

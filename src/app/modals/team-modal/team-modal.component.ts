@@ -11,7 +11,10 @@ export class TeamModalComponent {
   @Input()
   public current;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(
+    public activeModal: NgbActiveModal
+  ) {
+
   }
 
 }

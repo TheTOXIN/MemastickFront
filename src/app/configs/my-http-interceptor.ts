@@ -2,7 +2,9 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {API} from '../consts/API';
-import {Cookie} from 'ng2-cookies';
+import {tap} from 'rxjs/operators';
+import {OauthApiService} from '../services/oauth-api-service';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -18,11 +20,18 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.PASSWORD_RESET_TAKE,
   ];
 
+
+  constructor(
+    private oauthApi: OauthApiService,
+    private router: Router
+  ) {
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!this.anonymus.includes(req.url)) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${Cookie.get('access_token')}`
+          Authorization: `Bearer ${this.oauthApi.readToken()}`
         }
       });
     }
@@ -31,7 +40,18 @@ export class MyHttpInterceptor implements HttpInterceptor {
       url: this.URL + req.url,
     });
 
-    return next.handle(req);
+    return next.handle(req).pipe(tap(
+      () => {
+      },
+      (error) => {
+        if (error.status === 401 && this.oauthApi.expireToken()) {
+          this.oauthApi.refresh().pipe().subscribe(
+            () => window.location.reload(),
+            () => this.router.navigateByUrl('/start')
+          );
+        }
+      }
+    ));
   }
 
 }

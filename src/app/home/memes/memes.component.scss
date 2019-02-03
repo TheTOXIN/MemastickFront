@@ -1,0 +1,110 @@
+.memes-table {
+  border-radius: 50px;
+  text-align: center;
+  background: whitesmoke;
+  box-shadow: 0 0 20px 3px #000000ab;
+  margin-top: 30px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  @media(max-width: 1366px) {
+    width: 70%;
+  }
+  @media(max-width: 1199px) {
+    width: 80%;
+  }
+  @media(max-width: 1024px) {
+    width: 90%;
+  }
+  @media(max-width: 991px) {
+    width: 100%;
+  }
+}
+
+.memes-memtick {
+  height: 70px;
+  img {
+    float: left;
+    margin-left: 0px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  span {
+    font-family: Futurica, serif;
+    float: left;
+    margin-left: 10px;
+    color: #212529;
+    font-size: 32px;
+    margin-top: 10px;
+  }
+}
+
+.memes-image {
+  background: white;
+  img {
+    max-width: 100%;
+    max-height: 600px;
+  }
+}
+
+.memes-likes {
+  height: 70px;
+  img {
+    width: 64px;
+  }
+  #like1 {
+    float: left;
+    margin-left: 30px;
+    padding: 3px;
+  }
+  #like2 {
+    float: right;
+    margin-right: 35px;
+  }
+}
+
+.likes-count {
+  color: black;
+  font-family: FuturaRound, serif;
+  font-size: 24px;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.likes-count1 {
+  float: right;
+}
+
+likes-count2 {
+  float: left;
+}
+
+.likes-delimer {
+  border-left: 3px solid #495057;
+  width: 1px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}
+
+@keyframes slider {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0)
+  }
+  40% {
+    transform: translateY(-30px)
+  }
+  60% {
+    transform: translateY(-15px)
+  }
+}
+
+.meme-empty {
+  height: 50px;
+}
+
+.full {
+  opacity: 0.5;
+}

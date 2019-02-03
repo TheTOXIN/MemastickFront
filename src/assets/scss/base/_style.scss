@@ -233,12 +233,29 @@ button:focus {
   }
 }
 
+.btn-theme-inverse {
+  background-color: white;
+  color: $primary_color !important;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+  border: 0;
+  letter-spacing: 1px;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 5px darkorange;
+  }
+}
+
 .btn-theme-primary {
   background-color: $secondary_color;
   color: $white !important;
   font-size: 14px;
   text-transform: uppercase;
-  border-radius: 50px;
+  border-radius: 5px;
   padding: 10px 30px;
   font-weight: 600;
   transition: all 0.3s ease-in;
@@ -3213,3 +3230,44 @@ li.nav-item.dropdown {
 /*========================
  22.landing page css ends
 ==========================*/
+
+.content-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100vh;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  padding: 1em;
+  &::-webkit-scrollbar {width:0;}
+}
+
+//MODAL
+.modal-header {
+  font-size: 36px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.modal-body {
+  text-align: center;
+  background: white;
+  p {
+    color: black;
+    margin-bottom: 0;
+  }
+}
+
+.modal-footer {
+
+}
+
+.modal-section {
+  border-radius: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+}

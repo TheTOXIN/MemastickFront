@@ -1,0 +1,48 @@
+.my-header {
+  p {
+    width: 100%;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 0px;
+  }
+}
+
+.my-footer {
+  button {
+    border-radius: 50px;
+  }
+}
+
+.my-section {
+  text-align: center;
+  height: 50px;
+}
+
+.my-body {
+  p {
+    font-family: FuturaRound, serif;
+    font-size: 20px;
+    color: darkorange;
+  }
+}
+
+.form-help {
+  font-size: 16px;
+  color: #9149dd;
+
+  i {
+    margin-left: 10px;
+  }
+}
+
+.modal-form {
+  margin: 25px;
+}
+
+.button-check {
+  color: darkgreen;
+}
+
+.button-close {
+  color: darkred;
+}

@@ -37,10 +37,6 @@ const routes: Routes = [
         component: ReviewComponent,
       },
       {
-        path: '404',
-        component: ErrorPageComponent,
-      },
-      {
         path: 'faq',
         component: FaqComponent,
       },

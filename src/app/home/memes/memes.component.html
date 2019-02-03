@@ -1,0 +1,31 @@
+<div class="mem-back">
+  <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
+    <div *ngFor="let meme of page.data | async">
+      <div class="memes-table animated zoomIn">
+        <div class="memes-memtick" (click)="memetickView(meme?.memetick.id)">
+          <img [src]="meme?.avatar || ''" onError="this.src='assets/images/review.png';">
+          <span> {{meme?.memetick?.nick}} </span>
+        </div>
+        <div class="memes-image animated zoomIn slow">
+          <img *ngIf="meme.image" (click)='imageView(meme?.image)' [src]="meme?.image || ''">
+        </div>
+        <div class="memes-likes">
+          <div class="likes-delimer"></div>
+          <div id="like1">
+            <img class="img-fluid" [@rotatedState]='meme?.chromosomeState' (click)="triggerChromosome(meme)"
+                 src="assets/images/icon/2.png" [class.full]="fullChromosome(meme)">
+            <span class="likes-count">{{meme?.like?.chromosomes}}</span>
+          </div>
+          <div id="like2">
+            <span class="likes-count">{{meme?.like?.likes}}</span>
+            <img class="img-fluid" [@bouncedState]='meme?.likeState' (click)="triggerLike(meme)"
+                 [src]="meme?.like?.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-spinner *ngIf="(page.loading) | async"></app-spinner>
+    <div class="meme-empty"></div>
+  </div>
+</div>
+
