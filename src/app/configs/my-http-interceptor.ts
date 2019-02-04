@@ -22,8 +22,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
 
   constructor(
-    private oauthApi: OauthApiService,
-    private router: Router
+    private oauthApi: OauthApiService
   ) {
   }
 
@@ -41,13 +40,17 @@ export class MyHttpInterceptor implements HttpInterceptor {
     });
 
     return next.handle(req).pipe(tap(
-      () => {
-      },
+      () => {},
       (error) => {
-        if (error.status === 401 && this.oauthApi.expireToken()) {
+        if (error.status === 401) {
           this.oauthApi.refresh().pipe().subscribe(
-            () => window.location.reload(),
-            () => this.router.navigateByUrl('/start')
+            () => {
+              req = this.oauthApi.addAuthorization(req);
+              return next.handle(req);
+            },
+            () => {
+              this.oauthApi.logout();
+            }
           );
         }
       }
