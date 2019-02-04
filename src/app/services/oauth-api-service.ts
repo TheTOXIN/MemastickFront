@@ -92,7 +92,10 @@ export class OauthApiService {
     dateRefresh.setSeconds(dateRefresh.getSeconds() + token.expires_in * 5);
 
     Cookie.set(this.keyAccess, token.access_token, dateAccess, '/');
-    Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
+
+    if (!Cookie.check(this.keyRefresh)) {
+      Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
+    }
   }
 
   public addAuthorization(req: HttpRequest<any>) {

@@ -44,18 +44,9 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit() {
-    if (
-      (this.signForm.value.email == null || this.signForm.value.email === '') &&
-      (this.signForm.value.login == null || this.signForm.value.login === '')
-    ) {
-      this.setErrorMessage('Введите логин или почту!');
-      return;
-    }
-    if (!this.onValid()) {
-      return;
-    }
-
     this.isLoading = true;
+
+    if (!this.onValid()) { return; }
 
     let username = this.signForm.value.login;
     const password = this.signForm.value.password;
@@ -69,13 +60,14 @@ export class SignInComponent implements OnInit {
       .pipe()
       .subscribe(
         () => this.router.navigateByUrl('/home'),
-        () => { this.setErrorMessage('Неверные данные для входа'); this.isLoading = false; },
+        () => { this.setErrorMessage('Неверные данные для входа'); },
       );
   }
 
   setErrorMessage(mes: String) {
     this.error = true;
     this.message = mes;
+    this.isLoading = false;
   }
 
   onValid(): boolean {
@@ -88,10 +80,10 @@ export class SignInComponent implements OnInit {
     }
 
     if (
-      (this.signForm.value.password.length < 6 || this.signForm.value.password.length > 20) ||
-      (this.signForm.value.login.length < 4 || this.signForm.value.login.length > 20)
+      (this.signForm.value.password.length > 30) ||
+      (this.signForm.value.login.length > 30)
     ) {
-      this.setErrorMessage('Неверные данные для входа');
+      this.setErrorMessage('Некорректные данные');
       return false;
     }
 

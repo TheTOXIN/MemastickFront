@@ -20,7 +20,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.PASSWORD_RESET_TAKE,
   ];
 
-
   constructor(
     private oauthApi: OauthApiService
   ) {
@@ -45,8 +44,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           this.oauthApi.refresh().pipe().subscribe(
             () => {
-              req = this.oauthApi.addAuthorization(req);
-              return next.handle(req);
+              return next.handle(this.oauthApi.addAuthorization(req)).toPromise().then(() => window.location.reload());
             },
             () => {
               this.oauthApi.logout();
