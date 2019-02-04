@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {OAuthService} from 'angular-oauth2-oidc';
+import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({
   selector: 'app-intro',
@@ -9,6 +11,7 @@ import {Router} from '@angular/router';
 export class IntroComponent implements OnInit {
 
   constructor(
+    private oauth: OauthApiService,
     private router: Router
   ) {
   }
@@ -17,7 +20,11 @@ export class IntroComponent implements OnInit {
   }
 
   toSignIn() {
-    this.router.navigateByUrl('/pages/sign-in');
+    if (this.oauth.checkTokens()) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/pages/sign-in');
+    }
   }
 
   toSignUp() {

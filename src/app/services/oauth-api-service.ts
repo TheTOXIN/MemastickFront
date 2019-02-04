@@ -107,6 +107,10 @@ export class OauthApiService {
     return Cookie.get(this.keyAccess);
   }
 
+  public checkTokens() {
+    return Cookie.check(this.keyAccess) || Cookie.check(this.keyRefresh);
+  }
+
   private initStatuses() {
     this.statuses['SUCCESSFUL'] = 'Успешная операция!';
     this.statuses['ERROR'] = 'Ошибка операции!';
