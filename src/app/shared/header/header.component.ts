@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
-  public headMessage = 'ВЕРСИЯ: ' + GlobalConst.VERSION;
+  public headMessage = 'ver: ' + GlobalConst.VERSION;
   public darkHeader: boolean = false;
 
   constructor(

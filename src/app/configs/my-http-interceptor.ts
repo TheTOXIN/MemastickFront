@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
 import {OauthApiService} from '../services/oauth-api-service';
-import {Router} from '@angular/router';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {

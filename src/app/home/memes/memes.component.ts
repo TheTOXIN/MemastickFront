@@ -47,21 +47,8 @@ export class MemesComponent implements OnInit {
 
   }
 
-  private chromosomeId = '';
-  private chromosomeCounter = 0;
-
   ngOnInit() {
     this.page.init(3, 'creating', true);
-  }
-
-  @HostListener('window:popstate', ['$event'])
-  onPopStateHandler(event) {
-    this.sendChromosome();
-  }
-
-  @HostListener('window:beforeunload', ['$event'])
-  unloadHandler(event) {
-    this.sendChromosome();
   }
 
   scrollHandler(e) {
@@ -71,43 +58,27 @@ export class MemesComponent implements OnInit {
   }
 
   triggerChromosome(meme: MemePage) {
-     if (meme.like.myChromosomes >= 30) { return; }
+    if (this.fullChromosome(meme)) { return; }
 
-     meme.like.chromosomes++;
-     meme.like.myChromosomes++;
-     meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
+    meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
 
-     if (this.chromosomeId === '') { this.chromosomeId = meme.id + ''; }
-     if (this.chromosomeId !== meme.id + '') {
-       this.sendChromosome();
-       this.chromosomeId = meme.id + '';
-       this.chromosomeCounter = 0;
-     }
+    meme.like.chromosomes++;
+    meme.like.myChromosomes++;
 
-     this.chromosomeCounter++;
+    this.likeApi.chromosome(meme.id, 1);
   }
 
-  sendChromosome() {
-    if (this.chromosomeCounter === 0) { return; }
-    this.likeApi.chromosome(this.chromosomeId, this.chromosomeCounter);
+  triggerLike(meme: MemePage) {
+    meme.likeState = (meme.likeState === 'default' ? 'bounced' : 'default');
+
+    meme.like.myLike = !meme.like.myLike;
+    meme.like.myLike ? meme.like.likes++ : meme.like.likes--;
+
+    this.likeApi.trigger(meme.id);
   }
 
   fullChromosome(meme: MemePage) {
     return meme.like.myChromosomes >= 30;
-  }
-
-  triggerLike(meme: MemePage) {
-    meme.like.myLike = !meme.like.myLike;
-
-    if (meme.like.myLike) {
-      meme.like.likes++;
-    } else {
-      meme.like.likes--;
-    }
-
-    meme.likeState = (meme.likeState === 'default' ? 'bounced' : 'default');
-
-    this.likeApi.trigger(meme.id);
   }
 
   imageView(url: String) {
