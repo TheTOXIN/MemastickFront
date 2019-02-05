@@ -64,6 +64,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/home/memetick/me');
   }
 
+  toStart() {
+    this.router.navigateByUrl('/start');
+  }
+
   initParticles() {
     this.myStyle = {
       'position': 'fixed',

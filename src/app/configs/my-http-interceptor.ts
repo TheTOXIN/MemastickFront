@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
 import {OauthApiService} from '../services/oauth-api-service';
-import {Router} from '@angular/router';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -20,10 +19,8 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.PASSWORD_RESET_TAKE,
   ];
 
-
   constructor(
-    private oauthApi: OauthApiService,
-    private router: Router
+    private oauthApi: OauthApiService
   ) {
   }
 
@@ -41,13 +38,16 @@ export class MyHttpInterceptor implements HttpInterceptor {
     });
 
     return next.handle(req).pipe(tap(
-      () => {
-      },
+      () => {},
       (error) => {
-        if (error.status === 401 && this.oauthApi.expireToken()) {
+        if (error.status === 401) {
           this.oauthApi.refresh().pipe().subscribe(
-            () => window.location.reload(),
-            () => this.router.navigateByUrl('/start')
+            () => {
+              return next.handle(this.oauthApi.addAuthorization(req)).toPromise().then(() => window.location.reload());
+            },
+            () => {
+              this.oauthApi.logout();
+            }
           );
         }
       }

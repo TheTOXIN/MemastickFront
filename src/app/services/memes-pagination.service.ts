@@ -23,10 +23,10 @@ export class MemesPaginationService {
 
   private query: QueryConfig;
 
-  private _loading = new BehaviorSubject(false);
-  private _data = new BehaviorSubject([]);
+  private _loading;
+  private _data;
 
-  public loading: Observable<boolean> = this._loading.asObservable();
+  public loading: Observable<boolean>;
   public data: Observable<MemePage[]>;
 
   constructor(
@@ -52,6 +52,11 @@ export class MemesPaginationService {
     }
 
     this.query.size = sizePage;
+
+    this._loading = new BehaviorSubject(false);
+    this._data = new BehaviorSubject([]);
+
+    this.loading = this._loading.asObservable();
     this.data = this._data.asObservable().scan((acc, val) => {
       return acc.concat(val);
     });
@@ -70,7 +75,7 @@ export class MemesPaginationService {
       if (memes.length === 0 || memes == null) {
         this._loading.next(false);
       }
-      
+
       const pages: MemePage[] = [];
 
       for (const meme of memes) {
@@ -99,6 +104,11 @@ export class MemesPaginationService {
     this._data.next(pages);
     this._loading.next(false);
     this.query.page++;
+  }
+
+  public destroy() {
+    this._data.unsubscribe();
+    this._loading.unsubscribe();
   }
 
 }

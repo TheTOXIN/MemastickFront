@@ -38,3 +38,56 @@
     font-size: 18px;
   }
 }
+
+.hover-dna {
+  &:hover {
+    animation: pulse 1s;
+  }
+}
+
+.hover-crs {
+  &:hover {
+    animation: rotate 1s;
+  }
+}
+
+.hover-idv {
+  &:hover {
+    animation: bounce 1s;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.0);
+  }
+  60% {
+    transform: scale(0.5);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(0px);
+
+  }
+  33% {
+    transform: translateX(-10px);
+  }
+  66% {
+    transform: translateX(10px);
+  }
+}
