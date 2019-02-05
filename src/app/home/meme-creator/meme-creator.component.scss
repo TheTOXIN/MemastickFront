@@ -46,6 +46,7 @@
 .create-tap {
   width: 105px;
   margin-bottom: 0;
+
   &:hover {
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
@@ -60,6 +61,17 @@
   left: 0;
   top: 0;
   opacity: 0;
+}
+
+.spin-anim {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes bounceIn {
@@ -79,8 +91,6 @@
     transform: scale(1.0);
   }
 }
-
-
 
 .create-help {
   position: absolute;
