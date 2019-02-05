@@ -49,44 +49,54 @@
 
 .memes-likes {
   height: 70px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.like-icon-1 {
+  width: 70%;
+  height: 100%;
   img {
-    width: 64px;
+    margin-left: 5px;
   }
-  #like1 {
-    float: left;
-    margin-left: 30px;
-    padding: 3px;
-  }
-  #like2 {
-    float: right;
-    margin-right: 35px;
-  }
+}
+
+.like-icon-2 {
+  width: 70%;
+  height: 100%;
+}
+
+.likes-icon {
+  width: 64px;
+}
+
+.like-count-1 {
+  height: 100%;
+  width: 100%;
+}
+
+.like-count-2 {
+  height: 100%;
+  width: 100%;
 }
 
 .likes-count {
   color: black;
   font-family: FuturaRound, serif;
-  font-size: 24px;
-  margin-left: 10px;
-  margin-right: 10px;
+  font-size: 25px;
+  margin-top: 15px;
+  display: inline-block;
   vertical-align: middle;
 }
 
-.likes-count1 {
-  float: right;
-}
-
-likes-count2 {
-  float: left;
-}
-
 .likes-delimer {
-  border-left: 3px solid #495057;
-  width: 1px;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;
+  background-color: #444444;
+  width: 10px;
+  height: 80%;
+  border-radius: 90px;
+  margin-top: 5px;
+  padding: 5px;
 }
 
 @keyframes slider {

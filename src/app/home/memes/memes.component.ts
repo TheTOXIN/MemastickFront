@@ -83,6 +83,7 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   fullChromosome(meme: MemePage) {
+    if (meme.like !== null) { return false; }
     return meme.like.myChromosomes >= 30;
   }
 
