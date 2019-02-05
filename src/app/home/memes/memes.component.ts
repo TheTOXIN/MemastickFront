@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -34,7 +34,7 @@ import {Router} from '@angular/router';
     ])
   ]
 })
-export class MemesComponent implements OnInit {
+export class MemesComponent implements OnInit, OnDestroy {
 
   constructor(
     public page: MemesPaginationService,
@@ -49,6 +49,11 @@ export class MemesComponent implements OnInit {
 
   ngOnInit() {
     this.page.init(3, 'creating', true);
+  }
+
+  ngOnDestroy() {
+    console.log('destroy');
+    this.page.destroy();
   }
 
   scrollHandler(e) {
