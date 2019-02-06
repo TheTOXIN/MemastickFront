@@ -11,7 +11,6 @@ import {OauthApiService} from '../../services/oauth-api-service';
 export class IntroComponent implements OnInit {
 
   constructor(
-    private oauth: OauthApiService,
     private router: Router
   ) {
   }
@@ -20,11 +19,7 @@ export class IntroComponent implements OnInit {
   }
 
   toSignIn() {
-    if (this.oauth.checkTokens()) {
-      this.router.navigateByUrl('/home');
-    } else {
-      this.router.navigateByUrl('/pages/sign-in');
-    }
+    this.router.navigateByUrl('/pages/sign-in');
   }
 
   toSignUp() {
