@@ -31,7 +31,8 @@ export class MemesPaginationService {
 
   constructor(
     private afs: AngularFirestore,
-    private memeApi: MemeApiService
+    private memeApi: MemeApiService,
+    private avatarApi: MemetickAvatarApiService,
   ) {
 
   }
@@ -75,7 +76,14 @@ export class MemesPaginationService {
       const result: MemeData[] = [];
 
       for (const page of pages) {
-        result.push(new MemeData(page));
+        const data = new MemeData(page);
+
+        data.avatar = this.avatarApi.dowloadAvatar(page.memetick.id);
+        this.memeApi.memeRead(page.meme.url).then(meme => {
+          data.page.meme.url = meme.data().url;
+        });
+
+        result.push(data);
       }
 
       this.next(result);

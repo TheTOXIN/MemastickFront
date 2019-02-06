@@ -3,11 +3,11 @@
     <div *ngFor="let data of pagination.data | async">
       <div class="memes-table animated zoomIn">
         <div class="memes-memtick" (click)="memetickView(data.page?.memetick.id)">
-          <img [src]="data.avatar || ''" onError="this.src='assets/images/review.png';">
+          <img *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/review.png';">
           <span> {{data.page?.memetick?.nick}} </span>
         </div>
         <div class="memes-image animated zoomIn slow">
-          <img *ngIf="data.page.image" (click)='imageView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
+          <img *ngIf="data.page?.meme.url" (click)='imageView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
         </div>
         <div class="memes-likes">
           <div class="like-icon-1">
