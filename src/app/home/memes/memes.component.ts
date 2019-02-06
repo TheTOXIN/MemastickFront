@@ -6,7 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ImageViewModalComponent} from '../../modals/image-view-modal/image-view-modal.component';
 import {MemeApiService} from '../../services/meme-api-service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
-import {MemePage} from '../../model/MemePage';
+import {MemeData} from '../../model/MemeData';
 import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 
@@ -37,7 +37,7 @@ import {Router} from '@angular/router';
 export class MemesComponent implements OnInit, OnDestroy {
 
   constructor(
-    public page: MemesPaginationService,
+    public pagination: MemesPaginationService,
     private likeApi: MemeLikeApiService,
     private memeApi: MemeApiService,
     private _sanitizer: DomSanitizer,
@@ -48,43 +48,41 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.page.init(3, 'creating', true);
+    this.pagination.init(3, 'creating', true);
   }
 
   ngOnDestroy() {
-    console.log('destroy');
-    this.page.destroy();
+    this.pagination.destroy();
   }
 
   scrollHandler(e) {
     if (e === 'bottom') {
-      this.page.more();
+      this.pagination.more();
     }
   }
 
-  triggerChromosome(meme: MemePage) {
-    if (this.fullChromosome(meme)) { return; }
+  triggerChromosome(data: MemeData) {
+    if (this.fullChromosome(data)) { return; }
 
-    meme.chromosomeState = (meme.chromosomeState === 'default' ? 'rotated' : 'default');
+    data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
 
-    meme.like.chromosomes++;
-    meme.like.myChromosomes++;
+    data.page.likes.chromosomes++;
+    data.page.likes.myChromosomes++;
 
-    this.likeApi.chromosome(meme.id, 1);
+    this.likeApi.chromosome(data.page.meme.id, 1);
   }
 
-  triggerLike(meme: MemePage) {
-    meme.likeState = (meme.likeState === 'default' ? 'bounced' : 'default');
+  triggerLike(data: MemeData) {
+    data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
-    meme.like.myLike = !meme.like.myLike;
-    meme.like.myLike ? meme.like.likes++ : meme.like.likes--;
+    data.page.likes.myLike = !data.page.likes.myLike;
+    data.page.likes.myLike ? data.page.likes.likes++ : data.page.likes.likes--;
 
-    this.likeApi.trigger(meme.id);
+    this.likeApi.trigger(data.page.meme.id);
   }
 
-  fullChromosome(meme: MemePage) {
-    if (meme.like !== null) { return false; }
-    return meme.like.myChromosomes >= 30;
+  fullChromosome(data: MemeData) {
+    return data.page.likes != null && data.page.likes.myChromosomes >= 30;
   }
 
   imageView(url: String) {

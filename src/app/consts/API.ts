@@ -15,7 +15,7 @@ export enum API {
   MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMES_CREATE = '/memes/create',
-  MEMES_READ = '/memes/read',
+  MEMES_READ = '/memes/pages/read',
   MEME_LIKES_READ = '/meme-likes/read',
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome'

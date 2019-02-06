@@ -15,6 +15,16 @@ export class HomeComponent implements OnInit {
   myStyle: object = {};
   myParams: object = {};
 
+  private messages = [
+    'Мемастик в процессе разработки, не ругайте нас',
+    'Чувствуй себя как дома! (но не очень сильно)',
+    'Мемы - это лучшее на что ты можешь потратить свое время',
+    'Новый день! Новый мем!',
+    'Вы не создаете мемы на свой страх и риск!'
+  ];
+
+  public message: String;
+
   public memetick: Memetick = new Memetick(
     '',
     ''
@@ -28,7 +38,7 @@ export class HomeComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-
+    this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
   }
 
   ngOnInit() {
@@ -47,7 +57,7 @@ export class HomeComponent implements OnInit {
   }
 
   private takeMe() {
-    this.memetickApi.me().subscribe(data => {
+    this.memetickApi.viewMe().subscribe(data => {
       this.memetick = data;
     });
   }

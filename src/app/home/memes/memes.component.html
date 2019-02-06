@@ -1,34 +1,34 @@
 <div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
-    <div *ngFor="let meme of page.data | async">
+    <div *ngFor="let data of pagination.data | async">
       <div class="memes-table animated zoomIn">
-        <div class="memes-memtick" (click)="memetickView(meme?.memetick.id)">
-          <img [src]="meme?.avatar || ''" onError="this.src='assets/images/review.png';">
-          <span> {{meme?.memetick?.nick}} </span>
+        <div class="memes-memtick" (click)="memetickView(data.page?.memetick.id)">
+          <img *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/review.png';">
+          <span> {{data.page?.memetick?.nick}} </span>
         </div>
         <div class="memes-image animated zoomIn slow">
-          <img *ngIf="meme.image" (click)='imageView(meme?.image)' [src]="meme?.image || ''">
+          <img *ngIf="data.page?.meme.url" (click)='imageView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
         </div>
         <div class="memes-likes">
           <div class="like-icon-1">
-            <img class="img-fluid likes-icon" [@rotatedState]='meme?.chromosomeState' (click)="triggerChromosome(meme)"
-                 src="assets/images/icon/2.png" [class.full]="fullChromosome(meme)">
+            <img class="img-fluid" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
+                 src="assets/images/icon/2.png" [class.full]="fullChromosome(data)">
           </div>
           <div class="like-count-1">
-            <span class="likes-count">{{meme?.like?.chromosomes}}</span>
+            <span class="likes-count">{{data.page?.likes.chromosomes}}</span>
           </div>
           <div class="likes-delimer"></div>
           <div class="like-count-2">
-            <span class="likes-count">{{meme?.like?.likes}}</span>
+            <span class="likes-count">{{data.page?.likes.likes}}</span>
           </div>
           <div class="like-icon-2">
-            <img class="img-fluid likes-icon" [@bouncedState]='meme?.likeState' (click)="triggerLike(meme)"
-                 [src]="meme?.like?.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
+            <img class="img-fluid" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
+                 [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
           </div>
         </div>
       </div>
     </div>
-    <app-spinner *ngIf="(page.loading) | async"></app-spinner>
+    <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
     <div class="meme-empty"></div>
   </div>
 </div>

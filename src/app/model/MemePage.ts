@@ -1,22 +1,13 @@
-import {MemeLike} from './MemeLike';
+import {Meme} from './Meme';
+import {MemeStateLike} from './MemeStateLike';
 import {MemetickPreview} from './MemetickPreview';
-import {UUID} from 'angular2-uuid';
 
 export class MemePage {
-
-  public id: UUID;
-  public like: MemeLike;
-  public memetick: MemetickPreview;
-  public image: String;
-  public avatar: String;
-
-  chromosomeState = 'default';
-  likeState = 'default';
-
   constructor(
-    id: UUID
-  ){
-    this.id = id;
-  }
+    public meme: Meme,
+    public likes: MemeStateLike,
+    public memetick: MemetickPreview
+  ) {
 
+  }
 }

@@ -1,4 +1,4 @@
-export class MemeLike {
+export class MemeStateLike {
   constructor(
     public likes: number,
     public chromosomes: number,

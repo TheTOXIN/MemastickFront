@@ -3,11 +3,6 @@ import {ErrorPageComponent} from './pages/error-page/error-page.component';
 
 export const rootRouterConfig: Routes = [
   {
-    path: '',
-    redirectTo: 'start',
-    pathMatch: 'full'
-  },
-  {
     path: 'start',
     loadChildren: './start/start.module#StartModule'
   },
