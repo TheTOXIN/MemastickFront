@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   private takeMe() {
-    this.memetickApi.me().subscribe(data => {
+    this.memetickApi.viewMe().subscribe(data => {
       this.memetick = data;
     });
   }

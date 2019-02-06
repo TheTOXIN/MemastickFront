@@ -44,7 +44,7 @@ export class MemetickComponent implements OnInit {
       let apiObservable;
 
       if (this.memetickMe) {
-        apiObservable = this.memetickApi.me();
+        apiObservable = this.memetickApi.viewMe();
       } else {
         apiObservable = this.memetickApi.view(this.memetick.id);
       }

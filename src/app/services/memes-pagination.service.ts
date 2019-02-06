@@ -6,7 +6,7 @@ import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from './meme-api-service';
-import {MemePage} from '../model/MemePage';
+import {MemeData} from '../model/MemeData';
 import {MemeLikeApiService} from './meme-like-api-service';
 import {MemetickApiService} from './memetick-api-service';
 import {MemetickAvatarApiService} from './memetick-avatar-api-service';
@@ -27,14 +27,11 @@ export class MemesPaginationService {
   private _data;
 
   public loading: Observable<boolean>;
-  public data: Observable<MemePage[]>;
+  public data: Observable<MemeData[]>;
 
   constructor(
     private afs: AngularFirestore,
-    private memeApi: MemeApiService,
-    private memetickApi: MemetickApiService,
-    private avatarApi: MemetickAvatarApiService,
-    private likeApi: MemeLikeApiService
+    private memeApi: MemeApiService
   ) {
 
   }
@@ -65,42 +62,27 @@ export class MemesPaginationService {
   }
 
   public more() {
-    if (this._loading.value) {return;}
+    if (this._loading.value) { return; }
     this._loading.next(true);
+
     this.memeApi.memePage(
       this.query.page,
       this.query.size,
       this.query.sort
-    ).subscribe((memes) => {
-      if (memes.length === 0 || memes == null) {
-        this._loading.next(false);
+    ).subscribe((pages) => {
+      if (pages.length === 0 || pages == null) { this._loading.next(false); }
+
+      const result: MemeData[] = [];
+
+      for (const page of pages) {
+        result.push(new MemeData(page));
       }
 
-      const pages: MemePage[] = [];
-
-      for (const meme of memes) {
-        const page: MemePage = new MemePage(meme.id);
-        pages.push(page);
-
-        this.memeApi.memeRead(meme.fireId).then(data => {
-          page.image = data.data().url;
-        });
-
-        this.memetickApi.preview(meme.memetickId).subscribe((memetick) => {
-          page.memetick = memetick;
-          page.avatar = this.avatarApi.dowloadAvatar(meme.memetickId);
-        });
-
-        this.likeApi.read(meme.id).subscribe((like) => {
-          page.like = like;
-        });
-      }
-
-      this.next(pages);
+      this.next(result);
     });
   }
 
-  private next(pages: MemePage[]) {
+  private next(pages: MemeData[]) {
     this._data.next(pages);
     this._loading.next(false);
     this.query.page++;

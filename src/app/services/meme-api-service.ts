@@ -7,6 +7,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
 import {HttpParamsOptions} from '@angular/common/http/src/params';
 import {Meme} from '../model/Meme';
+import {MemePage} from '../model/MemePage';
 
 
 @Injectable()
@@ -26,7 +27,7 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePage(page, size, sort): Observable<Meme[]> {
+  public memePage(page, size, sort): Observable<MemePage[]> {
     const params = new HttpParams()
       .set('page', page)
       .set('size', size)
@@ -37,7 +38,7 @@ export class MemeApiService {
       .set('Content-Type', 'application/json');
 
     return this.http
-      .get<Meme[]>(API.MEMES_READ, {headers, params})
+      .get<MemePage[]>(API.MEMES_READ, {headers, params})
       .pipe();
   }
 
