@@ -1,7 +1,13 @@
 import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
+import {RedirectRootComponent} from './shared/redirect-root/redirect-root.component';
 
 export const rootRouterConfig: Routes = [
+  {
+    path: '',
+    component: RedirectRootComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'start',
     loadChildren: './start/start.module#StartModule'

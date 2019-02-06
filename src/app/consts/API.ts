@@ -8,7 +8,6 @@ export enum API {
   PASSWORD_RESET_SEND = '/password-reset/send',
   MEMETICK_VIEW_ME = '/memeticks/view/me',
   MEMETICK_VIEW = '/memeticks/view',
-  MEMETICK_PREVIEW = '/memeticks/preview',
   STATS_MEMETICK = '/statistics/memetick',
   STATS_GLOBAL = '/statistics/global',
   MEMETICK_AVATAR_DOWNLOAD = '/memetick-avatars/download',
@@ -16,7 +15,6 @@ export enum API {
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMES_CREATE = '/memes/create',
   MEMES_READ = '/memes/pages/read',
-  MEME_LIKES_READ = '/meme-likes/read',
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome'
 }
