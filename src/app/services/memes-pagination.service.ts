@@ -71,18 +71,16 @@ export class MemesPaginationService {
       this.query.size,
       this.query.sort
     ).subscribe((pages) => {
-      if (pages.length === 0 || pages == null) { this._loading.next(false); }
+      if (pages.length === 0 || pages == null) {
+        this._loading.next(false);
+        return;
+      }
 
       const result: MemeData[] = [];
 
       for (const page of pages) {
         const data = new MemeData(page);
-
         data.avatar = this.avatarApi.dowloadAvatar(page.memetick.id);
-        this.memeApi.memeRead(page.meme.url).then(meme => {
-          data.page.meme.url = meme.data().url;
-        });
-
         result.push(data);
       }
 

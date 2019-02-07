@@ -10,13 +10,15 @@ import {LandingFixService} from '../shared/services/landing-fix.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoaderComponent} from './loader/loader.component';
+import {RedirectRootComponent} from './redirect-root/redirect-root.component';
 
 @NgModule({
   exports: [
     CommonModule,
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    RedirectRootComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import {LoaderComponent} from './loader/loader.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    RedirectRootComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

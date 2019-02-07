@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
@@ -10,29 +10,22 @@ import {ErrorStatus} from '../../consts/ErrorStatus';
   templateUrl: './meme-creator.component.html',
   styleUrls: ['./meme-creator.component.scss']
 })
-export class MemeCreatorComponent {
+export class MemeCreatorComponent implements OnInit {
 
   public status;
   public message;
 
-  isHovering = false;
-  isPreview = false;
-  isCreate = false;
-
   public imageFile: File;
   public imgURL: any;
 
-  private fireId: UUID;
+  public fireId: UUID;
+  public firePath: string;
 
-  @HostListener('window:popstate', ['$event'])
-  onPopStateHandler(event) {
-    this.remove();
-  }
+  isHovering = false;
+  isPreview = false;
 
-  @HostListener('window:beforeunload', ['$event'])
-  unloadHandler(event) {
-    this.remove();
-  }
+  public isCreate = false;
+  public isPossible = true;
 
   constructor(
     private router: Router,
@@ -42,31 +35,54 @@ export class MemeCreatorComponent {
     this.message = '';
   }
 
+  ngOnInit(): void {
+    this.memeApi.memeCreateCheck().subscribe(
+      () => {
+      },
+      (error) => {
+        this.isPossible = false;
+        this.createError(error);
+      }
+    );
+  }
+
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   upload(files) {
+    if (!this.isPossible) { return; }
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
 
-    this.status = LoaderStatus.LOAD;
     this.imageFile = files[0];
-    this.fireId = UUID.UUID();
 
-    this.memeApi.memeUpload(this.imageFile, this.fireId).then(
-      () => { this.show(); },
-      () => { this.error('Ошибка загрузки'); }
-    );
+    const reader = new FileReader();
+    reader.readAsDataURL(this.imageFile);
+    reader.onload = () => this.imgURL = reader.result;
+
+    this.isPreview = true;
   }
 
   create() {
-    if (!this.isPreview || this.isCreate) { return; }
+    if (!this.isPreview || this.isCreate || !this.isPossible) { return; }
     this.status = LoaderStatus.LOAD;
 
-    this.memeApi.memeCreate(this.fireId).subscribe(
-      () => { this.createDone(); },
-      (error) => { this.createError(error); }
+    this.fireId = UUID.UUID();
+    this.firePath = `memes/${this.fireId}`;
+
+    this.memeApi.memeUpload(this.imageFile, this.firePath).then(
+      () => {
+        this.memeApi.memeLoad(this.firePath).subscribe(url => {
+          this.memeApi.memeCreate(this.fireId, url).subscribe(
+            () => { this.createDone(); },
+            (error) => { this.createError(error); }
+            );
+        });
+      },
+      () => {
+        this.error('Ошибка загрузки');
+      }
     );
   }
 
@@ -77,14 +93,12 @@ export class MemeCreatorComponent {
   }
 
   createError(error: any) {
-    this.remove();
-
-    var errorMessage = '';
+    let errorMessage = '';
 
     if (error.error.code === ErrorStatus.LESS_TOKEN) {
       errorMessage = 'Вы уже создвали МЕМ';
     } else {
-      errorMessage = 'Ошибка создания';
+      errorMessage = 'Ошибка сервера';
     }
 
     this.error(errorMessage);
@@ -95,25 +109,8 @@ export class MemeCreatorComponent {
     this.status = LoaderStatus.ERROR;
   }
 
-  show() {
-    this.isPreview = true;
-    this.status = LoaderStatus.NONE;
-
-    const reader = new FileReader();
-
-    reader.readAsDataURL(this.imageFile);
-    reader.onload = () => this.imgURL = reader.result;
-  }
-
   memes() {
     this.router.navigateByUrl('/home/memes');
-  }
-
-  remove() {
-    if (!this.isCreate && this.fireId != null && this.fireId !== '') {
-      this.memeApi.memeRemove(this.fireId);
-      this.fireId = null;
-    }
   }
 
 }
