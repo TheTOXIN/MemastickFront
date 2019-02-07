@@ -55,8 +55,5 @@ export class MemeApiService {
     return this.storage.ref(path).getDownloadURL().pipe();
   }
 
-  public memeRemove(path: string) {
-    this.storage.ref(path).delete();
-  }
 
 }

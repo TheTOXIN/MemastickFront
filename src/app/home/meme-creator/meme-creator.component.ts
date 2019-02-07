@@ -27,16 +27,6 @@ export class MemeCreatorComponent implements OnInit {
   public isCreate = false;
   public isPossible = true;
 
-  @HostListener('window:popstate', ['$event'])
-  onPopStateHandler(event) {
-    this.remove();
-  }
-
-  @HostListener('window:beforeunload', ['$event'])
-  unloadHandler(event) {
-    this.remove();
-  }
-
   constructor(
     private router: Router,
     private memeApi: MemeApiService,
@@ -47,7 +37,8 @@ export class MemeCreatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.memeApi.memeCreateCheck().subscribe(
-      () => {},
+      () => {
+      },
       (error) => {
         this.isPossible = false;
         this.createError(error);
@@ -64,25 +55,34 @@ export class MemeCreatorComponent implements OnInit {
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
 
-    this.status = LoaderStatus.LOAD;
     this.imageFile = files[0];
 
-    this.fireId = UUID.UUID();
-    this.firePath = `memes/${this.fireId}`;
+    const reader = new FileReader();
+    reader.readAsDataURL(this.imageFile);
+    reader.onload = () => this.imgURL = reader.result;
 
-    this.memeApi.memeUpload(this.imageFile, this.firePath).then(
-      () => { this.show(); },
-      () => { this.error('Ошибка загрузки'); }
-    );
+    this.isPreview = true;
   }
 
   create() {
     if (!this.isPreview || this.isCreate || !this.isPossible) { return; }
     this.status = LoaderStatus.LOAD;
 
-    this.memeApi.memeCreate(this.fireId, this.imgURL).subscribe(
-      () => { this.createDone(); },
-      (error) => { this.createError(error); }
+    this.fireId = UUID.UUID();
+    this.firePath = `memes/${this.fireId}`;
+
+    this.memeApi.memeUpload(this.imageFile, this.firePath).then(
+      () => {
+        this.memeApi.memeLoad(this.firePath).subscribe(url => {
+          this.memeApi.memeCreate(this.fireId, url).subscribe(
+            () => { this.createDone(); },
+            (error) => { this.createError(error); }
+            );
+        });
+      },
+      () => {
+        this.error('Ошибка загрузки');
+      }
     );
   }
 
@@ -93,8 +93,6 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   createError(error: any) {
-    this.remove();
-
     let errorMessage = '';
 
     if (error.error.code === ErrorStatus.LESS_TOKEN) {
@@ -111,26 +109,8 @@ export class MemeCreatorComponent implements OnInit {
     this.status = LoaderStatus.ERROR;
   }
 
-  show() {
-    this.memeApi.memeLoad(this.firePath).subscribe(url => {
-      this.imgURL = url;
-      this.isPreview = true;
-    });
-  }
-
-  load() {
-    this.status = LoaderStatus.NONE;
-  }
-
   memes() {
     this.router.navigateByUrl('/home/memes');
-  }
-
-  remove() {
-    if (!this.isCreate && this.firePath != null && this.firePath !== '') {
-      this.memeApi.memeRemove(this.firePath);
-      this.firePath = null;
-    }
   }
 
 }
