@@ -115,8 +115,11 @@ export class MemeCreatorComponent implements OnInit {
     this.memeApi.memeLoad(this.firePath).subscribe(url => {
       this.imgURL = url;
       this.isPreview = true;
-      this.status = LoaderStatus.NONE;
     });
+  }
+
+  load() {
+    this.status = LoaderStatus.NONE;
   }
 
   memes() {
