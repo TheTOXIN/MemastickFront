@@ -70,4 +70,8 @@ export class MemetickComponent implements OnInit {
     this.modalService.open(LogoutModalComponent);
   }
 
+  back() {
+    window.history.back();
+  }
+
 }
