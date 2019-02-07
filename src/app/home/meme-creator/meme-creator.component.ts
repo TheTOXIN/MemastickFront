@@ -10,7 +10,7 @@ import {ErrorStatus} from '../../consts/ErrorStatus';
   templateUrl: './meme-creator.component.html',
   styleUrls: ['./meme-creator.component.scss']
 })
-export class MemeCreatorComponent implements OnInit {
+export class MemeCreatorComponent {
 
   public status;
   public message;
@@ -23,9 +23,7 @@ export class MemeCreatorComponent implements OnInit {
 
   isHovering = false;
   isPreview = false;
-
-  public isCreate = false;
-  public isPossible = true;
+  isCreate = false;
 
   constructor(
     private router: Router,
@@ -35,37 +33,24 @@ export class MemeCreatorComponent implements OnInit {
     this.message = '';
   }
 
-  ngOnInit(): void {
-    this.memeApi.memeCreateCheck().subscribe(
-      () => {
-      },
-      (error) => {
-        this.isPossible = false;
-        this.createError(error);
-      }
-    );
-  }
-
   toggleHover(event: boolean) {
     this.isHovering = event;
   }
 
   upload(files) {
-    if (!this.isPossible) { return; }
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
 
-    this.imageFile = files[0];
+    this.status = LoaderStatus.LOAD;
 
-    const reader = new FileReader();
-    reader.readAsDataURL(this.imageFile);
-    reader.onload = () => this.imgURL = reader.result;
-
-    this.isPreview = true;
+    this.memeApi.memeCreateCheck().subscribe(
+      () => this.show(files),
+      (error) => this.createError(error)
+    );
   }
 
   create() {
-    if (!this.isPreview || this.isCreate || !this.isPossible) { return; }
+    if (!this.isPreview || this.isCreate) { return; }
     this.status = LoaderStatus.LOAD;
 
     this.fireId = UUID.UUID();
@@ -102,6 +87,17 @@ export class MemeCreatorComponent implements OnInit {
     }
 
     this.error(errorMessage);
+  }
+
+  show(files) {
+    this.imageFile = files[0];
+    const reader = new FileReader();
+
+    reader.readAsDataURL(this.imageFile);
+    reader.onload = () => this.imgURL = reader.result;
+
+    this.isPreview = true;
+    this.status = LoaderStatus.NONE;
   }
 
   error(message: string) {
