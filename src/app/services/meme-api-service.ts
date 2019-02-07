@@ -2,11 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {UUID} from 'angular2-uuid';
 import {API} from '../consts/API';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
-import {HttpParamsOptions} from '@angular/common/http/src/params';
-import {Meme} from '../model/Meme';
 import {MemePage} from '../model/MemePage';
 
 
@@ -16,14 +13,22 @@ export class MemeApiService {
   constructor(
     private http: HttpClient,
     private storage: AngularFireStorage,
-    private db: AngularFirestore,
   ) {
 
   }
 
-  public memeCreate(fireId: UUID): Observable<any> {
+  public memeCreate(fireId: UUID, url: string): Observable<any> {
     return this.http
-      .post(API.MEMES_CREATE, {fireId: fireId})
+      .post(API.MEMES_CREATE, {
+        fireId: fireId,
+        url: url
+      })
+      .pipe();
+  }
+
+  public memeCreateCheck() {
+    return this.http
+      .get(API.MEMES_CREATE_CHECK, {})
       .pipe();
   }
 
@@ -42,28 +47,16 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memeUpload(image: File, fireId: UUID) {
-    const path = `memes/${fireId}_${image.name}`;
-
-    return this.storage.upload(path, image).then(() => {
-      this.storage.ref(path).getDownloadURL().subscribe(
-        url => {
-          this.db.collection('memes').doc(fireId + '').set({
-            uuid: fireId,
-            url: url,
-            date: new Date(),
-          });
-        },
-      );
-    });
+  public memeUpload(image: File, path: string) {
+    return this.storage.upload(path, image);
   }
 
-  public memeRemove(fireId: UUID) {
-    this.db.collection('memes').doc(fireId + '').delete();
+  public memeLoad(path: string) {
+    return this.storage.ref(path).getDownloadURL().pipe();
   }
 
-  public memeRead(fireId: UUID) {
-    return this.db.collection('memes').doc(fireId + '').ref.get();
+  public memeRemove(path: string) {
+    this.storage.ref(path).delete();
   }
 
 }
