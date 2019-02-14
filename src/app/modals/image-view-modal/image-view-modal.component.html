@@ -1,3 +1,16 @@
 <div class="image-view">
-  <img (click)="activeModal.dismiss('Cross click')" [src]="meme || ''">
+  <pinch-zoom>
+  <img [src]="meme || ''">
+  </pinch-zoom>
+</div>
+<div class="panel-view">
+  <span (click)="save()">
+    <i class="fa fa-save"></i>
+  </span>
+  <span (click)="close()">
+      <i class="fa fa-times"></i>
+  </span>
+  <span (click)="share()">
+    <i class="fa fa-share-alt"></i>
+  </span>
 </div>

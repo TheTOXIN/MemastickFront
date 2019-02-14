@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,7 +12,7 @@ export class ImageViewModalComponent implements OnInit {
   public meme;
 
   constructor(
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
   ) {
 
   }
@@ -20,4 +20,20 @@ export class ImageViewModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    this.close();
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click');
+  }
+
+  save() {
+    window.location.href = this.meme;
+  }
+
+  share() {
+
+  }
 }

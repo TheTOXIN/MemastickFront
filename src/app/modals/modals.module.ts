@@ -10,6 +10,7 @@ import {IntroModalComponent} from './intro-modal/intro-modal.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from './team-modal/team-modal.component';
+import {PinchZoomModule} from 'ngx-pinch-zoom';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {TeamModalComponent} from './team-modal/team-modal.component';
     NgxPageScrollModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PinchZoomModule
   ],
   declarations: [
     IntroModalComponent,

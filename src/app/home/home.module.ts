@@ -12,6 +12,7 @@ import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
+import {PinchZoomModule} from 'ngx-pinch-zoom';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {ModalsModule} from '../modals/modals.module';
     HomeRoutingModule,
     ParticlesModule,
     SharedModule,
-    ModalsModule
+    ModalsModule,
+    PinchZoomModule
   ],
   declarations: [
     HomeComponent,

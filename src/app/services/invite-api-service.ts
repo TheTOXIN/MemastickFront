@@ -5,7 +5,6 @@ import {API} from '../consts/API';
 @Injectable()
 export class InviteApiService {
 
-
   constructor(private http: HttpClient) {}
 
   public sendInvite(email, nick) {
