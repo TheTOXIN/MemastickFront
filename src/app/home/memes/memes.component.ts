@@ -86,7 +86,13 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   imageView(url: String) {
-    const modalRef = this.modalService.open(ImageViewModalComponent, {centered: true});
+    const modalRef = this.modalService.open(
+      ImageViewModalComponent, {
+        centered: true,
+        size: 'lg',
+        windowClass: 'modal-xxl'
+      }
+    );
     modalRef.componentInstance.meme = url;
   }
 
