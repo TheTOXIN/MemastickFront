@@ -41,7 +41,13 @@ export class MemeViewComponent implements OnInit {
     });
   }
 
+  //TODO сделать отдельную старницу для мемаса
   viewShare() {
-    console.log('SAHRE');
+    const shareURl = 'tg://msg?text=' + this.memePreview;
+    console.log(shareURl);
+    const a = document.createElement('a');
+    a.href = shareURl;
+    document.body.appendChild(a);
+    a.click();
   }
 }
