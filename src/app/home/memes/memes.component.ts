@@ -95,7 +95,7 @@ export class MemesComponent implements OnInit, OnDestroy {
     this.router.navigate(['/home/memetick', memetickId]);
   }
 
-  memeView(url: String) {
+  memeView(url: string) {
     this.memePreview = url;
     this.view.viewShow();
   }

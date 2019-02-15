@@ -33,9 +33,11 @@ export class MyHttpInterceptor implements HttpInterceptor {
       });
     }
 
-    req = req.clone({
-      url: this.URL + req.url,
-    });
+    if (!req.url.startsWith('http')) {
+      req = req.clone({
+        url: this.URL + req.url,
+      });
+    }
 
     return next.handle(req).pipe(tap(
       () => {},

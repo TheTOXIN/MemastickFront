@@ -5,7 +5,7 @@ import {API} from '../consts/API';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
 import {MemePage} from '../model/MemePage';
-
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MemeApiService {
@@ -55,5 +55,9 @@ export class MemeApiService {
     return this.storage.ref(path).getDownloadURL().pipe();
   }
 
-
+  public memeDownload(url: string) {
+    return this.http.get(url, {observe: 'response', responseType: 'blob'}).map((res) => {
+      return new Blob([res.body], {type: res.headers.get('Content-Type')});
+    });
+  }
 }

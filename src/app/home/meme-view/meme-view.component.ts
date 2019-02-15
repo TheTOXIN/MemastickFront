@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MemeApiService} from '../../services/meme-api-service';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-meme-view',
@@ -12,7 +14,11 @@ export class MemeViewComponent implements OnInit {
 
   isPreview = false;
 
-  constructor() { }
+  constructor(
+    private memeApi: MemeApiService
+  ) {
+
+  }
 
   ngOnInit() {
   }
@@ -21,16 +27,21 @@ export class MemeViewComponent implements OnInit {
     this.isPreview = true;
   }
 
-  viewSave() {
-    window.location.href = this.memePreview;
-  }
-
   viewClose() {
     this.isPreview = false;
+  }
+
+  viewSave() {
+    this.memeApi.memeDownload(this.memePreview).subscribe((res) => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(res);
+      a.download = UUID.UUID();
+      document.body.appendChild(a);
+      a.click();
+    });
   }
 
   viewShare() {
     console.log('SAHRE');
   }
-
 }
