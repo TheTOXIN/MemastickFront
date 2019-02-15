@@ -13,6 +13,7 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
+import {MemeViewComponent} from './meme-view/meme-view.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     MemeCreatorComponent,
     MemetickComponent,
     StatisticComponent,
+    MemeViewComponent,
     ScrollableDirective,
     DropZoneDirective
   ]

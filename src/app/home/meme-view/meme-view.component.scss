@@ -1,0 +1,39 @@
+.meme-view {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.71);
+}
+
+.meme-view-image {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 0 0 0;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.meme-view-zoom {
+  display: block;
+  overflow: hidden;
+  height: 100%;
+}
+
+.meme-view-panel {
+  background-color: rgba(12, 7, 70, 0.71);
+  position: absolute;
+  text-align: center;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  i {
+    margin: 10px 20px;
+    font-size: 48px;
+    color: whitesmoke;
+  }
+}

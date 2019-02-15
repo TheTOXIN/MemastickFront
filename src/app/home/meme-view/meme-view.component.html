@@ -1,0 +1,19 @@
+<!--TODO вынесети нахуй-->
+<div *ngIf="isPreview" class="meme-view animated zoomIn faster">
+  <pinch-zoom class="meme-view-zoom">
+    <div class="meme-view-image">
+      <img [src]="memePreview || ''">
+    </div>
+  </pinch-zoom>
+  <div class="meme-view-panel">
+  <span (click)="viewSave()">
+    <i class="fa fa-save"></i>
+  </span>
+    <span (click)="viewClose()">
+      <i class="fa fa-times"></i>
+  </span>
+    <span (click)="viewShare()">
+    <i class="fa fa-share-alt"></i>
+  </span>
+  </div>
+</div>

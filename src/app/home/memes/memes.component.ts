@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -8,6 +8,7 @@ import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeData} from '../../model/MemeData';
 import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
+import {MemeViewComponent} from '../meme-view/meme-view.component';
 
 
 @Component({
@@ -35,8 +36,9 @@ import {Router} from '@angular/router';
 })
 export class MemesComponent implements OnInit, OnDestroy {
 
-  private isPreview = false;
-  private memePreview: String;
+  private memePreview: string;
+
+  @ViewChild(MemeViewComponent) view: MemeViewComponent;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -64,7 +66,9 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   triggerChromosome(data: MemeData) {
-    if (this.fullChromosome(data)) { return; }
+    if (this.fullChromosome(data)) {
+      return;
+    }
 
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
 
@@ -92,19 +96,7 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   memeView(url: String) {
-    this.isPreview = true;
     this.memePreview = url;
-  }
-
-  viewSave() {
-    window.location.href = this.memePreview;
-  }
-
-  viewClose() {
-    this.isPreview = false;
-  }
-
-  viewShare() {
-    console.log('SAHRE');
+    this.view.viewShow();
   }
 }
