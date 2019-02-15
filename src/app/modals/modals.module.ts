@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {LogoutModalComponent} from './logout-modal/logout-modal.component';
-import {ImageViewModalComponent} from './image-view-modal/image-view-modal.component';
 import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
 import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
 import {IntroModalComponent} from './intro-modal/intro-modal.component';
@@ -19,8 +18,7 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
-    ChangeAvatarModalComponent,
-    ImageViewModalComponent
+    ChangeAvatarModalComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +34,6 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    ImageViewModalComponent,
     TeamModalComponent
   ],
   entryComponents: [
@@ -44,7 +41,6 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    ImageViewModalComponent,
     TeamModalComponent
   ]
 })

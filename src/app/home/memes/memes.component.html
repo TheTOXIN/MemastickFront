@@ -7,7 +7,7 @@
           <span> {{data.page?.memetick?.nick}} </span>
         </div>
         <div class="memes-image animated zoomIn slow">
-          <img *ngIf="data.page?.meme.url" (click)='imageView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
+          <img *ngIf="data.page?.meme.url" (click)='memeView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
         </div>
         <div class="memes-likes">
           <div class="like-icon-1">
@@ -30,6 +30,25 @@
     </div>
     <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
     <div class="meme-empty"></div>
+  </div>
+</div>
+<!--TODO вынесети нахуй-->
+<div *ngIf="isPreview" class="meme-view animated zoomIn faster">
+  <pinch-zoom class="meme-view-zoom">
+  <div class="meme-view-image">
+      <img [src]="memePreview || ''">
+  </div>
+  </pinch-zoom>
+  <div class="meme-view-panel">
+  <span (click)="viewSave()">
+    <i class="fa fa-save"></i>
+  </span>
+    <span (click)="viewClose()">
+      <i class="fa fa-times"></i>
+  </span>
+    <span (click)="viewShare()">
+    <i class="fa fa-share-alt"></i>
+  </span>
   </div>
 </div>
 

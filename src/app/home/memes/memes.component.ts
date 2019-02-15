@@ -1,9 +1,8 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ImageViewModalComponent} from '../../modals/image-view-modal/image-view-modal.component';
 import {MemeApiService} from '../../services/meme-api-service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeData} from '../../model/MemeData';
@@ -35,6 +34,9 @@ import {Router} from '@angular/router';
   ]
 })
 export class MemesComponent implements OnInit, OnDestroy {
+
+  private isPreview = false;
+  private memePreview: String;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -85,19 +87,24 @@ export class MemesComponent implements OnInit, OnDestroy {
     return data.page.likes != null && data.page.likes.myChromosomes >= 30;
   }
 
-  imageView(url: String) {
-    const modalRef = this.modalService.open(
-      ImageViewModalComponent, {
-        centered: true,
-        size: 'lg',
-        windowClass: 'modal-xxl'
-      }
-    );
-    modalRef.componentInstance.meme = url;
-  }
-
   memetickView(memetickId: UUID) {
     this.router.navigate(['/home/memetick', memetickId]);
   }
 
+  memeView(url: String) {
+    this.isPreview = true;
+    this.memePreview = url;
+  }
+
+  viewSave() {
+    window.location.href = this.memePreview;
+  }
+
+  viewClose() {
+    this.isPreview = false;
+  }
+
+  viewShare() {
+    console.log('SAHRE');
+  }
 }
