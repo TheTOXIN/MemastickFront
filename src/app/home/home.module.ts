@@ -14,6 +14,7 @@ import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {MemeViewComponent} from './meme-view/meme-view.component';
+import {MemesModule} from '../memes/memes.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {MemeViewComponent} from './meme-view/meme-view.component';
     ParticlesModule,
     SharedModule,
     ModalsModule,
-    PinchZoomModule
+    PinchZoomModule,
+    MemesModule
   ],
   declarations: [
     HomeComponent,
