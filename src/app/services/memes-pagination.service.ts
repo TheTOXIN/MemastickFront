@@ -66,7 +66,7 @@ export class MemesPaginationService {
     if (this._loading.value) { return; }
     this._loading.next(true);
 
-    this.memeApi.memePage(
+    this.memeApi.memePages(
       this.query.page,
       this.query.size,
       this.query.sort

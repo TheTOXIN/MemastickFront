@@ -10,6 +10,7 @@ import {ModalsModule} from '../modals/modals.module';
 import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {MemesRoutingModules} from './memes-routing.modules';
+import {MemesShareComponent} from './memes-share/memes-share.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {MemesRoutingModules} from './memes-routing.modules';
     MemesComponent,
     MemesPageComponent,
     MemeViewComponent,
-    MemeCreatorComponent
+    MemeCreatorComponent,
+    MemesShareComponent
   ]
 })
 export class MemesModule {

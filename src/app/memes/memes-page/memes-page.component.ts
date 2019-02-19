@@ -8,6 +8,7 @@ import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeApiService} from '../../services/meme-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-memes-page',
@@ -38,10 +39,10 @@ export class MemesPageComponent implements OnInit {
   public data: MemeData;
 
   @Output()
-  public viewer = new EventEmitter<string>();
+  public viewer = new EventEmitter<Meme>();
 
-  viewerEvent(url: string) {
-    this.viewer.emit(url);
+  viewerEvent(meme: Meme) {
+    this.viewer.emit(meme);
   }
 
   constructor(

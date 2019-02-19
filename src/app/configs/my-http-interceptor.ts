@@ -16,7 +16,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.INVITE_REGISTRATION,
     API.REGISTRATION,
     API.PASSWORD_RESET_SEND,
-    API.PASSWORD_RESET_TAKE,
+    API.PASSWORD_RESET_TAKE
   ];
 
   constructor(
@@ -25,7 +25,9 @@ export class MyHttpInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (!this.anonymus.includes(req.url)) {
+    // TODO это нельзя оставить просто так
+
+    if (!this.anonymus.includes(req.url) && !req.url.startsWith(API.MEMES_READ)) {
       req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${this.oauthApi.readToken()}`
@@ -55,5 +57,4 @@ export class MyHttpInterceptor implements HttpInterceptor {
       }
     ));
   }
-
 }

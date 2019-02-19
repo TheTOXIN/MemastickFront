@@ -1,8 +1,7 @@
-<!--TODO вынесети нахуй-->
 <div *ngIf="isPreview" class="meme-view animated zoomIn faster">
   <pinch-zoom class="meme-view-zoom">
     <div class="meme-view-image">
-      <img [src]="memePreview || ''">
+      <img [src]="meme?.url || ''">
     </div>
   </pinch-zoom>
   <div class="meme-view-panel">

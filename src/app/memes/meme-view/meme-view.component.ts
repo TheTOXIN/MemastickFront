@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
+import {MemeData} from '../../model/MemeData';
+import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-meme-view',
@@ -10,7 +12,7 @@ import {UUID} from 'angular2-uuid';
 export class MemeViewComponent implements OnInit {
 
   @Input()
-  private memePreview: string;
+  private meme: Meme;
 
   isPreview = false;
 
@@ -32,7 +34,7 @@ export class MemeViewComponent implements OnInit {
   }
 
   viewSave() {
-    this.memeApi.memeDownload(this.memePreview).subscribe((res) => {
+    this.memeApi.memeDownload(this.meme.url).subscribe((res) => {
       const a = document.createElement('a');
       a.href = URL.createObjectURL(res);
       a.download = UUID.UUID();
@@ -41,11 +43,11 @@ export class MemeViewComponent implements OnInit {
     });
   }
 
-  //TODO сделать отдельную старницу для мемаса
   viewShare() {
-    const shareURl = 'tg://msg?text=' + this.memePreview;
-    console.log(shareURl);
+    const memeURL = location.origin + '/memes/share/' + this.meme.id;
+    const shareURl = 'tg://msg?text=' + memeURL;
     const a = document.createElement('a');
+    a.setAttribute('target', '_blank');
     a.href = shareURl;
     document.body.appendChild(a);
     a.click();

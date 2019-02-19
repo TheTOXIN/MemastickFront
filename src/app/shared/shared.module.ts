@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoaderComponent} from './loader/loader.component';
 import {RedirectRootComponent} from './redirect-root/redirect-root.component';
 import {SpinnerComponent} from './spinner/spinner.component';
+import {MemLogoComponent} from './mem-logo/mem-logo.component';
 
 @NgModule({
   exports: [
@@ -20,7 +21,8 @@ import {SpinnerComponent} from './spinner/spinner.component';
     FooterComponent,
     LoaderComponent,
     RedirectRootComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    MemLogoComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import {SpinnerComponent} from './spinner/spinner.component';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent
+    RedirectRootComponent,
+    MemLogoComponent,
   ],
   providers: [
     WINDOW_PROVIDERS,
