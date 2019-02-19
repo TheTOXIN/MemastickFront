@@ -1,5 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
+import {MemeViewComponent} from '../meme-view/meme-view.component';
 
 @Component({
   selector: 'app-memes',
@@ -7,6 +8,10 @@ import {MemesPaginationService} from '../../services/memes-pagination.service';
   styleUrls: ['./memes.component.scss']
 })
 export class MemesComponent implements OnInit, OnDestroy {
+
+  private memePreview: string;
+
+  @ViewChild(MemeViewComponent) view: MemeViewComponent;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -26,5 +31,10 @@ export class MemesComponent implements OnInit, OnDestroy {
     if (e === 'bottom') {
       this.pagination.more();
     }
+  }
+
+  memeView(url: string) {
+    this.memePreview = url;
+    this.view.viewShow();
   }
 }

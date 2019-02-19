@@ -25,15 +25,19 @@
 }
 
 .meme-view-panel {
-  background-color: rgba(12, 7, 70, 0.71);
+  background-color: rgba(33, 33, 33, 0.7);
   position: absolute;
   text-align: center;
   right: 0;
   left: 0;
   bottom: 0;
+
   i {
-    margin: 10px 20px;
+    margin: 10px 30px;
     font-size: 48px;
     color: whitesmoke;
+    &:hover {
+      color: #7348d5;
+    }
   }
 }

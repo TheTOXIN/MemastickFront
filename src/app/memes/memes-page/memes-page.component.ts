@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MemeData} from '../../model/MemeData';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {UUID} from 'angular2-uuid';
@@ -8,7 +8,6 @@ import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeApiService} from '../../services/meme-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {MemeViewComponent} from '../meme-view/meme-view.component';
 
 @Component({
   selector: 'app-memes-page',
@@ -38,9 +37,12 @@ export class MemesPageComponent implements OnInit {
   @Input()
   public data: MemeData;
 
-  private memePreview: string;
+  @Output()
+  public viewer = new EventEmitter<string>();
 
-  @ViewChild(MemeViewComponent) view: MemeViewComponent;
+  viewerEvent(url: string) {
+    this.viewer.emit(url);
+  }
 
   constructor(
     public pagination: MemesPaginationService,
@@ -52,6 +54,7 @@ export class MemesPageComponent implements OnInit {
   ) {
 
   }
+
   ngOnInit() {
   }
 
@@ -83,11 +86,5 @@ export class MemesPageComponent implements OnInit {
 
   memetickView(memetickId: UUID) {
     this.router.navigate(['/home/memetick', memetickId]);
-  }
-
-  memeView(url: string) {
-    console.log("MEME");
-    this.memePreview = url;
-    this.view.viewShow();
   }
 }

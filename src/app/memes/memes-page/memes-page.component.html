@@ -4,7 +4,7 @@
     <span> {{data.page?.memetick?.nick}} </span>
   </div>
   <div class="memes-image animated zoomIn slow">
-    <img *ngIf="data.page?.meme.url" (click)='memeView(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
+    <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme.url)' [src]="data.page?.meme.url || ''">
   </div>
   <div class="memes-likes">
     <div class="like-icon-1">
@@ -24,6 +24,3 @@
     </div>
   </div>
 </div>
-
-<!-- TODO вынести обратно-->
-<!--<app-meme-view [memePreview]="memePreview"></app-meme-view>-->
