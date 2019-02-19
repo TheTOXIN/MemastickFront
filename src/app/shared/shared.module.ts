@@ -6,11 +6,12 @@ import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {WINDOW_PROVIDERS} from './services/windows.service';
-import {LandingFixService} from '../shared/services/landing-fix.service';
+import {LandingFixService} from './services/landing-fix.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoaderComponent} from './loader/loader.component';
 import {RedirectRootComponent} from './redirect-root/redirect-root.component';
+import {SpinnerComponent} from './spinner/spinner.component';
 
 @NgModule({
   exports: [
@@ -18,7 +19,8 @@ import {RedirectRootComponent} from './redirect-root/redirect-root.component';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent
+    RedirectRootComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,7 @@ import {RedirectRootComponent} from './redirect-root/redirect-root.component';
     FormsModule
   ],
   declarations: [
+    SpinnerComponent,
     HeaderComponent,
     FooterComponent,
     LoaderComponent,

@@ -98,7 +98,6 @@ export class MemesPaginationService {
     this._data.unsubscribe();
     this._loading.unsubscribe();
   }
-
 }
 
 

@@ -106,7 +106,6 @@ export class MemeCreatorComponent {
   }
 
   memes() {
-    this.router.navigateByUrl('/home/memes');
+    this.router.navigateByUrl('/memes');
   }
-
 }

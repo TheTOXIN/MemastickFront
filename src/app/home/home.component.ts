@@ -63,11 +63,11 @@ export class HomeComponent implements OnInit {
   }
 
   memes() {
-    this.router.navigateByUrl('/home/memes');
+    this.router.navigateByUrl('/memes');
   }
 
   memeCreator() {
-    this.router.navigateByUrl('/home/memes/create');
+    this.router.navigateByUrl('/memes/create');
   }
 
   memetickMe() {
