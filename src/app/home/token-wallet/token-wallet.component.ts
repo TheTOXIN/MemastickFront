@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenData} from '../../model/TokenData';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DomSanitizer} from '@angular/platform-browser';
+import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
 
 @Component({
   selector: 'app-token-wallet',
@@ -13,7 +16,9 @@ export class TokenWalletComponent implements OnInit {
   public tokens: TokenData[];
 
   constructor(
-    private tokensApi: TokenApiService
+    private tokensApi: TokenApiService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {
   }
 
@@ -57,5 +62,10 @@ export class TokenWalletComponent implements OnInit {
         )
       ];
     });
+  }
+
+  showInfo(token: TokenData) {
+    const modalRef = this.modalService.open(TokenInfoModalComponent);
+    modalRef.componentInstance.token = token;
   }
 }

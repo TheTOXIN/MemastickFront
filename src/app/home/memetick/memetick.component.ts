@@ -58,16 +58,16 @@ export class MemetickComponent implements OnInit {
   }
 
   changeAvatar() {
-    this.modalService.open(ChangeAvatarModalComponent);
+    this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
   }
 
   changeNick() {
-    const modalRef = this.modalService.open(ChangeNickModalComponent);
+    const modalRef = this.modalService.open(ChangeNickModalComponent, {'centered': true});
     modalRef.componentInstance.nick = this.memetick.nick;
   }
 
   logOut() {
-    this.modalService.open(LogoutModalComponent);
+    this.modalService.open(LogoutModalComponent, {'centered': true});
   }
 
   back() {

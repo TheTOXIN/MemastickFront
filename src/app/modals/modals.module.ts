@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from './team-modal/team-modal.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
+import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
-    ChangeAvatarModalComponent
+    ChangeAvatarModalComponent,
+    TokenInfoModalComponent
   ],
   imports: [
     CommonModule,
@@ -34,14 +36,16 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    TeamModalComponent
+    TeamModalComponent,
+    TokenInfoModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    TeamModalComponent
+    TeamModalComponent,
+    TokenInfoModalComponent
   ]
 })
 export class ModalsModule {
