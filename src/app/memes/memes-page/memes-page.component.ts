@@ -9,6 +9,8 @@ import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeApiService} from '../../services/meme-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Meme} from '../../model/Meme';
+import {Observable} from 'rxjs/Observable';
+import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 
 @Component({
   selector: 'app-memes-page',
@@ -41,6 +43,9 @@ export class MemesPageComponent implements OnInit {
   @Output()
   public viewer = new EventEmitter<Meme>();
 
+  private timerChromosome;
+  private counterChromosome = 0;
+
   viewerEvent(meme: Meme) {
     this.viewer.emit(meme);
   }
@@ -60,16 +65,29 @@ export class MemesPageComponent implements OnInit {
   }
 
   triggerChromosome(data: MemeData) {
-    if (this.fullChromosome(data)) {
-      return;
-    }
+    if (this.fullChromosome(data)) { return; }
+
+    this.startTimerChromosome(data);
 
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
-
     data.page.meme.chromosomes++;
     data.page.likes.myChromosomes++;
 
-    this.likeApi.chromosome(data.page.meme.id, 1);
+    this.counterChromosome++;
+  }
+
+  startTimerChromosome(data: MemeData) {
+    if (this.timerChromosome !== undefined) { this.timerChromosome.unsubscribe(); }
+    this.timerChromosome = TimerObservable.create(666, 1000).subscribe(() => {
+      this.pushChromosome(data);
+      this.timerChromosome.unsubscribe();
+    });
+  }
+
+  pushChromosome(data: MemeData) {
+    if (this.counterChromosome === 0) { return; }
+    this.likeApi.chromosome(data.page.meme.id, this.counterChromosome);
+    this.counterChromosome = 0;
   }
 
   triggerLike(data: MemeData) {
