@@ -18,5 +18,7 @@ export enum API {
   MEMES_PAGES_READ = '/memes/pages/read',
   MEMES_READ = '/memes/read',
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
-  MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome'
+  MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
+  TOKENS_WALLETS_MY = '/token-wallets/my',
+  TOKENS_WALLETS_HAVE = '/token-wallets/have',
 }

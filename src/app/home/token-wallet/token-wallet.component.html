@@ -1,0 +1,6 @@
+<div class="token-wallet">
+  <div *ngFor="let token of tokens" class="token">
+    <img [src]="token?.image" class="token-img">
+    <p>{{token?.count || ''}}</p>
+  </div>
+</div>

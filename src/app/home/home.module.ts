@@ -8,6 +8,7 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemesModule} from '../memes/memes.module';
+import {TokenWalletComponent} from './token-wallet/token-wallet.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {MemesModule} from '../memes/memes.module';
   declarations: [
     HomeComponent,
     MemetickComponent,
-    StatisticComponent
+    StatisticComponent,
+    TokenWalletComponent
   ]
 })
 export class HomeModule {
