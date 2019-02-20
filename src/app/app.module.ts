@@ -29,6 +29,7 @@ import {MemeLikeApiService} from './services/meme-like-api-service';
 import {ModalsModule} from './modals/modals.module';
 import {MemesModule} from './memes/memes.module';
 import {TokenApiService} from './services/token-api-service';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {TokenApiService} from './services/token-api-service';
     SharedModule,
     ModalsModule,
     MemesModule,
+    HomeModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),

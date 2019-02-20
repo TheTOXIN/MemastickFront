@@ -1,7 +1,7 @@
 <div class="memetick-container container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="memetick-info">
+      <div class="memetick-info" (click)="test()">
         <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''"
              onError="this.src='assets/images/review.png';">
         <p class="memetick-nick">{{memetick?.nick}}</p>
@@ -33,6 +33,8 @@
     </div>
   </div>
 </div>
+
+<app-token-accept (accept)="acceptEvent($event)"></app-token-accept>
 
 <div class="go-to-back" (click)="back()">
   <i class="fa fa-close"></i>

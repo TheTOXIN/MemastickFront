@@ -27,12 +27,6 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memeCreateCheck() {
-    return this.http
-      .get(API.MEMES_CREATE_CHECK, {})
-      .pipe();
-  }
-
   public memePages(page, size, sort): Observable<MemePage[]> {
     const params = new HttpParams()
       .set('page', page)

@@ -4,6 +4,8 @@ import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
+import {TokenApiService} from '../../services/token-api-service';
+import {TokenType} from '../../consts/TokenType';
 
 @Component({
   selector: 'app-meme-creator',
@@ -28,6 +30,7 @@ export class MemeCreatorComponent {
   constructor(
     private router: Router,
     private memeApi: MemeApiService,
+    private tokenApi: TokenApiService,
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -43,7 +46,7 @@ export class MemeCreatorComponent {
 
     this.status = LoaderStatus.LOAD;
 
-    this.memeApi.memeCreateCheck().subscribe(
+    this.tokenApi.have(TokenType.CREATING).subscribe(
       () => this.show(files),
       (error) => this.createError(error)
     );
@@ -81,9 +84,9 @@ export class MemeCreatorComponent {
     let errorMessage = '';
 
     if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      errorMessage = 'Вы уже создвали МЕМ';
+      errorMessage = 'Нужен токен создания!';
     } else {
-      errorMessage = 'Ошибка сервера';
+      errorMessage = 'Ошибка создания';
     }
 
     this.error(errorMessage);

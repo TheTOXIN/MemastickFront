@@ -9,6 +9,7 @@ import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemesModule} from '../memes/memes.module';
 import {TokenWalletComponent} from './token-wallet/token-wallet.component';
+import {TokenAcceptComponent} from './token-accept/token-accept.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {TokenWalletComponent} from './token-wallet/token-wallet.component';
     HomeComponent,
     MemetickComponent,
     StatisticComponent,
-    TokenWalletComponent
+    TokenWalletComponent,
+    TokenAcceptComponent
   ]
 })
 export class HomeModule {

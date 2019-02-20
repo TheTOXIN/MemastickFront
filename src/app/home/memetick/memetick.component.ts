@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MemetickApiService} from '../../services/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
@@ -8,6 +8,9 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
+import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
+import {TokenAcceptComponent} from '../token-accept/token-accept.component';
+import {TokenType} from '../../consts/TokenType';
 
 @Component({
   selector: 'app-memetick',
@@ -15,6 +18,8 @@ import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-ni
   styleUrls: ['./memetick.component.scss']
 })
 export class MemetickComponent implements OnInit {
+
+  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
 
   memetickLoad = false;
   memetickMe = false;
@@ -72,6 +77,14 @@ export class MemetickComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  test() {
+    this.tokenAccept.show(TokenType.FITNESS);
+  }
+
+  acceptEvent(res: boolean) {
+    console.log(res);
   }
 
 }
