@@ -7,7 +7,6 @@ import {ParticlesModule} from 'angular-particle';
 import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
-import {MemesModule} from '../memes/memes.module';
 import {TokenWalletComponent} from './token-wallet/token-wallet.component';
 import {TokenAcceptComponent} from './token-accept/token-accept.component';
 
@@ -17,8 +16,10 @@ import {TokenAcceptComponent} from './token-accept/token-accept.component';
     HomeRoutingModule,
     ParticlesModule,
     SharedModule,
-    ModalsModule,
-    MemesModule
+    ModalsModule
+  ],
+  exports: [
+    TokenAcceptComponent
   ],
   declarations: [
     HomeComponent,

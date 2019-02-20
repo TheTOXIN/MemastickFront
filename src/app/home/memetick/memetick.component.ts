@@ -19,8 +19,6 @@ import {TokenType} from '../../consts/TokenType';
 })
 export class MemetickComponent implements OnInit {
 
-  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
-
   memetickLoad = false;
   memetickMe = false;
 
@@ -78,13 +76,4 @@ export class MemetickComponent implements OnInit {
   back() {
     window.history.back();
   }
-
-  test() {
-    this.tokenAccept.show(TokenType.FITNESS);
-  }
-
-  acceptEvent(res: boolean) {
-    console.log(res);
-  }
-
 }

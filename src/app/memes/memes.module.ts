@@ -11,12 +11,14 @@ import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {MemesRoutingModules} from './memes-routing.modules';
 import {MemesShareComponent} from './memes-share/memes-share.component';
+import {HomeModule} from '../home/home.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     ModalsModule,
+    HomeModule,
     PinchZoomModule,
     MemesRoutingModules
   ],

@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
@@ -6,6 +6,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
+import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -13,6 +14,8 @@ import {TokenType} from '../../consts/TokenType';
   styleUrls: ['./meme-creator.component.scss']
 })
 export class MemeCreatorComponent {
+
+  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
 
   public status;
   public message;
@@ -38,6 +41,20 @@ export class MemeCreatorComponent {
 
   toggleHover(event: boolean) {
     this.isHovering = event;
+  }
+
+  acceptCreatingShow() {
+    if (!this.isPreview || this.isCreate) { return; }
+    this.tokenAccept.show(TokenType.CREATING);
+    this.status = LoaderStatus.LOAD;
+  }
+
+  acceptCreatingResult(accpet: boolean) {
+    if (accpet) {
+      this.create();
+    } else {
+      this.status = LoaderStatus.NONE;
+    }
   }
 
   upload(files) {
