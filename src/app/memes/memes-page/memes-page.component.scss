@@ -21,8 +21,26 @@
   }
 }
 
-.memes-memtick {
+.memes-memetick {
   height: 70px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.memes-memetick-avatar {
+  height: 100%;
+  width: 125px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    float: left;
+  }
+}
+
+.memes-memetick-nick {
+  height: 100%;
+  width: 100%;
   span {
     font-family: Futurica, serif;
     float: left;
@@ -33,18 +51,13 @@
   }
 }
 
-.img-avatar {
-  float: left;
-  margin-left: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.img-step {
-  float: right;
-  margin-right: 40px;
-  max-width: 100%;
-  max-height: 100%;
+.memes-memetick-step {
+  height: 100%;
+  width: 125px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 .memes-image {
