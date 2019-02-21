@@ -12,6 +12,7 @@ import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {MemesRoutingModules} from './memes-routing.modules';
 import {MemesShareComponent} from './memes-share/memes-share.component';
 import {HomeModule} from '../home/home.module';
+import {MemeResearchComponent} from './meme-research/meme-research.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {HomeModule} from '../home/home.module';
     MemesPageComponent,
     MemeViewComponent,
     MemeCreatorComponent,
-    MemesShareComponent
+    MemesShareComponent,
+    MemeResearchComponent
   ]
 })
 export class MemesModule {

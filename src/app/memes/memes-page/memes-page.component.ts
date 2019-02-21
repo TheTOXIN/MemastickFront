@@ -43,11 +43,18 @@ export class MemesPageComponent implements OnInit {
   @Output()
   public viewer = new EventEmitter<Meme>();
 
+  @Output()
+  public researcher = new EventEmitter<Meme>();
+
   private timerChromosome;
   private counterChromosome = 0;
 
   viewerEvent(meme: Meme) {
     this.viewer.emit(meme);
+  }
+
+  researcherEvent(meme: Meme) {
+    this.researcher.emit(meme);
   }
 
   constructor(

@@ -94,12 +94,12 @@
 }
 
 .likes-delimer {
-  background-color: #444444;
-  width: 5px;
-  height: 80%;
-  border-radius: 90px;
-  margin-top: 6px;
-  padding: 3px;
+  height: 100%;
+  width: 100%;
+  img {
+    margin-top: 8px;
+    width: 54px;
+  }
 }
 
 .full {
