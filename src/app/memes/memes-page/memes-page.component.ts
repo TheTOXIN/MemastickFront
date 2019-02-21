@@ -9,8 +9,9 @@ import {MemeLikeApiService} from '../../services/meme-like-api-service';
 import {MemeApiService} from '../../services/meme-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Meme} from '../../model/Meme';
-import {Observable} from 'rxjs/Observable';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
+import {EvolveStep} from '../../consts/EvolveStep';
+import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
 
 @Component({
   selector: 'app-memes-page',
@@ -49,6 +50,8 @@ export class MemesPageComponent implements OnInit {
   private timerChromosome;
   private counterChromosome = 0;
 
+  private evolveIcons = [];
+
   viewerEvent(meme: Meme) {
     this.viewer.emit(meme);
   }
@@ -65,7 +68,8 @@ export class MemesPageComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router
   ) {
-
+    this.evolveIcons[EvolveStep.BIRTH] = 'assets/images/ss/1.png';
+    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/ss/2.png';
   }
 
   ngOnInit() {
@@ -108,6 +112,11 @@ export class MemesPageComponent implements OnInit {
 
   fullChromosome(data: MemeData) {
     return data.page.likes != null && data.page.likes.myChromosomes >= 30;
+  }
+
+  evolveStepInfo(step: EvolveStep) {
+    const modalRef = this.modalService.open(EvolveStepInfoModalComponent);
+    modalRef.componentInstance.step = step;
   }
 
   memetickView(memetickId: UUID) {

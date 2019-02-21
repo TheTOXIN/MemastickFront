@@ -1,7 +1,10 @@
 <div class="memes-table animated zoomIn">
-  <div class="memes-memtick" (click)="memetickView(data.page?.memetick.id)">
-    <img *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/review.png';">
+  <div class="memes-memtick">
+    <img class="img-avatar" *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/review.png';"
+         (click)="memetickView(data.page?.memetick.id)">
     <span> {{data.page?.memetick?.nick}} </span>
+    <img class="img-step img-fluid" *ngIf="data.page?.meme?.type === 'EVOLVE'" [src]="evolveIcons[data.page?.meme?.step]"
+         (click)="evolveStepInfo(data.page?.meme?.step)">
   </div>
   <div class="memes-image animated zoomIn slow">
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''">

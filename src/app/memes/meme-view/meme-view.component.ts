@@ -37,7 +37,7 @@ export class MemeViewComponent implements OnInit {
     this.memeApi.memeDownload(this.meme.url).subscribe((res) => {
       const a = document.createElement('a');
       a.href = URL.createObjectURL(res);
-      a.download = this.meme.id;
+      a.download = this.meme.id + '';
       document.body.appendChild(a);
       a.click();
     });

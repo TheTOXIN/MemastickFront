@@ -11,6 +11,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from './team-modal/team-modal.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
+import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step-info-modal.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.compo
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    TokenInfoModalComponent
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.compo
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
     TeamModalComponent,
-    TokenInfoModalComponent
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -45,7 +48,8 @@ import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.compo
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
     TeamModalComponent,
-    TokenInfoModalComponent
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ]
 })
 export class ModalsModule {
