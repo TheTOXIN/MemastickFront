@@ -25,11 +25,12 @@
     </div>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
-    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
+    <button class="btn-theme" (click)="acceptCreatingShow()">СОЗДАТЬ</button>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
     <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
   </div>
+  <app-token-accept (accept)="acceptCreatingResult($event)"></app-token-accept>
   <app-loader [message]="message" [status]="status"></app-loader>
   <div class='stars'></div>
   <div class='stars2'></div>

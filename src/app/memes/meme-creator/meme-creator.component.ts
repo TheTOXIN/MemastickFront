@@ -1,9 +1,12 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../services/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
+import {TokenApiService} from '../../services/token-api-service';
+import {TokenType} from '../../consts/TokenType';
+import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -11,6 +14,8 @@ import {ErrorStatus} from '../../consts/ErrorStatus';
   styleUrls: ['./meme-creator.component.scss']
 })
 export class MemeCreatorComponent {
+
+  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
 
   public status;
   public message;
@@ -28,6 +33,7 @@ export class MemeCreatorComponent {
   constructor(
     private router: Router,
     private memeApi: MemeApiService,
+    private tokenApi: TokenApiService,
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -37,13 +43,27 @@ export class MemeCreatorComponent {
     this.isHovering = event;
   }
 
+  acceptCreatingShow() {
+    if (!this.isPreview || this.isCreate) { return; }
+    this.tokenAccept.show(TokenType.CREATING);
+    this.status = LoaderStatus.LOAD;
+  }
+
+  acceptCreatingResult(accpet: boolean) {
+    if (accpet) {
+      this.create();
+    } else {
+      this.status = LoaderStatus.NONE;
+    }
+  }
+
   upload(files) {
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
 
     this.status = LoaderStatus.LOAD;
 
-    this.memeApi.memeCreateCheck().subscribe(
+    this.tokenApi.have(TokenType.CREATING).subscribe(
       () => this.show(files),
       (error) => this.createError(error)
     );
@@ -81,9 +101,9 @@ export class MemeCreatorComponent {
     let errorMessage = '';
 
     if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      errorMessage = 'Вы уже создвали МЕМ';
+      errorMessage = 'Нужен токен создания!';
     } else {
-      errorMessage = 'Ошибка сервера';
+      errorMessage = 'Ошибка создания';
     }
 
     this.error(errorMessage);
@@ -106,7 +126,6 @@ export class MemeCreatorComponent {
   }
 
   memes() {
-    this.router.navigateByUrl('/home/memes');
+    this.router.navigateByUrl('/memes');
   }
-
 }

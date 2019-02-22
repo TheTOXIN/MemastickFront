@@ -1,0 +1,29 @@
+.token-wallet {
+  margin-top: 10px;
+}
+
+.token {
+  display: inline-block;
+  margin: 5px;
+  img {
+    width: 52px;
+  }
+  p {
+    font-size: 18px;
+    margin-top: 5px;
+    color: black;
+  }
+}
+
+.token-img {
+  &:hover {
+    animation: more 0.3s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes more {
+  100% {
+    transform: scale(1.3);
+  }
+}

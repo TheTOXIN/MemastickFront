@@ -21,14 +21,26 @@
   }
 }
 
-.memes-memtick {
+.memes-memetick {
   height: 70px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.memes-memetick-avatar {
+  height: 100%;
+  width: 125px;
   img {
-    float: left;
-    margin-left: 0px;
     max-width: 100%;
     max-height: 100%;
+    float: left;
   }
+}
+
+.memes-memetick-nick {
+  height: 100%;
+  width: 100%;
   span {
     font-family: Futurica, serif;
     float: left;
@@ -36,6 +48,15 @@
     color: #212529;
     font-size: 32px;
     margin-top: 10px;
+  }
+}
+
+.memes-memetick-step {
+  height: 100%;
+  width: 125px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -94,12 +115,16 @@
 }
 
 .likes-delimer {
-  background-color: #444444;
-  width: 5px;
-  height: 80%;
-  border-radius: 90px;
-  margin-top: 6px;
-  padding: 3px;
+  height: 100%;
+  width: 100%;
+  img {
+    margin-top: 8px;
+    width: 54px;
+  }
+}
+
+.full {
+  opacity: 0.5;
 }
 
 @keyframes slider {
@@ -112,12 +137,4 @@
   60% {
     transform: translateY(-15px)
   }
-}
-
-.meme-empty {
-  height: 50px;
-}
-
-.full {
-  opacity: 0.5;
 }

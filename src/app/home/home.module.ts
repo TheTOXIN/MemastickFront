@@ -2,17 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {HomeRoutingModule} from './home-routing.modules';
-import {MemesComponent} from './memes/memes.component';
-import {SpinnerComponent} from './spinner/spinner.component';
-import {ScrollableDirective} from '../directivies/scrollable.directive';
 import {MemetickComponent} from './memetick/memetick.component';
-import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {ParticlesModule} from 'angular-particle';
-import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
-import {PinchZoomModule} from 'ngx-pinch-zoom';
+import {TokenWalletComponent} from './token-wallet/token-wallet.component';
+import {TokenAcceptComponent} from './token-accept/token-accept.component';
 
 @NgModule({
   imports: [
@@ -20,18 +16,17 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     HomeRoutingModule,
     ParticlesModule,
     SharedModule,
-    ModalsModule,
-    PinchZoomModule
+    ModalsModule
+  ],
+  exports: [
+    TokenAcceptComponent
   ],
   declarations: [
     HomeComponent,
-    MemesComponent,
-    SpinnerComponent,
-    MemeCreatorComponent,
     MemetickComponent,
     StatisticComponent,
-    ScrollableDirective,
-    DropZoneDirective
+    TokenWalletComponent,
+    TokenAcceptComponent
   ]
 })
 export class HomeModule {

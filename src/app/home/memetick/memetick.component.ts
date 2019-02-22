@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MemetickApiService} from '../../services/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
@@ -8,6 +8,9 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
+import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
+import {TokenAcceptComponent} from '../token-accept/token-accept.component';
+import {TokenType} from '../../consts/TokenType';
 
 @Component({
   selector: 'app-memetick',
@@ -58,20 +61,19 @@ export class MemetickComponent implements OnInit {
   }
 
   changeAvatar() {
-    this.modalService.open(ChangeAvatarModalComponent);
+    this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
   }
 
   changeNick() {
-    const modalRef = this.modalService.open(ChangeNickModalComponent);
+    const modalRef = this.modalService.open(ChangeNickModalComponent, {'centered': true});
     modalRef.componentInstance.nick = this.memetick.nick;
   }
 
   logOut() {
-    this.modalService.open(LogoutModalComponent);
+    this.modalService.open(LogoutModalComponent, {'centered': true});
   }
 
   back() {
     window.history.back();
   }
-
 }

@@ -17,6 +17,10 @@ export const rootRouterConfig: Routes = [
     loadChildren: './home/home.module#HomeModule'
   },
   {
+    path: 'memes',
+    loadChildren: './memes/memes.module#MemesModule'
+  },
+  {
     path: 'pages',
     loadChildren: './pages/pages.module#PagesModule'
   },

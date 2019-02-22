@@ -19,7 +19,7 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
 import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
 import {NewsLetterComponent} from './news-letter/news-letter.component';
-import {MemLogoComponent} from './mem-logo/mem-logo.component';
+import {MemLogoComponent} from '../shared/mem-logo/mem-logo.component';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
@@ -52,7 +52,6 @@ import {ModalsModule} from '../modals/modals.module';
     FaqComponent,
     DownloadComponent,
     NewsLetterComponent,
-    MemLogoComponent,
     OpenIntroModalComponent
   ]
 })

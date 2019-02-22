@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {LogoutModalComponent} from './logout-modal/logout-modal.component';
-import {ImageViewModalComponent} from './image-view-modal/image-view-modal.component';
 import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
 import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
 import {IntroModalComponent} from './intro-modal/intro-modal.component';
@@ -11,6 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from './team-modal/team-modal.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
+import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
+import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step-info-modal.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    ImageViewModalComponent
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ],
   imports: [
     CommonModule,
@@ -36,16 +38,18 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    ImageViewModalComponent,
-    TeamModalComponent
+    TeamModalComponent,
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
-    ImageViewModalComponent,
-    TeamModalComponent
+    TeamModalComponent,
+    TokenInfoModalComponent,
+    EvolveStepInfoModalComponent
   ]
 })
 export class ModalsModule {
