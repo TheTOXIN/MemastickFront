@@ -49,6 +49,11 @@
     font-size: 32px;
     margin-top: 10px;
   }
+  @media(max-width: 991px) {
+    span {
+      font-size: 28px;
+    }
+  }
 }
 
 .memes-memetick-step {
@@ -57,6 +62,12 @@
   img {
     max-width: 100%;
     max-height: 100%;
+  }
+  @media(max-width: 991px) {
+    img {
+      margin-left: 15px;
+      margin-top: -8px;
+    }
   }
 }
 
@@ -119,7 +130,7 @@
   width: 100%;
   img {
     margin-top: 8px;
-    width: 54px;
+    width: 55px;
   }
 }
 

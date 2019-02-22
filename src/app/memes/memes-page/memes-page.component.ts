@@ -68,8 +68,8 @@ export class MemesPageComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router
   ) {
-    this.evolveIcons[EvolveStep.BIRTH] = 'assets/images/ss/1.png';
-    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/ss/2.png';
+    this.evolveIcons[EvolveStep.BIRTH] = 'assets/images/steps/1.png';
+    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/2.png';
   }
 
   ngOnInit() {
