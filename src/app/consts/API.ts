@@ -20,4 +20,5 @@ export enum API {
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   TOKENS_WALLETS_MY = '/token-wallets/my',
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
+  EVOLVE_MEME = '/evolve-memes/meme/'
 }

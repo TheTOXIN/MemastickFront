@@ -30,6 +30,7 @@ import {ModalsModule} from './modals/modals.module';
 import {MemesModule} from './memes/memes.module';
 import {TokenApiService} from './services/token-api-service';
 import {HomeModule} from './home/home.module';
+import {EvolveMemeApiService} from './services/evolve-meme-api-service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {HomeModule} from './home/home.module';
     MemeApiService,
     MemeLikeApiService,
     TokenApiService,
+    EvolveMemeApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
