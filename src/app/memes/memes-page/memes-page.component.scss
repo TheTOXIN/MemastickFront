@@ -149,3 +149,25 @@
     transform: translateY(-15px)
   }
 }
+
+.chromosome-counter {
+  width: 0;
+  height: 100%;
+  position: relative;
+  left: 6%;
+}
+
+.counter {
+  position: absolute;
+  opacity: 0;
+  margin-top: -90px;
+  width: 32px;
+  height: 32px;
+  background-color: darkgreen;
+  border-radius: 100%;
+  span {
+    padding-top: 4px;
+    font-size: 20px;
+    color: whitesmoke;
+  }
+}

@@ -9,6 +9,7 @@ export class MemeData {
     this.page = page;
   }
 
+  counterState = 'default';
   chromosomeState = 'default';
   likeState = 'default';
 

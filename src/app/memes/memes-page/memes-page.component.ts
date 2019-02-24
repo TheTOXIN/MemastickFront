@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MemeData} from '../../model/MemeData';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {UUID} from 'angular2-uuid';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
@@ -32,6 +32,14 @@ import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/
           style({ transform: 'scale(1.5)', offset: 0.5 }),
           style({ transform: 'scale(1)', offset: 1 })
         ]))
+      ])
+    ]),
+    trigger('counterState', [
+      transition('* => *', [
+        style({ opacity: 0 }),
+        animate(300, style({ transform: 'translateY(-25%)', opacity: 0.5 })),
+        animate(500, style({ opacity: 1 })),
+        animate(100, style({ transform: 'translateY(-50%)', opacity: 0 }))
       ])
     ])
   ]
@@ -76,11 +84,12 @@ export class MemesPageComponent implements OnInit {
   }
 
   triggerChromosome(data: MemeData) {
+    data.counterState = (data.counterState === 'default' ? 'count' : 'default');
     if (this.fullChromosome(data)) { return; }
 
     this.startTimerChromosome(data);
-
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
+
     data.page.meme.chromosomes++;
     data.page.likes.myChromosomes++;
 
