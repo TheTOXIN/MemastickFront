@@ -89,11 +89,12 @@
 .like-icon-1 {
   width: 80%;
   height: 100%;
-  img {
-    margin-left: 10px;
-    margin-top: 8px;
-    width: 54px;
-  }
+}
+
+.like-img-1 {
+  margin-left: 18px;
+  margin-top: 8px;
+  width: 54px;
 }
 
 .like-icon-2 {
@@ -154,13 +155,13 @@
   width: 0;
   height: 100%;
   position: relative;
-  left: 6%;
 }
 
 .counter {
   position: absolute;
+  margin-left: 11px;
   opacity: 0;
-  margin-top: -90px;
+  margin-top: -80px;
   width: 32px;
   height: 32px;
   background-color: darkgreen;

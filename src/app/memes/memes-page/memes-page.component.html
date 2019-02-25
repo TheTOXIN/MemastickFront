@@ -15,8 +15,15 @@
   </div>
   <div class="memes-likes">
     <div class="like-icon-1">
-      <img class="img-fluid" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
-           src="assets/images/icon/2.png" [class.full]="fullChromosome(data)">
+      <div class="like-img-1">
+        <img class="img-fluid" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
+             src="assets/images/icon/2.png" [class.full]="fullChromosome(data)">
+        <div class="chromosome-counter">
+          <div [@counterState]='data.counterState' class="counter">
+            <span>{{data.page?.likes.myChromosomes}}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="like-count-1">
       <span class="likes-count">{{data.page?.meme.chromosomes}}</span>
@@ -30,11 +37,6 @@
     <div class="like-icon-2">
       <img class="img-fluid" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
            [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
-    </div>
-  </div>
-  <div class="chromosome-counter">
-    <div [@counterState]='data.counterState' class="counter">
-      <span>{{data.page?.likes.myChromosomes}}</span>
     </div>
   </div>
 </div>
