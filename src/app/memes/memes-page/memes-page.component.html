@@ -11,13 +11,14 @@
     </div>
   </div>
   <div class="memes-image animated zoomIn slow">
-    <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''">
+    <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
+         [class.blur]="isMemeDeath(data.page.meme)">
   </div>
   <div class="memes-likes">
     <div class="like-icon-1">
       <div class="like-img-1">
         <img class="img-fluid" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
-             src="assets/images/icon/2.png" [class.full]="fullChromosome(data)">
+             src="assets/images/icon/2.png" [class.full]="fullChromosome(data) || isMemeDeath(data.page.meme)">
         <div class="chromosome-counter">
           <div [@counterState]='data.counterState' class="counter">
             <span>{{data.page?.likes.myChromosomes}}</span>
@@ -35,8 +36,11 @@
       <span class="likes-count">{{data.page?.likes.likes}}</span>
     </div>
     <div class="like-icon-2">
-      <img class="img-fluid" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
-           [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
+      <div class="like-img-2">
+        <img class="img-fluid" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
+             [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'"
+             [class.full]="isMemeDeath(data.page.meme)">
+      </div>
     </div>
   </div>
 </div>

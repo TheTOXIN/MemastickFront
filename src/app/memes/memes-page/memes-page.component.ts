@@ -12,6 +12,7 @@ import {Meme} from '../../model/Meme';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
+import {MemeType} from '../../consts/MemeType';
 
 @Component({
   selector: 'app-memes-page',
@@ -85,9 +86,12 @@ export class MemesPageComponent implements OnInit {
 
   triggerChromosome(data: MemeData) {
     data.counterState = (data.counterState === 'default' ? 'count' : 'default');
+
     if (this.fullChromosome(data)) { return; }
+    if (this.isMemeDeath(data.page.meme)) { return; }
 
     this.startTimerChromosome(data);
+
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
 
     data.page.meme.chromosomes++;
@@ -111,6 +115,8 @@ export class MemesPageComponent implements OnInit {
   }
 
   triggerLike(data: MemeData) {
+    if (this.isMemeDeath(data.page.meme)) { return; }
+
     data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
     data.page.likes.myLike = !data.page.likes.myLike;
@@ -120,7 +126,7 @@ export class MemesPageComponent implements OnInit {
   }
 
   fullChromosome(data: MemeData) {
-    return data.page.likes != null && data.page.likes.myChromosomes >= 30;
+    return data.page.likes != null && data.page.likes.myChromosomes >= 10;
   }
 
   evolveStepInfo(step: EvolveStep) {
@@ -130,5 +136,9 @@ export class MemesPageComponent implements OnInit {
 
   memetickView(memetickId: UUID) {
     this.router.navigate(['/home/memetick', memetickId]);
+  }
+
+  isMemeDeath(meme: Meme) {
+    return meme.type === MemeType.DEATH;
   }
 }

@@ -43,7 +43,6 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   memeResearch(meme: Meme) {
-    this.currentMeme = meme;
-    this.research.researchShow();
+    this.research.researchShow(meme);
   }
 }

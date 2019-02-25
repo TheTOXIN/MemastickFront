@@ -1,4 +1,42 @@
-<div *ngIf="isPreview" class="meme-research animated fadeIn faster">
-  <p>{{meme.type}}</p>
-  <div (click)="researchClose()">X</div>
+<div *ngIf="isPreview" class="meme-research-container animated fadeIn faster">
+  <div class="meme-type-title">
+    <p>{{types[meme.type]}}</p>
+  </div>
+  <div class="meme-chromosome">
+    <img src="assets/images/icon/2.png">
+    <p>{{meme.chromosomes}}</p>
+  </div>
+  <div class="meme-population">
+    <p>Популяция #{{evolve?.population}}</p>
+  </div>
+  <div class="meme-research">
+    <div *ngIf="meme.type === 'INDIVID'">
+      <div class="meme-research-img">
+        <img src="assets/images/icon/1.png">
+      </div>
+      <div class="meme-research-title">
+        <p>мем прошел цикл эволюции и стал особью</p>
+      </div>
+      <div class="meme-research-control">
+        <button class="btn-theme" (click)="dipricated()">БИТВА</button>
+      </div>
+    </div>
+    <div *ngIf="meme.type === 'DEATH'">
+      <div class="meme-research-img">
+        <img src="assets/images/icon/dead.png">
+      </div>
+      <div class="meme-research-title">
+        <p>мем не выжил на этапе отбора и умер</p>
+      </div>
+      <div class="meme-research-control">
+        <button class="btn-theme" (click)="dipricated()">ВОСКРЕСИТЬ</button>
+      </div>
+    </div>
+    <div *ngIf="meme.type === 'EVOLVE'">
+      БЛАБЛАБАЛБЛАБЛАБ
+    </div>
+  </div>
+  <div class="research-close" (click)="researchClose()">
+    <i class="fa fa-close"></i>
+  </div>
 </div>

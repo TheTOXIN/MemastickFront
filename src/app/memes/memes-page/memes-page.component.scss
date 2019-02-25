@@ -92,7 +92,7 @@
 }
 
 .like-img-1 {
-  margin-left: 18px;
+  margin-left: 13px;
   margin-top: 8px;
   width: 54px;
 }
@@ -100,11 +100,12 @@
 .like-icon-2 {
   width: 80%;
   height: 100%;
-  img {
-    padding-right: 8px;
-    margin-top: 5px;
-    width: 64px;
-  }
+}
+
+.like-img-2 {
+  padding-right: 13px;
+  margin-top: 8px;
+  width: 64px;
 }
 
 .like-count-1 {
@@ -137,6 +138,11 @@
 
 .full {
   opacity: 0.5;
+}
+
+.blur {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
 }
 
 @keyframes slider {

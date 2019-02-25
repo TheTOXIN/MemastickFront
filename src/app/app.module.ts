@@ -31,6 +31,7 @@ import {MemesModule} from './memes/memes.module';
 import {TokenApiService} from './services/token-api-service';
 import {HomeModule} from './home/home.module';
 import {EvolveMemeApiService} from './services/evolve-meme-api-service';
+import {EvolveModule} from './evolve/evolve.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {EvolveMemeApiService} from './services/evolve-meme-api-service';
     ModalsModule,
     MemesModule,
     HomeModule,
+    EvolveModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
