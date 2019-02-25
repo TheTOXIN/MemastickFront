@@ -62,6 +62,7 @@ export class MemesPageComponent implements OnInit {
   private evolveIcons = [];
 
   viewerEvent(meme: Meme) {
+    if (this.isMemeDeath(meme)) { return; }
     this.viewer.emit(meme);
   }
 

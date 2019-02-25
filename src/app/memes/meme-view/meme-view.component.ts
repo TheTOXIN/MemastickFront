@@ -27,11 +27,11 @@ export class MemeViewComponent implements OnInit {
   }
 
   viewShow() {
-    if (this.meme.type === MemeType.DEATH) { return; }
     this.isPreview = true;
   }
 
   viewClose() {
+    this.meme = null;
     this.isPreview = false;
   }
 
