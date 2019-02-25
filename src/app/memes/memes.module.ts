@@ -13,6 +13,7 @@ import {MemesRoutingModules} from './memes-routing.modules';
 import {MemesShareComponent} from './memes-share/memes-share.component';
 import {HomeModule} from '../home/home.module';
 import {MemeResearchComponent} from './meme-research/meme-research.component';
+import {EvolveModule} from '../evolve/evolve.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import {MemeResearchComponent} from './meme-research/meme-research.component';
     SharedModule,
     ModalsModule,
     HomeModule,
+    EvolveModule,
     PinchZoomModule,
     MemesRoutingModules
   ],
