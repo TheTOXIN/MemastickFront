@@ -4,6 +4,7 @@ import {MemetickApiService} from '../services/memetick-api-service';
 import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
+import {MemeFilter} from '../consts/MemeFilter';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   myStyle: object = {};
   myParams: object = {};
+
+  filters = MemeFilter;
 
   private messages = [
     'Мемастик в процессе разработки, не ругайте нас',
@@ -62,8 +65,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  memes() {
-    this.router.navigateByUrl('/memes');
+  memes(filter: MemeFilter) {
+    this.router.navigate(['/memes'], {queryParams: {filter: filter}});
   }
 
   memeCreator() {

@@ -7,8 +7,6 @@ import 'rxjs/add/operator/take';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from './meme-api-service';
 import {MemeData} from '../model/MemeData';
-import {MemeLikeApiService} from './meme-like-api-service';
-import {MemetickApiService} from './memetick-api-service';
 import {MemetickAvatarApiService} from './memetick-avatar-api-service';
 import {MemeFilter} from '../consts/MemeFilter';
 
@@ -17,6 +15,7 @@ interface QueryConfig {
   size: number;
   sort: string;
   reverse: boolean;
+  filter: MemeFilter;
 }
 
 @Injectable()
@@ -38,12 +37,13 @@ export class MemesPaginationService {
 
   }
 
-  init(sizePage, sortFiled, isReverse) {
+  init(sizePage, sortFiled, isReverse, filter) {
     this.query = {
       page: 0,
       size: sizePage,
       sort: sortFiled,
       reverse: isReverse,
+      filter: filter
     };
 
     if (this.query.reverse) {
@@ -71,7 +71,7 @@ export class MemesPaginationService {
       this.query.page,
       this.query.size,
       this.query.sort,
-      MemeFilter.EVLV
+      this.query.filter
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this._loading.next(false);

@@ -4,6 +4,8 @@ import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {Meme} from '../../model/Meme';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {EvolveStep} from '../../consts/EvolveStep';
+import {ActivatedRoute} from '@angular/router';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-memes',
@@ -19,12 +21,25 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   constructor(
     public pagination: MemesPaginationService,
+    private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit() {
-    this.pagination.init(3, 'creating', true);
+    this.route.queryParams.subscribe(params => {
+      const filter = params.filter;
+      let sort = 'creating';
+
+      if (filter === MemeFilter.EVLV) { sort = 'chromosomes'; }
+
+      this.pagination.init(
+        3,
+        sort,
+        true,
+        filter
+      );
+    });
   }
 
   ngOnDestroy() {
