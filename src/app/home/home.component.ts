@@ -74,6 +74,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/home/memetick/me');
   }
 
+  memetickRating() {
+    //LOL
+  }
+
   toStart() {
     this.router.navigateByUrl('/start');
   }

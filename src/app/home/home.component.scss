@@ -64,7 +64,29 @@
 }
 
 .home-stats {
-
+  p {
+    font-family: FuturaRound, serif;
+    font-size: 32px;
+    padding: 20px;
+    color: black;
+  }
 }
 
+.home-picker {
+  padding: 10px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+  p {
+    margin-top: 10px;
+    font-family: Futurica, serif;
+    font-size: 24px;
+  }
+  @media(max-width: 991px) {
+    p {
+      font-size: 18px;
+    }
+  }
+}
 
