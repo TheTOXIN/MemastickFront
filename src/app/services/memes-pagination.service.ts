@@ -10,6 +10,7 @@ import {MemeData} from '../model/MemeData';
 import {MemeLikeApiService} from './meme-like-api-service';
 import {MemetickApiService} from './memetick-api-service';
 import {MemetickAvatarApiService} from './memetick-avatar-api-service';
+import {MemeFilter} from '../consts/MemeFilter';
 
 interface QueryConfig {
   page: number;
@@ -66,10 +67,11 @@ export class MemesPaginationService {
     if (this._loading.value) { return; }
     this._loading.next(true);
 
-    this.memeApi.memePages(
+    this.memeApi.memePagesFilter(
       this.query.page,
       this.query.size,
-      this.query.sort
+      this.query.sort,
+      MemeFilter.EVLV
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this._loading.next(false);

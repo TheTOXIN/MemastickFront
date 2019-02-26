@@ -27,7 +27,7 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePages(page, size, sort): Observable<MemePage[]> {
+  public memePagesFilter(page, size, sort, filter): Observable<MemePage[]> {
     const params = new HttpParams()
       .set('page', page)
       .set('size', size)
@@ -38,7 +38,7 @@ export class MemeApiService {
       .set('Content-Type', 'application/json');
 
     return this.http
-      .get<MemePage[]>(API.MEMES_PAGES_READ, {headers, params})
+      .get<MemePage[]>(API.MEMES_PAGES_FILTER + '/' + filter, {headers, params})
       .pipe();
   }
 
