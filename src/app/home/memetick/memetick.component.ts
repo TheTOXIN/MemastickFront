@@ -25,7 +25,8 @@ export class MemetickComponent implements OnInit {
   public avatarURL: String = '';
   public memetick: Memetick = new Memetick(
     '',
-    ''
+    '',
+    0
   );
 
   constructor(

@@ -32,6 +32,7 @@ import {TokenApiService} from './services/token-api-service';
 import {HomeModule} from './home/home.module';
 import {EvolveMemeApiService} from './services/evolve-meme-api-service';
 import {EvolveModule} from './evolve/evolve.module';
+import { MemetickRatingComponent } from './home/memetick-rating/memetick-rating.component';
 
 @NgModule({
   declarations: [

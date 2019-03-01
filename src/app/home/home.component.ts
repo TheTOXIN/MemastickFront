@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
 
   public memetick: Memetick = new Memetick(
     '',
-    ''
+    '',
+    0
   );
 
   public showLogo: boolean = true;
@@ -78,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   memetickRating() {
-    //LOL
+    this.router.navigateByUrl('/home/memetick/rating');
   }
 
   toStart() {

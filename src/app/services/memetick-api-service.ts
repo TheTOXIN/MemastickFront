@@ -33,4 +33,9 @@ export class MemetickApiService {
       .pipe();
   }
 
+  public rating(): Observable<Memetick[]> {
+    return this.http
+      .get<Memetick[]>(API.MEMETICK_RATING)
+      .pipe();
+  }
 }
