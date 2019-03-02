@@ -9,7 +9,7 @@
                 <img [src]="getAvatar(memetick) || ''" onError="this.src='assets/images/review.png';" (click)="memetickView(memetick.id)">
               </div>
               <div class="memetick-nick">
-                <p>{{memetick.nick}}</p>
+                {{memetick.nick}}
               </div>
               <div class="memetick-dna-img">
                 <img src="assets/images/icon/3.png">

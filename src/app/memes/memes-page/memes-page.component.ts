@@ -131,7 +131,7 @@ export class MemesPageComponent implements OnInit {
   }
 
   evolveStepInfo(step: EvolveStep) {
-    const modalRef = this.modalService.open(EvolveStepInfoModalComponent);
+    const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
     modalRef.componentInstance.step = step;
   }
 

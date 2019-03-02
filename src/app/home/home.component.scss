@@ -70,6 +70,11 @@
     padding: 20px;
     color: black;
   }
+  @media(max-width: 991px) {
+    p {
+      font-size: 28px;
+    }
+  }
 }
 
 .home-picker {

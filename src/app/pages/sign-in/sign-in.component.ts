@@ -90,4 +90,8 @@ export class SignInComponent implements OnInit {
     return true;
   }
 
+  toHome() {
+    this.router.navigateByUrl('/home');
+  }
+
 }

@@ -94,4 +94,7 @@ export class SignUpComponent implements OnInit {
     this.message = this.oauth.statuses[error.error];
   }
 
+  toInvite() {
+    this.router.navigateByUrl('/start');
+  }
 }
