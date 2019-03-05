@@ -19,4 +19,10 @@ export class EvolveMemeApiService {
       .get<EvolveMeme>(API.EVOLVE_MEME + '/' + memeId)
       .pipe();
   }
+
+  public chanceMeme(memeId: UUID) {
+    return this.http
+      .patch(API.EVOLVE_CHANCE_MEME + '/' + memeId, {})
+      .pipe();
+  }
 }

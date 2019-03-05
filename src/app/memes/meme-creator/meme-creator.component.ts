@@ -45,8 +45,8 @@ export class MemeCreatorComponent {
 
   acceptCreatingShow() {
     if (!this.isPreview || this.isCreate) { return; }
-    this.tokenAccept.show(TokenType.CREATING);
     this.status = LoaderStatus.LOAD;
+    this.tokenAccept.show(TokenType.CREATING);
   }
 
   acceptCreatingResult(accpet: boolean) {

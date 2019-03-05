@@ -1,6 +1,6 @@
 export enum API {
   // BASE_URL = 'https://memastick-back.herokuapp.com',
-  BASE_URL = 'http://localhost:8080',
+  BASE_URL = 'http://192.168.10.54:8080',
   OAUTH_TOKEN = '/oauth/token',
   HELLO = '/hello',
   INVITE_REGISTRATION = '/invite/registration',
@@ -22,5 +22,6 @@ export enum API {
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   TOKENS_WALLETS_MY = '/token-wallets/my',
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
-  EVOLVE_MEME = '/evolve-memes/meme'
+  EVOLVE_MEME = '/evolve-memes/meme',
+  EVOLVE_CHANCE_MEME = '/evolve-memes/chance/meme'
 }

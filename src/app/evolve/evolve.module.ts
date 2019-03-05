@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import {EvolveBirthComponent} from './evolve-birth/evolve-birth.component';
 import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.component';
 import {ModalsModule} from '../modals/modals.module';
+import {HomeModule} from '../home/home.module';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    ModalsModule
+    ModalsModule,
+    HomeModule,
+    SharedModule
   ],
   exports: [
     EvolveBirthComponent,
@@ -18,4 +22,6 @@ import {ModalsModule} from '../modals/modals.module';
     EvolveSurvivalComponent
   ]
 })
-export class EvolveModule { }
+export class EvolveModule {
+
+}
