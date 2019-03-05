@@ -20,7 +20,7 @@ export enum API {
   MEMES_READ = '/memes/read',
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
-  TOKENS_WALLETS_MY = '/token-wallets/my',
+  TOKENS_WALLETS_MEMETICK = '/token-wallets/memetick',
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
   EVOLVE_CHANCE_MEME = '/evolve-memes/chance/meme'

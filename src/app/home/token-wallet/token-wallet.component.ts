@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenData} from '../../model/TokenData';
@@ -13,55 +13,56 @@ import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-
 })
 export class TokenWalletComponent implements OnInit {
 
+  @Input()
+  public wallet: any;
+
   public tokens: TokenData[];
 
   constructor(
-    private tokensApi: TokenApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {
   }
 
   ngOnInit() {
-    this.tokensApi.my().subscribe(data => {
-      this.tokens = [
+    console.log(this.wallet);
+    this.tokens = [
         new TokenData(
           'assets/images/tokens/1.png',
           'Пробирка',
           'Токен создания',
           'используется для создания нового мема',
-          data.wallet[TokenType.CREATING]
+          this.wallet[TokenType.CREATING]
         ),
         new TokenData(
           'assets/images/tokens/2.png',
           'Фитнесс',
           'Токен оценки',
           'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
-          data.wallet[TokenType.FITNESS]
+          this.wallet[TokenType.FITNESS]
         ),
         new TokenData(
           'assets/images/tokens/3.png',
           'Мутаген',
           'Токен мутации',
           'с его помощью можно оставлять комментарии под мемами',
-          data.wallet[TokenType.MUTATION]
+          this.wallet[TokenType.MUTATION]
         ),
         new TokenData(
           'assets/images/tokens/4.png',
           'Кроссовер',
           'Токен скрещивания',
           'позволяет создать новый мем на основе дргуих мемов',
-          data.wallet[TokenType.CROSSOVER]
+          this.wallet[TokenType.CROSSOVER]
         ),
         new TokenData(
           'assets/images/tokens/5.png',
           'Антибиотик',
           'Токен отбора',
           'гарантирует 100% выживаемость мема',
-          data.wallet[TokenType.SELECTION]
+          this.wallet[TokenType.SELECTION]
         )
       ];
-    });
   }
 
   showInfo(token: TokenData) {

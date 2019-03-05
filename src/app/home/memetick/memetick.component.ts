@@ -11,6 +11,7 @@ import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-ni
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {TokenAcceptComponent} from '../token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
+import {TokenApiService} from '../../services/token-api-service';
 
 @Component({
   selector: 'app-memetick',
@@ -22,6 +23,8 @@ export class MemetickComponent implements OnInit {
   memetickLoad = false;
   memetickMe = false;
 
+  public wallet: any;
+
   public avatarURL: String = '';
   public memetick: Memetick = new Memetick(
     '',
@@ -30,6 +33,7 @@ export class MemetickComponent implements OnInit {
   );
 
   constructor(
+    private tokensApi: TokenApiService,
     private memetickApi: MemetickApiService,
     public memetickAvatarsApi: MemetickAvatarApiService,
     public router: Router,
@@ -53,10 +57,13 @@ export class MemetickComponent implements OnInit {
         apiObservable = this.memetickApi.view(this.memetick.id);
       }
 
-      apiObservable.subscribe(data => {
-        this.memetick = data;
+      apiObservable.subscribe(memetick => {
+        this.memetick = memetick;
         this.avatarURL = this.memetickAvatarsApi.dowloadAvatar(this.memetick.id);
-        this.memetickLoad = true;
+        this.tokensApi.memetick(this.memetick.id).subscribe((data) => {
+          this.wallet = data.wallet;
+          this.memetickLoad = true;
+        });
       });
     });
   }

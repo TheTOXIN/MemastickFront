@@ -15,9 +15,9 @@
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="memetickMe">
+  <div class="row" *ngIf='memetickLoad'>
     <div class="col-md-12 text-center">
-      <app-token-wallet></app-token-wallet>
+      <app-token-wallet [wallet]="wallet"></app-token-wallet>
     </div>
   </div>
   <div class="row" *ngIf="memetickMe">
