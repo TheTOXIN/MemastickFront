@@ -32,7 +32,7 @@ import {TokenApiService} from './services/token-api-service';
 import {HomeModule} from './home/home.module';
 import {EvolveMemeApiService} from './services/evolve-meme-api-service';
 import {EvolveModule} from './evolve/evolve.module';
-import { MemetickRatingComponent } from './home/memetick-rating/memetick-rating.component';
+import {TokenAllowanceApiService} from './services/token-allowance-api-service';
 
 @NgModule({
   declarations: [
@@ -70,6 +70,7 @@ import { MemetickRatingComponent } from './home/memetick-rating/memetick-rating.
     MemeLikeApiService,
     TokenApiService,
     EvolveMemeApiService,
+    TokenAllowanceApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

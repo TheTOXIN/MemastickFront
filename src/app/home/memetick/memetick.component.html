@@ -23,11 +23,21 @@
   <div class="row" *ngIf="memetickMe">
     <div class="col-md-12 text-center">
       <div class="memetick-control">
-        <button class="memetick-button btn-theme" (click)="changeAvatar()">ВЫБРАТЬ АВАТАР<i class="fa fa-user"></i>
+        <button class="memetick-button btn-theme" (click)="takeAllowance()">
+          ПОСОБИЕ
+          <i [style.color]="memetick?.allowance ? 'rgb(230, 67, 59)' : ''" class="fa fa-envelope"></i>
         </button>
-        <button class="memetick-button btn-theme" (click)="logOut()">ВЫЙТИ С АККАУНТА<i class="fa fa-close"></i>
+        <button class="memetick-button btn-theme" (click)="changeAvatar()">
+          ВЫБРАТЬ АВАТАР
+          <i class="fa fa-user"></i>
         </button>
-        <button class="memetick-button btn-theme" (click)="changeNick()">СМЕНИТЬ НИК<i class="fa fa-edit"></i>
+        <button class="memetick-button btn-theme" (click)="logOut()">
+          ВЫЙТИ С АККАУНТА
+          <i class="fa fa-close"></i>
+        </button>
+        <button class="memetick-button btn-theme" (click)="changeNick()">
+          СМЕНИТЬ НИК
+          <i class="fa fa-edit"></i>
         </button>
       </div>
     </div>

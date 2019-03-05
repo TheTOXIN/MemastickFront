@@ -30,8 +30,8 @@
   <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
     <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
   </div>
-  <app-token-accept (accept)="acceptCreatingResult($event)"></app-token-accept>
   <app-loader [message]="message" [status]="status"></app-loader>
+  <app-token-accept (accept)="acceptCreatingResult($event)"></app-token-accept>
   <div class='stars'></div>
   <div class='stars2'></div>
   <div class='stars3'></div>

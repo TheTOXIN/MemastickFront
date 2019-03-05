@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // TODO replace to home API
   private takeMe() {
     this.memetickApi.viewMe().subscribe(data => {
       this.memetick = data;

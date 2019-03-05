@@ -25,44 +25,43 @@ export class TokenWalletComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.wallet);
     this.tokens = [
-        new TokenData(
-          'assets/images/tokens/1.png',
-          'Пробирка',
-          'Токен создания',
-          'используется для создания нового мема',
-          this.wallet[TokenType.CREATING]
-        ),
-        new TokenData(
-          'assets/images/tokens/2.png',
-          'Фитнесс',
-          'Токен оценки',
-          'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
-          this.wallet[TokenType.FITNESS]
-        ),
-        new TokenData(
-          'assets/images/tokens/3.png',
-          'Мутаген',
-          'Токен мутации',
-          'с его помощью можно оставлять комментарии под мемами',
-          this.wallet[TokenType.MUTATION]
-        ),
-        new TokenData(
-          'assets/images/tokens/4.png',
-          'Кроссовер',
-          'Токен скрещивания',
-          'позволяет создать новый мем на основе дргуих мемов',
-          this.wallet[TokenType.CROSSOVER]
-        ),
-        new TokenData(
-          'assets/images/tokens/5.png',
-          'Антибиотик',
-          'Токен отбора',
-          'гарантирует 100% выживаемость мема',
-          this.wallet[TokenType.SELECTION]
-        )
-      ];
+      new TokenData(
+        'assets/images/tokens/1.png',
+        'Пробирка',
+        'Токен создания',
+        'используется для создания нового мема',
+        this.wallet[TokenType.CREATING]
+      ),
+      new TokenData(
+        'assets/images/tokens/2.png',
+        'Фитнесс',
+        'Токен оценки',
+        'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
+        this.wallet[TokenType.FITNESS]
+      ),
+      new TokenData(
+        'assets/images/tokens/3.png',
+        'Мутаген',
+        'Токен мутации',
+        'с его помощью можно оставлять комментарии под мемами',
+        this.wallet[TokenType.MUTATION]
+      ),
+      new TokenData(
+        'assets/images/tokens/4.png',
+        'Кроссовер',
+        'Токен скрещивания',
+        'позволяет создать новый мем на основе дргуих мемов',
+        this.wallet[TokenType.CROSSOVER]
+      ),
+      new TokenData(
+        'assets/images/tokens/5.png',
+        'Антибиотик',
+        'Токен отбора',
+        'гарантирует 100% выживаемость мема',
+        this.wallet[TokenType.SELECTION]
+      )
+    ];
   }
 
   showInfo(token: TokenData) {

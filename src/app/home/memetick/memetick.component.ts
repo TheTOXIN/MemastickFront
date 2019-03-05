@@ -12,6 +12,7 @@ import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {TokenAcceptComponent} from '../token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
 import {TokenApiService} from '../../services/token-api-service';
+import {TokenAllowanceModalComponent} from '../token-allowance-modal/token-allowance-modal.component';
 
 @Component({
   selector: 'app-memetick',
@@ -66,6 +67,10 @@ export class MemetickComponent implements OnInit {
         });
       });
     });
+  }
+
+  takeAllowance() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   changeAvatar() {

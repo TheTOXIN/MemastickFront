@@ -2,7 +2,8 @@ export class Memetick {
   constructor (
     public id: string,
     public nick: string,
-    public dna: number
+    public dna: number,
+    public allowance: boolean
   ) {
 
   }

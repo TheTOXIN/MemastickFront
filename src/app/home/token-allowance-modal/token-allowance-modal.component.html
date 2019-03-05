@@ -1,0 +1,37 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">ПОСОБИЕ</span>
+  </div>
+  <div class="modal-body modal-allowance">
+    <div class="title-allowance">
+      <p>откройте чтобы проверить</p>
+    </div>
+    <div class="letter-open animated zoomIn" *ngIf="isTake">
+      <app-token-wallet [wallet]="wallet"></app-token-wallet>
+    </div>
+    <div class="letter-image" (mousemove)="counter = 1" (mouseup)="take()" *ngIf="!isTake">
+      <div class="animated-mail">
+        <div class="back-fold"></div>
+        <div class="letter">
+          <div class="letter-border"></div>
+          <div class="letter-title"></div>
+          <div class="letter-context"></div>
+          <div class="letter-stamp">
+            <div class="letter-stamp-inner"></div>
+          </div>
+        </div>
+        <div class="top-fold"></div>
+        <div class="body"></div>
+        <div class="left-fold"></div>
+      </div>
+    </div>
+    <div class="message-allowance">
+      <p>пособие начисляют раз в день</p>
+    </div>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

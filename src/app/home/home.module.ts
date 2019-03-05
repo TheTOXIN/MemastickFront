@@ -10,6 +10,8 @@ import {ModalsModule} from '../modals/modals.module';
 import {TokenWalletComponent} from './token-wallet/token-wallet.component';
 import {TokenAcceptComponent} from './token-accept/token-accept.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
+import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
+import {LongPressDirective} from '../directivies/long-press-directive';
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import {MemetickRatingComponent} from './memetick-rating/memetick-rating.compone
     ModalsModule
   ],
   exports: [
-    TokenAcceptComponent
+    TokenAcceptComponent,
+    TokenAllowanceModalComponent
   ],
   declarations: [
     HomeComponent,
@@ -28,9 +31,13 @@ import {MemetickRatingComponent} from './memetick-rating/memetick-rating.compone
     StatisticComponent,
     TokenWalletComponent,
     TokenAcceptComponent,
-    MemetickRatingComponent
+    MemetickRatingComponent,
+    TokenAllowanceModalComponent
+  ],
+  entryComponents: [
+    TokenAllowanceModalComponent
   ]
 })
 export class HomeModule {
-
+  // TODO create tokens module
 }
