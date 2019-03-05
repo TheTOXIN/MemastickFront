@@ -28,10 +28,10 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      const filter = params.filter;
-      let sort = 'creating';
+      let filter = params.filter;
+      const sort = 'creating';
 
-      if (filter === MemeFilter.EVLV) { sort = 'chromosomes'; }
+      if (filter === undefined || filter == null || filter === '') { filter = MemeFilter.EVLV; }
 
       this.pagination.init(
         3,
