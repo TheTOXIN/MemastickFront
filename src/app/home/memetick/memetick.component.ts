@@ -30,7 +30,8 @@ export class MemetickComponent implements OnInit {
   public memetick: Memetick = new Memetick(
     '',
     '',
-    0
+    0,
+    false
   );
 
   constructor(

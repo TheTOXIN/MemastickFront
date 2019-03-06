@@ -11,7 +11,6 @@ import {TokenWalletComponent} from './token-wallet/token-wallet.component';
 import {TokenAcceptComponent} from './token-accept/token-accept.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
-import {LongPressDirective} from '../directivies/long-press-directive';
 
 @NgModule({
   imports: [

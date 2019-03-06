@@ -92,9 +92,12 @@
 }
 
 .like-img-1 {
-  margin-left: 13px;
+  margin-left: 30px;
   margin-top: 8px;
   width: 54px;
+  @media(max-width: 991px) {
+    margin-left: 13px;
+  }
 }
 
 .like-icon-2 {

@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
   public memetick: Memetick = new Memetick(
     '',
     '',
-    0
+    0,
+    false
   );
 
   public showLogo: boolean = true;
