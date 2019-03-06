@@ -25,7 +25,7 @@
 
 .letter-image {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   width: 200px;
   height: 200px;
@@ -143,6 +143,23 @@
   }
 }
 
+.letter-shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 400px;
+  height: 30px;
+  transition: .4s;
+  transform: translateX(-50%);
+  -webkit-transition: .4s;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: .4s;
+  -moz-transform: translateX(-50%);
+
+  border-radius: 100%;
+  background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+}
+
 .letter-image:hover {
   .animated-mail {
     transform: translateY(50px);
@@ -164,7 +181,7 @@
     height: 180px;
   }
 
-  .shadow {
+  .letter-shadow {
     width: 250px;
   }
 }

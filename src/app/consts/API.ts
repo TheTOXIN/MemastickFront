@@ -3,6 +3,7 @@ export enum API {
   BASE_URL = 'http://192.168.10.54:8080',
   OAUTH_TOKEN = '/oauth/token',
   HELLO = '/hello',
+  HOME = '/home',
   INVITE_REGISTRATION = '/invite/registration',
   REGISTRATION = '/registration',
   PASSWORD_RESET_TAKE = '/password-reset/take',
@@ -24,5 +25,6 @@ export enum API {
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
   EVOLVE_CHANCE_MEME = '/evolve-memes/chance/meme',
-  ALLOWANCE_TAKE = '/token-allowance/take'
+  ALLOWANCE_TAKE = '/token-allowance/take',
+  ALLOWANCE_HAVE = '/token-allowance/have'
 }

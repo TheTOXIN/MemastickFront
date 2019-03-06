@@ -17,4 +17,10 @@ export class TokenAllowanceApiService {
       .patch(API.ALLOWANCE_TAKE,{})
       .pipe();
   }
+
+  public have() {
+    return this.http
+      .get(API.ALLOWANCE_HAVE)
+      .pipe();
+  }
 }

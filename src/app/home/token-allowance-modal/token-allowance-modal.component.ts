@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {TokenAllowanceApiService} from '../../services/token-allowance-api-service';
 
@@ -9,9 +9,11 @@ import {TokenAllowanceApiService} from '../../services/token-allowance-api-servi
 })
 export class TokenAllowanceModalComponent implements OnInit {
 
-  public counter = 0;
+  public allowance = false;
 
+  public counter = 0;
   public isTake: boolean;
+
   public wallet: any;
 
   constructor(
@@ -22,6 +24,7 @@ export class TokenAllowanceModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.allowanceApi.have().subscribe(() => this.allowance = true);
   }
 
   take() {

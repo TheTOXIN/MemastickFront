@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
+import {MainApiService} from '../services/main-api-service';
+import {Home} from '../model/Home';
 
 @Component({
   selector: 'app-home',
@@ -28,18 +30,13 @@ export class HomeComponent implements OnInit {
 
   public message: String;
 
-  public memetick: Memetick = new Memetick(
-    '',
-    '',
-    0,
-    false
-  );
+  public home: Home = new Home('', 0, false);
 
   public showLogo: boolean = true;
 
   constructor(
     private router: Router,
-    private memetickApi: MemetickApiService,
+    private mainApi: MainApiService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -61,10 +58,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // TODO replace to home API
   private takeMe() {
-    this.memetickApi.viewMe().subscribe(data => {
-      this.memetick = data;
+    this.mainApi.home().subscribe(home => {
+      this.home = home;
     });
   }
 

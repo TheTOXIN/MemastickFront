@@ -3,7 +3,6 @@ export class Memetick {
     public id: string,
     public nick: string,
     public dna: number,
-    public allowance: boolean
   ) {
 
   }

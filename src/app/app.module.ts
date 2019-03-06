@@ -33,6 +33,7 @@ import {HomeModule} from './home/home.module';
 import {EvolveMemeApiService} from './services/evolve-meme-api-service';
 import {EvolveModule} from './evolve/evolve.module';
 import {TokenAllowanceApiService} from './services/token-allowance-api-service';
+import {MainApiService} from './services/main-api-service';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {TokenAllowanceApiService} from './services/token-allowance-api-service';
     TokenApiService,
     EvolveMemeApiService,
     TokenAllowanceApiService,
+    MainApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

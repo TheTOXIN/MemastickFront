@@ -2,11 +2,12 @@
 <div class="home-logo" *ngIf="showLogo" (click)="toStart()">
   <img src="assets/images/footer-logo.png">
 </div>
+<div *ngIf="home.allowance"> ALLOWANCE </div>
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table home-table-hello">
-        <p class="home-hello animated tada">😎 ПРИВЕТ {{memetick.nick}} !!!</p>
+        <p class="home-hello animated tada">😎 ПРИВЕТ {{home.nick}} !!!</p>
         <p class="home-info">{{message}}</p>
       </div>
     </div>
@@ -30,7 +31,7 @@
     </div>
     <div class="col-lg-6 text-center">
       <div class="home-table home-stats">
-        <p>ДЕНЬ ЭВОЛЮЦИИ #69</p>
+        <p>ДЕНЬ ЭВОЛЮЦИИ #{{home.day}}</p>
         <app-statistic></app-statistic>
       </div>
     </div>

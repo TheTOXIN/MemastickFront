@@ -4,15 +4,15 @@
   </div>
   <div class="modal-body modal-allowance">
     <div class="title-allowance">
-      <p>откройте чтобы проверить</p>
+      <p>нажмите 2 раза чтобы забрать токены</p>
     </div>
     <div class="letter-open animated zoomIn" *ngIf="isTake">
       <app-token-wallet [wallet]="wallet"></app-token-wallet>
     </div>
-    <div class="letter-image" (mousemove)="counter = 1" (mouseup)="take()" *ngIf="!isTake">
+    <div class="letter-image" (mouseup)="take()" [ngClass]="{'animated fadeOut': isTake}">
       <div class="animated-mail">
         <div class="back-fold"></div>
-        <div class="letter">
+        <div class="letter" *ngIf="allowance">
           <div class="letter-border"></div>
           <div class="letter-title"></div>
           <div class="letter-context"></div>
@@ -24,9 +24,10 @@
         <div class="body"></div>
         <div class="left-fold"></div>
       </div>
+      <div class="letter-shadow"></div>
     </div>
     <div class="message-allowance">
-      <p>пособие начисляют раз в день</p>
+      <p>пособие начисляют ежедневно в 12:00 по UTC</p>
     </div>
   </div>
   <div class="modal-footer modal-section">
