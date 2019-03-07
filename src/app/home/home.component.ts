@@ -1,12 +1,14 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {Memetick} from '../model/Memetick';
-import {MemetickApiService} from '../services/memetick-api-service';
+import {Component, HostListener, Inject, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
 import {MainApiService} from '../services/main-api-service';
 import {Home} from '../model/Home';
+import {NotificationComponent} from './notification/notification.component';
+import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +16,8 @@ import {Home} from '../model/Home';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   myStyle: object = {};
   myParams: object = {};
@@ -37,6 +41,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private mainApi: MainApiService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -46,6 +52,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.initParticles();
     this.takeMe();
+    this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
   }
 
   @HostListener('window:scroll', [])
@@ -82,6 +89,10 @@ export class HomeComponent implements OnInit {
 
   toStart() {
     this.router.navigateByUrl('/start');
+  }
+
+  showAlowance() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   initParticles() {

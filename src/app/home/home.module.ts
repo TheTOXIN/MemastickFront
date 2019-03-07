@@ -11,6 +11,7 @@ import {TokenWalletComponent} from './token-wallet/token-wallet.component';
 import {TokenAcceptComponent} from './token-accept/token-accept.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
+import {NotificationComponent} from './notification/notification.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowa
     TokenWalletComponent,
     TokenAcceptComponent,
     MemetickRatingComponent,
-    TokenAllowanceModalComponent
+    TokenAllowanceModalComponent,
+    NotificationComponent
   ],
   entryComponents: [
     TokenAllowanceModalComponent

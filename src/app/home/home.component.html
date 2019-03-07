@@ -2,7 +2,7 @@
 <div class="home-logo" *ngIf="showLogo" (click)="toStart()">
   <img src="assets/images/footer-logo.png">
 </div>
-<div *ngIf="home.allowance"> ALLOWANCE </div>
+<app-notification (eventer)="showAlowance($event)"></app-notification>
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
