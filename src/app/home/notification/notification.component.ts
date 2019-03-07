@@ -21,7 +21,7 @@ export class NotificationComponent implements OnInit {
   public int: string;
 
   @Output()
-  public eventer = new EventEmitter<>();
+  public eventer = new EventEmitter<void>();
 
   constructor() { }
 

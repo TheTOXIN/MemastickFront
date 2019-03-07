@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.initParticles();
     this.takeMe();
-    this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
   }
 
   @HostListener('window:scroll', [])
@@ -68,6 +67,9 @@ export class HomeComponent implements OnInit {
   private takeMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
+      if (this.home.allowance) {
+        this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
+      }
     });
   }
 
