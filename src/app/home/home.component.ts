@@ -1,9 +1,14 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {Memetick} from '../model/Memetick';
-import {MemetickApiService} from '../services/memetick-api-service';
+import {Component, HostListener, Inject, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
+import {MemeFilter} from '../consts/MemeFilter';
+import {MainApiService} from '../services/main-api-service';
+import {Home} from '../model/Home';
+import {NotificationComponent} from './notification/notification.component';
+import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +17,12 @@ import {DOCUMENT} from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild(NotificationComponent) notification: NotificationComponent;
+
   myStyle: object = {};
   myParams: object = {};
+
+  filters = MemeFilter;
 
   private messages = [
     'Мемастик в процессе разработки, не ругайте нас',
@@ -25,16 +34,15 @@ export class HomeComponent implements OnInit {
 
   public message: String;
 
-  public memetick: Memetick = new Memetick(
-    '',
-    ''
-  );
+  public home: Home = new Home('', 0, false);
 
   public showLogo: boolean = true;
 
   constructor(
     private router: Router,
-    private memetickApi: MemetickApiService,
+    private mainApi: MainApiService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -57,25 +65,36 @@ export class HomeComponent implements OnInit {
   }
 
   private takeMe() {
-    this.memetickApi.viewMe().subscribe(data => {
-      this.memetick = data;
+    this.mainApi.home().subscribe(home => {
+      this.home = home;
+      if (this.home.allowance) {
+        this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
+      }
     });
   }
 
-  memes() {
-    this.router.navigateByUrl('/home/memes');
+  memes(filter: MemeFilter) {
+    this.router.navigate(['/memes'], {queryParams: {filter: filter}});
   }
 
   memeCreator() {
-    this.router.navigateByUrl('/home/memes/create');
+    this.router.navigateByUrl('/memes/create');
   }
 
   memetickMe() {
     this.router.navigateByUrl('/home/memetick/me');
   }
 
+  memetickRating() {
+    this.router.navigateByUrl('/home/memetick/rating');
+  }
+
   toStart() {
     this.router.navigateByUrl('/start');
+  }
+
+  showAlowance() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   initParticles() {

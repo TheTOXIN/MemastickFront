@@ -5,7 +5,8 @@ import {API} from '../consts/API';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
 import {MemePage} from '../model/MemePage';
-
+import 'rxjs/add/operator/map';
+import {Meme} from '../model/Meme';
 
 @Injectable()
 export class MemeApiService {
@@ -26,13 +27,7 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memeCreateCheck() {
-    return this.http
-      .get(API.MEMES_CREATE_CHECK, {})
-      .pipe();
-  }
-
-  public memePage(page, size, sort): Observable<MemePage[]> {
+  public memePagesFilter(page, size, sort, filter): Observable<MemePage[]> {
     const params = new HttpParams()
       .set('page', page)
       .set('size', size)
@@ -43,7 +38,13 @@ export class MemeApiService {
       .set('Content-Type', 'application/json');
 
     return this.http
-      .get<MemePage[]>(API.MEMES_READ, {headers, params})
+      .get<MemePage[]>(API.MEMES_PAGES_FILTER + '/' + filter, {headers, params})
+      .pipe();
+  }
+
+  public memePage(memeId: UUID): Observable<Meme> {
+    return this.http
+      .get<Meme>(API.MEMES_READ + '/' + memeId)
       .pipe();
   }
 
@@ -55,5 +56,9 @@ export class MemeApiService {
     return this.storage.ref(path).getDownloadURL().pipe();
   }
 
-
+  public memeDownload(url: string) {
+    return this.http.get(url, {observe: 'response', responseType: 'blob'}).map((res) => {
+      return new Blob([res.body], {type: res.headers.get('Content-Type')});
+    });
+  }
 }

@@ -2,11 +2,12 @@
 <div class="home-logo" *ngIf="showLogo" (click)="toStart()">
   <img src="assets/images/footer-logo.png">
 </div>
+<app-notification (eventer)="showAlowance($event)"></app-notification>
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table home-table-hello">
-        <p class="home-hello animated tada">😎 ПРИВЕТ {{memetick.nick}} !!!</p>
+        <p class="home-hello animated tada">😎 ПРИВЕТ {{home.nick}} !!!</p>
         <p class="home-info">{{message}}</p>
       </div>
     </div>
@@ -15,7 +16,7 @@
     <div class="col-lg-6 text-center">
       <div class="home-table home-buttons">
         <div class="form-group home-button">
-          <button class="btn-theme" type="submit" (click)="memes()">МЕМАСИКИ</button>
+          <button class="btn-theme" type="submit" (click)="memes(filters.EVLV)">МЕМАСИКИ</button>
         </div>
         <div class="form-group home-button">
           <button class="btn-theme" type="submit" (click)="memeCreator()">СОЗДАТЬ</button>
@@ -23,11 +24,41 @@
         <div class="form-group home-button">
           <button class="btn-theme" type="submit" (click)="memetickMe()">ПРОФИЛЬ</button>
         </div>
+        <div class="form-group home-button">
+          <button class="btn-theme" type="submit" (click)="memetickRating()">РЕЙТИНГ</button>
+        </div>
       </div>
     </div>
     <div class="col-lg-6 text-center">
-      <div class="home-table">
+      <div class="home-table home-stats">
+        <p>ДЕНЬ ЭВОЛЮЦИИ #{{home.day}}</p>
         <app-statistic></app-statistic>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-md-3 text-center">
+      <div class="home-table home-picker" (click)="memes(filters.INDV)">
+        <img src="assets/images/icon/1.png">
+        <p>ОСОБИ</p>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="home-table home-picker" (click)="memes(filters.SELF)">
+        <img src="assets/images/tokens/tmp.png">
+        <p>МОИ МЕМЫ</p>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="home-table home-picker" (click)="memes(filters.LIKE)">
+        <img src="assets/images/icon/like_push.png">
+        <p>ЛЮБИМЧИКИ</p>
+      </div>
+    </div>
+    <div class="col-md-3 text-center">
+      <div class="home-table home-picker" (click)="memes(filters.DTHS)">
+        <img src="assets/images/icon/dead.png">
+        <p>МЕРТВЕЦЫ</p>
       </div>
     </div>
   </div>

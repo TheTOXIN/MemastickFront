@@ -87,5 +87,4 @@ export class PriceComponent implements OnInit {
     modalRef.componentInstance.content = 'ГОЛОСОВАНИЕ ЗА НОВЫЕ ФИЧИ В ПРОЦЕССЕ РАЗРАБОТКИ';
     modalRef.componentInstance.title = 'ОЙ :(';
   }
-
 }

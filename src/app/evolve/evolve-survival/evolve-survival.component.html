@@ -1,0 +1,17 @@
+<div class="evolve-survive">
+  <div class="evolve-chance">
+    <p>ШАНС ВЫЖИТЬ</p>
+    <div class="evolve-chance-circle">
+      <p>{{evolve?.chanceSurvive}}%</p>
+    </div>
+  </div>
+  <div class="evolve-text">
+    <p>Мем проходит естественный отбор, вы можете повысить его шанс выжить</p>
+  </div>
+  <div class="evolve-control">
+    <button class="btn-theme" (click)="chance()">ПОВЫСИТЬ</button>
+  </div>
+</div>
+<app-loader [message]="message" [status]="status"></app-loader>
+<app-token-accept (accept)="acceptSelectionResult($event)"></app-token-accept>
+

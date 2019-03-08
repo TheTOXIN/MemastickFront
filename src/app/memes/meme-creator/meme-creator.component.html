@@ -2,7 +2,7 @@
   <div class="create-title">
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
-  <div *ngIf="isPossible" class="create-table flex-center-absolute">
+  <div class="create-table flex-center-absolute">
     <div class="create-preview animated fadeIn slower" *ngIf="isPreview">
       <img [src]="imgURL || ''" alt="">
     </div>
@@ -25,12 +25,13 @@
     </div>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
-    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
+    <button class="btn-theme" (click)="acceptCreatingShow()">СОЗДАТЬ</button>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
     <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
   </div>
   <app-loader [message]="message" [status]="status"></app-loader>
+  <app-token-accept (accept)="acceptCreatingResult($event)"></app-token-accept>
   <div class='stars'></div>
   <div class='stars2'></div>
   <div class='stars3'></div>

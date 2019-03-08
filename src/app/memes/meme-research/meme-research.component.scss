@@ -1,0 +1,109 @@
+.meme-research-container {
+  height: 95vh;
+  padding: 30px;
+  margin: 15px;
+  position: relative;
+  border-radius: 50px;
+  background-color: whitesmoke;
+  box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
+}
+
+.meme-type-title {
+  text-align: center;
+  background-color: #544ce2;
+  border-radius: 90px;
+  height: 36px;
+  p {
+    font-size: 24px;
+    color: whitesmoke;
+    padding-top: 5px;
+  }
+}
+
+.meme-chromosome {
+  text-align: center;
+  img {
+    width: 90px;
+    margin: 15px;
+    border-radius: 100%;
+    border: 3px solid darkgreen;
+    padding: 10px;
+  }
+  p {
+    font-family: FuturaRound, serif;
+    color: black;
+    font-size: 32px;
+    margin-top: -5px;
+  }
+}
+
+.meme-population {
+  text-align: center;
+  p {
+    font-size: 20px;
+    font-family: Futurica, serif;
+  }
+}
+
+.meme-research {
+  border: 5px dashed #585f82;
+  border-radius: 50px;
+  padding: 15px;
+}
+
+.meme-research-img {
+  text-align: center;
+  animation: spin 2s linear infinite;
+  img {
+    width: 164px;
+    padding: 15px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+.meme-research-title {
+  text-align: center;
+}
+
+.meme-research-control {
+  text-align: center;
+  button {
+    font-size: 20px;
+    margin: 15px;
+    font-family: FuturaRound, serif;
+    border-radius: 30px;
+  }
+}
+
+.research-close {
+  text-align: center;
+  width: 72px;
+  height: 72px;
+  background-color: #5f57ea;
+  border-radius: 30px;
+  box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
+  margin: auto;
+  i {
+    color: #d85040;
+    font-size: 64px;
+    margin-top: 4px;
+  }
+}
+
+.research-close-wrap {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}

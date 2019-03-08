@@ -3243,10 +3243,26 @@ li.nav-item.dropdown {
 }
 
 //MODAL
+.modal-close {
+  font-size: 64px;
+  outline: none;
+  border: 0;
+  background: transparent;
+  color: white;
+  line-height: 50px;
+
+  &:hover {
+    color: #ff433d;
+  }
+}
+
 .modal-header {
   font-size: 36px;
   color: black;
   padding-bottom: 10px;
+  @media(max-width: 991px) {
+    font-size: 24px;
+  }
 }
 
 .modal-body {
@@ -3270,4 +3286,9 @@ li.nav-item.dropdown {
   justify-content: center;
   color: white !important;
   background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+}
+
+.modal-xxl .modal-lg {
+  max-width: 100%;
+  margin: 0px;
 }

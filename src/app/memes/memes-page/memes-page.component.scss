@@ -21,14 +21,26 @@
   }
 }
 
-.memes-memtick {
+.memes-memetick {
   height: 70px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.memes-memetick-avatar {
+  height: 100%;
+  width: 125px;
   img {
-    float: left;
-    margin-left: 0px;
     max-width: 100%;
     max-height: 100%;
+    float: left;
   }
+}
+
+.memes-memetick-nick {
+  height: 100%;
+  width: 100%;
   span {
     font-family: Futurica, serif;
     float: left;
@@ -36,6 +48,26 @@
     color: #212529;
     font-size: 32px;
     margin-top: 10px;
+  }
+  @media(max-width: 991px) {
+    span {
+      font-size: 28px;
+    }
+  }
+}
+
+.memes-memetick-step {
+  height: 100%;
+  width: 125px;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  @media(max-width: 991px) {
+    img {
+      margin-left: 15px;
+      margin-top: -8px;
+    }
   }
 }
 
@@ -57,21 +89,25 @@
 .like-icon-1 {
   width: 80%;
   height: 100%;
-  img {
-    margin-left: 10px;
-    margin-top: 8px;
-    width: 54px;
-  }
+  margin-left: 15px;
+}
+
+.like-img-1 {
+  float: left;
+  width: 54px;
+  margin-top: 8px;
 }
 
 .like-icon-2 {
   width: 80%;
   height: 100%;
-  img {
-    padding-right: 8px;
-    margin-top: 5px;
-    width: 64px;
-  }
+  margin-right: 15px;
+}
+
+.like-img-2 {
+  float: right;
+  width: 54px;
+  margin-top: 8px;
 }
 
 .like-count-1 {
@@ -94,12 +130,21 @@
 }
 
 .likes-delimer {
-  background-color: #444444;
-  width: 5px;
-  height: 80%;
-  border-radius: 90px;
-  margin-top: 6px;
-  padding: 3px;
+  height: 100%;
+  width: 100%;
+  img {
+    margin-top: 8px;
+    width: 55px;
+  }
+}
+
+.full {
+  opacity: 0.5;
+}
+
+.blur {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
 }
 
 @keyframes slider {
@@ -114,10 +159,24 @@
   }
 }
 
-.meme-empty {
-  height: 50px;
+.chromosome-counter {
+  width: 0;
+  height: 100%;
+  position: relative;
 }
 
-.full {
-  opacity: 0.5;
+.counter {
+  position: absolute;
+  margin-left: 11px;
+  opacity: 0;
+  margin-top: -80px;
+  width: 32px;
+  height: 32px;
+  background-color: darkgreen;
+  border-radius: 100%;
+  span {
+    padding-top: 4px;
+    font-size: 20px;
+    color: whitesmoke;
+  }
 }

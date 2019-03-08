@@ -25,5 +25,4 @@ export class IntroComponent implements OnInit {
   toSignUp() {
     this.router.navigateByUrl('/pages/sign-up');
   }
-
 }

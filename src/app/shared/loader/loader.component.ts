@@ -15,11 +15,8 @@ export class LoaderComponent implements OnInit {
   @Input()
   public status: LoaderStatus;
 
-  constructor(
-    private router: Router
-  ) {
-    this.message = '';
-    this.status = LoaderStatus.NONE;
+  constructor() {
+    this.clear();
   }
 
   ngOnInit() {
@@ -45,12 +42,10 @@ export class LoaderComponent implements OnInit {
     return this.message !== '' && this.message != null;
   }
 
-  doneTrigger() {
-    window.location.reload();
+  clear() {
+    if (this.status === LoaderStatus.DONE || this.status === LoaderStatus.ERROR) {
+      this.message = '';
+      this.status = LoaderStatus.NONE;
+    }
   }
-
-  errorTrigger() {
-    this.router.navigateByUrl('/home');
-  }
-
 }

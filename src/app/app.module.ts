@@ -27,6 +27,13 @@ import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
 import {MemeApiService} from './services/meme-api-service';
 import {MemeLikeApiService} from './services/meme-like-api-service';
 import {ModalsModule} from './modals/modals.module';
+import {MemesModule} from './memes/memes.module';
+import {TokenApiService} from './services/token-api-service';
+import {HomeModule} from './home/home.module';
+import {EvolveMemeApiService} from './services/evolve-meme-api-service';
+import {EvolveModule} from './evolve/evolve.module';
+import {TokenAllowanceApiService} from './services/token-allowance-api-service';
+import {MainApiService} from './services/main-api-service';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,9 @@ import {ModalsModule} from './modals/modals.module';
     BrowserAnimationsModule,
     SharedModule,
     ModalsModule,
+    MemesModule,
+    HomeModule,
+    EvolveModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
@@ -59,6 +69,10 @@ import {ModalsModule} from './modals/modals.module';
     MemetickAvatarApiService,
     MemeApiService,
     MemeLikeApiService,
+    TokenApiService,
+    EvolveMemeApiService,
+    TokenAllowanceApiService,
+    MainApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

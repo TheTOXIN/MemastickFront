@@ -1,0 +1,11 @@
+<div *ngIf="isShow" class="notification animated fast bounceInDown" (click)="event()" [ngClass]="{'bounceOutUp': isHide}">
+  <div class="notification-img">
+    <img [src]="img">
+  </div>
+  <div class="notification-txt align-middle">
+    <div>{{txt}}</div>
+  </div>
+  <div class="notification-int">
+    <p>+{{int}}</p>
+  </div>
+</div>
