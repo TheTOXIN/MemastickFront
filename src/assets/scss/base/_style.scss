@@ -3260,6 +3260,9 @@ li.nav-item.dropdown {
   font-size: 36px;
   color: black;
   padding-bottom: 10px;
+  @media(max-width: 991px) {
+    font-size: 24px;
+  }
 }
 
 .modal-body {
