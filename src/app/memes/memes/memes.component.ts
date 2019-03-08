@@ -17,7 +17,7 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
-  private currentMeme: Meme;
+  public currentMeme: Meme;
 
   constructor(
     public pagination: MemesPaginationService,

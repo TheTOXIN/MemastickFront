@@ -9,7 +9,7 @@ import {MemeApiService} from '../../services/meme-api-service';
 })
 export class MemesShareComponent implements OnInit {
 
-  private memeURL: string;
+  public memeURL: string;
 
   constructor(
     private router: Router,
