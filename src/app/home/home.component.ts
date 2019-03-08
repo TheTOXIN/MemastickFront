@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public home: Home = new Home('', 0, false);
 
-  public showLogo: boolean = true;
+  public showLogo = true;
 
   constructor(
     private router: Router,
@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/start');
   }
 
-  showAlowance() {
+  showAlowance(event) {
     this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
