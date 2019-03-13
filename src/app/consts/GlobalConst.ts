@@ -1,3 +1,3 @@
 export enum GlobalConst {
-  VERSION = '0.2 alpha'
+  VERSION = '0.2.1 alpha'
 }
