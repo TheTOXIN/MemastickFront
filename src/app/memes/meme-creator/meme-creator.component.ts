@@ -7,6 +7,7 @@ import {ErrorStatus} from '../../consts/ErrorStatus';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-meme-creator',
@@ -60,6 +61,7 @@ export class MemeCreatorComponent {
   upload(files) {
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
+    if (files[0].size > ValidConst.MAX_MEME_SIZE) { return; }
 
     this.status = LoaderStatus.LOAD;
 
