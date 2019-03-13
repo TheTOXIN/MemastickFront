@@ -1,4 +1,4 @@
-<div class="mem-back"></div>
+<div class="mem-back">+
 
 <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
   <div *ngFor="let data of pagination.data | async">
@@ -6,6 +6,8 @@
   </div>
   <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
   <div class="meme-empty"></div>
+</div>
+
 </div>
 
 <app-meme-research></app-meme-research>

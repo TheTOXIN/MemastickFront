@@ -6,6 +6,7 @@
   border-radius: 50px;
   background-color: whitesmoke;
   box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
+  overflow-y: scroll;
 }
 
 .meme-type-title {
@@ -93,7 +94,7 @@
   background-color: #5f57ea;
   border-radius: 30px;
   box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
-  margin: auto;
+  margin: -50px auto auto;
   i {
     color: #d85040;
     font-size: 64px;

@@ -18,6 +18,6 @@ export class EvolveStepInfoModalComponent {
     public activeModal: NgbActiveModal
   ) {
     this.evolveInfos[EvolveStep.BIRTH] = 'assets/images/ss/1.png';
-    this.evolveInfos[EvolveStep.SURVIVAL] = 'assets/images/ss/2.png';
+    this.evolveInfos[EvolveStep.SURVIVAL] = 'assets/images/ss/5.png';
   }
 }
