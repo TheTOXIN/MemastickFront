@@ -9,11 +9,11 @@ import {TokenAllowanceApiService} from '../../services/token-allowance-api-servi
 })
 export class TokenAllowanceModalComponent implements OnInit {
 
-  public allowance = false;
-
-  public counter = 0;
+  public isLoad: boolean;
   public isTake: boolean;
 
+  public allowance = false;
+  public counter = 0;
   public wallet: any;
 
   constructor(
@@ -29,10 +29,12 @@ export class TokenAllowanceModalComponent implements OnInit {
 
   take() {
     this.counter++;
+    this.isLoad = true;
     if (this.counter >= 2) {
       this.allowanceApi.take().subscribe(data => {
         this.wallet = data.wallet;
         this.isTake = true;
+        this.isLoad = false;
       });
       this.counter = 0;
     }

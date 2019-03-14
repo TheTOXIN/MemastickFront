@@ -3,9 +3,10 @@
     <span class="modal-title">ПОСОБИЕ</span>
   </div>
   <div class="modal-body modal-allowance">
-    <div class="title-allowance">
+    <div class="title-allowance" *ngIf="!isLoad">
       <p>нажмите 2 раза чтобы забрать токены</p>
     </div>
+    <app-spinner *ngIf="isLoad"></app-spinner>
     <div class="letter-open animated zoomIn" *ngIf="isTake">
       <app-token-wallet [wallet]="wallet"></app-token-wallet>
     </div>
