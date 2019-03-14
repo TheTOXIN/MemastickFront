@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --aot --prod --build-optimizer",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod --build-optimizer",
+    "heroku-postbuild": "ng build --aot --prod",
     "start": "node server.js",
     "start-local": "ng serve --host 0.0.0.0"
   },
@@ -50,7 +50,9 @@
     "swiper": "^4.5.0",
     "typescript": "^3.1.6",
     "web-animations-js": "^2.3.1",
-    "zone.js": "^0.8.29"
+    "zone.js": "^0.8.29",
+    "express": "*",
+    "body-parser": "*"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^7.2.9",
