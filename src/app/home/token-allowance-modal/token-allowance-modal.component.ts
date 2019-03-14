@@ -29,8 +29,8 @@ export class TokenAllowanceModalComponent implements OnInit {
 
   take() {
     this.counter++;
-    this.isLoad = true;
     if (this.counter >= 2) {
+      this.isLoad = true;
       this.allowanceApi.take().subscribe(data => {
         this.wallet = data.wallet;
         this.isTake = true;
