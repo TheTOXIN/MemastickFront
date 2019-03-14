@@ -13,6 +13,9 @@ export class OauthApiService {
   private keyAccess = 'access_token_meme';
   private keyRefresh = 'refresh_token_meme';
 
+  public accessTime = 3600;
+  public refreshTime = 2592000;
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -88,8 +91,8 @@ export class OauthApiService {
     const dateAccess = new Date();
     const dateRefresh = new Date();
 
-    dateAccess.setSeconds(dateAccess.getSeconds() + token.expires_in);
-    dateRefresh.setSeconds(86400 * 7);
+    dateAccess.setSeconds(dateAccess.getSeconds() + this.accessTime);
+    dateRefresh.setSeconds(dateRefresh.getSeconds() + this.refreshTime);
 
     Cookie.set(this.keyAccess, token.access_token, dateAccess, '/');
 
@@ -125,5 +128,4 @@ export class OauthApiService {
     this.statuses['EMAIL_INVALID'] = 'Некорректная почта';
     this.statuses['INVITE'] = 'Инвайт-код не действителен';
   }
-
 }

@@ -16,5 +16,4 @@ export class RegistrationApiService {
       .post(API.REGISTRATION, reg)
       .pipe();
   }
-
 }

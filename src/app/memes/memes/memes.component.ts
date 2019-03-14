@@ -17,8 +17,6 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
-  public currentMeme: Meme;
-
   constructor(
     public pagination: MemesPaginationService,
     private route: ActivatedRoute
@@ -53,8 +51,7 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   memeView(meme: Meme) {
-    this.currentMeme = meme;
-    this.view.viewShow();
+    this.view.viewShow(meme);
   }
 
   memeResearch(meme: Meme) {

@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
 
   filters = MemeFilter;
 
+  isLoad = true;
+
   private messages = [
     'Мемастик в процессе разработки, не ругайте нас',
     'Чувствуй себя как дома! (но не очень сильно)',
@@ -70,6 +72,7 @@ export class HomeComponent implements OnInit {
       if (this.home.allowance) {
         this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
       }
+      this.isLoad = false;
     });
   }
 

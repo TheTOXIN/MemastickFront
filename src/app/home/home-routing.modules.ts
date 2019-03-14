@@ -6,7 +6,7 @@ import {MemetickRatingComponent} from './memetick-rating/memetick-rating.compone
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     children: [
       {
         path: 'memetick/me',

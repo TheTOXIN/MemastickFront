@@ -1,23 +1,23 @@
-<div class="mem-back">
-        <div *ngFor="let memetick of memetikcs, let i = index">
-          <div class="memetick-container animated slideInLeft">
-            <div class="memetick-number">
-              <p class="number">{{i}}</p>
-            </div>
-            <div class="memetick-tablet">
-              <div class="memetick-avatar">
-                <img [src]="getAvatar(memetick) || ''" onError="this.src='assets/images/review.png';" (click)="memetickView(memetick.id)">
-              </div>
-              <div class="memetick-nick">
-                {{memetick.nick}}
-              </div>
-              <div class="memetick-dna-img">
-                <img src="assets/images/icon/3.png">
-              </div>
-              <div class="memetick-dna-count">
-                <p>{{memetick.dna}}</p>
-              </div>
-            </div>
-          </div>
+<div class="mem-back"></div>
+  <div *ngFor="let memetick of memetikcs, let i = index">
+    <div class="memetick-container animated slideInLeft">
+      <div class="memetick-number">
+        <p class="number">{{i}}</p>
+      </div>
+      <div class="memetick-tablet">
+        <div class="memetick-avatar">
+          <img [src]="getAvatar(memetick) || ''" onError="this.src='assets/images/review.png';"
+               (click)="memetickView(memetick.id)">
         </div>
-</div>
+        <div class="memetick-nick">
+          {{memetick.nick}}
+        </div>
+        <div class="memetick-dna-img">
+          <img src="assets/images/icon/3.png">
+        </div>
+        <div class="memetick-dna-count">
+          <p>{{memetick.dna}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
