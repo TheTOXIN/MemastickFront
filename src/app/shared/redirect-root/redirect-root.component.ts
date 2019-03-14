@@ -22,5 +22,4 @@ export class RedirectRootComponent implements OnInit {
       this.router.navigateByUrl('/start');
     }
   }
-
 }

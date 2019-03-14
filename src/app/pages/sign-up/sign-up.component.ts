@@ -93,8 +93,4 @@ export class SignUpComponent implements OnInit {
     this.isLoading = false;
     this.message = this.oauth.statuses[error.error];
   }
-
-  toInvite() {
-    this.router.navigateByUrl('/start');
-  }
 }

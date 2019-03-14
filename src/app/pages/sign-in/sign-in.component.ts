@@ -36,6 +36,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.oauth.checkTokens()) { this.toHome(); }
     this.signForm = this.fb.group({
       password: ['', Validators.required],
       email: [],
