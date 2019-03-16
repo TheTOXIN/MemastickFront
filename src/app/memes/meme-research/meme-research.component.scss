@@ -7,6 +7,7 @@
   background-color: whitesmoke;
   box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
   overflow-y: scroll;
+  &::-webkit-scrollbar {width:0;}
 }
 
 .meme-type-title {
@@ -54,8 +55,8 @@
 
 .meme-research-img {
   text-align: center;
-  animation: spin 2s linear infinite;
   img {
+    animation: spin 2s linear infinite;
     width: 164px;
     padding: 15px;
   }
@@ -88,13 +89,15 @@
 }
 
 .research-close {
-  text-align: center;
   width: 72px;
   height: 72px;
   background-color: #5f57ea;
   border-radius: 30px;
-  box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
-  margin: -50px auto auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  top: -69px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
   i {
     color: #d85040;
     font-size: 64px;
