@@ -37,6 +37,7 @@ export class EvolveSurvivalComponent implements OnInit {
 
   chance() {
     this.status = LoaderStatus.LOAD;
+    this.message = 'Применить антибиотик?';
     this.tokenAccept.show(TokenType.SELECTION);
   }
 
@@ -56,8 +57,8 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   successChance() {
-    this.evolve.chanceSurvive = 100;
-    this.message = 'Шанс выживания увеличен!';
+    this.evolve.chanceIncrease = true;
+    this.message = 'Иммунитет увеличен!';
     this.status = LoaderStatus.DONE;
   }
 
