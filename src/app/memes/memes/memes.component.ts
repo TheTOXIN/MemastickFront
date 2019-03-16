@@ -3,7 +3,6 @@ import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {Meme} from '../../model/Meme';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
-import {EvolveStep} from '../../consts/EvolveStep';
 import {ActivatedRoute} from '@angular/router';
 import {MemeFilter} from '../../consts/MemeFilter';
 
