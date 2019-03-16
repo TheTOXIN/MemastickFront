@@ -19,6 +19,7 @@ export class MemeResearchComponent {
   public evolve: EvolveMeme;
   public types = [];
 
+  isLoading = true;
   isPreview = false;
 
   constructor(
@@ -33,8 +34,11 @@ export class MemeResearchComponent {
 
   researchShow(meme: Meme) {
     this.meme = meme;
-    this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => this.evolve = evolve);
     this.isPreview = true;
+    this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => {
+      this.evolve = evolve;
+      this.isLoading = false;
+    });
   }
 
   researchClose() {

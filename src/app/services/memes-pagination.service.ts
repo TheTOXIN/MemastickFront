@@ -23,9 +23,11 @@ export class MemesPaginationService {
 
   private query: QueryConfig;
 
+  private _empty;
   private _loading;
   private _data;
 
+  public empty: Observable<boolean>;
   public loading: Observable<boolean>;
   public data: Observable<MemeData[]>;
 
@@ -52,9 +54,11 @@ export class MemesPaginationService {
 
     this.query.size = sizePage;
 
+    this._empty = new BehaviorSubject(false);
     this._loading = new BehaviorSubject(false);
     this._data = new BehaviorSubject([]);
 
+    this.empty = this._empty.asObservable();
     this.loading = this._loading.asObservable();
     this.data = this._data.asObservable().scan((acc, val) => {
       return acc.concat(val);
@@ -65,6 +69,7 @@ export class MemesPaginationService {
 
   public more() {
     if (this._loading.value) { return; }
+    if (this._empty.value) { return; }
     this._loading.next(true);
 
     this.memeApi.memePagesFilter(
@@ -75,6 +80,7 @@ export class MemesPaginationService {
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this._loading.next(false);
+        this._empty.next(true);
         return;
       }
 
@@ -99,6 +105,7 @@ export class MemesPaginationService {
   public destroy() {
     this._data.unsubscribe();
     this._loading.unsubscribe();
+    this._empty.unsubscribe();
   }
 }
 

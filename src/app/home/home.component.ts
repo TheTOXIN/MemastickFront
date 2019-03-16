@@ -9,6 +9,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
+import * as randomEmoji from 'random-emoji';
 
 @Component({
   selector: 'app-home',
@@ -34,8 +35,8 @@ export class HomeComponent implements OnInit {
     'Вы не создаете мемы на свой страх и риск!'
   ];
 
+  public emoji: any;
   public message: String;
-
   public home: Home = new Home('', 0, false);
 
   public showLogo = true;
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initEmoji();
     this.initParticles();
     this.takeMe();
   }
@@ -64,6 +66,10 @@ export class HomeComponent implements OnInit {
     } else {
       this.showLogo = true;
     }
+  }
+
+  private initEmoji() {
+    this.emoji = randomEmoji.random({count: 1})[0].character;
   }
 
   private takeMe() {

@@ -6,6 +6,7 @@ export class EvolveMeme {
     public step: EvolveStep,
     public population: number,
     public chanceSurvive: number,
+    public chanceIncrease: boolean,
     public memeId: UUID
   ) {
 

@@ -39,4 +39,9 @@ export class TokenAllowanceModalComponent implements OnInit {
       this.counter = 0;
     }
   }
+
+  close() {
+    this.activeModal.dismiss('Cross click');
+    this.wallet = null;
+  }
 }

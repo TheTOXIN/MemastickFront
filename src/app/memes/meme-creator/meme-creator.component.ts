@@ -47,6 +47,7 @@ export class MemeCreatorComponent {
   acceptCreatingShow() {
     if (!this.isPreview || this.isCreate) { return; }
     this.status = LoaderStatus.LOAD;
+    this.message = 'Создать мем?';
     this.tokenAccept.show(TokenType.CREATING);
   }
 

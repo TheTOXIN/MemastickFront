@@ -5,7 +5,10 @@
     <app-memes-page (viewer)="memeView($event)" (researcher)="memeResearch($event)" [data]="data"></app-memes-page>
   </div>
   <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
-  <div class="meme-empty"></div>
+  <div class="meme-empty" *ngIf="(pagination.empty) | async">
+    <p> МЕМОВ НЕТ</p>
+    <img src="https://i.giphy.com/media/jcxtvm2bsZDH2/giphy.webp"/>
+  </div>
 </div>
 
 </div>
