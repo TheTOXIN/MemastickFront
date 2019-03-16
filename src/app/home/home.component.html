@@ -6,7 +6,9 @@
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <app-spinner style="margin-top: 20px" *ngIf="isLoad"></app-spinner>
+      <div style="margin-top: 20px">
+        <app-spinner *ngIf="isLoad"></app-spinner>
+      </div>
       <div class="home-table home-table-hello" *ngIf="!isLoad">
         <p class="home-hello animated tada">😎 ПРИВЕТ {{home.nick}} !!!</p>
         <p class="home-info">{{message}}</p>
