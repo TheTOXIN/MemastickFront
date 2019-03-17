@@ -25,7 +25,8 @@
             "assets": [
               "src/favicon.png",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/.well-known/assetlinks.json"
             ],
             "styles": [
               "node_modules/font-awesome/scss/font-awesome.scss",
@@ -50,7 +51,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "ngswConfigPath": "ngsw-config.json",
+              "ngswConfigPath": "src/ngsw-config.json",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
