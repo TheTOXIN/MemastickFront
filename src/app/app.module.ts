@@ -34,6 +34,7 @@ import {EvolveMemeApiService} from './services/evolve-meme-api-service';
 import {EvolveModule} from './evolve/evolve.module';
 import {TokenAllowanceApiService} from './services/token-allowance-api-service';
 import {MainApiService} from './services/main-api-service';
+import {PwaService} from './services/pwa-service';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import {MainApiService} from './services/main-api-service';
     EvolveMemeApiService,
     TokenAllowanceApiService,
     MainApiService,
+    PwaService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

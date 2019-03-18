@@ -13,6 +13,7 @@ import {TokenAcceptComponent} from '../token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenAllowanceModalComponent} from '../token-allowance-modal/token-allowance-modal.component';
+import {PwaService} from '../../services/pwa-service';
 
 @Component({
   selector: 'app-memetick',
@@ -40,7 +41,8 @@ export class MemetickComponent implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public pwa: PwaService
   ) {
 
   }
