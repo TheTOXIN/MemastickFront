@@ -13,7 +13,7 @@ export class OauthApiService {
   private keyAccess = 'access_token_meme';
   private keyRefresh = 'refresh_token_meme';
 
-  public accessTime = 3600;
+  public accessTime = 86400;
   public refreshTime = 2592000;
 
   constructor(
