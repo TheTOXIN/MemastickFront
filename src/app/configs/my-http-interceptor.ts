@@ -1,12 +1,26 @@
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpHeaderResponse,
+  HttpInterceptor,
+  HttpProgressEvent,
+  HttpRequest, HttpResponse,
+  HttpSentEvent, HttpUserEvent
+} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {API} from '../consts/API';
-import {tap} from 'rxjs/operators';
 import {OauthApiService} from '../services/oauth-api-service';
+import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
+import {throwError} from 'rxjs/internal/observable/throwError';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {flatMap} from 'rxjs/internal/operators';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
+
+  isRefreshingToken: boolean = false;
+  tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   private URL: String = API.BASE_URL;
 
@@ -28,33 +42,51 @@ export class MyHttpInterceptor implements HttpInterceptor {
     // TODO это нельзя оставить просто так
 
     if (!this.anonymus.includes(req.url) && !req.url.startsWith(API.MEMES_READ)) {
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.oauthApi.readToken()}`
-        }
-      });
+      req = this.oauthApi.addAuthorization(req, this.oauthApi.readToken());
     }
 
     if (!req.url.startsWith('http')) {
-      req = req.clone({
-        url: this.URL + req.url,
-      });
+      req = req.clone({ url: this.URL + req.url });
     }
 
-    return next.handle(req).pipe(tap(
-      () => {},
-      (error) => {
+    return next.handle(req).pipe(
+      catchError(error => {
         if (error.status === 401) {
-          this.oauthApi.refresh().pipe().subscribe(
-            () => {
-              return next.handle(this.oauthApi.addAuthorization(req)).toPromise().then(() => window.location.reload());
-            },
-            () => {
-              this.oauthApi.logout();
-            }
-          );
+          return this.refresher(req, next);
+        } else {
+          return throwError(error);
         }
-      }
-    ));
+      })
+    );
+  }
+
+  private refresher(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (!this.isRefreshingToken) {
+      this.isRefreshingToken = true;
+      this.tokenSubject.next(null);
+      return this.oauthApi.refresh().pipe(
+        flatMap((data: any) => {
+          this.tokenSubject.next(data.access_token);
+          this.oauthApi.saveToken(data);
+          return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
+        }),
+        catchError(err => {
+          this.oauthApi.logout();
+          return next.handle(req);
+        }),
+        finalize(() => {
+          this.isRefreshingToken = false;
+        })
+      );
+    } else {
+      this.isRefreshingToken = false;
+      return this.tokenSubject.pipe(
+        filter(token => token != null),
+        take(1),
+        switchMap(token => {
+          return next.handle(this.oauthApi.addAuthorization(req, token));
+        })
+      );
+    }
   }
 }

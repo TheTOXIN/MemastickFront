@@ -73,8 +73,6 @@ export class OauthApiService {
       API.OAUTH_TOKEN,
       params.toString(),
       options
-    ).pipe(
-      tap(data => this.saveToken(data))
     );
   }
 
@@ -101,10 +99,10 @@ export class OauthApiService {
     }
   }
 
-  public addAuthorization(req: HttpRequest<any>) {
+  public addAuthorization(req: HttpRequest<any>, token: any) {
     return req.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.readToken()}`
+        Authorization: `Bearer ${token}`
       }
     });
   }
