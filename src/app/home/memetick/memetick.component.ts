@@ -41,8 +41,7 @@ export class MemetickComponent implements OnInit {
     public router: Router,
     private route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
-    public pwa: PwaService
+    private modalService: NgbModal
   ) {
 
   }
