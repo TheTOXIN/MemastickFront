@@ -1,7 +1,7 @@
 {
   "name": "Мемастик",
   "short_name": "Мемастик",
-  "theme_color": "#794fe2",
+  "theme_color": "#8136EC",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
