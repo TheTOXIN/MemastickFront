@@ -1,18 +1,16 @@
 import {
   HttpEvent,
   HttpHandler,
-  HttpHeaderResponse,
   HttpInterceptor,
-  HttpProgressEvent,
-  HttpRequest, HttpResponse,
-  HttpSentEvent, HttpUserEvent
+  HttpRequest,
 } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {API} from '../consts/API';
 import {OauthApiService} from '../services/oauth-api-service';
 import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
-import {throwError} from 'rxjs/internal/observable/throwError';
+import {throwError} from 'rxjs';
+
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {flatMap} from 'rxjs/internal/operators';
 
@@ -72,7 +70,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
         }),
         catchError(err => {
           this.oauthApi.logout();
-          return next.handle(req);
+          return throwError(err);
         }),
         finalize(() => {
           this.isRefreshingToken = false;
