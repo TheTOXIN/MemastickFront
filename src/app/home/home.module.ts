@@ -12,6 +12,7 @@ import {TokenAcceptComponent} from './token-accept/token-accept.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
 import {NotificationComponent} from './notification/notification.component';
+import {ControlModule} from '../control/control.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {NotificationComponent} from './notification/notification.component';
     HomeRoutingModule,
     ParticlesModule,
     SharedModule,
-    ModalsModule
+    ModalsModule,
+    ControlModule
   ],
   exports: [
     TokenAcceptComponent,

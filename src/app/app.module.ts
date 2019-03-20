@@ -35,6 +35,7 @@ import {EvolveModule} from './evolve/evolve.module';
 import {TokenAllowanceApiService} from './services/token-allowance-api-service';
 import {MainApiService} from './services/main-api-service';
 import {PwaService} from './services/pwa-service';
+import {ControlModule} from './control/control.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {PwaService} from './services/pwa-service';
     MemesModule,
     HomeModule,
     EvolveModule,
+    ControlModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
