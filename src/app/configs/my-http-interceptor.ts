@@ -5,14 +5,12 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {API} from '../consts/API';
 import {OauthApiService} from '../services/oauth-api-service';
 import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {flatMap} from 'rxjs/internal/operators';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -58,12 +56,12 @@ export class MyHttpInterceptor implements HttpInterceptor {
     );
   }
 
-  private refresher(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  private refresher(req: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshingToken) {
       this.isRefreshingToken = true;
       this.tokenSubject.next(null);
       return this.oauthApi.refresh().pipe(
-        flatMap((data: any) => {
+        switchMap((data: any) => {
           this.tokenSubject.next(data.access_token);
           this.oauthApi.saveToken(data);
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
@@ -74,6 +72,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
         }),
         finalize(() => {
           this.isRefreshingToken = false;
+          return next.handle(req);
         })
       );
     } else {
