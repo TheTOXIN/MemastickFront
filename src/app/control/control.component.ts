@@ -11,6 +11,11 @@ export class ControlComponent implements OnInit {
 
   public hide = false;
 
+  public hideContentScope = true;
+  public hideContentMenu = true;
+  public hideContentEvents = true;
+  public hideContentItems = true;
+
   private predYOffset = 0;
 
   constructor(

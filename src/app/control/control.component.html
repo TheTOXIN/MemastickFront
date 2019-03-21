@@ -1,12 +1,39 @@
-<div class="control-scope control-panel animated slideInLeft" [ngClass]="{'slideOutLeft': hide}">
+<!--SCOPE-->
+<div class="control-scope control-panel animated slideInLeft"
+     [ngClass]="{'slideOutLeft': hide}"
+     (click)="hideContentScope = !hideContentScope">
   <i class="fa fa-th-large"></i>
 </div>
-<div class="control-menu control-panel animated slideInDown" [ngClass]="{'slideOutUp': hide}">
+<div class="control-scope-content control-content animated faster slideInLeft" *ngIf="!hideContentScope">
+
+</div>
+
+<!--MENU-->
+<div class="control-menu control-panel animated slideInDown"
+     [ngClass]="{'slideOutUp': hide}"
+     (click)="hideContentMenu = !hideContentMenu">
   <i class="fa fa-bars"></i>
 </div>
-<div class="control-items control-panel animated slideInUp" [ngClass]="{'slideOutDown': hide}">
-  <i class="fa fa-archive"></i>
+<div class="control-menu-content control-content animated faster slideInDown" *ngIf="!hideContentMenu">
+
 </div>
-<div class="control-events control-panel animated slideInRight" [ngClass]="{'slideOutRight': hide}">
+
+<!--EVENTS-->
+<div class="control-events control-panel animated slideInRight"
+     [ngClass]="{'slideOutRight': hide}"
+     (click)="hideContentEvents = !hideContentEvents">
   <i class="fa fa-bell"></i>
+</div>
+<div class="control-events-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
+
+</div>
+
+<!--ITEMS-->
+<div class="control-items control-panel animated slideInUp"
+     [ngClass]="{'slideOutDown': hide}"
+     (click)="hideContentItems = !hideContentItems">
+  <i class="fa fa-archive" ></i>
+</div>
+<div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
+
 </div>
