@@ -49,7 +49,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(error => {
         if (error.status === 401) {
-          console.log('REFRESHER');
           return this.refresher(req, next);
         } else {
           return throwError(error);
@@ -60,29 +59,25 @@ export class MyHttpInterceptor implements HttpInterceptor {
 
   private refresher(req: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshingToken) {
-      console.log('IS_REFRESH');
       this.isRefreshingToken = true;
       this.tokenSubject.next(null);
       return this.oauthApi.refresh().pipe(
-        flatMap((data: any) => {
-          console.log('REFRESH_MAP');
+        switchMap((data: any) => {
           this.tokenSubject.next(data.access_token);
           this.oauthApi.saveToken(data);
+          console.log('REFRESH');
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
-          console.log('REFRESH_ERROR');
           this.oauthApi.logout();
           return throwError(err);
         }),
         finalize(() => {
-          console.log('REFRESH FINALIZE');
           this.isRefreshingToken = false;
           return next.handle(req);
         })
       );
     } else {
-      console.log('NOT_REFRESH');
       this.isRefreshingToken = false;
       return this.tokenSubject.pipe(
         filter(token => token != null),
