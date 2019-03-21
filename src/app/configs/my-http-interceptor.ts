@@ -10,7 +10,6 @@ import {OauthApiService} from '../services/oauth-api-service';
 import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {flatMap} from 'rxjs/internal/operators';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -65,7 +64,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
         switchMap((data: any) => {
           this.tokenSubject.next(data.access_token);
           this.oauthApi.saveToken(data);
-          console.log('REFRESH');
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
