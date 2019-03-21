@@ -58,7 +58,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
     );
   }
 
-  private refresher(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
+  private refresher(req: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshingToken) {
       console.log('IS_REFRESH');
       this.isRefreshingToken = true;
@@ -78,6 +78,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
         finalize(() => {
           console.log('REFRESH FINALIZE');
           this.isRefreshingToken = false;
+          return next.handle(req);
         })
       );
     } else {
