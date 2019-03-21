@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 30) {
+    if (number >= 42) {
       this.showLogo = false;
     } else {
       this.showLogo = true;

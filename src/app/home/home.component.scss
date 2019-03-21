@@ -10,16 +10,20 @@
 }
 
 .home-logo {
-  border-radius: 30px;
+  border-radius: 0 0 30px 30px;
   left: 50%;
-  top: 10px;
+  top: 0;
+  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   position: fixed;
-  width: 250px;
+  width: 200px;
+  height: 54px;
   background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
   img {
-    padding: 15px;
-    max-width: 250px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 200px;
     height: auto;
   }
 }

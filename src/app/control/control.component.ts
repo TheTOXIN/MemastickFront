@@ -11,11 +11,12 @@ export class ControlComponent implements OnInit {
 
   public hide = false;
 
+  private predYOffset = 0;
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-
   }
 
   ngOnInit() {
@@ -23,11 +24,8 @@ export class ControlComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 69) {
-      this.hide = true;
-    } else {
-      this.hide = false;
-    }
+    const offset = window.pageYOffset - this.predYOffset;
+    this.hide = offset >= 0;
+    this.predYOffset = this.window.pageYOffset;
   }
 }
