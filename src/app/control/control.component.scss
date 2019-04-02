@@ -3,16 +3,26 @@
 }
 
 .control-panel {
+  width: 72px;
+  height: 72px;
   background: #8136EC;
-  width: 54px;
-  height: 54px;
   position: fixed;
   z-index: 69;
   box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
   i {
-    font-size: 28px;
     color: whitesmoke;
     position: absolute;
+    font-size: 48px;
+  }
+  @media(max-width: 991px) {
+    width: 54px;
+    height: 54px;
+    i {
+      font-size: 28px;
+    }
+  }
+  &:hover {
+    background: #6b25fc;
   }
 }
 
@@ -107,5 +117,8 @@
     color: #d85040;
     font-size: 64px;
     margin-top: 2px;
+  }
+  &:hover {
+    background: #6b25fc;
   }
 }
