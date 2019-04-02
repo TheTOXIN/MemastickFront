@@ -51,14 +51,14 @@ export class TokenWalletComponent implements OnInit {
         'assets/images/tokens/4.png',
         'Кроссовер',
         'Токен скрещивания',
-        'позволяет создать новый мем на основе дргуих мемов',
+        'позволяет создать новый мем на основе других мемов',
         this.wallet[TokenType.CROSSOVER]
       ),
       new TokenData(
         'assets/images/tokens/5.png',
         'Антибиотик',
         'Токен отбора',
-        'гарантирует 100% выживаемость мема',
+        'даёт иммунитет для выживаемости мема',
         this.wallet[TokenType.SELECTION]
       )
     ];

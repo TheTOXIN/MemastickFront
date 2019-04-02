@@ -6,11 +6,11 @@
     </div>
   </div>
   <div class="evolve-text">
-    <p *ngIf="!evolve?.chanceIncrease">Мем проходит отбор, вы можете повысить иммунитет чтобы гарантировать выживание</p>
+    <p *ngIf="!evolve?.chanceIncrease">Мем проходит отбор, вы можете дать антибиотик для иммунитета чтобы гарантировать выживание</p>
     <p *ngIf="evolve?.chanceIncrease">У мема повышенный иммунитет</p>
   </div>
   <div class="evolve-control">
-    <button *ngIf="!evolve?.chanceIncrease" class="btn-theme" (click)="chance()">ПОВЫСИТЬ</button>
+    <button *ngIf="!evolve?.chanceIncrease" class="btn-theme" (click)="chance()">ИММУНИЗИРОВАТЬ</button>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

@@ -27,12 +27,12 @@ export class TestimonialComponent implements OnInit {
     image: 'assets/images/tokens/4.png',
     name: 'Кроссовер',
     designation: 'Токен скрещивания',
-    description: 'позволяет создать новый мем на основе дргуих мемов',
+    description: 'позволяет создать новый мем на основе других мемов',
   }, {
     image: 'assets/images/tokens/5.png',
     name: 'Антибиотик',
     designation: 'Токен отбора',
-    description: 'гарантирует 100% выживаемость мема',
+    description: 'даёт иммунитет для выживаемости мема',
   }];
   // Testimonial Carousel Options
   public testimonialCarousel: any = {
