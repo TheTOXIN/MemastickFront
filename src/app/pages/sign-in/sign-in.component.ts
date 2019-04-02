@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {Router} from '@angular/router';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-sign-in',
@@ -81,8 +82,8 @@ export class SignInComponent implements OnInit {
     }
 
     if (
-      (this.signForm.value.password.length > 30) ||
-      (this.signForm.value.login.length > 30)
+      (this.signForm.value.password != null && this.signForm.value.password.length > ValidConst.MAX_TXT) ||
+      (this.signForm.value.login != null && this.signForm.value.login.length > ValidConst.MAX_TXT)
     ) {
       this.setErrorMessage('Некорректные данные');
       return false;
@@ -94,5 +95,4 @@ export class SignInComponent implements OnInit {
   toHome() {
     this.router.navigateByUrl('/home');
   }
-
 }
