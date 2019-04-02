@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemeApiService} from '../../services/meme-api-service';
-import {UUID} from 'angular2-uuid';
-import {MemeData} from '../../model/MemeData';
 import {Meme} from '../../model/Meme';
-import {MemeType} from '../../consts/MemeType';
 import {API} from '../../consts/API';
 
 @Component({

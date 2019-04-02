@@ -37,3 +37,8 @@
 <div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
 
 </div>
+
+<!--CLOSE-->
+<div class="control-closer animated rotateIn" (click)="hideAll()" *ngIf="showAll()">
+    <i class="fa fa-close"></i>
+</div>

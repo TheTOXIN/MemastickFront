@@ -33,4 +33,20 @@ export class ControlComponent implements OnInit {
     this.hide = offset >= 0;
     this.predYOffset = this.window.pageYOffset;
   }
+
+  hideAll() {
+    this.hideContentScope = true;
+    this.hideContentMenu = true;
+    this.hideContentEvents = true;
+    this.hideContentItems = true;
+  }
+
+  showAll() {
+    return !(
+      this.hideContentScope &&
+      this.hideContentMenu &&
+      this.hideContentEvents &&
+      this.hideContentItems
+    );
+  }
 }
