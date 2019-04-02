@@ -14,7 +14,7 @@ import {API} from '../../consts/API';
 export class MemeViewComponent implements OnInit {
 
   @Input()
-  private meme: Meme;
+  public meme: Meme;
 
   isPreview = false;
 
