@@ -1,16 +1,16 @@
 <div class="evolve-survive">
   <div class="evolve-chance">
     <p>ШАНС ВЫЖИТЬ</p>
-    <div class="evolve-chance-circle" [style.background-color]="evolve?.chance ? '#EE1F3B' : ''">
-      <p>{{evolve?.immunity}}%</p>
+    <div class="evolve-chance-circle" [style.background-color]="evolve?.immunity ? '#EE1F3B' : ''">
+      <p>{{evolve?.chance}}%</p>
     </div>
   </div>
   <div class="evolve-text">
-    <p *ngIf="!evolve?.chance">Мем проходит отбор, вы можете дать антибиотик для иммунитета чтобы гарантировать выживание</p>
-    <p *ngIf="evolve?.chance">У мема повышенный иммунитет</p>
+    <p *ngIf="!evolve?.immunity">Мем проходит отбор, вы можете дать антибиотик для иммунитета чтобы гарантировать выживание</p>
+    <p *ngIf="evolve?.immunity">У мема повышенный иммунитет</p>
   </div>
   <div class="evolve-control">
-    <button *ngIf="!evolve?.chance" class="btn-theme" (click)="chance()">ИММУНИЗИРОВАТЬ</button>
+    <button *ngIf="!evolve?.immunity" class="btn-theme" (click)="chance()">ИММУНИЗИРОВАТЬ</button>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

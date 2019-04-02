@@ -5,8 +5,8 @@ export class EvolveMeme {
   constructor(
     public step: EvolveStep,
     public population: number,
-    public immunity: number,
-    public chance: boolean,
+    public chance: number,
+    public immunity: boolean,
     public memeId: UUID
   ) {
 
