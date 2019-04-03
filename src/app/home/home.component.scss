@@ -4,7 +4,7 @@
   padding-bottom: 15px;
   line-height: 64px;
   overflow-x: hidden;
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     font-size: 40px;
   }
 }
@@ -26,7 +26,7 @@
     max-width: 300px;
     height: auto;
   }
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     width: 200px;
     height: 54px;
     img {
@@ -69,7 +69,7 @@
 
 .home-container {
   margin-top: 100px;
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     margin-top: 70px;
   }
 }
@@ -81,7 +81,7 @@
     padding: 20px;
     color: black;
   }
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     p {
       font-size: 24px;
     }
@@ -99,7 +99,7 @@
     font-family: Futurica, serif;
     font-size: 24px;
   }
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     p {
       font-size: 18px;
     }
