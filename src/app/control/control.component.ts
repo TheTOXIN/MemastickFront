@@ -10,6 +10,7 @@ import {WINDOW} from '../shared/services/windows.service';
 export class ControlComponent implements OnInit {
 
   public hide = false;
+  public close = false;
 
   public hideContentScope = true;
   public hideContentMenu = true;
@@ -39,14 +40,7 @@ export class ControlComponent implements OnInit {
     this.hideContentMenu = true;
     this.hideContentEvents = true;
     this.hideContentItems = true;
-  }
 
-  showAll() {
-    return !(
-      this.hideContentScope &&
-      this.hideContentMenu &&
-      this.hideContentEvents &&
-      this.hideContentItems
-    );
+    this.close = false;
   }
 }

@@ -1,7 +1,7 @@
 <!--SCOPE-->
 <div class="control-scope control-panel animated slideInLeft"
      [ngClass]="{'slideOutLeft': hide, 'control-panel-inverse': !hideContentScope}"
-     (click)="hideContentScope = !hideContentScope">
+     (click)="close = true; hideContentScope = false">
   <i class="fa fa-th-large"></i>
 </div>
 <div class="control-scope-content control-content animated faster slideInLeft" *ngIf="!hideContentScope">
@@ -11,7 +11,7 @@
 <!--MENU-->
 <div class="control-menu control-panel animated slideInDown"
      [ngClass]="{'slideOutUp': hide, 'control-panel-inverse': !hideContentMenu}"
-     (click)="hideContentMenu = !hideContentMenu">
+     (click)="close = true; hideContentMenu = false">
   <i class="fa fa-bars"></i>
 </div>
 <div class="control-menu-content control-content animated faster slideInDown" *ngIf="!hideContentMenu">
@@ -21,7 +21,7 @@
 <!--EVENTS-->
 <div class="control-events control-panel animated slideInRight"
      [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentEvents}"
-     (click)="hideContentEvents = !hideContentEvents">
+     (click)="close = true; hideContentEvents = false">
   <i class="fa fa-bell"></i>
 </div>
 <div class="control-events-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
@@ -31,7 +31,7 @@
 <!--ITEMS-->
 <div class="control-items control-panel animated slideInUp"
      [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
-     (click)="hideContentItems = !hideContentItems">
+     (click)="close = true; hideContentItems = false">
   <i class="fa fa-archive" ></i>
 </div>
 <div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
@@ -39,6 +39,6 @@
 </div>
 
 <!--CLOSE-->
-<div class="control-closer animated rotateIn" (click)="hideAll()" *ngIf="showAll()">
+<div class="control-closer animated rotateIn" (click)="hideAll()" *ngIf="close">
     <i class="fa fa-close"></i>
 </div>
