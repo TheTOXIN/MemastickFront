@@ -37,7 +37,7 @@ export class TeamComponent {
     borderColor: '#34992c'
   }, {
     image: 'assets/images/info/2.png',
-    social: this._sanitizer.bypassSecurityTrustHtml('БАТЛЫ'),
+    social: this._sanitizer.bypassSecurityTrustHtml('БИТВЫ'),
     message: 'ПВП или засал?',
     description: 'Если ваш мем достиг состояние особи, вы можете вызывать на поединок других особей. Битва происходит методом голосования. Мем собравший большие кол-во голосов считается победившим и владелец особи получает мемкойны. Проигравший мем погибает.',
     borderColor: '#999999'

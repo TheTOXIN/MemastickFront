@@ -15,6 +15,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {ControlModule} from '../control/control.module';
 import {SettingsComponent} from './settings/settings.component';
 import {LibraryComponent} from './library/library.component';
+import {StartModule} from '../start/start.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {LibraryComponent} from './library/library.component';
     ParticlesModule,
     SharedModule,
     ModalsModule,
-    ControlModule
+    ControlModule,
+    StartModule
   ],
   exports: [
     TokenAcceptComponent,
