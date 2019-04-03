@@ -34,14 +34,10 @@
 .notification-txt {
   height: 100%;
   width: 50%;
-  display: table;
   div {
     line-height: 24px;
     font-size: 20px;
     font-family: Futurica, serif;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
   }
 }
 
@@ -53,3 +49,4 @@
     font-size: 20px;
   }
 }
+

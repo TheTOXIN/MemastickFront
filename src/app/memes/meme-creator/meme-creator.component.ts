@@ -6,7 +6,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {ValidConst} from '../../consts/ValidConst';
 
 @Component({

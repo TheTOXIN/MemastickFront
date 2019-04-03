@@ -102,3 +102,13 @@
     }
   }
 }
+
+.text-strong-center {
+  display: table;
+  text-align: center;
+  div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}

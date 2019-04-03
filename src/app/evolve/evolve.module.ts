@@ -5,13 +5,15 @@ import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.compone
 import {ModalsModule} from '../modals/modals.module';
 import {HomeModule} from '../home/home.module';
 import {SharedModule} from '../shared/shared.module';
+import {TokenModule} from '../token/token.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ModalsModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    TokenModule
   ],
   exports: [
     EvolveBirthComponent,

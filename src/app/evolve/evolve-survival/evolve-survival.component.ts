@@ -6,7 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {TokenApiService} from '../../services/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {EvolveMemeApiService} from '../../services/evolve-meme-api-service';
 
 @Component({

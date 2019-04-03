@@ -36,6 +36,8 @@ import {TokenAllowanceApiService} from './services/token-allowance-api-service';
 import {MainApiService} from './services/main-api-service';
 import {PwaService} from './services/pwa-service';
 import {ControlModule} from './control/control.module';
+import {MemetickInventoryApiService} from './services/memetick-inventory-api-service';
+import {TokenModule} from './token/token.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import {ControlModule} from './control/control.module';
     ModalsModule,
     MemesModule,
     HomeModule,
+    TokenModule,
     EvolveModule,
     ControlModule,
     HttpClientModule,
@@ -77,6 +80,7 @@ import {ControlModule} from './control/control.module';
     TokenAllowanceApiService,
     MainApiService,
     PwaService,
+    MemetickInventoryApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

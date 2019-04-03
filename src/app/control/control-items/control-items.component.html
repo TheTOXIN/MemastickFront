@@ -1,4 +1,32 @@
 <div class="control-content-wrap">
   <div class="control-content-empty"></div>
+  <app-spinner *ngIf="loader"></app-spinner>
+  <div *ngIf="!loader">
+
+    <div class="items-title">ИНВЕНТАРЬ</div>
+    <div class="items-body">
+      <div *ngFor="let item of inventory">
+        <div class="items-row" *ngIf="item.count != 0" (click)="item.action.apply()">
+          <div class="items-image"><img [src]="item.image"></div>
+          <div class="items-name text-strong-center"><div>{{item.name}}</div></div>
+          <div class="items-count text-strong-center"><div>{{item.count}}</div></div>
+        </div>
+        <div class="item-separate"></div>
+      </div>
+    </div>
+
+    <div class="items-title">ТОКЕНЫ</div>
+    <div class="items-body">
+      <div *ngFor="let item of tokens">
+        <div class="items-row" (click)="item.action.apply()">
+          <div class="items-image"><img [src]="item.image"></div>
+          <div class="items-name text-strong-center"><div>{{item.name}}</div></div>
+          <div class="items-count text-strong-center"><div>{{item.count}}</div></div>
+        </div>
+        <div class="item-separate"></div>
+      </div>
+    </div>
+
+  </div>
   <div class="control-content-empty"></div>
 </div>

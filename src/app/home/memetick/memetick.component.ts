@@ -9,10 +9,10 @@ import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.compo
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
-import {TokenAcceptComponent} from '../token-accept/token-accept.component';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
 import {TokenApiService} from '../../services/token-api-service';
-import {TokenAllowanceModalComponent} from '../token-allowance-modal/token-allowance-modal.component';
+import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {PwaService} from '../../services/pwa-service';
 
 @Component({

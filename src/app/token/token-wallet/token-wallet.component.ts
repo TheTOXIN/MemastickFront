@@ -24,6 +24,7 @@ export class TokenWalletComponent implements OnInit {
   ) {
   }
 
+  // TODO change name tokens and move data to modals
   ngOnInit() {
     this.tokens = [
       new TokenData(

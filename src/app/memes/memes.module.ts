@@ -14,6 +14,7 @@ import {MemesShareComponent} from './memes-share/memes-share.component';
 import {HomeModule} from '../home/home.module';
 import {MemeResearchComponent} from './meme-research/meme-research.component';
 import {EvolveModule} from '../evolve/evolve.module';
+import {TokenModule} from '../token/token.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {EvolveModule} from '../evolve/evolve.module';
     HomeModule,
     EvolveModule,
     PinchZoomModule,
-    MemesRoutingModules
+    MemesRoutingModules,
+    TokenModule
   ],
   exports: [
     MemesPageComponent
