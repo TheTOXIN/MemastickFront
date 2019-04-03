@@ -13,6 +13,7 @@ import {MemetickRatingComponent} from './memetick-rating/memetick-rating.compone
 import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
 import {NotificationComponent} from './notification/notification.component';
 import {ControlModule} from '../control/control.module';
+import {SettingsComponent} from './settings/settings.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {ControlModule} from '../control/control.module';
     TokenAcceptComponent,
     MemetickRatingComponent,
     TokenAllowanceModalComponent,
-    NotificationComponent
+    NotificationComponent,
+    SettingsComponent
   ],
   entryComponents: [
     TokenAllowanceModalComponent
