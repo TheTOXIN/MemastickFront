@@ -1,6 +1,6 @@
 <!--SCOPE-->
 <div class="control-scope control-panel animated slideInLeft"
-     [ngClass]="{'slideOutLeft': hide}"
+     [ngClass]="{'slideOutLeft': hide, 'control-panel-inverse': !hideContentScope}"
      (click)="hideContentScope = !hideContentScope">
   <i class="fa fa-th-large"></i>
 </div>
@@ -10,7 +10,7 @@
 
 <!--MENU-->
 <div class="control-menu control-panel animated slideInDown"
-     [ngClass]="{'slideOutUp': hide}"
+     [ngClass]="{'slideOutUp': hide, 'control-panel-inverse': !hideContentMenu}"
      (click)="hideContentMenu = !hideContentMenu">
   <i class="fa fa-bars"></i>
 </div>
@@ -20,7 +20,7 @@
 
 <!--EVENTS-->
 <div class="control-events control-panel animated slideInRight"
-     [ngClass]="{'slideOutRight': hide}"
+     [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentEvents}"
      (click)="hideContentEvents = !hideContentEvents">
   <i class="fa fa-bell"></i>
 </div>
@@ -30,7 +30,7 @@
 
 <!--ITEMS-->
 <div class="control-items control-panel animated slideInUp"
-     [ngClass]="{'slideOutDown': hide}"
+     [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
      (click)="hideContentItems = !hideContentItems">
   <i class="fa fa-archive" ></i>
 </div>

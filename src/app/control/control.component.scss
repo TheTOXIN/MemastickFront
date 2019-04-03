@@ -26,6 +26,17 @@
   }
 }
 
+.control-panel-inverse {
+  background: whitesmoke;
+  box-shadow: 0 0 0 3px rgba(129, 54, 236, 0.7);
+  i {
+    color: #8136EC;
+  }
+  &:hover {
+    background: white;
+  }
+}
+
 .control-scope {
   top: 0;
   left: 0;
@@ -71,7 +82,6 @@
   width: 50%;
   height: 50%;
   z-index: 42;
-  background-color: #495057;
   box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
 }
 
@@ -79,30 +89,34 @@
   top: 0;
   left: 0;
   border-radius: 0 0 30px 0;
+  background: linear-gradient(-45deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-menu-content {
   top: 0;
   right: 0;
   border-radius: 0 0 0 30px;
+  background: linear-gradient(45deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-events-content {
   bottom: 0;
   right: 0;
   border-radius: 30px 0 0 0;
+  background: linear-gradient(135deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-items-content {
   bottom: 0;
   left: 0;
   border-radius: 0 30px 0 0;
+  background: linear-gradient(-135deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-closer {
   width: 72px;
   height: 72px;
-  background-color: #8136EC;
+  background-color: whitesmoke;
   border-radius: 30px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   z-index: 69;
@@ -114,11 +128,13 @@
   bottom:0;
   margin:auto;
   i {
-    color: #d85040;
+    color: #8136EC;
     font-size: 64px;
     margin-top: 2px;
   }
   &:hover {
-    background: #6b25fc;
+    i {
+      color: #dc3545;
+    }
   }
 }
