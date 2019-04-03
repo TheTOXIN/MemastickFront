@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {MainApiService} from '../../services/main-api-service';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +13,6 @@ export class ControlMenuComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {

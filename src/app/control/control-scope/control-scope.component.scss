@@ -1,0 +1,42 @@
+.scope-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scope-cell {
+  width: 128px;
+  height: 128px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  margin: 5px;
+  text-align: center;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+
+  img {
+    max-width: 100%;
+    max-height: 80%;
+    margin-top: 5px;
+  }
+  p {
+    color: black;
+    font-size: 16px;
+    margin-top: -5px;
+    margin-bottom: 0;
+  }
+  @media(max-width: 767px) {
+    width: 72px;
+    height: 72px;
+    margin: 3px;
+    p {
+      font-size: 10px;
+    }
+    img {
+      max-height: 69%;
+      margin-top: 3px;
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 5px 5px #ffa807;
+  }
+}

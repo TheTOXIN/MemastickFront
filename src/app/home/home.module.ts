@@ -14,6 +14,7 @@ import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowa
 import {NotificationComponent} from './notification/notification.component';
 import {ControlModule} from '../control/control.module';
 import {SettingsComponent} from './settings/settings.component';
+import {LibraryComponent} from './library/library.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {SettingsComponent} from './settings/settings.component';
     MemetickRatingComponent,
     TokenAllowanceModalComponent,
     NotificationComponent,
-    SettingsComponent
+    SettingsComponent,
+    LibraryComponent
   ],
   entryComponents: [
     TokenAllowanceModalComponent

@@ -89,20 +89,10 @@
 }
 
 .research-close {
-  width: 72px;
-  height: 72px;
-  background-color: #6b25fc;
-  border-radius: 30px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   top: -54px;
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
-  i {
-    color: #d85040;
-    font-size: 64px;
-    margin-top: 4px;
-  }
 }
 
 .research-close-wrap {

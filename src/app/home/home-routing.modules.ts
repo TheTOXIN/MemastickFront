@@ -4,6 +4,7 @@ import {HomeComponent} from './home.component';
 import {MemetickComponent} from './memetick/memetick.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {SettingsComponent} from './settings/settings.component';
+import {LibraryComponent} from './library/library.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'library',
+        component: LibraryComponent
       },
       {
         path: '',
