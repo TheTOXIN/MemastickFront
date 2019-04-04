@@ -55,7 +55,7 @@ export class ControlItemsComponent implements OnInit {
       'assets/images/icon/allowance.png',
       'Пособие',
       this.data.allowance ? 1 : 0,
-      () =>  this.modalService.open(TokenAllowanceModalComponent, {'centered': true})
+      () => this.openAllowance()
     );
   }
 
@@ -90,5 +90,10 @@ export class ControlItemsComponent implements OnInit {
       this.data.wallet[TokenType.SELECTION],
       () => console.log('TEST')
     );
+  }
+
+  openAllowance() {
+    const modalRef = this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
+    modalRef.result.then(() => {}, () => this.ngOnInit());
   }
 }
