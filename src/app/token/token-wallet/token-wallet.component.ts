@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenData} from '../../model/TokenData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';

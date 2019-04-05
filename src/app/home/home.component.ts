@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
-import {MainApiService} from '../services/main-api-service';
+import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
 import {NotificationComponent} from './notification/notification.component';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';

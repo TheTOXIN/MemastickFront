@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemetickApiService} from '../../services/memetick-api-service';
+import {MemetickApiService} from '../../api/memetick-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ValidConst} from '../../consts/ValidConst';
 

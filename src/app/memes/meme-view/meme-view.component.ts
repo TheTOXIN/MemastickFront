@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemeApiService} from '../../services/meme-api-service';
+import {MemeApiService} from '../../api/meme-api-service';
 import {Meme} from '../../model/Meme';
 import {API} from '../../consts/API';
 

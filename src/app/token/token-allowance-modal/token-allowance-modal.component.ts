@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {TokenAllowanceApiService} from '../../services/token-allowance-api-service';
+import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
 
 @Component({
   selector: 'app-allowance-modal',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MemetickInventoryApiService} from '../../services/memetick-inventory-api-service';
+import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemetickInventory} from '../../model/MemetickInventory';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';

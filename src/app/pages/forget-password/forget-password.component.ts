@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PasswordApiService} from '../../services/password-api-service';
+import {PasswordApiService} from '../../api/password-api-service';
 import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({

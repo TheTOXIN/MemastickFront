@@ -5,9 +5,9 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {MemeApiService} from './meme-api-service';
+import {MemeApiService} from '../api/meme-api-service';
 import {MemeData} from '../model/MemeData';
-import {MemetickAvatarApiService} from './memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 import {MemeFilter} from '../consts/MemeFilter';
 
 interface QueryConfig {

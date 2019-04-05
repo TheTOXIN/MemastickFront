@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {MemetickApiService} from '../../services/memetick-api-service';
+import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
-import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 
 @Component({
   selector: 'app-memetick-rating',

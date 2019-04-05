@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MemetickApiService} from '../../services/memetick-api-service';
+import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
-import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +11,7 @@ import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-ni
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {PwaService} from '../../services/pwa-service';
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ValidConst} from '../../consts/ValidConst';
 

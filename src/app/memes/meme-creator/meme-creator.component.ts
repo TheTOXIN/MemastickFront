@@ -1,10 +1,10 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {MemeApiService} from '../../services/meme-api-service';
+import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {ValidConst} from '../../consts/ValidConst';

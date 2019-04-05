@@ -4,10 +4,10 @@ import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.componen
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
-import {EvolveMemeApiService} from '../../services/evolve-meme-api-service';
+import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 
 @Component({
   selector: 'app-evolve-survival',
