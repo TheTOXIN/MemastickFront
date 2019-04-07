@@ -38,6 +38,7 @@ import {PwaService} from './services/pwa-service';
 import {ControlModule} from './control/control.module';
 import {MemetickInventoryApiService} from './api/memetick-inventory-api-service';
 import {TokenModule} from './token/token.module';
+import {WebSocketService} from './services/web-socket-service';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import {TokenModule} from './token/token.module';
     MainApiService,
     PwaService,
     MemetickInventoryApiService,
+    WebSocketService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

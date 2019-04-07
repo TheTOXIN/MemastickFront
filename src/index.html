@@ -38,6 +38,7 @@
 <div class="loader-wrapper">
   <div id="hello-text"></div>
   <script>
+    var global = window; // WARING FUCKING MAGIC
     document.getElementById('hello-text').innerHTML = messages[Math.floor(Math.random() * messages.length)] + '...';
   </script>
   <div id="loader">

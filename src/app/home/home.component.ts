@@ -5,11 +5,12 @@ import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
 import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
-import {NotificationComponent} from './notification/notification.component';
+import {NotificationComponent} from '../shared/notification/notification.component';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +18,6 @@ import * as randomEmoji from 'random-emoji';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  // TODO REMOVE
-  @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   myStyle: object = {};
   myParams: object = {};
@@ -38,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public emoji: any;
   public message: String;
-  public home: Home = new Home('', 0, false);
+  public home: Home = new Home('', 0);
 
   public showLogo = true;
 
@@ -76,9 +74,6 @@ export class HomeComponent implements OnInit {
   private takeMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
-      if (this.home.allowance) {
-        this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
-      }
       this.isLoad = false;
     });
   }
@@ -101,10 +96,6 @@ export class HomeComponent implements OnInit {
 
   toStart() {
     this.router.navigateByUrl('/start');
-  }
-
-  showAlowance(event) {
-    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   initParticles() {

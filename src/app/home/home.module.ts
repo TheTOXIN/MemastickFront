@@ -8,7 +8,6 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
-import {NotificationComponent} from './notification/notification.component';
 import {ControlModule} from '../control/control.module';
 import {SettingsComponent} from './settings/settings.component';
 import {LibraryComponent} from './library/library.component';
@@ -31,7 +30,6 @@ import {TokenModule} from '../token/token.module';
     MemetickComponent,
     StatisticComponent,
     MemetickRatingComponent,
-    NotificationComponent,
     SettingsComponent,
     LibraryComponent
   ]
