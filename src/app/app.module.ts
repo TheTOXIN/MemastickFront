@@ -63,6 +63,7 @@ import {WebSocketService} from './services/web-socket-service';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
+    AppComponent,
     InviteApiService,
     HelloApiService,
     OauthApiService,

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {Router} from '@angular/router';
 import {ValidConst} from '../../consts/ValidConst';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -28,6 +29,7 @@ export class SignInComponent implements OnInit {
   public isLoading = false;
 
   constructor(
+    private app: AppComponent,
     private fb: FormBuilder,
     private oauth: OauthApiService,
     private router: Router,
@@ -61,7 +63,7 @@ export class SignInComponent implements OnInit {
       .login(username, password)
       .pipe()
       .subscribe(
-        () => this.router.navigateByUrl('/home'),
+        () => { this.app.notify(); this.toHome(); },
         () => { this.setErrorMessage('Неверные данные для входа'); },
       );
   }

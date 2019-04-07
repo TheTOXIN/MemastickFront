@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {Notification} from './model/Notification';
+import {OauthApiService} from './services/oauth-api-service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,15 @@ export class AppComponent {
   @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   constructor(
-    private webSocketService: WebSocketService
+    private webSocketService: WebSocketService,
+    private oauth: OauthApiService
   ) {
+    if (oauth.checkTokens()) {
+      this.notify();
+    }
+  }
+
+  notify() {
     const stompClient = this.webSocketService.connect(); // TODO when connect?
 
     stompClient.connect({}, () => {
