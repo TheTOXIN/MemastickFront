@@ -3,10 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {StartComponent} from './start.component';
 
-// Routes
 const routes: Routes = [
   {
-    path: '',
+    path: 'start',
     component: StartComponent
   }
 ];

@@ -23,14 +23,12 @@ export class AppComponent {
   }
 
   notify() {
-    const stompClient = this.webSocketService.connect(); // TODO when connect?
+    const stompClient = this.webSocketService.connect(); // TODO refactor
 
     stompClient.connect({}, () => {
       const url = stompClient.ws._transport.url;
       const array = url.split('/');
       const id = array[array.length - 2];
-
-      alert('Your current session is: ' + id);
 
       stompClient.subscribe('/user/queue/notify', notification => {
         const notify = <Notification>JSON.parse(notification.body);
@@ -41,7 +39,7 @@ export class AppComponent {
     });
   }
 
-  test() {
+  test() { // TODO use
     console.log('TEST');
   }
 }
