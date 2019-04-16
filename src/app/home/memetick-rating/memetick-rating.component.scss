@@ -115,3 +115,55 @@
     }
   }
 }
+
+.rating-text {
+  font-size: 32px;
+  color: whitesmoke;
+  margin: 10px 5px 5px;
+  text-align: center;
+  font-family: Gost, serif;
+}
+
+.rating-panel {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  background-color: whitesmoke;
+  border-radius: 30px 30px 0 0 ;
+  padding: 5px;
+  width: 300px;
+  height: 69px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 1;
+  text-align: center;
+
+  -webkit-box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
+  box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
+}
+
+.rating-panel-img {
+  height: 100%;
+  width: 32%;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5px;
+  }
+}
+
+.rating-panel-del {
+  height: 100%;
+  width: 2%;
+  background-color: #6c757d;
+  border-radius: 50px;
+}
+
+.rating-empty {
+  height: 100px;
+}

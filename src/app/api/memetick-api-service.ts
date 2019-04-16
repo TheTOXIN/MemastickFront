@@ -5,6 +5,8 @@ import {Observable} from 'rxjs';
 import {Memetick} from '../model/Memetick';
 import {MemetickPreview} from '../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
+import {MemetickRatingFilter} from '../consts/MemetickRatingFilter';
+import {MemetickRating} from '../model/MemetickRating';
 
 
 @Injectable()
@@ -33,9 +35,9 @@ export class MemetickApiService {
       .pipe();
   }
 
-  public rating(): Observable<Memetick[]> {
+  public rating(filter: MemetickRatingFilter): Observable<MemetickRating> {
     return this.http
-      .get<Memetick[]>(API.MEMETICK_RATING)
+      .get<MemetickRating>(API.MEMETICK_RATING + '/' + filter)
       .pipe();
   }
 }
