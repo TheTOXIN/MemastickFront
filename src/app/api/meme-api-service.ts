@@ -42,9 +42,15 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePage(memeId: UUID): Observable<Meme> {
+  public memePage(memeId: UUID): Observable<MemePage> {
     return this.http
-      .get<Meme>(API.MEMES_READ + '/' + memeId)
+      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .pipe();
+  }
+
+  public memeIMG(memeId: UUID): Observable<any> {
+    return this.http
+      .get(API.MEMES_IMG + '/' + memeId)
       .pipe();
   }
 

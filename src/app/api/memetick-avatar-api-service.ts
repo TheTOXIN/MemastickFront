@@ -23,5 +23,4 @@ export class MemetickAvatarApiService {
       .post(API.MEMETICK_AVATAR_UPLOAD, uploadData)
       .pipe();
   }
-
 }

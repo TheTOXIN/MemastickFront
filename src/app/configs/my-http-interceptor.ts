@@ -37,7 +37,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // TODO это нельзя оставить просто так
 
-    if (!this.anonymus.includes(req.url) && !req.url.startsWith(API.MEMES_READ)) {
+    if (!this.anonymus.includes(req.url) && !req.url.startsWith(API.MEMES_IMG)) {
       req = this.oauthApi.addAuthorization(req, this.oauthApi.readToken());
     }
 
