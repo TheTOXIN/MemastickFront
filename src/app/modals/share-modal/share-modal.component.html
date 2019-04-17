@@ -1,0 +1,29 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">ШАРИНГ</span>
+  </div>
+  <div class="modal-body">
+    <div class="share-input">
+      <input type="text" [value]="memeURL" #input>
+    </div>
+    <div  class="share-panel">
+      <div class="share-type" (click)="cp(input)">
+        <i class="fa fa-copy" style="color: #656565"></i>
+        <p>Копировать</p>
+      </div>
+      <div class="share-type" (click)="tg()">
+        <i class="fa fa-telegram" style="color: #2ca5e0"></i>
+        <p>Телеграмм</p>
+      </div>
+      <div class="share-type" (click)="vk()">
+        <i class="fa fa-vk" style="color: #4a76a8"></i>
+        <p>Вконтакте</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

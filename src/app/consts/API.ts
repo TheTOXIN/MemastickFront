@@ -1,7 +1,8 @@
 export enum API {
   // BASE_URL = 'https://memastick-back.herokuapp.com',
-  BASE_URL = 'http://192.168.10.54:8080',
-  DOMAIN_URL = 'https://www.memastick.ru',
+  // DOMAIN_URL = 'https://www.memastick.ru',
+  DOMAIN_URL = 'http://192.168.10.54:4200',
+  BASE_URL = 'http://192.168.10.54:3800',
   OAUTH_TOKEN = '/oauth/token',
   HELLO = '/hello',
   HOME = '/home',

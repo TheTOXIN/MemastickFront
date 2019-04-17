@@ -39,6 +39,7 @@ import {ControlModule} from './control/control.module';
 import {MemetickInventoryApiService} from './api/memetick-inventory-api-service';
 import {TokenModule} from './token/token.module';
 import {WebSocketService} from './services/web-socket-service';
+import { ShareModalComponent } from './modals/share-modal/share-modal.component';
 
 @NgModule({
   declarations: [

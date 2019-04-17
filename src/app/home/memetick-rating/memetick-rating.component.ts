@@ -6,7 +6,6 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {MemetickRatingFilter} from '../../consts/MemetickRatingFilter';
 import {MemetickRating} from '../../model/MemetickRating';
 import {MemetickPreview} from '../../model/MemetickPreview';
-import {init} from 'protractor/built/launcher';
 
 @Component({
   selector: 'app-memetick-rating',

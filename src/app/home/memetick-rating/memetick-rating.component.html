@@ -1,11 +1,11 @@
 <app-spinner class="flex-center-absolute" *ngIf="isLoad"></app-spinner>
 
-<div *ngIf="!isLoad">
+<div *ngIf="!isLoad" class="animated slideInLeft">
 
   <div class="rating-text">ТОП-10</div>
 
   <div *ngFor="let memetick of rating.top">
-    <div class="memetick-container animated slideInLeft">
+    <div class="memetick-container">
       <div class="memetick-number">
         <p class="number">{{memetick.pos}}</p>
       </div>
@@ -29,7 +29,7 @@
 
   <div class="rating-text">МОЁ МЕСТО</div>
 
-  <div class="memetick-container animated slideInLeft">
+  <div class="memetick-container">
     <div class="memetick-number">
       <p class="number">{{rating.me.pos}}</p>
     </div>
