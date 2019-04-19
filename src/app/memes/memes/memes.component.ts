@@ -28,7 +28,7 @@ export class MemesComponent implements OnInit, OnDestroy {
       let filter = params.filter;
       const sort = 'creating';
 
-      if (filter === undefined || filter == null || filter === '') { filter = MemeFilter.EVLV; }
+      if (filter === undefined || filter == null || filter === '') { filter = MemeFilter.POOL; }
 
       this.pagination.init(
         3,

@@ -1,0 +1,17 @@
+<div class="evolve-adaptation">
+  <div class="evolve-img">
+    <img class="img-fluid" [src]="'assets/images/icon/like_push.png'">
+    <div class="evolve-adaptation-value">
+      <p>{{evolve?.adaptation}}</p>
+    </div>
+  </div>
+  <div class="evolve-text">
+    <p>Мем только что родился, и адаптируется под условия окружающей среды</p>
+    <p>Используйте пробирку, чтобы адаптировать мем и продвинуть его вверх в списке всех мемов</p>
+  </div>
+  <div class="evolve-control">
+    <button class="btn-theme" (click)="adaptation()">АДАПТИРОВАТЬ</button>
+  </div>
+</div>
+<app-loader [message]="message" [status]="status"></app-loader>
+<app-token-accept (accept)="acceptTubeResult($event)"></app-token-accept>

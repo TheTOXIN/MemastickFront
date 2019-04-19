@@ -17,11 +17,11 @@ export class TokenAcceptComponent implements OnInit {
   public isShow = false;
 
   constructor() {
-    this.icons[TokenType.CREATING] = 'assets/images/tokens/1.png';
-    this.icons[TokenType.FITNESS] = 'assets/images/tokens/2.png';
-    this.icons[TokenType.MUTATION] = 'assets/images/tokens/3.png';
+    this.icons[TokenType.TUBE] = 'assets/images/tokens/1.png';
+    this.icons[TokenType.SCOPE] = 'assets/images/tokens/2.png';
+    this.icons[TokenType.MUTAGEN] = 'assets/images/tokens/3.png';
     this.icons[TokenType.CROSSOVER] = 'assets/images/tokens/4.png';
-    this.icons[TokenType.SELECTION] = 'assets/images/tokens/5.png';
+    this.icons[TokenType.ANTIBIOTIC] = 'assets/images/tokens/5.png';
   }
 
   ngOnInit() {

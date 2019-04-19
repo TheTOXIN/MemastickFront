@@ -1,4 +1,5 @@
 export enum MemeFilter {
+  POOL = 'POOL',
   DTHS = 'DTHS',
   INDV = 'INDV',
   EVLV = 'EVLV',

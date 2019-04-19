@@ -30,23 +30,23 @@ export class TokenWalletComponent implements OnInit {
       new TokenData(
         'assets/images/tokens/1.png',
         'Пробирка',
-        'Токен создания',
-        'используется для создания нового мема',
-        this.wallet[TokenType.CREATING]
+        'Токен адаптации',
+        'адаптирует мем продвигая его вверх в списке',
+        this.wallet[TokenType.TUBE]
       ),
       new TokenData(
         'assets/images/tokens/2.png',
-        'Фитнесс',
+        'Микроскоп',
         'Токен оценки',
         'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
-        this.wallet[TokenType.FITNESS]
+        this.wallet[TokenType.SCOPE]
       ),
       new TokenData(
         'assets/images/tokens/3.png',
         'Мутаген',
         'Токен мутации',
         'с его помощью можно оставлять комментарии под мемами',
-        this.wallet[TokenType.MUTATION]
+        this.wallet[TokenType.MUTAGEN]
       ),
       new TokenData(
         'assets/images/tokens/4.png',
@@ -59,8 +59,8 @@ export class TokenWalletComponent implements OnInit {
         'assets/images/tokens/5.png',
         'Антибиотик',
         'Токен отбора',
-        'даёт иммунитет для выживаемости мема',
-        this.wallet[TokenType.SELECTION]
+        'даёт иммунитет мему, гарантируя выживаемость',
+        this.wallet[TokenType.ANTIBIOTIC]
       )
     ];
   }

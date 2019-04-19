@@ -6,6 +6,8 @@ import {EvolveMeme} from '../../model/EvolveMeme';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
+import {EvolveStep} from '../../consts/EvolveStep';
 
 @Component({
   selector: 'app-meme-research',
@@ -43,6 +45,11 @@ export class MemeResearchComponent {
 
   researchClose() {
     this.isPreview = false;
+  }
+
+  stepInfo(step: EvolveStep) {
+    const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
+    modalRef.componentInstance.step = step;
   }
 
   dipricated() {

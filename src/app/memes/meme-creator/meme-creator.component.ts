@@ -48,7 +48,7 @@ export class MemeCreatorComponent {
     if (!this.isPreview || this.isCreate) { return; }
     this.status = LoaderStatus.LOAD;
     this.message = 'Создать мем?';
-    this.tokenAccept.show(TokenType.CREATING);
+    this.tokenAccept.show(TokenType.TUBE);
   }
 
   acceptCreatingResult(accpet: boolean) {
@@ -66,7 +66,7 @@ export class MemeCreatorComponent {
 
     this.status = LoaderStatus.LOAD;
 
-    this.tokenApi.have(TokenType.CREATING).subscribe(
+    this.tokenApi.have(TokenType.TUBE).subscribe(
       () => this.show(files),
       (error) => this.createError(error)
     );

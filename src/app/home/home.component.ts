@@ -5,12 +5,9 @@ import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
 import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
-import {NotificationComponent} from '../shared/notification/notification.component';
-import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
-import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-home',

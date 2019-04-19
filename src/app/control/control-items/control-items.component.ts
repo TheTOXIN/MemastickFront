@@ -63,19 +63,19 @@ export class ControlItemsComponent implements OnInit {
     this.tokens[0] = new Item(
       'assets/images/tokens/1.png',
       'Пробирка',
-      this.data.wallet[TokenType.CREATING],
+      this.data.wallet[TokenType.TUBE],
       () => console.log('TEST')
     );
     this.tokens[1] = new Item(
       'assets/images/tokens/2.png',
       'Фитнесс',
-      this.data.wallet[TokenType.FITNESS],
+      this.data.wallet[TokenType.SCOPE],
       () => console.log('TEST')
     );
     this.tokens[2] = new Item(
       'assets/images/tokens/3.png',
       'Мутаген',
-      this.data.wallet[TokenType.MUTATION],
+      this.data.wallet[TokenType.MUTAGEN],
       () => console.log('TEST')
     );
     this.tokens[3] = new Item(
@@ -87,7 +87,7 @@ export class ControlItemsComponent implements OnInit {
     this.tokens[4] = new Item(
       'assets/images/tokens/5.png',
       'Антибиотик',
-      this.data.wallet[TokenType.SELECTION],
+      this.data.wallet[TokenType.ANTIBIOTIC],
       () => console.log('TEST')
     );
   }

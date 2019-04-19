@@ -8,6 +8,7 @@ import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
+import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -25,8 +26,7 @@ export class EvolveSurvivalComponent implements OnInit {
   public evolve: EvolveMeme;
 
   constructor(
-    private tokenApi: TokenApiService,
-    private evolveApi: EvolveMemeApiService
+    private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -38,10 +38,10 @@ export class EvolveSurvivalComponent implements OnInit {
   chance() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить антибиотик?';
-    this.tokenAccept.show(TokenType.SELECTION);
+    this.tokenAccept.show(TokenType.ANTIBIOTIC);
   }
 
-  acceptSelectionResult(accpet: boolean) {
+  acceptAntibioticResult(accpet: boolean) {
     if (accpet) {
       this.increaseChance();
     } else {
@@ -50,7 +50,7 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   increaseChance() {
-    this.evolveApi.chanceMeme(this.evolve.memeId).subscribe(
+    this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.ANTIBIOTIC).subscribe(
       () => this.successChance(),
       () => this.errorChance()
     );

@@ -36,7 +36,7 @@
       </div>
     </div>
     <div *ngIf="meme.type === 'EVOLVE'">
-      <app-evolve-birth [evolve]="evolve" *ngIf="meme.step === 'BIRTH'"></app-evolve-birth>
+      <app-evolve-adaptation [evolve]="evolve" *ngIf="meme.step === 'ADAPTATION'"></app-evolve-adaptation>
       <app-evolve-survival [evolve]="evolve" *ngIf="meme.step === 'SURVIVAL'"></app-evolve-survival>
     </div>
   </div>

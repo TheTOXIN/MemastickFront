@@ -40,6 +40,7 @@ import {MemetickInventoryApiService} from './api/memetick-inventory-api-service'
 import {TokenModule} from './token/token.module';
 import {WebSocketService} from './services/web-socket-service';
 import { ShareModalComponent } from './modals/share-modal/share-modal.component';
+import {TokenAcceptApiService} from './api/token-accept-api.service';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ShareModalComponent } from './modals/share-modal/share-modal.component'
     MainApiService,
     PwaService,
     MemetickInventoryApiService,
+    TokenAcceptApiService,
     WebSocketService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
