@@ -29,6 +29,7 @@ export enum API {
   EVOLVE_MEME = '/evolve-memes/meme',
   ALLOWANCE_TAKE = '/token-allowance/take',
   ALLOWANCE_HAVE = '/token-allowance/have',
+  INVENTORY_CELL = '/memetick-inventories/cell',
   INVENTORY_ALL = '/memetick-inventories/all',
   NOTIFY_REGISTER = '/notify/register',
   TOKEN_ACCEPT = '/token-accept'

@@ -5,6 +5,7 @@ import {TokenType} from '../../consts/TokenType';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 
 export class Item {
   constructor (
@@ -34,7 +35,8 @@ export class ControlItemsComponent implements OnInit {
   constructor(
     private inventoryApi: MemetickInventoryApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router,
   ) {
 
   }
@@ -57,8 +59,15 @@ export class ControlItemsComponent implements OnInit {
       this.data.allowance ? 1 : 0,
       () => this.openAllowance()
     );
+    this.inventory[1] = new Item(
+      'assets/images/icon/cell.png',
+      'Клетка',
+      this.data.cell ? 1 : 0,
+      () => this.router.navigateByUrl('/memes/create')
+    );
   }
 
+  // TODO add events click
   initTokens() {
     this.tokens[0] = new Item(
       'assets/images/tokens/1.png',
