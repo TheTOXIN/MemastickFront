@@ -4,6 +4,7 @@ import {TokenAcceptComponent} from '../../token/token-accept/token-accept.compon
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {TokenType} from '../../consts/TokenType';
+import {ErrorStatus} from '../../consts/ErrorStatus';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -47,7 +48,7 @@ export class EvolveAdaptationComponent implements OnInit {
   increaseAdaptation() {
     this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.TUBE).subscribe(
       () => this.successAdaptation(),
-      () => this.errorAdaptation()
+      (error) => this.errorAdaptation(error)
     );
   }
 
@@ -57,8 +58,16 @@ export class EvolveAdaptationComponent implements OnInit {
     this.status = LoaderStatus.DONE;
   }
 
-  errorAdaptation() {
-    this.message = 'Нужен токен адаптации!';
+  // TODO refactor
+  errorAdaptation(error: any) {
+    if (error.error.code === ErrorStatus.LESS_TOKEN) {
+      this.message = 'Нужен токен адаптации!';
+    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
+      this.message = 'Вы не можите использовать токен на своих мемах!';
+    } else {
+      this.message = 'Ошибка применения токена!';
+    }
+
     this.status = LoaderStatus.ERROR;
   }
 }

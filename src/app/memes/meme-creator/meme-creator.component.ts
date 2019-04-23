@@ -106,8 +106,8 @@ export class MemeCreatorComponent implements OnInit {
   createError(error: any) {
     let errorMessage = '';
 
-    if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      errorMessage = 'Нужен токен создания!';
+    if (error.error.code === ErrorStatus.CELL_SMALL) {
+      errorMessage = 'Клетка не выросла!';
     } else {
       errorMessage = 'Ошибка создания';
     }

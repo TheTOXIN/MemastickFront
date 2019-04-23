@@ -9,6 +9,7 @@ import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
+import {ErrorStatus} from '../../consts/ErrorStatus';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -52,7 +53,7 @@ export class EvolveSurvivalComponent implements OnInit {
   increaseChance() {
     this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.ANTIBIOTIC).subscribe(
       () => this.successChance(),
-      () => this.errorChance()
+      (error) => this.errorChance(error)
     );
   }
 
@@ -62,8 +63,16 @@ export class EvolveSurvivalComponent implements OnInit {
     this.status = LoaderStatus.DONE;
   }
 
-  errorChance() {
-    this.message = 'Нужен токен отбора!';
+  // TODO refactor
+  errorChance(error) {
+    if (error.error.code === ErrorStatus.LESS_TOKEN) {
+      this.message = 'Нужен токен отбора!';
+    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
+      this.message = 'Вы не можите использовать токен на своих мемах!';
+    } else {
+      this.message = 'Ошибка применения токена!';
+    }
+
     this.status = LoaderStatus.ERROR;
   }
 }

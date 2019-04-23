@@ -16,7 +16,12 @@
         <p>{{stateTitle}}</p>
       </div>
       <app-spinner *ngIf="stateCell == null" class=""></app-spinner>
-      <div *ngIf="stateCell != null" class="animated-circle create-tap" [style.opacity]="stateCell / 100">
+      <div *ngIf="stateCell != null"
+           class="create-tap animated jello slow"
+           [ngClass]="{'animated-circle': stateCell == 100}"
+           [style.opacity]="stateCell / 100 + 0.05"
+           [style.width.px]="stateCell + 5"
+      >
         <img class="img-fluid align-self-center spin-anim" src="assets/images/icon/cell.png">
         <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
       </div>

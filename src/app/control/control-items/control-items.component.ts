@@ -53,18 +53,25 @@ export class ControlItemsComponent implements OnInit {
   }
 
   initInventory() {
-    this.inventory[0] = new Item(
-      'assets/images/icon/allowance.png',
-      'Пособие',
-      this.data.allowance ? 1 : 0,
-      () => this.openAllowance()
-    );
-    this.inventory[1] = new Item(
-      'assets/images/icon/cell.png',
-      'Клетка',
-      this.data.cell ? 1 : 0,
-      () => this.router.navigateByUrl('/memes/create')
-    );
+    this.inventory = [];
+
+    if (this.data.allowance) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/allowance.png',
+        'Пособие',
+        1,
+        () => this.openAllowance()
+      );
+    }
+
+    if (this.data.cell) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/cell.png',
+        'Клетка',
+        1,
+        () => this.router.navigateByUrl('/memes/create')
+      );
+    }
   }
 
   // TODO add events click
