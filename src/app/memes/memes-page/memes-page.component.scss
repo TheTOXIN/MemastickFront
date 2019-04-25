@@ -56,6 +56,19 @@
   }
 }
 
+.memes-memetick-indexer {
+  margin-top: 10px;
+  color: black;
+  span {
+    font-size: 32px;
+  }
+  @media(max-width: 767px) {
+    span {
+      font-size: 28px;
+    }
+  }
+}
+
 .memes-memetick-step {
   height: 100%;
   width: 125px;

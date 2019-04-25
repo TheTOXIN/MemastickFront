@@ -41,6 +41,10 @@
   top: 0;
   margin-left: 0;
   margin-right: 0;
+  &:before {
+    width: 110px;
+    height: 110px;
+  }
 }
 
 .create-tap {

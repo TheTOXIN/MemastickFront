@@ -19,7 +19,7 @@ export class MemeResearchComponent {
   private meme: Meme;
 
   public evolve: EvolveMeme;
-  public types = [];
+  public types = []; // TODO make const token data
 
   isLoading = true;
   isPreview = false;
@@ -47,6 +47,7 @@ export class MemeResearchComponent {
     this.isPreview = false;
   }
 
+  // TODO WAT ???
   stepInfo(step: EvolveStep) {
     const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
     modalRef.componentInstance.step = step;

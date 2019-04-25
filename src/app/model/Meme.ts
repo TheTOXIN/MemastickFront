@@ -4,8 +4,9 @@ export class Meme {
   constructor (
     public id: UUID,
     public url: string,
-    public chromosomes: number,
     public type: string,
+    public chromosomes: number,
+    public indexer: number,
     public step: string,
   ) {
 

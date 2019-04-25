@@ -68,7 +68,7 @@ export class EvolveSurvivalComponent implements OnInit {
     if (error.error.code === ErrorStatus.LESS_TOKEN) {
       this.message = 'Нужен токен отбора!';
     } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
-      this.message = 'Вы не можите использовать токен на своих мемах!';
+      this.message = 'Это ваш мем!';
     } else {
       this.message = 'Ошибка применения токена!';
     }
