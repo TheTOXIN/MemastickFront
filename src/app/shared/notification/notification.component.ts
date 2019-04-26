@@ -29,6 +29,7 @@ export class NotificationComponent {
 
   constructor() {
     this.images[NotificationType.DNK] = 'assets/images/icon/3.png';
+    this.images[NotificationType.ALLOWANCE] = 'assets/images/icon/allowance.png';
   }
 
   show(notify: Notification) {
@@ -45,6 +46,10 @@ export class NotificationComponent {
       this.img = this.images[notify.type];
       this.txt = '+ ДНК';
       this.int = notify.data;
+    } else if (notify.type === NotificationType.ALLOWANCE) {
+      this.img = this.images[notify.type];
+      this.txt = 'Пособие';
+      this.int = '+1';
     }
   }
 

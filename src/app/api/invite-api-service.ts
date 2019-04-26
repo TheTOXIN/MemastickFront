@@ -18,5 +18,4 @@ export class InviteApiService {
       console.log('SEND INVITE: email = ' + email + ' nick = ' + nick);
     });
   }
-
 }

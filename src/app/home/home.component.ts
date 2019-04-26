@@ -8,6 +8,7 @@ import {Home} from '../model/Home';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
+import {PushService} from '../services/push-service';
 
 @Component({
   selector: 'app-home',
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    public push: PushService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -51,7 +53,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.initEmoji();
     this.initParticles();
-    this.takeMe();
+    this.initPush();
+    this.initMe();
   }
 
   @HostListener('window:scroll', [])
@@ -68,11 +71,16 @@ export class HomeComponent implements OnInit {
     this.emoji = randomEmoji.random({count: 1})[0].character;
   }
 
-  private takeMe() {
+  private initMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
     });
+  }
+
+  private initPush() {
+    this.push.permission();
+    this.push.receive();
   }
 
   memes(filter: MemeFilter) {

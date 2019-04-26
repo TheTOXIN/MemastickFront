@@ -39,8 +39,11 @@ import {ControlModule} from './control/control.module';
 import {MemetickInventoryApiService} from './api/memetick-inventory-api-service';
 import {TokenModule} from './token/token.module';
 import {WebSocketService} from './services/web-socket-service';
-import { ShareModalComponent } from './modals/share-modal/share-modal.component';
 import {TokenAcceptApiService} from './api/token-accept-api.service';
+import {PushService} from './services/push-service';
+import * as firebase from 'firebase';
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -87,6 +90,7 @@ import {TokenAcceptApiService} from './api/token-accept-api.service';
     MemetickInventoryApiService,
     TokenAcceptApiService,
     WebSocketService,
+    PushService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
