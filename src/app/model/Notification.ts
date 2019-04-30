@@ -1,8 +1,8 @@
-import {NotificationType} from '../consts/NotificationType';
+import {NotifyType} from '../consts/NotifyType';
 
 export class Notification {
   constructor(
-    public type: NotificationType,
+    public type: NotifyType,
     public data: string
   ) {
 

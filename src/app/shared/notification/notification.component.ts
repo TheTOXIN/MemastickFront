@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NotificationType} from '../../consts/NotificationType';
+import {NotifyType} from '../../consts/NotifyType';
 import {Notification} from '../../model/Notification';
 import { timer } from 'rxjs';
 
@@ -28,8 +28,8 @@ export class NotificationComponent {
   public eventer = new EventEmitter<void>();
 
   constructor() {
-    this.images[NotificationType.DNK] = 'assets/images/icon/3.png';
-    this.images[NotificationType.ALLOWANCE] = 'assets/images/icon/allowance.png';
+    this.images[NotifyType.DNA] = 'assets/images/icon/3.png';
+    this.images[NotifyType.ALLOWANCE] = 'assets/images/icon/allowance.png';
   }
 
   show(notify: Notification) {
@@ -42,11 +42,11 @@ export class NotificationComponent {
   }
 
   init(notify: Notification) {
-    if (notify.type === NotificationType.DNK) {
+    if (notify.type === NotifyType.DNA) {
       this.img = this.images[notify.type];
       this.txt = '+ ДНК';
       this.int = notify.data;
-    } else if (notify.type === NotificationType.ALLOWANCE) {
+    } else if (notify.type === NotifyType.ALLOWANCE) {
       this.img = this.images[notify.type];
       this.txt = 'Пособие';
       this.int = '+1';

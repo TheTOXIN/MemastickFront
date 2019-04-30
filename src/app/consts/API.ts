@@ -32,6 +32,6 @@ export enum API {
   INVENTORY_CELL = '/memetick-inventories/cell',
   INVENTORY_ALL = '/memetick-inventories/all',
   TOKEN_ACCEPT = '/token-accept',
-  BELL_NOTIFY_REGISTER = '/bell-notify/register',
-  PUSH_NOTIFY_UPDATE = '/push-notify/update'
+  PUSH_NOTIFY_UPDATE = '/notify/push-update',
+  BELL_NOTIFY_REGISTER = '/notify/bell-register'
 }
