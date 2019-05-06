@@ -41,7 +41,7 @@ export class PushService {
 
   update(token) {
     this.http.post(
-      API.PUSH_NOTIFY_UPDATE,
+      API.NOTIFY_PUSH_REGISTER,
       token
     ).toPromise();
   }

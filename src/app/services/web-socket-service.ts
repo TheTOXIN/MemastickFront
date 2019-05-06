@@ -22,7 +22,7 @@ export class WebSocketService {
 
   public register(id: string) {
     this.http
-      .put(API.BELL_NOTIFY_REGISTER, id)
+      .put(API.NOTIFY_WEB_REGISTER, id)
       .toPromise();
   }
 }
