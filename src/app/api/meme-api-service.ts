@@ -27,18 +27,22 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePagesFilter(page, size, sort, filter): Observable<MemePage[]> {
+  public memePages(page, size, sort, filter, step): Observable<MemePage[]> {
+    if (step == null) { step = ''; }
+
     const params = new HttpParams()
       .set('page', page)
       .set('size', size)
-      .set('sort', sort);
+      .set('sort', sort)
+      .set('step', step)
+      .set('filter', filter);
 
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')
       .set('Content-Type', 'application/json');
 
     return this.http
-      .get<MemePage[]>(API.MEMES_PAGES_FILTER + '/' + filter, {headers, params})
+      .get<MemePage[]>(API.MEMES_PAGES, {headers, params})
       .pipe();
   }
 

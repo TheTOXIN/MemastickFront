@@ -26,5 +26,4 @@ export class ScrollableDirective {
 
     } catch (err) {}
   }
-
 }

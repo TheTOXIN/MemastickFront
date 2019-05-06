@@ -21,7 +21,7 @@ export enum API {
   MEMES_CREATE = '/memes/create',
   MEMES_IMG = '/memes/img',
   MEMES_PAGE = '/memes/page',
-  MEMES_PAGES_FILTER = '/memes/pages/filter',
+  MEMES_PAGES = '/memes/pages',
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   TOKENS_WALLETS_MEMETICK = '/token-wallets/memetick',

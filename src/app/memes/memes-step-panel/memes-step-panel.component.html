@@ -1,0 +1,23 @@
+<div class="step-panel-list animated slideInUp faster" *ngIf="showStepList">
+  <div *ngFor="let step of steps">
+    <div class="step-panel-row" (click)="memesByStep(step)">
+      <div class="step-panel-img">
+        <img [src]="evolveIcons[step.step]">
+      </div>
+      <div class="step-panel-name">
+        <span>{{step.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showStepPanel">
+  <div class="step-panel" (click)="showStepList = !showStepList">
+    <div class="step-panel-img">
+      <img [src]="evolveIcons[currentStep.step]">
+    </div>
+    <div class="step-panel-name">
+      <span>{{currentStep.name}}</span>
+    </div>
+  </div>
+</div>

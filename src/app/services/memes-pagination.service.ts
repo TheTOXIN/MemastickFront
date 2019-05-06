@@ -16,6 +16,7 @@ interface QueryConfig {
   sort: string;
   reverse: boolean;
   filter: MemeFilter;
+  step: number;
 }
 
 @Injectable()
@@ -39,13 +40,14 @@ export class MemesPaginationService {
 
   }
 
-  init(sizePage, sortFiled, isReverse, filter) {
+  init(sizePage, sortFiled, isReverse, filter, step) {
     this.query = {
       page: 0,
       size: sizePage,
       sort: sortFiled,
       reverse: isReverse,
-      filter: filter
+      filter: filter,
+      step: step
     };
 
     if (this.query.reverse) {
@@ -72,11 +74,12 @@ export class MemesPaginationService {
     if (this._empty.value) { return; }
     this._loading.next(true);
 
-    this.memeApi.memePagesFilter(
+    this.memeApi.memePages(
       this.query.page,
       this.query.size,
       this.query.sort,
-      this.query.filter
+      this.query.filter,
+      this.query.step
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this._loading.next(false);
