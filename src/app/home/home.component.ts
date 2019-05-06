@@ -10,6 +10,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
 import {PushService} from '../services/push-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
+import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -93,7 +94,7 @@ export class HomeComponent implements OnInit {
   }
 
   algorithm() {
-    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
+    this.modalService.open(AlgorithmModalComponent, {'centered': true});
   }
 
   vkontakte() {

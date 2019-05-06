@@ -14,7 +14,9 @@ export class IntroModalComponent {
   @Input()
   public title: string;
 
-  constructor(public activeModal: NgbActiveModal) {
-  }
+  constructor(
+    public activeModal: NgbActiveModal
+  ) {
 
+  }
 }
