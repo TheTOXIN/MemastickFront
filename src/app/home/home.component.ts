@@ -9,6 +9,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
 import {PushService} from '../services/push-service';
+import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   public emoji: any;
   public message: String;
-  public home: Home = new Home('', 0);
+  public home: Home = new Home('', 0, 0);
 
   public showLogo = true;
 
@@ -87,16 +88,28 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/memes'], {queryParams: {filter: filter}});
   }
 
-  memeCreator() {
-    this.router.navigateByUrl('/memes/create');
+  allowance() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
-  memetickMe() {
-    this.router.navigateByUrl('/home/memetick/me');
+  algorithm() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
-  memetickRating() {
-    this.router.navigateByUrl('/home/memetick/rating');
+  vkontakte() {
+    this.redirect('https://vk.com/memastick');
+  }
+
+  telegram() {
+    this.redirect('https://telegram.me/memastick');
+  }
+
+  private redirect(url: string) {
+    const a = document.createElement('a');
+    a.setAttribute('target', '_blank');
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
   }
 
   toStart() {

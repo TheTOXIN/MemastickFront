@@ -38,9 +38,7 @@ export class MemetickComponent implements OnInit {
     private memetickApi: MemetickApiService,
     public memetickAvatarsApi: MemetickAvatarApiService,
     public router: Router,
-    private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private route: ActivatedRoute
   ) {
 
   }
@@ -67,10 +65,6 @@ export class MemetickComponent implements OnInit {
         });
       });
     });
-  }
-
-  takeAllowance() {
-    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   back() {
