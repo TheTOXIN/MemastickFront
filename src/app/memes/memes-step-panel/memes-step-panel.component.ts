@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {Router} from '@angular/router';
 import {WINDOW} from '../../shared/services/windows.service';
@@ -37,13 +37,17 @@ export class MemesStepPanelComponent implements OnInit {
   ) {
     this.currentStep = this.steps[2];
 
-    // TODO refactor
+    // TODO refactor and make hide when scroll
     this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
     this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/2.png';
     this.evolveIcons[null] = 'assets/images/tokens/tmp.png';
   }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.router.navigateByUrl('/home');
   }
 
   memesByStep(step: any) {

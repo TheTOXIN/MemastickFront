@@ -16,5 +16,4 @@ export class StartComponent implements OnInit {
   ngOnInit() {
     this.hello.sendHello();
   }
-
 }

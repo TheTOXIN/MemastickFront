@@ -6,6 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Memetick} from '../../model/Memetick';
 import {MemetickApiService} from '../../api/memetick-api-service';
+import {PushService} from '../../services/push-service';
 
 @Component({
   selector: 'app-settings',
@@ -18,6 +19,7 @@ export class SettingsComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private memetickApi: MemetickApiService,
+    public push: PushService
   ) {
 
   }
@@ -42,6 +44,10 @@ export class SettingsComponent implements OnInit {
 
   logOut() {
     this.modalService.open(LogoutModalComponent, {'centered': true});
+  }
+
+  pushNotification() {
+    this.push.permission();
   }
 
   back() {

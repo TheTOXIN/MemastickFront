@@ -22,7 +22,7 @@
 
 .step-panel-img {
   height: 100%;
-  width: 30%;
+  width: 20%;
   img {
     max-height: 100%;
     max-width: 100%;
@@ -31,12 +31,23 @@
 
 .step-panel-name {
   height: 100%;
-  width: 70%;
+  width: 60%;
+  margin-top: 14px;
   span {
-    margin-left: 10px;
-    margin-top: 14px;
-    float: left;
     font-size: 20px;
+  }
+}
+
+.step-panel-close {
+  height: 100%;
+  width: 20%;
+  margin-top: 7px;
+  i {
+    color: #6b25fc;
+    font-size: 48px;
+  }
+  &:hover {
+    color: #d85040;
   }
 }
 
@@ -60,4 +71,8 @@
   height: 69px;
   padding: 5px;
   text-align: center;
+  &:hover {
+    border-radius: 30px;
+    background-color: #bababa;
+  }
 }
