@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
