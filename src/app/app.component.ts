@@ -38,8 +38,4 @@ export class AppComponent {
       this.webSocketService.register(id);
     });
   }
-
-  test() { // TODO use
-    console.log('TEST');
-  }
 }

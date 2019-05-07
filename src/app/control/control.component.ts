@@ -11,7 +11,7 @@ import {Home} from '../model/Home';
 export class ControlComponent implements OnInit {
 
   @Input()
-  public home: Home;
+  public home?: Home;
 
   public hide = false;
   public close = false;

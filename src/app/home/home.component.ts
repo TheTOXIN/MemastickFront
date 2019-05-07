@@ -56,7 +56,6 @@ export class HomeComponent implements OnInit {
     this.initParticles();
     this.initEmoji();
     this.initMe();
-    this.initPush();
   }
 
   @HostListener('window:scroll', [])
@@ -77,6 +76,7 @@ export class HomeComponent implements OnInit {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
+      this.initPush();
     });
   }
 

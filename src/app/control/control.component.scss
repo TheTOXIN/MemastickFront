@@ -69,22 +69,36 @@
     margin-left: -10px;
     margin-top: -5px;
   }
+  @media(max-width: 767px) {
+    div {
+      margin-left: -3px;
+      margin-top: 0;
+    }
+  }
 }
 
 .control-items {
   bottom: 0;
   left: 0;
   border-radius: 0 50px 0 0;
+
   i {
     bottom: 5px;
     left: 7px;
   }
+
   div {
     margin-left: 50px;
     margin-top: -5px;
   }
-}
 
+  @media(max-width: 767px) {
+    div {
+      margin-left: 30px;
+      margin-top: -3px;
+    }
+  }
+}
 .control-content {
   position: fixed;
   width: 50%;
@@ -130,6 +144,11 @@
   width: 32px;
   height: 32px;
   vertical-align: middle;
+  @media(max-width: 767px) {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
 }
 
 .control-closer {

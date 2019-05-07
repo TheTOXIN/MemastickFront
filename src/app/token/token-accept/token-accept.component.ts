@@ -17,6 +17,7 @@ export class TokenAcceptComponent implements OnInit {
   public isShow = false;
 
   constructor() {
+    // TODO tokens
     this.icons[TokenType.TUBE] = 'assets/images/tokens/1.png';
     this.icons[TokenType.SCOPE] = 'assets/images/tokens/2.png';
     this.icons[TokenType.MUTAGEN] = 'assets/images/tokens/3.png';
