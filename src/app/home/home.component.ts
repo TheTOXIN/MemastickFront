@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   public emoji: any;
   public message: String;
-  public home: Home = new Home('', 0, 0);
+  public home: Home;
 
   public showLogo = true;
 
@@ -53,10 +53,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initEmoji();
     this.initParticles();
-    this.initPush();
+    this.initEmoji();
     this.initMe();
+    this.initPush();
   }
 
   @HostListener('window:scroll', [])
@@ -81,6 +81,8 @@ export class HomeComponent implements OnInit {
   }
 
   private initPush() {
+    if (!this.home.pushAsk) { return; }
+
     this.push.permission();
     this.push.receive();
   }

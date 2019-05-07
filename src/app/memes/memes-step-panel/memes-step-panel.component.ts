@@ -15,6 +15,7 @@ export class MemesStepPanelComponent implements OnInit {
   public showStepPanel = true;
   public showStepList = false;
 
+  private tmpIcon = 'NULL';
   private evolveIcons = [];
 
   currentStep: any;
@@ -27,7 +28,7 @@ export class MemesStepPanelComponent implements OnInit {
     step: EvolveStep.SURVIVAL
   }, {
     name: 'Все мемы',
-    step: null
+    step: this.tmpIcon
   }];
 
   constructor(
@@ -40,7 +41,7 @@ export class MemesStepPanelComponent implements OnInit {
     // TODO refactor and make hide when scroll
     this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
     this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/2.png';
-    this.evolveIcons[null] = 'assets/images/tokens/tmp.png';
+    this.evolveIcons[this.tmpIcon] = 'assets/images/tokens/tmp.png';
   }
 
   ngOnInit() {
@@ -54,6 +55,9 @@ export class MemesStepPanelComponent implements OnInit {
     this.showStepList = false;
     this.currentStep = step;
 
-    this.router.navigate(['/memes'], {queryParams: {step: step.step}});
+    let value = step.sptep;
+    if (this.currentStep.step === this.tmpIcon) { value = null; }
+
+    this.router.navigate(['/memes'], {queryParams: {step: step.value}});
   }
 }

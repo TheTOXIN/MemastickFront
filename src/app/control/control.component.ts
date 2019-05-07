@@ -1,6 +1,7 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, Input, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
+import {Home} from '../model/Home';
 
 @Component({
   selector: 'app-control',
@@ -8,6 +9,9 @@ import {WINDOW} from '../shared/services/windows.service';
   styleUrls: ['./control.component.scss']
 })
 export class ControlComponent implements OnInit {
+
+  @Input()
+  public home: Home;
 
   public hide = false;
   public close = false;
