@@ -42,6 +42,7 @@ import {WebSocketService} from './services/web-socket-service';
 import {TokenAcceptApiService} from './api/token-accept-api.service';
 import {PushService} from './services/push-service';
 import * as firebase from 'firebase';
+import {NotifyBellApiService} from './api/notify-bell-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -91,6 +92,7 @@ firebase.initializeApp(environment.firebase);
     TokenAcceptApiService,
     WebSocketService,
     PushService,
+    NotifyBellApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

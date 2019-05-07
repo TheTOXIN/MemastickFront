@@ -1,6 +1,6 @@
 import {NotifyType} from '../consts/NotifyType';
 
-export class Notification {
+export class Notify {
   constructor(
     public type: NotifyType,
     public title: string,

@@ -33,5 +33,8 @@ export enum API {
   INVENTORY_ALL = '/memetick-inventories/all',
   TOKEN_ACCEPT = '/token-accept',
   NOTIFY_PUSH_REGISTER = '/notify/push/register',
-  NOTIFY_WEB_REGISTER = '/notify/web/register'
+  NOTIFY_WEB_REGISTER = '/notify/web/register',
+  NOTIFY_BELL_READ = '/notify/bell/read',
+  NOTIFY_BELL_CLEAR = '/notify/bell/clear',
+  NOTIFY_BELL_MARK = '/notify/bell/mark'
 }

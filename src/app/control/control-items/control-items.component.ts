@@ -18,7 +18,6 @@ export class Item {
   }
 }
 
-
 @Component({
   selector: 'app-control-items',
   templateUrl: './control-items.component.html',

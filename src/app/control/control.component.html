@@ -23,7 +23,7 @@
      [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentEvents}"
      (click)="close = true; hideContentEvents = false; home.countBells = 0">
   <i class="fa fa-bell"></i>
-  <div *ngIf="home?.countBells != 0" class="control-counter">{{home?.countBells}}</div>
+  <div *ngIf="home?.countBells != 0 && home != null" class="control-counter">{{home?.countBells}}</div>
 </div>
 <div class="control-events-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
   <app-control-events></app-control-events>
@@ -34,7 +34,7 @@
      [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
      (click)="close = true; hideContentItems = false; home.countItems = 0">
   <i class="fa fa-archive" ></i>
-  <div *ngIf="home?.countItems != 0" class="control-counter">{{home?.countItems}}</div>
+  <div *ngIf="home?.countItems != 0 && home != null" class="control-counter">{{home?.countItems}}</div>
 </div>
 <div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
   <app-control-items></app-control-items>

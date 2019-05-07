@@ -1,4 +1,27 @@
 <div class="control-content-wrap">
-  <div class="control-content-empty"></div>
+  <app-spinner *ngIf="loader"></app-spinner>
+  <div *ngIf="!loader">
+    <div *ngFor="let bell of bells; let i = index">
+      <div class="control-events-row" [style.background-color]="bell.read ? '#c3c3c3' : ''">
+        <div class="control-events-image control-event-cell" (click)="event(bell)">
+          <img src="assets/images/tokens/tmp.png">
+        </div>
+        <div class="control-events-text control-event-cell text-strong-center" (click)="event(bell)">
+          <div>{{bell.text}}</div>
+        </div>
+        <div *ngIf="!bell.read" class="control-events-mark control-event-cell" (click)="mark(bell, i)">
+          <i class="fa fa-check"></i>
+        </div>
+        <div *ngIf="bell.read" class="control-events-clear control-event-cell" (click)="clear(bell, i)">
+          <i class="fa fa-close"></i>
+        </div>
+      </div>
+    </div>
+    <div class="control-events-clear-all" (click)="clearAll()">
+      <div>ОЧИСТИТЬ</div>
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
   <div class="control-content-empty"></div>
 </div>
+

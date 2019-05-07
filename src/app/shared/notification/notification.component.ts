@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NotifyType} from '../../consts/NotifyType';
-import {Notification} from '../../model/Notification';
+import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
 import {TokenType} from '../../consts/TokenType';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
@@ -35,7 +35,7 @@ export class NotificationComponent {
     this.icons[TokenType.ANTIBIOTIC] = 'assets/images/tokens/5.png';
   }
 
-  show(notify: Notification) {
+  show(notify: Notify) {
     this.init(notify);
 
     this.isHide = false;
@@ -44,7 +44,7 @@ export class NotificationComponent {
     this.destroy();
   }
 
-  init(notify: Notification) {
+  init(notify: Notify) {
     this.txt = notify.title;
     this.url = notify.event;
 

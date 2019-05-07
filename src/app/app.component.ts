@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
-import {Notification} from './model/Notification';
+import {Notify} from './model/Notify';
 import {OauthApiService} from './services/oauth-api-service';
 
 @Component({
@@ -31,7 +31,7 @@ export class AppComponent {
       const id = array[array.length - 2];
 
       stompClient.subscribe('/user/queue/notify', notification => {
-        const notify = <Notification>JSON.parse(notification.body);
+        const notify = <Notify>JSON.parse(notification.body);
         this.notification.show(notify);
       });
 
