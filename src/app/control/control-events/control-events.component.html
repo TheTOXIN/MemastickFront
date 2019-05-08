@@ -3,8 +3,8 @@
   <app-spinner *ngIf="loader"></app-spinner>
   <div *ngIf="!loader">
     <div *ngFor="let bell of bells; let i = index">
-      <div class="control-events-row" (click)="event(bell)">
-      <div class="control-events-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''">
+      <div class="control-events-row">
+      <div class="control-events-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''" (click)="event(bell)">
         <div>{{bell.text}}</div>
       </div>
       <div  class="control-events-btn">
