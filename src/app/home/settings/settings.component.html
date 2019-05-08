@@ -13,7 +13,8 @@
         </button>
         <button class="settings-button btn-theme" (click)="pushNotification()">
           УВЕДОМЛЕНИЯ
-          <i class="fa fa-bell"></i>
+          <i *ngIf="setting.pushWork" class="fa fa-bell"></i>
+          <i *ngIf="!setting.pushWork" class="fa fa-bell-slash"></i>
         </button>
         <button class="settings-button btn-theme" (click)="logOut()">
           ВЫЙТИ

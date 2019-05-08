@@ -33,8 +33,11 @@ export enum API {
   INVENTORY_ALL = '/memetick-inventories/all',
   TOKEN_ACCEPT = '/token-accept',
   NOTIFY_PUSH_REGISTER = '/notify/push/register',
+  NOTIFY_PUSH_UNREGISTER = '/notify/push/unregister',
   NOTIFY_WEB_REGISTER = '/notify/web/register',
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
-  NOTIFY_BELL_MARK = '/notify/bell/mark'
+  NOTIFY_BELL_MARK = '/notify/bell/mark',
+  SEETING_ME = '/setting/me',
+  SEETING_FOLLOW_ = '/setting/follow',
 }

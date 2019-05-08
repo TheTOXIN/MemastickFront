@@ -7,6 +7,8 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {Memetick} from '../../model/Memetick';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {PushService} from '../../services/push-service';
+import {SettingApiService} from '../../api/setting-api-service';
+import {Setting} from '../../model/Setting';
 
 @Component({
   selector: 'app-settings',
@@ -19,6 +21,7 @@ export class SettingsComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private memetickApi: MemetickApiService,
+    private settingApi: SettingApiService,
     public push: PushService
   ) {
 
@@ -29,8 +32,13 @@ export class SettingsComponent implements OnInit {
     ''
   );
 
+  public setting: Setting = new Setting(
+    true
+  );
+
   ngOnInit() {
     this.memetickApi.viewMe().subscribe(data => this.memetick = data);
+    this.settingApi.me().subscribe(data => this.setting = data);
   }
 
   changeAvatar() {
@@ -47,7 +55,13 @@ export class SettingsComponent implements OnInit {
   }
 
   pushNotification() {
-    this.push.permission();
+    this.setting.pushWork = !this.setting.pushWork;
+
+    if (this.setting.pushWork) {
+      this.push.permission();
+    } else {
+      this.push.remove();
+    }
   }
 
   back() {
