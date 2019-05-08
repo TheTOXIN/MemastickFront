@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NotifyBellApiService} from '../../api/notify-bell-api-service';
 import {NotifyBell} from '../../model/NotifyBell';
+import {NotifyType} from '../../consts/NotifyType';
 
 @Component({
   selector: 'app-control-events',
@@ -31,11 +32,11 @@ export class ControlEventsComponent implements OnInit {
 
   mark(bell: NotifyBell, index: number) {
     this.bells[index].read = true;
-    this.bells.push(this.bells.splice(index, 1)[0]);
     this.bellApi.mark(bell.id);
   }
 
   clearAll() {
+    this.bells = [];
     this.bellApi.clearAll();
   }
 

@@ -1,6 +1,6 @@
 <div *ngIf="isShow" class="notification animated fast bounceInDown" (click)="event()" [ngClass]="{'bounceOutUp': isHide}">
   <div class="notification-img">
-    <img [src]="img">
+    <img [src]="img" onError="this.src='assets/images/tokens/tmp.png';">
   </div>
   <div class="notification-txt text-strong-center">
     <div>{{txt}}</div>

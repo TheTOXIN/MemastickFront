@@ -26,7 +26,6 @@ export class PushService {
   }
 
   permission() {
-    alert('PUSH ASK');
     if (this.messaging == null) { return; }
     this.messaging.requestPermission()
       .then(() => {

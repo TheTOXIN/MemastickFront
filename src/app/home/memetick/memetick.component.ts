@@ -14,6 +14,7 @@ import {TokenType} from '../../consts/TokenType';
 import {TokenApiService} from '../../api/token-api-service';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {PwaService} from '../../services/pwa-service';
+import {SettingApiService} from '../../api/setting-api-service';
 
 @Component({
   selector: 'app-memetick',
@@ -30,7 +31,8 @@ export class MemetickComponent implements OnInit {
   public avatarURL: String = '';
   public memetick: Memetick = new Memetick(
     '',
-    ''
+    '',
+    false
   );
 
   constructor(
@@ -38,7 +40,8 @@ export class MemetickComponent implements OnInit {
     private memetickApi: MemetickApiService,
     public memetickAvatarsApi: MemetickAvatarApiService,
     public router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private settingApi: SettingApiService
   ) {
 
   }
@@ -65,6 +68,11 @@ export class MemetickComponent implements OnInit {
         });
       });
     });
+  }
+
+  follow() {
+    this.memetick.follow = !this.memetick.follow;
+    this.settingApi.follow(this.memetick.id);
   }
 
   back() {

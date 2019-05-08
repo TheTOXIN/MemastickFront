@@ -20,10 +20,14 @@
       <app-token-wallet [wallet]="wallet"></app-token-wallet>
     </div>
   </div>
-  <div class="row" *ngIf="memetickMe">
+  <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-control">
-        <!--Hmmm...-->
+        <button *ngIf="!memetickMe" class="settings-button btn-theme" (click)="follow()">
+          ПОДПИСКА:
+          <i *ngIf="memetick.follow" class="fa fa-eye"></i>
+          <i *ngIf="!memetick.follow" class="fa fa-eye-slash"></i>
+        </button>
       </div>
     </div>
   </div>
