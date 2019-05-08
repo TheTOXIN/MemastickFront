@@ -9,6 +9,7 @@ import {MemetickApiService} from '../../api/memetick-api-service';
 import {PushService} from '../../services/push-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
+import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
 
 @Component({
   selector: 'app-settings',
@@ -52,8 +53,8 @@ export class SettingsComponent implements OnInit {
     modalRef.componentInstance.nick = this.memetick.nick;
   }
 
-  logOut() {
-    this.modalService.open(LogoutModalComponent, {'centered': true});
+  showFollowing() {
+    this.modalService.open(FollowingModalComponent, {'centered': true});
   }
 
   pushNotification() {
@@ -64,6 +65,10 @@ export class SettingsComponent implements OnInit {
     } else {
       this.push.remove();
     }
+  }
+
+  logOut() {
+    this.modalService.open(LogoutModalComponent, {'centered': true});
   }
 
   back() {

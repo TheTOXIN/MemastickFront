@@ -11,6 +11,10 @@
           СМЕНИТЬ НИК
           <i class="fa fa-edit"></i>
         </button>
+        <button class="settings-button btn-theme" (click)="showFollowing()">
+          ПОДПИСКИ
+          <i class="fa fa-eye"></i>
+        </button>
         <button class="settings-button btn-theme" (click)="pushNotification()">
           УВЕДОМЛЕНИЯ
           <i *ngIf="setting.pushWork" class="fa fa-bell"></i>

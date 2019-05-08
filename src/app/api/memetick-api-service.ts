@@ -35,6 +35,12 @@ export class MemetickApiService {
       .pipe();
   }
 
+  public following(): Observable<MemetickPreview> {
+    return this.http
+      .get<MemetickPreview>(API.MEMETICK_FOLLOWING)
+      .pipe();
+  }
+
   public rating(filter: MemetickRatingFilter): Observable<MemetickRating> {
     return this.http
       .get<MemetickRating>(API.MEMETICK_RATING + '/' + filter)
