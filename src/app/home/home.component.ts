@@ -81,8 +81,6 @@ export class HomeComponent implements OnInit {
   }
 
   private initPush() {
-    if (!this.home.pushAsk) { return; }
-
     this.push.permission();
     this.push.receive();
   }

@@ -35,9 +35,9 @@ export class MemetickApiService {
       .pipe();
   }
 
-  public following(): Observable<MemetickPreview> {
+  public following(): Observable<MemetickPreview[]> {
     return this.http
-      .get<MemetickPreview>(API.MEMETICK_FOLLOWING)
+      .get<MemetickPreview[]>(API.MEMETICK_FOLLOWING)
       .pipe();
   }
 
