@@ -28,6 +28,8 @@ export class MemesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       let filter = params.filter;
+
+      const memetick = params.memetick;
       const step = params.step;
       const sort = 'creating';
 
@@ -41,7 +43,8 @@ export class MemesComponent implements OnInit, OnDestroy {
         sort,
         true,
         filter,
-        step
+        step,
+        memetick
       );
     });
   }

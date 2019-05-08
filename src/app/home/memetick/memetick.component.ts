@@ -15,6 +15,7 @@ import {TokenApiService} from '../../api/token-api-service';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {PwaService} from '../../services/pwa-service';
 import {SettingApiService} from '../../api/setting-api-service';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-memetick',
@@ -67,6 +68,15 @@ export class MemetickComponent implements OnInit {
           this.memetickLoad = true;
         });
       });
+    });
+  }
+
+  memes() {
+    this.router.navigate(['/memes'], {
+      queryParams: {
+        memetick: this.memetick.id ,
+        filter: MemeFilter.USER
+      }
     });
   }
 

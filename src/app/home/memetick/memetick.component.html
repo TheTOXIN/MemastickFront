@@ -23,6 +23,10 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-control">
+        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="memes()">
+          МЕМАСИКИ
+          <i class="fa fa-eye"></i>
+        </button>
         <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="follow()">
           ПОДПИСКА:
           <i *ngIf="memetick.follow" class="fa fa-eye"></i>
