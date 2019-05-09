@@ -46,6 +46,7 @@ export class ControlEventsComponent implements OnInit {
   }
 
   event(bell: NotifyBell) {
+    if (bell.link == null) { return; }
     window.location.href = bell.link;
   }
 }

@@ -1,5 +1,5 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
@@ -11,6 +11,7 @@ import * as randomEmoji from 'random-emoji';
 import {PushService} from '../services/push-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
+import {NotifyType} from '../consts/NotifyType';
 
 @Component({
   selector: 'app-home',
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
@@ -53,6 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initEvent();
     this.initParticles();
     this.initEmoji();
     this.initMe();
@@ -66,6 +69,15 @@ export class HomeComponent implements OnInit {
     } else {
       this.showLogo = true;
     }
+  }
+
+  private initEvent() {
+    this.route.queryParams.subscribe(params => {
+      const event = params.event;
+      if (event === NotifyType.ALLOWANCE) {
+        this.allowance();
+      }
+    });
   }
 
   private initEmoji() {

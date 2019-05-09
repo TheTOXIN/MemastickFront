@@ -73,6 +73,7 @@ export class NotificationComponent {
   }
 
   event() {
+    if (this.url == null) { return; }
     window.location.href = this.url;
   }
 }
