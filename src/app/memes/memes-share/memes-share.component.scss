@@ -20,11 +20,12 @@
   }
 }
 
-.buttons {
-  position: absolute;
-  text-align: center;
+.sign-buttons {
+  position: fixed;
   right: 0;
   left: 0;
   bottom: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
-

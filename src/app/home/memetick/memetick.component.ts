@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MemetickApiService} from '../../services/memetick-api-service';
+import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
-import {MemetickAvatarApiService} from '../../services/memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
@@ -9,11 +9,13 @@ import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.compo
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
-import {TokenAcceptComponent} from '../token-accept/token-accept.component';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {TokenType} from '../../consts/TokenType';
-import {TokenApiService} from '../../services/token-api-service';
-import {TokenAllowanceModalComponent} from '../token-allowance-modal/token-allowance-modal.component';
+import {TokenApiService} from '../../api/token-api-service';
+import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {PwaService} from '../../services/pwa-service';
+import {SettingApiService} from '../../api/setting-api-service';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-memetick',
@@ -31,7 +33,7 @@ export class MemetickComponent implements OnInit {
   public memetick: Memetick = new Memetick(
     '',
     '',
-    0,
+    false
   );
 
   constructor(
@@ -40,8 +42,7 @@ export class MemetickComponent implements OnInit {
     public memetickAvatarsApi: MemetickAvatarApiService,
     public router: Router,
     private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private settingApi: SettingApiService
   ) {
 
   }
@@ -70,21 +71,18 @@ export class MemetickComponent implements OnInit {
     });
   }
 
-  takeAllowance() {
-    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
+  memes() {
+    this.router.navigate(['/memes'], {
+      queryParams: {
+        memetick: this.memetick.id ,
+        filter: MemeFilter.USER
+      }
+    });
   }
 
-  changeAvatar() {
-    this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
-  }
-
-  changeNick() {
-    const modalRef = this.modalService.open(ChangeNickModalComponent, {'centered': true});
-    modalRef.componentInstance.nick = this.memetick.nick;
-  }
-
-  logOut() {
-    this.modalService.open(LogoutModalComponent, {'centered': true});
+  follow() {
+    this.memetick.follow = !this.memetick.follow;
+    this.settingApi.follow(this.memetick.id);
   }
 
   back() {

@@ -6,35 +6,47 @@ import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
 import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
-import {InviteApiService} from './services/invite-api-service';
-import {HelloApiService} from './services/hello-api-service';
+import {InviteApiService} from './api/invite-api-service';
+import {HelloApiService} from './api/hello-api-service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MyHttpInterceptor} from './configs/my-http-interceptor';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {OauthApiService} from './services/oauth-api-service';
-import {MemetickApiService} from './services/memetick-api-service';
-import {PasswordApiService} from './services/password-api-service';
-import {RegistrationApiService} from './services/registration-api-service';
+import {MemetickApiService} from './api/memetick-api-service';
+import {PasswordApiService} from './api/password-api-service';
+import {RegistrationApiService} from './api/registration-api-service';
 import {AngularFireModule} from '@angular/fire';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {MemesPaginationService} from './services/memes-pagination.service';
-import {StatisticApiService} from './services/statistic-api-service';
-import {MemetickAvatarApiService} from './services/memetick-avatar-api-service';
-import {MemeApiService} from './services/meme-api-service';
-import {MemeLikeApiService} from './services/meme-like-api-service';
+import {StatisticApiService} from './api/statistic-api-service';
+import {MemetickAvatarApiService} from './api/memetick-avatar-api-service';
+import {MemeApiService} from './api/meme-api-service';
+import {MemeLikeApiService} from './api/meme-like-api-service';
 import {ModalsModule} from './modals/modals.module';
 import {MemesModule} from './memes/memes.module';
-import {TokenApiService} from './services/token-api-service';
+import {TokenApiService} from './api/token-api-service';
 import {HomeModule} from './home/home.module';
-import {EvolveMemeApiService} from './services/evolve-meme-api-service';
+import {EvolveMemeApiService} from './api/evolve-meme-api-service';
 import {EvolveModule} from './evolve/evolve.module';
-import {TokenAllowanceApiService} from './services/token-allowance-api-service';
-import {MainApiService} from './services/main-api-service';
+import {TokenAllowanceApiService} from './api/token-allowance-api-service';
+import {MainApiService} from './api/main-api-service';
 import {PwaService} from './services/pwa-service';
+import {ControlModule} from './control/control.module';
+import {MemetickInventoryApiService} from './api/memetick-inventory-api-service';
+import {TokenModule} from './token/token.module';
+import {WebSocketService} from './services/web-socket-service';
+import {TokenAcceptApiService} from './api/token-accept-api.service';
+import {PushService} from './services/push-service';
+import * as firebase from 'firebase';
+import {NotifyBellApiService} from './api/notify-bell-api-service';
+import {PushApiService} from './api/push-api-service';
+import {SettingApiService} from './api/setting-api-service';
+
+firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -49,7 +61,9 @@ import {PwaService} from './services/pwa-service';
     ModalsModule,
     MemesModule,
     HomeModule,
+    TokenModule,
     EvolveModule,
+    ControlModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
@@ -57,6 +71,7 @@ import {PwaService} from './services/pwa-service';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
+    AppComponent,
     InviteApiService,
     HelloApiService,
     OauthApiService,
@@ -75,6 +90,13 @@ import {PwaService} from './services/pwa-service';
     TokenAllowanceApiService,
     MainApiService,
     PwaService,
+    MemetickInventoryApiService,
+    TokenAcceptApiService,
+    WebSocketService,
+    PushService,
+    NotifyBellApiService,
+    SettingApiService,
+    PushApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

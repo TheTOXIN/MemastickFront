@@ -1,0 +1,49 @@
+.share-input {
+  width: 90%;
+  margin: auto auto 10px;
+  border-radius: 30px;
+  border: solid #495057;
+  padding: 5px;
+  input {
+    width: 90%;
+    color: #444444;
+  }
+}
+
+.share-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.share-type {
+  text-align: center;
+  margin: 10px;
+  i {
+    font-size: 64px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 18px;
+  }
+  @media(max-width: 767px) {
+    i {
+      font-size: 38px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  &:hover {
+    i {
+      animation: more 0.1s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes more {
+  100% {
+    transform: scale(1.3);
+  }
+}

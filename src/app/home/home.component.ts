@@ -1,15 +1,17 @@
-import {Component, HostListener, Inject, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../consts/MemeFilter';
-import {MainApiService} from '../services/main-api-service';
+import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
-import {NotificationComponent} from './notification/notification.component';
-import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
+import {PushService} from '../services/push-service';
+import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
+import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
+import {NotifyType} from '../consts/NotifyType';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +19,6 @@ import * as randomEmoji from 'random-emoji';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   myStyle: object = {};
   myParams: object = {};
@@ -32,20 +32,31 @@ export class HomeComponent implements OnInit {
     'Чувствуй себя как дома! (но не очень сильно)',
     'Мемы - это лучшее на что ты можешь потратить свое время',
     'Новый день! Новый мем!',
-    'Вы не создаете мемы на свой страх и риск!'
+    'Вы не создаете мемы на свой страх и риск!',
+    'Мемы спасут мир от войны',
+    'Много хромосом, это хорошо или плохо?',
+    'Сделал мемас, гуляй как...',
+    'Мем мне в печень, и я счастлив вечен',
+    'Один мем орно, а два это уже как порно',
+    'Мемас не волк, у него есть дела по важнее',
+    'Ааа ну это уже какая то страшилка получается',
+    'Помните и уважайте пожилые мемы',
+    'МУТАГЕН->КРОССОВЕР->МИКРОСКОП->АНТИБИОТИК->ПРОБИРКА'
   ];
 
   public emoji: any;
   public message: String;
-  public home: Home = new Home('', 0, false);
+  public home: Home;
 
   public showLogo = true;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    public push: PushService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -53,57 +64,78 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initEmoji();
+    this.initEvent();
     this.initParticles();
-    this.takeMe();
+    this.initEmoji();
+    this.initMe();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 60) {
+    if (number >= 42) {
       this.showLogo = false;
     } else {
       this.showLogo = true;
     }
   }
 
+  private initEvent() {
+    this.route.queryParams.subscribe(params => {
+      const event = params.event;
+      if (event === NotifyType.ALLOWANCE) {
+        this.allowance();
+      }
+    });
+  }
+
   private initEmoji() {
     this.emoji = randomEmoji.random({count: 1})[0].character;
   }
 
-  private takeMe() {
+  private initMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
-      if (this.home.allowance) {
-        this.notification.show('assets/images/icon/allowance.png', 'Вы получили пособие', 1);
-      }
       this.isLoad = false;
+      this.initPush();
     });
+  }
+
+  private initPush() {
+    this.push.permission();
+    this.push.receive();
   }
 
   memes(filter: MemeFilter) {
     this.router.navigate(['/memes'], {queryParams: {filter: filter}});
   }
 
-  memeCreator() {
-    this.router.navigateByUrl('/memes/create');
+  allowance() {
+    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
-  memetickMe() {
-    this.router.navigateByUrl('/home/memetick/me');
+  algorithm() {
+    this.modalService.open(AlgorithmModalComponent, {'centered': true});
   }
 
-  memetickRating() {
-    this.router.navigateByUrl('/home/memetick/rating');
+  vkontakte() {
+    this.redirect('https://vk.com/memastick');
+  }
+
+  telegram() {
+    this.redirect('https://telegram.me/memastick');
+  }
+
+  private redirect(url: string) {
+    const a = document.createElement('a');
+    a.setAttribute('target', '_blank');
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
   }
 
   toStart() {
     this.router.navigateByUrl('/start');
-  }
-
-  showAlowance(event) {
-    this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
   }
 
   initParticles() {

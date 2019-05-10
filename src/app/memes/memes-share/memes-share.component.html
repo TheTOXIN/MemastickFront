@@ -1,22 +1,38 @@
 <div class="mem-back"></div>
-<div class="logo">
-    <img class="img-fluid" src="assets/images/mem-logo.png">
-  </div>
-  <div class=" image flex-center-absolute">
-    <img [src]="memeURL || ''">
-  </div>
-  <div class="buttons">
-  <div class="download-img">
-      <ul>
-        <li (click)="toSignUp()">
-          <img alt="foot-app" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
-               data-tilt-speed="350" src="assets/images/app1.png">
-        </li>
-        <li (click)="toSignIn()">
-          <img alt="foot-app1" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
-               data-tilt-speed="350" src="assets/images/app2.png">
-        </li>
-      </ul>
-  </div>
+
+<app-spinner class="flex-center-absolute" *ngIf="isLoad"></app-spinner>
+
+<div *ngIf="!isLoad">
+
+  <div *ngIf="!isLogin">
+    <div class="logo">
+      <img class="img-fluid" src="assets/images/mem-logo.png">
+    </div>
+    <div class=" image flex-center-absolute">
+      <img [src]="memeURL || ''">
+    </div>
+    <div class="sign-buttons">
+      <div class="download-img">
+        <ul>
+          <li (click)="toSignUp()">
+            <img alt="foot-app" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
+                 data-tilt-speed="350" src="assets/images/app1.png">
+          </li>
+          <li (click)="toSignIn()">
+            <img alt="foot-app1" class="img-fluid" data-tilt data-tilt-max="1.8" data-tilt-perspective="50"
+                 data-tilt-speed="350" src="assets/images/app2.png">
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
+  <div *ngIf="isLogin">
+    <app-memes-page
+      (viewer)="memeView($event)"
+      (researcher)="memeResearch($event)"
+      [data]="memeData">
+    </app-memes-page>
+  </div>
+
+</div>

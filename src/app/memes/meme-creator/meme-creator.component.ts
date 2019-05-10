@@ -1,22 +1,21 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {MemeApiService} from '../../services/meme-api-service';
+import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {ValidConst} from '../../consts/ValidConst';
+import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 
 @Component({
   selector: 'app-meme-creator',
   templateUrl: './meme-creator.component.html',
   styleUrls: ['./meme-creator.component.scss']
 })
-export class MemeCreatorComponent {
-
-  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
+export class MemeCreatorComponent implements OnInit {
 
   public status;
   public message;
@@ -27,6 +26,10 @@ export class MemeCreatorComponent {
   public fireId: UUID;
   public firePath: string;
 
+  public stateTitle;
+  public stateText;
+  public stateCell;
+
   isHovering = false;
   isPreview = false;
   isCreate = false;
@@ -35,28 +38,27 @@ export class MemeCreatorComponent {
     private router: Router,
     private memeApi: MemeApiService,
     private tokenApi: TokenApiService,
+    private inventoryApi: MemetickInventoryApiService
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
   }
 
+  ngOnInit(): void {
+    this.inventoryApi.stateCell().subscribe(data => {
+      this.stateCell = data.state;
+      if (this.stateCell === 100) {
+        this.stateText = 'КЛЕТКА ГОТОВА';
+        this.stateTitle = 'ПЕРЕТАЩИ ИЛИ НАЖМИ';
+      } else {
+        this.stateText = 'СОСТОЯНИЕ = ' + this.stateCell + '%';
+        this.stateTitle = 'КЛЕТКА РАСТЁТ';
+      }
+    });
+  }
+
   toggleHover(event: boolean) {
     this.isHovering = event;
-  }
-
-  acceptCreatingShow() {
-    if (!this.isPreview || this.isCreate) { return; }
-    this.status = LoaderStatus.LOAD;
-    this.message = 'Создать мем?';
-    this.tokenAccept.show(TokenType.CREATING);
-  }
-
-  acceptCreatingResult(accpet: boolean) {
-    if (accpet) {
-      this.create();
-    } else {
-      this.status = LoaderStatus.NONE;
-    }
   }
 
   upload(files) {
@@ -66,10 +68,11 @@ export class MemeCreatorComponent {
 
     this.status = LoaderStatus.LOAD;
 
-    this.tokenApi.have(TokenType.CREATING).subscribe(
-      () => this.show(files),
-      (error) => this.createError(error)
-    );
+    if (this.stateCell === 100) {
+      this.show(files);
+    } else {
+      this.error('Клетка не выросла!');
+    }
   }
 
   create() {
@@ -103,8 +106,8 @@ export class MemeCreatorComponent {
   createError(error: any) {
     let errorMessage = '';
 
-    if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      errorMessage = 'Нужен токен создания!';
+    if (error.error.code === ErrorStatus.CELL_SMALL) {
+      errorMessage = 'Клетка не выросла!';
     } else {
       errorMessage = 'Ошибка создания';
     }

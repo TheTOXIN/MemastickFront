@@ -1,0 +1,46 @@
+<!--SCOPE-->
+<div class="control-scope control-panel animated slideInLeft"
+     [ngClass]="{'slideOutLeft': hide, 'control-panel-inverse': !hideContentScope}"
+     (click)="close = true; hideContentScope = false">
+  <i class="fa fa-th-large"></i>
+</div>
+<div class="control-scope-content control-content animated faster slideInLeft" *ngIf="!hideContentScope">
+  <app-control-scope></app-control-scope>
+</div>
+
+<!--MENU-->
+<div class="control-menu control-panel animated slideInDown"
+     [ngClass]="{'slideOutUp': hide, 'control-panel-inverse': !hideContentMenu}"
+     (click)="close = true; hideContentMenu = false">
+  <i class="fa fa-bars"></i>
+</div>
+<div class="control-menu-content control-content animated faster slideInDown" *ngIf="!hideContentMenu">
+  <app-control-menu></app-control-menu>
+</div>
+
+<!--EVENTS TODO rename to bells-->
+<div class="control-events control-panel animated slideInRight"
+     [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentEvents}"
+     (click)="close = true; hideContentEvents = false; home.countBells = 0">
+  <i class="fa fa-bell"></i>
+  <div *ngIf="home?.countBells != 0 && home != null" class="control-counter">{{home?.countBells}}</div>
+</div>
+<div class="control-events-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
+  <app-control-events></app-control-events>
+</div>
+
+<!--ITEMS-->
+<div class="control-items control-panel animated slideInUp"
+     [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
+     (click)="close = true; hideContentItems = false; home.countItems = 0">
+  <i class="fa fa-archive" ></i>
+  <div *ngIf="home?.countItems != 0 && home != null" class="control-counter">{{home?.countItems}}</div>
+</div>
+<div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
+  <app-control-items></app-control-items>
+</div>
+
+<!--CLOSE-->
+<div class="control-closer main-button-close animated rotateIn" (click)="hideAll()" *ngIf="close">
+    <i class="fa fa-close"></i>
+</div>

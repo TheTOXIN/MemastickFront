@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemetickApiService} from '../../services/memetick-api-service';
+import {MemetickApiService} from '../../api/memetick-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-change-nick-modal',
@@ -28,8 +29,8 @@ export class ChangeNickModalComponent implements OnInit {
     this.nickForm = this.fb.group({
       nick: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(16)
+        Validators.minLength(ValidConst.MIN_LEN_NCK),
+        Validators.maxLength(ValidConst.MAX_LEN_NCK)
       ])],
     });
   }

@@ -3,7 +3,7 @@
     <div class="col-md-12 text-center">
       <div class="memetick-info">
         <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''"
-             onError="this.src='assets/images/review.png';">
+             onError="this.src='assets/images/tokens/tmp.png';">
         <p class="memetick-nick">{{memetick?.nick}}</p>
       </div>
     </div>
@@ -20,31 +20,24 @@
       <app-token-wallet [wallet]="wallet"></app-token-wallet>
     </div>
   </div>
-  <div class="row" *ngIf="memetickMe">
+  <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-control">
-        <button class="memetick-button btn-theme" (click)="takeAllowance()">
-          ПОСОБИЕ
-          <i class="fa fa-envelope"></i>
+        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="memes()">
+          МЕМАСИКИ
+          <i class="fa fa-list"></i>
         </button>
-        <button class="memetick-button btn-theme" (click)="changeAvatar()">
-          ВЫБРАТЬ АВАТАР
-          <i class="fa fa-user"></i>
-        </button>
-        <button class="memetick-button btn-theme" (click)="changeNick()">
-          СМЕНИТЬ НИК
-          <i class="fa fa-edit"></i>
-        </button>
-        <button class="memetick-button btn-theme" (click)="logOut()">
-          ВЫЙТИ С АККАУНТА
-          <i class="fa fa-close"></i>
+        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="follow()">
+          ПОДПИСКА:
+          <i *ngIf="memetick.follow" class="fa fa-eye"></i>
+          <i *ngIf="!memetick.follow" class="fa fa-eye-slash"></i>
         </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="go-to-back" (click)="back()">
+<div class="my-button-close main-button-close" (click)="back()">
   <i class="fa fa-close"></i>
 </div>
 

@@ -12,6 +12,9 @@ import {TeamModalComponent} from './team-modal/team-modal.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
 import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step-info-modal.component';
+import {ShareModalComponent} from './share-modal/share-modal.component';
+import {AlgorithmModalComponent} from './algorithm-modal/algorithm-modal.component';
+import {FollowingModalComponent} from './following-modal/following-modal.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent
+    EvolveStepInfoModalComponent,
+    ShareModalComponent,
+    AlgorithmModalComponent,
+    FollowingModalComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +46,10 @@ import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step
     ChangeAvatarModalComponent,
     TeamModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent
+    EvolveStepInfoModalComponent,
+    ShareModalComponent,
+    AlgorithmModalComponent,
+    FollowingModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -49,7 +58,10 @@ import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step
     ChangeAvatarModalComponent,
     TeamModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent
+    EvolveStepInfoModalComponent,
+    ShareModalComponent,
+    AlgorithmModalComponent,
+    FollowingModalComponent
   ]
 })
 export class ModalsModule {

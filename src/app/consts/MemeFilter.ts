@@ -1,7 +1,9 @@
 export enum MemeFilter {
+  POOL = 'POOL',
   DTHS = 'DTHS',
   INDV = 'INDV',
   EVLV = 'EVLV',
   LIKE = 'LIKE',
-  SELF = 'SELF'
+  SELF = 'SELF',
+  USER = 'USER'
 }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StatisticApiService} from '../../services/statistic-api-service';
+import {StatisticApiService} from '../../api/statistic-api-service';
 import {Statistic} from '../../model/Statistic';
 import {UUID} from 'angular2-uuid';
 

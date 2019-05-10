@@ -81,6 +81,7 @@ export class OauthApiService {
 
     Cookie.delete(this.keyAccess);
     Cookie.delete(this.keyRefresh);
+    Cookie.deleteAll();
 
     this.router.navigateByUrl('/start');
   }

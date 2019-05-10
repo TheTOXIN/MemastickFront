@@ -1,0 +1,25 @@
+<div class="control-content-wrap">
+  <div class="control-content-empty"></div>
+  <app-spinner *ngIf="loader"></app-spinner>
+  <div *ngIf="!loader">
+    <div *ngFor="let bell of bells; let i = index">
+      <div class="control-events-row">
+      <div class="control-events-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''" (click)="event(bell)">
+        <div>{{bell.text}}</div>
+      </div>
+      <div  class="control-events-btn">
+        <div>
+          <i *ngIf="!bell.read" class="fa fa-check control-events-btn-mark" (click)="mark(bell, i)"></i>
+          <i *ngIf="bell.read" class="fa fa-close control-events-btn-clear" (click)="clear(bell, i)"></i>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="control-events-clear" (click)="clearAll()">
+      <div>ОЧИСТИТЬ</div>
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
+  <div class="control-content-empty"></div>
+</div>
+

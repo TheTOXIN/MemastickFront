@@ -16,6 +16,7 @@
   border-color: #ffc107;
   border-radius: 100%;
   border-width: 5px;
+  width: 96px;
 }
 
 .memetick-stats {
@@ -64,17 +65,6 @@
   z-index: -1;
 }
 
-.go-to-back {
-  text-align: center;
-  width: 72px;
-  height: 72px;
-  margin: 30px auto;
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
-  i {
-    color: #d85040;
-    font-size: 64px;
-    margin-top: 4px;
-  }
+.my-button-close {
+  margin: auto auto 10px;
 }

@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {MemeType} from '../../consts/MemeType';
-import {EvolveMemeApiService} from '../../services/evolve-meme-api-service';
+import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {EvolveMeme} from '../../model/EvolveMeme';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
+import {EvolveStep} from '../../consts/EvolveStep';
 
 @Component({
   selector: 'app-meme-research',
@@ -14,10 +16,10 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class MemeResearchComponent {
 
-  private meme: Meme;
+  public meme: Meme;
 
   public evolve: EvolveMeme;
-  public types = [];
+  public types = []; // TODO make const token data
 
   isLoading = true;
   isPreview = false;
@@ -43,6 +45,12 @@ export class MemeResearchComponent {
 
   researchClose() {
     this.isPreview = false;
+  }
+
+  // TODO WAT ???
+  stepInfo(step: EvolveStep) {
+    const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
+    modalRef.componentInstance.step = step;
   }
 
   dipricated() {

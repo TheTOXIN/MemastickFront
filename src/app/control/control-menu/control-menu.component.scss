@@ -1,0 +1,20 @@
+.control-menu-button {
+  text-align: center;
+
+  button {
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-family: FuturaRound, serif;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 90%;
+  }
+
+  @media(max-width: 767px) {
+    button {
+      font-size: 16px;
+    }
+  }
+}

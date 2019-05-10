@@ -31,18 +31,18 @@
       <div class="meme-research-title">
         <p>мем не выжил на этапе отбора и умер</p>
       </div>
-      <div class="meme-research-control">
+      <div class="main-research-control">
         <button class="btn-theme" (click)="dipricated()">ВОСКРЕСИТЬ</button>
       </div>
     </div>
     <div *ngIf="meme.type === 'EVOLVE'">
-      <app-evolve-birth [evolve]="evolve" *ngIf="meme.step === 'BIRTH'"></app-evolve-birth>
-      <app-evolve-survival [evolve]="evolve" *ngIf="meme.step === 'SURVIVAL'"></app-evolve-survival>
+      <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === 'ADAPTATION'"></app-evolve-adaptation>
+      <app-evolve-survival [evolve]="evolve" *ngIf="evolve.step === 'SURVIVAL'"></app-evolve-survival>
     </div>
   </div>
 </div>
 <div *ngIf="isPreview" class="research-close-wrap">
-  <div class="research-close" (click)="researchClose()">
+  <div class="research-close main-button-close" (click)="researchClose()">
     <i class="fa fa-close"></i>
   </div>
 </div>

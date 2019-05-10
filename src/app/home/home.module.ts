@@ -7,11 +7,12 @@ import {ParticlesModule} from 'angular-particle';
 import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
-import {TokenWalletComponent} from './token-wallet/token-wallet.component';
-import {TokenAcceptComponent} from './token-accept/token-accept.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
-import {TokenAllowanceModalComponent} from './token-allowance-modal/token-allowance-modal.component';
-import {NotificationComponent} from './notification/notification.component';
+import {ControlModule} from '../control/control.module';
+import {SettingsComponent} from './settings/settings.component';
+import {LibraryComponent} from './library/library.component';
+import {StartModule} from '../start/start.module';
+import {TokenModule} from '../token/token.module';
 
 @NgModule({
   imports: [
@@ -19,26 +20,19 @@ import {NotificationComponent} from './notification/notification.component';
     HomeRoutingModule,
     ParticlesModule,
     SharedModule,
-    ModalsModule
-  ],
-  exports: [
-    TokenAcceptComponent,
-    TokenAllowanceModalComponent
+    ModalsModule,
+    ControlModule,
+    StartModule,
+    TokenModule
   ],
   declarations: [
     HomeComponent,
     MemetickComponent,
     StatisticComponent,
-    TokenWalletComponent,
-    TokenAcceptComponent,
     MemetickRatingComponent,
-    TokenAllowanceModalComponent,
-    NotificationComponent
-  ],
-  entryComponents: [
-    TokenAllowanceModalComponent
+    SettingsComponent,
+    LibraryComponent
   ]
 })
 export class HomeModule {
-  // TODO create tokens module
 }

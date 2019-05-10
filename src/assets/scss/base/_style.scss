@@ -246,7 +246,7 @@ button:focus {
   letter-spacing: 1px;
 
   &:hover {
-    box-shadow: 0px 0px 10px 5px darkorange;
+    box-shadow: 0 0 5px 5px #ffa807;
   }
 }
 
@@ -1399,7 +1399,7 @@ section {
 .price-plan-btn {
   padding: 8px 0;
   width: 140px;
-  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
   font-size: 16px;
   color: #ffffff;
   transition: all 0.5s;
@@ -3264,7 +3264,7 @@ li.nav-item.dropdown {
   font-size: 36px;
   color: black;
   padding-bottom: 10px;
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     font-size: 24px;
   }
 }
@@ -3278,10 +3278,6 @@ li.nav-item.dropdown {
   }
 }
 
-.modal-footer {
-
-}
-
 .modal-section {
   border-radius: 50px;
   padding: 0;
@@ -3289,7 +3285,7 @@ li.nav-item.dropdown {
   align-items: center;
   justify-content: center;
   color: white !important;
-  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
 }
 
 .modal-xxl .modal-lg {

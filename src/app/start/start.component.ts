@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HelloApiService} from '../services/hello-api-service';
+import {HelloApiService} from '../api/hello-api-service';
 
 @Component({
   selector: 'app-start',
@@ -16,5 +16,4 @@ export class StartComponent implements OnInit {
   ngOnInit() {
     this.hello.sendHello();
   }
-
 }

@@ -3,11 +3,12 @@ import {UUID} from 'angular2-uuid';
 
 export class EvolveMeme {
   constructor(
-    public step: EvolveStep,
+    public memeId: UUID,
     public population: number,
-    public chanceSurvive: number,
-    public chanceIncrease: boolean,
-    public memeId: UUID
+    public step: EvolveStep,
+    public chance: number,
+    public immunity: boolean,
+    public adaptation: number,
   ) {
 
   }

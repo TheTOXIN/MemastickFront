@@ -1,10 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemeApiService} from '../../services/meme-api-service';
-import {UUID} from 'angular2-uuid';
-import {MemeData} from '../../model/MemeData';
+import {MemeApiService} from '../../api/meme-api-service';
 import {Meme} from '../../model/Meme';
-import {MemeType} from '../../consts/MemeType';
 import {API} from '../../consts/API';
+import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
+import {DomSanitizer} from '@angular/platform-browser';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {MemetickComponent} from '../../home/memetick/memetick.component';
+import {ShareModalComponent} from '../../modals/share-modal/share-modal.component';
 
 @Component({
   selector: 'app-meme-view',
@@ -14,12 +16,14 @@ import {API} from '../../consts/API';
 export class MemeViewComponent implements OnInit {
 
   @Input()
-  private meme: Meme;
+  public meme: Meme;
 
   isPreview = false;
 
   constructor(
-    private memeApi: MemeApiService
+    private memeApi: MemeApiService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {
 
   }
@@ -48,12 +52,7 @@ export class MemeViewComponent implements OnInit {
   }
 
   viewShare() {
-    const memeURL = API.DOMAIN_URL + '/memes/share/' + this.meme.id;
-    const shareURl = 'tg://msg?text=' + memeURL;
-    const a = document.createElement('a');
-    a.setAttribute('target', '_blank');
-    a.href = shareURl;
-    document.body.appendChild(a);
-    a.click();
+    const modalRef = this.modalService.open(ShareModalComponent, {'centered': true});
+    modalRef.componentInstance.memeId = this.meme.id;
   }
 }

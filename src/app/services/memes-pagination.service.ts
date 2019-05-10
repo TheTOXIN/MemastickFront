@@ -5,10 +5,11 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {MemeApiService} from './meme-api-service';
+import {MemeApiService} from '../api/meme-api-service';
 import {MemeData} from '../model/MemeData';
-import {MemetickAvatarApiService} from './memetick-avatar-api-service';
+import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 import {MemeFilter} from '../consts/MemeFilter';
+import {UUID} from 'angular2-uuid';
 
 interface QueryConfig {
   page: number;
@@ -16,6 +17,8 @@ interface QueryConfig {
   sort: string;
   reverse: boolean;
   filter: MemeFilter;
+  step: number;
+  memetick: UUID;
 }
 
 @Injectable()
@@ -39,13 +42,15 @@ export class MemesPaginationService {
 
   }
 
-  init(sizePage, sortFiled, isReverse, filter) {
+  init(sizePage, sortFiled, isReverse, filter, step, memetick) {
     this.query = {
       page: 0,
       size: sizePage,
       sort: sortFiled,
       reverse: isReverse,
-      filter: filter
+      filter: filter,
+      step: step,
+      memetick: memetick
     };
 
     if (this.query.reverse) {
@@ -72,11 +77,14 @@ export class MemesPaginationService {
     if (this._empty.value) { return; }
     this._loading.next(true);
 
-    this.memeApi.memePagesFilter(
+    // TODO to DTO
+    this.memeApi.memePages(
       this.query.page,
       this.query.size,
       this.query.sort,
-      this.query.filter
+      this.query.filter,
+      this.query.step,
+      this.query.memetick
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this._loading.next(false);

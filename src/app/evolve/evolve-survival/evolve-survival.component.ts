@@ -4,10 +4,12 @@ import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.componen
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {TokenApiService} from '../../services/token-api-service';
+import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../home/token-accept/token-accept.component';
-import {EvolveMemeApiService} from '../../services/evolve-meme-api-service';
+import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
+import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
+import {TokenAcceptApiService} from '../../api/token-accept-api.service';
+import {ErrorStatus} from '../../consts/ErrorStatus';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -25,8 +27,7 @@ export class EvolveSurvivalComponent implements OnInit {
   public evolve: EvolveMeme;
 
   constructor(
-    private tokenApi: TokenApiService,
-    private evolveApi: EvolveMemeApiService
+    private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -38,10 +39,10 @@ export class EvolveSurvivalComponent implements OnInit {
   chance() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить антибиотик?';
-    this.tokenAccept.show(TokenType.SELECTION);
+    this.tokenAccept.show(TokenType.ANTIBIOTIC);
   }
 
-  acceptSelectionResult(accpet: boolean) {
+  acceptAntibioticResult(accpet: boolean) {
     if (accpet) {
       this.increaseChance();
     } else {
@@ -50,20 +51,28 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   increaseChance() {
-    this.evolveApi.chanceMeme(this.evolve.memeId).subscribe(
+    this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.ANTIBIOTIC).subscribe(
       () => this.successChance(),
-      () => this.errorChance()
+      (error) => this.errorChance(error)
     );
   }
 
   successChance() {
-    this.evolve.chanceIncrease = true;
+    this.evolve.immunity = true;
     this.message = 'Иммунитет увеличен!';
     this.status = LoaderStatus.DONE;
   }
 
-  errorChance() {
-    this.message = 'Нужен токен отбора!';
+  // TODO refactor
+  errorChance(error) {
+    if (error.error.code === ErrorStatus.LESS_TOKEN) {
+      this.message = 'Нужен токен отбора!';
+    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
+      this.message = 'Это ваш мем!';
+    } else {
+      this.message = 'Ошибка применения токена!';
+    }
+
     this.status = LoaderStatus.ERROR;
   }
 }

@@ -1,9 +1,10 @@
-
 export class Home {
   constructor (
     public nick: string,
     public day: number,
-    public allowance: boolean
+    public memes: number,
+    public countItems: number,
+    public countBells: number,
   ) {
 
   }

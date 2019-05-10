@@ -1,6 +1,6 @@
 .back {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #5f57ea 0%, #9647db 100%);
+  background: radial-gradient(ellipse at bottom, #6b25fc 0%, #9647db 100%);
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@
     animation-name: bounceIn;
   }
 
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     border-style: none;
   }
 }
@@ -41,12 +41,14 @@
   top: 0;
   margin-left: 0;
   margin-right: 0;
+  &:before {
+    width: 110px;
+    height: 110px;
+  }
 }
 
 .create-tap {
-  width: 105px;
   margin-bottom: 0;
-
   &:hover {
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
@@ -104,10 +106,16 @@
 
 .create-help-up {
   margin-top: -150px;
+  @media(max-width: 767px) {
+    margin-top: -130px;
+  }
 }
 
 .create-help-down {
   margin-top: 170px;
+  @media(max-width: 767px) {
+    margin-top: 150px;
+  }
 }
 
 .create-button {

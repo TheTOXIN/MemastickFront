@@ -1,23 +1,73 @@
-<div class="mem-back"></div>
-  <div *ngFor="let memetick of memetikcs, let i = index">
-    <div class="memetick-container animated slideInLeft">
+<app-spinner class="flex-center-absolute" *ngIf="isLoad"></app-spinner>
+
+<div *ngIf="!isLoad" class="animated slideInLeft">
+
+  <div class="rating-text">ТОП-10</div>
+
+  <div *ngFor="let memetick of rating.top">
+    <div class="memetick-container">
       <div class="memetick-number">
-        <p class="number">{{i}}</p>
+        <p class="number">{{memetick.pos}}</p>
       </div>
       <div class="memetick-tablet">
         <div class="memetick-avatar">
-          <img [src]="getAvatar(memetick) || ''" onError="this.src='assets/images/review.png';"
-               (click)="memetickView(memetick.id)">
+          <img [src]="getAvatar(memetick.preview) || ''"
+               onError="this.src='assets/images/tokens/tmp.png';"
+               (click)="memetickView(memetick.preview.id)">
         </div>
         <div class="memetick-nick">
-          {{memetick.nick}}
+          {{memetick.preview.nick}}
         </div>
         <div class="memetick-dna-img">
-          <img src="assets/images/icon/3.png">
+          <img [src]=icons[filter]>
         </div>
         <div class="memetick-dna-count">
-          <p>{{memetick.dna}}</p>
+          <p>{{memetick.rate}}</p>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="rating-text">МОЁ МЕСТО</div>
+
+  <div class="memetick-container">
+    <div class="memetick-number">
+      <p class="number">{{rating.me.pos}}</p>
+    </div>
+    <div class="memetick-tablet">
+      <div class="memetick-avatar">
+        <img [src]="getAvatar(rating.me.preview) || ''"
+             onError="this.src='assets/images/tokens/tmp.png';"
+             (click)="memetickView(rating.me.preview.id)">
+      </div>
+      <div class="memetick-nick">
+        {{rating.me.preview.nick}}
+      </div>
+      <div class="memetick-dna-img">
+        <img [src]=icons[filter]>
+      </div>
+      <div class="memetick-dna-count">
+        <p>{{rating.me.rate}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="rating-empty"></div>
+
+<div *ngIf="isPanel" class="rating-panel">
+  <div class="rating-panel-img" (click)="ratingDNA()">
+    <img src="assets/images/icon/3.png" [style.opacity]="filter == 'DNA' ? ' 0.5' : '1'">
+  </div>
+  <div class="rating-panel-del"></div>
+  <div class="rating-panel-img" (click)="ratingIND()">
+    <img src="assets/images/icon/1.png" [style.opacity]="filter == 'IND' ? ' 0.5' : '1'">
+  </div>
+  <div class="rating-panel-del"></div>
+  <div class="rating-panel-img" (click)="ratingCHR()">
+    <img src="assets/images/icon/2.png" [style.opacity]="filter == 'CHR' ? ' 0.5' : '1'">
+  </div>
+</div>
+
+<div class="mem-back"></div>

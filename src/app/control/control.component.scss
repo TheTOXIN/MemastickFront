@@ -1,0 +1,161 @@
+.control {
+  position: absolute;
+}
+
+.control-panel {
+  width: 72px;
+  height: 72px;
+  background: #8136EC;
+  position: fixed;
+  z-index: 69;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+  i {
+    color: whitesmoke;
+    position: absolute;
+    font-size: 48px;
+  }
+  @media(max-width: 767px) {
+    width: 54px;
+    height: 54px;
+    i {
+      font-size: 28px;
+    }
+  }
+  &:hover {
+    background: #6b25fc;
+  }
+}
+
+.control-panel-inverse {
+  background: whitesmoke;
+  box-shadow: 0 0 0 3px rgba(129, 54, 236, 0.7);
+  i {
+    color: #8136EC;
+  }
+  &:hover {
+    background: whitesmoke;
+  }
+}
+
+.control-scope {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 50px 0;
+  i {
+    top: 7px;
+    left: 9px;
+  }
+}
+
+.control-menu {
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 50px;
+  i {
+    top: 5px;
+    right: 10px;
+  }
+}
+
+.control-events {
+  bottom: 0;
+  right: 0;
+  border-radius: 50px 0 0 0;
+  i {
+    bottom: 6px;
+    right: 6px;
+  }
+  div {
+    margin-left: -10px;
+    margin-top: -5px;
+  }
+  @media(max-width: 767px) {
+    div {
+      margin-left: -3px;
+      margin-top: 0;
+    }
+  }
+}
+
+.control-items {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 50px 0 0;
+
+  i {
+    bottom: 5px;
+    left: 7px;
+  }
+
+  div {
+    margin-left: 50px;
+    margin-top: -5px;
+  }
+
+  @media(max-width: 767px) {
+    div {
+      margin-left: 30px;
+      margin-top: -3px;
+    }
+  }
+}
+.control-content {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  z-index: 42;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+}
+
+.control-scope-content {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 30px 0;
+  background: linear-gradient(-45deg, #6b25fc 0%, #9647db 100%);
+}
+
+.control-menu-content {
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 30px;
+  background: linear-gradient(45deg, #6b25fc 0%, #9647db 100%);
+}
+
+.control-events-content {
+  bottom: 0;
+  right: 0;
+  border-radius: 30px 0 0 0;
+  background: linear-gradient(135deg, #6b25fc 0%, #9647db 100%);
+}
+
+.control-items-content {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 30px 0 0;
+  background: linear-gradient(-135deg, #6b25fc 0%, #9647db 100%);
+}
+
+.control-counter {
+  background-color: #dc3545;
+  font-size: 20px;
+  color: whitesmoke;
+  border-radius: 100%;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  @media(max-width: 767px) {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
+
+.control-closer {
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+}

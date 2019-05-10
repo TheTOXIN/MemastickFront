@@ -13,25 +13,30 @@
          [class.hovering]="isHovering"
          [style.display]="isPreview ? 'none' : 'flex'">
       <div class="create-help create-help-up" [style.display]="isHovering ? 'none' : 'block'">
-        <p>ПЕРЕТАЩИ ИЛИ НАЖМИ</p>
+        <p>{{stateTitle}}</p>
       </div>
-      <div class="animated-circle create-tap">
-        <img class="img-fluid align-self-center spin-anim" src="assets/images/tokens/tmp.png">
+      <app-spinner *ngIf="stateCell == null" class=""></app-spinner>
+      <div *ngIf="stateCell != null"
+           class="create-tap animated jello slow"
+           [ngClass]="{'animated-circle': stateCell == 100}"
+           [style.opacity]="stateCell / 100 + 0.1"
+           [style.width.px]="stateCell + 10"
+      >
+        <img class="img-fluid align-self-center spin-anim" src="assets/images/icon/cell.png">
         <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
       </div>
       <div class="create-help create-help-down" [style.display]="isHovering ? 'none' : 'block'">
-        <p>1 ДЕНЬ == 1 МЕМ</p>
+        <p>{{stateText}}</p>
       </div>
     </div>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
-    <button class="btn-theme" (click)="acceptCreatingShow()">СОЗДАТЬ</button>
+    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
   </div>
   <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
     <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
   </div>
   <app-loader [message]="message" [status]="status"></app-loader>
-  <app-token-accept (accept)="acceptCreatingResult($event)"></app-token-accept>
   <div class='stars'></div>
   <div class='stars2'></div>
   <div class='stars3'></div>

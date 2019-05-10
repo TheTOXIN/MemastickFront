@@ -5,10 +5,21 @@ import {GlobalConst} from '../consts/GlobalConst';
 @Injectable()
 export class PwaService {
 
-  constructor(private swUpdate: SwUpdate) {
+  public promptEvent;
+
+  constructor(
+    private swUpdate: SwUpdate,
+  ) {
     swUpdate.available.subscribe(event => {
-      alert('Мемастик обновился до версии: ' + GlobalConst.VERSION);
-      window.location.reload();
+      if (confirm('Мемастик обновился до версии: ' + GlobalConst.VERSION)) {
+        window.location.reload();
+      } else {
+        window.location.reload();
+      }
+    });
+    window.addEventListener('beforeinstallprompt', event => {
+      this.promptEvent.preventDefault();
+      this.promptEvent = event;
     });
   }
 }

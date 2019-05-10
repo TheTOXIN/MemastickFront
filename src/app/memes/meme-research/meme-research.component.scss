@@ -78,36 +78,14 @@
   text-align: center;
 }
 
-.meme-research-control {
-  text-align: center;
-  button {
-    font-size: 20px;
-    margin: 15px;
-    font-family: FuturaRound, serif;
-    border-radius: 30px;
-  }
-}
-
 .research-close {
-  width: 72px;
-  height: 72px;
-  background-color: #5f57ea;
-  border-radius: 30px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
   top: -54px;
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
-  i {
-    color: #d85040;
-    font-size: 64px;
-    margin-top: 4px;
-  }
 }
 
 .research-close-wrap {
   position: absolute;
   width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
 }

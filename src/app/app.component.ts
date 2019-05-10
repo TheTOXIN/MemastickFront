@@ -1,18 +1,41 @@
-import {Component, OnInit} from '@angular/core';
-import {environment} from '../environments/environment';
+import {Component, ViewChild} from '@angular/core';
+import {WebSocketService} from './services/web-socket-service';
+import {NotificationComponent} from './shared/notification/notification.component';
+import {Notify} from './model/Notify';
+import {OauthApiService} from './services/oauth-api-service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  ngOnInit(): void {
-    if (environment.production) {
-      if (location.protocol === 'http:') {
-        window.location.href = location.href.replace('http', 'https');
-      }
+  @ViewChild(NotificationComponent) notification: NotificationComponent;
+
+  constructor(
+    private webSocketService: WebSocketService,
+    private oauth: OauthApiService
+  ) {
+    if (oauth.checkTokens()) {
+      this.notify();
     }
+  }
+
+  notify() {
+    const stompClient = this.webSocketService.connect(); // TODO refactor
+
+    stompClient.connect({}, () => {
+      const url = stompClient.ws._transport.url;
+      const array = url.split('/');
+      const id = array[array.length - 2];
+
+      stompClient.subscribe('/user/queue/notify', notification => {
+        const notify = <Notify>JSON.parse(notification.body);
+        this.notification.show(notify);
+      });
+
+      this.webSocketService.register(id);
+    });
   }
 }

@@ -4,23 +4,58 @@
   padding-bottom: 15px;
   line-height: 64px;
   overflow-x: hidden;
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     font-size: 40px;
   }
+}
+
+.home-evolution {
+  padding: 5px;
+  img {
+    width: 54px;
+    height: 54px;
+    margin: 5px;
+  }
+  span {
+    vertical-align: middle;
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+.home-evolution-btn {
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+  border-radius: 50px;
+  color: white;
+  width: 90%;
+  margin: 10px auto;
 }
 
 .home-logo {
   border-radius: 0 0 30px 30px;
   left: 50%;
   top: 0;
+  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   position: fixed;
-  width: 250px;
-  background: linear-gradient(to right, #5f57ea 0%, #9647db 100%);
+  width: 300px;
+  height: 72px;
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
   img {
-    padding: 15px;
-    max-width: 250px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 300px;
     height: auto;
+  }
+  @media(max-width: 767px) {
+    width: 200px;
+    height: 54px;
+    img {
+      max-width: 200px;
+    }
   }
 }
 
@@ -57,9 +92,9 @@
 }
 
 .home-container {
-  margin-top: 100px;
-  @media(max-width: 991px) {
-    margin-top: 70px;
+  margin-top: 70px;
+  @media(max-width: 767px) {
+    margin-top: 50px;
   }
 }
 
@@ -70,7 +105,7 @@
     padding: 20px;
     color: black;
   }
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     p {
       font-size: 24px;
     }
@@ -88,10 +123,25 @@
     font-family: Futurica, serif;
     font-size: 24px;
   }
-  @media(max-width: 991px) {
+  @media(max-width: 767px) {
     p {
       font-size: 18px;
     }
   }
 }
 
+.home-button-img {
+  width: 32px;
+  height: 32px;
+}
+
+.spin-anim-evolution {
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
