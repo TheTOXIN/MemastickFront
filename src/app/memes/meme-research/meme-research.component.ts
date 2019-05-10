@@ -16,7 +16,7 @@ import {EvolveStep} from '../../consts/EvolveStep';
 })
 export class MemeResearchComponent {
 
-  private meme: Meme;
+  public meme: Meme;
 
   public evolve: EvolveMeme;
   public types = []; // TODO make const token data

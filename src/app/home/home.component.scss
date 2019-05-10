@@ -12,17 +12,25 @@
 .home-evolution {
   padding: 5px;
   img {
-    width: 69px;
-    height: 69px;
+    width: 54px;
+    height: 54px;
     margin: 5px;
   }
   span {
     vertical-align: middle;
-    font-size: 32px;
+    font-size: 30px;
   }
   p {
     font-size: 18px;
   }
+}
+
+.home-evolution-btn {
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+  border-radius: 50px;
+  color: white;
+  width: 90%;
+  margin: 10px auto;
 }
 
 .home-logo {

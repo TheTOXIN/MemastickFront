@@ -29,6 +29,7 @@ export class MemeApiService {
 
   public memePages(page, size, sort, filter, step, memetick): Observable<MemePage[]> {
     if (step == null) { step = ''; }
+    if (memetick == null) { memetick = ''; }
 
     const params = new HttpParams()
       .set('page', page)

@@ -1,6 +1,17 @@
-<div class="token-wallet">
-  <div [style.opacity]="token?.count == 0 ? ' 0.5' : '1'" *ngFor="let token of tokens" class="token" (click)="showInfo(token)">
+<div class="token-wallet" *ngIf="!showEgg">
+  <div class="token"
+       [style.opacity]="token?.count == 0 ? ' 0.5' : '1'"
+       *ngFor="let token of tokens"
+       (click)="showInfo(token)">
     <img class="token-img" [src]="token?.image">
     <p [style.color]="token?.count == 10 ? 'red' : ''">{{token?.count}}</p>
   </div>
+</div>
+
+<div class="token-egg" *ngIf="showEgg">
+  <audio controls>
+    <source src="assets/audio/gimn.mp3" type="audio/mpeg">
+  </audio>
+  <br>
+  <img [width]="100" class="img-fluid" src="assets/images/other/slava_memam.png">
 </div>
