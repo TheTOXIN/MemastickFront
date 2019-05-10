@@ -106,10 +106,16 @@
 
 .create-help-up {
   margin-top: -150px;
+  @media(max-width: 767px) {
+    margin-top: -130px;
+  }
 }
 
 .create-help-down {
   margin-top: 170px;
+  @media(max-width: 767px) {
+    margin-top: 150px;
+  }
 }
 
 .create-button {

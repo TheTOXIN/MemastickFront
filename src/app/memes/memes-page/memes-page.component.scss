@@ -58,11 +58,13 @@
 
 .memes-memetick-indexer {
   margin-top: 10px;
+  margin-right: 20px;
   color: black;
   span {
     font-size: 32px;
   }
   @media(max-width: 767px) {
+    margin-right: 0;
     span {
       font-size: 28px;
     }

@@ -9,8 +9,8 @@
     <div class="memes-memetick-indexer">
       <span>#{{data.page?.meme.indexer}}</span>
     </div>
-    <div class="memes-memetick-step">
-      <img *ngIf="data.page?.meme?.type === 'EVOLVE'" [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
+    <div class="memes-memetick-step" *ngIf="data.page?.meme?.type === 'EVOLVE'">
+      <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
     </div>
   </div>
   <div class="memes-image animated zoomIn slow">
