@@ -107,6 +107,7 @@ export class HomeComponent implements OnInit {
   }
 
   memes(filter: MemeFilter) {
+    if (filter === MemeFilter.POOL) { filter = null; }
     this.router.navigate(['/memes'], {queryParams: {filter: filter}});
   }
 
@@ -245,5 +246,4 @@ export class HomeComponent implements OnInit {
       retina_detect: true
     };
   }
-
 }
