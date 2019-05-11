@@ -246,4 +246,8 @@ export class HomeComponent implements OnInit {
       retina_detect: true
     };
   }
+
+  year() {
+    return (new Date()).getFullYear();
+  }
 }
