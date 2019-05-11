@@ -53,10 +53,6 @@ export class SettingsComponent implements OnInit {
     modalRef.componentInstance.nick = this.memetick.nick;
   }
 
-  showFollowing() {
-    this.modalService.open(FollowingModalComponent, {'centered': true});
-  }
-
   pushNotification() {
     this.setting.pushWork = !this.setting.pushWork;
 

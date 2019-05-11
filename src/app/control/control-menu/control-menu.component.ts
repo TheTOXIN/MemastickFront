@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
 
 @Component({
   selector: 'app-control-menu',
@@ -24,6 +25,10 @@ export class ControlMenuComponent implements OnInit {
 
   profile() {
     this.router.navigateByUrl('/home/memetick/me');
+  }
+
+  following() {
+    this.modalService.open(FollowingModalComponent, {'centered': true});
   }
 
   settings() {
