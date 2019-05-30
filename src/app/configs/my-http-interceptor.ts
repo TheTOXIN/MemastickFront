@@ -11,6 +11,7 @@ import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
+import {GlobalConst} from '../consts/GlobalConst';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {

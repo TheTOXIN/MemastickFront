@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UUID} from 'angular2-uuid';
 import {API} from '../consts/API';
+import {GlobalConst} from '../consts/GlobalConst';
 
 @Injectable()
 export class MemetickAvatarApiService {

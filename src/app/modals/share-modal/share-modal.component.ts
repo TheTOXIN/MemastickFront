@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {API} from '../../consts/API';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-share-modal',
