@@ -21,33 +21,33 @@
   }
 }
 
-.memes-memetick {
+.memes-info {
   height: 70px;
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
 }
 
-.memes-memetick-avatar {
+.memes-info-avatar {
   height: 100%;
-  width: 125px;
+  width: 20%;
   img {
+    float: left;
     max-width: 100%;
     max-height: 100%;
-    float: left;
   }
 }
 
-.memes-memetick-nick {
+.memes-info-nick {
   height: 100%;
-  width: 100%;
+  width: 50%;
   span {
     font-family: Futurica, serif;
     float: left;
     margin-left: 10px;
     color: #212529;
     font-size: 32px;
-    margin-top: 10px;
+    margin-top: 14px;
   }
   @media(max-width: 767px) {
     span {
@@ -56,32 +56,34 @@
   }
 }
 
-.memes-memetick-indexer {
-  margin-top: 10px;
-  margin-right: 20px;
+.memes-info-indexer {
+  height: 100%;
+  width: 15%;
   color: black;
   span {
+    float: right;
+    margin-top: 12px;
     font-size: 32px;
   }
   @media(max-width: 767px) {
-    margin-right: 15px;
     span {
+      margin-top: 12px;
       font-size: 28px;
     }
   }
 }
 
-.memes-memetick-step {
+.memes-info-step {
   height: 100%;
-  width: 125px;
+  width: 15%;
   img {
+    float: right;
     max-width: 100%;
     max-height: 100%;
   }
   @media(max-width: 767px) {
     img {
-      margin-left: 15px;
-      margin-top: -8px;
+      margin-top: 4px;
     }
   }
 }
