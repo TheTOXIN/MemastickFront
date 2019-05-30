@@ -13,7 +13,7 @@ export class MemetickAvatarApiService {
   }
 
   public dowloadAvatar(memetickId: UUID): string {
-    return API.BASE_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
+    return GlobalConst.BACK_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
   }
 
   public uploadAvatar(file: File) {

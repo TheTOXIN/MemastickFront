@@ -18,7 +18,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   isRefreshingToken: boolean = false;
   tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  private URL: String = API.BASE_URL;
+  private URL: String = GlobalConst.BACK_URL;
 
   private anonymus: Array<String> = [
     API.OAUTH_TOKEN,

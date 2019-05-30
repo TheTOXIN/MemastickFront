@@ -14,7 +14,7 @@ export class WebSocketService {
   }
 
   public connect() {
-    const socket = new SockJS(API.BASE_URL + `/socket`);
+    const socket = new SockJS(GlobalConst.BACK_URL + `/socket`);
     const stompClient = Stomp.over(socket);
 
     return stompClient;

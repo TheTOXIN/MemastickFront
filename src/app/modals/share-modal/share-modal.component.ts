@@ -21,7 +21,7 @@ export class ShareModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memeURL = API.DOMAIN_URL + '/memes/share/' + this.memeId;
+    this.memeURL = GlobalConst.FRONT_URL + '/memes/share/' + this.memeId;
   }
 
   cp(input) {
