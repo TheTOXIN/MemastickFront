@@ -63,6 +63,10 @@ export class MemesShareComponent implements OnInit {
     this.router.navigateByUrl('/pages/sign-up');
   }
 
+  toHome() {
+    this.router.navigateByUrl('/home');
+  }
+
   memeView(meme: Meme) {
     this.view.viewShow(meme);
   }
