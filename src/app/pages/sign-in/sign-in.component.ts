@@ -4,6 +4,7 @@ import {OauthApiService} from '../../services/oauth-api-service';
 import {Router} from '@angular/router';
 import {ValidConst} from '../../consts/ValidConst';
 import {AppComponent} from '../../app.component';
+import {PushService} from '../../services/push-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -33,6 +34,7 @@ export class SignInComponent implements OnInit {
     private fb: FormBuilder,
     private oauth: OauthApiService,
     private router: Router,
+    private push: PushService
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -63,8 +65,8 @@ export class SignInComponent implements OnInit {
       .login(username, password)
       .pipe()
       .subscribe(
-        () => { this.app.notify(); this.toHome(); },
-        () => { this.setErrorMessage('Неверные данные для входа'); },
+        () => this.login(),
+        () => this.setErrorMessage('Неверные данные для входа'),
       );
   }
 
@@ -92,6 +94,12 @@ export class SignInComponent implements OnInit {
     }
 
     return true;
+  }
+
+  login() {
+    this.toHome();
+    this.app.notify();
+    this.push.register();
   }
 
   toHome() {

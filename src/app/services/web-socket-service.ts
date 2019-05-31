@@ -3,6 +3,7 @@ import {API} from '../consts/API';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import {HttpClient} from '@angular/common/http';
+import {GlobalConst} from '../consts/GlobalConst';
 
 @Injectable()
 export class WebSocketService {
@@ -14,7 +15,7 @@ export class WebSocketService {
   }
 
   public connect() {
-    const socket = new SockJS(API.BASE_URL + `/socket`);
+    const socket = new SockJS(GlobalConst.BACK_URL + `/socket`);
     const stompClient = Stomp.over(socket);
 
     return stompClient;

@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {PasswordApiService} from '../api/password-api-service';
 import {PushApiService} from '../api/push-api-service';
+import {LocalStorageService} from './local-storage-service';
 
 @Injectable()
 export class PushService {
@@ -14,7 +15,7 @@ export class PushService {
   private currentMessage;
 
   constructor(
-    private pushApi: PushApiService
+    private pushApi: PushApiService,
   ) {
     try {
       this.messaging = firebase.messaging();
@@ -25,31 +26,26 @@ export class PushService {
     this.currentMessage = new BehaviorSubject(null);
   }
 
-  permission() {
+  requester() {
     if (this.messaging == null) { return; }
-    this.messaging.requestPermission()
-      .then(() => {
-        console.log('Push permission granted');
-        return this.messaging.getToken();
-      })
-      .then(token => {
-        console.log(token);
-        this.pushApi.register(token);
-      })
-      .catch((err) => {
-        console.log('Push permission error', err);
-      });
+
+    return this.messaging.requestPermission()
+      .then(() => alert('PUSH уведомления разрешены'))
+      .then(() => { this.register(); })
+      .catch(() => alert('PUSH уведомления заблокированы'));
   }
 
-  remove() {
-    this.pushApi.unregister();
-  }
-
-  receive() {
+  register() {
     if (this.messaging == null) { return; }
-    this.messaging.onMessage((payload) => {
-      console.log('Push received', payload);
-      this.currentMessage.next(payload);
+
+    this.messaging.getToken().then((token) => {
+      if (token == null) { return; }
+      console.log('Push token register - ' + token);
+      this.pushApi.register(token);
     });
+  }
+
+  tokener() {
+    return this.messaging.getToken();
   }
 }

@@ -16,11 +16,4 @@ export class PushApiService {
       token
     ).toPromise();
   }
-
-  unregister() {
-    this.http.post(
-      API.NOTIFY_PUSH_UNREGISTER,
-      {}
-    ).toPromise();
-  }
 }

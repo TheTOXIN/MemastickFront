@@ -15,6 +15,7 @@ import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step
 import {ShareModalComponent} from './share-modal/share-modal.component';
 import {AlgorithmModalComponent} from './algorithm-modal/algorithm-modal.component';
 import {FollowingModalComponent} from './following-modal/following-modal.component';
+import {PushRequestModalComponent} from './push-request-modal/push-request-modal.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {FollowingModalComponent} from './following-modal/following-modal.compone
     EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent
+    FollowingModalComponent,
+    PushRequestModalComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import {FollowingModalComponent} from './following-modal/following-modal.compone
     EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent
+    FollowingModalComponent,
+    PushRequestModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -61,7 +64,8 @@ import {FollowingModalComponent} from './following-modal/following-modal.compone
     EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent
+    FollowingModalComponent,
+    PushRequestModalComponent
   ]
 })
 export class ModalsModule {

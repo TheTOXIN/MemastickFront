@@ -8,10 +8,12 @@ import {Home} from '../model/Home';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
-import {PushService} from '../services/push-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {NotifyType} from '../consts/NotifyType';
+import {LocalStorageService} from '../services/local-storage-service';
+import {PushService} from '../services/push-service';
+import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -37,8 +39,6 @@ export class HomeComponent implements OnInit {
     'Много хромосом, это хорошо или плохо?',
     'Сделал мемас, гуляй как...',
     'Мем мне в печень, и я счастлив вечен',
-    'Один мем орно, а два это уже как порно',
-    'Мемас не волк, у него есть дела по важнее',
     'Ааа ну это уже какая то страшилка получается',
     'Помните и уважайте пожилые мемы',
     'МУТАГЕН->КРОССОВЕР->МИКРОСКОП->АНТИБИОТИК->ПРОБИРКА'
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    public push: PushService,
+    private storageService: LocalStorageService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -97,13 +97,14 @@ export class HomeComponent implements OnInit {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
-      this.initPush();
+      this.askPush();
     });
   }
 
-  private initPush() {
-    this.push.permission();
-    this.push.receive();
+  askPush() {
+    if (this.storageService.getPushAsk()) {
+      this.modalService.open(PushRequestModalComponent, {'centered': true});
+    }
   }
 
   memes(filter: MemeFilter) {

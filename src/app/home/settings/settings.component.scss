@@ -10,6 +10,12 @@
 
 .settings-control {
   text-align: center;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  @media(max-width: 767px) {
+    width: 300px;
+  }
 }
 
 .settings-button {
@@ -22,10 +28,9 @@
     margin-left: 5px;
     font-size: 20px;
   }
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
     font-size: 16px;
     margin-top: 15px;
-    font-family: FuturaRound, serif;
     border-radius: 30px;
     width: 250px;
   }
