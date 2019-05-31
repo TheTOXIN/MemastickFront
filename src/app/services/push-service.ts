@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {PasswordApiService} from '../api/password-api-service';
 import {PushApiService} from '../api/push-api-service';
+import {LocalStorageService} from './local-storage-service';
 
 @Injectable()
 export class PushService {
@@ -14,7 +15,7 @@ export class PushService {
   private currentMessage;
 
   constructor(
-    private pushApi: PushApiService
+    private pushApi: PushApiService,
   ) {
     try {
       this.messaging = firebase.messaging();
@@ -28,10 +29,10 @@ export class PushService {
   requester() {
     if (this.messaging == null) { return; }
 
-    this.messaging.requestPermission()
-      .then(() => console.log('Push permission granted'))
-      .then(() => this.register())
-      .catch((err) => console.log('Push permission error', err));
+    return this.messaging.requestPermission()
+      .then(() => alert('PUSH уведомления разрешены'))
+      .then(() => { this.register(); })
+      .catch(() => alert('PUSH уведомления заблокированы'));
   }
 
   register() {
@@ -42,5 +43,9 @@ export class PushService {
       console.log('Push token register - ' + token);
       this.pushApi.register(token);
     });
+  }
+
+  tokener() {
+    return this.messaging.getToken();
   }
 }

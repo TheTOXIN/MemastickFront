@@ -1,0 +1,29 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">PUSH</span>
+  </div>
+  <div class="my-modal-body modal-body">
+    <div class="push-request-icon">
+      <i class="fa fa-bell"></i>
+    </div>
+    <div class="push-request-info">
+      <p>Вы можете включить PUSH уведомления</p>
+      <span style="color: darkgreen">уведомления помогут вам быть в курсе:</span>
+      <ul>
+        <li> - Получения пособия</li>
+        <li> - Завершения роста клетки</li>
+        <li> - Новых мемов подписок</li>
+      </ul>
+      <p>Запросите и разришите использовать их</p>
+      <span style="color: darkred">уведомлениями можно управлять в настройках*</span>
+    </div>
+    <button class="push-request-button settings-button btn-theme" (click)="request()">
+      ЗАПРОСИТЬ
+    </button>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
