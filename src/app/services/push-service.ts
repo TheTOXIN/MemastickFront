@@ -25,31 +25,22 @@ export class PushService {
     this.currentMessage = new BehaviorSubject(null);
   }
 
-  permission() {
+  requester() {
     if (this.messaging == null) { return; }
+
     this.messaging.requestPermission()
-      .then(() => {
-        console.log('Push permission granted');
-        return this.messaging.getToken();
-      })
-      .then(token => {
-        console.log(token);
-        this.pushApi.register(token);
-      })
-      .catch((err) => {
-        console.log('Push permission error', err);
-      });
+      .then(() => console.log('Push permission granted'))
+      .then(() => this.register())
+      .catch((err) => console.log('Push permission error', err));
   }
 
-  remove() {
-    this.pushApi.unregister();
-  }
-
-  receive() {
+  register() {
     if (this.messaging == null) { return; }
-    this.messaging.onMessage((payload) => {
-      console.log('Push received', payload);
-      this.currentMessage.next(payload);
+
+    this.messaging.getToken().then((token) => {
+      if (token == null) { return; }
+      console.log('Push token register - ' + token);
+      this.pushApi.register(token);
     });
   }
 }

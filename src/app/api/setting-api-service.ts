@@ -21,7 +21,13 @@ export class SettingApiService {
 
   public follow(memetickId: UUID) {
     this.http
-      .post(API.SEETING_FOLLOW_ + '/' + memetickId, {})
+      .post(API.SEETING_FOLLOW + '/' + memetickId, {})
+      .toPromise();
+  }
+
+  public push(value: boolean) {
+    this.http
+      .patch(API.SEETING_PUSH + '/' + value, {})
       .toPromise();
   }
 }

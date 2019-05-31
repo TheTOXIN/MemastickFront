@@ -8,7 +8,6 @@ import {Home} from '../model/Home';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
-import {PushService} from '../services/push-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {NotifyType} from '../consts/NotifyType';
@@ -54,7 +53,6 @@ export class HomeComponent implements OnInit {
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    public push: PushService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -95,13 +93,7 @@ export class HomeComponent implements OnInit {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
-      this.initPush();
     });
-  }
-
-  private initPush() {
-    this.push.permission();
-    this.push.receive();
   }
 
   memes(filter: MemeFilter) {

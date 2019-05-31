@@ -10,6 +10,7 @@ import {PushService} from '../../services/push-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
 import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
+import {PushApiService} from '../../api/push-api-service';
 
 @Component({
   selector: 'app-settings',
@@ -23,7 +24,6 @@ export class SettingsComponent implements OnInit {
     private modalService: NgbModal,
     private memetickApi: MemetickApiService,
     private settingApi: SettingApiService,
-    public push: PushService
   ) {
 
   }
@@ -55,12 +55,7 @@ export class SettingsComponent implements OnInit {
 
   pushNotification() {
     this.setting.pushWork = !this.setting.pushWork;
-
-    if (this.setting.pushWork) {
-      this.push.permission();
-    } else {
-      this.push.remove();
-    }
+    this.settingApi.push(this.setting.pushWork);
   }
 
   logOut() {
