@@ -64,10 +64,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initEvent();
     this.initParticles();
     this.initEmoji();
     this.initMe();
+    this.initEvent();
   }
 
   @HostListener('window:scroll', [])
