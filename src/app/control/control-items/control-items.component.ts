@@ -6,6 +6,8 @@ import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/to
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
+import {TokenData} from '../../model/TokenData';
+import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
 
 export class Item {
   constructor (
@@ -73,7 +75,7 @@ export class ControlItemsComponent implements OnInit {
     }
   }
 
-  // TODO add events click
+  // TODO token refactor
   initTokens() {
     this.tokens[0] = new Item(
       'assets/images/tokens/1.png',
@@ -105,6 +107,11 @@ export class ControlItemsComponent implements OnInit {
       this.data.wallet[TokenType.ANTIBIOTIC],
       () => console.log('TEST')
     );
+  }
+
+  tokenInfo(token: TokenData) {
+    const modalRef = this.modalService.open(TokenInfoModalComponent);
+    modalRef.componentInstance.token = token;
   }
 
   openAllowance() {

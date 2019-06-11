@@ -31,7 +31,6 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  // TODO refactor
   public memetick: Memetick = new Memetick(
     '',
     '',

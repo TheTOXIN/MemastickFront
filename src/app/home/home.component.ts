@@ -82,8 +82,7 @@ export class HomeComponent implements OnInit {
 
   private initEvent() {
     this.route.queryParams.subscribe(params => {
-      const event = params.event;
-      if (event === NotifyType.ALLOWANCE) {
+      if (params.event === NotifyType.ALLOWANCE) {
         this.allowance();
       }
     });

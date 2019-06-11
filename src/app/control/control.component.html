@@ -19,14 +19,14 @@
 </div>
 
 <!--EVENTS TODO rename to bells-->
-<div class="control-events control-panel animated slideInRight"
+<div class="control-bells control-panel animated slideInRight"
      [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentEvents}"
      (click)="close = true; hideContentEvents = false;">
   <i class="fa fa-bell"></i>
   <div *ngIf="home?.countBells != 0 && home != null && hideContentEvents" class="control-counter">{{home?.countBells}}</div>
 </div>
-<div class="control-events-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
-  <app-control-events></app-control-events>
+<div class="control-bells-content control-content animated faster slideInRight" *ngIf="!hideContentEvents">
+  <app-control-bells></app-control-bells>
 </div>
 
 <!--ITEMS-->

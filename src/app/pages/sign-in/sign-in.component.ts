@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ValidConst} from '../../consts/ValidConst';
 import {AppComponent} from '../../app.component';
 import {PushService} from '../../services/push-service';
+import {WebSocketService} from '../../services/web-socket-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -30,11 +31,11 @@ export class SignInComponent implements OnInit {
   public isLoading = false;
 
   constructor(
-    private app: AppComponent,
     private fb: FormBuilder,
     private oauth: OauthApiService,
     private router: Router,
-    private push: PushService
+    private push: PushService,
+    private socket: WebSocketService
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -98,7 +99,8 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.toHome();
-    this.app.notify();
+
+    this.socket.connect();
     this.push.register();
   }
 

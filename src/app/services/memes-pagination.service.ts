@@ -77,7 +77,6 @@ export class MemesPaginationService {
     if (this._empty.value) { return; }
     this._loading.next(true);
 
-    // TODO to DTO
     this.memeApi.memePages(
       this.query.page,
       this.query.size,

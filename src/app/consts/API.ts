@@ -13,7 +13,6 @@ export enum API {
   MEMETICK_AVATAR_DOWNLOAD = '/memetick-avatars/download',
   MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
-  MEMETICK_FOLLOWING = '/memeticks/following',
   MEMETICK_RATING = '/memeticks/rating',
   MEMES_CREATE = '/memes/create',
   MEMES_IMG = '/memes/img',
@@ -34,7 +33,8 @@ export enum API {
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
   NOTIFY_BELL_MARK = '/notify/bell/mark',
-  SEETING_ME = '/setting/me',
-  SEETING_FOLLOW = '/setting/follow',
-  SEETING_PUSH = '/setting/push'
+  SEETING_ME = '/setting-users/me',
+  SEETING_PUSH = '/setting-users/push',
+  SEETING_FOLLOW = '/setting-followers/follow',
+  SEETING_FOLLOW_MY = '/setting-followers/my'
 }

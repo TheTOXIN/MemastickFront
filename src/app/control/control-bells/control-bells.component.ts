@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {NotifyBellApiService} from '../../api/notify-bell-api-service';
 import {NotifyBell} from '../../model/NotifyBell';
-import {NotifyType} from '../../consts/NotifyType';
 
 @Component({
-  selector: 'app-control-events',
-  templateUrl: './control-events.component.html',
-  styleUrls: ['./control-events.component.scss']
+  selector: 'app-control-bells',
+  templateUrl: './control-bells.component.html',
+  styleUrls: ['./control-bells.component.scss']
 })
-export class ControlEventsComponent implements OnInit {
+export class ControlBellsComponent implements OnInit {
 
   public bells: NotifyBell[] = [];
   public loader = true;

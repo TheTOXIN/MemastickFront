@@ -22,20 +22,12 @@ export class AppComponent {
     }
   }
 
-  notify() {
-    const stompClient = this.webSocketService.connect(); // TODO refactor
-
-    stompClient.connect({}, () => {
-      const url = stompClient.ws._transport.url;
-      const array = url.split('/');
-      const id = array[array.length - 2];
-
-      stompClient.subscribe('/user/queue/notify', notification => {
-        const notify = <Notify>JSON.parse(notification.body);
+  public notify() {
+    this.webSocketService.connect();
+    this.webSocketService.notiferObservable.subscribe((notify) => {
+      if (notify != null) {
         this.notification.show(notify);
-      });
-
-      this.webSocketService.register(id);
+      }
     });
   }
 }

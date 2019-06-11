@@ -46,6 +46,7 @@ import {NotifyBellApiService} from './api/notify-bell-api-service';
 import {PushApiService} from './api/push-api-service';
 import {SettingApiService} from './api/setting-api-service';
 import {LocalStorageService} from './services/local-storage-service';
+import {ErrorHandlerService} from './services/error-handler-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -99,6 +100,7 @@ firebase.initializeApp(environment.firebase);
     SettingApiService,
     PushApiService,
     LocalStorageService,
+    ErrorHandlerService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

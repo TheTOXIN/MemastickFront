@@ -5,6 +5,7 @@ import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {TokenType} from '../../consts/TokenType';
 import {ErrorStatus} from '../../consts/ErrorStatus';
+import {ErrorHandlerService} from '../../services/error-handler-service';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -58,16 +59,8 @@ export class EvolveAdaptationComponent implements OnInit {
     this.status = LoaderStatus.DONE;
   }
 
-  // TODO refactor
   errorAdaptation(error: any) {
-    if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      this.message = 'Нужен токен адаптации!';
-    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
-      this.message = 'Это ваш мем!';
-    } else {
-      this.message = 'Ошибка применения токена!';
-    }
-
+    this.message = ErrorHandlerService.tokenError(error.error.code);
     this.status = LoaderStatus.ERROR;
   }
 }

@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
+import {NotifyType} from '../../consts/NotifyType';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-allowance-modal',
@@ -17,6 +19,8 @@ export class TokenAllowanceModalComponent implements OnInit {
   public wallet: any;
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     public activeModal: NgbActiveModal,
     public allowanceApi: TokenAllowanceApiService
   ) {
@@ -41,6 +45,12 @@ export class TokenAllowanceModalComponent implements OnInit {
   }
 
   close() {
+    this.route.queryParams.subscribe(params => {
+      if (params.event === NotifyType.ALLOWANCE) {
+        this.router.navigateByUrl('/home');
+      }
+    });
+
     this.activeModal.dismiss('Cross click');
     this.wallet = null;
   }

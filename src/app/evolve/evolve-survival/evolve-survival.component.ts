@@ -10,6 +10,7 @@ import {TokenAcceptComponent} from '../../token/token-accept/token-accept.compon
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {ErrorStatus} from '../../consts/ErrorStatus';
+import {ErrorHandlerService} from '../../services/error-handler-service';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -63,16 +64,8 @@ export class EvolveSurvivalComponent implements OnInit {
     this.status = LoaderStatus.DONE;
   }
 
-  // TODO refactor
-  errorChance(error) {
-    if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      this.message = 'Нужен токен отбора!';
-    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
-      this.message = 'Это ваш мем!';
-    } else {
-      this.message = 'Ошибка применения токена!';
-    }
-
+  errorChance(error: any) {
+    this.message = ErrorHandlerService.tokenError(error.error.code);
     this.status = LoaderStatus.ERROR;
   }
 }

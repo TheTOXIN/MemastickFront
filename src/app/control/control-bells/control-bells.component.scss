@@ -1,4 +1,4 @@
-.control-events-row {
+.control-bells-row {
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
@@ -13,7 +13,7 @@
   }
 }
 
-.control-events-txt {
+.control-bells-txt {
   height: 100%;
   width: 80%;
   border-radius: 30px 0 0 30px;
@@ -33,7 +33,7 @@
   }
 }
 
-.control-events-btn {
+.control-bells-btn {
   width: 20%;
   height: 100%;
   div {
@@ -55,7 +55,7 @@
   }
 }
 
-.control-events-btn-clear {
+.control-bells-btn-clear {
   font-size: 36px;
   margin-top: 5px;
   color: #dc3545;
@@ -65,7 +65,7 @@
   }
 }
 
-.control-events-btn-mark {
+.control-bells-btn-mark {
   color: #3c803b;
   font-size: 36px;
   margin-top: 6px;
@@ -75,7 +75,7 @@
   }
 }
 
-.control-events-clear {
+.control-bells-clear {
   background-color: whitesmoke;
   height: 64px;
   border-radius: 0 30px 30px 0;
