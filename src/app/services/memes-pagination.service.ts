@@ -10,6 +10,7 @@ import {MemeData} from '../model/MemeData';
 import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 import {MemeFilter} from '../consts/MemeFilter';
 import {UUID} from 'angular2-uuid';
+import {GlobalConst} from '../consts/GlobalConst';
 
 interface QueryConfig {
   page: number;
@@ -86,9 +87,12 @@ export class MemesPaginationService {
       this.query.memetick
     ).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
-        this._loading.next(false);
-        this._empty.next(true);
+        this.end();
         return;
+      }
+
+      if (pages.length < GlobalConst.MEME_BATCH) {
+        this.end();
       }
 
       const result: MemeData[] = [];
@@ -113,6 +117,11 @@ export class MemesPaginationService {
     this._data.unsubscribe();
     this._loading.unsubscribe();
     this._empty.unsubscribe();
+  }
+
+  public end() {
+    this._loading.next(false);
+    this._empty.next(true);
   }
 }
 

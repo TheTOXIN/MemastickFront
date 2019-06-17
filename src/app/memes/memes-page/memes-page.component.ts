@@ -79,7 +79,10 @@ export class MemesPageComponent implements OnInit {
     private router: Router
   ) {
     this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
-    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/2.png';
+    this.evolveIcons[EvolveStep.FITNESS] = 'assets/images/steps/2.png';
+    this.evolveIcons[EvolveStep.MUTATION] = 'assets/images/steps/3.png';
+    this.evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
+    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
   }
 
   ngOnInit() {

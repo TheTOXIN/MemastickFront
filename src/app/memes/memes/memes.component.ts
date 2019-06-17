@@ -5,6 +5,7 @@ import {Meme} from '../../model/Meme';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-memes',
@@ -16,7 +17,8 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
-  public showStepPanel = false;
+  public needStepPanel = false;
+  public showStepPanel = true;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -35,11 +37,11 @@ export class MemesComponent implements OnInit, OnDestroy {
 
       if (filter === undefined || filter == null || filter === '') {
         filter = MemeFilter.POOL;
-        this.showStepPanel = true;
+        this.needStepPanel = true;
       }
 
       this.pagination.init(
-        3,
+        GlobalConst.MEME_BATCH,
         sort,
         true,
         filter,
@@ -56,13 +58,9 @@ export class MemesComponent implements OnInit, OnDestroy {
   scrollHandler(e) {
     if (e === 'bottom') {
       this.pagination.more();
-    }
-
-    if (e === 'up') {
+    } else if (e === 'up' && this.needStepPanel) {
       this.showStepPanel = true;
-    }
-
-    if (e === 'down') {
+    } else if (e === 'down'  && this.needStepPanel) {
       this.showStepPanel = false;
     }
   }

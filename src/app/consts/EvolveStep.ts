@@ -1,6 +1,9 @@
 export enum EvolveStep {
 
   ADAPTATION = 'ADAPTATION',
+  FITNESS = 'FITNESS',
+  MUTATION = 'MUTATION',
+  CROSSING = 'CROSSING',
   SURVIVAL = 'SURVIVAL'
 
 }

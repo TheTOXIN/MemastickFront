@@ -37,6 +37,9 @@
     </div>
     <div *ngIf="meme.type === 'EVOLVE'">
       <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === 'ADAPTATION'"></app-evolve-adaptation>
+      <app-evolve-fitness [evolve]="evolve" *ngIf="evolve.step === 'FITNESS'"></app-evolve-fitness>
+      <app-evolve-mutation [evolve]="evolve" *ngIf="evolve.step === 'MUTATION'"></app-evolve-mutation>
+      <app-evolve-crossing [evolve]="evolve" *ngIf="evolve.step === 'CROSSING'"></app-evolve-crossing>
       <app-evolve-survival [evolve]="evolve" *ngIf="evolve.step === 'SURVIVAL'"></app-evolve-survival>
     </div>
   </div>
