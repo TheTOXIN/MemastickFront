@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TokenType} from '../../consts/TokenType';
-import {TokenData} from '../../model/TokenData';
+import {TokenData, tokensData} from '../../model/TokenData';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
@@ -27,50 +27,8 @@ export class TokenWalletComponent implements OnInit {
   ) {
   }
 
-  // TODO token refactor
   ngOnInit() {
-    this.tokens = [
-      new TokenData(
-        TokenType.TUBE,
-        'assets/images/tokens/1.png',
-        'Пробирка',
-        'Токен адаптации',
-        'адаптирует мем продвигая его вверх в списке',
-        this.wallet[TokenType.TUBE]
-      ),
-      new TokenData(
-        TokenType.SCOPE,
-        'assets/images/tokens/2.png',
-        'Микроскоп',
-        'Токен оценки',
-        'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)',
-        this.wallet[TokenType.SCOPE]
-      ),
-      new TokenData(
-        TokenType.MUTAGEN,
-        'assets/images/tokens/3.png',
-        'Мутаген',
-        'Токен мутации',
-        'с его помощью можно оставлять комментарии под мемами',
-        this.wallet[TokenType.MUTAGEN]
-      ),
-      new TokenData(
-        TokenType.CROSSOVER,
-        'assets/images/tokens/4.png',
-        'Кроссовер',
-        'Токен скрещивания',
-        'позволяет создать новый мем на основе других мемов',
-        this.wallet[TokenType.CROSSOVER]
-      ),
-      new TokenData(
-        TokenType.ANTIBIOTIC,
-        'assets/images/tokens/5.png',
-        'Антибиотик',
-        'Токен отбора',
-        'даёт иммунитет мему, гарантируя выживаемость',
-        this.wallet[TokenType.ANTIBIOTIC]
-      )
-    ];
+    this.tokens = tokensData;
   }
 
   showInfo(token: TokenData) {

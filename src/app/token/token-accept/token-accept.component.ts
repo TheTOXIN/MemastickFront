@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TokenType} from '../../consts/TokenType';
+import {tokenIcons, tokensData} from '../../model/TokenData';
 
 @Component({
   selector: 'app-token-accept',
@@ -17,12 +18,7 @@ export class TokenAcceptComponent implements OnInit {
   public isShow = false;
 
   constructor() {
-    //  TODO token refactor
-    this.icons[TokenType.TUBE] = 'assets/images/tokens/1.png';
-    this.icons[TokenType.SCOPE] = 'assets/images/tokens/2.png';
-    this.icons[TokenType.MUTAGEN] = 'assets/images/tokens/3.png';
-    this.icons[TokenType.CROSSOVER] = 'assets/images/tokens/4.png';
-    this.icons[TokenType.ANTIBIOTIC] = 'assets/images/tokens/5.png';
+    this.icons = tokenIcons;
   }
 
   ngOnInit() {

@@ -5,6 +5,7 @@ import { timer } from 'rxjs';
 import {TokenType} from '../../consts/TokenType';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
+import {tokenIcons, tokensData} from '../../model/TokenData';
 
 @Component({
   selector: 'app-notification',
@@ -27,12 +28,7 @@ export class NotificationComponent {
   constructor(
     private avatarApi: MemetickAvatarApiService
   ) {
-    //  TODO token refactor
-    this.icons[TokenType.TUBE] = 'assets/images/tokens/1.png';
-    this.icons[TokenType.SCOPE] = 'assets/images/tokens/2.png';
-    this.icons[TokenType.MUTAGEN] = 'assets/images/tokens/3.png';
-    this.icons[TokenType.CROSSOVER] = 'assets/images/tokens/4.png';
-    this.icons[TokenType.ANTIBIOTIC] = 'assets/images/tokens/5.png';
+    this.icons = tokenIcons;
   }
 
   show(notify: Notify) {

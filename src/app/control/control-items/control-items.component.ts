@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemetickInventory} from '../../model/MemetickInventory';
-import {TokenType} from '../../consts/TokenType';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
-import {TokenData} from '../../model/TokenData';
+import {TokenData, tokensData} from '../../model/TokenData';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
 
 export class Item {
@@ -75,38 +74,15 @@ export class ControlItemsComponent implements OnInit {
     }
   }
 
-  // TODO token refactor
   initTokens() {
-    this.tokens[0] = new Item(
-      'assets/images/tokens/1.png',
-      'Пробирка',
-      this.data.wallet[TokenType.TUBE],
-      () => console.log('TEST')
-    );
-    this.tokens[1] = new Item(
-      'assets/images/tokens/2.png',
-      'Фитнесс',
-      this.data.wallet[TokenType.SCOPE],
-      () => console.log('TEST')
-    );
-    this.tokens[2] = new Item(
-      'assets/images/tokens/3.png',
-      'Мутаген',
-      this.data.wallet[TokenType.MUTAGEN],
-      () => console.log('TEST')
-    );
-    this.tokens[3] = new Item(
-      'assets/images/tokens/4.png',
-      'Кроссовер',
-      this.data.wallet[TokenType.CROSSOVER],
-      () => console.log('TEST')
-    );
-    this.tokens[4] = new Item(
-      'assets/images/tokens/5.png',
-      'Антибиотик',
-      this.data.wallet[TokenType.ANTIBIOTIC],
-      () => console.log('TEST')
-    );
+    for (const token of tokensData) {
+      this.tokens.push(new Item(
+        token.image,
+        token.name,
+        this.data.wallet[token.type],
+        () => this.tokenInfo(token)
+      ));
+    }
   }
 
   tokenInfo(token: TokenData) {

@@ -19,7 +19,7 @@ export class MemeResearchComponent {
   public meme: Meme;
 
   public evolve: EvolveMeme;
-  public types = []; // TODO token refactor
+  public types = [];
 
   isLoading = true;
   isPreview = false;
