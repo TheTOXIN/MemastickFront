@@ -57,6 +57,14 @@ export class MemesComponent implements OnInit, OnDestroy {
     if (e === 'bottom') {
       this.pagination.more();
     }
+
+    if (e === 'up') {
+      this.showStepPanel = true;
+    }
+
+    if (e === 'down') {
+      this.showStepPanel = false;
+    }
   }
 
   memeView(meme: Meme) {

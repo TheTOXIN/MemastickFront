@@ -38,9 +38,9 @@ export class MemesStepPanelComponent implements OnInit {
   ) {
     this.currentStep = this.steps[2];
 
-    // TODO refactor and make hide when scroll
     this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
     this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/2.png';
+
     this.evolveIcons[this.tmp] = 'assets/images/tokens/tmp.png';
   }
 

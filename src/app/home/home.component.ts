@@ -12,7 +12,6 @@ import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {NotifyType} from '../consts/NotifyType';
 import {LocalStorageService} from '../services/local-storage-service';
-import {PushService} from '../services/push-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 
 @Component({
