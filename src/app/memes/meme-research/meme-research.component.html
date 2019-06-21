@@ -13,7 +13,7 @@
     <app-spinner *ngIf="isLoading"></app-spinner>
   </div>
   <div class="meme-research" *ngIf="!isLoading">
-    <div *ngIf="meme.type === 'INDIVID'">
+    <div *ngIf="meme.type === 'INDV'">
       <div class="meme-research-img">
         <img src="assets/images/icon/1.png">
       </div>
@@ -24,7 +24,7 @@
         <button class="btn-theme" (click)="dipricated()">БИТВА</button>
       </div>
     </div>
-    <div *ngIf="meme.type === 'DEATH'">
+    <div *ngIf="meme.type === 'DEAD'">
       <div class="meme-research-img">
         <img src="assets/images/icon/dead.png">
       </div>
@@ -35,7 +35,7 @@
         <button class="btn-theme" (click)="dipricated()">ВОСКРЕСИТЬ</button>
       </div>
     </div>
-    <div *ngIf="meme.type === 'EVOLVE'">
+    <div *ngIf="meme.type === 'EVLV'">
       <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === 'ADAPTATION'"></app-evolve-adaptation>
       <app-evolve-fitness [evolve]="evolve" *ngIf="evolve.step === 'FITNESS'"></app-evolve-fitness>
       <app-evolve-mutation [evolve]="evolve" *ngIf="evolve.step === 'MUTATION'"></app-evolve-mutation>

@@ -143,6 +143,6 @@ export class MemesPageComponent implements OnInit {
   }
 
   isMemeDeath(meme: Meme) {
-    return meme.type === MemeType.DEATH;
+    return meme.type === MemeType.DEAD;
   }
 }

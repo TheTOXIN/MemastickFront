@@ -29,9 +29,9 @@ export class MemeResearchComponent {
     private modalService: NgbModal,
     private evolveApi: EvolveMemeApiService
   ) {
-    this.types[MemeType.EVOLVE] = 'ЭВОЛЮЦИОНИРУЕТ';
-    this.types[MemeType.DEATH] = 'МЁРТВ';
-    this.types[MemeType.INDIVID] = 'ОСОБЬ';
+    this.types[MemeType.EVLV] = 'ЭВОЛЮЦИОНИРУЕТ';
+    this.types[MemeType.DEAD] = 'МЁРТВ';
+    this.types[MemeType.INDV] = 'ОСОБЬ';
   }
 
   researchShow(meme: Meme) {

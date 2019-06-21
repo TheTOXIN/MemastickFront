@@ -6,10 +6,10 @@
     <div class="memes-info-nick">
       <span> {{data.page?.memetick?.nick}} </span>
     </div>
-    <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVOLVE'">
+    <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
       <span>#{{data.page?.meme.indexer}}</span>
     </div>
-    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVOLVE'">
+    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
       <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
     </div>
   </div>
