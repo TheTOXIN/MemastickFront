@@ -15,7 +15,7 @@ import {HomeModule} from '../home/home.module';
 import {MemeResearchComponent} from './meme-research/meme-research.component';
 import {EvolveModule} from '../evolve/evolve.module';
 import {TokenModule} from '../token/token.module';
-import {MemesStepPanelComponent} from './memes-step-panel/memes-step-panel.component';
+import {MemesPanelComponent} from './memes-panel/memes-panel.component';
 
 @NgModule({
   imports: [
@@ -40,7 +40,7 @@ import {MemesStepPanelComponent} from './memes-step-panel/memes-step-panel.compo
     MemeCreatorComponent,
     MemesShareComponent,
     MemeResearchComponent,
-    MemesStepPanelComponent
+    MemesPanelComponent
   ]
 })
 export class MemesModule {

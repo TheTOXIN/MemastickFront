@@ -17,8 +17,8 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
-  public needStepPanel = false;
-  public showStepPanel = true;
+  public showPanel = true;
+  public modePanel: MemeFilter;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -29,7 +29,7 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let filter = params.filter;
+      let filter: MemeFilter = params.filter;
 
       const memetick = params.memetick;
       const step = params.step;
@@ -37,8 +37,9 @@ export class MemesComponent implements OnInit, OnDestroy {
 
       if (filter === undefined || filter == null || filter === '') {
         filter = MemeFilter.POOL;
-        this.needStepPanel = true;
       }
+
+      this.modePanel = filter;
 
       this.pagination.init(
         GlobalConst.MEME_BATCH,
@@ -58,10 +59,10 @@ export class MemesComponent implements OnInit, OnDestroy {
   scrollHandler(e) {
     if (e === 'bottom') {
       this.pagination.more();
-    } else if (e === 'up' && this.needStepPanel) {
-      this.showStepPanel = true;
-    } else if (e === 'down'  && this.needStepPanel) {
-      this.showStepPanel = false;
+    } else if (e === 'up') {
+      this.showPanel = true;
+    } else if (e === 'down') {
+      this.showPanel = false;
     }
   }
 

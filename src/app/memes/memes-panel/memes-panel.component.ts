@@ -3,22 +3,25 @@ import {EvolveStep} from '../../consts/EvolveStep';
 import {Router} from '@angular/router';
 import {WINDOW} from '../../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
-  selector: 'app-memes-step-panel',
-  templateUrl: './memes-step-panel.component.html',
-  styleUrls: ['./memes-step-panel.component.scss']
+  selector: 'app-memes-panel',
+  templateUrl: './memes-panel.component.html',
+  styleUrls: ['./memes-panel.component.scss']
 })
-export class MemesStepPanelComponent implements OnInit {
+export class MemesPanelComponent implements OnInit {
 
-  @Input()
-  public showStepPanel = true;
+  @Input() public showPanel = true;
+  @Input() public modePanel: MemeFilter;
+
+  public needStepList = false;
   public showStepList = false;
 
-  private tmp = 'NULL';
   private evolveIcons = [];
+  private filterIcons = [];
 
-  currentStep: any;
+  currentStep: any = null;
 
   steps = [{
     name: 'Адаптация',
@@ -35,9 +38,6 @@ export class MemesStepPanelComponent implements OnInit {
   }, {
     name: 'Выживание',
     step: EvolveStep.SURVIVAL
-  }, {
-    name: 'Эволюция',
-    step: this.tmp
   }];
 
   constructor(
@@ -45,22 +45,34 @@ export class MemesStepPanelComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-    this.currentStep = this.steps[this.steps.length - 1];
-
     this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
     this.evolveIcons[EvolveStep.FITNESS] = 'assets/images/steps/2.png';
     this.evolveIcons[EvolveStep.MUTATION] = 'assets/images/steps/3.png';
     this.evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
     this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
 
-    this.evolveIcons[this.tmp] = 'assets/images/icon/world.png';
+    this.filterIcons[MemeFilter.POOL] = 'assets/images/icon/world.png';
+    this.filterIcons[MemeFilter.SLCT] = 'assets/images/icon/select.png';
+    this.filterIcons[MemeFilter.INDV] = 'assets/images/icon/1.png';
+    this.filterIcons[MemeFilter.SELF] = 'assets/images/icon/cell.png';
+    this.filterIcons[MemeFilter.LIKE] = 'assets/images/icon/like_push.png';
   }
 
   ngOnInit() {
+    if (this.modePanel === MemeFilter.POOL) {
+      this.needStepList = true;
+    }
   }
 
   update() {
-    window.location.reload();
+    this.router.navigateByUrl('/memes');
+    this.currentStep = null;
+  }
+
+  show() {
+    if (this.needStepList) {
+      this.showStepList = !this.showStepList;
+    }
   }
 
   home() {
@@ -71,10 +83,6 @@ export class MemesStepPanelComponent implements OnInit {
     this.showStepList = false;
     this.currentStep = step;
 
-    if (step.step === this.tmp) {
-      this.router.navigateByUrl('/memes');
-    }  else {
-      this.router.navigate(['/memes'], {queryParams: {step: step.step}});
-    }
+    this.router.navigate(['/memes'], {queryParams: {step: step.step}});
   }
 }
