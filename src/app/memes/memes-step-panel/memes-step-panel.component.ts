@@ -36,7 +36,7 @@ export class MemesStepPanelComponent implements OnInit {
     name: 'Выживание',
     step: EvolveStep.SURVIVAL
   }, {
-    name: 'Мемасики',
+    name: 'Эволюция',
     step: this.tmp
   }];
 
@@ -53,13 +53,17 @@ export class MemesStepPanelComponent implements OnInit {
     this.evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
     this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
 
-    this.evolveIcons[this.tmp] = 'assets/images/tokens/tmp.png';
+    this.evolveIcons[this.tmp] = 'assets/images/icon/world.png';
   }
 
   ngOnInit() {
   }
 
-  close() {
+  update() {
+    window.location.reload();
+  }
+
+  home() {
     this.router.navigateByUrl('/home');
   }
 

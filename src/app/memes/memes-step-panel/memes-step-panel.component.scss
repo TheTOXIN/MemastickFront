@@ -20,15 +20,6 @@
   box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
 }
 
-.step-panel-img {
-  height: 100%;
-  width: 20%;
-  img {
-    max-height: 100%;
-    max-width: 100%;
-  }
-}
-
 .step-panel-name {
   height: 100%;
   width: 60%;
@@ -38,16 +29,28 @@
   }
 }
 
-.step-panel-close {
+
+.step-panel-icon {
   height: 100%;
-  width: 20%;
+  width: 33%;
   margin-top: 7px;
   i {
     color: #6b25fc;
     font-size: 48px;
   }
   &:hover {
-    color: #d85040;
+    i {
+      color: #495057;
+    }
+  }
+}
+
+.step-panel-img {
+  height: 100%;
+  width: 34%;
+  img {
+    max-height: 100%;
+    max-width: 100%;
   }
 }
 
