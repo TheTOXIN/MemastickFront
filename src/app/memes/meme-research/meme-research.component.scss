@@ -14,11 +14,11 @@
   text-align: center;
   background-color: #544ce2;
   border-radius: 90px;
-  height: 36px;
+  height: 48px;
   p {
-    font-size: 24px;
+    font-size: 30px;
     color: whitesmoke;
-    padding-top: 5px;
+    padding-top: 10px;
   }
 }
 
@@ -76,6 +76,38 @@
 
 .meme-research-title {
   text-align: center;
+}
+
+.meme-research-chance {
+  text-align: center;
+  p {
+    font-family: Futurica, serif;
+    font-size: 24px;
+    color: #485bee;
+  }
+}
+
+.meme-research-chance-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 100%;
+  margin: auto;
+  border: 3px solid;
+  background-color: #485bee;
+  p {
+    color: whitesmoke;
+    margin-top: 22px;
+  }
+}
+
+.meme-research-chance-img {
+  margin: 15px;
+  img {
+    width: 64px;
+  }
+  div {
+    color: gray;
+  }
 }
 
 .research-close {

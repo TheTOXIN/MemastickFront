@@ -21,15 +21,19 @@ export class MemeResearchComponent {
   public evolve: EvolveMeme;
   public types = [];
 
+  public chance: number;
+
   isLoading = true;
   isPreview = false;
+  isChance = false;
 
   constructor(
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private evolveApi: EvolveMemeApiService
   ) {
-    this.types[MemeType.EVLV] = 'ЭВОЛЮЦИОНИРУЕТ';
+    this.types[MemeType.EVLV] = 'ЭВОЛЮЦИЯ';
+    this.types[MemeType.SLCT] = 'ОТБОР';
     this.types[MemeType.DEAD] = 'МЁРТВ';
     this.types[MemeType.INDV] = 'ОСОБЬ';
   }
@@ -37,14 +41,26 @@ export class MemeResearchComponent {
   researchShow(meme: Meme) {
     this.meme = meme;
     this.isPreview = true;
+
     this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => {
       this.evolve = evolve;
       this.isLoading = false;
+
+      if (meme.type === MemeType.SLCT) {
+        this.computeChance();
+      }
     });
   }
 
   researchClose() {
     this.isPreview = false;
+  }
+
+  computeChance() {
+    this.evolveApi.evolveMemeChance(this.meme.id).subscribe(chance => {
+      this.chance = chance;
+      this.isChance = true;
+    });
   }
 
   dipricated() {

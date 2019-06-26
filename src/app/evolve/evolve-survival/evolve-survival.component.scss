@@ -1,32 +1,20 @@
+.evolve-image {
+  img {
+    width: 100px;
+    margin: 15px;
+  }
+}
+
 .evolve-survive {
   text-align: center;
   margin-top: 10px;
 }
 
-.evolve-chance {
-  text-align: center;
-  p {
-    font-family: Futurica, serif;
-    font-size: 24px;
-    color: #485bee;
-  }
-}
-
-.evolve-chance-circle {
-  width: 72px;
-  height: 72px;
-  border-radius: 100%;
-  margin: auto;
-  border: 3px solid;
-  background-color: #485bee;
-  p {
-    color: whitesmoke;
-    margin-top: 22px;
-  }
-}
-
 .evolve-text {
   text-align: center;
+  p {
+    font-size: 20px;
+  }
 }
 
 .evolve-control {

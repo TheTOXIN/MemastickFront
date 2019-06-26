@@ -13,7 +13,7 @@
 
 </div>
 
-<app-memes-step-panel [showStepPanel]="showStepPanel"></app-memes-step-panel>
+<app-memes-step-panel *ngIf="needStepPanel" [showStepPanel]="showStepPanel"></app-memes-step-panel>
 
 <app-meme-research></app-meme-research>
 <app-meme-view></app-meme-view>

@@ -23,6 +23,7 @@ export enum API {
   TOKENS_WALLETS_MEMETICK = '/token-wallets/memetick',
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
+  EVOLVE_MEME_CHANCE = '/evolve-memes/meme/chance',
   ALLOWANCE_TAKE = '/token-allowance/take',
   ALLOWANCE_HAVE = '/token-allowance/have',
   INVENTORY_CELL = '/memetick-inventories/cell',
