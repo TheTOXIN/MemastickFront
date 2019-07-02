@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
 
   public emoji: any;
   public message: String;
+
   public home: Home;
 
   public showLogo = true;

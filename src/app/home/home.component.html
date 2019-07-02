@@ -18,6 +18,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-evolution home-table" (click)="memes(filters.POOL)">
+        <app-timer [text]="'Отбор через'" [time]="home.selectTimer"></app-timer>
         <div class="home-evolution-btn">
           <img src="assets/images/icon/world.png" class="spin-anim-evolution">
           <span>ЭВОЛЮЦИЯ</span>

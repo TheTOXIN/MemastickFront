@@ -35,7 +35,7 @@ export class MemesComponent implements OnInit, OnDestroy {
       const step = params.step;
       const sort = 'creating';
 
-      if (filter === undefined || filter == null || filter === '') {
+      if (filter === undefined || filter == null) {
         filter = MemeFilter.POOL;
       }
 

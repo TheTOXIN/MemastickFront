@@ -5,6 +5,7 @@ export class Home {
     public memes: number,
     public countItems: number,
     public countBells: number,
+    public selectTimer: string
   ) {
 
   }
