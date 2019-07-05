@@ -16,6 +16,7 @@ import {MemeResearchComponent} from './meme-research/meme-research.component';
 import {EvolveModule} from '../evolve/evolve.module';
 import {TokenModule} from '../token/token.module';
 import {MemesPanelComponent} from './memes-panel/memes-panel.component';
+import {MemeEpiComponent} from './meme-epi/meme-epi.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import {MemesPanelComponent} from './memes-panel/memes-panel.component';
     MemeCreatorComponent,
     MemesShareComponent,
     MemeResearchComponent,
-    MemesPanelComponent
+    MemesPanelComponent,
+    MemeEpiComponent
   ]
 })
 export class MemesModule {

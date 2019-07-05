@@ -6,11 +6,8 @@
     <img src="assets/images/icon/2.png">
     <p>{{meme.chromosomes}}</p>
   </div>
-  <div class="meme-population">
-    <p>Популяция #{{evolve?.population}}</p>
-  </div>
-  <div style="margin-top: 50px">
-    <app-spinner *ngIf="isLoading"></app-spinner>
+  <div *ngIf="isLoading" style="margin-top: 50px">
+    <app-spinner></app-spinner>
   </div>
   <div class="meme-research" *ngIf="!isLoading">
 
@@ -63,6 +60,9 @@
       </div>
 
     </div>
+  </div>
+  <div class="meme-epi">
+    <app-meme-epi [epi]="evolve.epi"></app-meme-epi>
   </div>
 </div>
 <div *ngIf="isPreview" class="research-close-wrap">
