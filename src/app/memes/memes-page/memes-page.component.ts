@@ -13,6 +13,7 @@ import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
 import {MemeType} from '../../consts/MemeType';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-memes-page',
@@ -130,7 +131,7 @@ export class MemesPageComponent implements OnInit {
   }
 
   fullChromosome(data: MemeData) {
-    return data.page.likes != null && data.page.likes.myChromosomes >= 10;
+    return data.page.likes != null && data.page.likes.myChromosomes >= GlobalConst.MAX_CHROMOSOME;
   }
 
   evolveStepInfo(step: EvolveStep) {
