@@ -9,6 +9,7 @@ export class EvolveMeme {
     public step: EvolveStep,
     public immunity: boolean,
     public adaptation: number,
+    public evolveTimer: string
   ) {
 
   }
