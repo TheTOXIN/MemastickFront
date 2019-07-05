@@ -8,12 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TimerComponent implements OnInit {
 
   @Input()
-  public time: String;
+  public time: string;
 
   @Input()
-  public text: String;
+  public text: string;
 
-  public timer: Date;
+  public timer: any;
   public count = 1000;
 
   constructor(
@@ -25,10 +25,13 @@ export class TimerComponent implements OnInit {
   }
 
   ngOnInit() {
-    const date = new Date(this.time);
+    const time: any[] = this.time.split(':');
 
-    const timeZone = date.getTimezoneOffset() * 60000;
-    date.setTime(date.getTime() + timeZone);
+    const date = new Date();
+
+    date.setHours(time[0]);
+    date.setMinutes(time[1]);
+    date.setSeconds(time[2]);
 
     this.timer = date;
   }
