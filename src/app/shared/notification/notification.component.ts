@@ -37,6 +37,7 @@ export class NotificationComponent {
     this.isHide = false;
     this.isShow = true;
 
+    this.sound();
     this.destroy();
   }
 
@@ -66,6 +67,14 @@ export class NotificationComponent {
     timer(3000).subscribe(() => {
       this.isHide = true;
     });
+  }
+
+  sound() {
+    const audio = new Audio();
+
+    audio.src = '../../../assets/audio/nice.wav';
+    audio.load();
+    audio.play();
   }
 
   event() {
