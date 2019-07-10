@@ -135,6 +135,10 @@ export class MemeCreatorComponent implements OnInit {
     this.router.navigateByUrl('/memes');
   }
 
+  close() {
+    this.router.navigateByUrl('/home');
+  }
+
   cancel() {
     this.imageFile = null;
     this.imgURL = null;

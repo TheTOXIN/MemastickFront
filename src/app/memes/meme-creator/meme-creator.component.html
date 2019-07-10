@@ -31,10 +31,13 @@
     </div>
   </div>
 
-  <div class="create-button" [style.display]="isPreview? 'block' : 'none'">
+  <div class="create-button" *ngIf="!isPreview">
+    <button class="btn-theme" (click)="close()">ЗАКРЫТЬ</button>
+  </div>
+  <div class="create-button" *ngIf="isPreview && !isCreate">
     <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
   </div>
-  <div class="create-button" [style.display]="isCreate? 'block' : 'none'">
+  <div class="create-button" *ngIf="isCreate">
     <button class="btn-theme" (click)="memes()">ЭВОЛЮЦИЯ</button>
   </div>
 

@@ -34,6 +34,7 @@ export enum API {
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
   NOTIFY_BELL_MARK = '/notify/bell/mark',
+  NOTIFY_COUNT = '/notify-count',
   SEETING_ME = '/setting-users/me',
   SEETING_PUSH = '/setting-users/push',
   SEETING_FOLLOW = '/setting-followers/follow',
