@@ -13,6 +13,9 @@ import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal
 import {NotifyType} from '../consts/NotifyType';
 import {LocalStorageService} from '../services/local-storage-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
+import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
+import {ShareModalComponent} from '../modals/share-modal/share-modal.component';
+import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -119,20 +122,12 @@ export class HomeComponent implements OnInit {
     this.modalService.open(AlgorithmModalComponent, {'centered': true});
   }
 
-  vkontakte() {
-    this.redirect('https://vk.com/memastick');
+  docDna() {
+    this.modalService.open(DnaModalComponent, {'centered': true});
   }
 
-  telegram() {
-    this.redirect('https://telegram.me/memastick');
-  }
-
-  private redirect(url: string) {
-    const a = document.createElement('a');
-    a.setAttribute('target', '_blank');
-    a.href = url;
-    document.body.appendChild(a);
-    a.click();
+  socNet() {
+    this.modalService.open(SocialsModalComponent, {'centered': true});
   }
 
   toStart() {
