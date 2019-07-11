@@ -56,6 +56,7 @@ export class MemesPanelComponent implements OnInit {
     this.filterIcons[MemeFilter.INDV] = 'assets/images/icon/1.png';
     this.filterIcons[MemeFilter.SELF] = 'assets/images/icon/cell.png';
     this.filterIcons[MemeFilter.LIKE] = 'assets/images/icon/like_push.png';
+    this.filterIcons[MemeFilter.USER] = 'assets/images/review.png';
   }
 
   ngOnInit() {
