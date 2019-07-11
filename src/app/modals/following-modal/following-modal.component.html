@@ -7,7 +7,7 @@
       <div *ngFor="let memetick of memeticks; let i = index">
         <div class="modal-following-row">
           <div class="modal-following-img">
-            <img [src]="getAvatar(memetick)" (click)="memetickView(memetick.id)" onError="this.src='assets/images/tokens/tmp.png';">
+            <img [src]="getAvatar(memetick)" (click)="memetickView(memetick.id)">
           </div>
           <div class="modal-following-nck text-strong-center">
             <div>{{memetick.nick}}</div>

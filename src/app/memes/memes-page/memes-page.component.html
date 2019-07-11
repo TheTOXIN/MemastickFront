@@ -1,7 +1,7 @@
 <div class="memes-table animated zoomIn">
   <div class="memes-info">
     <div class="memes-info-avatar">
-      <img *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/tokens/tmp.png';" (click)="memetickView(data.page?.memetick.id)">
+      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickView(data.page?.memetick.id)">
     </div>
     <div class="memes-info-nick">
       <span> {{data.page?.memetick?.nick}} </span>

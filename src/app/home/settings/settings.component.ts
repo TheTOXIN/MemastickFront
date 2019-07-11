@@ -34,6 +34,7 @@ export class SettingsComponent implements OnInit {
   public memetick: Memetick = new Memetick(
     '',
     '',
+    false,
     false
   );
 

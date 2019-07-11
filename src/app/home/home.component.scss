@@ -31,6 +31,11 @@
   color: white;
   width: 90%;
   margin: 10px auto;
+  @media(max-width: 767px) {
+    span {
+      font-size: 20px;
+    }
+  }
 }
 
 .home-logo {
@@ -101,13 +106,13 @@
 .home-stats {
   p {
     font-family: FuturaRound, serif;
-    font-size: 32px;
+    font-size: 24px;
     padding: 20px;
     color: black;
   }
   @media(max-width: 767px) {
     p {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 }
