@@ -8,8 +8,15 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class SocialsModalComponent implements OnInit {
 
-// <img src="assets/images/social/vk.png">
-//   <img src="assets/images/social/telegram.png">
+  public data = [{
+    img: 'assets/images/social/vk.png',
+    txt: 'ВКОНТАКТЕ',
+    ref: 'https://vk.com/memastick'
+  }, {
+    img: 'assets/images/social/telegram.png',
+    txt: 'ТЕЛЕГРАММ',
+    ref: 'https://telegram.me/memastick'
+  }];
 
   constructor(
     public activeModal: NgbActiveModal
@@ -21,15 +28,7 @@ export class SocialsModalComponent implements OnInit {
 
   }
 
-  vkontakte() {
-    this.redirect('https://vk.com/memastick');
-  }
-
-  telegram() {
-    this.redirect('https://telegram.me/memastick');
-  }
-
-  private redirect(url: string) {
+  public redirect(url: string) {
     const a = document.createElement('a');
     a.setAttribute('target', '_blank');
     a.href = url;

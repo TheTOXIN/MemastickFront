@@ -3,7 +3,20 @@
     <span class="modal-title">СОЦ.СЕТИ</span>
   </div>
   <div class="my-modal-body modal-body">
-    ...
+    <div *ngFor="let value of data">
+      <div class="social-modal">
+        <div class="social-modal-img text-strong-center">
+          <div><img [src]="value.img"></div>
+        </div>
+        <div class="social-modal-txt text-strong-center">
+          <div>{{value.txt}}</div>
+        </div>
+        <div class="social-modal-ref text-strong-center">
+          <div><i class="fa fa-arrow-right" (click)="redirect(value.ref)"></i></div>
+        </div>
+      </div>
+      <div class="social-modal-separate"></div>
+    </div>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
