@@ -3,7 +3,17 @@
     <span class="modal-title">СПРВКА - 'ЭПИ'</span>
   </div>
   <div class="my-modal-body modal-body">
-    ...
+    <div *ngFor="let value of data">
+      <div class="epi-modal-row">
+        <div class="epi-modal-title">
+          <span [style.color]="value.color">{{value.liter}}: </span>
+          <div>{{value.word}}</div>
+        </div>
+        <div class="epi-modal-content">
+          <div>{{value.text}}</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">

@@ -1,0 +1,25 @@
+.epi-modal-row {
+  text-align: center;
+  margin: 20px;
+}
+
+.epi-modal-title {
+  text-align: start;
+
+  span {
+    font-family: Gost, serif;
+    font-size: 36px;
+  }
+  div {
+    display: inline-block;
+    font-family: Futurica, serif;
+    font-size: 28px;
+  }
+}
+
+.epi-modal-content {
+  div {
+    text-align: start;
+    font-size: 16px;
+  }
+}

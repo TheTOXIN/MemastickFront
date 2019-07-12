@@ -2,6 +2,18 @@
 
 .meme-epi {
   text-align: center;
+  p {
+    i {
+      font-size: 32px;
+      color: #eab000;
+      display: inline-block;
+    }
+    &:hover {
+      i {
+        color: $primary_color;
+      }
+    }
+  }
 }
 
 .meme-epi-content {
