@@ -86,7 +86,11 @@
   }
   @media(max-width: 767px) {
     img {
-      margin-top: 4px;
+      float: left;
+      width: 64px;
+      height: 64px;
+      max-width: none;
+      max-height: none;
     }
   }
 }
