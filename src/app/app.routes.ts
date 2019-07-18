@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {RedirectRootComponent} from './shared/redirect-root/redirect-root.component';
+import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -23,6 +24,10 @@ export const rootRouterConfig: Routes = [
   {
     path: 'pages',
     loadChildren: './pages/pages.module#PagesModule'
+  },
+  {
+    path: 'modal',
+    component: ModalLinkComponent
   },
   {
     path: '**',

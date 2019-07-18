@@ -19,8 +19,6 @@ export class TokenAllowanceModalComponent implements OnInit {
   public wallet: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     public activeModal: NgbActiveModal,
     public allowanceApi: TokenAllowanceApiService
   ) {
@@ -45,13 +43,7 @@ export class TokenAllowanceModalComponent implements OnInit {
   }
 
   close() {
-    this.route.queryParams.subscribe(params => {
-      if (params.event === NotifyType.ALLOWANCE) {
-        this.router.navigateByUrl('/home');
-      }
-    });
-
-    this.activeModal.dismiss('Cross click');
+    this.activeModal.close('success');
     this.wallet = null;
   }
 }

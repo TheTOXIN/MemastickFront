@@ -70,7 +70,6 @@ export class HomeComponent implements OnInit {
     this.initParticles();
     this.initEmoji();
     this.initMe();
-    this.initEvent();
   }
 
   @HostListener('window:scroll', [])
@@ -81,14 +80,6 @@ export class HomeComponent implements OnInit {
     } else {
       this.showLogo = true;
     }
-  }
-
-  private initEvent() {
-    this.route.queryParams.subscribe(params => {
-      if (params.event === NotifyType.ALLOWANCE) {
-        this.allowance();
-      }
-    });
   }
 
   private initEmoji() {
