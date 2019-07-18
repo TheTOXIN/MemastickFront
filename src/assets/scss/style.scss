@@ -114,6 +114,14 @@
   }
 }
 
+.text-strong-middle {
+  display: table;
+  div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 .main-research-control {
   text-align: center;
   button {
