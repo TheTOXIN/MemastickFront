@@ -2,6 +2,7 @@
   <div class="create-title">
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
+
   <div class="create-table flex-center-absolute">
     <div class="create-preview animated fadeIn slower" *ngIf="isPreview">
       <img [src]="imgURL || ''" alt="">
@@ -31,16 +32,21 @@
   </div>
 
   <div class="create-button" *ngIf="!isPreview">
-    <button class="btn-theme" (click)="close()">ЗАКРЫТЬ</button>
+    <button class="btn-theme" (click)="close()"><i class="fa fa-home"></i></button>
   </div>
+
   <div class="create-button" *ngIf="isPreview && !isCreate">
-    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
+    <button class="btn-theme" (click)="cancel()"><i class="fa fa-times"></i></button>
+    <button class="btn-theme" (click)="create()"><i class="fa fa-check"></i></button>
+    <button class="btn-theme" (click)="showText()"><i class="fa fa-align-left"></i></button>
   </div>
+
   <div class="create-button" *ngIf="isCreate">
-    <button class="btn-theme" (click)="memes()">ЭВОЛЮЦИЯ</button>
+    <button class="btn-theme" (click)="memes()"><i class="fa fa-globe"></i></button>
   </div>
 
   <app-loader [message]="message" [status]="status"></app-loader>
+  <app-meme-text-input (doneEvent)="doneText($event)" class="create-text-input"></app-meme-text-input>
 
   <div class='stars'></div>
   <div class='stars2'></div>

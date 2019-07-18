@@ -9,6 +9,8 @@ import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {ValidConst} from '../../consts/ValidConst';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
+import {MemeResearchComponent} from '../meme-research/meme-research.component';
+import {MemeTextInputComponent} from '../meme-text-input/meme-text-input.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -16,6 +18,8 @@ import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-serv
   styleUrls: ['./meme-creator.component.scss']
 })
 export class MemeCreatorComponent implements OnInit {
+
+  @ViewChild(MemeTextInputComponent) textInput: MemeTextInputComponent;
 
   public status;
   public message;
@@ -29,6 +33,8 @@ export class MemeCreatorComponent implements OnInit {
   public stateTitle;
   public stateText;
   public stateCell;
+
+  public textMeme;
 
   isHovering = false;
   isPreview = false;
@@ -85,7 +91,7 @@ export class MemeCreatorComponent implements OnInit {
     this.memeApi.memeUpload(this.imageFile, this.firePath).then(
       () => {
         this.memeApi.memeLoad(this.firePath).subscribe(url => {
-          this.memeApi.memeCreate(this.fireId, url).subscribe(
+          this.memeApi.memeCreate(this.fireId, url, this.textMeme).subscribe(
             () => { this.createDone(); },
             (error) => { this.createError(error); }
             );
@@ -144,5 +150,13 @@ export class MemeCreatorComponent implements OnInit {
     this.imgURL = null;
 
     this.isPreview = false;
+  }
+
+  showText() {
+    this.textInput.show(this.textMeme);
+  }
+
+  doneText(textMeme: string) {
+    this.textMeme = textMeme;
   }
 }

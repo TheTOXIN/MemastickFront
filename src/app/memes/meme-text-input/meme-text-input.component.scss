@@ -1,0 +1,59 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.meme-text-input {
+}
+
+.meme-text-input-title {
+  background-color: white;
+  border-radius: 15px 15px 0 0;
+  width: 80%;
+  height: 20px;
+
+  label {
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: FuturaRound, serif;
+  }
+}
+
+.meme-text-input-content {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin: 0 auto auto;
+  text-align: center;
+  background-color: $middle_color;
+}
+
+.meme-text-input-textarea {
+  height: 100%;
+  width: 80%;
+
+  textarea {
+    font-size: 32px;
+    font-family: Gost, serif;
+  }
+}
+
+.meme-text-input-close {
+  width: 20%;
+  margin-top: 15px;
+
+  div {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media(max-width: 767px) {
+    div {
+      width: 80%;
+      i {
+        font-size: 48px;
+        margin-top: 12px;
+      }
+    }
+  }
+}

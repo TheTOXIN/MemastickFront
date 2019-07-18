@@ -1,0 +1,15 @@
+<div *ngIf="isShow" class="meme-text-input">
+  <div class="meme-text-input-title">
+    <label for="textMemeId">Текст для мема: (до 256 символов)</label>
+  </div>
+  <div class="meme-text-input-content">
+    <div class="meme-text-input-textarea">
+      <textarea class="form-control" rows="5" id="textMemeId" #textMemeArea [(ngModel)]="textMeme"></textarea>
+    </div>
+    <div class="meme-text-input-close">
+      <div class="main-button-close" (click)="done(textMemeArea.value)">
+        <i class="fa fa-check"></i>
+      </div>
+    </div>
+  </div>
+</div>

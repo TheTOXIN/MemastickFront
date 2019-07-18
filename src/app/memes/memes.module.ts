@@ -17,6 +17,8 @@ import {EvolveModule} from '../evolve/evolve.module';
 import {TokenModule} from '../token/token.module';
 import {MemesPanelComponent} from './memes-panel/memes-panel.component';
 import {MemeEpiComponent} from './meme-epi/meme-epi.component';
+import {MemeTextInputComponent} from './meme-text-input/meme-text-input.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import {MemeEpiComponent} from './meme-epi/meme-epi.component';
     EvolveModule,
     PinchZoomModule,
     MemesRoutingModules,
-    TokenModule
+    TokenModule,
+    FormsModule
   ],
   exports: [
     MemesPageComponent
@@ -42,7 +45,8 @@ import {MemeEpiComponent} from './meme-epi/meme-epi.component';
     MemesShareComponent,
     MemeResearchComponent,
     MemesPanelComponent,
-    MemeEpiComponent
+    MemeEpiComponent,
+    MemeTextInputComponent
   ]
 })
 export class MemesModule {
