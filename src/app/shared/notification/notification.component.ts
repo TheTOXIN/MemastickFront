@@ -60,6 +60,9 @@ export class NotificationComponent {
     } else if (notify.type === NotifyType.ALLOWANCE) {
       this.img = 'assets/images/icon/allowance.png';
       this.inf = '+';
+    } else if (notify.type === NotifyType.ADMIN) {
+      this.img = 'assets/images/tokens/tmp.png';
+      this.inf = '!!!';
     }
   }
 
