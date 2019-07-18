@@ -47,6 +47,7 @@ import {PushApiService} from './api/push-api-service';
 import {SettingApiService} from './api/setting-api-service';
 import {LocalStorageService} from './services/local-storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
+import {AngularFittextModule} from 'angular-fittext';
 
 firebase.initializeApp(environment.firebase);
 
@@ -67,6 +68,7 @@ firebase.initializeApp(environment.firebase);
     EvolveModule,
     ControlModule,
     HttpClientModule,
+    AngularFittextModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),

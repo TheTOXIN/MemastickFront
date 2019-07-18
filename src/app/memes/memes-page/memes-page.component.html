@@ -13,6 +13,9 @@
       <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
     </div>
   </div>
+  <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
+    <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
+  </div>
   <div class="memes-image animated zoomIn slow">
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
          [class.blur]="isMemeDeath(data.page.meme)">

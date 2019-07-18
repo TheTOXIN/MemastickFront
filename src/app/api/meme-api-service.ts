@@ -18,12 +18,15 @@ export class MemeApiService {
   }
 
   public memeCreate(fireId: UUID, url: string, text: string): Observable<any> {
+    if (text === '') { text = null; }
+
     return this.http
       .post(API.MEMES_CREATE, {
         fireId: fireId,
         url: url,
         text: text
-      }).pipe();
+      })
+      .pipe();
   }
 
   public memePages(page, size, sort, filter, step, memetick): Observable<MemePage[]> {

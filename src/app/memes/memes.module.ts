@@ -19,6 +19,8 @@ import {MemesPanelComponent} from './memes-panel/memes-panel.component';
 import {MemeEpiComponent} from './meme-epi/meme-epi.component';
 import {MemeTextInputComponent} from './meme-text-input/meme-text-input.component';
 import {FormsModule} from '@angular/forms';
+import {MemeTextViewComponent} from './meme-text-view/meme-text-view.component';
+import {AngularFittextModule} from 'angular-fittext';
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ import {FormsModule} from '@angular/forms';
     PinchZoomModule,
     MemesRoutingModules,
     TokenModule,
-    FormsModule
+    FormsModule,
+    AngularFittextModule
   ],
   exports: [
     MemesPageComponent
@@ -46,7 +49,8 @@ import {FormsModule} from '@angular/forms';
     MemeResearchComponent,
     MemesPanelComponent,
     MemeEpiComponent,
-    MemeTextInputComponent
+    MemeTextInputComponent,
+    MemeTextViewComponent
   ]
 })
 export class MemesModule {

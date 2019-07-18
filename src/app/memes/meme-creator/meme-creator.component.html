@@ -5,6 +5,7 @@
 
   <div class="create-table flex-center-absolute">
     <div class="create-preview animated fadeIn slower" *ngIf="isPreview">
+      <app-meme-text-view *ngIf="textMeme != null" [textMeme]="textMeme"></app-meme-text-view>
       <img [src]="imgURL || ''" alt="">
     </div>
     <div class="dropzone"
