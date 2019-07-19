@@ -158,5 +158,21 @@
 
 .home-copyright {
   text-align: center;
-  margin-bottom: 5px;
+  //margin-bottom: 5px;
+}
+
+.home-donate {
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+  border-radius: 50px;
+  width: 150px;
+  margin: 10px auto;
+  text-align: center;
+
+  a {
+    color: white !important;
+  }
+
+  &:hover {
+    background: #6b25fc;
+  }
 }
