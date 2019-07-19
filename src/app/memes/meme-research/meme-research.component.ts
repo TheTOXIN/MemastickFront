@@ -65,7 +65,7 @@ export class MemeResearchComponent {
 
   dipricated() {
     const modalRef = this.modalService.open(IntroModalComponent);
-    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.4 alpha';
+    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
     modalRef.componentInstance.title = 'ОЙ :(';
   }
 }
