@@ -14,4 +14,8 @@ export class LocalStorageService {
     const str = value ? 'true' : 'false';
     localStorage.setItem(this.PUSH_ASK, str);
   }
+
+  public clearAll() {
+    localStorage.clear();
+  }
 }

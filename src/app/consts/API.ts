@@ -38,5 +38,6 @@ export enum API {
   SEETING_ME = '/setting-users/me',
   SEETING_PUSH = '/setting-users/push',
   SEETING_FOLLOW = '/setting-followers/follow',
-  SEETING_FOLLOW_MY = '/setting-followers/my'
+  SEETING_FOLLOW_MY = '/setting-followers/my',
+  SECURITY_LOGOUT = '/security/logout'
 }

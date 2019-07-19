@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Cookie} from 'ng2-cookies';
 import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
+import {PushService} from './push-service';
+import {LocalStorageService} from './local-storage-service';
 
 @Injectable()
 export class OauthApiService {
@@ -19,6 +21,8 @@ export class OauthApiService {
   constructor(
     private router: Router,
     private http: HttpClient,
+    private push: PushService,
+    private storageService: LocalStorageService,
   ) {
     this.initStatuses();
   }
@@ -77,11 +81,17 @@ export class OauthApiService {
   }
 
   public logout() {
-    console.log('LOGOUT');
+    console.log('SECURITY_LOGOUT');
 
-    Cookie.delete(this.keyAccess);
-    Cookie.delete(this.keyRefresh);
-    Cookie.deleteAll();
+    this.push.tokener().then(token => {
+      this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
+
+      Cookie.delete(this.keyAccess);
+      Cookie.delete(this.keyRefresh);
+      Cookie.deleteAll();
+
+      this.storageService.clearAll();
+    });
 
     this.router.navigateByUrl('/start');
   }
