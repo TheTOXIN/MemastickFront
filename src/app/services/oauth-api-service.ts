@@ -6,6 +6,7 @@ import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
 import {PushService} from './push-service';
 import {LocalStorageService} from './local-storage-service';
+import {User} from '../model/User';
 
 @Injectable()
 export class OauthApiService {
@@ -46,12 +47,12 @@ export class OauthApiService {
       headers: headers
     };
 
-    return this.http.post(
-      API.OAUTH_TOKEN,
-      params.toString(),
-      options
-    ).pipe(
-      tap(data => this.saveToken(data))
+    return this.http
+      .post(API.OAUTH_TOKEN, params.toString(), options)
+      .pipe(tap(data => {
+        this.saveToken(data);
+        this.saveMe();
+      }),
     );
   }
 
@@ -108,6 +109,12 @@ export class OauthApiService {
     if (!Cookie.check(this.keyRefresh)) {
       Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
     }
+  }
+
+  public saveMe() {
+    this.http.get<User>(API.USER_ME).subscribe(data => {
+      this.storageService.setMe(data);
+    });
   }
 
   public addAuthorization(req: HttpRequest<any>, token: any) {

@@ -7,5 +7,4 @@ export enum NotifyType {
   ADMIN = 'ADMIN',
   CREATING = 'CREATING',
   ALLOWANCE = 'ALLOWANCE'
-
 }
