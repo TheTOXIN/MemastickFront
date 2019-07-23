@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {API} from '../../consts/API';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {LocalStorageService} from '../../services/local-storage-service';
 import {RoleType} from '../../consts/RoleType';
 import {AdminApiService} from '../../api/admin-api-service';
+import {AcceptComponent} from '../../shared/accpet/accept.component';
 
 @Component({
   selector: 'app-share-modal',
@@ -14,18 +14,21 @@ import {AdminApiService} from '../../api/admin-api-service';
 })
 export class ShareModalComponent implements OnInit {
 
+  @ViewChild(AcceptComponent) accept: AcceptComponent;
+
   @Input()
   public memeId: UUID;
   public memeURL;
 
-  public role: RoleType;
+  public role = RoleType.USER;
 
   constructor(
     public activeModal: NgbActiveModal,
     public storage: LocalStorageService,
     public adminApi: AdminApiService,
   ) {
-    this.role = this.storage.getMe().role;
+    const user = this.storage.getMe();
+    if (user != null) { this.role = user.role; }
   }
 
   ngOnInit() {
@@ -47,7 +50,13 @@ export class ShareModalComponent implements OnInit {
   }
 
   translateAdmin() {
-    this.adminApi.translate(this.memeId);
+    this.accept.show();
+  }
+
+  acceptTranslate(accept: boolean) {
+    if (accept) {
+      this.adminApi.translate(this.memeId);
+    }
   }
 
   share(source: string) {

@@ -19,6 +19,7 @@ import {PushRequestModalComponent} from './push-request-modal/push-request-modal
 import {EpiModalComponent} from './epi-modal/epi-modal.component';
 import {SocialsModalComponent} from './socials-modal/socials-modal.component';
 import {DnaModalComponent} from './dna-modal/dna-modal.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {DnaModalComponent} from './dna-modal/dna-modal.component';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    PinchZoomModule
+    PinchZoomModule,
+    SharedModule
   ],
   declarations: [
     IntroModalComponent,
