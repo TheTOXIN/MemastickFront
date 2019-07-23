@@ -7,7 +7,7 @@ import {PagesRoutingModule} from './pages-routing.module';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {ForgetPasswordComponent} from './forget-password/forget-password.component';
-import {ThankYouComponent} from './thank-you/thank-you.component';
+import {InviteRegComponent} from './invite-reg/invite-reg.component';
 import {ReviewComponent} from './review/review.component';
 import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
@@ -28,7 +28,7 @@ import {ModalsModule} from '../modals/modals.module';
     SignInComponent,
     SignUpComponent,
     ForgetPasswordComponent,
-    ThankYouComponent,
+    InviteRegComponent,
     ReviewComponent,
     FaqComponent,
     DownloadComponent,

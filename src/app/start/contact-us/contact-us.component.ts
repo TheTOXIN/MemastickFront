@@ -35,7 +35,6 @@ export class ContactUsComponent implements OnInit {
       this.contactForm.value.email,
       this.contactForm.value.nick
     );
-    this.router.navigateByUrl('/pages/thank-you');
+    this.router.navigateByUrl('/pages/invite-reg');
   }
-
 }
