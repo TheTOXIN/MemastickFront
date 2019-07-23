@@ -1,16 +1,11 @@
-import {Component, Injectable, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
-import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
-import {DomSanitizer} from '@angular/platform-browser';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
-import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
-import {ErrorStatus} from '../../consts/ErrorStatus';
 import {ErrorHandlerService} from '../../services/error-handler-service';
+import {AcceptComponent} from '../../shared/accpet/accept.component';
+import {tokenIcons} from '../../model/TokenData';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -19,10 +14,12 @@ import {ErrorHandlerService} from '../../services/error-handler-service';
 })
 export class EvolveSurvivalComponent implements OnInit {
 
-  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
+  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
 
   public status;
   public message;
+  public type;
+  public img;
 
   @Input()
   public evolve: EvolveMeme;
@@ -30,8 +27,10 @@ export class EvolveSurvivalComponent implements OnInit {
   constructor(
     private tokenAcceptApi: TokenAcceptApiService
   ) {
+    this.type = TokenType.ANTIBIOTIC;
     this.status = LoaderStatus.NONE;
     this.message = '';
+    this.img = tokenIcons[this.type];
   }
 
   ngOnInit() {
@@ -40,10 +39,10 @@ export class EvolveSurvivalComponent implements OnInit {
   chance() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить антибиотик?';
-    this.tokenAccept.show(TokenType.ANTIBIOTIC);
+    this.tokenAccept.show();
   }
 
-  acceptAntibioticResult(accpet: boolean) {
+  acceptTokenResult(accpet: boolean) {
     if (accpet) {
       this.increaseChance();
     } else {
@@ -52,7 +51,7 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   increaseChance() {
-    this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.ANTIBIOTIC).subscribe(
+    this.tokenAcceptApi.accept(this.evolve.memeId, this.type).subscribe(
       () => this.successChance(),
       (error) => this.errorChance(error)
     );
