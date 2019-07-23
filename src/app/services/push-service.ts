@@ -2,12 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import * as firebase from 'firebase';
-import {HttpClient} from '@angular/common/http';
-import {API} from '../consts/API';
-import {PasswordApiService} from '../api/password-api-service';
 import {PushApiService} from '../api/push-api-service';
-import {LocalStorageService} from './local-storage-service';
-import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class PushService {
@@ -21,7 +16,7 @@ export class PushService {
     try {
       this.messaging = firebase.messaging();
     } catch (e) {
-      console.log('Push not supported');
+      console.log('Push not supported' + e);
     }
 
     this.currentMessage = new BehaviorSubject(null);

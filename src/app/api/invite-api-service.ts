@@ -7,15 +7,13 @@ export class InviteApiService {
 
   constructor(private http: HttpClient) {}
 
-  public sendInvite(email, nick) {
-    this.http.post(
+  public regInvite(email, nick) {
+    return this.http.post(
       API.INVITE_REGISTRATION,
       {
         email: email,
         nick: nick
       }
-    ).subscribe(() => {
-      console.log('SEND INVITE: email = ' + email + ' nick = ' + nick);
-    });
+    );
   }
 }

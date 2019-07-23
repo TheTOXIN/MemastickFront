@@ -31,7 +31,7 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.sendInvite(
+    this.service.regInvite(
       this.contactForm.value.email,
       this.contactForm.value.nick
     );
