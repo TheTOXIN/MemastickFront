@@ -3,6 +3,9 @@ import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {API} from '../../consts/API';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {LocalStorageService} from '../../services/local-storage-service';
+import {RoleType} from '../../consts/RoleType';
+import {AdminApiService} from '../../api/admin-api-service';
 
 @Component({
   selector: 'app-share-modal',
@@ -13,12 +16,16 @@ export class ShareModalComponent implements OnInit {
 
   @Input()
   public memeId: UUID;
-
   public memeURL;
 
+  public role: RoleType;
+
   constructor(
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    public storage: LocalStorageService,
+    public adminApi: AdminApiService,
   ) {
+    this.role = this.storage.getMe().role;
   }
 
   ngOnInit() {
@@ -37,6 +44,10 @@ export class ShareModalComponent implements OnInit {
 
   vk() {
     this.share('https://vk.com/share.php?url=');
+  }
+
+  translateAdmin() {
+    this.adminApi.translate(this.memeId);
   }
 
   share(source: string) {

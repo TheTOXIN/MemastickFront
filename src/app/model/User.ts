@@ -4,9 +4,9 @@ import {RoleType} from '../consts/RoleType';
 export class User {
 
   constructor(
-    private id: UUID,
-    private login: String,
-    private role: RoleType
+    public id: UUID,
+    public login: String,
+    public role: RoleType
   ) {
 
   }

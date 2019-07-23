@@ -48,6 +48,7 @@ import {SettingApiService} from './api/setting-api-service';
 import {LocalStorageService} from './services/local-storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
 import {AngularFittextModule} from 'angular-fittext';
+import {AdminApiService} from './api/admin-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -101,6 +102,7 @@ firebase.initializeApp(environment.firebase);
     NotifyBellApiService,
     SettingApiService,
     PushApiService,
+    AdminApiService,
     LocalStorageService,
     ErrorHandlerService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
