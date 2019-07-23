@@ -16,6 +16,7 @@ import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NotificationComponent} from './notification/notification.component';
 import {TimerComponent} from './timer/timer.component';
 import {ModalLinkComponent} from './modal-link/modal-link.component';
+import {AcceptComponent} from './accpet/accept.component';
 
 @NgModule({
   exports: [
@@ -28,7 +29,8 @@ import {ModalLinkComponent} from './modal-link/modal-link.component';
     MemLogoComponent,
     NotificationComponent,
     TimerComponent,
-    ModalLinkComponent
+    ModalLinkComponent,
+    AcceptComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import {ModalLinkComponent} from './modal-link/modal-link.component';
     MemLogoComponent,
     NotificationComponent,
     TimerComponent,
-    ModalLinkComponent
+    ModalLinkComponent,
+    AcceptComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

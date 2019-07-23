@@ -7,6 +7,7 @@ import {API} from '../consts/API';
 import {PasswordApiService} from '../api/password-api-service';
 import {PushApiService} from '../api/push-api-service';
 import {LocalStorageService} from './local-storage-service';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class PushService {
@@ -27,7 +28,7 @@ export class PushService {
   }
 
   requester() {
-    if (this.messaging == null) { return; }
+    if (!this.work()) { return; }
 
     return this.messaging.requestPermission()
       .then(() => alert('PUSH уведомления разрешены'))
@@ -36,7 +37,7 @@ export class PushService {
   }
 
   register() {
-    if (this.messaging == null) { return; }
+    if (!this.work()) { return; }
 
     this.messaging.getToken().then((token) => {
       if (token == null) { return; }
@@ -47,5 +48,9 @@ export class PushService {
 
   tokener() {
     return this.messaging.getToken();
+  }
+
+  work() {
+    return this.messaging != null;
   }
 }

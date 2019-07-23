@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-meme-text-input',
@@ -27,8 +28,8 @@ export class MemeTextInputComponent implements OnInit {
   done() {
     this.isShow = false;
 
-    if (this.textMeme.length > GlobalConst.MAX_TEXT_LEN) {
-      this.textMeme = this.textMeme.substring(0, GlobalConst.MAX_TEXT_LEN);
+    if (this.textMeme != null && this.textMeme.length > ValidConst.MAX_MEME_TEXT) {
+      this.textMeme = this.textMeme.substring(0, ValidConst.MAX_MEME_TEXT);
     }
 
     this.doneEvent.emit(this.textMeme);

@@ -6,7 +6,6 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorStatus} from '../../consts/ErrorStatus';
 import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
-import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {ValidConst} from '../../consts/ValidConst';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';

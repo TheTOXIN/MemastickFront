@@ -84,17 +84,24 @@ export class OauthApiService {
   public logout() {
     console.log('SECURITY_LOGOUT');
 
-    this.push.tokener().then(token => {
-      this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
-
-      Cookie.delete(this.keyAccess);
-      Cookie.delete(this.keyRefresh);
-      Cookie.deleteAll();
-
-      this.storageService.clearAll();
-    });
+    if (this.push.work()) {
+      this.push.tokener().then(token => {
+        this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
+        this.clearData();
+      });
+    } else {
+      this.clearData();
+    }
 
     this.router.navigateByUrl('/start');
+  }
+
+  private clearData() {
+    Cookie.delete(this.keyAccess);
+    Cookie.delete(this.keyRefresh);
+    Cookie.deleteAll();
+
+    this.storageService.clearAll();
   }
 
   public saveToken(token) {
