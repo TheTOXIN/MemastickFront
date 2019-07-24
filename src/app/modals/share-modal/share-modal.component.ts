@@ -2,7 +2,7 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {GlobalConst} from '../../consts/GlobalConst';
-import {LocalStorageService} from '../../services/local-storage-service';
+import {StorageService} from '../../services/storage-service';
 import {RoleType} from '../../consts/RoleType';
 import {AdminApiService} from '../../api/admin-api-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
@@ -24,7 +24,7 @@ export class ShareModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    public storage: LocalStorageService,
+    public storage: StorageService,
     public adminApi: AdminApiService,
   ) {
     const user = this.storage.getMe();

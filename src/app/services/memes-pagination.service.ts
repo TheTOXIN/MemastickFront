@@ -11,6 +11,7 @@ import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 import {MemeFilter} from '../consts/MemeFilter';
 import {UUID} from 'angular2-uuid';
 import {GlobalConst} from '../consts/GlobalConst';
+import {StorageService} from './storage-service';
 
 interface QueryConfig {
   page: number;
@@ -39,13 +40,16 @@ export class MemesPaginationService {
     private afs: AngularFirestore,
     private memeApi: MemeApiService,
     private avatarApi: MemetickAvatarApiService,
+    private storage: StorageService
   ) {
 
   }
 
   init(sizePage, sortFiled, isReverse, filter, step, memetick) {
+    const page = this.storage.getMemePage(filter);
+
     this.query = {
-      page: 0,
+      page: page,
       size: sizePage,
       sort: sortFiled,
       reverse: isReverse,
@@ -108,6 +112,7 @@ export class MemesPaginationService {
   }
 
   private next(pages: MemeData[]) {
+    this.storage.setMemePage(this.query.filter, this.query.page);
     this._data.next(pages);
     this._loading.next(false);
     this.query.page++;

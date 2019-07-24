@@ -5,7 +5,7 @@ import {Cookie} from 'ng2-cookies';
 import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
 import {PushService} from './push-service';
-import {LocalStorageService} from './local-storage-service';
+import {StorageService} from './storage-service';
 import {User} from '../model/User';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class OauthApiService {
     private router: Router,
     private http: HttpClient,
     private push: PushService,
-    private storageService: LocalStorageService,
+    private storageService: StorageService,
   ) {
     this.initStatuses();
   }

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {WINDOW} from '../../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {StorageService} from '../../services/storage-service';
 
 @Component({
   selector: 'app-memes-panel',
@@ -42,6 +43,7 @@ export class MemesPanelComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private storage: StorageService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -66,8 +68,8 @@ export class MemesPanelComponent implements OnInit {
   }
 
   update() {
-    this.router.navigateByUrl('/memes');
-    this.currentStep = null;
+    this.storage.remMemePage(this.modePanel);
+    window.location.reload();
   }
 
   show() {

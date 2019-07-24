@@ -11,7 +11,7 @@ import * as randomEmoji from 'random-emoji';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {NotifyType} from '../consts/NotifyType';
-import {LocalStorageService} from '../services/local-storage-service';
+import {StorageService} from '../services/storage-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {ShareModalComponent} from '../modals/share-modal/share-modal.component';
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private storageService: LocalStorageService,
+    private storageService: StorageService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
