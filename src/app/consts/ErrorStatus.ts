@@ -1,6 +1,0 @@
-export enum ErrorStatus {
-  LESS_TOKEN = 'LESS_TOKEN',
-  CELL_SMALL = 'CELL_SMALL',
-  NOT_ACCEPTABLE = 'NOT_ACCEPTABLE',
-  TOKEN_SELF = 'TOKEN_SELF'
-}

@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {ErrorStatus} from '../../consts/ErrorStatus';
+import {ErrorCode} from '../../consts/ErrorCode';
 import {TokenApiService} from '../../api/token-api-service';
 import {TokenType} from '../../consts/TokenType';
 import {ValidConst} from '../../consts/ValidConst';
@@ -111,7 +111,7 @@ export class MemeCreatorComponent implements OnInit {
   createError(error: any) {
     let errorMessage = '';
 
-    if (error.error.code === ErrorStatus.CELL_SMALL) {
+    if (error.error.code === ErrorCode.CELL_SMALL) {
       errorMessage = 'Клетка не выросла!';
     } else {
       errorMessage = 'Ошибка создания';

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InviteApiService} from '../../api/invite-api-service';
 import {ValidConst} from '../../consts/ValidConst';
+import {ErrorCode} from '../../consts/ErrorCode';
 
 @Component({
   selector: 'app-invite-reg',
@@ -10,7 +11,8 @@ import {ValidConst} from '../../consts/ValidConst';
 })
 export class InviteRegComponent implements OnInit {
 
-  public text = 'Длина ника от 3 до 16 символов';
+  public text: string;
+  public load: boolean;
 
   contactForm: FormGroup;
   showFrom = true;
@@ -19,6 +21,8 @@ export class InviteRegComponent implements OnInit {
     private fb: FormBuilder,
     private service: InviteApiService,
   ) {
+    this.text = 'Длина ника от 3 до 16 символов';
+    this.load = false;
   }
 
   ngOnInit() {
@@ -33,13 +37,23 @@ export class InviteRegComponent implements OnInit {
   }
 
   onSubmit() {
+    this.load = true;
+
     this.service.regInvite(
       this.contactForm.value.email,
       this.contactForm.value.nick
     ).subscribe(() => {
       this.showFrom = false;
-    }, () => {
-      this.text = 'Ошибка отправки, попробуйте позже';
+      this.load = false;
+    }, (data) => {
+      if (data.error.code === ErrorCode.TIME_IN) {
+        this.text = 'Вы уже отправляли запрос, попробуйте позже';
+      } else if (data.error.code === ErrorCode.EMAIL_NOT_SEND) {
+        this.text = 'Не удалось отправить инвайт на почту';
+      } else {
+        this.text = 'Ошибка, попробуйте в другой раз';
+      }
+      this.load = false;
     });
   }
 }

@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
-import {ErrorStatus} from '../consts/ErrorStatus';
+import {ErrorCode} from '../consts/ErrorCode';
 
 @Injectable()
 export class ErrorHandlerService {
 
-  static tokenError(status: ErrorStatus) {
-    if (status === ErrorStatus.LESS_TOKEN) {
+  static tokenError(status: ErrorCode) {
+    if (status === ErrorCode.LESS_TOKEN) {
       return 'Нужен токен!';
-    } else if (status === ErrorStatus.TOKEN_SELF) {
+    } else if (status === ErrorCode.TOKEN_SELF) {
       return 'Это ваш мем!';
     } else {
       return 'Ошибка применения токена!';

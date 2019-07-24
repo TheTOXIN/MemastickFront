@@ -13,7 +13,7 @@
       <img alt="thanks" class="img-fluid" src="assets/images/thanks.gif">
       <div >
         <h3 class="mb-4">Завявка отправленна! Спасибо за участие! Скоро инвайт код придёт к вам на почту.</h3>
-       <p class="mb-4">P.s Если вы там ничего нового не увидели, попробуйте позже или чекните спам</p>
+        <p class="mb-4">P.s Если вы там ничего нового не увидели, попробуйте позже или чекните спам</p>
       </div>
     </div>
 
@@ -21,7 +21,10 @@
       <div class="section-title">
         <h2>ИНВАЙТ</h2>
         <span class="msg-invite">*сервис находится в процессе разработки, но ты можешь получить инвайт код для тестирования*</span>
-        <p class="txt-invite">{{text}}</p>
+        <div class="invite-reg-info">
+          <p *ngIf="!load" class="txt-invite animated bounceIn">{{text}}</p>
+          <i *ngIf="load" class="fa fa-circle-o-notch fa-spin sign-spinner"></i>
+        </div>
       </div>
       <form class="auth-form" (ngSubmit)="onSubmit()">
         <div class="form-group">
