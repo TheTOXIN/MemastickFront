@@ -16,6 +16,7 @@ import {PushRequestModalComponent} from '../modals/push-request-modal/push-reque
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {ShareModalComponent} from '../modals/share-modal/share-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
+import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -119,6 +120,10 @@ export class HomeComponent implements OnInit {
 
   socNet() {
     this.modalService.open(SocialsModalComponent, {'centered': true});
+  }
+
+  donate() {
+    this.modalService.open(DonatModalComponent, {'centered': true});
   }
 
   toStart() {

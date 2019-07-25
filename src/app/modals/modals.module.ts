@@ -20,6 +20,7 @@ import {EpiModalComponent} from './epi-modal/epi-modal.component';
 import {SocialsModalComponent} from './socials-modal/socials-modal.component';
 import {DnaModalComponent} from './dna-modal/dna-modal.component';
 import {SharedModule} from '../shared/shared.module';
+import {DonatModalComponent} from './donat-modal/donat-modal.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {SharedModule} from '../shared/shared.module';
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,
-    DnaModalComponent
+    DnaModalComponent,
+    DonatModalComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import {SharedModule} from '../shared/shared.module';
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,
-    DnaModalComponent
+    DnaModalComponent,
+    DonatModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -79,7 +82,8 @@ import {SharedModule} from '../shared/shared.module';
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,
-    DnaModalComponent
+    DnaModalComponent,
+    DonatModalComponent
   ]
 })
 export class ModalsModule {
