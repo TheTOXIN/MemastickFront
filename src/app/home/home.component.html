@@ -10,7 +10,7 @@
         <app-spinner *ngIf="isLoad"></app-spinner>
       </div>
       <div class="home-table home-table-hello" *ngIf="!isLoad">
-        <p class="home-hello animated tada">{{emoji}} ПРИВЕТ {{home?.nick}} !!!</p>
+        <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
         <p class="home-info">{{home?.message}}</p>
       </div>
     </div>

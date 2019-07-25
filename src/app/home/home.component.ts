@@ -31,12 +31,13 @@ export class HomeComponent implements OnInit {
   myParams: object = {};
 
   isLoad = true;
-  role: RoleType = RoleType.USER;
+  showLogo = true;
 
-  public emoji: any;
-  public showLogo = true;
+  public isHello;
+  public hello;
 
   public home: Home;
+  public role: RoleType = RoleType.USER;
 
   constructor(
     private router: Router,
@@ -53,7 +54,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.initParticles();
-    this.initEmoji();
     this.initMe();
   }
 
@@ -67,15 +67,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private initEmoji() {
-    this.emoji = randomEmoji.random({count: 1})[0].character;
-  }
-
   private initMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
       this.askPush();
+      this.initHello();
     });
   }
 
@@ -83,6 +80,20 @@ export class HomeComponent implements OnInit {
     if (this.storage.getPushAsk()) {
       this.modalService.open(PushRequestModalComponent, {'centered': true});
     }
+  }
+
+  initHello() {
+    let hello = this.storage.getHello();
+
+    this.isHello = hello == null;
+
+    if (this.isHello) {
+      const emoji = randomEmoji.random({count: 1})[0].character;
+      hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
+      this.storage.setHello(hello);
+    }
+
+    this.hello = hello;
   }
 
   memes(filter: MemeFilter) {
