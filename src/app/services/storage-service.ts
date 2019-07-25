@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
+import {RoleType} from '../consts/RoleType';
 
 @Injectable()
 export class StorageService {
@@ -22,6 +23,15 @@ export class StorageService {
   public getMe(): User {
     const value = localStorage.getItem(this.ME);
     return <User>JSON.parse(value);
+  }
+
+  public getRole() {
+    const user = this.getMe();
+    if (user != null) {
+      return user.role;
+    } else {
+      return RoleType.USER;
+    }
   }
 
   public setMe(me: User) {

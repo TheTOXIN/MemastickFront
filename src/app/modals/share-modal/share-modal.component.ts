@@ -27,8 +27,7 @@ export class ShareModalComponent implements OnInit {
     public storage: StorageService,
     public adminApi: AdminApiService,
   ) {
-    const user = this.storage.getMe();
-    if (user != null) { this.role = user.role; }
+    this.role = this.storage.getRole();
   }
 
   ngOnInit() {

@@ -41,5 +41,7 @@ export enum API {
   SEETING_FOLLOW_MY = '/setting-followers/my',
   SECURITY_LOGOUT = '/security/logout',
   USER_ME = '/user/me',
-  ADMIN_TRANSALTE = '/admin-translate'
+  ADMIN_TRANSALTE = '/admin-translate',
+  INVITE_READ = '/invites',
+  INVITE_SEND = '/invite/send',
 }

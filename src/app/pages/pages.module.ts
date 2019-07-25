@@ -14,6 +14,7 @@ import {DownloadComponent} from './download/download.component';
 import {ComingSoonComponent} from './coming-soon/coming-soon.component';
 import {RequestFormComponent} from './request-form/request-form.component';
 import {ModalsModule} from '../modals/modals.module';
+import {AdminComponent} from './admin/admin.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {ModalsModule} from '../modals/modals.module';
     FaqComponent,
     DownloadComponent,
     ComingSoonComponent,
-    RequestFormComponent
+    RequestFormComponent,
+    AdminComponent
   ]
 })
 export class PagesModule {

@@ -10,13 +10,12 @@ import {DomSanitizer} from '@angular/platform-browser';
 import * as randomEmoji from 'random-emoji';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
-import {NotifyType} from '../consts/NotifyType';
 import {StorageService} from '../services/storage-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
-import {ShareModalComponent} from '../modals/share-modal/share-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
+import {RoleType} from '../consts/RoleType';
 
 @Component({
   selector: 'app-home',
@@ -25,12 +24,14 @@ import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 })
 export class HomeComponent implements OnInit {
 
+  filters = MemeFilter;
+  roles = RoleType;
+
   myStyle: object = {};
   myParams: object = {};
 
-  filters = MemeFilter;
-
   isLoad = true;
+  role: RoleType = RoleType.USER;
 
   private messages = [
     'Мемастик в процессе разработки, не ругайте нас',
@@ -60,11 +61,12 @@ export class HomeComponent implements OnInit {
     private mainApi: MainApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private storageService: StorageService,
+    private storage: StorageService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
+    this.role = this.storage.getRole();
   }
 
   ngOnInit() {
@@ -96,7 +98,7 @@ export class HomeComponent implements OnInit {
   }
 
   askPush() {
-    if (this.storageService.getPushAsk()) {
+    if (this.storage.getPushAsk()) {
       this.modalService.open(PushRequestModalComponent, {'centered': true});
     }
   }
@@ -128,6 +130,10 @@ export class HomeComponent implements OnInit {
 
   toStart() {
     this.router.navigateByUrl('/start');
+  }
+
+  toAdmin() {
+    this.router.navigateByUrl('/pages/admin');
   }
 
   initParticles() {

@@ -1,0 +1,31 @@
+<h1 [style.color]="'black'">АДМИНКА</h1>
+<div>
+  <h2>Инвайты:</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">email</th>
+      <th scope="col">nick</th>
+      <th scope="col">code</th>
+      <th scope="col">dateSend</th>
+      <th scope="col">dateCreate</th>
+      <th scope="col">isSend</th>
+      <th scope="col">isTake</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let invite of codes; index as i">
+      <td scope="row">{{ i + 1 }}</td>
+      <td>{{ invite.email }}</td>
+      <td>{{ invite.nick }}</td>
+      <td>{{ invite.code }}</td>
+      <td>{{ invite.dateSend }}</td>
+      <td>{{ invite.dateCreate }}</td>
+      <td>{{ invite.send }}</td>
+      <td>{{ invite.take }}</td>
+      <button type="button" class="btn btn-primary" (click)="sendInvite(invite)">SEND</button>
+    </tr>
+    </tbody>
+  </table>
+</div>

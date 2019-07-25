@@ -56,7 +56,7 @@ firebase.initializeApp(environment.firebase);
   declarations: [
     AppComponent,
     BlogComponent,
-    ErrorPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
