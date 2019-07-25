@@ -105,6 +105,7 @@ firebase.initializeApp(environment.firebase);
     AdminApiService,
     StorageService,
     ErrorHandlerService,
+    AppComponent,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

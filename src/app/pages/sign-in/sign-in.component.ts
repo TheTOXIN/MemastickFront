@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
     private oauth: OauthApiService,
     private router: Router,
     private push: PushService,
-    private socket: WebSocketService
+    private socket: WebSocketService,
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -98,9 +98,7 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.router
-      .navigateByUrl('/home')
-      .then(() => window.location.reload());
+    this.toHome();
 
     this.socket.connect();
     this.push.register();

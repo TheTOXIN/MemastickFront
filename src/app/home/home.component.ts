@@ -16,6 +16,7 @@ import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private storage: StorageService,
+    private app: AppComponent,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -55,6 +57,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.initParticles();
     this.initMe();
+    this.initControl();
   }
 
   @HostListener('window:scroll', [])
@@ -74,6 +77,10 @@ export class HomeComponent implements OnInit {
       this.askPush();
       this.initHello();
     });
+  }
+
+  private initControl() {
+    this.app.control(true);
   }
 
   askPush() {

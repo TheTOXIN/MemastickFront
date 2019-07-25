@@ -1,8 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {OauthApiService} from './services/oauth-api-service';
-import {ControlComponent} from './control/control.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +20,7 @@ export class AppComponent {
   ) {
     if (oauth.checkTokens()) {
       this.notify();
-      this.controlWork = true;
+      this.control(true);
     }
   }
 
@@ -32,5 +31,9 @@ export class AppComponent {
         this.notification.show(notify);
       }
     });
+  }
+
+  public control(val: boolean) {
+    this.controlWork = val;
   }
 }
