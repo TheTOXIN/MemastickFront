@@ -66,7 +66,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
-          this.oauthApi.logout();
+          if (!req.url.includes(API.SECURITY_LOGOUT)) { this.oauthApi.logout(); }
           return throwError(err);
         }),
         finalize(() => {

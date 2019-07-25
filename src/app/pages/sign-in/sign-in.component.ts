@@ -98,7 +98,9 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.toHome();
+    this.router
+      .navigateByUrl('/home')
+      .then(() => window.location.reload());
 
     this.socket.connect();
     this.push.register();

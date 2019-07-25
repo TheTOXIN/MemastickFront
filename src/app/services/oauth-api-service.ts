@@ -93,7 +93,9 @@ export class OauthApiService {
       this.clearData();
     }
 
-    this.router.navigateByUrl('/start');
+    this.router
+      .navigateByUrl('/start')
+      .then(() => window.location.reload());
   }
 
   private clearData() {
