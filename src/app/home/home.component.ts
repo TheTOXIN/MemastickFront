@@ -33,27 +33,10 @@ export class HomeComponent implements OnInit {
   isLoad = true;
   role: RoleType = RoleType.USER;
 
-  private messages = [
-    'Мемастик в процессе разработки, не ругайте нас',
-    'Чувствуй себя как дома! (но не очень сильно)',
-    'Мемы - это лучшее на что ты можешь потратить свое время',
-    'Новый день! Новый мем!',
-    'Вы не создаете мемы на свой страх и риск!',
-    'Мемы спасут мир от войны',
-    'Много хромосом, это хорошо или плохо?',
-    'Сделал мемас, гуляй как...',
-    'Мем мне в печень, и я счастлив вечен',
-    'Ааа ну это уже какая то страшилка получается',
-    'Помните и уважайте пожилые мемы',
-    'МУТАГЕН->КРОССОВЕР->МИКРОСКОП->АНТИБИОТИК->ПРОБИРКА'
-  ];
-
   public emoji: any;
-  public message: String;
+  public showLogo = true;
 
   public home: Home;
-
-  public showLogo = true;
 
   constructor(
     private router: Router,
@@ -65,7 +48,6 @@ export class HomeComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-    this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
     this.role = this.storage.getRole();
   }
 
