@@ -3,8 +3,11 @@ import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
 
+// LOCAL
 const PUSH_ASK = 'PUSH_ASK';
 const ME = 'ME';
+
+// SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const HELLO = 'HELLO';
 
@@ -40,10 +43,6 @@ export class StorageService {
     localStorage.setItem(ME, value);
   }
 
-  public clearAll() {
-    localStorage.clear();
-  }
-
   public getMemePage(filter: MemeFilter) {
     let page = +sessionStorage.getItem(MEME_PAGE + filter);
     if (page == null) { page = 0; }
@@ -64,5 +63,9 @@ export class StorageService {
 
   public setHello(hello: string) {
     sessionStorage.setItem(HELLO, hello);
+  }
+
+  public clearLogOut() {
+    localStorage.removeItem(ME);
   }
 }
