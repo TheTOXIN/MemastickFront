@@ -44,4 +44,5 @@ export enum API {
   ADMIN_TRANSALTE = '/admin-translate',
   INVITE_READ = '/invites',
   INVITE_SEND = '/invite/send',
+  MEME_COINS_HITORY = '/meme-coins/history',
 }

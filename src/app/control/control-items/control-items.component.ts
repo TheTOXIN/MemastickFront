@@ -7,6 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 import {TokenData, tokensData} from '../../model/TokenData';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
+import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 
 export class Item {
   constructor (
@@ -103,6 +104,6 @@ export class ControlItemsComponent implements OnInit {
   }
 
   memecoinHistory() {
-    alert('TEST');
+    this.modalService.open(MemeCoinHistoryModalComponent, {'centered': true});
   }
 }

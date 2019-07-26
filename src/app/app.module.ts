@@ -49,6 +49,7 @@ import {StorageService} from './services/storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
 import {AngularFittextModule} from 'angular-fittext';
 import {AdminApiService} from './api/admin-api-service';
+import {MemeCoinsApiService} from './api/meme-coins-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -105,6 +106,7 @@ firebase.initializeApp(environment.firebase);
     AdminApiService,
     StorageService,
     ErrorHandlerService,
+    MemeCoinsApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
