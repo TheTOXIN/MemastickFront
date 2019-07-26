@@ -45,7 +45,32 @@
 .memetick-online {
   font-family: FuturaRound, serif;
   font-size: 18px;
-  margin-top: 16px;
+  margin-top: 10px;
+}
+
+.memetick-coins {
+  text-align: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+
+  border-style: dotted;
+  border-radius: 15px;
+  border-width: 3px;
+
+  width: 150px;
+
+  div {
+    display: inline-block;
+    font-size: 32px;
+    font-family: Gost, serif;
+  }
+
+  img {
+    width: 36px;
+    margin-left: 5px;
+  }
 }
 
 .memetick-button {

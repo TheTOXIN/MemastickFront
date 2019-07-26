@@ -55,6 +55,13 @@ export class ControlItemsComponent implements OnInit {
   initInventory() {
     this.inventory = [];
 
+    this.inventory[this.inventory.length] = new Item(
+      'assets/images/icon/memcoin.png',
+      'Мемкойны',
+      this.data.memecoins,
+      () => this.memecoinHistory()
+    );
+
     if (this.data.allowance) {
       this.inventory[this.inventory.length] = new Item(
         'assets/images/icon/allowance.png',
@@ -93,5 +100,9 @@ export class ControlItemsComponent implements OnInit {
   openAllowance() {
     const modalRef = this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
     modalRef.result.then(() => {}, () => this.ngOnInit());
+  }
+
+  memecoinHistory() {
+    alert('TEST');
   }
 }

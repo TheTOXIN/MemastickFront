@@ -9,6 +9,10 @@
         <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
         <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
       </div>
+      <div class="memetick-coins text-strong-middle">
+        <div>{{memetick?.memecoins}}</div>
+        <img src="assets/images/icon/memcoin.png">
+      </div>
     </div>
   </div>
   <div class="row">
