@@ -1,3 +1,5 @@
 export enum ModalType {
-  ALLOWANCE = 'ALLOWANCE'
+  ALLOWANCE = 'ALLOWANCE',
+  MEMECOIN = 'MEMECOIN',
+  DNA = 'DNA'
 }
