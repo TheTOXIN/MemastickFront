@@ -26,6 +26,10 @@ export const rootRouterConfig: Routes = [
     loadChildren: './pages/pages.module#PagesModule'
   },
   {
+    path: 'shop',
+    loadChildren: './shop/shop.module#ShopModule'
+  },
+  {
     path: 'modal',
     component: ModalLinkComponent
   },

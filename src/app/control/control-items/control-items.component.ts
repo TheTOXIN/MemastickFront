@@ -57,7 +57,7 @@ export class ControlItemsComponent implements OnInit {
     this.inventory = [];
 
     this.inventory[this.inventory.length] = new Item(
-      'assets/images/icon/memcoin.png',
+      'assets/images/icon/memecoin.png',
       'Мемкойны',
       this.data.memecoins,
       () => this.memecoinHistory()

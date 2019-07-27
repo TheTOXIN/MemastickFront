@@ -13,9 +13,7 @@ export class AcceptComponent implements OnInit {
   @Input()
   public img: string;
 
-  @Input()
-  public txt: string;
-
+  public text: string;
   public isShow = false;
 
   constructor() {
@@ -26,7 +24,8 @@ export class AcceptComponent implements OnInit {
 
   }
 
-  show() {
+  show(text?: string) {
+    this.text = text;
     this.isShow = true;
   }
 

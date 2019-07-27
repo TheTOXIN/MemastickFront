@@ -40,7 +40,7 @@ export class ControlScopeComponent implements OnInit {
   }
 
   shop() {
-    this.dipricated();
+    this.router.navigateByUrl('/shop');
   }
 
   battle() {

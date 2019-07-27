@@ -45,4 +45,5 @@ export enum API {
   INVITE_READ = '/invites',
   INVITE_SEND = '/invite/send',
   MEME_COINS_HITORY = '/meme-coins/history',
+  SHOP_TEST = '/shop/test',
 }

@@ -64,7 +64,7 @@ export class NotificationComponent {
       this.img = 'assets/images/tokens/tmp.png';
       this.inf = '!!!';
     } else if (notify.type === NotifyType.MEME_COIN) {
-      this.img = 'assets/images/icon/memcoin.png';
+      this.img = 'assets/images/icon/memecoin.png';
       this.inf = notify.data;
     }
   }
