@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {API} from '../consts/API';
 import {MemeCoin} from '../model/MemeCoin';
 import {Observable} from 'rxjs/Observable';
+import {Page} from '../model/Page';
 
 @Injectable()
 export class MemeCoinsApiService {
@@ -12,7 +13,7 @@ export class MemeCoinsApiService {
   ) {
   }
 
-  public history(page, size, sort): Observable<MemeCoin[]> {
+  public history(page, size, sort): Observable<Page<MemeCoin[]>> {
 
     const params = new HttpParams()
       .set('page', page)
@@ -24,7 +25,7 @@ export class MemeCoinsApiService {
       .set('Content-Type', 'application/json');
 
     return this.http
-      .get<MemeCoin[]>(API.MEME_COINS_HITORY, {headers, params})
+      .get<Page<MemeCoin[]>>(API.MEME_COINS_HITORY, {headers, params})
       .pipe();
   }
 }

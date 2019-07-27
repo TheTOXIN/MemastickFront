@@ -9,13 +9,15 @@ import {Observable} from 'rxjs';
   templateUrl: './meme-coin-history-modal.component.html',
   styleUrls: ['./meme-coin-history-modal.component.scss']
 })
-export class MemeCoinHistoryModalComponent implements OnInit{
+export class MemeCoinHistoryModalComponent implements OnInit {
 
   public history: MemeCoin[] = [];
+  public collectionSize = 21;
 
-  page = 0;
+  pageCurrent = 0;
   pageSize = 3;
-  collectionSize = 0;
+
+  isLoad = true;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -25,11 +27,18 @@ export class MemeCoinHistoryModalComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+  }
+
+  public getHistory () {
+    this.isLoad = true;
+
     this.coinsApi
-      .history(this.page, this.pageSize, 'creating,desc')
+      .history(this.pageCurrent - 1, this.pageSize, 'creating,desc')
       .subscribe(data => {
-        this.history = data;
-        this.collectionSize = data.length;
+        this.history = data.content;
+        this.collectionSize = data.totalElements;
+        this.isLoad = false;
       });
   }
 }

@@ -1,6 +1,6 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title">ИСТОРИЯ ТРАНЗАКЦИЙ</span>
+    <span class="modal-title">ТРАНЗАКЦИИ</span>
   </div>
   <div class="modal-body">
 
@@ -8,13 +8,18 @@
       <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Рост</th>
         <th scope="col">Значение</th>
         <th scope="col">Дата</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let transaction of history; index as i">
-        <td scope="row">{{ i + 1 }}</td>
+        <td scope="row">{{ i + pageCurrent * pageSize - pageSize + 1}}</td>
+        <td>
+          <i *ngIf="transaction.value > 0" class="fa fa-chevron-up" [style.color]="'green'"></i>
+          <i *ngIf="transaction.value < 0" class="fa fa-chevron-down" [style.color]="'red'"></i>
+        </td>
         <td>
           <span *ngIf="transaction.value > 0">+</span>{{transaction.value}}
           <img [src]="'assets/images/icon/memcoin.png'" class="mr-2" style="width: 20px">
@@ -23,13 +28,19 @@
       </tr>
       </tbody>
     </table>
-
     <div class="d-flex justify-content-between p-2">
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+      <ngb-pagination
+        [collectionSize]="collectionSize"
+        [(page)]="pageCurrent"
+        [pageSize]="pageSize"
+        [maxSize]="3"
+        (pageChange)="getHistory()">
+      </ngb-pagination>
+      <div class="history-load"><i *ngIf="isLoad" class="fa fa-circle-o-notch fa-spin sign-spinner"></i></div>
       <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
-        <option [ngValue]="2">2 items per page</option>
-        <option [ngValue]="4">4 items per page</option>
-        <option [ngValue]="6">6 items per page</option>
+        <option [ngValue]="3">3</option>
+        <option [ngValue]="5">10</option>
+        <option [ngValue]="10">15</option>
       </select>
     </div>
 
