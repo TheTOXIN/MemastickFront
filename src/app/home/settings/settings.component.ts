@@ -36,6 +36,7 @@ export class SettingsComponent implements OnInit {
     '',
     false,
     false,
+    0,
     0
   );
 

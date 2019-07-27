@@ -63,6 +63,13 @@ export class ControlItemsComponent implements OnInit {
       () => this.memecoinHistory()
     );
 
+    this.inventory[this.inventory.length] = new Item(
+      'assets/images/icon/cookie.png',
+      'Печеньки',
+      this.data.cookies,
+      () => this.router.navigateByUrl('/shop')
+    );
+
     if (this.data.allowance) {
       this.inventory[this.inventory.length] = new Item(
         'assets/images/icon/allowance.png',

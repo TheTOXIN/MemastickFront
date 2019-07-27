@@ -35,6 +35,7 @@ export class MemetickComponent implements OnInit {
     '',
     false,
     false,
+    0,
     0
   );
 

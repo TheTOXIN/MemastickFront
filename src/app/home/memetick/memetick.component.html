@@ -9,7 +9,7 @@
         <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
         <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
       </div>
-      <div class="memetick-coins text-strong-middle" (click)="memecoinHistory()">
+      <div *ngIf="memetickMe" class="memetick-coins text-strong-middle" (click)="memecoinHistory()">
         <div>{{memetick?.memecoins}}</div>
         <img src="assets/images/icon/memecoin.png">
       </div>
@@ -25,6 +25,15 @@
   <div class="row" *ngIf='memetickLoad'>
     <div class="col-md-12 text-center">
       <app-token-wallet [wallet]="wallet"></app-token-wallet>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="memetick-cookie text-strong-middle">
+        <div>Печеньки: </div>
+        <img [src]="'assets/images/icon/cookie.png'">
+        <div>{{memetick.cookies}}</div>
+      </div>
     </div>
   </div>
   <div class="row">
