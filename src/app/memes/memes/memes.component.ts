@@ -22,7 +22,8 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   constructor(
     public pagination: MemesPaginationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
 
   }
@@ -72,5 +73,9 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   memeResearch(meme: Meme) {
     this.research.researchShow(meme);
+  }
+
+  toSelect() {
+    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.SLCT}});
   }
 }

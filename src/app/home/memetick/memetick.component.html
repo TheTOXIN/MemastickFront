@@ -9,9 +9,10 @@
         <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
         <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
       </div>
-      <div *ngIf="memetickMe" class="memetick-coins text-strong-middle" (click)="memecoinHistory()">
+      <div *ngIf="memetickMe" class="memetick-coins text-strong-middle">
         <div>{{memetick?.memecoins}}</div>
         <img src="assets/images/icon/memecoin.png">
+        <div (click)="memecoinHistory()"><i class="fa fa-list"></i></div>
       </div>
     </div>
   </div>

@@ -28,8 +28,7 @@ export class ControlScopeComponent implements OnInit {
   }
 
   evolution() {
-    this.closeEvent.emit(null);
-    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.EVLV}});
+    this.navigate('/memes');
   }
 
   creating() {

@@ -1,6 +1,6 @@
 .meme-empty {
   margin-top: 25px;
-  margin-bottom: 69px;
+  margin-bottom: 25px;
   p {
     color: white;
     font-size: 32px;
@@ -12,6 +12,21 @@
   }
 }
 
+.memes-btn-slct {
+  button {
+    width: 200px;
+    height: 50px;
+    font-family: FuturaRound, serif;
+    font-size: 32px;
+    padding: 0;
+
+    img {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 6px;
+    }
+  }
+}
 
 
 
