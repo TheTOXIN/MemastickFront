@@ -21,6 +21,7 @@ import {SocialsModalComponent} from './socials-modal/socials-modal.component';
 import {DnaModalComponent} from './dna-modal/dna-modal.component';
 import {SharedModule} from '../shared/shared.module';
 import {DonatModalComponent} from './donat-modal/donat-modal.component';
+import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin-history-modal.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {DonatModalComponent} from './donat-modal/donat-modal.component';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent
+    DonatModalComponent,
+    MemeCoinHistoryModalComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +68,8 @@ import {DonatModalComponent} from './donat-modal/donat-modal.component';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent
+    DonatModalComponent,
+    MemeCoinHistoryModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -83,7 +86,8 @@ import {DonatModalComponent} from './donat-modal/donat-modal.component';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent
+    DonatModalComponent,
+    MemeCoinHistoryModalComponent
   ]
 })
 export class ModalsModule {

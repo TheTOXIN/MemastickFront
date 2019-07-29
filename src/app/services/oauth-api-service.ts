@@ -7,6 +7,7 @@ import {tap} from 'rxjs/operators';
 import {PushService} from './push-service';
 import {StorageService} from './storage-service';
 import {User} from '../model/User';
+import {AppComponent} from '../app.component';
 
 @Injectable()
 export class OauthApiService {
@@ -23,7 +24,7 @@ export class OauthApiService {
     private router: Router,
     private http: HttpClient,
     private push: PushService,
-    private storageService: StorageService,
+    private storageService: StorageService
   ) {
     this.initStatuses();
   }
@@ -87,13 +88,16 @@ export class OauthApiService {
     if (this.push.work()) {
       this.push.tokener().then(token => {
         this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
-        this.clearData();
+        this.logoutProcess();
       });
     } else {
-      this.clearData();
+      this.logoutProcess();
     }
+  }
 
-    this.router.navigateByUrl('/start');
+  private logoutProcess() {
+    this.clearData();
+    this.toStart();
   }
 
   private clearData() {
@@ -101,7 +105,11 @@ export class OauthApiService {
     Cookie.delete(this.keyRefresh);
     Cookie.deleteAll();
 
-    this.storageService.clearAll();
+    this.storageService.clearLogOut();
+  }
+
+  private toStart() {
+    this.router.navigateByUrl('/start');
   }
 
   public saveToken(token) {

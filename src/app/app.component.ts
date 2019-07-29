@@ -1,24 +1,31 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
-import {Notify} from './model/Notify';
 import {OauthApiService} from './services/oauth-api-service';
+import {ControlComponent} from './control/control.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   @ViewChild(NotificationComponent) notification: NotificationComponent;
+
+  public controlWork;
 
   constructor(
     private webSocketService: WebSocketService,
     private oauth: OauthApiService
   ) {
-    if (oauth.checkTokens()) {
+
+  }
+
+  ngOnInit(): void {
+    if (this.oauth.checkTokens()) {
       this.notify();
+      this.control(true);
     }
   }
 
@@ -29,5 +36,9 @@ export class AppComponent {
         this.notification.show(notify);
       }
     });
+  }
+
+  public control(val: boolean) {
+    this.controlWork = val;
   }
 }

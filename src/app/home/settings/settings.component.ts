@@ -35,7 +35,9 @@ export class SettingsComponent implements OnInit {
     '',
     '',
     false,
-    false
+    false,
+    0,
+    0
   );
 
   public setting: Setting = new Setting(

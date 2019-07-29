@@ -3,7 +3,9 @@ export class Memetick {
     public id: string,
     public nick: string,
     public follow: boolean,
-    public online: boolean
+    public online: boolean,
+    public memecoins: number,
+    public cookies: number
   ) {
 
   }

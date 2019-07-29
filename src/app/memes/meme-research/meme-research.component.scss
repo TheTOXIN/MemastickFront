@@ -125,3 +125,19 @@
   position: absolute;
   width: 100%;
 }
+
+.meme-resurrect-msg {
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
+
+  img {
+    width: 32px;
+  }
+  div {
+    font-size: 24px;
+  }
+  span {
+    font-size: 16px;
+  }
+}

@@ -16,6 +16,7 @@ import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -31,29 +32,13 @@ export class HomeComponent implements OnInit {
   myParams: object = {};
 
   isLoad = true;
-  role: RoleType = RoleType.USER;
+  showLogo = true;
 
-  private messages = [
-    'Мемастик в процессе разработки, не ругайте нас',
-    'Чувствуй себя как дома! (но не очень сильно)',
-    'Мемы - это лучшее на что ты можешь потратить свое время',
-    'Новый день! Новый мем!',
-    'Вы не создаете мемы на свой страх и риск!',
-    'Мемы спасут мир от войны',
-    'Много хромосом, это хорошо или плохо?',
-    'Сделал мемас, гуляй как...',
-    'Мем мне в печень, и я счастлив вечен',
-    'Ааа ну это уже какая то страшилка получается',
-    'Помните и уважайте пожилые мемы',
-    'МУТАГЕН->КРОССОВЕР->МИКРОСКОП->АНТИБИОТИК->ПРОБИРКА'
-  ];
-
-  public emoji: any;
-  public message: String;
+  public isHello;
+  public hello;
 
   public home: Home;
-
-  public showLogo = true;
+  public role: RoleType = RoleType.USER;
 
   constructor(
     private router: Router,
@@ -62,17 +47,17 @@ export class HomeComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private storage: StorageService,
+    private app: AppComponent,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-    this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
     this.role = this.storage.getRole();
   }
 
   ngOnInit() {
     this.initParticles();
-    this.initEmoji();
     this.initMe();
+    this.initControl();
   }
 
   @HostListener('window:scroll', [])
@@ -85,22 +70,37 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private initEmoji() {
-    this.emoji = randomEmoji.random({count: 1})[0].character;
-  }
-
   private initMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
       this.askPush();
+      this.initHello();
     });
+  }
+
+  private initControl() {
+    this.app.control(true);
   }
 
   askPush() {
     if (this.storage.getPushAsk()) {
       this.modalService.open(PushRequestModalComponent, {'centered': true});
     }
+  }
+
+  initHello() {
+    let hello = this.storage.getHello();
+
+    this.isHello = hello == null;
+
+    if (this.isHello) {
+      const emoji = randomEmoji.random({count: 1})[0].character;
+      hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
+      this.storage.setHello(hello);
+    }
+
+    this.hello = hello;
   }
 
   memes(filter: MemeFilter) {

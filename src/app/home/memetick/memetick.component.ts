@@ -15,6 +15,7 @@ import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/to
 import {PwaService} from '../../services/pwa-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 
 @Component({
   selector: 'app-memetick',
@@ -33,7 +34,9 @@ export class MemetickComponent implements OnInit {
     '',
     '',
     false,
-    false
+    false,
+    0,
+    0
   );
 
   constructor(
@@ -42,7 +45,9 @@ export class MemetickComponent implements OnInit {
     public memetickAvatarsApi: MemetickAvatarApiService,
     public router: Router,
     private route: ActivatedRoute,
-    private settingApi: SettingApiService
+    private settingApi: SettingApiService,
+    private _sanitizer: DomSanitizer,
+    private modalService: NgbModal
   ) {
 
   }
@@ -83,6 +88,10 @@ export class MemetickComponent implements OnInit {
   follow() {
     this.memetick.follow = !this.memetick.follow;
     this.settingApi.follow(this.memetick.id);
+  }
+
+  memecoinHistory() {
+    this.modalService.open(MemeCoinHistoryModalComponent, {'centered': true});
   }
 
   back() {

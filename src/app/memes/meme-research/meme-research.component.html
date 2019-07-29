@@ -56,8 +56,13 @@
         <div class="meme-research-title">
           <p>мем не выжил при отборе и умер</p>
         </div>
+        <div class="meme-resurrect-msg text-strong-middle">
+          <div>Вы можете воскресить мем, всего за {{resurrectPrice}}</div>
+          <img [src]="'assets/images/icon/memecoin.png'">
+        </div>
         <div class="main-research-control">
-          <button class="btn-theme" (click)="dipricated()">ВОСКРЕСИТЬ</button>
+          <button class="btn-theme" (click)="resurrect()">ВОСКРЕСИТЬ</button>
+          <p>(после воскрешения мем снова будет участвовать в отборе)</p>
         </div>
       </div>
     </div>
@@ -76,3 +81,6 @@
     <i class="fa fa-close"></i>
   </div>
 </div>
+
+<app-loader [message]="loadMessage" [status]="loadStatus"></app-loader>
+<app-accept [img]="'assets/images/icon/memecoin.png'" (accept)="resurrectAcceptResult($event)"></app-accept>

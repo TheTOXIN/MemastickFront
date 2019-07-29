@@ -81,7 +81,7 @@
 
 .control-content-empty {
   width: 100%;
-  height: 64px;
+  height: 25px;
 }
 
 .main-button-close {
@@ -124,6 +124,7 @@
 
 .main-research-control {
   text-align: center;
+  margin-bottom: 10px;
   button {
     font-size: 20px;
     max-width: 100%;
@@ -140,4 +141,12 @@
 
 .black-and-white {
   filter: grayscale(100%);
+}
+
+.fixed-top-my {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }

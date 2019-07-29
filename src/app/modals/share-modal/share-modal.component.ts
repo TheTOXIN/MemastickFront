@@ -49,7 +49,7 @@ export class ShareModalComponent implements OnInit {
   }
 
   translateAdmin() {
-    this.accept.show();
+    this.accept.show('ПУБЛИКОВАТЬ');
   }
 
   acceptTranslate(accept: boolean) {

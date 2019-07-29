@@ -3257,7 +3257,11 @@ li.nav-item.dropdown {
 }
 
 .modal-title {
-  font-size: 34px;
+  font-size: 32px;
+
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
 }
 
 .modal-header {

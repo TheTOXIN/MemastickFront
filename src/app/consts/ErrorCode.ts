@@ -5,4 +5,5 @@ export enum ErrorCode {
   TOKEN_SELF = 'TOKEN_SELF',
   EMAIL_NOT_SEND = 'EMAIL_NOT_SEND',
   TIME_IN = 'TIME_IN',
+  MEME_COIN_ENOUGH = 'MEME_COIN_ENOUGH'
 }

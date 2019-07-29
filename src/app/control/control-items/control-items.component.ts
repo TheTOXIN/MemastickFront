@@ -7,6 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 import {TokenData, tokensData} from '../../model/TokenData';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
+import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 
 export class Item {
   constructor (
@@ -55,6 +56,20 @@ export class ControlItemsComponent implements OnInit {
   initInventory() {
     this.inventory = [];
 
+    this.inventory[this.inventory.length] = new Item(
+      'assets/images/icon/memecoin.png',
+      'Мемкойны',
+      this.data.memecoins,
+      () => this.memecoinHistory()
+    );
+
+    this.inventory[this.inventory.length] = new Item(
+      'assets/images/icon/cookie.png',
+      'Печеньки',
+      this.data.cookies,
+      () => this.router.navigateByUrl('/shop')
+    );
+
     if (this.data.allowance) {
       this.inventory[this.inventory.length] = new Item(
         'assets/images/icon/allowance.png',
@@ -93,5 +108,9 @@ export class ControlItemsComponent implements OnInit {
   openAllowance() {
     const modalRef = this.modalService.open(TokenAllowanceModalComponent, {'centered': true});
     modalRef.result.then(() => {}, () => this.ngOnInit());
+  }
+
+  memecoinHistory() {
+    this.modalService.open(MemeCoinHistoryModalComponent, {'centered': true});
   }
 }

@@ -4,10 +4,10 @@
   </div>
   <div class="meme-text-input-content">
     <div class="meme-text-input-textarea">
-      <textarea class="form-control" rows="5" id="textMemeId" #textMemeArea [(ngModel)]="textMeme"></textarea>
+      <textarea class="form-control" rows="5" id="textMemeId" [(ngModel)]="textMeme" autofocus></textarea>
     </div>
     <div class="meme-text-input-close">
-      <div class="main-button-close" (click)="done(textMemeArea.value)">
+      <div class="main-button-close" (click)="done()">
         <i class="fa fa-check"></i>
       </div>
     </div>

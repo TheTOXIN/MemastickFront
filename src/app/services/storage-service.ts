@@ -3,25 +3,29 @@ import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
 
+// LOCAL
+const PUSH_ASK = 'PUSH_ASK';
+const ME = 'ME';
+
+// SESSION
+const MEME_PAGE = 'MEME_PAGE_';
+const HELLO = 'HELLO';
+
 @Injectable()
 export class StorageService {
 
-  private PUSH_ASK = 'PUSH_ASK';
-  private ME = 'ME';
-  private MEME_PAGE = 'MEME_PAGE_';
-
   public getPushAsk(): boolean {
-    const value = localStorage.getItem(this.PUSH_ASK);
+    const value = localStorage.getItem(PUSH_ASK);
     return value !== 'true';
   }
 
   public setPushAsk(value: boolean) {
     const str = value ? 'true' : 'false';
-    localStorage.setItem(this.PUSH_ASK, str);
+    localStorage.setItem(PUSH_ASK, str);
   }
 
   public getMe(): User {
-    const value = localStorage.getItem(this.ME);
+    const value = localStorage.getItem(ME);
     return <User>JSON.parse(value);
   }
 
@@ -36,24 +40,32 @@ export class StorageService {
 
   public setMe(me: User) {
     const value = JSON.stringify(me);
-    localStorage.setItem(this.ME, value);
-  }
-
-  public clearAll() {
-    localStorage.clear();
+    localStorage.setItem(ME, value);
   }
 
   public getMemePage(filter: MemeFilter) {
-    let page = +sessionStorage.getItem(this.MEME_PAGE + filter);
+    let page = +sessionStorage.getItem(MEME_PAGE + filter);
     if (page == null) { page = 0; }
     return page;
   }
 
   public setMemePage(filter: MemeFilter, page: number) {
-    sessionStorage.setItem(this.MEME_PAGE + filter, page + '');
+    sessionStorage.setItem(MEME_PAGE + filter, page + '');
   }
 
   public remMemePage(filter: MemeFilter) {
-    sessionStorage.removeItem(this.MEME_PAGE + filter);
+    sessionStorage.removeItem(MEME_PAGE + filter);
+  }
+
+  public getHello(): string {
+    return sessionStorage.getItem(HELLO);
+  }
+
+  public setHello(hello: string) {
+    sessionStorage.setItem(HELLO, hello);
+  }
+
+  public clearLogOut() {
+    localStorage.removeItem(ME);
   }
 }

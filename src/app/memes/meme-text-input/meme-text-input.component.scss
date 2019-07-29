@@ -1,12 +1,20 @@
 @import "src/assets/scss/base/_variable.scss";
 
 .meme-text-input {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+
+  @media(max-width: 767px) {
+    max-width: none;
+    margin-bottom: 40px;
+  }
 }
 
 .meme-text-input-title {
   background-color: white;
   border-radius: 15px 15px 0 0;
-  width: 80%;
+  width: 100%;
   height: 20px;
 
   label {
@@ -20,8 +28,6 @@
   height: 100px;
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
   margin: 0 auto auto;
   text-align: center;
   background-color: $middle_color;
@@ -29,7 +35,7 @@
 
 .meme-text-input-textarea {
   height: 100%;
-  width: 80%;
+  width: 100%;
 
   textarea {
     font-size: 32px;
@@ -38,22 +44,26 @@
 }
 
 .meme-text-input-close {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
   width: 20%;
-  margin-top: 15px;
 
   div {
-    width: 70%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
+    height: 32px;
+    i {
+      font-size: 32px;
+      margin-top: 0;
+    }
   }
 
   @media(max-width: 767px) {
-    div {
-      width: 80%;
-      i {
-        font-size: 48px;
-        margin-top: 12px;
-      }
-    }
+
   }
 }

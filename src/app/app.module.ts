@@ -49,6 +49,9 @@ import {StorageService} from './services/storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
 import {AngularFittextModule} from 'angular-fittext';
 import {AdminApiService} from './api/admin-api-service';
+import {MemeCoinsApiService} from './api/meme-coins-api-service';
+import {ShopApiService} from './api/shop-api-service';
+import {ShopModule} from './shop/shop.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -68,6 +71,7 @@ firebase.initializeApp(environment.firebase);
     TokenModule,
     EvolveModule,
     ControlModule,
+    ShopModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
@@ -105,6 +109,8 @@ firebase.initializeApp(environment.firebase);
     AdminApiService,
     StorageService,
     ErrorHandlerService,
+    MemeCoinsApiService,
+    ShopApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

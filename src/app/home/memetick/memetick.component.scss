@@ -26,7 +26,7 @@
   width: 330px;
   box-shadow: 0px 0px 20px 5px #7e7e7e;
   background-color: white;
-  margin: 30px auto 15px;
+  margin: 5px auto 15px;
   @media(max-width: 767px) {
     width: 280px;
   }
@@ -45,7 +45,55 @@
 .memetick-online {
   font-family: FuturaRound, serif;
   font-size: 18px;
-  margin-top: 16px;
+  margin-top: 10px;
+}
+
+.memetick-coins {
+  text-align: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+
+  border-style: dotted;
+  border-radius: 15px;
+  border-width: 3px;
+
+  width: 200px;
+
+  div {
+    display: inline-block;
+    font-size: 32px;
+    font-family: Gost, serif;
+  }
+
+  img {
+    width: 36px;
+    margin-left: 5px;
+  }
+
+   i {
+     margin-left: 10px;
+     font-size: 24px;
+
+     &:hover {
+       color: #6b25fc;
+     }
+   }
+}
+
+.memetick-cookie {
+  margin-left: auto;
+  margin-right: auto;
+
+  div {
+    font-size: 20px;
+  }
+
+  img {
+    padding: 5px;
+    width: 54px;
+  }
 }
 
 .memetick-button {

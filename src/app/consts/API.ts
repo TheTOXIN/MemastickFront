@@ -24,6 +24,7 @@ export enum API {
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
   EVOLVE_MEME_CHANCE = '/evolve-memes/meme/chance',
+  EVOLVE_MEME_RESURRECT = '/evolve-memes/meme/resurrect',
   ALLOWANCE_TAKE = '/token-allowance/take',
   ALLOWANCE_HAVE = '/token-allowance/have',
   INVENTORY_CELL = '/memetick-inventories/cell',
@@ -44,4 +45,6 @@ export enum API {
   ADMIN_TRANSALTE = '/admin-translate',
   INVITE_READ = '/invites',
   INVITE_SEND = '/invite/send',
+  MEME_COINS_HITORY = '/meme-coins/history',
+  SHOP_TEST = '/shop/test',
 }

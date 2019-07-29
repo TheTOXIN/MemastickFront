@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
     private oauth: OauthApiService,
     private router: Router,
     private push: PushService,
-    private socket: WebSocketService
+    private socket: WebSocketService,
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];

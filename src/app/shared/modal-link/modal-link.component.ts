@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {ModalType} from '../../consts/ModalType';
+import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
+import {DnaModalComponent} from '../../modals/dna-modal/dna-modal.component';
 
 @Component({
   selector: 'app-modal-link',
@@ -31,6 +33,8 @@ export class ModalLinkComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       switch (params.type) {
         case ModalType.ALLOWANCE: this.openModal(TokenAllowanceModalComponent); break;
+        case ModalType.MEMECOIN: this.openModal(MemeCoinHistoryModalComponent); break;
+        case ModalType.DNA: this.openModal(DnaModalComponent); break;
         default: this.toHome(); break;
       }
     });

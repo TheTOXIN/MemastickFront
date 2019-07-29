@@ -63,6 +63,9 @@ export class NotificationComponent {
     } else if (notify.type === NotifyType.ADMIN) {
       this.img = 'assets/images/tokens/tmp.png';
       this.inf = '!!!';
+    } else if (notify.type === NotifyType.MEME_COIN) {
+      this.img = 'assets/images/icon/memecoin.png';
+      this.inf = notify.data;
     }
   }
 
@@ -81,7 +84,7 @@ export class NotificationComponent {
   }
 
   event() {
-    if (this.url == null) { return; }
+    if (this.url == null || this.url === '') { return; }
     window.location.href = this.url;
   }
 }
