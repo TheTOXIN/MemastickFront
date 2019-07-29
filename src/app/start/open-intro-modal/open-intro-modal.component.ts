@@ -20,8 +20,8 @@ export class OpenIntroModalComponent {
 
   open() {
     const modalRef = this.modalService.open(IntroModalComponent);
+
     modalRef.componentInstance.content = this.content;
     modalRef.componentInstance.title = this.title;
   }
-
 }

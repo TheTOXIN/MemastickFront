@@ -51,7 +51,7 @@ export const tokensData = [
     TokenType.ANTIBIOTIC,
     'assets/images/tokens/5.png',
     'Антибиотик',
-    'Токен отбора',
+    'Токен выживания',
     'даёт иммунитет мему, гарантируя выживаемость'
   )
 ];
