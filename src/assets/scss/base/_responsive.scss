@@ -131,7 +131,7 @@
     padding-bottom: 70px;
   }
   .profile-2 {
-    top: 125px;
+    top: -10px;
     left: 140px;
     transform: scale(0.6);
   }
@@ -143,6 +143,9 @@
     left: 15px;
     top: 50%;
     transform: scale(0.6);
+  }
+  .profile-1 {
+    right: 50px;
   }
   .mobile-slid {
     img {
@@ -156,7 +159,7 @@
     min-height: 600px;
   }
   .profile-1 {
-    bottom: 170px;
+    bottom: 50px;
   }
   .profile-msg {
     width: 240px;
