@@ -7,5 +7,6 @@ export const environment = {
     projectId: 'memastick-d525f',
     storageBucket: 'memastick-d525f.appspot.com',
     messagingSenderId: '1004879436852'
-  }
+  },
+  version: '0.4 alpha'
 };
