@@ -10,18 +10,12 @@ import {Router} from '@angular/router';
 })
 export class ContactUsComponent implements OnInit {
 
-  contactForm: FormGroup;
-
   constructor(
-    private router: Router
+
   ) {
   }
 
   ngOnInit() {
 
-  }
-
-  onSubmit() {
-    this.router.navigateByUrl('/pages/invite-reg');
   }
 }

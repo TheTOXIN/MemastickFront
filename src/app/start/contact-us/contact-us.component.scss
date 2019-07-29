@@ -4,3 +4,15 @@
     color: #6b25fc;
   }
 }
+
+.section-title-first {
+  @media(max-width: 767px) {
+    margin-top: 0;
+  }
+}
+
+.section-title-second {
+  @media(max-width: 767px) {
+    margin-top: 30px;
+  }
+}
