@@ -1,6 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import {VERSION} from '../app.constants';
+import {interval} from 'rxjs/internal/observable/interval';
 
 @Injectable()
 export class PwaService implements OnInit{
@@ -8,7 +9,7 @@ export class PwaService implements OnInit{
   public promptEvent;
 
   constructor(
-    private swUpdate: SwUpdate,
+    private swu: SwUpdate,
   ) {
     window.addEventListener('beforeinstallprompt', event => {
       this.promptEvent.preventDefault();
@@ -18,14 +19,18 @@ export class PwaService implements OnInit{
   }
 
   ngOnInit(): void {
-    this.swUpdate.available.subscribe(event => {
-      if (confirm('Мемастик обновился до версии: ' + VERSION)) {
-        window.location.reload();
-      } else {
-        window.location.reload();
-      }
-    });
+    if (this.swu.isEnabled) {
+      interval(6 * 60 * 60)
+        .subscribe(() => this.swu.checkForUpdate()
+          .then(() => console.log('CHECK UPDATE')));
+    }
+  }
 
-    this.swUpdate.checkForUpdate();
+  public checkUpdate(action: any): void {
+    this.swu.available.subscribe(() => {
+      this.swu.activateUpdate().then(() => {
+        action.apply();
+      });
+    });
   }
 }

@@ -3,6 +3,8 @@ import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {OauthApiService} from './services/oauth-api-service';
 import {ControlComponent} from './control/control.component';
+import {PwaService} from './services/pwa-service';
+import {VERSION} from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -17,16 +19,25 @@ export class AppComponent implements OnInit {
 
   constructor(
     private webSocketService: WebSocketService,
-    private oauth: OauthApiService
+    private oauth: OauthApiService,
+    private pwa: PwaService
   ) {
 
   }
 
   ngOnInit(): void {
     if (this.oauth.checkTokens()) {
+      this.update();
       this.notify();
       this.control(true);
     }
+  }
+
+  public update() {
+    this.pwa.checkUpdate(() => {
+      alert('Мемастик обновился до версии: ' + VERSION);
+      document.location.reload();
+    });
   }
 
   public notify() {
