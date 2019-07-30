@@ -66,6 +66,7 @@ export class StorageService {
   }
 
   public clearLogOut() {
+    sessionStorage.clear();
     localStorage.removeItem(ME);
   }
 }
