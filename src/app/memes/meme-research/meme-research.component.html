@@ -71,7 +71,7 @@
       <app-meme-epi [epi]="evolve.epi"></app-meme-epi>
     </div>
 
-    <div class="meme-research-timer" style="margin-bottom: 50px">
+    <div *ngIf="meme.type === 'EVLV'" class="meme-research-timer" style="margin-bottom: 50px">
       <app-timer [time]="evolve.nextTimer" [text]="'След.этап чрез'"></app-timer>
     </div>
   </div>
