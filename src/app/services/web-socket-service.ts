@@ -7,6 +7,7 @@ import {GlobalConst} from '../consts/GlobalConst';
 import {Notify} from '../model/Notify';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BACK_URL} from '../app.constants';
 
 @Injectable()
 export class WebSocketService {
@@ -24,7 +25,7 @@ export class WebSocketService {
   }
 
   public connect() {
-    this.stomp = Stomp.over(new SockJS(GlobalConst.BACK_URL + `/socket`));
+    this.stomp = Stomp.over(new SockJS(BACK_URL + `/socket`));
 
     this.stomp.connect({}, () => {
       const url = this.stomp.ws._transport.url;

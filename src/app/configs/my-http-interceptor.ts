@@ -11,7 +11,7 @@ import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
-import {GlobalConst} from '../consts/GlobalConst';
+import {BACK_URL} from '../app.constants';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -19,7 +19,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   isRefreshingToken: boolean = false;
   tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  private URL: String = GlobalConst.BACK_URL;
+  private URL: String = BACK_URL;
 
   private anonymus: Array<String> = [
     API.OAUTH_TOKEN,

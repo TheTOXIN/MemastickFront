@@ -6,6 +6,7 @@ import {StorageService} from '../../services/storage-service';
 import {RoleType} from '../../consts/RoleType';
 import {AdminApiService} from '../../api/admin-api-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
+import {FRONT_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-share-modal',
@@ -31,7 +32,7 @@ export class ShareModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memeURL = GlobalConst.FRONT_URL + '/memes/share/' + this.memeId;
+    this.memeURL = FRONT_URL + '/memes/share/' + this.memeId;
   }
 
   cp(input) {
