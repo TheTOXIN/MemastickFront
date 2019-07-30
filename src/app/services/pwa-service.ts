@@ -1,25 +1,31 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import {VERSION} from '../app.constants';
 
 @Injectable()
-export class PwaService {
+export class PwaService implements OnInit{
 
   public promptEvent;
 
   constructor(
     private swUpdate: SwUpdate,
   ) {
-    swUpdate.available.subscribe(event => {
+    window.addEventListener('beforeinstallprompt', event => {
+      this.promptEvent.preventDefault();
+      this.promptEvent = event;
+    });
+
+  }
+
+  ngOnInit(): void {
+    this.swUpdate.available.subscribe(event => {
       if (confirm('Мемастик обновился до версии: ' + VERSION)) {
         window.location.reload();
       } else {
         window.location.reload();
       }
     });
-    window.addEventListener('beforeinstallprompt', event => {
-      this.promptEvent.preventDefault();
-      this.promptEvent = event;
-    });
+
+    this.swUpdate.checkForUpdate();
   }
 }
