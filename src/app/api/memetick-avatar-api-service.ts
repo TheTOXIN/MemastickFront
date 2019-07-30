@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {UUID} from 'angular2-uuid';
 import {API} from '../consts/API';
 import {GlobalConst} from '../consts/GlobalConst';
+import {BACK_URL} from '../app.constants';
 
 @Injectable()
 export class MemetickAvatarApiService {
@@ -14,7 +15,7 @@ export class MemetickAvatarApiService {
   }
 
   public dowloadAvatar(memetickId: UUID): string {
-    return GlobalConst.BACK_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
+    return BACK_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
   }
 
   public uploadAvatar(file: File) {

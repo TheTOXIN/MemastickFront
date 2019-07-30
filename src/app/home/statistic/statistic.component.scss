@@ -4,7 +4,7 @@
 
 .stats-info {
   padding: 10px;
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
     padding: 5px;
   }
 }
@@ -14,7 +14,7 @@
   color: black;
   font-family: FuturaRound, serif;
   font-size: 24px;
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
       font-size: 18px;
   }
 }
@@ -24,7 +24,7 @@
     width: 64px;
   }
 
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
     img {
       width: 48px;
     }
@@ -34,7 +34,7 @@
 .stats-value {
   padding-left: 15px;
   font-size: 24px;
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
     font-size: 18px;
   }
 }

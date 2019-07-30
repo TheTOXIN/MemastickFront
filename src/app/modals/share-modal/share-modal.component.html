@@ -19,6 +19,10 @@
         <i class="fa fa-vk" style="color: #4a76a8"></i>
         <p>Вконтакте</p>
       </div>
+      <div class="share-type" (click)="translateAdmin()" *ngIf="role == 'ADMIN'">
+        <i class="fa fa-globe" style="color: #6c26fc"></i>
+        <p>АДМИН</p>
+      </div>
     </div>
   </div>
   <div class="modal-footer modal-section">
@@ -27,3 +31,4 @@
     </button>
   </div>
 </div>
+<app-accept [img]="'assets/images/icon/world.png'" (accept)="acceptTranslate($event)"></app-accept>

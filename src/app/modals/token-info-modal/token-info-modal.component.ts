@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {TokenData} from '../../model/TokenData';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {TokenData} from '../../model/TokenData';
 
 @Component({
   selector: 'app-token-info-modal',
@@ -14,5 +14,4 @@ export class TokenInfoModalComponent {
 
   constructor(public activeModal: NgbActiveModal) {
   }
-
 }

@@ -15,7 +15,12 @@ import {HomeModule} from '../home/home.module';
 import {MemeResearchComponent} from './meme-research/meme-research.component';
 import {EvolveModule} from '../evolve/evolve.module';
 import {TokenModule} from '../token/token.module';
-import {MemesStepPanelComponent} from './memes-step-panel/memes-step-panel.component';
+import {MemesPanelComponent} from './memes-panel/memes-panel.component';
+import {MemeEpiComponent} from './meme-epi/meme-epi.component';
+import {MemeTextInputComponent} from './meme-text-input/meme-text-input.component';
+import {FormsModule} from '@angular/forms';
+import {MemeTextViewComponent} from './meme-text-view/meme-text-view.component';
+import {AngularFittextModule} from 'angular-fittext';
 
 @NgModule({
   imports: [
@@ -26,7 +31,9 @@ import {MemesStepPanelComponent} from './memes-step-panel/memes-step-panel.compo
     EvolveModule,
     PinchZoomModule,
     MemesRoutingModules,
-    TokenModule
+    TokenModule,
+    FormsModule,
+    AngularFittextModule
   ],
   exports: [
     MemesPageComponent
@@ -40,7 +47,10 @@ import {MemesStepPanelComponent} from './memes-step-panel/memes-step-panel.compo
     MemeCreatorComponent,
     MemesShareComponent,
     MemeResearchComponent,
-    MemesStepPanelComponent
+    MemesPanelComponent,
+    MemeEpiComponent,
+    MemeTextInputComponent,
+    MemeTextViewComponent
   ]
 })
 export class MemesModule {

@@ -2,11 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import * as firebase from 'firebase';
-import {HttpClient} from '@angular/common/http';
-import {API} from '../consts/API';
-import {PasswordApiService} from '../api/password-api-service';
 import {PushApiService} from '../api/push-api-service';
-import {LocalStorageService} from './local-storage-service';
 
 @Injectable()
 export class PushService {
@@ -20,14 +16,14 @@ export class PushService {
     try {
       this.messaging = firebase.messaging();
     } catch (e) {
-      console.log('Push not supported');
+      console.log('Push not supported' + e);
     }
 
     this.currentMessage = new BehaviorSubject(null);
   }
 
   requester() {
-    if (this.messaging == null) { return; }
+    if (!this.work()) { return; }
 
     return this.messaging.requestPermission()
       .then(() => alert('PUSH уведомления разрешены'))
@@ -36,7 +32,7 @@ export class PushService {
   }
 
   register() {
-    if (this.messaging == null) { return; }
+    if (!this.work()) { return; }
 
     this.messaging.getToken().then((token) => {
       if (token == null) { return; }
@@ -47,5 +43,9 @@ export class PushService {
 
   tokener() {
     return this.messaging.getToken();
+  }
+
+  work() {
+    return this.messaging != null;
   }
 }

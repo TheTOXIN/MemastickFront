@@ -1,17 +1,20 @@
 <div class="memes-table animated zoomIn">
   <div class="memes-info">
     <div class="memes-info-avatar">
-      <img *ngIf="data.avatar" [src]="data.avatar || ''" onError="this.src='assets/images/tokens/tmp.png';" (click)="memetickView(data.page?.memetick.id)">
+      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickView(data.page?.memetick.id)">
     </div>
     <div class="memes-info-nick">
       <span> {{data.page?.memetick?.nick}} </span>
     </div>
-    <div class="memes-info-indexer">
+    <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
       <span>#{{data.page?.meme.indexer}}</span>
     </div>
-    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVOLVE'">
+    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
       <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
     </div>
+  </div>
+  <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
+    <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
   </div>
   <div class="memes-image animated zoomIn slow">
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"

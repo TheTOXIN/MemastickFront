@@ -19,4 +19,16 @@ export class EvolveMemeApiService {
       .get<EvolveMeme>(API.EVOLVE_MEME + '/' + memeId)
       .pipe();
   }
+
+  public evolveMemeChance(memeId: UUID): Observable<number> {
+    return this.http
+      .get<number>(API.EVOLVE_MEME_CHANCE + '/' + memeId)
+      .pipe();
+  }
+
+  public resurrectMeme(memeId: UUID) {
+    return this.http
+      .patch(API.EVOLVE_MEME_RESURRECT + '/' + memeId, {})
+      .pipe();
+  }
 }

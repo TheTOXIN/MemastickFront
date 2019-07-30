@@ -11,7 +11,7 @@ import {catchError, filter, finalize, switchMap, take} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
-import {GlobalConst} from '../consts/GlobalConst';
+import {BACK_URL} from '../app.constants';
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
@@ -19,7 +19,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   isRefreshingToken: boolean = false;
   tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  private URL: String = GlobalConst.BACK_URL;
+  private URL: String = BACK_URL;
 
   private anonymus: Array<String> = [
     API.OAUTH_TOKEN,
@@ -36,8 +36,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // TODO это нельзя оставить просто так
-
     if (!this.anonymus.includes(req.url) && !req.url.startsWith(API.MEMES_IMG)) {
       req = this.oauthApi.addAuthorization(req, this.oauthApi.readToken());
     }
@@ -68,7 +66,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
-          this.oauthApi.logout();
+          if (!req.url.includes(API.SECURITY_LOGOUT)) { this.oauthApi.logout(); }
           return throwError(err);
         }),
         finalize(() => {

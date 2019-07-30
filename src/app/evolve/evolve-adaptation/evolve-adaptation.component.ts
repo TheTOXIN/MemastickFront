@@ -1,10 +1,11 @@
 import {Component, Injectable, Input, OnInit, ViewChild} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
-import {TokenAcceptComponent} from '../../token/token-accept/token-accept.component';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {TokenType} from '../../consts/TokenType';
-import {ErrorStatus} from '../../consts/ErrorStatus';
+import {ErrorHandlerService} from '../../services/error-handler-service';
+import {AcceptComponent} from '../../shared/accpet/accept.component';
+import {tokenIcons} from '../../model/TokenData';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -13,10 +14,12 @@ import {ErrorStatus} from '../../consts/ErrorStatus';
 })
 export class EvolveAdaptationComponent implements OnInit {
 
-  @ViewChild(TokenAcceptComponent) tokenAccept: TokenAcceptComponent;
+  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
 
   public status;
   public message;
+  public type;
+  public img;
 
   @Input()
   public evolve: EvolveMeme;
@@ -24,8 +27,10 @@ export class EvolveAdaptationComponent implements OnInit {
   constructor(
     private tokenAcceptApi: TokenAcceptApiService
   ) {
+    this.type = TokenType.TUBE;
     this.status = LoaderStatus.NONE;
     this.message = '';
+    this.img = tokenIcons[this.type];
   }
 
   ngOnInit() {
@@ -34,10 +39,10 @@ export class EvolveAdaptationComponent implements OnInit {
   adaptation() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить пробирку?';
-    this.tokenAccept.show(TokenType.TUBE);
+    this.tokenAccept.show();
   }
 
-  acceptTubeResult(accept: boolean) {
+  acceptTokenResult(accept: boolean) {
     if (accept) {
       this.increaseAdaptation();
     } else {
@@ -46,7 +51,7 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   increaseAdaptation() {
-    this.tokenAcceptApi.accept(this.evolve.memeId, TokenType.TUBE).subscribe(
+    this.tokenAcceptApi.accept(this.evolve.memeId, this.type).subscribe(
       () => this.successAdaptation(),
       (error) => this.errorAdaptation(error)
     );
@@ -58,16 +63,8 @@ export class EvolveAdaptationComponent implements OnInit {
     this.status = LoaderStatus.DONE;
   }
 
-  // TODO refactor
   errorAdaptation(error: any) {
-    if (error.error.code === ErrorStatus.LESS_TOKEN) {
-      this.message = 'Нужен токен адаптации!';
-    } else if (error.error.code === ErrorStatus.TOKEN_SELF) {
-      this.message = 'Это ваш мем!';
-    } else {
-      this.message = 'Ошибка применения токена!';
-    }
-
+    this.message = ErrorHandlerService.tokenError(error.error.code);
     this.status = LoaderStatus.ERROR;
   }
 }

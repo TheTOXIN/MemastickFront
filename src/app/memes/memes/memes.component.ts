@@ -5,6 +5,7 @@ import {Meme} from '../../model/Meme';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-memes',
@@ -16,30 +17,33 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
-  public showStepPanel = false;
+  public showPanel = true;
+  public modePanel: MemeFilter;
 
   constructor(
     public pagination: MemesPaginationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
 
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let filter = params.filter;
+      let filter: MemeFilter = params.filter;
 
       const memetick = params.memetick;
       const step = params.step;
       const sort = 'creating';
 
-      if (filter === undefined || filter == null || filter === '') {
+      if (filter === undefined || filter == null) {
         filter = MemeFilter.POOL;
-        this.showStepPanel = true;
       }
 
+      this.modePanel = filter;
+
       this.pagination.init(
-        3,
+        GlobalConst.MEME_BATCH,
         sort,
         true,
         filter,
@@ -56,6 +60,10 @@ export class MemesComponent implements OnInit, OnDestroy {
   scrollHandler(e) {
     if (e === 'bottom') {
       this.pagination.more();
+    } else if (e === 'up') {
+      this.showPanel = true;
+    } else if (e === 'down') {
+      this.showPanel = false;
     }
   }
 
@@ -65,5 +73,9 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   memeResearch(meme: Meme) {
     this.research.researchShow(meme);
+  }
+
+  toSelect() {
+    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.SLCT}});
   }
 }

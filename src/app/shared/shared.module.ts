@@ -14,6 +14,9 @@ import {RedirectRootComponent} from './redirect-root/redirect-root.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NotificationComponent} from './notification/notification.component';
+import {TimerComponent} from './timer/timer.component';
+import {ModalLinkComponent} from './modal-link/modal-link.component';
+import {AcceptComponent} from './accpet/accept.component';
 
 @NgModule({
   exports: [
@@ -25,6 +28,9 @@ import {NotificationComponent} from './notification/notification.component';
     SpinnerComponent,
     MemLogoComponent,
     NotificationComponent,
+    TimerComponent,
+    ModalLinkComponent,
+    AcceptComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +47,10 @@ import {NotificationComponent} from './notification/notification.component';
     LoaderComponent,
     RedirectRootComponent,
     MemLogoComponent,
-    NotificationComponent
+    NotificationComponent,
+    TimerComponent,
+    ModalLinkComponent,
+    AcceptComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

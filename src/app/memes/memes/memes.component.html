@@ -1,19 +1,29 @@
 <div class="mem-back">
 
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
+
     <div *ngFor="let data of pagination.data | async">
       <app-memes-page (viewer)="memeView($event)" (researcher)="memeResearch($event)" [data]="data"></app-memes-page>
     </div>
+
     <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
+
     <div class="meme-empty" *ngIf="(pagination.empty) | async">
       <p>МЕМОВ НЕТ</p>
       <img src="https://i.giphy.com/media/jcxtvm2bsZDH2/giphy.webp"/>
     </div>
+
+    <div class="memes-btn-slct" *ngIf="modePanel == 'POOL'">
+      <button class="btn-theme-inverse" (click)="toSelect()">
+        ОТБОР<img src="assets/images/icon/select.png">
+      </button>
+    </div>
+
   </div>
 
 </div>
 
-<app-memes-step-panel [showStepPanel]="showStepPanel"></app-memes-step-panel>
+<app-memes-panel [modePanel]="modePanel" [showPanel]="showPanel"></app-memes-panel>
 
 <app-meme-research></app-meme-research>
 <app-meme-view></app-meme-view>

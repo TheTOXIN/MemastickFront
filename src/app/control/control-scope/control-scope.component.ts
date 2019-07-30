@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
+import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-control-scope',
@@ -11,6 +12,9 @@ import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.componen
   styleUrls: ['./control-scope.component.scss']
 })
 export class ControlScopeComponent implements OnInit {
+
+  @Output()
+  public closeEvent = new EventEmitter<any>();
 
   constructor(
     private router: Router,
@@ -24,32 +28,37 @@ export class ControlScopeComponent implements OnInit {
   }
 
   evolution() {
-    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.EVLV}});
+    this.navigate('/memes');
   }
 
   creating() {
-    this.router.navigateByUrl('/memes/create');
+    this.navigate('/memes/create');
   }
 
   rating() {
-    this.router.navigateByUrl('/home/memetick/rating');
+    this.navigate('/home/memetick/rating');
   }
 
   library() {
-    this.router.navigateByUrl('/home/library');
+    this.navigate('/home/library');
   }
 
   shop() {
-    this.dipricated();
+    this.navigate('/shop');
   }
 
   battle() {
     this.dipricated();
   }
 
+  navigate(url: string) {
+    this.closeEvent.emit(null);
+    this.router.navigateByUrl(url);
+  }
+
   dipricated() {
     const modalRef = this.modalService.open(IntroModalComponent);
-    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.4 alpha';
+    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
     modalRef.componentInstance.title = 'ОЙ :(';
   }
 }

@@ -18,6 +18,9 @@ export class EvolveStepInfoModalComponent {
     public activeModal: NgbActiveModal
   ) {
     this.evolveInfos[EvolveStep.ADAPTATION] = 'assets/images/ss/1.png';
+    this.evolveInfos[EvolveStep.FITNESS] = 'assets/images/ss/2.png';
+    this.evolveInfos[EvolveStep.MUTATION] = 'assets/images/ss/3.png';
+    this.evolveInfos[EvolveStep.CROSSING] = 'assets/images/ss/4.png';
     this.evolveInfos[EvolveStep.SURVIVAL] = 'assets/images/ss/5.png';
   }
 }

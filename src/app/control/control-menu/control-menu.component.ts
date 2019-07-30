@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -12,6 +12,9 @@ import {FollowingModalComponent} from '../../modals/following-modal/following-mo
 })
 export class ControlMenuComponent implements OnInit {
 
+  @Output()
+  public closeEvent = new EventEmitter<any>();
+  
   constructor(
     private router: Router,
     private _sanitizer: DomSanitizer,
@@ -24,7 +27,7 @@ export class ControlMenuComponent implements OnInit {
   }
 
   profile() {
-    this.router.navigateByUrl('/home/memetick/me');
+    this.navigate('/home/memetick/me');
   }
 
   following() {
@@ -32,13 +35,18 @@ export class ControlMenuComponent implements OnInit {
   }
 
   settings() {
-    this.router.navigateByUrl('/home/settings');
+    this.navigate('/home/settings');
   }
 
   home() {
-    this.router.navigateByUrl('/home');
+    this.navigate('/home');
   }
 
+  navigate(url: string) {
+    this.closeEvent.emit(null);
+    this.router.navigateByUrl(url);
+  }
+  
   exit() {
     this.modalService.open(LogoutModalComponent, {'centered': true});
   }

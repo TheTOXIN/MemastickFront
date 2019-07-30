@@ -1,0 +1,60 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.meme-epi {
+  text-align: center;
+  p {
+    i {
+      font-size: 32px;
+      color: #eab000;
+      display: inline-block;
+    }
+    &:hover {
+      i {
+        color: $primary_color;
+      }
+    }
+  }
+}
+
+.meme-epi-content {
+  border: 2px solid #495057;
+  width: 50%;
+  border-radius: 50px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media(max-width: 767px) {
+    width: 90%;
+  }
+}
+
+.meme-epi-title {
+  font-size: 32px;
+  font-family: Futurica, serif;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.meme-epi-list {
+  font-size: 18px;
+  font-family: Futurica, serif;
+}
+
+.meme-epi-value {
+  font-size: 24px;
+  display: inline-block;
+  font-family: Arial, serif;
+}
+
+#meme-epi-value-e {
+  color: $primary_color;
+}
+
+#meme-epi-value-p {
+  color: $middle_color;
+}
+
+#meme-epi-value-i {
+  color: $secondary_color;
+}

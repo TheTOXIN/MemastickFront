@@ -18,7 +18,7 @@ export class FollowingModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private memetickApi: MemetickApiService,
+    private settingsApi: SettingApiService,
     private avatrApi: MemetickAvatarApiService,
     private settingApi: SettingApiService,
     private router: Router
@@ -27,7 +27,7 @@ export class FollowingModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memetickApi.following().subscribe(data => this.memeticks = data);
+    this.settingsApi.following().subscribe(data => this.memeticks = data);
   }
 
   getAvatar(memetick: MemetickPreview) {

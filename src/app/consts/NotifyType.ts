@@ -6,6 +6,6 @@ export enum NotifyType {
   TOKEN = 'TOKEN',
   ADMIN = 'ADMIN',
   CREATING = 'CREATING',
-  ALLOWANCE = 'ALLOWANCE'
-
+  ALLOWANCE = 'ALLOWANCE',
+  MEME_COIN = 'MEME_COIN'
 }

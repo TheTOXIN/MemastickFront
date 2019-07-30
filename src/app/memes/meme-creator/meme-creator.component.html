@@ -2,8 +2,10 @@
   <div class="create-title">
     <p>СОЗДАНИЕ МЕМА</p>
   </div>
+
   <div class="create-table flex-center-absolute">
     <div class="create-preview animated fadeIn slower" *ngIf="isPreview">
+      <app-meme-text-view *ngIf="textMeme != null" [textMeme]="textMeme"></app-meme-text-view>
       <img [src]="imgURL || ''" alt="">
     </div>
     <div class="dropzone"
@@ -20,23 +22,33 @@
            class="create-tap animated jello slow"
            [ngClass]="{'animated-circle': stateCell == 100}"
            [style.opacity]="stateCell / 100 + 0.1"
-           [style.width.px]="stateCell + 10"
-      >
+           [style.width.px]="stateCell + 10">
         <img class="img-fluid align-self-center spin-anim" src="assets/images/icon/cell.png">
-        <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg"/>
+        <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg,.gif"/>
       </div>
       <div class="create-help create-help-down" [style.display]="isHovering ? 'none' : 'block'">
         <p>{{stateText}}</p>
       </div>
     </div>
   </div>
-  <div class="create-button" [style.display]="isCreate ? 'none' : 'block'">
-    <button class="btn-theme" (click)="create()">СОЗДАТЬ</button>
+
+  <div class="create-button" *ngIf="!isPreview">
+    <button class="btn-theme" (click)="close()"><i class="fa fa-home"></i></button>
   </div>
-  <div class="create-button" [style.display]="isCreate ? 'block' : 'none'">
-    <button class="btn-theme" (click)="memes()">МЕМАСЫ</button>
+
+  <div class="create-button" *ngIf="isPreview && !isCreate">
+    <button class="btn-theme" (click)="cancel()"><i class="fa fa-times"></i></button>
+    <button class="btn-theme" (click)="create()"><i class="fa fa-check"></i></button>
+    <button class="btn-theme" (click)="showText()"><i class="fa fa-align-left"></i></button>
   </div>
+
+  <div class="create-button" *ngIf="isCreate">
+    <button class="btn-theme" (click)="memes()"><i class="fa fa-globe"></i></button>
+  </div>
+
   <app-loader [message]="message" [status]="status"></app-loader>
+  <app-meme-text-input (doneEvent)="doneText($event)" class="create-text-input"></app-meme-text-input>
+
   <div class='stars'></div>
   <div class='stars2'></div>
   <div class='stars3'></div>

@@ -12,7 +12,6 @@
       <div class="memetick-tablet">
         <div class="memetick-avatar">
           <img [src]="getAvatar(memetick.preview) || ''"
-               onError="this.src='assets/images/tokens/tmp.png';"
                (click)="memetickView(memetick.preview.id)">
         </div>
         <div class="memetick-nick">
@@ -37,7 +36,6 @@
     <div class="memetick-tablet">
       <div class="memetick-avatar">
         <img [src]="getAvatar(rating.me.preview) || ''"
-             onError="this.src='assets/images/tokens/tmp.png';"
              (click)="memetickView(rating.me.preview.id)">
       </div>
       <div class="memetick-nick">
@@ -52,6 +50,10 @@
     </div>
   </div>
 
+</div>
+
+<div class="rating-to-home main-button-close" (click)="toHome()">
+  <i class="fa fa-home"></i>
 </div>
 
 <div class="rating-empty"></div>

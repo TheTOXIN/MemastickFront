@@ -1,41 +1,44 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
-import {Notify} from './model/Notify';
 import {OauthApiService} from './services/oauth-api-service';
+import {ControlComponent} from './control/control.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   @ViewChild(NotificationComponent) notification: NotificationComponent;
+
+  public controlWork;
 
   constructor(
     private webSocketService: WebSocketService,
     private oauth: OauthApiService
   ) {
-    if (oauth.checkTokens()) {
+
+  }
+
+  ngOnInit(): void {
+    if (this.oauth.checkTokens()) {
       this.notify();
+      this.control(true);
     }
   }
 
-  notify() {
-    const stompClient = this.webSocketService.connect(); // TODO refactor
-
-    stompClient.connect({}, () => {
-      const url = stompClient.ws._transport.url;
-      const array = url.split('/');
-      const id = array[array.length - 2];
-
-      stompClient.subscribe('/user/queue/notify', notification => {
-        const notify = <Notify>JSON.parse(notification.body);
+  public notify() {
+    this.webSocketService.connect();
+    this.webSocketService.notiferObservable.subscribe((notify) => {
+      if (notify != null) {
         this.notification.show(notify);
-      });
-
-      this.webSocketService.register(id);
+      }
     });
+  }
+
+  public control(val: boolean) {
+    this.controlWork = val;
   }
 }

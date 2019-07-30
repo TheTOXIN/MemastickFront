@@ -5,6 +5,7 @@ import { timer } from 'rxjs';
 import {TokenType} from '../../consts/TokenType';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
+import {tokenIcons, tokensData} from '../../model/TokenData';
 
 @Component({
   selector: 'app-notification',
@@ -27,12 +28,7 @@ export class NotificationComponent {
   constructor(
     private avatarApi: MemetickAvatarApiService
   ) {
-    // TODO tokens
-    this.icons[TokenType.TUBE] = 'assets/images/tokens/1.png';
-    this.icons[TokenType.SCOPE] = 'assets/images/tokens/2.png';
-    this.icons[TokenType.MUTAGEN] = 'assets/images/tokens/3.png';
-    this.icons[TokenType.CROSSOVER] = 'assets/images/tokens/4.png';
-    this.icons[TokenType.ANTIBIOTIC] = 'assets/images/tokens/5.png';
+    this.icons = tokenIcons;
   }
 
   show(notify: Notify) {
@@ -41,6 +37,7 @@ export class NotificationComponent {
     this.isHide = false;
     this.isShow = true;
 
+    this.sound();
     this.destroy();
   }
 
@@ -63,6 +60,12 @@ export class NotificationComponent {
     } else if (notify.type === NotifyType.ALLOWANCE) {
       this.img = 'assets/images/icon/allowance.png';
       this.inf = '+';
+    } else if (notify.type === NotifyType.ADMIN) {
+      this.img = 'assets/images/tokens/tmp.png';
+      this.inf = '!!!';
+    } else if (notify.type === NotifyType.MEME_COIN) {
+      this.img = 'assets/images/icon/memecoin.png';
+      this.inf = notify.data;
     }
   }
 
@@ -72,8 +75,16 @@ export class NotificationComponent {
     });
   }
 
+  sound() {
+    const audio = new Audio();
+
+    audio.src = '../../../assets/audio/nice.wav';
+    audio.load();
+    audio.play();
+  }
+
   event() {
-    if (this.url == null) { return; }
+    if (this.url == null || this.url === '') { return; }
     window.location.href = this.url;
   }
 }

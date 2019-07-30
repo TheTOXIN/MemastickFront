@@ -1,7 +1,8 @@
 import {Component, HostListener, Inject, Input, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
-import {Home} from '../model/Home';
+import {MainApiService} from '../api/main-api-service';
+import {NotifyCount} from '../model/NotifyCount';
 
 @Component({
   selector: 'app-control',
@@ -9,9 +10,6 @@ import {Home} from '../model/Home';
   styleUrls: ['./control.component.scss']
 })
 export class ControlComponent implements OnInit {
-
-  @Input()
-  public home?: Home;
 
   public hide = false;
   public close = false;
@@ -23,13 +21,20 @@ export class ControlComponent implements OnInit {
 
   private predYOffset = 0;
 
+  public counter: NotifyCount;
+
   constructor(
+    private mainApi: MainApiService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
+
   }
 
   ngOnInit() {
+    this.mainApi.notifyCount().subscribe(data => {
+      this.counter = data;
+    });
   }
 
   @HostListener('window:scroll', [])
@@ -40,6 +45,8 @@ export class ControlComponent implements OnInit {
   }
 
   hideAll() {
+    this.ngOnInit();
+
     this.hideContentScope = true;
     this.hideContentMenu = true;
     this.hideContentEvents = true;

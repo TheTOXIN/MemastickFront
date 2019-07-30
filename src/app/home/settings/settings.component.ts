@@ -11,7 +11,7 @@ import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
 import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
 import {PushApiService} from '../../api/push-api-service';
-import {LocalStorageService} from '../../services/local-storage-service';
+import {StorageService} from '../../services/storage-service';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 
 @Component({
@@ -31,11 +31,13 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  // TODO refactor
   public memetick: Memetick = new Memetick(
     '',
     '',
-    false
+    false,
+    false,
+    0,
+    0
   );
 
   public setting: Setting = new Setting(

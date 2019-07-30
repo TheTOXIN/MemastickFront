@@ -4,6 +4,10 @@ import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Cookie} from 'ng2-cookies';
 import {API} from '../consts/API';
 import {tap} from 'rxjs/operators';
+import {PushService} from './push-service';
+import {StorageService} from './storage-service';
+import {User} from '../model/User';
+import {AppComponent} from '../app.component';
 
 @Injectable()
 export class OauthApiService {
@@ -19,6 +23,8 @@ export class OauthApiService {
   constructor(
     private router: Router,
     private http: HttpClient,
+    private push: PushService,
+    private storageService: StorageService
   ) {
     this.initStatuses();
   }
@@ -42,12 +48,12 @@ export class OauthApiService {
       headers: headers
     };
 
-    return this.http.post(
-      API.OAUTH_TOKEN,
-      params.toString(),
-      options
-    ).pipe(
-      tap(data => this.saveToken(data))
+    return this.http
+      .post(API.OAUTH_TOKEN, params.toString(), options)
+      .pipe(tap(data => {
+        this.saveToken(data);
+        this.saveMe();
+      }),
     );
   }
 
@@ -77,12 +83,32 @@ export class OauthApiService {
   }
 
   public logout() {
-    console.log('LOGOUT');
+    console.log('SECURITY_LOGOUT');
 
+    if (this.push.work()) {
+      this.push.tokener().then(token => {
+        this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
+        this.logoutProcess();
+      });
+    } else {
+      this.logoutProcess();
+    }
+  }
+
+  private logoutProcess() {
+    this.clearData();
+    this.toStart();
+  }
+
+  private clearData() {
     Cookie.delete(this.keyAccess);
     Cookie.delete(this.keyRefresh);
     Cookie.deleteAll();
 
+    this.storageService.clearLogOut();
+  }
+
+  private toStart() {
     this.router.navigateByUrl('/start');
   }
 
@@ -98,6 +124,12 @@ export class OauthApiService {
     if (!Cookie.check(this.keyRefresh)) {
       Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
     }
+  }
+
+  public saveMe() {
+    this.http.get<User>(API.USER_ME).subscribe(data => {
+      this.storageService.setMe(data);
+    });
   }
 
   public addAuthorization(req: HttpRequest<any>, token: any) {

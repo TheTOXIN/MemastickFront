@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
+import {NotifyType} from '../../consts/NotifyType';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-allowance-modal',
@@ -9,8 +11,8 @@ import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
 })
 export class TokenAllowanceModalComponent implements OnInit {
 
-  public isLoad: boolean;
-  public isTake: boolean;
+  public isLoad = false;
+  public isTake = false;
 
   public allowance = false;
   public counter = 0;
@@ -20,7 +22,7 @@ export class TokenAllowanceModalComponent implements OnInit {
     public activeModal: NgbActiveModal,
     public allowanceApi: TokenAllowanceApiService
   ) {
-    this.isTake = false;
+
   }
 
   ngOnInit() {
@@ -41,7 +43,7 @@ export class TokenAllowanceModalComponent implements OnInit {
   }
 
   close() {
-    this.activeModal.dismiss('Cross click');
+    this.activeModal.close('success');
     this.wallet = null;
   }
 }

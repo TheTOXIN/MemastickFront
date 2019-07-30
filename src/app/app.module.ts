@@ -45,7 +45,13 @@ import * as firebase from 'firebase';
 import {NotifyBellApiService} from './api/notify-bell-api-service';
 import {PushApiService} from './api/push-api-service';
 import {SettingApiService} from './api/setting-api-service';
-import {LocalStorageService} from './services/local-storage-service';
+import {StorageService} from './services/storage-service';
+import {ErrorHandlerService} from './services/error-handler-service';
+import {AngularFittextModule} from 'angular-fittext';
+import {AdminApiService} from './api/admin-api-service';
+import {MemeCoinsApiService} from './api/meme-coins-api-service';
+import {ShopApiService} from './api/shop-api-service';
+import {ShopModule} from './shop/shop.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -65,7 +71,9 @@ firebase.initializeApp(environment.firebase);
     TokenModule,
     EvolveModule,
     ControlModule,
+    ShopModule,
     HttpClientModule,
+    AngularFittextModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
@@ -98,7 +106,11 @@ firebase.initializeApp(environment.firebase);
     NotifyBellApiService,
     SettingApiService,
     PushApiService,
-    LocalStorageService,
+    AdminApiService,
+    StorageService,
+    ErrorHandlerService,
+    MemeCoinsApiService,
+    ShopApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

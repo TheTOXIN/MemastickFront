@@ -14,10 +14,10 @@ export class SignUpComponent implements OnInit {
 
   private messages = [
     'Милости прошу к нашему шалашу',
-    'Быстрее возвращайся!',
-    'Ну давай залезай сюда',
-    'Где тебя носило? Мы волновались',
-    'Вы только посмотрите кто пожаловал!'
+    'Тебе у нас понравится :)',
+    'Ты сделал правильный выбор ;)',
+    'Тебя ждет большое будущее',
+    'Где тебя носит? Быстрее к нам!'
   ];
 
   public message: String;
@@ -86,6 +86,10 @@ export class SignUpComponent implements OnInit {
       () => this.router.navigateByUrl('/home'),
       () => this.router.navigateByUrl('/pages/sign-in'),
     );
+  }
+
+  toRegInvite() {
+    this.router.navigateByUrl('/pages/invite-reg');
   }
 
   setError(error: any) {

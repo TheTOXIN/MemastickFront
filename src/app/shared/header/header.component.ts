@@ -1,8 +1,8 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {WINDOW} from '../services/windows.service';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {Router} from '@angular/router';
+import {VERSION} from '../../app.constants';
 
 declare var $: any;
 
@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
-  public headMessage = 'ver: ' + GlobalConst.VERSION;
+  public headMessage = 'ver: ' + VERSION;
   public darkHeader: boolean = false;
 
   constructor(

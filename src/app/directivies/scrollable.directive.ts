@@ -7,6 +7,8 @@ export class ScrollableDirective {
 
   @Output() scrollPosition = new EventEmitter();
 
+  private predTop = 0;
+
   constructor(public el: ElementRef) { }
 
   @HostListener('scroll', ['$event'])
@@ -23,6 +25,16 @@ export class ScrollableDirective {
       if (top === 0) {
         this.scrollPosition.emit('top');
       }
+
+      if (top - this.predTop >= 10) {
+        this.scrollPosition.emit('down');
+      }
+
+      if (top - this.predTop <= -10) {
+        this.scrollPosition.emit('up');
+      }
+
+      this.predTop = top;
 
     } catch (err) {}
   }

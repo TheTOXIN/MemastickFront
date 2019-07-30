@@ -1,0 +1,57 @@
+.social-modal {
+  height: 100px;
+  width: 90%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin: 10px auto auto;
+  text-align: center;
+}
+
+.social-modal-img {
+  height: 100%;
+  width: 20%;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.social-modal-txt {
+  height: 100%;
+  width: 60%;
+
+  div {
+    font-size: 32px;
+  }
+
+  @media(max-width: 767px) {
+    div {
+      font-size: 24px;
+    }
+  }
+}
+
+.social-modal-ref {
+  height: 100%;
+  width: 20%;
+
+  i {
+    font-size: 54px;
+    color: #6b25fc
+  }
+  &:hover {
+    i {
+      color: #9647db;
+    }
+  }
+}
+
+.social-modal-separate {
+  border: 2px solid #6c757d;
+  border-radius: 30px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}

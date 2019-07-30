@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import {GlobalConst} from '../consts/GlobalConst';
+import {VERSION} from '../app.constants';
 
 @Injectable()
 export class PwaService {
@@ -11,7 +11,7 @@ export class PwaService {
     private swUpdate: SwUpdate,
   ) {
     swUpdate.available.subscribe(event => {
-      if (confirm('Мемастик обновился до версии: ' + GlobalConst.VERSION)) {
+      if (confirm('Мемастик обновился до версии: ' + VERSION)) {
         window.location.reload();
       } else {
         window.location.reload();

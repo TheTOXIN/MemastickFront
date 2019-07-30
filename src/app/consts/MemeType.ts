@@ -1,7 +1,8 @@
 export enum MemeType {
 
-  EVOLVE = 'EVOLVE',
-  INDIVID = 'INDIVID',
-  DEATH = 'DEATH'
+  EVLV = 'EVLV',
+  SLCT = 'SLCT',
+  INDV = 'INDV',
+  DEAD = 'DEAD'
 
 }

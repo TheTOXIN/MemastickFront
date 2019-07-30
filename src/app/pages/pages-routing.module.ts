@@ -4,13 +4,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {ForgetPasswordComponent} from './forget-password/forget-password.component';
-import {ThankYouComponent} from './thank-you/thank-you.component';
+import {InviteRegComponent} from './invite-reg/invite-reg.component';
 import {ReviewComponent} from './review/review.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
 import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
 import {ComingSoonComponent} from './coming-soon/coming-soon.component';
 import {RequestFormComponent} from './request-form/request-form.component';
+import {AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -29,8 +29,8 @@ const routes: Routes = [
         component: ForgetPasswordComponent,
       },
       {
-        path: 'thank-you',
-        component: ThankYouComponent,
+        path: 'invite-reg',
+        component: InviteRegComponent,
       },
       {
         path: 'review',
@@ -51,6 +51,10 @@ const routes: Routes = [
       {
         path: 'request',
         component: RequestFormComponent,
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
       }
     ]
   }

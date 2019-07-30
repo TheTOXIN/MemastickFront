@@ -57,6 +57,9 @@
                  [formControl]="signForm.controls['invite']"
                  (click)="message = 'Инвайт-код можно получить на стартовой странице'">
         </div>
+        <div class="sign-invite-code" (click)="toRegInvite()">
+          <a>ПОЛУЧИТЬ ИНВАЙТ</a>
+        </div>
         <div class="form-group sign-button">
           <button [disabled]="!signForm.valid" class="btn submit" type="submit">ГОТОВО</button>
         </div>

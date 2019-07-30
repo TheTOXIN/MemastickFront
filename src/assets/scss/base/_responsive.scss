@@ -88,9 +88,7 @@
       }
     }
   }
-  .footer-logo {
-    padding: 0 0 0 30px;
-  }
+
   .cooming-soon {
     .left {
       z-index: 9;
@@ -332,7 +330,7 @@
   }
   .awesome {
     right: -50px;
-    top: 175px;
+    top: 190px;
   }
   .profile-1 {
     right: -115px;
@@ -444,7 +442,6 @@
       margin-bottom: 10px;
     }
   }
-
 }
 
 @media(max-width: 991px) {
@@ -946,6 +943,7 @@
     left: -46px;
   }
   .awesome {
+    top: 135px;
     right: 25px;
   }
   .profile-1 {
@@ -1815,7 +1813,6 @@
     }
   }
   @media(max-width: 767px) {
-
     .grab-img {
       .profile-msg, .awesome {
         display: none;

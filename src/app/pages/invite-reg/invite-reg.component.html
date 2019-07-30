@@ -1,0 +1,59 @@
+<!-- Sign in Section start -->
+<section class="p-0">
+
+  <div class="animation-circle-inverse">
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+
+  <div class="thanks-bg">
+
+    <div class="invite-reg-message" *ngIf="!showFrom">
+      <img alt="thanks" class="img-fluid" src="assets/images/thanks.gif">
+      <div >
+        <h3 class="mb-4">Спасибо за участие! Скоро инвайт код придёт к вам на почту. Используйте его при регистрации</h3>
+        <p class="mb-4">P.s Если вы там ничего нового не увидели, попробуйте позже или чекните спам</p>
+      </div>
+    </div>
+
+    <div class="invite-reg-from" *ngIf="showFrom">
+      <div class="section-title">
+        <h2>ИНВАЙТ</h2>
+        <span class="msg-invite">*сервис находится в процессе разработки, но ты можешь получить инвайт код для тестирования*</span>
+        <div class="invite-reg-info">
+          <p *ngIf="!load" class="txt-invite animated bounceIn">{{text}}</p>
+          <i *ngIf="load" class="fa fa-circle-o-notch fa-spin sign-spinner"></i>
+        </div>
+      </div>
+      <form class="auth-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputName1">Никнейм</label>
+          <i class="fa fa-user"></i>
+          <input [formControl]="contactForm.controls['nick']" class="form-control" id="exampleInputName1" name="nick"
+                 placeholder="Никнейм"
+                 required="" type="text">
+          <div *ngIf="contactForm.controls.nick.touched && contactForm.controls.nick.errors?.required"
+               class="text text-danger">Никнейм пуст
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail12">Почта</label>
+          <i class="fa fa-envelope-o"></i>
+          <input [formControl]="contactForm.controls['email']" class="form-control" id="exampleInputEmail12"
+                 name="email"
+                 placeholder="Email" required="">
+          <div *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.email"
+               class="text text-danger">Кривое мыло
+          </div>
+        </div>
+        <div class="form-group mb-0">
+          <button [disabled]="!contactForm.valid" class="btn-theme" type="submit">ОТПРАВИТЬ</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</section>
+<!-- Sign in Section End -->

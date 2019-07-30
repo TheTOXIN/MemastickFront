@@ -1,0 +1,16 @@
+<div *ngIf="isShow" class="accept ">
+  <div *ngIf="text != null" class="accept-text animated fadeIn">
+    <div>{{text}}</div>
+  </div>
+  <div class="accept-content animated fast bounceInUp">
+    <div class="accept-no text-strong-middle" (click)="no()">
+      <div><i class="fa fa-close button-close"></i></div>
+    </div>
+    <div class="accept-body text-strong-middle">
+      <div><img class="img-fluid" [src]="img"></div>
+    </div>
+    <div class="accept-yes text-strong-middle" (click)="yes()">
+      <div><i class="fa fa-check button-check"></i></div>
+    </div>
+  </div>
+</div>

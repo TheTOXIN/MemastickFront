@@ -63,4 +63,8 @@ export class MemetickRatingComponent implements OnInit {
   memetickView(memetickId: UUID) {
     this.router.navigate(['/home/memetick', memetickId]);
   }
+
+  toHome() {
+    this.router.navigateByUrl('/home');
+  }
 }
