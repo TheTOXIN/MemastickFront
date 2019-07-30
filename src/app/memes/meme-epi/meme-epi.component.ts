@@ -13,7 +13,7 @@ import {EpiModalComponent} from '../../modals/epi-modal/epi-modal.component';
 export class MemeEpiComponent implements OnInit {
 
   @Input()
-  private epi: EPI;
+  public epi: EPI;
 
   constructor(
     private _sanitizer: DomSanitizer,
