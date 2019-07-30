@@ -44,7 +44,8 @@ export class ControlBellsComponent implements OnInit {
     this.bellApi.clear(bell.id);
   }
 
-  event(bell: NotifyBell) {
+  event(bell: NotifyBell, index: number) {
+    this.clear(bell, index);
     if (bell.link == null) { return; }
     window.location.href = bell.link;
   }

@@ -4,7 +4,7 @@
   <div *ngIf="!loader">
     <div *ngFor="let bell of bells; let i = index">
       <div class="control-bells-row">
-      <div class="control-bells-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''" (click)="event(bell)">
+      <div class="control-bells-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''" (click)="event(bell, i)">
         <div>{{bell.text}}</div>
       </div>
       <div  class="control-bells-btn">
