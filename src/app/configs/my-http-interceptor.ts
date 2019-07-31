@@ -75,7 +75,6 @@ export class MyHttpInterceptor implements HttpInterceptor {
         })
       );
     } else {
-      this.isRefreshingToken = false;
       return this.tokenSubject.pipe(
         filter(token => token != null),
         take(1),
