@@ -6,16 +6,10 @@ import {interval} from 'rxjs/internal/observable/interval';
 @Injectable()
 export class PwaService implements OnInit{
 
-  public promptEvent;
-
   constructor(
     private swu: SwUpdate,
   ) {
-    window.addEventListener('beforeinstallprompt', event => {
-      this.promptEvent.preventDefault();
-      this.promptEvent = event;
-    });
-
+    // TODO add try beforeinstallprompt
   }
 
   ngOnInit(): void {
