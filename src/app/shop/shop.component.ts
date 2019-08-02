@@ -30,7 +30,7 @@ export class ShopComponent implements OnInit {
 
   test() {
     if (this.counter <= 0) { return; }
-    this.coinAccept.show('-' + this.testPrice);
+    this.coinAccept.show('-' + this.testPrice * this.counter);
   }
 
   acceptCoinResult(accept: boolean) {

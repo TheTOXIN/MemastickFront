@@ -26,7 +26,6 @@ export class PushService {
     if (!this.work()) { return; }
 
     return this.messaging.requestPermission()
-      .then(() => alert('PUSH уведомления разрешены'))
       .then(() => { this.register(); })
       .catch(() => alert('PUSH уведомления заблокированы'));
   }
