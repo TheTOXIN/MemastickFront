@@ -130,14 +130,19 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 5px;
+  text-align: center;
 
   img {
     width: 32px;
   }
-  div {
+
+  span {
     font-size: 24px;
   }
-  span {
-    font-size: 16px;
+
+  @media(max-width: 767px) {
+    span {
+      font-size: 18px;
+    }
   }
 }
