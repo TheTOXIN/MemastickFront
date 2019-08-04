@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild(NotificationComponent) notification: NotificationComponent;
 
-  public controlWork;
+  public controlWork = false;
 
   constructor(
     private webSocketService: WebSocketService,

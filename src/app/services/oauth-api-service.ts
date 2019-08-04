@@ -8,6 +8,7 @@ import {PushService} from './push-service';
 import {StorageService} from './storage-service';
 import {User} from '../model/User';
 import {AppComponent} from '../app.component';
+import {WebSocketService} from './web-socket-service';
 
 @Injectable()
 export class OauthApiService {
@@ -24,7 +25,8 @@ export class OauthApiService {
     private router: Router,
     private http: HttpClient,
     private push: PushService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private socket: WebSocketService
   ) {
     this.initStatuses();
   }
@@ -93,6 +95,8 @@ export class OauthApiService {
     } else {
       this.logoutProcess();
     }
+
+    this.socket.disconnect();
   }
 
   private logoutProcess() {

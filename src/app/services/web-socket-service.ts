@@ -37,6 +37,12 @@ export class WebSocketService {
     });
   }
 
+  public disconnect() {
+    if (this.stomp != null) {
+      this.stomp.disconnect();
+    }
+  }
+
   public register(id: string) {
     this.http
       .put(API.NOTIFY_WEB_REGISTER, id)
