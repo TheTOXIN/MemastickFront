@@ -8,7 +8,7 @@ export const environment = {
     storageBucket: 'memastick-d525f.appspot.com',
     messagingSenderId: '1004879436852'
   },
-  version: '0.4.1 alpha',
+  version: '0.4.2 alpha',
   backUrl: 'https://memastick-back.herokuapp.com',
   frontUrl: 'https://www.memastick.ru'
 };

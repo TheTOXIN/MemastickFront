@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
 
   public update() {
     this.pwa.checkUpdate(() => {
-      alert('Мемастик обновился до версии: ' + VERSION);
+      alert('Мемастик обновился, подтвердите чтобы обновить');
       document.location.reload();
     });
   }
