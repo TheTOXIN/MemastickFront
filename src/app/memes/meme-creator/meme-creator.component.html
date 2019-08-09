@@ -1,6 +1,7 @@
 <div class="back">
   <div class="create-title">
-    <p>СОЗДАНИЕ МЕМА</p>
+    <p *ngIf="!isPreview">СОЗДАНИЕ МЕМА</p>
+    <p *ngIf="isPreview">ЭПИ: {{epiCell.evolution}}/{{epiCell.population}}/{{epiCell.individuation}}</p>
   </div>
 
   <div class="create-table flex-center-absolute">

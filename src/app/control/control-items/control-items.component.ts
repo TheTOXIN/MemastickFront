@@ -14,7 +14,8 @@ export class Item {
     public image: string,
     public name: string,
     public count: number,
-    public action: any
+    public action: any,
+    public notify = false
   ) {
 
   }
@@ -56,6 +57,26 @@ export class ControlItemsComponent implements OnInit {
   initInventory() {
     this.inventory = [];
 
+    if (this.data.allowance) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/allowance.png',
+        'Пособие',
+        1,
+        () => this.openAllowance(),
+        true
+      );
+    }
+
+    if (this.data.cell) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/cell.png',
+        'Клетка',
+        1,
+        () => this.router.navigateByUrl('/memes/create'),
+        true
+      );
+    }
+
     this.inventory[this.inventory.length] = new Item(
       'assets/images/icon/memecoin.png',
       'Мемкойны',
@@ -69,24 +90,6 @@ export class ControlItemsComponent implements OnInit {
       this.data.cookies,
       () => this.router.navigateByUrl('/shop')
     );
-
-    if (this.data.allowance) {
-      this.inventory[this.inventory.length] = new Item(
-        'assets/images/icon/allowance.png',
-        'Пособие',
-        1,
-        () => this.openAllowance()
-      );
-    }
-
-    if (this.data.cell) {
-      this.inventory[this.inventory.length] = new Item(
-        'assets/images/icon/cell.png',
-        'Клетка',
-        1,
-        () => this.router.navigateByUrl('/memes/create')
-      );
-    }
   }
 
   initTokens() {

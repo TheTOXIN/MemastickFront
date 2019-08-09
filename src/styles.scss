@@ -28,3 +28,21 @@
   left: 0;
   right: 0;
 }
+
+.text-strong-center {
+  display: table;
+  text-align: center;
+  div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.text-strong-middle {
+  display: table;
+  div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

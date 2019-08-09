@@ -31,21 +31,11 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  public memetick: Memetick = new Memetick(
-    '',
-    '',
-    false,
-    false,
-    0,
-    0
-  );
-
   public setting: Setting = new Setting(
     true
   );
 
   ngOnInit() {
-    this.memetickApi.viewMe().subscribe(data => this.memetick = data);
     this.settingApi.me().subscribe(data => this.setting = data);
   }
 
@@ -54,8 +44,7 @@ export class SettingsComponent implements OnInit {
   }
 
   changeNick() {
-    const modalRef = this.modalService.open(ChangeNickModalComponent, {'centered': true});
-    modalRef.componentInstance.nick = this.memetick.nick;
+    this.modalService.open(ChangeNickModalComponent, {'centered': true});
   }
 
   pushNotification() {
