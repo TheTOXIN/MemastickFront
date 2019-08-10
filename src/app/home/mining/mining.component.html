@@ -17,8 +17,11 @@
     <img class="mining-block animated fadeIn"
          *ngIf="isMake && !isMine"
          [@bounceAnim]='tapState'
-         (click)="tap()"
          [src]="'assets/images/icon/blockcoin.png'">
+    <img class="mining-pickaxe"
+         [@rotateAnim]='rotateState'
+         (click)="tap()"
+         [src]="'assets/images/icon/pickaxe.png'">
     <div class="mining-flame"></div>
   </div>
 

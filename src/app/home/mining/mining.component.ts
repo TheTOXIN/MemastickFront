@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BlockCoinsApiService} from '../../api/block-coins-api-service';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {Router} from '@angular/router';
-import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 
 const shajs = require('sha.js');
@@ -24,7 +24,17 @@ const shajs = require('sha.js');
     ]),
     trigger('moveAnim', [
       transition('* => *', [
-        animate(300, style({ transform: 'translateY(100%)', opacity: 0 }))
+        animate(300, style({ transform: 'translateY(100%) scale(0.1)', opacity: 0 }))
+      ])
+    ]),
+    trigger('rotateAnim', [
+      transition('right => left', [
+        animate(150, style({ transform: 'rotate(-140deg)'})),
+        animate(300, style({ transform: 'rotate(-45deg)'}))
+      ]),
+      transition('left => right', [
+        animate(150, style({ transform: 'rotate(60deg)'})),
+        animate(300, style({ transform: 'rotate(-45deg)'}))
       ])
     ])
   ]
@@ -35,6 +45,8 @@ export class MiningComponent implements OnInit {
   public loadStatus: LoaderStatus;
   public loadEvent: any;
 
+  textTitle = '(жмите на кирку)';
+
   myStyle: object = {};
   myParams: object = {};
   
@@ -44,13 +56,16 @@ export class MiningComponent implements OnInit {
   public nonce: number;
   public cache: number;
 
-  textTitle = '(жмите на блок)';
   tapState = 'default';
+  rotateState = 'right';
 
   isMake = false;
   isMine = false;
 
   private audio = new Audio();
+
+  private tapMax = 2;
+  private tapCount = 0;
 
   constructor(
     private blockApi: BlockCoinsApiService,
@@ -78,8 +93,13 @@ export class MiningComponent implements OnInit {
 
   public tap() {
     this.tapState = (this.tapState === 'default' ? 'tap' : 'default');
-    const nonce = this.nonce;
+    this.rotateState = (this.rotateState === 'right' ? 'left' : 'right');
 
+    this.tapCount++;
+    if (this.isMine || this.tapCount < this.tapMax) { return; }
+    this.tapCount = 0;
+
+    const nonce = this.nonce;
     const mineHash = shajs('sha256')
       .update(this.hash + nonce)
       .digest('hex');

@@ -1,11 +1,11 @@
 <div *ngIf="isShow()">
-<div class="animated fadeIn loader flex-center-absolute" (click)="action()">
-  <div class="loader-done" *ngIf="isDone()">
+<div class="animated fadeIn loader flex-center-absolute">
+  <div class="loader-done" *ngIf="isDone()" (click)="action()">
     <div class="loader-status animated rotateIn slow">
         <i class="fa fa-check loader-icon"></i>
     </div>
   </div>
-  <div class="loader-error" *ngIf="isError()">
+  <div class="loader-error" *ngIf="isError()" (click)="action()">
     <div class="loader-status animated rotateIn slow">
         <i class="fa fa-times loader-icon"></i>
     </div>

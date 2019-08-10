@@ -34,10 +34,12 @@
     width: 156px;
     position: absolute;
   }
-  .mining-axe {
-    width: 128px;
-    height: 128px;
+  .mining-pickaxe {
+    width: 100px;
+    height: 100px;
     position: absolute;
+    margin-top: 100px;
+    transform: rotate(-45deg);
   }
 }
 
@@ -61,19 +63,6 @@
   button {
     font-size: 20px;
   }
-}
-
-
-
-
-
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #1b1e23;
 }
 
 .mining-flame {
