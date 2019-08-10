@@ -1,3 +1,64 @@
 .mining-warp {
-  text-align: center;
+  background-color: #212529;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -69;
+}
+
+.mining-head {
+  span {
+    color: white;
+    font-size: 32px;
+  }
+
+  div {
+    margin-right: auto;
+    margin-left: auto;
+    color: #bdbdbc;
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+}
+
+.mining-content {
+  .mining-coin {
+    width: 128px;
+    height: 128px;
+  }
+  .mining-block {
+    height: 156px;
+    width: 156px;
+    position: absolute;
+  }
+  .mining-axe {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+  }
+}
+
+.mining-foot {
+  div {
+    margin-bottom: 5px;
+  }
+
+  span {
+    color: white;
+    font-size: 24px;
+  }
+
+  img {
+    margin-left: 5px;
+    margin-top: -10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  button {
+    font-size: 20px;
+  }
 }

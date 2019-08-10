@@ -47,6 +47,10 @@ export class ControlScopeComponent implements OnInit {
     this.navigate('/shop');
   }
 
+  mining() {
+    this.navigate('/home/mining');
+  }
+
   battle() {
     this.dipricated();
   }

@@ -3,6 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemeCoinsApiService} from '../../api/meme-coins-api-service';
 import {MemeCoin} from '../../model/MemeCoin';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-meme-coin-history-modal',
@@ -20,6 +21,7 @@ export class MemeCoinHistoryModalComponent implements OnInit {
   isLoad = true;
 
   constructor(
+    private router: Router,
     public activeModal: NgbActiveModal,
     public coinsApi: MemeCoinsApiService
   ) {
@@ -40,5 +42,14 @@ export class MemeCoinHistoryModalComponent implements OnInit {
         this.collectionSize = data.totalElements;
         this.isLoad = false;
       });
+  }
+
+  close() {
+    this.activeModal.dismiss('Cross click');
+  }
+
+  toMining() {
+    this.close();
+    this.router.navigateByUrl('/home/mining');
   }
 }

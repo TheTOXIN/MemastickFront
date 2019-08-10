@@ -10,6 +10,9 @@ import {Router} from '@angular/router';
 export class LoaderComponent implements OnInit {
 
   @Input()
+  public event: any;
+
+  @Input()
   public message: String;
 
   @Input()
@@ -40,6 +43,14 @@ export class LoaderComponent implements OnInit {
 
   isMessage() {
     return this.message !== '' && this.message != null;
+  }
+
+  action() {
+    if (this.event == null) {
+      this.clear();
+    } else  {
+      this.event.apply();
+    }
   }
 
   clear() {

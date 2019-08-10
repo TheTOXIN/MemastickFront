@@ -1,4 +1,5 @@
 import {UUID} from 'angular2-uuid';
+import {EvolveStep} from '../consts/EvolveStep';
 
 export class Meme {
   constructor (
@@ -8,7 +9,7 @@ export class Meme {
     public type: string,
     public chromosomes: number,
     public indexer: number,
-    public step: string,
+    public step: EvolveStep,
   ) {
 
   }

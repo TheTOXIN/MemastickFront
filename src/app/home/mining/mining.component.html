@@ -1,18 +1,32 @@
 <div class="mining-warp">
-  <span>{{textTitle}}</span>
-  <div *ngIf="isLoad">
-    <app-spinner></app-spinner>
+  <app-loader [message]="loadMessage" [status]="loadStatus" [event]="loadEvent"></app-loader>
+  <particles [style]="myStyle" [width]="100" [height]="100" [params]="myParams"></particles>
+
+  <div class="mining-head top-absolute">
+    <span>МАЙНИНГ</span>
+    <div>{{textTitle}}</div>
   </div>
-  <div *ngIf="!isLoad">
-    <img (click)="tap()" [src]="'assets/images/icon/memecoin.png'">
+
+  <div class="mining-content flex-center-absolute">
+    <app-spinner *ngIf="!isMake"></app-spinner>
+    <img class="mining-coin animated bounceIn"
+         *ngIf="isMake"
+         [@tapState]='cache'
+         (click)="accept()"
+         [src]="'assets/images/icon/memecoin.png'">
+    <img class="mining-block animated fadeIn"
+         *ngIf="isMake && !isMine"
+         [@tapState]='tapState'
+         (click)="tap()"
+         [src]="'assets/images/icon/blockcoin.png'">
   </div>
-  <div>
-    <span>{{cache}}</span>
-  </div>
-  <div>
+
+  <div class="mining-foot bottom-absolute">
+    <div [@tapState]='cache'>
+      <span>{{cache}}</span><img [src]="'assets/images/icon/memecoin.png'">
+    </div>
     <button class="btn-theme" (click)="flush()">
       ЗАБРАТЬ
     </button>
   </div>
 </div>
-

@@ -1,5 +1,5 @@
 <div class="back">
-  <div class="create-title">
+  <div class="create-title top-absolute">
     <p *ngIf="!isPreview">СОЗДАНИЕ МЕМА</p>
     <p *ngIf="isPreview">ЭПИ: {{epiCell.evolution}}/{{epiCell.population}}/{{epiCell.individuation}}</p>
   </div>
@@ -33,17 +33,17 @@
     </div>
   </div>
 
-  <div class="create-button" *ngIf="!isPreview">
+  <div class="create-button bottom-absolute" *ngIf="!isPreview">
     <button class="btn-theme" (click)="close()"><i class="fa fa-home"></i></button>
   </div>
 
-  <div class="create-button" *ngIf="isPreview && !isCreate">
+  <div class="create-button bottom-absolute" *ngIf="isPreview && !isCreate">
     <button class="btn-theme" (click)="cancel()"><i class="fa fa-times"></i></button>
     <button class="btn-theme" (click)="create()"><i class="fa fa-check"></i></button>
     <button class="btn-theme" (click)="showText()"><i class="fa fa-align-left"></i></button>
   </div>
 
-  <div class="create-button" *ngIf="isCreate">
+  <div class="create-button bottom-absolute" *ngIf="isCreate">
     <button class="btn-theme" (click)="memes()"><i class="fa fa-globe"></i></button>
   </div>
 
