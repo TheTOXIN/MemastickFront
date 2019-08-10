@@ -11,18 +11,19 @@
     <app-spinner *ngIf="!isMake"></app-spinner>
     <img class="mining-coin animated bounceIn"
          *ngIf="isMake"
-         [@tapState]='cache'
+         [@moveAnim]='cache'
          (click)="accept()"
          [src]="'assets/images/icon/memecoin.png'">
     <img class="mining-block animated fadeIn"
          *ngIf="isMake && !isMine"
-         [@tapState]='tapState'
+         [@bounceAnim]='tapState'
          (click)="tap()"
          [src]="'assets/images/icon/blockcoin.png'">
+    <div class="mining-flame"></div>
   </div>
 
   <div class="mining-foot bottom-absolute">
-    <div [@tapState]='cache'>
+    <div [@bounceAnim]='cache'>
       <span>{{cache}}</span><img [src]="'assets/images/icon/memecoin.png'">
     </div>
     <button class="btn-theme" (click)="flush()">

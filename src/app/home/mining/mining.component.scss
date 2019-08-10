@@ -62,3 +62,34 @@
     font-size: 20px;
   }
 }
+
+
+
+
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1b1e23;
+}
+
+.mining-flame {
+  content: "";
+  position: absolute;
+  width: 69px;
+  height: 69px;
+  background-color: #fdef34;
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: -50;
+  animation: flicker-background 4000ms ease-in infinite;
+}
+
+@keyframes flicker-background {
+  50% {
+    transform: scale(0.8);
+  }
+}

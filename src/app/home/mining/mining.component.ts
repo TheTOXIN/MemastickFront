@@ -12,7 +12,7 @@ const shajs = require('sha.js');
   templateUrl: './mining.component.html',
   styleUrls: ['./mining.component.scss'],
   animations: [
-    trigger('tapState', [
+    trigger('bounceAnim', [
       transition('* => *', [
         style({ transform: 'scale(1)' }),
         animate(150, keyframes([
@@ -20,6 +20,11 @@ const shajs = require('sha.js');
           style({ transform: 'scale(1.3)', offset: 0.5 }),
           style({ transform: 'scale(1)', offset: 1 })
         ]))
+      ])
+    ]),
+    trigger('moveAnim', [
+      transition('* => *', [
+        animate(300, style({ transform: 'translateY(100%)', opacity: 0 }))
       ])
     ])
   ]
@@ -45,10 +50,15 @@ export class MiningComponent implements OnInit {
   isMake = false;
   isMine = false;
 
+  private audio = new Audio();
+
   constructor(
     private blockApi: BlockCoinsApiService,
     private router: Router
   ) {
+    this.audio.src = '../../../assets/audio/stone.wav';
+    this.audio.load();
+
     this.loadStatus = LoaderStatus.NONE;
     this.loadMessage = '';
     this.loadEvent = () => this.toHome();
@@ -68,7 +78,6 @@ export class MiningComponent implements OnInit {
 
   public tap() {
     this.tapState = (this.tapState === 'default' ? 'tap' : 'default');
-
     const nonce = this.nonce;
 
     const mineHash = shajs('sha256')
@@ -77,7 +86,7 @@ export class MiningComponent implements OnInit {
     this.textTitle = mineHash;
 
     if (mineHash.startsWith(this.target)) {
-      this.sound();
+      this.audio.play();
       this.mine(nonce);
     }
     this.nonce++;
@@ -124,14 +133,6 @@ export class MiningComponent implements OnInit {
   error(txt: string) {
     this.loadStatus = LoaderStatus.ERROR;
     this.loadMessage = txt;
-  }
-
-  sound() {
-    const audio = new Audio();
-
-    audio.src = '../../../assets/audio/stone.wav';
-    audio.load();
-    audio.play();
   }
 
   private toHome() {

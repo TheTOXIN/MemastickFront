@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NotifyType} from '../../consts/NotifyType';
 import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
@@ -12,7 +12,7 @@ import {tokenIcons, tokensData} from '../../model/TokenData';
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss']
 })
-export class NotificationComponent {
+export class NotificationComponent implements OnInit {
 
   public isShow = false;
   public isHide = false;
@@ -25,10 +25,17 @@ export class NotificationComponent {
 
   private icons = [];
 
+  private audio = new Audio();
+
   constructor(
     private avatarApi: MemetickAvatarApiService
   ) {
     this.icons = tokenIcons;
+    this.audio.src = '../../../assets/audio/nice.wav';
+  }
+
+  ngOnInit(): void {
+    this.audio.load();
   }
 
   show(notify: Notify) {
@@ -37,7 +44,7 @@ export class NotificationComponent {
     this.isHide = false;
     this.isShow = true;
 
-    this.sound();
+    this.audio.play();
     this.destroy();
   }
 
@@ -73,14 +80,6 @@ export class NotificationComponent {
     timer(3000).subscribe(() => {
       this.isHide = true;
     });
-  }
-
-  sound() {
-    const audio = new Audio();
-
-    audio.src = '../../../assets/audio/nice.wav';
-    audio.load();
-    audio.play();
   }
 
   event() {
