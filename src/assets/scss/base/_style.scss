@@ -231,6 +231,11 @@ button:focus {
     background: $primary_color;
     background-color: $primary_color;
   }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .btn-theme-inverse {
@@ -247,6 +252,11 @@ button:focus {
 
   &:hover {
     box-shadow: 0 0 5px 5px #ffa807;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -266,6 +276,11 @@ button:focus {
     color: $secondary_color !important;
     border: 1px solid $secondary_color;
     transition: all 0.3s ease-in-out;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
   }
 }
 

@@ -52,6 +52,7 @@ import {AdminApiService} from './api/admin-api-service';
 import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
 import {ShopModule} from './shop/shop.module';
+import {BlockCoinsApiService} from './api/block-coins-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -111,6 +112,7 @@ firebase.initializeApp(environment.firebase);
     ErrorHandlerService,
     MemeCoinsApiService,
     ShopApiService,
+    BlockCoinsApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

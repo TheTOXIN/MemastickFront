@@ -21,6 +21,7 @@ export class AdminApiService {
       .toPromise();
   }
 
+  // TODO to invite api
   public readInvites(): Observable<InviteCode[]> {
     return this.http
       .get<InviteCode[]>(API.INVITE_READ)

@@ -5,6 +5,7 @@ import {MemetickComponent} from './memetick/memetick.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {SettingsComponent} from './settings/settings.component';
 import {LibraryComponent} from './library/library.component';
+import {MiningComponent} from './mining/mining.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'library',
         component: LibraryComponent
+      },
+      {
+        path: 'mining',
+        component: MiningComponent
       },
       {
         path: '',

@@ -1,0 +1,18 @@
+<div class="mining-warp">
+  <span>{{textTitle}}</span>
+  <div *ngIf="isLoad">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="!isLoad">
+    <img (click)="tap()" [src]="'assets/images/icon/memecoin.png'">
+  </div>
+  <div>
+    <span>{{cache}}</span>
+  </div>
+  <div>
+    <button class="btn-theme" (click)="flush()">
+      ЗАБРАТЬ
+    </button>
+  </div>
+</div>
+
