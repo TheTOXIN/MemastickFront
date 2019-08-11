@@ -29,6 +29,7 @@ export enum API {
   ALLOWANCE_HAVE = '/token-allowance/have',
   INVENTORY_CELL = '/memetick-inventories/cell',
   INVENTORY_ALL = '/memetick-inventories/all',
+  INVENTORY_PICKAXE = '/memetick-inventories/pickaxe',
   TOKEN_ACCEPT = '/token-accept',
   NOTIFY_PUSH_REGISTER = '/notify/push/register',
   NOTIFY_WEB_REGISTER = '/notify/web/register',

@@ -4,6 +4,9 @@ import {GlobalConst} from '../../consts/GlobalConst';
 import {Router} from '@angular/router';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {LoaderStatus} from '../../consts/LoaderStatus';
+import {ErrorCode} from '../../consts/ErrorCode';
+import {Pickaxe} from '../../model/Pickaxe';
+import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 
 const shajs = require('sha.js');
 
@@ -41,20 +44,28 @@ const shajs = require('sha.js');
 })
 export class MiningComponent implements OnInit {
 
+  private audio = new Audio();
+  private tapMax = 2;
+  private tapCount = 0;
+
   public loadMessage: string;
   public loadStatus: LoaderStatus;
   public loadEvent: any;
 
-  textTitle = '(жмите на кирку)';
+  public pickaxe: Pickaxe;
+  public loadPickaxe: boolean;
 
-  myStyle: object = {};
-  myParams: object = {};
-  
   public hash: string;
   public target: string;
 
   public nonce: number;
   public cache: number;
+
+  textTitle = 'МАЙНИНГ';
+  hashTitle = '';
+
+  myStyle: object = {};
+  myParams: object = {};
 
   tapState = 'default';
   rotateState = 'right';
@@ -62,13 +73,9 @@ export class MiningComponent implements OnInit {
   isMake = false;
   isMine = false;
 
-  private audio = new Audio();
-
-  private tapMax = 2;
-  private tapCount = 0;
-
   constructor(
     private blockApi: BlockCoinsApiService,
+    private inventoryApi: MemetickInventoryApiService,
     private router: Router
   ) {
     this.audio.src = '../../../assets/audio/stone.wav';
@@ -78,10 +85,12 @@ export class MiningComponent implements OnInit {
     this.loadMessage = '';
     this.loadEvent = () => this.toHome();
 
+    this.loadPickaxe = false;
+
     this.nonce = 0;
     this.cache = 0;
-
     this.target = '';
+
     for (let i = 0; i < GlobalConst.BLOCK_DFCLT; i++) {
       this.target += '0';
     }
@@ -102,8 +111,7 @@ export class MiningComponent implements OnInit {
 
     const nonce = this.nonce;
     const mineHash = this.sha(this.hash + nonce);
-
-    this.textTitle = mineHash;
+    this.hashTitle = mineHash;
 
     if (mineHash.startsWith(this.target)) {
       this.hash = mineHash;
@@ -116,9 +124,16 @@ export class MiningComponent implements OnInit {
   public accept() {
     if (!this.isMine) { return; }
 
-    this.textTitle = this.hash;
+    this.textTitle = 'МАЙНИНГ';
     this.isMine = false;
     this.cache++;
+  }
+
+  public getPickaxe() {
+    this.inventoryApi.getPickaxe().subscribe(data => {
+      this.pickaxe = data;
+      this.loadPickaxe = true;
+    });
   }
 
   private make() {
@@ -126,7 +141,7 @@ export class MiningComponent implements OnInit {
     this.blockApi.makeBlock().subscribe(data => {
       this.hash = data.hash;
       this.isMake = true;
-    }, () => this.error('Ошибка создания блока'));
+    }, (data) => this.error(data.error, 'Ошибка создания блока'));
   }
 
   private mine(nonce: number) {
@@ -135,25 +150,32 @@ export class MiningComponent implements OnInit {
       this.textTitle = 'Заберите монету';
       this.hash = this.sha(this.hash);
       this.nonce = 0;
-    }, () => this.error('Ошибка майнинга блока'));
+    }, (data) => this.error(data.error, 'Ошибка майнинга блока'));
   }
 
   public flush() {
-    if (this.cache === 0) { this.toHome(); }
+    if (this.cache === 0) { this.toHome(); return; }
+
     this.loadMessage = 'Подтверждение транзакции';
     this.loadStatus = LoaderStatus.LOAD;
-    this.blockApi.flushBlock().subscribe(
+    this.blockApi.flushBlock(this.pickaxe.token).subscribe(
       () => {
-        this.cache = 0;
         this.loadMessage = 'Успешно!';
         this.loadStatus = LoaderStatus.DONE;
-      }, () => this.error('Ошибка транзакции')
+      }, (data) => this.error(data.error, 'Ошибка транзакции')
     );
   }
 
-  error(txt: string) {
-    this.loadStatus = LoaderStatus.ERROR;
-    this.loadMessage = txt;
+  error(error: any, txt: string) {
+    if (error.code === ErrorCode.MINE_FAIL) {
+      this.loadStatus = LoaderStatus.ERROR;
+      this.loadMessage = txt;
+    } else if (error.code === ErrorCode.MINE_END) {
+      this.textTitle = 'Кирка сломалась';
+      this.pickaxe.have = false;
+      this.pickaxe.time = ' 01:00:00';
+      this.isMine = false;
+    }
   }
 
   private sha(data): string {

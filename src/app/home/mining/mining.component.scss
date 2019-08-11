@@ -13,6 +13,7 @@
   span {
     color: white;
     font-size: 32px;
+    font-family: FuturaRound, serif;
   }
 
   div {
@@ -40,6 +41,18 @@
     position: absolute;
     margin-top: 100px;
     transform: rotate(-45deg);
+    animation: pickaxe-show 1000ms;
+  }
+}
+
+@keyframes pickaxe-show {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%) rotate(-45deg);
+    opacity: 100%;
   }
 }
 
@@ -68,9 +81,9 @@
 .mining-flame {
   content: "";
   position: absolute;
-  width: 69px;
-  height: 69px;
-  background-color: #fdef34;
+  width: 150px;
+  height: 150px;
+  background-color: #f1c51f;
   filter: blur(50px);
   border-radius: 50%;
   z-index: -50;

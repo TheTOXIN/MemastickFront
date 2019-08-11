@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {API} from '../consts/API';
+import {UUID} from 'angular2-uuid';
 
 @Injectable()
 export class BlockCoinsApiService {
@@ -23,9 +24,9 @@ export class BlockCoinsApiService {
       .pipe();
   }
 
-  public flushBlock() {
+  public flushBlock(token: UUID) {
     return this.http
-      .put(API.BLOCK_COINS_FLUSH, {})
+      .put(API.BLOCK_COINS_FLUSH + '/' + token, {})
       .pipe();
   }
 }
