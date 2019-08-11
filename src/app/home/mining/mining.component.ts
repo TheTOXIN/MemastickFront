@@ -78,9 +78,10 @@ export class MiningComponent implements OnInit {
     this.loadMessage = '';
     this.loadEvent = () => this.toHome();
 
+    this.nonce = 0;
     this.cache = 0;
-    this.target = '';
 
+    this.target = '';
     for (let i = 0; i < GlobalConst.BLOCK_DFCLT; i++) {
       this.target += '0';
     }
@@ -100,12 +101,12 @@ export class MiningComponent implements OnInit {
     this.tapCount = 0;
 
     const nonce = this.nonce;
-    const mineHash = shajs('sha256')
-      .update(this.hash + nonce)
-      .digest('hex');
+    const mineHash = this.sha(this.hash + nonce);
+
     this.textTitle = mineHash;
 
     if (mineHash.startsWith(this.target)) {
+      this.hash = mineHash;
       this.audio.play();
       this.mine(nonce);
     }
@@ -124,16 +125,16 @@ export class MiningComponent implements OnInit {
     this.isMake = false;
     this.blockApi.makeBlock().subscribe(data => {
       this.hash = data.hash;
-      this.nonce = 0;
       this.isMake = true;
     }, () => this.error('Ошибка создания блока'));
   }
 
   private mine(nonce: number) {
     this.isMine = true;
-    this.blockApi.mineBlock(nonce).subscribe((data) => {
-        this.hash = data.hash;
-        this.textTitle = 'Заберите монету';
+    this.blockApi.mineBlock(nonce).subscribe(() => {
+      this.textTitle = 'Заберите монету';
+      this.hash = this.sha(this.hash);
+      this.nonce = 0;
     }, () => this.error('Ошибка майнинга блока'));
   }
 
@@ -153,6 +154,12 @@ export class MiningComponent implements OnInit {
   error(txt: string) {
     this.loadStatus = LoaderStatus.ERROR;
     this.loadMessage = txt;
+  }
+
+  private sha(data): string {
+    return shajs('sha256')
+      .update(data)
+      .digest('hex');
   }
 
   private toHome() {

@@ -17,9 +17,9 @@ export class BlockCoinsApiService {
       .pipe();
   }
 
-  public mineBlock(nonce: number): Observable<any> {
+  public mineBlock(nonce: number) {
     return this.http
-      .patch<any>(API.BLOCK_COINS_MINE,  {'nonce': nonce})
+      .patch(API.BLOCK_COINS_MINE,  {'nonce': nonce})
       .pipe();
   }
 
