@@ -28,7 +28,7 @@
 
   <div class="mining-foot bottom-absolute">
     <div *ngIf="loadPickaxe && !pickaxe?.have">
-        <app-timer [text]="'Новую кирку вам дадут через'" [time]="pickaxe?.time"></app-timer>
+        <app-timer [text]="'Новую кирку вам дадут через'" [time]="pickaxe?.receipt"></app-timer>
     </div>
     <div *ngIf="loadPickaxe">
       <div [@bounceAnim]='cache'>

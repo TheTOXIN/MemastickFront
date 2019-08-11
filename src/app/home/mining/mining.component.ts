@@ -173,7 +173,7 @@ export class MiningComponent implements OnInit {
     } else if (error.code === ErrorCode.MINE_END) {
       this.textTitle = 'Кирка сломалась';
       this.pickaxe.have = false;
-      this.pickaxe.time = ' 01:00:00';
+      this.pickaxe.receipt = ' 01:00:00';
       this.isMine = false;
     }
   }

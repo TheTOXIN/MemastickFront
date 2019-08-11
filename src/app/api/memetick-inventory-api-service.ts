@@ -29,7 +29,7 @@ export class MemetickInventoryApiService {
 
   public getPickaxe(): Observable<Pickaxe> {
     return this.http
-      .get<Pickaxe>(API.INVENTORY_PICKAXE)
+      .get<Pickaxe>(API.PICKAXE)
       .pipe();
   }
 }
