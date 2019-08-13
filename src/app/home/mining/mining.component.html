@@ -15,7 +15,8 @@
          (click)="accept()"
          [src]="'assets/images/icon/memecoin.png'">
     <img class="mining-block animated fadeIn"
-         *ngIf="isMake && !isMine"
+         *ngIf="isMake && !isBroke"
+         [ngClass]="{'blockRotate': isMine}"
          [@bounceAnim]='tapState'
          [src]="'assets/images/icon/blockcoin.png'">
     <img class="mining-pickaxe"

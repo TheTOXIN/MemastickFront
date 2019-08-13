@@ -45,7 +45,7 @@ const shajs = require('sha.js');
 export class MiningComponent implements OnInit {
 
   private audio = new Audio();
-  private tapMax = 2;
+  private tapMax = 1;
   private tapCount = 0;
 
   public loadMessage: string;
@@ -72,6 +72,7 @@ export class MiningComponent implements OnInit {
 
   isMake = false;
   isMine = false;
+  isBroke = false;
 
   constructor(
     private blockApi: BlockCoinsApiService,
@@ -102,8 +103,8 @@ export class MiningComponent implements OnInit {
   }
 
   public tap() {
-    this.tapState = (this.tapState === 'default' ? 'tap' : 'default');
     this.rotateState = (this.rotateState === 'right' ? 'left' : 'right');
+    if (!this.isMine) { this.tapState = (this.tapState === 'default' ? 'tap' : 'default'); }
 
     this.tapCount++;
     if (this.isMine || this.tapCount < this.tapMax) { return; }
@@ -115,7 +116,6 @@ export class MiningComponent implements OnInit {
 
     if (mineHash.startsWith(this.target)) {
       this.hash = mineHash;
-      this.audio.play();
       this.mine(nonce);
     }
     this.nonce++;
@@ -126,6 +126,7 @@ export class MiningComponent implements OnInit {
 
     this.textTitle = 'МАЙНИНГ';
     this.isMine = false;
+    this.isBroke = false;
     this.cache++;
   }
 
@@ -147,6 +148,8 @@ export class MiningComponent implements OnInit {
   private mine(nonce: number) {
     this.isMine = true;
     this.blockApi.mineBlock(nonce).subscribe(() => {
+      this.audio.play();
+      this.isBroke = true;
       this.textTitle = 'Заберите монету';
       this.hash = this.sha(this.hash);
       this.nonce = 0;
@@ -166,15 +169,20 @@ export class MiningComponent implements OnInit {
     );
   }
 
+  private broke() {
+    this.audio.play();
+    this.textTitle = 'Кирка сломалась';
+    this.pickaxe.have = false;
+    this.pickaxe.receipt = ' 01:00:00';
+    this.isMine = false;
+  }
+
   error(error: any, txt: string) {
     if (error.code === ErrorCode.MINE_FAIL) {
       this.loadStatus = LoaderStatus.ERROR;
       this.loadMessage = txt;
     } else if (error.code === ErrorCode.MINE_END) {
-      this.textTitle = 'Кирка сломалась';
-      this.pickaxe.have = false;
-      this.pickaxe.receipt = ' 01:00:00';
-      this.isMine = false;
+      this.broke();
     }
   }
 
