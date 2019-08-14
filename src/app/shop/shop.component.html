@@ -1,40 +1,11 @@
-<div class="shop-container container">
-  <p class="shop-title"> <i class="fa fa-shopping-cart"></i> МАГАЗИН (ТЕСТ)</p>
-
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="shop-test-txt">
-        <span>Пока что вы можете купить только печеньку :)</span>
-        <p>(но скоро тут будет много других штуковин)</p>
-      </div>
-      <div class="shop-test-prc text-strong-middle">
-        <div>{{testPrice}}</div>
-        <img [src]="'assets/images/icon/memecoin.png'">
-      </div>
-      <div class="shop-test-img">
-        <img [src]="'assets/images/icon/cookie.png'">
-      </div>
-      <div class="shop-test-cnt">
-        <i class="fa fa-plus-square" [style.color]="'#28a745'" (click)="plusCount()"></i>
-        <div>{{counter}}</div>
-        <i class="fa fa-minus-square" [style.color]="'#dc3545'" (click)="minusCount()"></i>
-      </div>
-      <div class="shop-test-btn">
-        <button class="btn-theme" (click)="test()">
-          <i class="fa fa-shopping-basket"></i> КУПИТЬ
-        </button>
-      </div>
-    </div>
-  </div>
-
+<div class="shop-container">
+  <div class="shop-title"><i class="fa fa-shopping-cart"></i> МАГАЗИН</div>
+  <div class="shop-product"><router-outlet></router-outlet></div>
 </div>
 
 <div class="my-button-close main-button-close" (click)="back()">
   <i class="fa fa-close"></i>
 </div>
-
-<app-loader [message]="loadMessage" [status]="loadStatus"></app-loader>
-<app-accept [img]="'assets/images/icon/memecoin.png'" (accept)="acceptCoinResult($event)"></app-accept>
 
 <div class="memetick-back mem-back"></div>
 

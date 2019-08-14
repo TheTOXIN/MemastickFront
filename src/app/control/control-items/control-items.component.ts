@@ -69,7 +69,7 @@ export class ControlItemsComponent implements OnInit {
 
     if (this.data.cell) {
       this.inventory[this.inventory.length] = new Item(
-        'assets/images/icon/cell.png',
+        'assets/images/icon/cell_ico.png',
         'Клетка',
         1,
         () => this.router.navigateByUrl('/memes/create'),

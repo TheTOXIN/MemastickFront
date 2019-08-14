@@ -51,15 +51,15 @@ import {AngularFittextModule} from 'angular-fittext';
 import {AdminApiService} from './api/admin-api-service';
 import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
-import {ShopModule} from './shop/shop.module';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
+import {ShopComponent} from './shop/shop.component';
 
 firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent,
+    ShopComponent,
     ErrorPageComponent
   ],
   imports: [
@@ -72,7 +72,6 @@ firebase.initializeApp(environment.firebase);
     TokenModule,
     EvolveModule,
     ControlModule,
-    ShopModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
