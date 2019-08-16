@@ -50,5 +50,5 @@ export enum API {
   BLOCK_COINS_MAKE = '/block-coins/make',
   BLOCK_COINS_MINE = '/block-coins/mine',
   BLOCK_COINS_FLUSH = '/block-coins/flush',
-  SHOP_TEST = '/shop/test',
+  SHOP_COOKIES = '/shop/cookies',
 }

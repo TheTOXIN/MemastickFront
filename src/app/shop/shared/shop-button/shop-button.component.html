@@ -1,0 +1,7 @@
+<div class="shop-button">
+  <button class="btn-theme" (click)="buyAccept()">
+    <i class="fa fa-shopping-basket"></i> КУПИТЬ
+  </button>
+</div>
+<app-loader [message]="loadMessage" [status]="loadStatus"></app-loader>
+<app-accept [img]="'assets/images/icon/memecoin.png'" (accept)="buyStart($event)"></app-accept>

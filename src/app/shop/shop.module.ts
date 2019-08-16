@@ -10,6 +10,8 @@ import {ShopCoockiesComponent} from './shop-coockies/shop-coockies.component';
 import {ShopPublishComponent} from './shop-publish/shop-publish.component';
 import {ShopResurrectionComponent} from './shop-resurrection/shop-resurrection.component';
 import {ShopNickComponent} from './shop-nick/shop-nick.component';
+import {ShopPriceComponent} from './shared/shop-price/shop-price.component';
+import {ShopButtonComponent} from './shared/shop-button/shop-button.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import {ShopNickComponent} from './shop-nick/shop-nick.component';
     ShopRoutingModules
   ],
   declarations: [
+    ShopButtonComponent,
+    ShopPriceComponent,
     ShopCoockiesComponent,
     ShopMemotypesComponent,
     ShopAllowanceComponent,
