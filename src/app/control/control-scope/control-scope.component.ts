@@ -55,6 +55,10 @@ export class ControlScopeComponent implements OnInit {
     this.dipricated();
   }
 
+  memotypes() {
+    this.dipricated();
+  }
+
   navigate(url: string) {
     this.closeEvent.emit(null);
     this.router.navigateByUrl(url);

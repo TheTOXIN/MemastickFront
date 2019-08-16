@@ -29,6 +29,12 @@ export class MemeApiService {
       .pipe();
   }
 
+  public memePage(memeId: UUID): Observable<MemePage> {
+    return this.http
+      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .pipe();
+  }
+
   public memePages(page, size, sort, filter, step, memetick): Observable<MemePage[]> {
     if (step == null) { step = ''; }
     if (memetick == null) { memetick = ''; }
@@ -50,9 +56,24 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePage(memeId: UUID): Observable<MemePage> {
+  public memeRead(page, size, sort, filter, step, memetick): Observable<MemePage[]> {
+    if (step == null) { step = ''; }
+    if (memetick == null) { memetick = ''; }
+
+    const params = new HttpParams() // TODO TO IFACE
+      .set('page', page)
+      .set('size', size)
+      .set('sort', sort)
+      .set('step', step)
+      .set('filter', filter)
+      .set('memetick', memetick);
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
     return this.http
-      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .get<MemePage[]>(API.MEMES_READ, {headers, params})
       .pipe();
   }
 
@@ -74,5 +95,11 @@ export class MemeApiService {
     return this.http.get(url, {observe: 'response', responseType: 'blob'}).map((res) => {
       return new Blob([res.body], {type: res.headers.get('Content-Type')});
     });
+  }
+
+  public memeResurrect(memeId: UUID) {
+    return this.http
+      .patch(API.MEME_RESURRECT + '/' + memeId, {})
+      .pipe();
   }
 }

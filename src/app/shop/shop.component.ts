@@ -74,6 +74,6 @@ export class ShopComponent {
   }
 
   close() {
-    window.history.back();
+    this.router.navigateByUrl('/home');
   }
 }

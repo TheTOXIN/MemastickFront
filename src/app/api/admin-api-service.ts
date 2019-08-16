@@ -15,12 +15,6 @@ export class AdminApiService {
 
   }
 
-  public translate(memeId: UUID) {
-    this.http
-      .patch(API.ADMIN_TRANSALTE, {'id': memeId})
-      .toPromise();
-  }
-
   // TODO to invite api
   public readInvites(): Observable<InviteCode[]> {
     return this.http

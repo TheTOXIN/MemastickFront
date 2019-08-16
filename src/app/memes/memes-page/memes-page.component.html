@@ -10,7 +10,7 @@
       <span>#{{data.page?.meme.indexer}}</span>
     </div>
     <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
-      <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
+      <img [src]="evolveIcons[data.page?.step]" (click)="evolveStepInfo(data.page?.step)">
     </div>
   </div>
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
