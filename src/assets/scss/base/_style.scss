@@ -287,6 +287,10 @@ button:focus {
   }
 }
 
+.btn-theme-disable {
+  background: #6c757d;
+}
+
 .d-flex-1 {
   display: flex;
   justify-content: center;
@@ -3286,8 +3290,17 @@ li.nav-item.dropdown {
   font-size: 32px;
   color: black;
   padding-bottom: 10px;
+  img {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+  }
   @media(max-width: 767px) {
     font-size: 24px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 

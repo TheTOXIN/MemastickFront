@@ -137,3 +137,17 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.shop-border {
+  border-style: dashed;
+  border-color: #495057;
+  border-radius: 30px;
+  border-width: 3px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  @media(max-width: 767px) {
+    width: 300px;
+  }
+}

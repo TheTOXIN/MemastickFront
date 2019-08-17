@@ -3,14 +3,28 @@
 
   <div class="product-container" *ngIf="isMain">
     <div *ngFor="let p of products">
-      <div class="product-content" (click)="redirect(p.url)">
+      <div class="product-content" (click)="choose(p)">
         <div class="product-img"><img [src]="p.img"/></div>
-        <div class="product-txt"><span>{{p.txt}}</span></div>
+        <div class="product-txt"><span>{{p.val}}</span></div>
       </div>
       </div>
   </div>
 
-  <div class="shop-product"><router-outlet></router-outlet></div>
+  <div class="product-info" *ngIf="!isMain">
+    <span>{{productTitle}}</span>
+    <img [src]="productImage">
+    <p>{{productText}}</p>
+  </div>
+
+  <div class="shop-product">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="shop-back text-strong-center" (click)="back()" *ngIf="!isMain">
     <i class="fa fa-arrow-left"></i>

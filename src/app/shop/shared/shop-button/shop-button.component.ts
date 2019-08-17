@@ -15,7 +15,13 @@ export class ShopButtonComponent implements OnInit {
   @ViewChild(AcceptComponent) coinAccept: AcceptComponent;
 
   @Input()
+  public text: string;
+
+  @Input()
   public price: number;
+
+  @Input()
+  protected disable: any;
 
   @Output()
   public event = new EventEmitter<null>();
@@ -29,7 +35,9 @@ export class ShopButtonComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    if (this.text == null) {
+      this.text = 'КУПИТЬ';
+    }
   }
 
   buyAccept() {
@@ -54,7 +62,7 @@ export class ShopButtonComponent implements OnInit {
     if (data.error.code === ErrorCode.MEME_COIN_ENOUGH) {
       this.loadMessage = 'Не хватает мемкойнов';
     } else {
-      this.loadMessage = 'Ошибка транзакции';
+      this.loadMessage = 'Ошибка покупки';
     }
     this.loadStatus = LoaderStatus.ERROR;
   }

@@ -3,7 +3,6 @@ import {TokenType} from '../consts/TokenType';
 export class TokenData {
 
   public type: TokenType;
-
   public image: string;
   public name: string;
   public designation: string;

@@ -1,4 +1,5 @@
 import {UUID} from 'angular2-uuid';
+import {EPI} from './EPI';
 
 export class Meme {
   constructor (
@@ -7,7 +8,7 @@ export class Meme {
     public text: string,
     public type: string,
     public chromosomes: number,
-    public indexer: number
+    public epi: EPI
   ) {
 
   }

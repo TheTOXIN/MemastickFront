@@ -20,7 +20,7 @@ export class TokenAllowanceApiService {
 
   public make() {
     return this.http
-      .post(API.ALLOWANCE_MAKE, {})
+      .put(API.ALLOWANCE_MAKE, {})
       .pipe();
   }
 

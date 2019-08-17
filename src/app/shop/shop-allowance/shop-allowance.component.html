@@ -1,1 +1,7 @@
-<div>В РАЗРАБОТКЕ !</div>
+<div class="shop-border">
+  <app-shop-price [price]="price"></app-shop-price>
+  <div class="shop-allowance-img" (click)="allowance()">
+    <img [src]="'assets/images/icon/allowance.png'">
+  </div>
+  <app-shop-button [price]="price" (event)="buy()"></app-shop-button>
+</div>

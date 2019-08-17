@@ -54,6 +54,8 @@ import {ShopApiService} from './api/shop-api-service';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
 import {ShopComponent} from './shop/shop.component';
 import {TranslatorApiService} from './api/translator-api-service';
+import { ShopMemeComponent } from './shop/shared/shop-meme/shop-meme.component';
+import { MemesModalComponent } from './memes/memes-modal/memes-modal.component';
 
 firebase.initializeApp(environment.firebase);
 

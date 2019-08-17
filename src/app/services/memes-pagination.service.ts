@@ -83,10 +83,10 @@ export class MemesPaginationService {
     this._loading.next(true);
 
     this.memeApi.memePages(
+      this.query.filter,
+      this.query.sort,
       this.query.page,
       this.query.size,
-      this.query.sort,
-      this.query.filter,
       this.query.step,
       this.query.memetick
     ).subscribe((pages) => {

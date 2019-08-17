@@ -12,16 +12,23 @@ import {ShopResurrectionComponent} from './shop-resurrection/shop-resurrection.c
 import {ShopNickComponent} from './shop-nick/shop-nick.component';
 import {ShopPriceComponent} from './shared/shop-price/shop-price.component';
 import {ShopButtonComponent} from './shared/shop-button/shop-button.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ShopMemeComponent} from './shared/shop-meme/shop-meme.component';
+import {MemesModule} from '../memes/memes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    ShopRoutingModules
+    ShopRoutingModules,
+    FormsModule,
+    ReactiveFormsModule,
+    MemesModule
   ],
   declarations: [
     ShopButtonComponent,
     ShopPriceComponent,
+    ShopMemeComponent,
     ShopCoockiesComponent,
     ShopMemotypesComponent,
     ShopAllowanceComponent,
