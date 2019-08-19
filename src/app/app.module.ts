@@ -54,9 +54,8 @@ import {ShopApiService} from './api/shop-api-service';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
 import {ShopComponent} from './shop/shop.component';
 import {TranslatorApiService} from './api/translator-api-service';
-import { ShopMemeComponent } from './shop/shared/shop-meme/shop-meme.component';
-import { MemesModalComponent } from './memes/memes-modal/memes-modal.component';
 import {MemotypeModule} from './memotype/memotype.module';
+import {MemotypeApiService} from './api/memotype-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -118,6 +117,7 @@ firebase.initializeApp(environment.firebase);
     ShopApiService,
     BlockCoinsApiService,
     TranslatorApiService,
+    MemotypeApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

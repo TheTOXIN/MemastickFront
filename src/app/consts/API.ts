@@ -53,5 +53,9 @@ export enum API {
   BLOCK_COINS_MAKE = '/block-coins/make',
   BLOCK_COINS_MINE = '/block-coins/mine',
   BLOCK_COINS_FLUSH = '/block-coins/flush',
-  SHOP_COOKIES = '/shop/cookies'
+  SHOP_COOKIES = '/shop/cookies',
+  MEMOTYPE_COLLECTION = '/memotype-set/collection',
+  MEMOTYPE_READ = '/memotype-memetick/read',
+  MEMOTYPE_ALL = '/memotype/all',
+  MEMOTYPE_BUY = '/memotype-memetick/buy',
 }
