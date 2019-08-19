@@ -3,6 +3,7 @@ export enum MemeFilter {
   SLCT = 'SLCT',
   INDV = 'INDV',
   EVLV = 'EVLV',
+  DEAD = 'DEAD',
   LIKE = 'LIKE',
   SELF = 'SELF',
   USER = 'USER'

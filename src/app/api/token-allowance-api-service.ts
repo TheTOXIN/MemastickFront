@@ -18,6 +18,12 @@ export class TokenAllowanceApiService {
       .pipe();
   }
 
+  public make() {
+    return this.http
+      .put(API.ALLOWANCE_MAKE, {})
+      .pipe();
+  }
+
   public have() {
     return this.http
       .get(API.ALLOWANCE_HAVE)

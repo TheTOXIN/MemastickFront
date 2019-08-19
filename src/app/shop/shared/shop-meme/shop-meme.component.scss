@@ -1,0 +1,25 @@
+.shop-meme {
+
+}
+
+.shop-meme-img {
+  img {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 15px auto;
+  }
+}
+
+.shop-meme-btn {
+  margin: 30px;
+
+  button {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  }
+
+  &:hover {
+    button {
+      box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+    }
+  }
+}

@@ -6,6 +6,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
 import {MemePage} from '../model/MemePage';
 import 'rxjs/add/operator/map';
+import {Meme} from '../model/Meme';
 
 @Injectable()
 export class MemeApiService {
@@ -29,16 +30,22 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePages(page, size, sort, filter, step, memetick): Observable<MemePage[]> {
+  public memePage(memeId: UUID): Observable<MemePage> {
+    return this.http
+      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .pipe();
+  }
+
+  public memePages(filter, sort, page, size, step?, memetick?): Observable<MemePage[]> {
     if (step == null) { step = ''; }
     if (memetick == null) { memetick = ''; }
 
-    const params = new HttpParams()
+    const params = new HttpParams() // TODO TO IFACE
+      .set('filter', filter)
       .set('page', page)
       .set('size', size)
       .set('sort', sort)
       .set('step', step)
-      .set('filter', filter)
       .set('memetick', memetick);
 
     const headers = new HttpHeaders()
@@ -50,9 +57,24 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePage(memeId: UUID): Observable<MemePage> {
+  public memeRead(filter, sort, page, size, step?, memetick?): Observable<Meme[]> {
+    if (step == null) { step = ''; }
+    if (memetick == null) { memetick = ''; }
+
+    const params = new HttpParams() // TODO TO IFACE
+      .set('filter', filter)
+      .set('page', page)
+      .set('size', size)
+      .set('sort', sort)
+      .set('step', step)
+      .set('memetick', memetick);
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
     return this.http
-      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .get<Meme[]>(API.MEMES_READ, {headers, params})
       .pipe();
   }
 
@@ -74,5 +96,11 @@ export class MemeApiService {
     return this.http.get(url, {observe: 'response', responseType: 'blob'}).map((res) => {
       return new Blob([res.body], {type: res.headers.get('Content-Type')});
     });
+  }
+
+  public memeResurrect(memeId: UUID) {
+    return this.http
+      .patch(API.MEME_RESURRECT + '/' + memeId, {})
+      .pipe();
   }
 }

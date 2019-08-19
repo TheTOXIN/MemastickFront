@@ -1,0 +1,11 @@
+<div class="shop-meme">
+  <div *ngIf="isMeme" class="shop-meme-img">
+    <img [src]="meme?.url">
+  </div>
+  <div *ngIf="!isMeme" class="shop-meme-btn">
+    <button class="btn-theme-inverse" (click)="modal()">
+      выбрать мем
+      <img [src]="icon">
+    </button>
+  </div>
+</div>

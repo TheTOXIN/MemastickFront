@@ -1,15 +1,9 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ShopApiService} from '../api/shop-api-service';
-import {AcceptComponent} from '../shared/accpet/accept.component';
-import {LoaderStatus} from '../consts/LoaderStatus';
-import {ErrorCode} from '../consts/ErrorCode';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {LandingFixService} from '../shared/services/landing-fix.service';
-import {MemeFilter} from '../consts/MemeFilter';
-import {UUID} from 'angular2-uuid';
 
 interface Product {
   txt: string;
+  val: string;
   url: string;
   img: string;
 }
@@ -22,38 +16,50 @@ interface Product {
 export class ShopComponent {
 
   public products: Product[] = [{
-    txt: 'ПЕЧЕНЬКИ',
+    txt: 'Используй печеньки для голосования в битвах',
+    val: 'ПЕЧЕНЬКИ',
     url: '/cookies',
     img: '/assets/images/icon/cookie.png',
   }, {
-    txt: 'МЕМОТИПЫ',
+    txt: 'Собери их всех!',
+    val: 'МЕМОТИПЫ*',
     url: '/memotypes',
     img: '/assets/images/icon/cell.png',
   }, {
-    txt: 'ПОСОБИЕ',
+    txt: 'Купи и получи пособие прямо сейчас!',
+    val: 'ПОСОБИЕ',
     url: '/allowance',
     img: '/assets/images/icon/allowance.png',
   }, {
-    txt: 'ГРАНТЫ',
+    txt: 'Получи новые возможности в системе',
+    val: 'ГРАНТЫ*',
     url: '/grants',
     img: '/assets/images/icon/books.png',
   }, {
-    txt: 'КИРКИ',
+    txt: 'Повысь эффективность своего майнинга',
+    val: 'КИРКИ*',
     url: '/pickaxe',
     img: '/assets/images/icon/pickaxe.png',
   }, {
-    txt: 'ВОСКРЕШЕНИЕ',
+    txt: 'Если твоей мем умер, ты можешь воскресить его, после чего он будет учавствовать в отборе',
+    val: 'ВОСКРЕШЕНИЕ',
     url: '/resurrection',
     img: '/assets/images/icon/dead.png',
   }, {
-    txt: 'НИКНЕЙМ',
+    txt: 'Выбери себе любой ник прямо сейчас (от 3 до 16 символов)',
+    val: 'НИКНЕЙМ',
     url: '/nick',
     img: '/assets/images/tokens/tmp.png',
   }, {
-    txt: 'ПУБЛИКАЦИЯ',
+    txt: 'Опубликуй свой мем в наших соц.сетях',
+    val: 'ПУБЛИКАЦИЯ',
     url: '/publish',
     img: '/assets/images/icon/community.png',
   }];
+
+  public productText: string;
+  public productTitle: string;
+  public productImage: string;
 
   isMain: boolean;
 
@@ -61,6 +67,14 @@ export class ShopComponent {
     private router: Router
   ) {
     this.isMain = this.router.url === '/shop';
+  }
+
+  choose(product: Product) {
+    this.productText = product.txt;
+    this.productTitle = product.val;
+    this.productImage = product.img;
+
+    this.redirect(product.url);
   }
 
   redirect(url: string) {
@@ -74,6 +88,6 @@ export class ShopComponent {
   }
 
   close() {
-    window.history.back();
+    this.router.navigateByUrl('/home');
   }
 }

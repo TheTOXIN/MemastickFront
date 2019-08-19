@@ -14,14 +14,13 @@ export class ShopCoockiesComponent implements OnInit {
 
   @ViewChild(ShopButtonComponent) button: ShopButtonComponent;
 
-  public counter: number;
-  public price: number;
+  public counter = 1;
+  public price = PriceConst.COOKIE;
 
   constructor(
     private shopApi: ShopApiService
   ) {
-    this.counter = 1;
-    this.initPrice();
+
   }
 
   ngOnInit() {
@@ -47,6 +46,6 @@ export class ShopCoockiesComponent implements OnInit {
   }
 
   initPrice() {
-    this.price = PriceConst.COOCKIE * this.counter;
+    this.price = PriceConst.COOKIE * this.counter;
   }
 }

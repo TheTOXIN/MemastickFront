@@ -1,1 +1,22 @@
-<div>В РАЗРАБОТКЕ !</div>
+<div class="shop-border">
+  <app-shop-price [price]="price"></app-shop-price>
+  <div class="shop-nick-content">
+    <form class="modal-form" (ngSubmit)="buy()">
+      <div class="form-group">
+        <div class="form-help">
+          <label for="inputBuyNick">Никнейм</label>
+          <i class="fa fa-user"></i>
+        </div>
+        <input [formControl]="nickForm.controls['nick']" class="form-control" id="inputBuyNick" name="nick"
+               placeholder="введите ваш новый ник"
+               required="" type="text"
+               (ngModelChange)="update()"
+        >
+        <div *ngIf="nickForm.controls.nick.touched && nickForm.controls.nick.errors?.required"
+             class="text text-danger">Никнейм пуст
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-shop-button [disable]="disable" [price]="price" (event)="buy()"></app-shop-button>
+</div>

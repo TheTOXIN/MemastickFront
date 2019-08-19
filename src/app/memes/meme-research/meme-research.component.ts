@@ -9,6 +9,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorCode} from '../../consts/ErrorCode';
+import {MemeApiService} from '../../api/meme-api-service';
+import {PriceConst} from '../../consts/PriceConst';
 
 @Component({
   selector: 'app-meme-research',
@@ -29,7 +31,7 @@ export class MemeResearchComponent {
   public loadMessage = '';
   public loadStatus = LoaderStatus.NONE;
 
-  public resurrectPrice = 150;
+  public resurrectPrice = PriceConst.RESSURECTION;
 
   isLoading = true;
   isPreview = false;
@@ -38,7 +40,8 @@ export class MemeResearchComponent {
   constructor(
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private evolveApi: EvolveMemeApiService
+    private memeApi: MemeApiService,
+    public evolveApi: EvolveMemeApiService
   ) {
     this.types[MemeType.EVLV] = 'ЭВОЛЮЦИЯ';
     this.types[MemeType.SLCT] = 'ОТБОР';
@@ -79,7 +82,7 @@ export class MemeResearchComponent {
     if (accept) {
       this.loadStatus = LoaderStatus.LOAD;
       this.loadMessage = 'Воскрешаем';
-      this.evolveApi.resurrectMeme(this.meme.id).subscribe(
+      this.memeApi.memeResurrect(this.meme.id).subscribe(
         () => this.resurrectDone(),
         (data) => this.resurrectError(data)
       );

@@ -7,6 +7,7 @@ import {RoleType} from '../../consts/RoleType';
 import {AdminApiService} from '../../api/admin-api-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {FRONT_URL} from '../../app.constants';
+import {TranslatorApiService} from '../../api/translator-api-service';
 
 @Component({
   selector: 'app-share-modal',
@@ -26,7 +27,7 @@ export class ShareModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     public storage: StorageService,
-    public adminApi: AdminApiService,
+    public translatorApi: TranslatorApiService,
   ) {
     this.role = this.storage.getRole();
   }
@@ -55,7 +56,7 @@ export class ShareModalComponent implements OnInit {
 
   acceptTranslate(accept: boolean) {
     if (accept) {
-      this.adminApi.translate(this.memeId);
+      this.translatorApi.adminPublish(this.memeId);
     }
   }
 

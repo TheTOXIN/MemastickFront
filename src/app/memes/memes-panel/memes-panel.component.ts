@@ -5,6 +5,7 @@ import {WINDOW} from '../../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {StorageService} from '../../services/storage-service';
+import {evolveIcons, filterIcons} from '../../consts/IconsData';
 
 @Component({
   selector: 'app-memes-panel',
@@ -47,18 +48,8 @@ export class MemesPanelComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
-    this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
-    this.evolveIcons[EvolveStep.FITNESS] = 'assets/images/steps/2.png';
-    this.evolveIcons[EvolveStep.MUTATION] = 'assets/images/steps/3.png';
-    this.evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
-    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
-
-    this.filterIcons[MemeFilter.POOL] = 'assets/images/icon/world.png';
-    this.filterIcons[MemeFilter.SLCT] = 'assets/images/icon/select.png';
-    this.filterIcons[MemeFilter.INDV] = 'assets/images/icon/1.png';
-    this.filterIcons[MemeFilter.SELF] = 'assets/images/icon/cell.png';
-    this.filterIcons[MemeFilter.LIKE] = 'assets/images/icon/like_push.png';
-    this.filterIcons[MemeFilter.USER] = 'assets/images/review.png';
+    this.evolveIcons = evolveIcons;
+    this.filterIcons = filterIcons;
   }
 
   ngOnInit() {
