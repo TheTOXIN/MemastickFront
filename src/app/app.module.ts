@@ -53,6 +53,7 @@ import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
 import {ShopComponent} from './shop/shop.component';
+import {MemotypeModule} from './memotype/memotype.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -72,6 +73,7 @@ firebase.initializeApp(environment.firebase);
     TokenModule,
     EvolveModule,
     ControlModule,
+    MemotypeModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),

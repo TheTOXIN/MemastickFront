@@ -51,6 +51,10 @@ export class ControlScopeComponent implements OnInit {
     this.navigate('/home/mining');
   }
 
+  memotypes() {
+    this.navigate('/memotype/collection');
+  }
+
   battle() {
     this.dipricated();
   }
