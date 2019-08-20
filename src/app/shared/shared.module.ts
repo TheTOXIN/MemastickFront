@@ -17,6 +17,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {TimerComponent} from './timer/timer.component';
 import {ModalLinkComponent} from './modal-link/modal-link.component';
 import {AcceptComponent} from './accpet/accept.component';
+import {GroupByPipe} from './pipes/GroupByPipe';
 
 @NgModule({
   exports: [
@@ -30,7 +31,8 @@ import {AcceptComponent} from './accpet/accept.component';
     NotificationComponent,
     TimerComponent,
     ModalLinkComponent,
-    AcceptComponent
+    AcceptComponent,
+    GroupByPipe
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import {AcceptComponent} from './accpet/accept.component';
     NotificationComponent,
     TimerComponent,
     ModalLinkComponent,
-    AcceptComponent
+    AcceptComponent,
+    GroupByPipe
   ],
   providers: [
     WINDOW_PROVIDERS,

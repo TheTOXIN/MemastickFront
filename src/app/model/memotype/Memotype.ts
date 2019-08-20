@@ -4,13 +4,13 @@ import {MemotypeRarity} from '../../consts/MemotypeRarity';
 export class Memotype {
   constructor(
     public id: UUID,
-    private rarity: MemotypeRarity,
-    private title: string,
-    private text: string,
-    private image: string,
-    private set: string,
-    private level: number,
-    private count: number,
+    public rarity: MemotypeRarity,
+    public title: string,
+    public text: string,
+    public image: string,
+    public set: string,
+    public level: number,
+    public count: number,
   ) {
 
   }

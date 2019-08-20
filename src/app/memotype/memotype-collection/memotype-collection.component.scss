@@ -1,0 +1,95 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.memotype-set {
+  background: whitesmoke;
+  border-radius: 50px;
+  margin: 10px auto;
+  width: 95%;
+  padding: 20px;
+  box-shadow: 0 0 90px -5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.memotype-head {
+  div {
+    display: inline-block;
+    margin-left: 15px;
+  }
+}
+
+.memotype-set-info {
+  i {
+    font-size: 32px;
+    color: #eab000;
+    display: inline-block;
+  }
+  &:hover {
+    i {
+      color: $primary_color;
+    }
+  }
+}
+
+.memotype-set-name {
+  font-size: 32px;
+  font-family: Futurica, serif;
+  color: black;
+}
+
+.memotype-set-count {
+  font-size: 28px;
+  font-family: Gost, serif;
+  color: #495057;
+}
+
+.memotype-body {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 100px;
+}
+
+.memotype-rarity {
+  height: 100%;
+  width: 10%;
+  i {
+    font-size: 32px;
+    margin-top: 48px;
+  }
+}
+
+.memotype-list {
+  height: 100%;
+  width: 90%;
+  text-align: left;
+  div {
+    display: inline-block;
+  }
+}
+
+.memotype-element {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  div {
+    display: block;
+    color: #181b21;
+    font-size: 20px;
+    font-family: FuturaRound, serif;
+  }
+  img {
+    width: 64px;
+    height: 64px;
+
+    &:hover {
+      animation: scale 0.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(2);
+  }
+}

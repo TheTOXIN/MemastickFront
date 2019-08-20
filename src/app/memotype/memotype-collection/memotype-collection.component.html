@@ -1,3 +1,35 @@
-<p>
-  memotype-collection works!
-</p>
+<div class="mem-empty"></div>
+<div *ngIf="isLoad" class="flex-center-absolute">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoad">
+  <div *ngFor="let set of collection">
+    <div class="container">
+      <div class="row">
+        <div class="memotype-set"><!--TODO to compenent-->
+          <div class="memotype-head text-strong-middle">
+            <div class="memotype-set-name">{{set.name}}</div>
+            <div class="memotype-set-count">({{set.count}}/{{set.size}})</div>
+            <div class="memotype-set-info"><i class="fa fa-question-circle"></i></div>
+          </div>
+          <div *ngFor="let map of set.memotypes | groupBy:'rarity'">
+            <div class="memotype-body">
+              <div class="memotype-rarity" title="{{memotypeNames[map.key]}}">
+                <i class="fa fa-circle" [style.color]="memotypeColors[map.key]"></i>
+              </div>
+                <div class="memotype-list">
+                <div *ngFor="let memotype of map.value">
+                  <div class="memotype-element">
+                    <div>{{memotype.title}}</div>
+                    <img class="animated bounceIn" [src]="memotype.image" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mem-back"></div>
