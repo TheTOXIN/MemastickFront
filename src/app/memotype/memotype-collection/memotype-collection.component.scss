@@ -1,20 +1,36 @@
 @import "src/assets/scss/base/_variable.scss";
 
+.memotype-title {
+  font-size: 48px;
+  color: whitesmoke;
+  margin-bottom: 10px;
+  font-family: FuturaRound, serif;
+  text-align: center;
+}
+
 .memotype-set {
   background: whitesmoke;
   border-radius: 50px;
   margin: 10px auto;
-  width: 95%;
+  width: 100%;
   padding: 20px;
   box-shadow: 0 0 90px -5px rgba(0,0,0,0.5);
   text-align: center;
 }
 
 .memotype-head {
+  margin-left: 69px;
   div {
     display: inline-block;
     margin-left: 15px;
   }
+}
+
+.memotype-delimer {
+  border: 2px solid #495057;
+  width: 95%;
+  border-radius: 30px;
+  margin: 10px auto;
 }
 
 .memotype-set-info {
@@ -46,22 +62,20 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
-  height: 100px;
 }
 
 .memotype-rarity {
-  height: 100%;
   width: 10%;
   i {
     font-size: 32px;
-    margin-top: 48px;
   }
 }
 
 .memotype-list {
-  height: 100%;
   width: 90%;
   text-align: left;
+  border-radius: 30px;
+  margin-bottom: 10px;
   div {
     display: inline-block;
   }
@@ -71,25 +85,36 @@
   margin-left: 5px;
   margin-right: 5px;
   text-align: center;
-  div {
+  span {
     display: block;
     color: #181b21;
-    font-size: 20px;
+    font-size: 24px;
     font-family: FuturaRound, serif;
   }
   img {
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 128px;
+    opacity: 0.3;
+  }
+  div {
+    font-size: 24px;
+    font-family: Gost, serif;
+    color: #212529;
+    position: absolute;
+    margin-top: 100px;
+  }
+}
 
-    &:hover {
-      animation: scale 0.5s;
-      animation-fill-mode: forwards;
-    }
+.memotype-have {
+  opacity: 1 !important;
+  &:hover {
+    animation: scale 0.5s;
+    animation-fill-mode: forwards;
   }
 }
 
 @keyframes scale {
   100% {
-    transform: scale(2);
+    transform: scale(1.5);
   }
 }

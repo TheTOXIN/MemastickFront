@@ -1,6 +1,10 @@
+<!--<script src="../../app.constants.ts"></script>-->
 <div class="mem-empty"></div>
 <div *ngIf="isLoad" class="flex-center-absolute">
   <app-spinner></app-spinner>
+</div>
+<div class="memotype-title">
+  <span>МОЯ КОЛЛЕКЦИЯ</span>
 </div>
 <div *ngIf="!isLoad">
   <div *ngFor="let set of collection">
@@ -8,20 +12,22 @@
       <div class="row">
         <div class="memotype-set"><!--TODO to compenent-->
           <div class="memotype-head text-strong-middle">
-            <div class="memotype-set-name">{{set.name}}</div>
+            <div class="memotype-set-name">- {{set.name}}</div>
             <div class="memotype-set-count">({{set.count}}/{{set.size}})</div>
-            <div class="memotype-set-info"><i class="fa fa-question-circle"></i></div>
+            <div class="memotype-set-info" (click)="setModal(set)"><i class="fa fa-question-circle"></i></div>
           </div>
+          <div class="memotype-delimer"></div>
           <div *ngFor="let map of set.memotypes | groupBy:'rarity'">
-            <div class="memotype-body">
+            <div class="memotype-body" [style.border-color]="memotypeColors[map.key]">
               <div class="memotype-rarity" title="{{memotypeNames[map.key]}}">
                 <i class="fa fa-circle" [style.color]="memotypeColors[map.key]"></i>
               </div>
-                <div class="memotype-list">
+              <div class="memotype-list">
                 <div *ngFor="let memotype of map.value">
-                  <div class="memotype-element">
-                    <div>{{memotype.title}}</div>
-                    <img class="animated bounceIn" [src]="memotype.image" alt="">
+                  <div class="memotype-element"><!--TODO to compenent-->
+                    <span>{{memotype.title}}</span>
+                    <img [src]="memotype.image" [ngClass]="{'memotype-have': memotype.count != 0}" (click)="viewMemotype(memotype)" alt="">
+                    <div *ngIf="memotype.count > 1">x{{memotype.count}}</div>
                   </div>
                 </div>
               </div>
@@ -32,4 +38,5 @@
     </div>
   </div>
 </div>
+<app-memotype-view></app-memotype-view>
 <div class="mem-back"></div>

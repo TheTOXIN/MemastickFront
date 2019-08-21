@@ -1,0 +1,96 @@
+.memotype-view {
+  &::-webkit-scrollbar {width:0;}
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.memotype-view-conent {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: center;
+  justify-content: center;
+  transform-origin: 0 0 0;
+  div {
+    margin-top: 15px;
+  }
+}
+
+
+.memotype-view-title {
+  font-family: FuturaRound, serif;
+  font-size: 48px;
+}
+
+.memotype-view-rarity {
+  background-color: whitesmoke;
+  border-radius: 30px;
+  font-family: Gost, serif;
+  font-size: 24px;
+  text-align: center;
+  width: 300px;
+  i {
+    margin-right: 10px;
+    font-size: 22px;
+  }
+}
+
+.memotype-view-image {
+  img {
+    max-width: 512px;
+    max-height: 512px;
+  }
+}
+
+.memotype-view-text {
+  background-color: whitesmoke;
+  border-radius: 30px;
+  color: #212529;
+  font-size: 18px;
+  width: 300px;
+  text-align: center;
+  font-family: Arial, serif;
+  div {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    font-size: 20px;
+    border-bottom: 3px solid #212529;
+    font-family: Gost, serif;
+  }
+}
+
+.memotype-view-set {
+  font-size: 16px;
+  font-family: FuturaRound, serif;
+  span {
+    margin-right: 10px;
+  }
+}
+
+.memotype-view-panel {
+  background-color: rgba(33, 33, 33, 0.7);
+  position: fixed;
+  text-align: center;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  i {
+    margin: 10px 30px;
+    font-size: 48px;
+    color: whitesmoke;
+
+    &:hover {
+      color: #57319b;
+    }
+  }
+}
+

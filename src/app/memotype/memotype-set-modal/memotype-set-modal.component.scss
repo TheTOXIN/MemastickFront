@@ -1,0 +1,60 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.memotype-set-modal-content {
+  div {
+    margin-top: 10px;
+  }
+}
+
+.memotype-set-modal-name {
+  text-align: left;
+  font-family: FuturaRound, serif;
+  margin-left: 15px;
+  font-size: 32px;
+  color: black;
+}
+
+.memotype-set-modal-description {
+  text-align: center;
+  font-family: Arial, serif;
+  font-size: 24px;
+  color: #212529;
+}
+
+.memotype-set-modal-size {
+  text-align: right;
+  font-family: Gost, serif;
+  margin-right: 15px;
+  font-size: 32px;
+  color: black;
+}
+
+.memotype-set-modal-delimer {
+  border: 2px solid $middle_color;
+  border-radius: 30px;
+  margin: 10px;
+  width: 95%;
+}
+
+.memotype-set-modal-rarity {
+  border-style: dashed;
+  border-radius: 30px;
+  padding: 10px;
+  width: 300px;
+  margin-top: 15px;
+  p {
+    font-family: FuturaRound, serif;
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    margin-left: 25px;
+  }
+  div {
+    font-family: Gost, serif;
+    font-size: 18px;
+    text-align: left;
+    i {
+      margin-right: 10px;
+    }
+  }
+}

@@ -12,7 +12,7 @@ import {MemeResearchComponent} from '../meme-research/meme-research.component';
   templateUrl: './memes-modal.component.html',
   styleUrls: ['./memes-modal.component.scss']
 })
-export class MemesModalComponent implements OnInit {
+export class MemesModalComponent implements OnInit { // TODO TO MODAL NODULE
 
   @ViewChild(MemeViewComponent) viewComponent: MemeViewComponent;
   @ViewChild(MemeResearchComponent) researchComponent: MemeResearchComponent;
