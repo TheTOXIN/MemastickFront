@@ -13,6 +13,12 @@ export class MemotypeSetHeadComponent implements OnInit {
   @Input()
   public set: MemotypeSet;
 
+  @Input()
+  public showCount = true;
+
+  @Input()
+  public showInfo = true;
+
   constructor(
     private modalService: NgbModal
   ) {

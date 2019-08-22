@@ -14,12 +14,18 @@ export class MemotypeElementComponent implements OnInit {
   @Input()
   public memotype: Memotype;
 
+  @Input()
+  public showCount = true;
+
+  @Input()
+  public showTitle = true;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  viewMemotype(memotype: Memotype) {
+  viewMemotype() {
     this.view.viewShow(this.memotype);
   }
 }

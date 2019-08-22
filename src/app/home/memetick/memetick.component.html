@@ -39,12 +39,16 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="memetick-control">
-        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="memes()">
+      <div class="memetick-control" *ngIf="!memetickMe">
+        <button class="memetick-button btn-theme" (click)="memes()">
           МЕМАСИКИ
           <i class="fa fa-list"></i>
         </button>
-        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="follow()">
+        <button class="memetick-button btn-theme" (click)="memotypes()">
+          МЕМОТИПЫ:
+          <i class="fa fa-image"></i>
+        </button>
+        <button class="memetick-button btn-theme" (click)="follow()">
           ПОДПИСКА:
           <i *ngIf="memetick.follow" class="fa fa-eye"></i>
           <i *ngIf="!memetick.follow" class="fa fa-eye-slash"></i>

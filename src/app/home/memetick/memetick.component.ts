@@ -16,6 +16,7 @@ import {PwaService} from '../../services/pwa-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
+import {MemotypeReadModalComponent} from '../../memotype/memotype-read-modal/memotype-read-modal.component';
 
 @Component({
   selector: 'app-memetick',
@@ -83,6 +84,11 @@ export class MemetickComponent implements OnInit {
         filter: MemeFilter.USER
       }
     });
+  }
+
+  memotypes() {
+    const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
+    modalRef.componentInstance.memetickId = this.memetick.id;
   }
 
   follow() {
