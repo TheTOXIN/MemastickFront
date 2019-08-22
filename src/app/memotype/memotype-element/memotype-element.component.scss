@@ -1,0 +1,38 @@
+.memotype-element {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  span {
+    display: block;
+    color: #181b21;
+    font-size: 24px;
+    font-family: FuturaRound, serif;
+  }
+  img {
+    width: 128px;
+    height: 128px;
+    opacity: 0.3;
+  }
+  div {
+    font-size: 24px;
+    font-family: Gost, serif;
+    color: #212529;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 120px;
+  }
+}
+
+.memotype-have {
+  opacity: 1 !important;
+  &:hover {
+    animation: scale 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1.5);
+  }
+}

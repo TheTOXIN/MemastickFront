@@ -20,10 +20,6 @@
 
 .memotype-head {
   margin-left: 69px;
-  div {
-    display: inline-block;
-    margin-left: 15px;
-  }
 }
 
 .memotype-delimer {
@@ -31,31 +27,6 @@
   width: 95%;
   border-radius: 30px;
   margin: 10px auto;
-}
-
-.memotype-set-info {
-  i {
-    font-size: 32px;
-    color: #eab000;
-    display: inline-block;
-  }
-  &:hover {
-    i {
-      color: $primary_color;
-    }
-  }
-}
-
-.memotype-set-name {
-  font-size: 32px;
-  font-family: Futurica, serif;
-  color: black;
-}
-
-.memotype-set-count {
-  font-size: 28px;
-  font-family: Gost, serif;
-  color: #495057;
 }
 
 .memotype-body {
@@ -78,43 +49,5 @@
   margin-bottom: 10px;
   div {
     display: inline-block;
-  }
-}
-
-.memotype-element {
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  span {
-    display: block;
-    color: #181b21;
-    font-size: 24px;
-    font-family: FuturaRound, serif;
-  }
-  img {
-    width: 128px;
-    height: 128px;
-    opacity: 0.3;
-  }
-  div {
-    font-size: 24px;
-    font-family: Gost, serif;
-    color: #212529;
-    position: absolute;
-    margin-top: 100px;
-  }
-}
-
-.memotype-have {
-  opacity: 1 !important;
-  &:hover {
-    animation: scale 0.5s;
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes scale {
-  100% {
-    transform: scale(1.5);
   }
 }

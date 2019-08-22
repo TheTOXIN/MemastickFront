@@ -17,8 +17,6 @@ import {Memotype} from '../../model/memotype/Memotype';
 })
 export class MemotypeCollectionComponent implements OnInit {
 
-  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
-
   public collection: MemotypeSet[] = [];
 
   public memotypeColors;
@@ -27,8 +25,7 @@ export class MemotypeCollectionComponent implements OnInit {
   isLoad = true;
 
   constructor(
-    private memotypeApi: MemotypeApiService,
-    private modalService: NgbModal
+    private memotypeApi: MemotypeApiService
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
@@ -39,14 +36,5 @@ export class MemotypeCollectionComponent implements OnInit {
       this.collection = data.content;
       this.isLoad = false;
     });
-  }
-
-  setModal(set: MemotypeSet) {
-    const modalRef = this.modalService.open(MemotypeSetModalComponent, {'centered': true});
-    modalRef.componentInstance.set = set;
-  }
-
-  viewMemotype(memotype: Memotype) {
-    this.view.viewShow(memotype);
   }
 }

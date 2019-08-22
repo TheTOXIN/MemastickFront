@@ -1,0 +1,33 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.memotype-set {
+  div {
+    margin-left: 15px;
+    display: inline-block;
+  }
+}
+
+.memotype-set-name {
+  font-size: 32px;
+  font-family: Futurica, serif;
+  color: black;
+}
+
+.memotype-set-count {
+  font-size: 28px;
+  font-family: Gost, serif;
+  color: #495057;
+}
+
+.memotype-set-info {
+  i {
+    font-size: 32px;
+    color: #eab000;
+    display: inline-block;
+  }
+  &:hover {
+    i {
+      color: $primary_color;
+    }
+  }
+}

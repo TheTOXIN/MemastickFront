@@ -1,4 +1,4 @@
-<div *ngIf="isPreview" class="memotype-view animated zoomIn faster">
+<div *ngIf="isPreview" class="memotype-view animated slideInUp faster">
   <div class="memotype-view-conent">
     <div class="memotype-view-set">
       <span>СЕТ:</span>{{memotype?.set}}
@@ -17,8 +17,8 @@
     </div>
   </div>
   <div class="memotype-view-panel">
-    <span (click)="viewClose()">
+    <div (click)="viewClose()">
       <i class="fa fa-times"></i>
-    </span>
+    </div>
   </div>
 </div>
