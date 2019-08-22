@@ -16,3 +16,11 @@ memotypeNames[MemotypeRarity.EPIC] = 'ЭПИЧЕСКИЙ';
 memotypeNames[MemotypeRarity.LEGENDARY] = 'ЛЕГЕНДАРНЫЙ';
 memotypeNames[MemotypeRarity.INCREDIBLE] = 'НЕВЕРОЯТНЫЙ';
 
+export const memotypeRarities = [];
+
+memotypeRarities[0] = MemotypeRarity.CLASSIC;
+memotypeRarities[1] = MemotypeRarity.RARE;
+memotypeRarities[2] = MemotypeRarity.EPIC;
+memotypeRarities[3] = MemotypeRarity.LEGENDARY;
+memotypeRarities[4] = MemotypeRarity.INCREDIBLE;
+

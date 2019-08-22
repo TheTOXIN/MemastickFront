@@ -1,1 +1,19 @@
-<div>В РАЗРАБОТКЕ !</div>
+<div *ngIf="isLoad" class="flex-center-absolute">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoad">
+  <div *ngFor="let set of collection">
+    <app-memotype-set-head [set]="set" [showInfo]="false" [showCount]="false"></app-memotype-set-head>
+    <div class="memotype-delimer"></div>
+    <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="memotypeCarousel">
+      <div *ngFor="let memotype of set.memotypes">
+        <div class="shop-memotype-element">
+          <app-memotype-element [memotype]="memotype" [showCount]="false" [buyMode]="true"></app-memotype-element>
+          <div class="shop-memotype-rarity text-strong-middle" [style.color]="memotypeColors[memotype.rarity]">
+            <i class="fa fa-circle"></i>{{memotypeNames[memotype.rarity]}}
+          </div>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+</div>

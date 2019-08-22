@@ -20,12 +20,16 @@ export class MemotypeElementComponent implements OnInit {
   @Input()
   public showTitle = true;
 
+  @Input()
+  public buyMode = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   viewMemotype() {
+    if (this.memotype.count === 0) { return; }
     this.view.viewShow(this.memotype);
   }
 }

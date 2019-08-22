@@ -3,5 +3,5 @@
   <div class="shop-resurrection">
     <app-shop-meme [filter]="filter" (choose)="choose($event)"></app-shop-meme>
   </div>
-  <app-shop-button [text]="'ВОСКРЕСИТЬ'" [price]="price" (event)="buy()"></app-shop-button>
+  <app-shop-button [disable]="memeId == null" [text]="'ВОСКРЕСИТЬ'" [price]="price" (event)="buy()"></app-shop-button>
 </div>

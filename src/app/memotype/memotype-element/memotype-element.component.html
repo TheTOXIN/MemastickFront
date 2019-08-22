@@ -1,6 +1,6 @@
 <div class="memotype-element">
   <span *ngIf="showTitle">{{memotype.title}}</span>
-  <img [src]="memotype.image" [ngClass]="{'memotype-have': memotype.count != 0}" (click)="viewMemotype()" alt="">
+  <img [src]="memotype.image" [ngClass]="{'memotype-have': memotype.count != 0 || buyMode}" (click)="viewMemotype()" alt="">
   <div *ngIf="memotype.count > 1 && showCount">x{{memotype.count}}</div>
 </div>
 <app-memotype-view></app-memotype-view>

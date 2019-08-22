@@ -75,7 +75,7 @@ export class TeamComponent {
     }
   };
 
-// DomSanitizer for safe html content.
+  // DomSanitizer for safe html content.
   constructor(private _sanitizer: DomSanitizer, private modalService: NgbModal) {
   }
 
@@ -83,5 +83,4 @@ export class TeamComponent {
     const modalRef = this.modalService.open(TeamModalComponent);
     modalRef.componentInstance.current = this.team[index];
   }
-
 }

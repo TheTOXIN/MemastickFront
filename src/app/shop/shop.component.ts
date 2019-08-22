@@ -22,7 +22,7 @@ export class ShopComponent {
     img: '/assets/images/icon/cookie.png',
   }, {
     txt: 'Собери их всех!',
-    val: 'МЕМОТИПЫ*',
+    val: 'МЕМОТИПЫ',
     url: '/memotypes',
     img: '/assets/images/icon/cell.png',
   }, {

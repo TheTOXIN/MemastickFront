@@ -15,6 +15,8 @@ import {ShopButtonComponent} from './shared/shop-button/shop-button.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ShopMemeComponent} from './shared/shop-meme/shop-meme.component';
 import {MemesModule} from '../memes/memes.module';
+import {MemotypeModule} from '../memotype/memotype.module';
+import {OwlModule} from 'ngx-owl-carousel';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import {MemesModule} from '../memes/memes.module';
     ShopRoutingModules,
     FormsModule,
     ReactiveFormsModule,
-    MemesModule
+    MemesModule,
+    MemotypeModule,
+    OwlModule
   ],
   declarations: [
     ShopButtonComponent,
