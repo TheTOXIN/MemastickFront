@@ -132,10 +132,9 @@ ul {
     .owl-nav {
       button {
         &.owl-next, &.owl-prev {
-          background-color: $white !important;
-          padding: 5px 15px !important;
-          font-size: 18px;
-          color: $primary_color;
+          background-color: $primary_color!important;
+          font-size: 32px;
+          color: $white ;
         }
       }
     }
@@ -1186,11 +1185,23 @@ section {
 ==========================*/
 
 .owl-theme.owl-carousel .owl-nav button.owl-next, .owl-theme.owl-carousel .owl-nav button.owl-prev {
-  font-size: 64px;
+  font-size: 54px;
+  height: 48px;
+  width: 48px;
+  border-radius: 15px;
+}
+
+.owl-nav {
+  button {
+    span {
+      position: relative;
+      bottom: 22px;
+    }
+  }
 }
 
 .team-slider .owl-nav {
-  margin-top: 0 !important;
+  margin-top: 10px !important;
 }
 
 .team-hover {
@@ -1388,6 +1399,7 @@ section {
     margin-top: 0;
 
     .owl-prev, .owl-next {
+
       position: absolute;
       top: 40%;
       opacity: 0;

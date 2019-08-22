@@ -1,6 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Memotype} from '../../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
+import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-memotype-element',
@@ -23,12 +24,16 @@ export class MemotypeElementComponent implements OnInit {
   @Input()
   public buyMode = false;
 
+  @Output()
+  public clickEvent = new EventEmitter<Memotype>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
   viewMemotype() {
+    this.clickEvent.emit(this.memotype);
     if (this.memotype.count === 0) { return; }
     this.view.viewShow(this.memotype);
   }

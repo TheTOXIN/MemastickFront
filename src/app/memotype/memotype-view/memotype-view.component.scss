@@ -12,12 +12,11 @@
 .memotype-view-conent {
   color: white;
   height: 100%;
-  display: flex;
-  flex-flow: column-reverse;
-  align-items: center;
-  justify-content: center;
   transform-origin: 0 0 0;
   div {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
     margin-top: 15px;
   }
 }

@@ -8,7 +8,7 @@
     </div>
     <div *ngIf="!isLoad">
       <div *ngFor="let set of collection">
-        <app-memotype-set-head [set]="set" [showCount]="false"></app-memotype-set-head>
+        <app-memotype-set-head [set]="set" [showInfo]="false" [showCount]="false"></app-memotype-set-head>
         <div class="memotype-delimer"></div>
         <div class="memotype-list">
           <div *ngFor="let memotype of set.memotypes">

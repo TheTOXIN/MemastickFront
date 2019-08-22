@@ -10,7 +10,7 @@
       <div class="memotype-set-modal-delimer"></div>
       <div class="memotype-set-modal-size">Размер - {{set.size}}</div>
     </div>
-    <div class="memotype-set-modal-rarity margin-center"> <!-- TODO to component -->
+    <div class="memotype-set-modal-rarity margin-center"> <!-- TODO to component and price -->
       <p>РЕДКОСТИ:</p>
       <div *ngFor="let rarity of memotypeRarities" [style.color]="memotypeColors[rarity]">
         <i class="fa fa-circle" ></i>{{memotypeNames[rarity]}}
