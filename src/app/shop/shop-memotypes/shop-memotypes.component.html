@@ -22,9 +22,7 @@
       <div *ngFor="let memotype of currentSet.memotypes">
         <div class="shop-memotype-element">
           <app-memotype-element (click)="chooseMemotype(memotype)" [memotype]="memotype" [showCount]="false" [buyMode]="true"></app-memotype-element>
-          <div class="shop-memotype-rarity text-strong-middle" [style.color]="memotypeColors[memotype.rarity]">
-            <i class="fa fa-circle"></i>{{memotypeNames[memotype.rarity]}}
-          </div>
+          <i class="fa fa-circle" [style.color]="memotypeColors[memotype.rarity]"></i>
         </div>
       </div>
     </owl-carousel>
@@ -36,7 +34,12 @@
 <div class="shop-memotype-buy margin-center">
   <app-shop-price [price]="memotypePrice"></app-shop-price>
   <p *ngIf="!isMemotype">Выберите мемотип</p>
-  <app-memotype-element *ngIf="isMemotype" [memotype]="currentMemotype" [showCount]="false" [showTitle]="false" [buyMode]="true"></app-memotype-element>
+  <div *ngIf="isMemotype">
+    <img class="shop-memotype-preview" [src]="currentMemotype.image"/>
+    <div class="shop-memotype-rarity text-strong-middle" [style.color]="memotypeColors[currentMemotype.rarity]">
+      <i class="fa fa-circle"></i>{{memotypeNames[currentMemotype.rarity]}}
+    </div>
+  </div>
   <app-shop-button [price]="memotypePrice" [disable]="!isMemotype" (event)="buy()"></app-shop-button>
 </div>
 

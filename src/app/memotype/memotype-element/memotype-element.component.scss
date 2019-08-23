@@ -12,6 +12,8 @@
     width: 128px;
     height: 128px;
     opacity: 0.3;
+    margin-left: auto;
+    margin-right: auto;
   }
   div {
     font-size: 24px;
@@ -21,18 +23,48 @@
     margin-top: -20px;
     margin-left: 120px;
   }
+
+  @media(max-width: 767px) {
+    img {
+      width: 64px;
+      height: 64px;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    div {
+      font-size: 18px;
+      margin-left: 60px;
+    }
+  }
 }
 
 .memotype-have {
   opacity: 1 !important;
+
   &:hover {
     animation: scale 0.5s;
     animation-fill-mode: forwards;
+  }
+
+  @media(max-width: 767px) {
+    &:hover {
+      animation: scaleTwo 0.5s;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
 @keyframes scale {
   100% {
     transform: scale(1.5);
+  }
+}
+
+@keyframes scaleTwo {
+  100% {
+    transform: scale(2);
   }
 }

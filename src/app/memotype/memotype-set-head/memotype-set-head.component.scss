@@ -6,18 +6,30 @@
     margin-left: 15px;
     display: inline-block;
   }
+  @media(max-width: 767px) {
+    margin-left: 5px;
+    div {
+      margin-left: 5px;
+    }
+  }
 }
 
 .memotype-set-name {
   font-size: 32px;
   font-family: Futurica, serif;
   color: black;
+  @media(max-width: 767px) {
+    font-size: 24px;
+  }
 }
 
 .memotype-set-count {
   font-size: 28px;
   font-family: Gost, serif;
   color: #495057;
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
 }
 
 .memotype-set-info {
@@ -29,6 +41,11 @@
   &:hover {
     i {
       color: $primary_color;
+    }
+  }
+  @media(max-width: 767px) {
+    i {
+      font-size: 24px;
     }
   }
 }

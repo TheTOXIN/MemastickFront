@@ -7,6 +7,8 @@
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.75);
+
+  z-index: 69;
 }
 
 .memotype-view-conent {
@@ -19,11 +21,19 @@
     text-align: center;
     margin-top: 30px;
   }
+  @media(max-width: 767px) {
+    div {
+      margin-top: 15px;
+    }
+  }
 }
 
 .memotype-view-title {
   font-family: FuturaRound, serif;
   font-size: 48px;
+  @media(max-width: 767px) {
+    font-size: 32px;
+  }
 }
 
 .memotype-view-rarity {
@@ -73,19 +83,8 @@
   }
 }
 
-.memotype-view-panel {
-  background-color: rgba(33, 33, 33, 0.7);
-  position: fixed;
-  right: 0;
-  left: 0;
-  bottom: 0;
-
-  div {
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+.memotype-view-close {
+  width: 100%;
   i {
     margin: 10px 30px;
     font-size: 48px;
