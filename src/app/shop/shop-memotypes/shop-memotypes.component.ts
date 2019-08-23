@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MemotypeSet} from '../../model/memotype/MemotypeSet';
 import {memotypeColors, memotypeNames, memotypeRarities} from '../../consts/MemotypeData';
 import {MemotypeApiService} from '../../api/memotype-api-service';
 import {Memotype} from '../../model/memotype/Memotype';
 import {PriceConst} from '../../consts/PriceConst';
+import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
+import {Router} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 
 @Component({
   selector: 'app-shop-memotypes',
@@ -11,6 +15,8 @@ import {PriceConst} from '../../consts/PriceConst';
   styleUrls: ['./shop-memotypes.component.scss']
 })
 export class ShopMemotypesComponent implements OnInit {
+
+  @ViewChild(ShopButtonComponent) button: ShopButtonComponent;
 
   public collection: MemotypeSet[] = [];
 
@@ -21,41 +27,65 @@ export class ShopMemotypesComponent implements OnInit {
   public memotypeColors = [];
   public memotypeNames = [];
 
-  public memotypeCarousel: any;
   public memotypePrice: number;
+  public memotypeCarousel: any;
 
   isLoad = true;
-  isChoose = false;
-  message = 'Выберите мемотип';
+  isMemotype = false;
+  isSet = false;
 
   constructor(
-    private memotypeApi: MemotypeApiService
+    private memotypeApi: MemotypeApiService,
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.memotypeRarities = memotypeRarities;
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
 
-    this.initCarousel();
     this.memotypePrice = 0;
+
+    this.initCarousel();
   }
 
   ngOnInit() {
     this.memotypeApi.all().subscribe(data => {
       this.collection = data.content;
-      this.currentSet = this.collection[Math.floor(Math.random() * this.collection.length)];
       this.isLoad = false;
     });
   }
 
   buy() {
-    alert('BUY - ' + this.currentMemotype.title);
+    this.memotypeApi.buy(this.currentMemotype.id).subscribe(
+      () => this.button.buyDone(),
+      (data) => this.button.buyError(data)
+    );
+  }
+
+  dropSet() {
+    this.isSet = false;
+    this.isMemotype = false;
+  }
+
+  chooseSet(set: MemotypeSet) {
+    this.currentSet = set;
+    this.isSet = true;
   }
 
   chooseMemotype(memotype: Memotype) {
-    this.isChoose = true;
     this.currentMemotype = memotype;
-    this.message = 'Выбран - ' + memotype.title;
     this.memotypePrice = PriceConst.MEMOTYPE * memotype.level;
+    this.isMemotype = true;
+  }
+
+  showRarities() {
+    const modalRef = this.modalService.open(IntroModalComponent);
+    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
+    modalRef.componentInstance.title = 'ОЙ :(';
+  }
+
+  toCollection() {
+    this.router.navigateByUrl('/memotype/collection');
   }
 
   private initCarousel() {

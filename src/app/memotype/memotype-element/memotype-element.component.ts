@@ -24,16 +24,12 @@ export class MemotypeElementComponent implements OnInit {
   @Input()
   public buyMode = false;
 
-  @Output()
-  public clickEvent = new EventEmitter<Memotype>();
-
   constructor() { }
 
   ngOnInit() {
   }
 
   viewMemotype() {
-    this.clickEvent.emit(this.memotype);
     if (this.memotype.count === 0) { return; }
     this.view.viewShow(this.memotype);
   }

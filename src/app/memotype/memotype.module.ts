@@ -8,6 +8,7 @@ import {MemotypeSetModalComponent} from './memotype-set-modal/memotype-set-modal
 import {MemotypeSetHeadComponent} from './memotype-set-head/memotype-set-head.component';
 import {MemotypeElementComponent} from './memotype-element/memotype-element.component';
 import {MemotypeReadModalComponent} from './memotype-read-modal/memotype-read-modal.component';
+import {MemotypeRaritiesComponent} from './memotype-rarities/memotype-rarities.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {MemotypeReadModalComponent} from './memotype-read-modal/memotype-read-mo
     MemotypeSetModalComponent,
     MemotypeSetHeadComponent,
     MemotypeElementComponent,
-    MemotypeReadModalComponent
+    MemotypeReadModalComponent,
+    MemotypeRaritiesComponent
   ],
   declarations: [
     MemotypeCollectionComponent,
@@ -27,7 +29,8 @@ import {MemotypeReadModalComponent} from './memotype-read-modal/memotype-read-mo
     MemotypeSetModalComponent,
     MemotypeSetHeadComponent,
     MemotypeElementComponent,
-    MemotypeReadModalComponent
+    MemotypeReadModalComponent,
+    MemotypeRaritiesComponent
   ],
   entryComponents: [
     MemotypeSetModalComponent,

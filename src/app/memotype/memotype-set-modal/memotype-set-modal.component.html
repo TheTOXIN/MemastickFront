@@ -10,12 +10,9 @@
       <div class="memotype-set-modal-delimer"></div>
       <div class="memotype-set-modal-size">Размер - {{set.size}}</div>
     </div>
-    <div class="memotype-set-modal-rarity margin-center"> <!-- TODO to component and price -->
-      <p>РЕДКОСТИ:</p>
-      <div *ngFor="let rarity of memotypeRarities" [style.color]="memotypeColors[rarity]">
-        <i class="fa fa-circle" ></i>{{memotypeNames[rarity]}}
-      </div>
-    </div>
+  </div>
+  <div class="memotype-set-modal-rarity">
+    <app-memotype-rarities ></app-memotype-rarities>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">

@@ -17,6 +17,8 @@ import {ShopMemeComponent} from './shared/shop-meme/shop-meme.component';
 import {MemesModule} from '../memes/memes.module';
 import {MemotypeModule} from '../memotype/memotype.module';
 import {OwlModule} from 'ngx-owl-carousel';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import {OwlModule} from 'ngx-owl-carousel';
     ReactiveFormsModule,
     MemesModule,
     MemotypeModule,
-    OwlModule
+    OwlModule,
+    NgbModule
   ],
   declarations: [
     ShopButtonComponent,

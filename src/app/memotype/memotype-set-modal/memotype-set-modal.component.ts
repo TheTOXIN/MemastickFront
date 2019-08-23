@@ -14,16 +14,10 @@ export class MemotypeSetModalComponent implements OnInit {
   @Input()
   public set: MemotypeSet;
 
-  public memotypeRarities = [];
-  public memotypeColors = [];
-  public memotypeNames = [];
-
   constructor(
     public activeModal: NgbActiveModal
   ) {
-    this.memotypeColors = memotypeColors;
-    this.memotypeNames = memotypeNames;
-    this.memotypeRarities = memotypeRarities;
+
   }
 
   ngOnInit() {

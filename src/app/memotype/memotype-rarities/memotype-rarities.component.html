@@ -1,0 +1,6 @@
+<div class="memotypet-rarities margin-center">
+  <p>РЕДКОСТИ:</p>
+  <div *ngFor="let rarity of memotypeRarities" [style.color]="memotypeColors[rarity]">
+    <i class="fa fa-circle" ></i>{{memotypeNames[rarity]}}
+  </div>
+</div>

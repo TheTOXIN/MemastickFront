@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .shop-memotype-element {
   display: inline-block;
 }
@@ -16,9 +18,34 @@
 .shop-memotype-buy {
   font-size: 24px;
   font-family: FuturaRound, serif;
-  margin-top: 0;
+  margin-top: 30px;
+  border-radius: 30px;
+  border: 2px dashed;
+  width: 300px;
+  padding: 10px;
 }
 
 .memotype-shop-list {
   border-style: solid;
+}
+
+.shop-memotype-drop {
+  margin-bottom: 30px;
+  div {
+    border-radius: 15px;
+  }
+  button {
+    color: $primary_color;
+  }
+}
+
+.shop-memotype-control {
+  width: 100%;
+
+  button {
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

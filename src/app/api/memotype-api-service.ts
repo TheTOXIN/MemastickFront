@@ -34,7 +34,7 @@ export class MemotypeApiService {
 
   public buy(memotypeId: UUID) {
     return this.http
-      .get<MemotypeMemetick>(API.MEMOTYPE_BUY + '/' + memotypeId)
+      .put<MemotypeMemetick>(API.MEMOTYPE_BUY + '/' + memotypeId, {})
       .pipe();
   }
 }

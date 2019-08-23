@@ -65,7 +65,7 @@ export class ControlScopeComponent implements OnInit {
   }
 
   dipricated() {
-    const modalRef = this.modalService.open(IntroModalComponent);
+    const modalRef = this.modalService.open(IntroModalComponent,{ 'centered': true });
     modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
     modalRef.componentInstance.title = 'ОЙ :(';
   }
