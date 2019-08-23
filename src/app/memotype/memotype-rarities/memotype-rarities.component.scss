@@ -1,22 +1,30 @@
 .memotypet-rarities {
-  border-style: dashed;
   border-radius: 30px;
-  padding: 10px;
-  width: 200px;
   margin-top: 15px;
-  p {
-    font-family: FuturaRound, serif;
-    font-size: 20px;
-    text-align: left;
-    color: black;
-    margin-left: 25px;
-  }
-  div {
+
+  span {
     font-family: Gost, serif;
     font-size: 18px;
     text-align: left;
-    i {
-      margin-right: 10px;
-    }
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .table th, .table td {
+    vertical-align: middle;
+    padding: 5px !important;
+    text-align: left;
+  }
+
+  .table {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: dashed #495057;
   }
 }

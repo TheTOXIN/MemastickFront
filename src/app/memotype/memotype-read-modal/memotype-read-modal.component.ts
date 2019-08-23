@@ -4,6 +4,7 @@ import {UUID} from 'angular2-uuid';
 import {MemotypeApiService} from '../../api/memotype-api-service';
 import {MemotypeSet} from '../../model/memotype/MemotypeSet';
 import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-memotype-read-modal',

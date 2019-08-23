@@ -8,6 +8,8 @@ import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
+import {MemotypeRarityModalComponent} from '../../memotype/memotype-rarity-modal/memotype-rarity-modal.component';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-shop-memotypes',
@@ -37,6 +39,7 @@ export class ShopMemotypesComponent implements OnInit {
   constructor(
     private memotypeApi: MemotypeApiService,
     private router: Router,
+    private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {
     this.memotypeRarities = memotypeRarities;
@@ -79,9 +82,7 @@ export class ShopMemotypesComponent implements OnInit {
   }
 
   showRarities() {
-    const modalRef = this.modalService.open(IntroModalComponent);
-    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
-    modalRef.componentInstance.title = 'ОЙ :(';
+   this.modalService.open(MemotypeRarityModalComponent, {'centered': true});
   }
 
   toCollection() {
