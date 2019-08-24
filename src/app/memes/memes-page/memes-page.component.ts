@@ -125,7 +125,7 @@ export class MemesPageComponent implements OnInit {
     data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
     data.page.likes.myLike = !data.page.likes.myLike;
-    data.page.likes.myLike ? data.page.likes.likes++ : data.page.likes.likes--;
+    data.page.likes.myLike ? data.page.meme.likes++ : data.page.meme.likes--;
 
     this.likeApi.trigger(data.page.meme.id);
   }
