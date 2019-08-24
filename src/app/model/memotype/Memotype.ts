@@ -2,6 +2,9 @@ import {UUID} from 'angular2-uuid';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 
 export class Memotype {
+
+  isChoose = false;
+
   constructor(
     public id: UUID,
     public rarity: MemotypeRarity,

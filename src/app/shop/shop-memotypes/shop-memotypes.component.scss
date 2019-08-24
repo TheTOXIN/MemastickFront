@@ -2,25 +2,35 @@
 
 .shop-memotype-element {
   display: inline-block;
-}
 
-.shop-memotype-rarity {
+  height: 150px;
+  width: 150px;
+
   text-align: center;
-  font-family: Gost, serif;
-  font-size: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  i {
-    margin-right: 5px;
-  }
-  @media(max-width: 767px) {
-    font-size: 16px;
-  }
-}
 
-.shop-memotype-preview {
-  max-width: 128px;
-  max-height: 128px;
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  i {
+    font-size: 64px;
+    color: #3c803b;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @media(max-width: 767px) {
+    font-size: 48px;
+  }
 }
 
 .shop-memotype-buy {

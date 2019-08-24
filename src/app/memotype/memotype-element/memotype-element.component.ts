@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {Memotype} from '../../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
 import {Meme} from '../../model/Meme';
+import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 
 @Component({
   selector: 'app-memotype-element',
@@ -24,7 +25,13 @@ export class MemotypeElementComponent implements OnInit {
   @Input()
   public buyMode = false;
 
-  constructor() { }
+  public memotypeColors = [];
+  public memotypeNames = [];
+
+  constructor() {
+    this.memotypeColors = memotypeColors;
+    this.memotypeNames = memotypeNames;
+  }
 
   ngOnInit() {
   }

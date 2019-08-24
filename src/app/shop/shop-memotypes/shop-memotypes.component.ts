@@ -76,9 +76,13 @@ export class ShopMemotypesComponent implements OnInit {
   }
 
   chooseMemotype(memotype: Memotype) {
+    if (this.currentMemotype != null) this.currentMemotype.isChoose = false;
+
     this.currentMemotype = memotype;
     this.memotypePrice = PriceConst.MEMOTYPE * memotype.level;
     this.isMemotype = true;
+
+    memotype.isChoose = true;
   }
 
   showRarities() {

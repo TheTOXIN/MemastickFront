@@ -3,4 +3,7 @@
   <img [src]="memotype.image" [ngClass]="{'memotype-have': memotype.count != 0 || buyMode}" (click)="viewMemotype()" alt="">
   <div *ngIf="memotype.count > 1 && showCount">x{{memotype.count}}</div>
 </div>
-<app-memotype-view></app-memotype-view><!-- TODO TO PARENT -->
+<div class="memotype-rarity text-strong-middle" *ngIf="buyMode" [style.color]="memotypeColors[memotype.rarity]">
+  <i class="fa fa-circle"></i>{{memotypeNames[memotype.rarity]}}
+</div>
+<app-memotype-view></app-memotype-view>
