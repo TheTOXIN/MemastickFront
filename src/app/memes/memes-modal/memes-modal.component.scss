@@ -1,3 +1,11 @@
+.meme-modal-title {
+  font-size: 24px;
+
+  @media(max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
 .meme-modal-content {
   overflow-y: scroll;
   height: 300px;

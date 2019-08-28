@@ -57,6 +57,7 @@ import {TranslatorApiService} from './api/translator-api-service';
 import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
+import {BattleApiService} from './api/battle-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -120,6 +121,7 @@ firebase.initializeApp(environment.firebase);
     BlockCoinsApiService,
     TranslatorApiService,
     MemotypeApiService,
+    BattleApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

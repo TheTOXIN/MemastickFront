@@ -20,6 +20,9 @@ export class MemesModalComponent implements OnInit { // TODO TO MODAL NODULE
   @Input()
   public filter: MemeFilter;
 
+  @Input()
+  public title = 'МЕМЫ:';
+
   @Output()
   public event: EventEmitter<Meme>;
 
@@ -43,7 +46,7 @@ export class MemesModalComponent implements OnInit { // TODO TO MODAL NODULE
   private loadMemes() {
     this.memeApi.memeRead(
       this.filter,
-      'creating',
+      'creating,desc',
       '',
       ''
     ).subscribe((data) => {

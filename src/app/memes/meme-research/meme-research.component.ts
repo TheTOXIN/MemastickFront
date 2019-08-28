@@ -12,6 +12,9 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeApiService} from '../../api/meme-api-service';
 import {PriceConst} from '../../consts/PriceConst';
 import {BattleRequestModalComponent} from '../../battle/battle-request-modal/battle-request-modal.component';
+import {BattleApiService} from '../../api/battle-api-service';
+import {MemesModalComponent} from '../memes-modal/memes-modal.component';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-meme-research',
@@ -20,29 +23,16 @@ import {BattleRequestModalComponent} from '../../battle/battle-request-modal/bat
 })
 export class MemeResearchComponent {
 
-  @ViewChild(AcceptComponent) resurrectAccept: AcceptComponent;
-
   public meme: Meme;
 
   public evolve: EvolveMeme;
   public types = [];
 
-  public chance: number;
-
-  public loadMessage = '';
-  public loadStatus = LoaderStatus.NONE;
-
-  public resurrectPrice = PriceConst.RESSURECTION;
-
   isLoading = true;
   isPreview = false;
-  isChance = false;
 
   constructor(
-    private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
-    private memeApi: MemeApiService,
-    public evolveApi: EvolveMemeApiService
+    private evolveApi: EvolveMemeApiService
   ) {
     this.types[MemeType.EVLV] = 'ЭВОЛЮЦИЯ';
     this.types[MemeType.SLCT] = 'ОТБОР';
@@ -57,54 +47,10 @@ export class MemeResearchComponent {
     this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => {
       this.evolve = evolve;
       this.isLoading = false;
-
-      if (meme.type === MemeType.SLCT) {
-        this.computeChance();
-      }
     });
   }
 
   researchClose() {
     this.isPreview = false;
-  }
-
-  computeChance() {
-    this.evolveApi.evolveMemeChance(this.meme.id).subscribe(chance => {
-      this.chance = chance;
-      this.isChance = true;
-    });
-  }
-
-  resurrect() {
-    this.resurrectAccept.show('-' + this.resurrectPrice);
-  }
-
-  resurrectAcceptResult(accept: boolean) {
-    if (accept) {
-      this.loadStatus = LoaderStatus.LOAD;
-      this.loadMessage = 'Воскрешаем';
-      this.memeApi.memeResurrect(this.meme.id).subscribe(
-        () => this.resurrectDone(),
-        (data) => this.resurrectError(data)
-      );
-    }
-  }
-
-  public resurrectDone() {
-    this.loadStatus = LoaderStatus.DONE;
-    this.loadMessage = 'Мем в отобре';
-  }
-
-  public resurrectError(data: any) {
-    if (data.error.code === ErrorCode.MEME_COIN_ENOUGH) {
-      this.loadMessage = 'Не хватает мемкойнов';
-    } else {
-      this.loadMessage = 'Ошибка воскрешения';
-    }
-    this.loadStatus = LoaderStatus.ERROR;
-  }
-
-  reqeust() {
-    this.modalService.open(BattleRequestModalComponent, {'centered': true});
   }
 }

@@ -1,0 +1,24 @@
+.meme-research-title {
+  text-align: center;
+}
+
+.meme-research-img {
+  text-align: center;
+  img {
+    animation: spin 2s linear infinite;
+    width: 164px;
+    padding: 15px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}

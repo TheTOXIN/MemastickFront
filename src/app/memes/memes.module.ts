@@ -22,6 +22,9 @@ import {FormsModule} from '@angular/forms';
 import {MemeTextViewComponent} from './meme-text-view/meme-text-view.component';
 import {AngularFittextModule} from 'angular-fittext';
 import {MemesModalComponent} from './memes-modal/memes-modal.component';
+import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
+import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
+import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
 
 @NgModule({
   imports: [
@@ -53,7 +56,10 @@ import {MemesModalComponent} from './memes-modal/memes-modal.component';
     MemeEpiComponent,
     MemeTextInputComponent,
     MemeTextViewComponent,
-    MemesModalComponent
+    MemesModalComponent,
+    MemeTypeSelectComponent,
+    MemeTypeIndividComponent,
+    MemeTypeDeadComponent
   ],
   entryComponents: [
     MemesModalComponent

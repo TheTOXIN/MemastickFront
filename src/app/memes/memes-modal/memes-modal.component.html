@@ -1,9 +1,9 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title">МЕМЫ:</span>
+    <span class="meme-modal-title modal-title">{{title}}</span>
     <img [src]="icon">
   </div>
-  <div class="modal-body">
+  <div class="modal-body meme-modal-content">
     <div *ngIf="isLoad">
       <app-spinner></app-spinner>
     </div>

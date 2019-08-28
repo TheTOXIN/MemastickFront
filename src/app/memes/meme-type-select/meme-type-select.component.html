@@ -1,0 +1,14 @@
+<div class="meme-research-chance">
+  <p>МЕМ ЖДЁТ ОТБОР</p>
+  <div class="meme-research-chance-img">
+    <img src="assets/images/icon/thanos.png"/>
+    <div>(выживут только 50% или иммунизированные)</div>
+  </div>
+  <p>ШАНС ПРОЙТИ ЕГО</p>
+  <div class="meme-research-chance-circle">
+    <p *ngIf="isChance">{{chance | number: '1.0-0'}}%</p>
+    <div *ngIf="!isChance" style="margin-top: 12px">
+      <app-spinner></app-spinner>
+    </div>
+  </div>
+</div>
