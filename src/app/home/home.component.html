@@ -17,9 +17,9 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="home-evolution home-table" (click)="memes(filters.POOL)">
+      <div class="button-big home-table" (click)="memes(filters.POOL)">
         <app-timer *ngIf="home != null" [text]="'Отбор через'" [time]="home.selectTimer"></app-timer>
-        <div class="home-evolution-btn">
+        <div class="button-biп-content">
           <img src="assets/images/icon/world.png" class="spin-anim-evolution">
           <span>ЭВОЛЮЦИЯ</span>
           <span> #{{home?.day}}</span>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6 text-center">
+    <div class="col-md-6 text-center">
       <div class="home-table home-buttons">
         <div class="form-group home-button">
           <button class="btn-theme" type="submit" (click)="memes(filters.SLCT)">
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 text-center">
+    <div class="col-md-6 text-center">
       <div class="home-table home-stats">
         <p>СТАТИСТИКА ЭВОЛЮЦИИ</p>
         <app-statistic></app-statistic>
@@ -64,8 +64,8 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="home-evolution home-table" (click)="toBattle()">
-        <div class="home-evolution-btn">
+      <div class="button-big home-table" (click)="toBattle()">
+        <div class="button-biп-content">
           <span>БИТВЫ</span>
           <img src="assets/images/icon/battle.png" class="bounce-anim-battle">
         </div>
@@ -75,25 +75,25 @@
 
     <div class="row" style="padding-bottom: 30px">
     <div class="col-md-3 text-center">
-      <div class="home-table home-picker" (click)="allowance()">
+      <div class="home-table button-picker" (click)="allowance()">
         <img src="assets/images/icon/allowance.png">
         <p>ПОСОБИЕ</p>
       </div>
     </div>
     <div class="col-md-3 text-center">
-      <div class="home-table home-picker" (click)="algorithm()">
+      <div class="home-table button-picker" (click)="algorithm()">
         <img src="assets/images/icon/algorithm_icon.png">
         <p>АЛГОРИТМ</p>
       </div>
     </div>
     <div class="col-md-3 text-center">
-      <div class="home-table home-picker" (click)="docDna()">
+      <div class="home-table button-picker" (click)="docDna()">
         <img src="assets/images/icon/dna_doc.png">
         <p>ДОК.ДНК</p>
       </div>
     </div>
     <div class="col-md-3 text-center">
-      <div class="home-table home-picker" (click)="socNet()">
+      <div class="home-table button-picker" (click)="socNet()">
         <img src="assets/images/icon/community.png">
         <p>СОЦ.СЕТИ</p>
       </div>

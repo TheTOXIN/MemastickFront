@@ -1,3 +1,81 @@
-<div class="flex-center-absolute">
-  BATTLE
+<div class="super-main-title">БИТВА МЕМОВ</div>
+
+<div *ngIf="isLoad" class="flex-center-absolute">
+  <app-spinner></app-spinner>
 </div>
+
+<div class="battle-container container">
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="battle-table">
+        <div class="button-big">
+        <div class="button-biп-content">
+          <span>АРЕНА</span>
+          <img src="assets/images/icon/battle.png">
+        </div>
+        <p>(всего битв: ...)</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="battle-table battle-list">
+        <div>WAIT</div>
+        <div *ngFor="let battle of battleWait">
+          {{battle.battleId}}
+        </div>
+        <div>START</div>
+        <div *ngFor="let battle of battleStart">
+          {{battle.battleId}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="battle-table battle-list">
+        <div>CANCEL</div>
+        <div *ngFor="let battle of battleCancel">
+          {{battle.battleId}}
+        </div>
+        <div>END</div>
+        <div *ngFor="let battle of battleEnd">
+          {{battle.battleId}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="battle-table">
+        <div class="button-big">
+        <div class="button-biп-content">
+          <span>РЕЙТИНГ</span>
+          <img src="assets/images/icon/battle.png">
+        </div>
+        <p>(всего участников: ...)</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="battle-table button-picker">
+        <img src="assets/images/icon/battle.png">
+        <p>ОСОБИ</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="battle-table button-picker">
+        <img src="assets/images/icon/battle.png">
+        <p>СПРАВКА</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mem-back"></div>

@@ -1,16 +1,5 @@
 @import "src/assets/scss/base/_variable.scss";
 
-.memotype-title {
-  font-size: 48px;
-  color: whitesmoke;
-  margin-bottom: 10px;
-  font-family: FuturaRound, serif;
-  text-align: center;
-  @media(max-width: 767px) {
-    font-size: 32px;
-  }
-}
-
 .memotype-set {
   background: whitesmoke;
   border-radius: 50px;

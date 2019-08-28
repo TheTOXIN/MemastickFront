@@ -1,5 +1,6 @@
 import {UUID} from 'angular2-uuid';
 import {BattleRole} from '../../consts/BattleRole';
+import {BattleStatus} from '../../consts/BattleStatus';
 
 export class BattleView {
   constructor(

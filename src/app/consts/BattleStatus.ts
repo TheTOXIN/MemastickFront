@@ -1,4 +1,4 @@
-enum BattleStatus {
+export enum BattleStatus {
   WAIT = 'WAIT',
   CANCEL = 'CANCEL',
   START = 'START',

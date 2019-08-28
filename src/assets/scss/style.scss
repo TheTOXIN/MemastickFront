@@ -160,3 +160,78 @@
     width: 300px;
   }
 }
+
+.button-picker {
+  padding: 5px;
+  img {
+    width: 72px;
+    height: 72px;
+  }
+  p {
+    font-family: Futurica, serif;
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  &:hover {
+    img {
+      animation: scale 0.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+  @media(max-width: 767px) {
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+.button-big {
+  padding: 5px;
+  img {
+    width: 54px;
+    height: 54px;
+    margin: 5px;
+  }
+  span {
+    vertical-align: middle;
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+  .button-biп-content {
+    background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+    border-radius: 50px;
+    color: white;
+    width: 90%;
+    margin: 10px auto;
+
+    &:hover {
+      background: #6b25fc;
+    }
+
+    @media(max-width: 767px) {
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.super-main-title {
+  font-size: 48px;
+  color: whitesmoke;
+  margin-top: 30px;
+  font-family: FuturaRound, serif;
+  text-align: center;
+  @media(max-width: 767px) {
+    font-size: 32px;
+  }
+}
+

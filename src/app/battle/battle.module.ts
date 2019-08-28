@@ -5,10 +5,12 @@ import {BattleRoutingModules} from './battle-routing.modules';
 import {BattleViewModalComponent} from './battle-view-modal/battle-view-modal.component';
 import {BattleRatingComponent} from './battle-rating/battle-rating.component';
 import {BattleArenaComponent} from './battle-arena/battle-arena.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     BattleRoutingModules
   ],
   exports: [
