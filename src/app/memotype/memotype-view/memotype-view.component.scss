@@ -1,6 +1,4 @@
 .memotype-view {
-  &::-webkit-scrollbar {width:0;}
-
   position: fixed;
   top: 0;
   left: 0;
@@ -85,6 +83,9 @@
 
 .memotype-view-close {
   width: 100%;
+  position: absolute;
+  bottom: 50px;
+
   i {
     margin: 10px 30px;
     font-size: 48px;

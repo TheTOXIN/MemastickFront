@@ -3272,12 +3272,12 @@ li.nav-item.dropdown {
 .content-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
+  &::-webkit-scrollbar {width:0;}
   max-height: 100vh;
   width: 70%;
   margin: auto;
   text-align: center;
   padding: 1em;
-  &::-webkit-scrollbar {width:0;}
 }
 
 //MODAL

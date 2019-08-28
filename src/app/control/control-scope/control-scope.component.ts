@@ -17,9 +17,7 @@ export class ControlScopeComponent implements OnInit {
   public closeEvent = new EventEmitter<any>();
 
   constructor(
-    private router: Router,
-    private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private router: Router
   ) {
 
   }
@@ -52,7 +50,7 @@ export class ControlScopeComponent implements OnInit {
   }
 
   battle() {
-    this.dipricated();
+    this.navigate('/battle');
   }
 
   memotypes() {
@@ -62,11 +60,5 @@ export class ControlScopeComponent implements OnInit {
   navigate(url: string) {
     this.closeEvent.emit(null);
     this.router.navigateByUrl(url);
-  }
-
-  dipricated() {
-    const modalRef = this.modalService.open(IntroModalComponent,{ 'centered': true });
-    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
-    modalRef.componentInstance.title = 'ОЙ :(';
   }
 }

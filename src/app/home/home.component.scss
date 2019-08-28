@@ -151,9 +151,24 @@
   }
 }
 
+.bounce-anim-battle {
+  animation: pulseBattle 3s infinite;
+}
+
+@keyframes pulseBattle {
+  0% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  1000% {
+    transform: scale(1.0);
+  }
+}
+
 .home-copyright {
   text-align: center;
-  //margin-bottom: 5px;
 }
 
 .home-mini-btn {

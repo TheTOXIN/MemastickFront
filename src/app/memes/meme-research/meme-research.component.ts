@@ -11,6 +11,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeApiService} from '../../api/meme-api-service';
 import {PriceConst} from '../../consts/PriceConst';
+import {BattleRequestModalComponent} from '../../battle/battle-request-modal/battle-request-modal.component';
 
 @Component({
   selector: 'app-meme-research',
@@ -103,9 +104,7 @@ export class MemeResearchComponent {
     this.loadStatus = LoaderStatus.ERROR;
   }
 
-  dipricated() {
-    const modalRef = this.modalService.open(IntroModalComponent);
-    modalRef.componentInstance.content = 'ФУНКЦИЯ БУДЕТ ДОСТУПНА В 0.5 alpha';
-    modalRef.componentInstance.title = 'ОЙ :(';
+  reqeust() {
+    this.modalService.open(BattleRequestModalComponent, {'centered': true});
   }
 }

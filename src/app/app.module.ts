@@ -56,6 +56,7 @@ import {ShopComponent} from './shop/shop.component';
 import {TranslatorApiService} from './api/translator-api-service';
 import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
+import {BattleModule} from './battle/battle.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -63,7 +64,7 @@ firebase.initializeApp(environment.firebase);
   declarations: [
     AppComponent,
     ShopComponent,
-    ErrorPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +77,7 @@ firebase.initializeApp(environment.firebase);
     EvolveModule,
     ControlModule,
     MemotypeModule,
+    BattleModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),

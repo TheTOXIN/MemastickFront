@@ -20,7 +20,7 @@
         <app-evolve-survival [evolve]="evolve" *ngIf="evolve.step === 'SURVIVAL'"></app-evolve-survival>
       </div>
 
-      <div *ngIf="meme.type === 'SLCT'">
+      <div *ngIf="meme.type === 'SLCT'"><!-- TODO -->
         <div class="meme-research-chance">
           <p>МЕМ ЖДЁТ ОТБОР</p>
           <div class="meme-research-chance-img">
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div *ngIf="meme.type === 'INDV'">
+      <div *ngIf="meme.type === 'INDV'"> <!-- TODO -->
         <div class="meme-research-img">
           <img src="assets/images/icon/1.png">
         </div>
@@ -45,11 +45,11 @@
           <p>мем прошел отбор и стал особью</p>
         </div>
         <div class="main-research-control">
-          <button class="btn-theme" (click)="dipricated()">БИТВА</button>
+          <button class="btn-theme" (click)="reqeust()">БИТВА</button>
         </div>
       </div>
 
-      <div *ngIf="meme.type === 'DEAD'">
+      <div *ngIf="meme.type === 'DEAD'"><!-- TODO -->
         <div class="meme-research-img">
           <img src="assets/images/icon/dead.png">
         </div>

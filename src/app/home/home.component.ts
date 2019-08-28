@@ -128,6 +128,10 @@ export class HomeComponent implements OnInit {
     this.modalService.open(DonatModalComponent, {'centered': true});
   }
 
+  toBattle() {
+    this.router.navigateByUrl('/battle');
+  }
+
   toStart() {
     this.router.navigateByUrl('/start');
   }
