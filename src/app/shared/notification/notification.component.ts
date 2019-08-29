@@ -52,6 +52,7 @@ export class NotificationComponent implements OnInit {
     this.txt = notify.title;
     this.url = notify.event;
 
+    // TODO ICON FOR BATTLES
     if (notify.type === NotifyType.DNA) {
       this.img = 'assets/images/icon/3.png';
       this.inf = notify.data;

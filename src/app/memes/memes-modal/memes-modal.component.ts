@@ -58,7 +58,6 @@ export class MemesModalComponent implements OnInit { // TODO TO MODAL NODULE
 
   view(meme: Meme) {
     this.viewComponent.viewShow(meme);
-
   }
 
   research(meme: Meme) {

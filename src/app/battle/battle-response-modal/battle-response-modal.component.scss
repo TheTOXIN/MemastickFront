@@ -1,0 +1,42 @@
+.battle-response-modal {
+  span {
+    font-size: 24px;
+    color: black;
+    font-family: FuturaRound, serif;
+    margin: 5px;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 5px;
+  }
+}
+.battle-response-drop {
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  #dropdownConfig {
+    margin: 10px;
+  }
+}
+
+.battle-response-info {
+  font-size: 32px;
+  font-family: Gost, serif;
+}
+
+.battle-response {
+  button {
+    margin: 10px;
+  }
+}
+
+.button-check {
+  color: darkgreen;
+}
+
+.button-close {
+  color: darkred;
+}

@@ -41,7 +41,8 @@ import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.co
   ],
   exports: [
     MemesPageComponent,
-    MemesModalComponent
+    MemesModalComponent,
+    MemeViewComponent
   ],
   declarations: [
     ScrollableDirective,

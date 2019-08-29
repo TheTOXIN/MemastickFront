@@ -1,0 +1,33 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">ОТВЕТ</span>
+  </div>
+  <div class="battle-response-modal modal-body intro-modal">
+    <span>Выберите PVP (противовес в печньках)</span>
+    <div ngbDropdown class="battle-response-drop">
+       <button class="btn btn-primary" id="dropdownConfig" ngbDropdownToggle>
+         PVP <img [src]="'assets/images/icon/cookie.png'"> {{pvpCurrent}}
+       </button>
+       <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+         <div *ngFor="let pvp of pvpList">
+           <button ngbDropdownItem (click)="pvpCurrent = pvp">
+             <img [src]="'assets/images/icon/cookie.png'"> = {{pvp}}
+             <img [src]="'assets/images/icon/memecoin.png'"> = {{pvp * pvpCoin}}
+           </button>
+         </div>
+       </div>
+     </div>
+    <p>P.s - чем больше pvp, тем больше мемкойнов получит победитель, но тем меньше вероятность этому</p>
+  </div>
+  <div class="modal-footer modal-section">
+    <div class="battle-response">
+      <button class="btn-theme-inverse" (click)="response(true)">
+        ПРИНЯТЬ<i class="fa fa-check button-check"></i>
+      </button>
+      <button class="btn-theme-inverse" (click)="response(false)">
+        ОТМЕНИТЬ<i class="fa fa-close button-close"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<app-loader [message]="loadMessage" [status]="loadStatus" [event]="loadEvent"></app-loader>

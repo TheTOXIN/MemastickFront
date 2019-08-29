@@ -15,10 +15,11 @@ import {ShareModalComponent} from '../../modals/share-modal/share-modal.componen
 })
 export class MemeViewComponent implements OnInit {
 
-  @Input()
   public meme: Meme;
+  public url: string;
 
   isPreview = false;
+  isControl = false;
 
   constructor(
     private memeApi: MemeApiService,
@@ -33,7 +34,15 @@ export class MemeViewComponent implements OnInit {
 
   viewShow(meme: Meme) {
     this.meme = meme;
+    this.url = this.meme.url;
     this.isPreview = true;
+    this.isControl = true;
+  }
+
+  viewUrl(url: string) {
+    this.url = url;
+    this.isPreview = true;
+    this.isControl = false;
   }
 
   viewClose() {
@@ -42,7 +51,8 @@ export class MemeViewComponent implements OnInit {
   }
 
   viewSave() {
-    this.memeApi.memeDownload(this.meme.url).subscribe((res) => {
+    if (!this.isControl) { return; }
+    this.memeApi.memeDownload(this.url).subscribe((res) => {
       const a = document.createElement('a');
       a.href = URL.createObjectURL(res);
       a.download = this.meme.id + '';
@@ -52,6 +62,7 @@ export class MemeViewComponent implements OnInit {
   }
 
   viewShare() {
+    if (!this.isControl) { return; }
     const modalRef = this.modalService.open(ShareModalComponent, {'centered': true});
     modalRef.componentInstance.memeId = this.meme.id;
   }

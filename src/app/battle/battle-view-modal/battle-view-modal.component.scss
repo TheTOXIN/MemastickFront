@@ -1,0 +1,93 @@
+.battle-view-content {
+  width: 100%;
+  text-align: center;
+}
+
+.battle-view-members {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 50px;
+  width: 100%;
+}
+
+.battle-members-avatar {
+  height: 100%;
+  width: 40%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.battle-members-role {
+  height: 100%;
+  width: 20%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.battle-view-memes {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  height: 250px;
+  width: 100%;
+}
+
+.battle-memes-img {
+  height: 100%;
+  width: 45%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.battle-memes-vs {
+  width: 10%;
+  height: 100%;
+  font-size: 32px;
+  font-family: Futurica, serif;
+}
+
+.battle-view-delimer {
+  border-style: dashed;
+  border-width: 2px;
+  margin: 10px;
+}
+
+.battle-view-info {
+  font-family: Gost, serif;
+  font-size: 32px;
+
+  img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  button {
+    margin-bottom: 10px;
+  }
+}
+
+.battle-view-response {
+  button {
+    border-radius: 50px;
+    margin: 5px;
+  }
+}
+
+.battle-modal-body {
+  padding: 0 !important;
+}
