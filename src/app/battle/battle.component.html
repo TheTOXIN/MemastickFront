@@ -4,17 +4,17 @@
   <app-spinner></app-spinner>
 </div>
 
-<div class="battle-container container">
+<div *ngIf="!isLoad" class="battle-container container">
 
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="battle-table">
-        <div class="button-big">
+        <div class="button-big" (click)="toArena()">
         <div class="button-biп-content">
           <span>АРЕНА</span>
           <img src="assets/images/icon/battle.png">
         </div>
-        <p>(всего битв: ...)</p>
+        <p>(всего битв: {{battlesCount}})</p>
       </div>
       </div>
     </div>
@@ -23,26 +23,12 @@
   <div class="row">
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <div>WAIT</div>
-        <div *ngFor="let battle of battleWait">
-          {{battle.battleId}}
-        </div>
-        <div>START</div>
-        <div *ngFor="let battle of battleStart">
-          {{battle.battleId}}
-        </div>
+        <app-battle-list [title]="'ТЕКУЩИЕ'" [select]="true" [contentFirst]="battleWait" [contentSecond]="battleStart"></app-battle-list>
       </div>
     </div>
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <div>CANCEL</div>
-        <div *ngFor="let battle of battleCancel">
-          {{battle.battleId}}
-        </div>
-        <div>END</div>
-        <div *ngFor="let battle of battleEnd">
-          {{battle.battleId}}
-        </div>
+        <app-battle-list [title]="'ЗВЕРШЕНЫЕ'" [select]="false" [contentFirst]="battleCancel" [contentSecond]="battleEnd"></app-battle-list>
       </div>
     </div>
   </div>
@@ -50,12 +36,12 @@
   <div class="row">
     <div class="col-md-12">
       <div class="battle-table">
-        <div class="button-big">
+        <div class="button-big" (click)="toRating()">
         <div class="button-biп-content">
           <span>РЕЙТИНГ</span>
           <img src="assets/images/icon/battle.png">
         </div>
-        <p>(всего участников: ...)</p>
+        <p>(всего участников: {{membersCount}}</p>
       </div>
       </div>
     </div>

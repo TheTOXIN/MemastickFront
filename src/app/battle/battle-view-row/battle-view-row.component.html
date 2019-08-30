@@ -1,0 +1,61 @@
+<div class="battle-row" (click)="battleView()">
+
+  <div class="battle-row-avatar">
+    <img [src]="forwardAvatar"/>
+  </div>
+
+  <div *ngIf="battle.status === statuses.WAIT" class="battle-row-middle">
+    <div class="battle-row-icon">
+      <div><i class="fa fa-clock-o"></i></div>
+    </div>
+    <div class="battle-row-content">
+      <div *ngIf="battle.my">Ожидание...</div>
+      <div *ngIf="!battle.my">Ответьте!</div>
+    </div>
+    <div class="battle-row-icon">
+      <div><i class="fa fa-exclamation-circle"></i></div>
+    </div>
+  </div>
+
+  <div *ngIf="battle.status === statuses.START" class="battle-row-middle">
+    <div class="battle-row-icon">
+      <div><i>I</i></div>
+    </div>
+    <div class="battle-row-content">
+      <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
+    </div>
+    <div class="battle-row-icon">
+      <div><i class="fa fa-shield"></i></div>
+    </div>
+  </div>
+
+  <div *ngIf="battle.status === statuses.CANCEL" class="battle-row-middle">
+    <div class="battle-row-icon">
+      <div><i class="fa fa-arrow-right"></i></div>
+    </div>
+    <div class="battle-row-content">
+      <div *ngIf="battle.my">Заявка завершена</div>
+      <div *ngIf="!battle.my">Заявка отменена</div>
+    </div>
+    <div class="battle-row-icon">
+      <div><i class="fa fa-times"></i></div>
+    </div>
+  </div>
+
+  <div *ngIf="battle.status === statuses.END" class="battle-row-middle">
+    <div class="battle-row-icon">
+      <div><i class="fa fa-trophy"></i></div>
+    </div>
+    <div class="battle-row-content">
+      <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
+    </div>
+    <div class="battle-row-icon">
+      <svg-icon name="skull" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+    </div>
+  </div>
+
+  <div class="battle-row-avatar">
+    <img [src]="defenderAvatar"/>
+  </div>
+
+</div>

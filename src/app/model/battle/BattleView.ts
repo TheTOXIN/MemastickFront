@@ -8,7 +8,8 @@ export class BattleView {
     public status: BattleStatus,
     public pvp: number,
     public forward: BattleMemberView,
-    public defender: BattleMemberView
+    public defender: BattleMemberView,
+    public my: boolean,
   ) {
 
   }

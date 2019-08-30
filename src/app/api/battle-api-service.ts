@@ -10,6 +10,7 @@ import {API} from '../consts/API';
 import {BattleVote} from '../model/battle/BattleVote';
 import {BattleRequest} from '../model/battle/BattleRequest';
 import {BattleResponse} from '../model/battle/BattleResponse';
+import {BattleHome} from '../model/battle/BattleHome';
 
 @Injectable()
 export class BattleApiService {
@@ -20,9 +21,9 @@ export class BattleApiService {
 
   }
 
-  public home(): Observable<BattleView[]> {
+  public home(): Observable<BattleHome> {
     return this.http
-      .get<BattleView[]>(API.BATTLE_HOME)
+      .get<BattleHome>(API.BATTLE_HOME)
       .pipe();
   }
 

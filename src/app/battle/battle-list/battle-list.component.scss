@@ -1,0 +1,51 @@
+.battle-list-title {
+  font-family: FuturaRound, serif;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  height: 30px;
+}
+
+.battle-list {
+  height: 300px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {width:0;}
+  border-radius: 50px 50px 0 0;
+  border: 5px solid #495057;
+}
+
+.battle-list-control {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  user-select: none;
+
+  div {
+    font-family: FuturaRound, serif;
+    height: 100%;
+    width: 50%;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+
+    &:hover {
+      border-radius: 0 0 50px 50px;
+      border: 5px solid #495057;
+      border-top: solid 0;
+    }
+  }
+}
+
+.battle-list-select {
+  border-radius: 0 0 50px 50px;
+  background: #495057;
+  color: white !important;
+}
+
+.battle-list-empty {
+  font-size: 48px;
+  font-family: Gost, serif;
+  height: 300px;
+}

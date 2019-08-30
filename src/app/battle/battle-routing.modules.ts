@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {BattleComponent} from './battle.component';
 import {BattleArenaComponent} from './battle-arena/battle-arena.component';
 import {BattleRatingComponent} from './battle-rating/battle-rating.component';
+import {BattleViewLinkComponent} from './battle-view-link/battle-view-link.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,9 @@ const routes: Routes = [
     }, {
       path: 'rating',
       component: BattleRatingComponent
+    }, {
+      path: 'view/:id',
+      component: BattleViewLinkComponent
     }]
   }
 ];

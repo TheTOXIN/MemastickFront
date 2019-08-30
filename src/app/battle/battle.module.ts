@@ -6,9 +6,14 @@ import {BattleViewModalComponent} from './battle-view-modal/battle-view-modal.co
 import {BattleRatingComponent} from './battle-rating/battle-rating.component';
 import {BattleArenaComponent} from './battle-arena/battle-arena.component';
 import {SharedModule} from '../shared/shared.module';
+import {BattleViewRowComponent} from './battle-view-row/battle-view-row.component';
+import {BattleViewComponent} from './battle-view/battle-view.component';
+import {BattleListComponent} from './battle-list/battle-list.component';
 import {MemesModule} from '../memes/memes.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BattleResponseModalComponent} from './battle-response-modal/battle-response-modal.component';
+import {BattleViewLinkComponent} from './battle-view-link/battle-view-link.component';
+import {AngularSvgIconModule} from 'angular-svg-icon';
 
 @NgModule({
   imports: [
@@ -16,6 +21,7 @@ import {BattleResponseModalComponent} from './battle-response-modal/battle-respo
     SharedModule,
     MemesModule,
     NgbModule,
+    AngularSvgIconModule,
     BattleRoutingModules
   ],
   exports: [
@@ -27,6 +33,10 @@ import {BattleResponseModalComponent} from './battle-response-modal/battle-respo
     BattleArenaComponent,
     BattleRatingComponent,
     BattleViewModalComponent,
+    BattleListComponent,
+    BattleViewRowComponent,
+    BattleViewLinkComponent,
+    BattleViewComponent,
     BattleResponseModalComponent
   ],
   entryComponents: [

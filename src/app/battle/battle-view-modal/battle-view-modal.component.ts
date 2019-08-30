@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {BattleView} from '../../model/battle/BattleView';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
@@ -26,7 +26,7 @@ export class BattleViewModalComponent implements OnInit {
   public forwardAvatars: string;
   public defenderAvatars: string;
 
-  public isResponse = true; // TODO
+  public isResponse = false;
   public isCounter = false;
 
   public title = '...';
@@ -50,6 +50,7 @@ export class BattleViewModalComponent implements OnInit {
     this.title = this.titles[this.battle.status];
     this.isCounter = this.battle.status === BattleStatus.START || this.battle.status === BattleStatus.END;
     this.pvpCurrent = Math.abs(this.battle.forward.votes - this.battle.defender.votes);
+    this.isResponse = this.battle.status === BattleStatus.WAIT && !this.battle.my;
   }
 
   viewMeme(url: string) {

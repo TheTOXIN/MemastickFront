@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
-import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
 import {InviteApiService} from './api/invite-api-service';
 import {HelloApiService} from './api/hello-api-service';
@@ -58,6 +57,7 @@ import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
+import {AngularSvgIconModule} from 'angular-svg-icon';
 
 firebase.initializeApp(environment.firebase);
 
@@ -81,6 +81,7 @@ firebase.initializeApp(environment.firebase);
     BattleModule,
     HttpClientModule,
     AngularFittextModule,
+    AngularSvgIconModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),

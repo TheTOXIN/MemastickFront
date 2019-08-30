@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {BattleApiService} from '../api/battle-api-service';
 import {BattleStatus} from '../consts/BattleStatus';
 import {BattleView} from '../model/battle/BattleView';
+import {Router} from '@angular/router';
+import {SvgIconRegistryService} from 'angular-svg-icon';
 
 @Component({
   selector: 'app-battle',
@@ -15,25 +17,36 @@ export class BattleComponent implements OnInit {
   public battleCancel: BattleView[] = [];
   public battleEnd: BattleView[] = [];
 
+  public battlesCount;
+  public membersCount;
+
   isLoad = true;
 
-  isBattleStart = true;
-  isBattleEnd = true;
-
   constructor(
-    private battleApi: BattleApiService
+    private battleApi: BattleApiService,
+    private router: Router
   ) {
-
   }
 
   ngOnInit() {
     this.battleApi.home().subscribe(data => {
-      this.battleWait = data[BattleStatus.WAIT];
-      this.battleStart = data[BattleStatus.START];
-      this.battleCancel = data[BattleStatus.CANCEL];
-      this.battleEnd = data[BattleStatus.END];
+      this.battleWait = data.battles[BattleStatus.WAIT];
+      this.battleStart = data.battles[BattleStatus.START];
+      this.battleCancel = data.battles[BattleStatus.CANCEL];
+      this.battleEnd = data.battles[BattleStatus.END];
+
+      this.battlesCount = data.battlesCount;
+      this.membersCount = data.membersCount;
 
       this.isLoad = false;
     });
+  }
+
+  toArena() {
+    this.router.navigateByUrl('/battle/arena');
+  }
+
+  toRating() {
+    this.router.navigateByUrl('/battle/rating');
   }
 }
