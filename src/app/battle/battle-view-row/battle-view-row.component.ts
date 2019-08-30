@@ -6,7 +6,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BattleViewModalComponent} from '../battle-view-modal/battle-view-modal.component';
 import {SvgIconRegistryService} from 'angular-svg-icon';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {FRONT_URL} from '../../app.constants';
 
 @Component({
@@ -22,20 +21,28 @@ export class BattleViewRowComponent implements OnInit {
   public forwardAvatar: string;
   public defenderAvatar: string;
 
+  swordIcon = FRONT_URL + '/assets/images/svg/sword.svg';
+  scullIcon = FRONT_URL + '/assets/images/svg/skull.svg';
+
+  swordStyle: any;
+  scullStyle: any;
+
   statuses = BattleStatus;
 
   constructor(
     private avatarApi: MemetickAvatarApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
-    private iconReg: SvgIconRegistryService
+    private modalService: NgbModal
   ) {
-    this.iconReg.loadSvg(FRONT_URL + '/assets/images/svg/skull.svg', 'skull');
+
   }
 
   ngOnInit() {
     this.forwardAvatar = this.avatarApi.dowloadAvatar(this.battle.forward.memetickId);
     this.defenderAvatar = this.avatarApi.dowloadAvatar(this.battle.defender.memetickId);
+
+    this.swordStyle = { 'width.px': '20', 'height.px': '20' , 'fill': this.battle.my ? '#dc3545' : '#495057'};
+    this.scullStyle = { 'width.px': '20', 'height.px': '20' , 'fill': !this.battle.my ? '#000' : '#495057'};
   }
 
   battleView() {

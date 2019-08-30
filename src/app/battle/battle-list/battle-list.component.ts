@@ -13,19 +13,18 @@ export class BattleListComponent implements OnInit {
   public title: string;
 
   @Input()
-  public select: boolean;
-
-  @Input()
   public contentFirst: BattleView[] = [];
 
   @Input()
   public contentSecond: BattleView[] = [];
 
-  public nameFirst = 'заявки';
-  public nameSecond = 'битвы';
+  public nameFirst = 'текущие';
+  public nameSecond = 'завершенные';
 
   public firstEmpty = true;
   public secondEmpty = true;
+
+  public select: boolean = true;
 
   constructor() {
 

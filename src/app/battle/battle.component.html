@@ -23,12 +23,12 @@
   <div class="row">
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'ТЕКУЩИЕ'" [select]="true" [contentFirst]="battleWait" [contentSecond]="battleStart"></app-battle-list>
+        <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
       </div>
     </div>
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'ЗВЕРШЕНЫЕ'" [select]="false" [contentFirst]="battleCancel" [contentSecond]="battleEnd"></app-battle-list>
+        <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
       </div>
     </div>
   </div>

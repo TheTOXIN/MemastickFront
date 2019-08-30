@@ -6,51 +6,51 @@
 
   <div *ngIf="battle.status === statuses.WAIT" class="battle-row-middle">
     <div class="battle-row-icon">
-      <div><i class="fa fa-clock-o"></i></div>
+      <div><i class="fa fa-clock-o" [style.color]="battle.my ? '#28a745' : '#495057'"></i></div>
     </div>
     <div class="battle-row-content">
       <div *ngIf="battle.my">Ожидание...</div>
       <div *ngIf="!battle.my">Ответьте!</div>
     </div>
     <div class="battle-row-icon">
-      <div><i class="fa fa-exclamation-circle"></i></div>
+      <div><i class="fa fa-exclamation-circle" [style.color]="!battle.my ? '#dc3545' : '#495057'"></i></div>
     </div>
   </div>
 
   <div *ngIf="battle.status === statuses.START" class="battle-row-middle">
     <div class="battle-row-icon">
-      <div><i>I</i></div>
+      <div><svg-icon [src]="swordIcon" [svgStyle]="swordStyle"></svg-icon></div>
     </div>
     <div class="battle-row-content">
       <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
     </div>
     <div class="battle-row-icon">
-      <div><i class="fa fa-shield"></i></div>
+      <div><i class="fa fa-shield" [style.color]="!battle.my ? '#3136c3' : '#495057'"></i></div>
     </div>
   </div>
 
   <div *ngIf="battle.status === statuses.CANCEL" class="battle-row-middle">
     <div class="battle-row-icon">
-      <div><i class="fa fa-arrow-right"></i></div>
+      <div><i class="fa fa-arrow-right" [style.color]="!battle.my ? '#28a745' : '#495057'"></i></div>
     </div>
     <div class="battle-row-content">
       <div *ngIf="battle.my">Заявка завершена</div>
       <div *ngIf="!battle.my">Заявка отменена</div>
     </div>
     <div class="battle-row-icon">
-      <div><i class="fa fa-times"></i></div>
+      <div><i class="fa fa-times" [style.color]="battle.my ? '#dc3545' : '#495057'"></i></div>
     </div>
   </div>
 
   <div *ngIf="battle.status === statuses.END" class="battle-row-middle">
     <div class="battle-row-icon">
-      <div><i class="fa fa-trophy"></i></div>
+      <div><i class="fa fa-trophy" [style.color]="battle.my ? '#ffc107' : '#495057'"></i></div>
     </div>
     <div class="battle-row-content">
       <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
     </div>
     <div class="battle-row-icon">
-      <svg-icon name="skull" [svgStyle]="{ 'width.px':20 }"></svg-icon>
+      <div><svg-icon [src]="scullIcon" [svgStyle]="scullStyle"></svg-icon></div>
     </div>
   </div>
 

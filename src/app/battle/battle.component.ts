@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BattleApiService} from '../api/battle-api-service';
-import {BattleStatus} from '../consts/BattleStatus';
 import {BattleView} from '../model/battle/BattleView';
 import {Router} from '@angular/router';
-import {SvgIconRegistryService} from 'angular-svg-icon';
+import {BattleStatus} from '../consts/BattleStatus';
 
 @Component({
   selector: 'app-battle',

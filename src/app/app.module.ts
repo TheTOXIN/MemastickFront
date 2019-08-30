@@ -81,7 +81,6 @@ firebase.initializeApp(environment.firebase);
     BattleModule,
     HttpClientModule,
     AngularFittextModule,
-    AngularSvgIconModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
