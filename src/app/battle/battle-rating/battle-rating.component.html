@@ -1,3 +1,64 @@
-<p>
-  battle-rating works!
-</p>
+<div class="super-main-title">РЕЙТИНГ БИТВЫ</div>
+
+<div *ngIf="!isLoad" class="flex-center-absolute">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="isLoad">
+
+  <div class="battle-rating-main">
+    <owl-carousel  [carouselClasses]="['owl-carousel owl-theme']" [options]="ratingCarousel">
+      <div *ngFor="let rate of ratingMain">
+        <div class="battle-rating-main-table margin-center" [style.border-color]="memotypeColors[rate?.present]">
+          <div class="battle-rating-position">
+            #<i class="fa fa-trophy" [style.color]="memotypeColors[rate?.present]"></i>{{rate?.position + 1}}
+          </div>
+          <div class="battle-rating-member">
+            <div *ngIf="rate?.exist">
+              <img [src]="getAvatar(rate?.memetick) || ''" (click)="memetickView(rate?.memetick)">
+              <div>{{rate?.memetick.nick}}</div>
+            </div>
+          </div>
+          <div *ngIf="!rate?.exist" class="battle-rating-empty text-strong-middle">
+            <div>МЕСТО СВОБОДНО</div>
+          </div>
+          <div *ngIf="rate?.exist" class="battle-rating-stats">
+            <div class="battle-rating-msg">pvp очков = {{rate?.score}}</div>
+            <div class="battle-rating-msg">осталось дней = {{rate?.days}}</div>
+          </div>
+          <div class="battle-rating-present">
+            <span>Мемотип:</span>
+            <div [style.color]="memotypeColors[rate?.present]">
+              <i class="fa fa-circle"></i>{{memotypeNames[rate?.present]}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+
+  <div class="super-main-title">МОЙ РЕЙТИНГ</div>
+
+  <div class="battle-rating-my margin-center">
+    <div class="battle-rating-member">
+      <div *ngIf="ratingMy?.exist">
+        <img [src]="getAvatar(ratingMy?.memetick) || ''" (click)="memetickView(ratingMy?.memetick)">
+        <div>{{ratingMy?.memetick.nick}}</div>
+      </div>
+      <div *ngIf="!ratingMy?.exist">
+        ПУСТО
+        <p>примите участие в битве</p>
+      </div>
+      <div *ngIf="ratingMy?.exist" class="battle-rating-stats">
+        <div class="battle-rating-msg">pvp очков = {{ratingMy?.score}}</div>
+        <div class="battle-rating-msg">осталось дней = {{ratingMy?.days}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="battle-rating-info">
+    <i class="fa fa-question-circle"></i>
+  </div>
+
+</div>
+
+<div class="mem-back"></div>

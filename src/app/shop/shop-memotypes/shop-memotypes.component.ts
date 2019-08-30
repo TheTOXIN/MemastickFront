@@ -7,7 +7,6 @@ import {PriceConst} from '../../consts/PriceConst';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 import {MemotypeRarityModalComponent} from '../../memotype/memotype-rarity-modal/memotype-rarity-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 

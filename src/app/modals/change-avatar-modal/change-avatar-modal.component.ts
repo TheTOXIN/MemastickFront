@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ValidConst} from '../../consts/ValidConst';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-change-avatar-modal',
@@ -18,7 +19,8 @@ export class ChangeAvatarModalComponent implements OnInit {
 
   constructor(
     public avatarApi: MemetickAvatarApiService,
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    private router: Router
   ) {
 
   }
@@ -55,7 +57,7 @@ export class ChangeAvatarModalComponent implements OnInit {
     this.avatarApi.uploadAvatar(this.avatarPreviewIMG).subscribe(
       () => {
         this.activeModal.dismiss('Cross click');
-        window.location.reload();
+        this.router.navigateByUrl('/home/memetick/me');
       },
       () => {
         this.message = 'НЕПРАВИЛЬНЫЙ ФОРМАТ';

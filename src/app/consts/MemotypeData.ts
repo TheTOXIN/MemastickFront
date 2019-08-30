@@ -24,3 +24,11 @@ memotypeRarities[2] = MemotypeRarity.EPIC;
 memotypeRarities[3] = MemotypeRarity.LEGENDARY;
 memotypeRarities[4] = MemotypeRarity.INCREDIBLE;
 
+export const memotypeLvl = [];
+
+memotypeRarities[MemotypeRarity.CLASSIC] = 1;
+memotypeRarities[MemotypeRarity.RARE] = 2;
+memotypeRarities[MemotypeRarity.EPIC] = 3;
+memotypeRarities[MemotypeRarity.LEGENDARY] = 4;
+memotypeRarities[MemotypeRarity.INCREDIBLE] = 5;
+

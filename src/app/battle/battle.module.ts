@@ -14,6 +14,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BattleResponseModalComponent} from './battle-response-modal/battle-response-modal.component';
 import {BattleViewLinkComponent} from './battle-view-link/battle-view-link.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
+import {OwlModule} from 'ngx-owl-carousel';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import {AngularSvgIconModule} from 'angular-svg-icon';
     SharedModule,
     MemesModule,
     NgbModule,
+    OwlModule,
     AngularSvgIconModule,
     BattleRoutingModules
   ],

@@ -1,7 +1,4 @@
-import {MemesComponent} from '../memes/memes/memes.component';
 import {RouterModule, Routes} from '@angular/router';
-import {MemesShareComponent} from '../memes/memes-share/memes-share.component';
-import {MemeCreatorComponent} from '../memes/meme-creator/meme-creator.component';
 import {NgModule} from '@angular/core';
 import {MemotypeCollectionComponent} from './memotype-collection/memotype-collection.component';
 
