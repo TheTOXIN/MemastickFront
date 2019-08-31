@@ -8,6 +8,7 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {BattleVote} from '../../model/battle/BattleVote';
+import * as randomEmoji from 'random-emoji';
 
 @Component({
   selector: 'app-battle-arena',
@@ -39,12 +40,16 @@ export class BattleArenaComponent implements OnInit {
   cookieState = 'default';
 
   public message: string;
+  public emoji: any;
+
+  forwardWin = false;
+  defenderWin = false;
 
   constructor(
     public battleApi: BattleApiService,
     public router: Router
   ) {
-
+    this.emoji = randomEmoji.random({count: 1})[0].character;
   }
 
   ngOnInit() {
@@ -58,7 +63,7 @@ export class BattleArenaComponent implements OnInit {
       this.battleList = data;
       if (this.battleList.length === 0) {
         this.isLoad = false;
-        this.setMessage('ВЫ ПРОГОЛОСОВАЛИ ЗА ВСЕ БИТВЫ');
+        this.setMessage('БИТВЫ ДЛЯ ГОЛОСОВАНИЯ ЗАКОНЧИЛИСЬ');
       } else {
         this.currentInit();
       }
@@ -106,14 +111,18 @@ export class BattleArenaComponent implements OnInit {
   private voteComplete() {
     this.isVote = false;
     this.isResult = true;
+
+    this.forwardWin = this.battleResult.forwardCount > this.battleResult.defenderCount;
+    this.defenderWin = this.battleResult.defenderCount > this.battleResult.forwardCount;
   }
 
   nextVote() {
     this.battleList.shift();
     this.isResult = false;
+    this.cookieState = 'default';
 
     if (this.battleList.length === 0) {
-      this.setMessage('БИТВЫ ДЛЯ ГОЛОСВАНИЯ ЗАКОНЧИЛИСЬ');
+      this.listInit();
     } else {
       this.currentInit();
     }
@@ -125,14 +134,11 @@ export class BattleArenaComponent implements OnInit {
   }
 
   viewMeme(url: string) {
+    if (this.isResult) { return; }
     this.viewComponent.viewUrl(url);
   }
 
   toBattle() {
     this.router.navigateByUrl('/battle');
-  }
-
-  toHome() {
-    this.router.navigateByUrl('/home');
   }
 }

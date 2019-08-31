@@ -163,6 +163,10 @@
 
 .button-picker {
   padding: 5px;
+  i {
+    font-size: 72px;
+    color: $primary_color;
+  }
   img {
     width: 72px;
     height: 72px;
@@ -176,6 +180,9 @@
     img {
       animation: scale 0.5s;
       animation-fill-mode: forwards;
+    }
+    i {
+      color: #333333;
     }
   }
   @media(max-width: 767px) {

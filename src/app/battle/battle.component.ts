@@ -25,6 +25,7 @@ export class BattleComponent implements OnInit {
     private battleApi: BattleApiService,
     private router: Router
   ) {
+
   }
 
   ngOnInit() {
@@ -47,5 +48,18 @@ export class BattleComponent implements OnInit {
 
   toRating() {
     this.router.navigateByUrl('/battle/rating');
+  }
+
+  toMemes() {
+    this.router.navigateByUrl('/memes?filter=INDV');
+  }
+
+  toHome() {
+    this.router.navigateByUrl('/home');
+  }
+
+  toInfo() {
+    // TODO
+    alert('DEPRICATED');
   }
 }
