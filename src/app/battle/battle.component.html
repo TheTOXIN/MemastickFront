@@ -23,12 +23,12 @@
   <div class="row">
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
+        <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
       </div>
     </div>
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
+        <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
           <span>РЕЙТИНГ</span>
           <img src="assets/images/icon/battle.png">
         </div>
-        <p>(всего участников: {{membersCount}}</p>
+        <p>(всего участников: {{membersCount}})</p>
       </div>
       </div>
     </div>

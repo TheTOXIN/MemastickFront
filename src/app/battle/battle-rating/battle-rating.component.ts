@@ -62,6 +62,10 @@ export class BattleRatingComponent implements OnInit {
     this.router.navigate(['/home/memetick', memetick.id]);
   }
 
+  toBattle() {
+    this.router.navigateByUrl('/battle');
+  }
+
   private initCarousel() {
     this.ratingCarousel = {
       loop: true,

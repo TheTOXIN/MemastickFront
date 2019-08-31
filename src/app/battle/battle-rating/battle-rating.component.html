@@ -1,7 +1,7 @@
 <div class="super-main-title">РЕЙТИНГ БИТВЫ</div>
 
 <div *ngIf="!isLoad" class="flex-center-absolute">
-  <app-loader></app-loader>
+  <app-spinner></app-spinner>
 </div>
 <div *ngIf="isLoad">
 
@@ -58,7 +58,9 @@
   <div class="battle-rating-info">
     <i class="fa fa-question-circle"></i>
   </div>
-
+  <div class="my-button-close main-button-close" [style.margin]="'30px auto 10px'" (click)="toBattle()">
+    <i class="fa fa-close"></i>
+  </div>
 </div>
 
 <div class="mem-back"></div>

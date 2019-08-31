@@ -24,9 +24,10 @@
   height: 45%;
 
   text-align: center;
+  position: relative;
 
   img {
-    border-radius: 50px;
+    border-radius: 30px;
     border-style: solid;
     border-color: whitesmoke;
     background-color: whitesmoke;
@@ -34,15 +35,19 @@
     border-width: 5px;
     max-height: 100%;
     max-width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .battle-arena-control {
   height: 10%;
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
+  margin: 5px auto;
 
   i {
     font-size: 64px;
