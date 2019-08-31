@@ -1,3 +1,37 @@
-<p>
-  battle-arena works!
-</p>
+<div class="mem-back"></div>
+
+<div *ngIf="!isLoad && !isMessage">
+  <div class="battle-arena-preview animated slideInLeft">
+    <div class="battle-arena-meme">
+      <img [src]="battleCurrent.forward.memeUrl" (click)="viewMeme(battleCurrent.forward.memeUrl)">
+    </div>
+    <div class="battle-arena-control text-strong-middle">
+      <div (click)="giveVote(battleCurrent.forward.memberId)" class="hover-vote">
+        <i class="fa fa-caret-up" [style.color]="'#dc3545'"></i>
+      </div>
+      <div><img [src]="'assets/images/icon/cookie.png'"></div>
+      <div (click)="giveVote(battleCurrent.defender.memberId)" class="hover-vote">
+        <i class="fa fa-caret-down" [style.color]="'#3136c3'"></i>
+      </div>
+    </div>
+    <div class="battle-arena-meme">
+      <img [src]="battleCurrent.defender.memeUrl" (click)="viewMeme(battleCurrent.defender.memeUrl)">
+    </div>
+  </div>
+</div>
+
+<div class="flex-center-absolute" *ngIf="isMessage">
+  <div class="battle-arena-msg text-strong-middle animated rollIn">
+    <div>{{message}}</div>
+  </div>
+  <div (click)="toBattle()">
+    <i class="fa fa-time"></i>
+  </div>
+</div>
+
+<div class="flex-center-absolute" *ngIf="isLoad">
+  <app-spinner></app-spinner>
+</div>
+
+<app-meme-view></app-meme-view>
+

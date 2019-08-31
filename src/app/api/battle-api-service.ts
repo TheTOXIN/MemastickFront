@@ -39,7 +39,7 @@ export class BattleApiService {
       .pipe();
   }
 
-  public list(): Observable<UUID> {
+  public list(): Observable<UUID[]> {
     return this.http
       .get<UUID[]>(API.BATTLE_LIST)
       .pipe();

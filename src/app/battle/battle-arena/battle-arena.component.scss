@@ -1,0 +1,87 @@
+.battle-arena-msg {
+  background-color: whitesmoke;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  height: 300px;
+  width: 300px;
+
+  text-align: center;
+  font-size: 36px;
+  font-family: Gost, serif;
+}
+
+.battle-arena-preview {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.battle-arena-meme {
+  width: 100%;
+  height: 45%;
+
+  text-align: center;
+
+  img {
+    border-radius: 50px;
+    border-style: solid;
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    border-width: 5px;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.battle-arena-control {
+  height: 10%;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  i {
+    font-size: 64px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    width: 64px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+    animation: spinCookie 30s linear infinite;
+  }
+}
+
+.test {
+  background-color: whitesmoke;
+  color: black;
+  width: 100%;
+  height: 100%;
+}
+
+.hover-vote {
+  &:hover {
+    animation: scaleVote 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes scaleVote {
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes spinCookie {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

@@ -14,6 +14,7 @@ export class MemetickAvatarApiService {
 
   }
 
+  // TODO CACHE !!!
   public dowloadAvatar(memetickId: UUID): string {
     return BACK_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
   }
