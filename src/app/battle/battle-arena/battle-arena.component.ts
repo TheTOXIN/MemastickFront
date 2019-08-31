@@ -2,16 +2,26 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {BattleApiService} from '../../api/battle-api-service';
 import {UUID} from 'angular2-uuid';
 import {BattlePreview} from '../../model/battle/BattlePreview';
-import {BattleVote} from '../../model/battle/BattleVote';
 import {Router} from '@angular/router';
 import {BattleResult} from '../../model/battle/BattleResult';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {BattleVote} from '../../model/battle/BattleVote';
 
 @Component({
   selector: 'app-battle-arena',
   templateUrl: './battle-arena.component.html',
-  styleUrls: ['./battle-arena.component.scss']
+  styleUrls: ['./battle-arena.component.scss'],
+  animations: [
+    trigger('animCookie', [
+      state('default', style({opacity: 1})),
+      state('down', style({opacity: 0, transform: 'translateY(150%) scale(0.5)'})),
+      state('up', style({opacity: 0, transform: 'translateY(-150%) scale(0.5)'})),
+      transition('default => down', animate('500ms ease-in')),
+      transition('default => up', animate('500ms ease-in'))
+    ]),
+  ]
 })
 export class BattleArenaComponent implements OnInit {
 
@@ -19,11 +29,14 @@ export class BattleArenaComponent implements OnInit {
 
   public battleList: UUID[] = [];
   public battleCurrent: BattlePreview;
+  public battleResult: BattleResult;
 
   isLoad = true;
   isMessage = false;
   isVote = false;
   isResult = false;
+
+  cookieState = 'default';
 
   public message: string;
 
@@ -61,7 +74,8 @@ export class BattleArenaComponent implements OnInit {
     });
   }
 
-  giveVote(memberId: UUID) {
+  giveVote(memberId: UUID, stateAnim: any) {
+    this.cookieState = stateAnim;
     this.isVote = true;
 
     const api = new BattleVote(
@@ -77,7 +91,8 @@ export class BattleArenaComponent implements OnInit {
   }
 
   private voteDone(data: BattleResult) {
-    this.nextVote();
+    this.isResult = true;
+    this.battleResult = data;
   }
 
   private voteError(data: any) {
@@ -95,6 +110,7 @@ export class BattleArenaComponent implements OnInit {
 
   nextVote() {
     this.battleList.shift();
+    this.isResult = false;
 
     if (this.battleList.length === 0) {
       this.setMessage('БИТВЫ ДЛЯ ГОЛОСВАНИЯ ЗАКОНЧИЛИСЬ');
@@ -114,5 +130,9 @@ export class BattleArenaComponent implements OnInit {
 
   toBattle() {
     this.router.navigateByUrl('/battle');
+  }
+
+  toHome() {
+    this.router.navigateByUrl('/home');
   }
 }

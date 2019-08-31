@@ -4,18 +4,29 @@
   <div class="battle-arena-preview animated slideInLeft">
     <div class="battle-arena-meme">
       <img [src]="battleCurrent.forward.memeUrl" (click)="viewMeme(battleCurrent.forward.memeUrl)">
+      <div *ngIf="isResult" class="counter-vote counter-vote-up animated bounceIn">
+        {{battleResult.forwardCount}}
+      </div>
     </div>
     <div class="battle-arena-control text-strong-middle">
-      <div (click)="giveVote(battleCurrent.forward.memberId)" class="hover-vote">
-        <i class="fa fa-caret-up" [style.color]="'#dc3545'"></i>
+      <div (click)="giveVote(battleCurrent.forward.memberId, 'up')" class="hover-vote">
+        <i *ngIf="!isResult" class="fa fa-caret-up" [style.color]="'#dc3545'"></i>
+        <i *ngIf="isResult" class="fa fa-home" [style.color]="'#6b25fc'" (click)="toHome()"></i>
       </div>
-      <div><img [src]="'assets/images/icon/cookie.png'"></div>
-      <div (click)="giveVote(battleCurrent.defender.memberId)" class="hover-vote">
-        <i class="fa fa-caret-down" [style.color]="'#3136c3'"></i>
+      <div>
+        <img [src]="'assets/images/icon/cookie.png'" [@animCookie]='cookieState'>
+        <i *ngIf="isVote" class="fa fa-circle-o-notch fa-spin sign-spinner spinner-vote"></i>
+        <i *ngIf="isResult" class="fa fa-chevron-up result-vote animated rotateIn"></i>
+        <div *ngIf="isResult && battleResult.iamGuessed">ДНК x {{battleResult.dnaCombo}}</div>
+      </div>
+      <div (click)="giveVote(battleCurrent.defender.memberId, 'down')" class="hover-vote">
+        <i *ngIf="!isResult" class="fa fa-caret-down" [style.color]="'#3136c3'"></i>
+        <i *ngIf="isResult" class="fa fa-arrow-right" [style.color]="'#6b25fc'" (click)="nextVote()"></i>
       </div>
     </div>
     <div class="battle-arena-meme">
       <img [src]="battleCurrent.defender.memeUrl" (click)="viewMeme(battleCurrent.defender.memeUrl)">
+      <div *ngIf="isResult" class="counter-vote counter-vote-down animated bounceIn">{{battleResult.defenderCount}}</div>
     </div>
   </div>
 </div>
