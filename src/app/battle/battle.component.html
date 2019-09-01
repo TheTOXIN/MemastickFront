@@ -1,4 +1,6 @@
-<div class="super-main-title">БИТВА МЕМОВ</div>
+<div class="super-main-logo animated slideInDown">
+  <img [src]="'assets/images/battle-logo.png'">
+</div>
 
 <div *ngIf="isLoad" class="flex-center-absolute">
   <app-spinner></app-spinner>
@@ -8,11 +10,11 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="battle-table">
+      <div class="battle-table arena">
         <div class="button-big" (click)="toArena()">
         <div class="button-biп-content">
           <span>АРЕНА</span>
-          <img src="assets/images/icon/battle.png">
+          <img src="assets/images/icon/arena.png">
         </div>
         <p>(всего битв: {{battlesCount}})</p>
       </div>
@@ -39,7 +41,7 @@
         <div class="button-big" (click)="toRating()">
         <div class="button-biп-content">
           <span>РЕЙТИНГ</span>
-          <img src="assets/images/icon/battle.png">
+          <img src="assets/images/icon/rating.png">
         </div>
         <p>(всего участников: {{membersCount}})</p>
       </div>
@@ -50,7 +52,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="battle-table button-picker" (click)="toMemes()">
-        <img src="assets/images/icon/battle.png">
+        <img src="assets/images/icon/1.png">
         <p>ОСОБИ</p>
       </div>
     </div>
@@ -62,7 +64,7 @@
     </div>
     <div class="col-md-4">
       <div class="battle-table button-picker" (click)="toInfo()">
-        <img src="assets/images/icon/battle.png">
+        <img src="assets/images/icon/quest.png">
         <p>СПРАВКА</p>
       </div>
     </div>

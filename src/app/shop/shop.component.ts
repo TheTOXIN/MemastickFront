@@ -24,7 +24,7 @@ export class ShopComponent {
     txt: 'Собери их всех!',
     val: 'МЕМОТИПЫ',
     url: '/memotypes',
-    img: '/assets/images/icon/cell.png',
+    img: '/assets/images/icon/memotype.png',
   }, {
     txt: 'Купи и получи пособие прямо сейчас!',
     val: 'ПОСОБИЕ',
@@ -34,7 +34,7 @@ export class ShopComponent {
     txt: 'Получи новые возможности в системе',
     val: 'ГРАНТЫ*',
     url: '/grants',
-    img: '/assets/images/icon/books.png',
+    img: '/assets/images/icon/grants.png',
   }, {
     txt: 'Повысь эффективность своего майнинга',
     val: 'КИРКИ*',
@@ -49,7 +49,7 @@ export class ShopComponent {
     txt: 'Выбери себе любой ник прямо сейчас (от 3 до 16 символов)',
     val: 'НИКНЕЙМ',
     url: '/nick',
-    img: '/assets/images/tokens/tmp.png',
+    img: '/assets/images/icon/nick_edit.png',
   }, {
     txt: 'Опубликуй свой мем в наших соц.сетях',
     val: 'ПУБЛИКАЦИЯ',

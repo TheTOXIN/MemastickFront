@@ -1,5 +1,5 @@
 export enum PriceConst {
-  COOKIE = 10,
+  COOKIE = 5 ,
   ALLOWANCE = 1000,
   RESSURECTION = 150 ,
   NICK = 500,

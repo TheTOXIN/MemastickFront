@@ -242,3 +242,16 @@
   }
 }
 
+.super-main-logo {
+  margin-top: 10px;
+  text-align: center;
+  img {
+    width: 350px;
+  }
+  @media(max-width: 767px) {
+    img {
+      width: 300px;
+    }
+  }
+}
+
