@@ -39,21 +39,21 @@
 
 .control-scope {
   top: 0;
-  left: 0;
-  border-radius: 0 0 50px 0;
-  i {
-    top: 7px;
-    left: 9px;
-  }
-}
-
-.control-menu {
-  top: 0;
   right: 0;
   border-radius: 0 0 0 50px;
   i {
     top: 5px;
     right: 10px;
+  }
+}
+
+.control-menu {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 50px 0;
+  i {
+    top: 7px;
+    left: 9px;
   }
 }
 
@@ -109,16 +109,16 @@
 
 .control-scope-content {
   top: 0;
-  left: 0;
-  border-radius: 0 0 30px 0;
-  background: linear-gradient(-45deg, #6b25fc 0%, #9647db 100%);
+  right: 0;
+  border-radius: 0 0 0 30px;
+  background: linear-gradient(45deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-menu-content {
   top: 0;
-  right: 0;
-  border-radius: 0 0 0 30px;
-  background: linear-gradient(45deg, #6b25fc 0%, #9647db 100%);
+  left: 0;
+  border-radius: 0 0 30px 0;
+  background: linear-gradient(-45deg, #6b25fc 0%, #9647db 100%);
 }
 
 .control-bells-content {
