@@ -10,6 +10,8 @@ const ME = 'ME';
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const HELLO = 'HELLO';
+const PUSH_REG = 'PUSH_REG';
+const SOCK_REG = 'SOCK_REG';
 
 @Injectable()
 export class StorageService {
@@ -63,6 +65,23 @@ export class StorageService {
 
   public setHello(hello: string) {
     sessionStorage.setItem(HELLO, hello);
+  }
+
+  public sockReg(): boolean {
+    return this.checkReg(SOCK_REG);
+  }
+
+  public pushReg(): boolean {
+    return this.checkReg(PUSH_REG);
+  }
+
+  private checkReg(key: string): boolean {
+    if (sessionStorage.getItem(key) == null) {
+      sessionStorage.setItem(key, 'REG');
+      return false;
+    } else {
+      return true;
+    }
   }
 
   public clearLogOut() {
