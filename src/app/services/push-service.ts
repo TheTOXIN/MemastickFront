@@ -41,6 +41,7 @@ export class PushService {
   }
 
   tokener() {
+    if (!this.work()) { return null; }
     return this.messaging.getToken();
   }
 
