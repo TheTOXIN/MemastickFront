@@ -2,11 +2,7 @@
   <img [src]="'assets/images/battle-logo.png'">
 </div>
 
-<div *ngIf="isLoad" class="flex-center-absolute">
-  <app-spinner></app-spinner>
-</div>
-
-<div *ngIf="!isLoad" class="battle-container container">
+<div class="battle-container container">
 
   <div class="row">
     <div class="col-md-12 text-center">
@@ -25,12 +21,22 @@
   <div class="row">
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
+        <div *ngIf="isLoad">
+          <app-spinner></app-spinner>
+        </div>
+        <div *ngIf="!isLoad">
+          <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
+        </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="battle-table battle-list">
-        <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
+        <div *ngIf="isLoad">
+          <app-spinner></app-spinner>
+        </div>
+        <div *ngIf="!isLoad">
+          <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
+        </div>
       </div>
     </div>
   </div>
