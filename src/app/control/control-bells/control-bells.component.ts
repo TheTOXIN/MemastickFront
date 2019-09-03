@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NotifyBellApiService} from '../../api/notify-bell-api-service';
 import {NotifyBell} from '../../model/NotifyBell';
 
@@ -45,8 +45,11 @@ export class ControlBellsComponent implements OnInit {
   }
 
   event(bell: NotifyBell, index: number) {
-    this.clear(bell, index);
     if (bell.link == null) { return; }
+
+    this.clear(bell, index);
+    this.mark(bell, index);
+
     window.location.href = bell.link;
   }
 }
