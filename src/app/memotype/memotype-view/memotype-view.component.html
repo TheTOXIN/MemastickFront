@@ -10,7 +10,8 @@
       <img [src]="memotype?.image || ''">
     </div>
     <div class="memotype-view-text">
-      <div>ТЕКСТ</div>{{memotype?.text}}
+      <div class="head">ТЕКСТ</div>
+      <div class="body">{{memotype?.text}}</div>
     </div>
     <div class="memotype-view-set">
       <span>СЕТ:</span>{{memotype?.set}}

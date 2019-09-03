@@ -17,6 +17,7 @@ import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.compo
 import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
+import {VERSION} from '../app.constants';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,8 @@ import {AppComponent} from '../app.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  public versionMessage = 'ver: ' + VERSION;
 
   filters = MemeFilter;
   roles = RoleType;

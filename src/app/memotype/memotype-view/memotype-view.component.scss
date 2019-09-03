@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .memotype-view {
   position: fixed;
   top: 0;
@@ -62,7 +64,8 @@
   width: 300px;
   text-align: center;
   font-family: Arial, serif;
-  div {
+
+  .head {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -70,6 +73,28 @@
     font-size: 20px;
     border-bottom: 3px solid #212529;
     font-family: Gost, serif;
+  }
+
+  .body {
+    margin-top: 0;
+    max-height: 69px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $middle_color;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: $primary_color;
+    }
   }
 }
 
