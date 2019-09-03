@@ -6,6 +6,7 @@ import {ValidConst} from '../../consts/ValidConst';
 import {AppComponent} from '../../app.component';
 import {PushService} from '../../services/push-service';
 import {WebSocketService} from '../../services/web-socket-service';
+import {ErrorCode} from '../../consts/ErrorCode';
 
 @Component({
   selector: 'app-sign-in',
@@ -67,7 +68,7 @@ export class SignInComponent implements OnInit {
       .pipe()
       .subscribe(
         () => this.login(),
-        () => this.setErrorMessage('Неверные данные для входа'),
+        (data) => this.invalid(data.error),
       );
   }
 
@@ -102,6 +103,14 @@ export class SignInComponent implements OnInit {
 
     this.socket.connect();
     this.push.register();
+  }
+
+  invalid(error: any) {
+    if (error.error_description === 'User account is locked') {
+      this.setErrorMessage('ВАШ АККАУНТ ЗАБАНЕН!');
+    } else {
+      this.setErrorMessage('Неверные данные для входа');
+    }
   }
 
   toHome() {
