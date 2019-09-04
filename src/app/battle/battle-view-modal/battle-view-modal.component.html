@@ -19,11 +19,12 @@
 
       <div class="battle-view-delimer"></div>
       <div class="battle-view-memes">
-        <div class="battle-memes-img" (click)="viewMeme(battle.forward.memeUrl)">
-          <img [src]="battle.forward.memeUrl"/></div>
-        <div class="battle-memes-vs text-strong-middle"><div>VS</div></div>
-        <div class="battle-memes-img" (click)="viewMeme(battle.defender.memeUrl)">
-          <img [src]="battle.defender.memeUrl"/></div>
+        <div class="battle-memes-img" (click)="viewMeme(forwardMeme)"><img [src]="forwardMeme"/></div>
+        <div class="battle-memes-vs text-strong-middle">
+          <div *ngIf="forwardMeme == null || defenderMeme == null"><app-spinner></app-spinner></div>
+          <div *ngIf="forwardMeme != null || defenderMeme != null">VS</div>
+        </div>
+        <div class="battle-memes-img" (click)="viewMeme(defenderMeme)"><img [src]="defenderMeme"/></div>
       </div>
       <div class="battle-view-delimer"></div>
 

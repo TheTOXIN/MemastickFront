@@ -9,7 +9,7 @@ export const environment = {
     messagingSenderId: '531299045933'
   },
   version: '0.5 dev',
-  frontUrl: 'http://localhost:4200',
-  backUrl: 'http://localhost:8080'
+  frontUrl: 'http://192.168.10.54:4200',
+  backUrl: 'http://192.168.10.54:8080'
 };
 

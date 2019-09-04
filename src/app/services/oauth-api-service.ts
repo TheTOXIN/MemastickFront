@@ -107,7 +107,6 @@ export class OauthApiService {
   private clearData() {
     Cookie.delete(this.keyAccess);
     Cookie.delete(this.keyRefresh);
-    Cookie.deleteAll();
 
     this.storageService.clearLogOut();
   }

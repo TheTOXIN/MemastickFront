@@ -7,6 +7,7 @@ import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {BattleResponseModalComponent} from '../battle-response-modal/battle-response-modal.component';
+import {MemeApiService} from '../../api/meme-api-service';
 
 @Component({
   selector: 'app-battle-view-modal',
@@ -24,6 +25,9 @@ export class BattleViewModalComponent implements OnInit {
   public forwardAvatars: string;
   public defenderAvatars: string;
 
+  public forwardMeme: string;
+  public defenderMeme: string;
+
   public isResponse = false;
   public isCounter = false;
 
@@ -33,6 +37,7 @@ export class BattleViewModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private avatarApi: MemetickAvatarApiService,
+    private memeApi: MemeApiService,
     private router: Router,
     private modalService: NgbModal
   ) {
@@ -43,10 +48,15 @@ export class BattleViewModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.memeApi.memeIMG(this.battle.forward.memeId).subscribe(data => this.forwardMeme = data.url);
+    this.memeApi.memeIMG(this.battle.defender.memeId).subscribe(data => this.defenderMeme = data.url);
+
     this.forwardAvatars = this.avatarApi.dowloadAvatar(this.battle.forward.memetickId);
     this.defenderAvatars = this.avatarApi.dowloadAvatar(this.battle.defender.memetickId);
+
     this.title = this.titles[this.battle.status];
     this.isCounter = this.battle.status === BattleStatus.START || this.battle.status === BattleStatus.END;
+
     this.pvpCurrent = Math.abs(this.battle.forward.votes - this.battle.defender.votes);
     this.isResponse = this.battle.status === BattleStatus.WAIT && !this.battle.my;
   }

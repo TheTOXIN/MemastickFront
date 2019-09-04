@@ -17,11 +17,11 @@ export class BattleView {
 
 class BattleMemberView {
   constructor(
-    public memetickId: UUID ,
-    public role: BattleRole ,
-    public votes: number,
+    public role: BattleRole,
+    public memetickId: UUID,
     public memberId: UUID,
-    public memeUrl: string
+    public memeId: UUID,
+    public votes: number,
   ) {
 
   }
