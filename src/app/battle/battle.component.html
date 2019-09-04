@@ -25,7 +25,7 @@
           <app-spinner></app-spinner>
         </div>
         <div *ngIf="!isLoad">
-          <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
+          <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
           <app-spinner></app-spinner>
         </div>
         <div *ngIf="!isLoad">
-          <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
+          <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
         </div>
       </div>
     </div>

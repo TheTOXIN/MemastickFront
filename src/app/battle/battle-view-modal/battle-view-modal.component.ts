@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {BattleView} from '../../model/battle/BattleView';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
@@ -6,8 +6,6 @@ import {BattleStatus} from '../../consts/BattleStatus';
 import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
-import {Meme} from '../../model/Meme';
-import {DnaModalComponent} from '../../modals/dna-modal/dna-modal.component';
 import {BattleResponseModalComponent} from '../battle-response-modal/battle-response-modal.component';
 
 @Component({

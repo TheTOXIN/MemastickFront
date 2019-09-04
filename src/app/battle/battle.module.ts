@@ -7,7 +7,6 @@ import {BattleRatingComponent} from './battle-rating/battle-rating.component';
 import {BattleArenaComponent} from './battle-arena/battle-arena.component';
 import {SharedModule} from '../shared/shared.module';
 import {BattleViewRowComponent} from './battle-view-row/battle-view-row.component';
-import {BattleViewComponent} from './battle-view/battle-view.component';
 import {BattleListComponent} from './battle-list/battle-list.component';
 import {MemesModule} from '../memes/memes.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -38,7 +37,6 @@ import {OwlModule} from 'ngx-owl-carousel';
     BattleListComponent,
     BattleViewRowComponent,
     BattleViewLinkComponent,
-    BattleViewComponent,
     BattleResponseModalComponent
   ],
   entryComponents: [
