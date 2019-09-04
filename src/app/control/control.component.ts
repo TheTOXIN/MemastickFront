@@ -16,7 +16,7 @@ export class ControlComponent implements OnInit {
 
   public hideContentScope = true;
   public hideContentMenu = true;
-  public hideContentEvents = true;
+  public hideContentBells = true;
   public hideContentItems = true;
 
   private predYOffset = 0;
@@ -45,11 +45,23 @@ export class ControlComponent implements OnInit {
   }
 
   hideAll() {
+    this.updateCounter();
+
     this.hideContentScope = true;
     this.hideContentMenu = true;
-    this.hideContentEvents = true;
+    this.hideContentBells = true;
     this.hideContentItems = true;
 
     this.close = false;
+  }
+
+  updateCounter() {
+    if (!this.hideContentItems) {
+      this.counter.countItems = 0;
+    }
+
+    if (!this.hideContentBells) {
+      this.counter.countBells = 0;
+    }
   }
 }

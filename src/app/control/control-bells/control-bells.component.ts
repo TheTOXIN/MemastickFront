@@ -45,7 +45,7 @@ export class ControlBellsComponent implements OnInit {
   }
 
   event(bell: NotifyBell, index: number) {
-    if (bell.link == null) { return; }
+    if (bell.link == null || bell.link === '') { return; }
 
     this.clear(bell, index);
     this.mark(bell, index);
