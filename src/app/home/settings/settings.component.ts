@@ -4,14 +4,10 @@ import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.compo
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
-import {Memetick} from '../../model/Memetick';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {PushService} from '../../services/push-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
-import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
-import {PushApiService} from '../../api/push-api-service';
-import {StorageService} from '../../services/storage-service';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 
 @Component({

@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
   }
 
   public notify() {
-    if (!this.storage.pushReg()) { this.push.register(); }
-    if (!this.storage.sockReg()) { this.socket.connect(); }
+    if (!this.storage.getPushReg()) { this.push.register(); }
+    if (!this.storage.getSockReg()) { this.socket.connect(); }
 
     this.socket.notiferObservable.subscribe((notify) => {
       if (notify != null) {

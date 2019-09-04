@@ -67,21 +67,28 @@ export class StorageService {
     sessionStorage.setItem(HELLO, hello);
   }
 
-  public sockReg(): boolean {
-    return this.checkReg(SOCK_REG);
+  public getSockReg(): boolean {
+    return this.getReg(SOCK_REG);
   }
 
-  public pushReg(): boolean {
-    return this.checkReg(PUSH_REG);
+  public getPushReg(): boolean {
+    return this.getReg(PUSH_REG);
   }
 
-  private checkReg(key: string): boolean {
-    if (sessionStorage.getItem(key) == null) {
-      sessionStorage.setItem(key, 'REG');
-      return false;
-    } else {
-      return true;
-    }
+  private getReg(key: string): boolean {
+    return sessionStorage.getItem(key) != null;
+  }
+
+  public setSockReg() {
+    this.setReg(SOCK_REG);
+  }
+
+  public setPushReg() {
+    this.setReg(PUSH_REG);
+  }
+
+  private setReg(key: string) {
+    sessionStorage.setItem(key, 'REG');
   }
 
   public clearLogOut() {

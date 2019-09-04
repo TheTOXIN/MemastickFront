@@ -42,7 +42,6 @@ import {TokenAcceptApiService} from './api/token-accept-api.service';
 import {PushService} from './services/push-service';
 import * as firebase from 'firebase';
 import {NotifyBellApiService} from './api/notify-bell-api-service';
-import {PushApiService} from './api/push-api-service';
 import {SettingApiService} from './api/setting-api-service';
 import {StorageService} from './services/storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
@@ -112,7 +111,6 @@ firebase.initializeApp(environment.firebase);
     PushService,
     NotifyBellApiService,
     SettingApiService,
-    PushApiService,
     AdminApiService,
     StorageService,
     ErrorHandlerService,
