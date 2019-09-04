@@ -45,8 +45,6 @@ export class ControlComponent implements OnInit {
   }
 
   hideAll() {
-    this.ngOnInit(); // TODO remove
-
     this.hideContentScope = true;
     this.hideContentMenu = true;
     this.hideContentEvents = true;
