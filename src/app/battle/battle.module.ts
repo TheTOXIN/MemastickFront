@@ -14,6 +14,7 @@ import {BattleResponseModalComponent} from './battle-response-modal/battle-respo
 import {BattleViewLinkComponent} from './battle-view-link/battle-view-link.component';
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {OwlModule} from 'ngx-owl-carousel';
+import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import {OwlModule} from 'ngx-owl-carousel';
   ],
   exports: [
     BattleViewModalComponent,
-    BattleResponseModalComponent
+    BattleResponseModalComponent,
+    BattleRuleModalComponent
   ],
   declarations: [
     BattleComponent,
@@ -37,11 +39,13 @@ import {OwlModule} from 'ngx-owl-carousel';
     BattleListComponent,
     BattleViewRowComponent,
     BattleViewLinkComponent,
-    BattleResponseModalComponent
+    BattleResponseModalComponent,
+    BattleRuleModalComponent
   ],
   entryComponents: [
     BattleViewModalComponent,
-    BattleResponseModalComponent
+    BattleResponseModalComponent,
+    BattleRuleModalComponent
   ]
 })
 export class BattleModule { }

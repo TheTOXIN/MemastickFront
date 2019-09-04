@@ -5,6 +5,7 @@ import {RoleType} from '../consts/RoleType';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
+const BATTLE_RULE = 'BATTLE_RULE';
 const ME = 'ME';
 
 // SESSION
@@ -89,6 +90,15 @@ export class StorageService {
 
   private setReg(key: string) {
     sessionStorage.setItem(key, 'REG');
+  }
+
+  public battleRule(): boolean {
+    if (!localStorage.getItem(BATTLE_RULE)) {
+      localStorage.setItem(BATTLE_RULE, 'true');
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public clearLogOut() {

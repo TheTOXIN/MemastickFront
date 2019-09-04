@@ -5,7 +5,6 @@ import {BattleStatus} from '../../consts/BattleStatus';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BattleViewModalComponent} from '../battle-view-modal/battle-view-modal.component';
-import {SvgIconRegistryService} from 'angular-svg-icon';
 import {FRONT_URL} from '../../app.constants';
 
 @Component({

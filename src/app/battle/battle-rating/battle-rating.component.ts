@@ -7,6 +7,8 @@ import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
+import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-battle-rating',
@@ -29,7 +31,8 @@ export class BattleRatingComponent implements OnInit {
   constructor(
     public battleApi: BattleApiService,
     public avatarApi: MemetickAvatarApiService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
@@ -64,6 +67,15 @@ export class BattleRatingComponent implements OnInit {
 
   toBattle() {
     this.router.navigateByUrl('/battle');
+  }
+
+  info() {
+    const modalRef = this.modalService.open(IntroModalComponent);
+    modalRef.componentInstance.title = 'РЕЙТИНГ БИТВ';
+    modalRef.componentInstance.content = 'Чтобы занять место в рейтинге, принимайте участие в битвах. ' +
+      'Как только вы попадете в рейтинг у вас будет ' + BattleConst.RATING_DAY + ' дней, до подведения итогов. ' +
+      'После подвдения итогов, если вы вошли в ТОП-' + BattleConst.RATING_SIZE + ', вы получите случайный мемотип определенный редкости. ' +
+      'Показатель рейтинга это - ПВП завершенной битвы, если вы выиграли то ПВП очки прибавляются, иначе отнимаются.';
   }
 
   private initCarousel() {

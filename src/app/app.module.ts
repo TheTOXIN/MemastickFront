@@ -56,7 +56,6 @@ import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
-import {AngularSvgIconModule} from 'angular-svg-icon';
 
 firebase.initializeApp(environment.firebase);
 

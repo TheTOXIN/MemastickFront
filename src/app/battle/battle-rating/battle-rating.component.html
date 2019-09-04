@@ -36,8 +36,8 @@
     </owl-carousel>
   </div>
 
-  <div class="battle-rating-info">
-    <i class="fa fa-question-circle"></i>
+  <div class="my-button-close main-button-close" [style.margin]="'30px auto 10px'" (click)="toBattle()">
+    <i class="fa fa-close"></i>
   </div>
 
   <div class="super-main-title">МОЙ РЕЙТИНГ</div>
@@ -59,8 +59,8 @@
     </div>
   </div>
 
-  <div class="my-button-close main-button-close" [style.margin]="'30px auto 10px'" (click)="toBattle()">
-    <i class="fa fa-close"></i>
+  <div class="battle-rating-info" (click)="info()">
+    <i class="fa fa-question-circle"></i>
   </div>
 </div>
 
