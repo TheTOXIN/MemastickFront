@@ -1,4 +1,4 @@
-import {NotifyType} from '../consts/NotifyType';
+import {NotifyType} from '../consts/notification/NotifyType';
 
 export class Notify {
   constructor(

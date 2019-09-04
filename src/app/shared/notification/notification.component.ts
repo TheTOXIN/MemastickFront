@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {NotifyType} from '../../consts/NotifyType';
+import {NotifyType} from '../../consts/notification/NotifyType';
 import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';

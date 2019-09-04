@@ -3,6 +3,7 @@ import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
 import {NotifyCount} from '../model/NotifyCount';
+import {WebSocketService} from '../services/web-socket-service';
 
 @Component({
   selector: 'app-control',
@@ -25,6 +26,7 @@ export class ControlComponent implements OnInit {
 
   constructor(
     private mainApi: MainApiService,
+    private socket: WebSocketService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -34,6 +36,12 @@ export class ControlComponent implements OnInit {
   ngOnInit() {
     this.mainApi.notifyCount().subscribe(data => {
       this.counter = data;
+    });
+
+    this.socket.counterObservable.subscribe(event => {
+      if (event != null) {
+        alert(event.type + ':' + event.action);
+      }
     });
   }
 
@@ -45,8 +53,6 @@ export class ControlComponent implements OnInit {
   }
 
   hideAll() {
-    this.ngOnInit(); // TODO remove
-
     this.hideContentScope = true;
     this.hideContentMenu = true;
     this.hideContentEvents = true;
