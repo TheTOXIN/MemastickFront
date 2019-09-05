@@ -27,7 +27,8 @@
               "src/assets",
               "src/manifest.json",
               "src/firebase-messaging-sw.js",
-              "src/.well-known/assetlinks.json"
+              "src/.well-known/assetlinks.json",
+              "src/robots.txt"
             ],
             "styles": [
               "node_modules/font-awesome/scss/font-awesome.scss",
