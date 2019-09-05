@@ -9,7 +9,7 @@ export class PwaService implements OnInit{
   constructor(
     private swu: SwUpdate,
   ) {
-    // TODO add try beforeinstallprompt
+    // add try beforeinstallprompt
   }
 
   ngOnInit(): void {

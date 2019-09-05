@@ -6,5 +6,7 @@ export enum ValidConst {
   MAX_LEN_NCK = 16,
 
   MAX_TXT = 30,
-  MAX_MEME_TEXT = 256
+  MAX_MEME_TEXT = 256,
+
+  MAX_CHROMOSOME = 100
 }

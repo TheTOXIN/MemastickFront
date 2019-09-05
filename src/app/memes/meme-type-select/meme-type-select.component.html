@@ -4,11 +4,18 @@
     <img src="assets/images/icon/thanos.png"/>
     <div>(выживут только 50% или иммунизированные)</div>
   </div>
-  <p>ШАНС ПРОЙТИ ЕГО</p>
-  <div class="meme-research-chance-circle">
+
+  <p>ШАНС ВЫЖИВАНИЯ</p>
+
+  <div *ngIf="isLoad">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div *ngIf="!isChance">
+    <button class="btn-theme" (click)="computeChance()">ВЫЧИСЛИТЬ</button>
+  </div>
+
+  <div *ngIf="isChance" class="meme-research-chance-circle">
     <p *ngIf="isChance">{{chance | number: '1.0-0'}}%</p>
-    <div *ngIf="!isChance" style="margin-top: 12px">
-      <app-spinner></app-spinner>
-    </div>
   </div>
 </div>

@@ -15,6 +15,7 @@ export class MemeTypeSelectComponent implements OnInit {
   public chance: number;
 
   isChance = false;
+  isLoad = false;
 
   constructor(
     public evolveApi: EvolveMemeApiService,
@@ -23,13 +24,15 @@ export class MemeTypeSelectComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.computeChance();
+
   }
 
   computeChance() {
+    this.isLoad = true;
     this.evolveApi.evolveMemeChance(this.meme.id).subscribe(chance => {
       this.chance = chance;
       this.isChance = true;
+      this.isLoad = false;
     });
   }
 }
