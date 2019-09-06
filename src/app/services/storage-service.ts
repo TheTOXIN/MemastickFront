@@ -5,11 +5,14 @@ import {RoleType} from '../consts/RoleType';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
+const BATTLE_RULE = 'BATTLE_RULE';
 const ME = 'ME';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const HELLO = 'HELLO';
+const PUSH_REG = 'PUSH_REG';
+const SOCK_REG = 'SOCK_REG';
 
 @Injectable()
 export class StorageService {
@@ -65,8 +68,41 @@ export class StorageService {
     sessionStorage.setItem(HELLO, hello);
   }
 
+  public getSockReg(): boolean {
+    return this.getReg(SOCK_REG);
+  }
+
+  public getPushReg(): boolean {
+    return this.getReg(PUSH_REG);
+  }
+
+  private getReg(key: string): boolean {
+    return sessionStorage.getItem(key) != null;
+  }
+
+  public setSockReg() {
+    this.setReg(SOCK_REG);
+  }
+
+  public setPushReg() {
+    this.setReg(PUSH_REG);
+  }
+
+  private setReg(key: string) {
+    sessionStorage.setItem(key, 'REG');
+  }
+
+  public battleRule(): boolean {
+    if (!localStorage.getItem(BATTLE_RULE)) {
+      localStorage.setItem(BATTLE_RULE, 'true');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public clearLogOut() {
     sessionStorage.clear();
-    localStorage.clear();
+    localStorage.removeItem(ME);
   }
 }

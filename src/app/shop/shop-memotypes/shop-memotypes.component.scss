@@ -1,0 +1,73 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.shop-memotype-element {
+  display: inline-block;
+
+  height: 150px;
+  width: 150px;
+
+  text-align: center;
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  i {
+    font-size: 64px;
+    color: #3c803b;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @media(max-width: 767px) {
+    font-size: 48px;
+  }
+}
+
+.shop-memotype-buy {
+  font-size: 24px;
+  font-family: FuturaRound, serif;
+  margin-top: 30px;
+  border-radius: 30px;
+  border: 2px dashed;
+  width: 300px;
+  padding: 10px;
+}
+
+.memotype-shop-list {
+  border-style: solid;
+}
+
+.shop-memotype-drop {
+  margin-bottom: 30px;
+  div {
+    border-radius: 15px;
+  }
+  button {
+    color: $primary_color;
+  }
+}
+
+.shop-memotype-control {
+  width: 100%;
+
+  button {
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  @media(max-width: 767px) {
+    margin-top: 15px;
+  }
+}

@@ -4,14 +4,10 @@ import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.compo
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
-import {Memetick} from '../../model/Memetick';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {PushService} from '../../services/push-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
-import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
-import {PushApiService} from '../../api/push-api-service';
-import {StorageService} from '../../services/storage-service';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 
 @Component({
@@ -31,21 +27,11 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  public memetick: Memetick = new Memetick(
-    '',
-    '',
-    false,
-    false,
-    0,
-    0
-  );
-
   public setting: Setting = new Setting(
     true
   );
 
   ngOnInit() {
-    this.memetickApi.viewMe().subscribe(data => this.memetick = data);
     this.settingApi.me().subscribe(data => this.setting = data);
   }
 
@@ -54,21 +40,28 @@ export class SettingsComponent implements OnInit {
   }
 
   changeNick() {
-    const modalRef = this.modalService.open(ChangeNickModalComponent, {'centered': true});
-    modalRef.componentInstance.nick = this.memetick.nick;
+    this.modalService.open(ChangeNickModalComponent, {'centered': true});
   }
 
   pushNotification() {
-    this.pushService.tokener().then(token => {
-      if (token != null) {
-        this.setting.pushWork = !this.setting.pushWork;
-        this.settingApi.push(this.setting.pushWork);
-      } else {
+    if (this.pushService.work()) {
+      this.pushService.tokener().then(token => {
+        if (token != null) {
+          this.pushWork();
+        } else {
+          this.requestPush();
+        }
+      }).catch(() => {
         this.requestPush();
-      }
-    }).catch(() => {
-      this.requestPush();
-    });
+      });
+    } else {
+      this.pushWork();
+    }
+  }
+
+  pushWork() {
+    this.setting.pushWork = !this.setting.pushWork;
+    this.settingApi.push(this.setting.pushWork);
   }
 
   requestPush() {

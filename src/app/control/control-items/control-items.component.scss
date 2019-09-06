@@ -85,6 +85,25 @@
   }
 }
 
+.items-notify {
+  height: 100%;
+  width: 30%;
+
+  div {
+    i {
+      font-size: 32px;
+      color: #dc3544;
+    }
+  }
+  @media(max-width: 767px) {
+    div {
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
 .item-separate {
   width: 90%;
   height: 3px;

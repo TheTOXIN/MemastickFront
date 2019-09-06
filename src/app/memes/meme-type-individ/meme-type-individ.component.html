@@ -1,0 +1,14 @@
+<div>
+  <div class="meme-research-img">
+    <img src="assets/images/icon/1.png">
+  </div>
+  <div class="meme-research-title">
+    <p>мем прошел отбор и стал особью</p>
+  </div>
+  <div class="main-research-control">
+    <button class="btn-theme" (click)="battle()">БИТВА</button>
+    <br/><span>Вы можете вызывать его на битву, выбрав свой мем</span>
+  </div>
+</div>
+<app-loader [message]="loadMessage" [status]="loadStatus"></app-loader>
+<app-accept [img]="'assets/images/icon/battle.png'" (accept)="battleAcceptResult($event)"></app-accept>

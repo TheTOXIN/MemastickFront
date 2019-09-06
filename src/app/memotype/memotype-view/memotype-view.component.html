@@ -1,0 +1,23 @@
+<div *ngIf="isPreview" class="memotype-view animated slideInUp faster">
+  <div class="memotype-view-conent">
+    <div class="memotype-view-title">
+      {{memotype?.title}}
+    </div>
+    <div class="memotype-view-rarity" [style.color]="memotypeColors[memotype?.rarity]">
+      <i class="fa fa-circle"></i>{{memotypeNames[memotype?.rarity]}}
+    </div>
+    <div class="memotype-view-image">
+      <img [src]="memotype?.image || ''">
+    </div>
+    <div class="memotype-view-text">
+      <div class="head">ТЕКСТ</div>
+      <div class="body">{{memotype?.text}}</div>
+    </div>
+    <div class="memotype-view-set">
+      <span>СЕТ:</span>{{memotype?.set}}
+    </div>
+    <div class="memotype-view-close" (click)="viewClose()">
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+</div>

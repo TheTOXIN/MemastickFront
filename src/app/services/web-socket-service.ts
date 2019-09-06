@@ -3,11 +3,11 @@ import {API} from '../consts/API';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import {HttpClient} from '@angular/common/http';
-import {GlobalConst} from '../consts/GlobalConst';
 import {Notify} from '../model/Notify';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {BACK_URL} from '../app.constants';
+import {StorageService} from './storage-service';
 
 @Injectable()
 export class WebSocketService {
@@ -18,7 +18,8 @@ export class WebSocketService {
   public notiferObservable: Observable<Notify>;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private storage: StorageService
   ) {
     this.notiferBehavior = new BehaviorSubject(null);
     this.notiferObservable = this.notiferBehavior.asObservable();
@@ -46,7 +47,7 @@ export class WebSocketService {
   public register(id: string) {
     this.http
       .put(API.NOTIFY_WEB_REGISTER, id)
-      .toPromise();
+      .subscribe(() => this.storage.setSockReg());
   }
 
   public notifer() {

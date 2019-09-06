@@ -22,6 +22,14 @@
   }
 }
 
+.meme-research {
+  border: 5px dashed #585f82;
+  border-radius: 50px;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 .meme-chromosome {
   text-align: center;
   img {
@@ -44,74 +52,9 @@
   margin: 10px;
 }
 
-.meme-research {
-  border: 5px dashed #585f82;
-  border-radius: 50px;
-  padding: 15px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.meme-research-img {
-  text-align: center;
-  img {
-    animation: spin 2s linear infinite;
-    width: 164px;
-    padding: 15px;
-  }
-}
-
 .meme-research-timer {
   text-align: center;
   width: 100%;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(30deg);
-  }
-  50% {
-    transform: rotate(60deg);
-  }
-  100% {
-    transform: rotate(30deg);
-  }
-}
-
-.meme-research-title {
-  text-align: center;
-}
-
-.meme-research-chance {
-  text-align: center;
-  p {
-    font-family: Futurica, serif;
-    font-size: 24px;
-    color: #485bee;
-  }
-}
-
-.meme-research-chance-circle {
-  width: 72px;
-  height: 72px;
-  border-radius: 100%;
-  margin: auto;
-  border: 3px solid;
-  background-color: #485bee;
-  p {
-    color: whitesmoke;
-    margin-top: 22px;
-  }
-}
-
-.meme-research-chance-img {
-  margin: 15px;
-  img {
-    width: 64px;
-  }
-  div {
-    color: gray;
-  }
 }
 
 .research-close {
@@ -124,25 +67,4 @@
 .research-close-wrap {
   position: absolute;
   width: 100%;
-}
-
-.meme-resurrect-msg {
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 5px;
-  text-align: center;
-
-  img {
-    width: 32px;
-  }
-
-  span {
-    font-size: 24px;
-  }
-
-  @media(max-width: 767px) {
-    span {
-      font-size: 18px;
-    }
-  }
 }

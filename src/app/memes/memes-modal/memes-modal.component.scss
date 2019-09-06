@@ -1,0 +1,62 @@
+.meme-modal-title {
+  font-size: 24px;
+
+  @media(max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+.meme-modal-content {
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.meme-modal-row {
+  height: 64px;
+  width: 90%;
+  margin: auto;
+  background-color: whitesmoke;
+  border-radius: 50px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  margin-top: 10px;
+
+  div {
+    i {
+      font-size: 32px;
+      margin-top: 15px;
+      &:hover {
+        color: #343a40;
+      }
+    }
+  }
+}
+
+.meme-modal-epi {
+  height: 100%;
+  width: 55%;
+  font-size: 24px;
+  @media(max-width: 767px) {
+    font-size: 16px;
+  }
+}
+
+.meme-modal-view {
+  height: 100%;
+  width: 15%;
+  color: #be3b31;
+}
+
+.meme-modal-research {
+  height: 100%;
+  width: 15%;
+  color: #3b5998;
+}
+
+.meme-modal-choose {
+  height: 100%;
+  width: 15%;
+  color: #3c803b;
+}

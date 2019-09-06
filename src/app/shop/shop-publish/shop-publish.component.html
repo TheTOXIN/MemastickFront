@@ -1,0 +1,7 @@
+<div class="shop-border">
+  <app-shop-price [price]="price"></app-shop-price>
+  <div class="shop-publish">
+    <app-shop-meme [filter]="filter" (choose)="choose($event)"></app-shop-meme>
+  </div>
+  <app-shop-button [disable]="memeId == null" [text]="'ПУБЛИКОВАТЬ'" [price]="price" (event)="buy()"></app-shop-button>
+</div>

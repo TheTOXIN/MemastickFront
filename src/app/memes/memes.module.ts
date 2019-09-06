@@ -21,6 +21,10 @@ import {MemeTextInputComponent} from './meme-text-input/meme-text-input.componen
 import {FormsModule} from '@angular/forms';
 import {MemeTextViewComponent} from './meme-text-view/meme-text-view.component';
 import {AngularFittextModule} from 'angular-fittext';
+import {MemesModalComponent} from './memes-modal/memes-modal.component';
+import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
+import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
+import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
 
 @NgModule({
   imports: [
@@ -36,7 +40,9 @@ import {AngularFittextModule} from 'angular-fittext';
     AngularFittextModule
   ],
   exports: [
-    MemesPageComponent
+    MemesPageComponent,
+    MemesModalComponent,
+    MemeViewComponent
   ],
   declarations: [
     ScrollableDirective,
@@ -50,7 +56,14 @@ import {AngularFittextModule} from 'angular-fittext';
     MemesPanelComponent,
     MemeEpiComponent,
     MemeTextInputComponent,
-    MemeTextViewComponent
+    MemeTextViewComponent,
+    MemesModalComponent,
+    MemeTypeSelectComponent,
+    MemeTypeIndividComponent,
+    MemeTypeDeadComponent
+  ],
+  entryComponents: [
+    MemesModalComponent
   ]
 })
 export class MemesModule {

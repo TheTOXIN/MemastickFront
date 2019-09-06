@@ -8,7 +8,7 @@ export const environment = {
     storageBucket: 'memastick-test.appspot.com',
     messagingSenderId: '531299045933'
   },
-  version: '0.4.1 dev',
+  version: '0.5 dev',
   frontUrl: 'http://localhost:4200',
   backUrl: 'http://localhost:8080'
 };

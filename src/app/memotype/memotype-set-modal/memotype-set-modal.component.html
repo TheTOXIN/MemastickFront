@@ -1,0 +1,22 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">МЕМОТИП СЕТ</span>
+  </div>
+  <div class="modal-body">
+    <div class="memotype-set-modal-content">
+      <div class="memotype-set-modal-name">Имя - {{set.name}}</div>
+      <div class="memotype-set-modal-delimer"></div>
+      <div class="memotype-set-modal-description">Описание: {{set.description}}</div>
+      <div class="memotype-set-modal-delimer"></div>
+      <div class="memotype-set-modal-size">Размер - {{set.size}}</div>
+    </div>
+    <div class="memotype-set-modal-rarity">
+      <app-memotype-rarities></app-memotype-rarities>
+    </div>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

@@ -119,12 +119,6 @@
 }
 
 .create-button {
-  position: absolute;
-  bottom: 0px;
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin-bottom: 30px;
   button {
     font-size: 24px;
     font-family: FuturaRound, serif;
@@ -136,18 +130,11 @@
 }
 
 .create-title {
-  position: absolute;
-  top: 0;
-  text-align: center;
-  left: 0;
-  right: 0;
-
   p {
     line-height: 64px;
     font-family: Futurica, serif;
     font-size: 50px;
     color: #ffffff;
-    margin-top: 30px;
   }
 
   @media(max-width: 767px) {

@@ -13,6 +13,7 @@ import {SettingsComponent} from './settings/settings.component';
 import {LibraryComponent} from './library/library.component';
 import {StartModule} from '../start/start.module';
 import {TokenModule} from '../token/token.module';
+import {MiningComponent} from './mining/mining.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {TokenModule} from '../token/token.module';
     StatisticComponent,
     MemetickRatingComponent,
     SettingsComponent,
-    LibraryComponent
+    LibraryComponent,
+    MiningComponent
   ]
 })
 export class HomeModule {

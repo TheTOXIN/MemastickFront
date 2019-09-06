@@ -16,9 +16,9 @@
       <div class="col-md-12">
         <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="teamCarousel">
           <div *ngFor="let teams of team; let i = index" class="item">
-            <div [style.border-color]="teams.borderColor" class="team-box">
+            <div [style.border-color]="teams.borderColor" class="team-box" (click)="showModal(i)">
               <div class="team-under-box">
-                <div class="team-under-box-button text-white" (click)="showModal(i)">
+                <div class="team-under-box-button text-white">
                   <i aria-hidden="true" class="fa fa-question"></i>
                 </div>
                 <img [src]="teams.image" alt="1" class="img-fluid">

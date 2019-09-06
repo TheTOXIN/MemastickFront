@@ -1,0 +1,47 @@
+<div class="mining-warp">
+  <app-loader [message]="loadMessage" [status]="loadStatus" [event]="loadEvent"></app-loader>
+  <particles [style]="myStyle" [width]="100" [height]="100" [params]="myParams"></particles>
+
+  <div class="mining-head top-absolute">
+    <span>{{textTitle}}</span>
+    <div>{{hashTitle}}</div>
+  </div>
+
+  <div class="mining-content flex-center-absolute">
+    <app-spinner *ngIf="!isMake"></app-spinner>
+    <img class="mining-coin animated bounceIn"
+         *ngIf="isMake"
+         [@moveAnim]='cache'
+         (click)="accept()"
+         [src]="'assets/images/icon/memecoin.png'">
+    <img class="mining-block animated fadeIn"
+         *ngIf="isMake && !isBroke"
+         [ngClass]="{'blockRotate': isMine}"
+         [@bounceAnim]='tapState'
+         [src]="'assets/images/icon/blockcoin.png'">
+    <img class="mining-pickaxe"
+         *ngIf="loadPickaxe && pickaxe?.have"
+         [@rotateAnim]='rotateState'
+         (click)="tap()"
+         [src]="'assets/images/icon/pickaxe.png'">
+    <div class="mining-flame"></div>
+  </div>
+
+  <div class="mining-foot bottom-absolute">
+    <div *ngIf="loadPickaxe && !pickaxe?.have">
+        <app-timer [text]="'Новую кирку вам дадут через'" [time]="pickaxe?.receipt"></app-timer>
+    </div>
+    <div *ngIf="loadPickaxe">
+      <div [@bounceAnim]='cache'>
+        <span>{{cache}}</span><img [src]="'assets/images/icon/memecoin.png'">
+      </div>
+      <button class="btn-theme" (click)="flush()">ЗАБРАТЬ МОНЕТЫ</button>
+    </div>
+    <div *ngIf="!loadPickaxe">
+      <div>
+        <span>*100 ударов = </span><img [src]="'assets/images/icon/pickaxe.png'"><span> = 1 час</span>
+      </div>
+      <button class="btn-theme" (click)="getPickaxe()">ПОЛУЧИТЬ КИРКУ</button>
+    </div>
+  </div>
+</div>

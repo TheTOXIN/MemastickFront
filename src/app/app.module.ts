@@ -4,7 +4,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
-import {BlogComponent} from './blog/blog.component';
 import {NgModule} from '@angular/core';
 import {InviteApiService} from './api/invite-api-service';
 import {HelloApiService} from './api/hello-api-service';
@@ -43,22 +42,26 @@ import {TokenAcceptApiService} from './api/token-accept-api.service';
 import {PushService} from './services/push-service';
 import * as firebase from 'firebase';
 import {NotifyBellApiService} from './api/notify-bell-api-service';
-import {PushApiService} from './api/push-api-service';
 import {SettingApiService} from './api/setting-api-service';
 import {StorageService} from './services/storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
 import {AngularFittextModule} from 'angular-fittext';
-import {AdminApiService} from './api/admin-api-service';
 import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
-import {ShopModule} from './shop/shop.module';
+import {BlockCoinsApiService} from './api/block-coins-api-service';
+import {ShopComponent} from './shop/shop.component';
+import {TranslatorApiService} from './api/translator-api-service';
+import {MemotypeModule} from './memotype/memotype.module';
+import {MemotypeApiService} from './api/memotype-api-service';
+import {BattleModule} from './battle/battle.module';
+import {BattleApiService} from './api/battle-api-service';
 
 firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent,
+    ShopComponent,
     ErrorPageComponent
   ],
   imports: [
@@ -71,7 +74,8 @@ firebase.initializeApp(environment.firebase);
     TokenModule,
     EvolveModule,
     ControlModule,
-    ShopModule,
+    MemotypeModule,
+    BattleModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
@@ -105,12 +109,14 @@ firebase.initializeApp(environment.firebase);
     PushService,
     NotifyBellApiService,
     SettingApiService,
-    PushApiService,
-    AdminApiService,
     StorageService,
     ErrorHandlerService,
     MemeCoinsApiService,
     ShopApiService,
+    BlockCoinsApiService,
+    TranslatorApiService,
+    MemotypeApiService,
+    BattleApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

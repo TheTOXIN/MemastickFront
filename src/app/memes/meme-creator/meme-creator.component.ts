@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild, ɵcompilePipe} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
@@ -10,6 +10,7 @@ import {ValidConst} from '../../consts/ValidConst';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemeTextInputComponent} from '../meme-text-input/meme-text-input.component';
+import {EPI} from '../../model/EPI';
 
 @Component({
   selector: 'app-meme-creator',
@@ -29,9 +30,11 @@ export class MemeCreatorComponent implements OnInit {
   public fireId: UUID;
   public firePath: string;
 
+  public stateCell: number;
+  public epiCell: EPI;
+
   public stateTitle;
   public stateText;
-  public stateCell;
 
   public textMeme;
 
@@ -52,6 +55,8 @@ export class MemeCreatorComponent implements OnInit {
   ngOnInit(): void {
     this.inventoryApi.stateCell().subscribe(data => {
       this.stateCell = data.state;
+      this.epiCell = data.epi;
+
       if (this.stateCell === 100) {
         this.stateText = 'КЛЕТКА ГОТОВА';
         this.stateTitle = 'ПЕРЕТАЩИ ИЛИ НАЖМИ';

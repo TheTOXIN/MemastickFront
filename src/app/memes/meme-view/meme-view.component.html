@@ -1,18 +1,18 @@
 <div *ngIf="isPreview" class="meme-view animated zoomIn faster">
   <pinch-zoom class="meme-view-zoom">
     <div class="meme-view-image">
-      <img [src]="meme?.url || ''">
+      <img [src]="url || ''">
     </div>
   </pinch-zoom>
   <div class="meme-view-panel">
-  <span (click)="viewSave()">
-    <i class="fa fa-save"></i>
-  </span>
+    <span (click)="viewSave()" *ngIf="isControl">
+      <i class="fa fa-save"></i>
+    </span>
     <span (click)="viewClose()">
       <i class="fa fa-times"></i>
-  </span>
-    <span (click)="viewShare()">
-    <i class="fa fa-share-alt"></i>
-  </span>
+    </span>
+    <span (click)="viewShare()" *ngIf="isControl">
+      <i class="fa fa-share-alt"></i>
+    </span>
   </div>
 </div>

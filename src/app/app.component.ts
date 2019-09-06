@@ -5,6 +5,8 @@ import {OauthApiService} from './services/oauth-api-service';
 import {ControlComponent} from './control/control.component';
 import {PwaService} from './services/pwa-service';
 import {VERSION} from './app.constants';
+import {PushService} from './services/push-service';
+import {StorageService} from './services/storage-service';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +20,10 @@ export class AppComponent implements OnInit {
   public controlWork = false;
 
   constructor(
-    private webSocketService: WebSocketService,
+    private socket: WebSocketService,
+    private push: PushService,
     private oauth: OauthApiService,
+    private storage: StorageService,
     private pwa: PwaService
   ) {
 
@@ -41,8 +45,10 @@ export class AppComponent implements OnInit {
   }
 
   public notify() {
-    this.webSocketService.connect();
-    this.webSocketService.notiferObservable.subscribe((notify) => {
+    if (!this.storage.getPushReg()) { this.push.register(); }
+    if (!this.storage.getSockReg()) { this.socket.connect(); }
+
+    this.socket.notiferObservable.subscribe((notify) => {
       if (notify != null) {
         this.notification.show(notify);
       }

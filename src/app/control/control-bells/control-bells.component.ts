@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NotifyBellApiService} from '../../api/notify-bell-api-service';
 import {NotifyBell} from '../../model/NotifyBell';
+import {Router} from '@angular/router';
+import {FRONT_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-control-bells',
@@ -9,11 +11,15 @@ import {NotifyBell} from '../../model/NotifyBell';
 })
 export class ControlBellsComponent implements OnInit {
 
+  @Output()
+  public closeEvent = new EventEmitter<any>();
+
   public bells: NotifyBell[] = [];
   public loader = true;
 
   constructor(
-    private bellApi: NotifyBellApiService
+    private bellApi: NotifyBellApiService,
+    private router: Router
   ) {
 
   }
@@ -45,8 +51,12 @@ export class ControlBellsComponent implements OnInit {
   }
 
   event(bell: NotifyBell, index: number) {
-    this.clear(bell, index);
-    if (bell.link == null) { return; }
-    window.location.href = bell.link;
+    if (bell.link == null || bell.link === '') { return; }
+
+    const url = bell.link.substring(FRONT_URL.length);
+    this.mark(bell, index);
+
+    this.closeEvent.emit(null);
+    this.router.navigate([url]);
   }
 }

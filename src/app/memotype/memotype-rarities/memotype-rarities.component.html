@@ -1,0 +1,26 @@
+<div class="memotypet-rarities margin-center">
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Редкость</th>
+      <th scope="col" *ngIf="withPrice">Стоимость</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rarity of memotypeRarities; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td [style.color]="memotypeColors[rarity]">
+        <i class="fa fa-circle" ></i>
+        <span>{{memotypeNames[rarity]}}</span>
+      </td>
+      <td *ngIf="withPrice">
+        <span>{{price * (i + 1)}}</span>
+        <img [src]="'assets/images/icon/memecoin.png'">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

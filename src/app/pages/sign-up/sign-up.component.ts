@@ -96,5 +96,6 @@ export class SignUpComponent implements OnInit {
     this.error = true;
     this.isLoading = false;
     this.message = this.oauth.statuses[error.error];
+    if (this.message == null) { this.message = 'Ошибка регистрации'; }
   }
 }

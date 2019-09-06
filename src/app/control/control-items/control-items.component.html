@@ -11,7 +11,8 @@
         <div class="items-row" (click)="item.action.apply()">
           <div class="items-image"><img [src]="item.image"></div>
           <div class="items-name text-strong-center"><div>{{item.name}}</div></div>
-          <div class="items-count text-strong-center"><div>{{item.count}}</div></div>
+          <div *ngIf="!item.notify" class="items-count text-strong-center"><div>{{item.count}}</div></div>
+          <div *ngIf="item.notify" class="items-notify text-strong-center"><div><i class="fa fa-exclamation-circle"></i></div></div>
         </div>
         <div class="item-separate"></div>
       </div>

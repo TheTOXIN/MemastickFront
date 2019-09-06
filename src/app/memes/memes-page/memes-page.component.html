@@ -7,10 +7,10 @@
       <span> {{data.page?.memetick?.nick}} </span>
     </div>
     <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
-      <span>#{{data.page?.meme.indexer}}</span>
+      <span>#{{data.page?.meme.epi.individuation}}</span>
     </div>
     <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
-      <img [src]="evolveIcons[data.page?.meme?.step]" (click)="evolveStepInfo(data.page?.meme?.step)">
+      <img [src]="evolveIcons[data.page?.step]" (click)="evolveStepInfo(data.page?.step)">
     </div>
   </div>
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
@@ -39,7 +39,7 @@
       <img class="img-fluid" src="assets/images/icon/research.png">
     </div>
     <div class="like-count-2">
-      <span class="likes-count">{{data.page?.likes.likes}}</span>
+      <span class="likes-count">{{data.page?.meme.likes}}</span>
     </div>
     <div class="like-icon-2">
       <div class="like-img-2">

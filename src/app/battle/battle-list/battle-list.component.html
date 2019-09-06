@@ -1,0 +1,30 @@
+<div class="battle-list-title text-strong-middle margin-center">
+  <div>{{title}}</div>
+</div>
+
+<div class="battle-list">
+
+  <div *ngIf="select">
+    <div *ngFor="let battle of contentFirst">
+      <app-battle-view-row [battle]="battle"></app-battle-view-row>
+    </div>
+    <div *ngIf="firstEmpty" class="battle-list-empty text-strong-center margin-center">
+      <div>ПУСТО</div>
+    </div>
+  </div>
+
+  <div *ngIf="!select">
+    <div *ngFor="let battle of contentSecond">
+      <app-battle-view-row [battle]="battle"></app-battle-view-row>
+    </div>
+    <div *ngIf="secondEmpty" class="battle-list-empty text-strong-center margin-center">
+      <div>ПУСТО</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="battle-list-control text-strong-middle margin-center">
+  <div [ngClass]="{'battle-list-select': select}" (click)="select = true;">{{nameFirst}}</div>
+  <div [ngClass]="{'battle-list-select': !select}" (click)="select = false">{{nameSecond}}</div>
+</div>

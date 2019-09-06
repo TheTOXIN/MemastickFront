@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemetickInventory} from '../../model/MemetickInventory';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
@@ -14,7 +14,8 @@ export class Item {
     public image: string,
     public name: string,
     public count: number,
-    public action: any
+    public action: any,
+    public notify = false
   ) {
 
   }
@@ -26,6 +27,9 @@ export class Item {
   styleUrls: ['./control-items.component.scss']
 })
 export class ControlItemsComponent implements OnInit {
+
+  @Output()
+  public closeEvent = new EventEmitter<any>();
 
   public loader = true;
   public data: MemetickInventory;
@@ -56,6 +60,26 @@ export class ControlItemsComponent implements OnInit {
   initInventory() {
     this.inventory = [];
 
+    if (this.data.allowance) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/allowance.png',
+        'Пособие',
+        1,
+        () => this.openAllowance(),
+        true
+      );
+    }
+
+    if (this.data.cell) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/cell_ico.png',
+        'Клетка',
+        1,
+        () => this.toNavigate('/memes/create'),
+        true
+      );
+    }
+
     this.inventory[this.inventory.length] = new Item(
       'assets/images/icon/memecoin.png',
       'Мемкойны',
@@ -67,26 +91,8 @@ export class ControlItemsComponent implements OnInit {
       'assets/images/icon/cookie.png',
       'Печеньки',
       this.data.cookies,
-      () => this.router.navigateByUrl('/shop')
+      () => this.toNavigate('/shop/cookies')
     );
-
-    if (this.data.allowance) {
-      this.inventory[this.inventory.length] = new Item(
-        'assets/images/icon/allowance.png',
-        'Пособие',
-        1,
-        () => this.openAllowance()
-      );
-    }
-
-    if (this.data.cell) {
-      this.inventory[this.inventory.length] = new Item(
-        'assets/images/icon/cell.png',
-        'Клетка',
-        1,
-        () => this.router.navigateByUrl('/memes/create')
-      );
-    }
   }
 
   initTokens() {
@@ -98,6 +104,11 @@ export class ControlItemsComponent implements OnInit {
         () => this.tokenInfo(token)
       ));
     }
+  }
+
+  toNavigate(url: string) {
+    this.router.navigateByUrl(url);
+    this.closeEvent.emit(null);
   }
 
   tokenInfo(token: TokenData) {

@@ -1,0 +1,55 @@
+<div class="mem-back"></div>
+
+<div *ngIf="!isLoad && !isMessage">
+  <div class="battle-arena-preview animated slideInLeft">
+    <div class="battle-arena-meme">
+      <img [ngClass]="{'blur': isResult}" [style.bottom]="0" [src]="battleCurrent.forward.memeUrl" (click)="viewMeme(battleCurrent.forward.memeUrl)">
+      <div *ngIf="isResult" class="counter-vote counter-vote-up animated bounceIn">{{battleResult.forwardCount}}</div>
+    </div>
+    <div class="battle-arena-control text-strong-middle">
+      <div (click)="giveVote(battleCurrent.forward.memberId, 'up')" class="hover-vote">
+        <i *ngIf="!isResult" class="fa fa-caret-up" [style.color]="'#dc3545'"></i>
+        <i *ngIf="isResult" class="fa fa-close" [style.color]="'#6b25fc'" (click)="toBattle()"></i>
+      </div>
+      <div>
+        <img [src]="'assets/images/icon/cookie.png'" [@animCookie]='cookieState' class="animated rollIn">
+        <i *ngIf="isVote" class="fa fa-circle-o-notch fa-spin sign-spinner spinner-vote"></i>
+        <i *ngIf="isResult"
+           [ngClass]="{'fa-chevron-up' : forwardWin, 'fa-chevron-down': defenderWin}"
+           [style.color]="this.battleResult.iamGuessed ? '#28a745' : '#dc3545'"
+           class="fa result-vote animated rotateIn">
+        </i>
+      </div>
+      <div (click)="giveVote(battleCurrent.defender.memberId, 'down')" class="hover-vote">
+        <i *ngIf="!isResult" class="fa fa-caret-down" [style.color]="'#3136c3'"></i>
+        <i *ngIf="isResult" class="fa fa-arrow-right" [style.color]="'#6b25fc'" (click)="nextVote()"></i>
+      </div>
+    </div>
+    <div class="battle-arena-meme">
+      <img [ngClass]="{'blur': isResult}" [style.top]="0" [src]="battleCurrent.defender.memeUrl" (click)="viewMeme(battleCurrent.defender.memeUrl)">
+      <div *ngIf="isResult" class="counter-vote counter-vote-down animated bounceIn">{{battleResult.defenderCount}}</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isResult" class="battle-arena-combo">
+  <img [src]="'assets/images/icon/3.png'"/>x{{battleResult.dnaCombo}}
+</div>
+
+<div class="flex-center-absolute" *ngIf="isMessage">
+  <div class="battle-arena-msg text-strong-middle animated rollIn">
+    <div>{{message}}<br/>{{emoji}}</div>
+  </div>
+  <div class="battle-arena-home">
+    <div class="my-button-close main-button-close" (click)="toBattle()">
+      <i class="fa fa-close"></i>
+    </div>
+  </div>
+</div>
+
+<div class="flex-center-absolute" *ngIf="isLoad">
+  <app-spinner></app-spinner>
+</div>
+
+<app-meme-view></app-meme-view>
+

@@ -17,6 +17,9 @@ export class DnaModalComponent implements OnInit {
     },{
       text: 'Создание мема',
       count: '100-1000',
+    },{
+      text: 'Голосование в битвах',
+      count: '10 x КОМБО',
     }
   ];
 

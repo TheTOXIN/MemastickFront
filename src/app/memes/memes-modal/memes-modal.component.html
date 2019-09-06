@@ -1,0 +1,34 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="meme-modal-title modal-title">{{title}}</span>
+    <img [src]="icon">
+  </div>
+  <div class="modal-body meme-modal-content">
+    <div *ngIf="isLoad">
+      <app-spinner></app-spinner>
+    </div>
+    <div *ngIf="!isLoad">
+    <div *ngFor="let meme of memes">
+      <div class="meme-modal-row">
+        <div class="meme-modal-epi text-strong-middle">
+          <div>ЭПИ: {{meme.epi.evolution}}/{{meme.epi.population}}/{{meme.epi.individuation}}</div>
+        </div>
+        <div class="meme-modal-view" (click)="view(meme)"><i class="fa fa-eye"></i></div>
+        <div class="meme-modal-research" (click)="research(meme)"><i class="fa fa-search"></i></div>
+        <div class="meme-modal-choose" (click)="choose(meme)"><i class="fa fa-check"></i></div>
+      </div>
+    </div>
+    <div *ngIf="isEmpty">
+      <p>ПУСТО</p>
+    </div>
+    </div>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<app-meme-research></app-meme-research>
+<app-meme-view></app-meme-view>

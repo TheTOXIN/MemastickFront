@@ -14,6 +14,7 @@ import {EvolveStep} from '../../consts/EvolveStep';
 import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
 import {MemeType} from '../../consts/MemeType';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-memes-page',
@@ -125,13 +126,13 @@ export class MemesPageComponent implements OnInit {
     data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
     data.page.likes.myLike = !data.page.likes.myLike;
-    data.page.likes.myLike ? data.page.likes.likes++ : data.page.likes.likes--;
+    data.page.likes.myLike ? data.page.meme.likes++ : data.page.meme.likes--;
 
     this.likeApi.trigger(data.page.meme.id);
   }
 
   fullChromosome(data: MemeData) {
-    return data.page.likes != null && data.page.likes.myChromosomes >= GlobalConst.MAX_CHROMOSOME;
+    return data.page.likes != null && data.page.likes.myChromosomes >= ValidConst.MAX_CHROMOSOME;
   }
 
   evolveStepInfo(step: EvolveStep) {

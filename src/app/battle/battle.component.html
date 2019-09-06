@@ -1,0 +1,81 @@
+<div class="super-main-logo animated slideInDown">
+  <img [src]="'assets/images/battle-logo.png'">
+</div>
+
+<div class="battle-container container">
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="battle-table arena">
+        <div class="button-big" (click)="toArena()">
+        <div class="button-biп-content">
+          <span>АРЕНА</span>
+          <img src="assets/images/icon/arena.png">
+        </div>
+        <p>(всего битв: {{battlesCount}})</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="battle-table battle-list">
+        <div *ngIf="isLoad">
+          <app-spinner></app-spinner>
+        </div>
+        <div *ngIf="!isLoad">
+          <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="battle-table battle-list">
+        <div *ngIf="isLoad">
+          <app-spinner></app-spinner>
+        </div>
+        <div *ngIf="!isLoad">
+          <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="battle-table">
+        <div class="button-big" (click)="toRating()">
+        <div class="button-biп-content">
+          <span>РЕЙТИНГ</span>
+          <img src="assets/images/icon/rating.png">
+        </div>
+        <p>(всего участников: {{membersCount}})</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="battle-table button-picker" (click)="toMemes()">
+        <img src="assets/images/icon/1.png">
+        <p>ОСОБИ</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="battle-table button-picker" (click)="toHome()">
+        <i class="fa fa-home"></i>
+        <p>ДОМОЙ</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="battle-table button-picker" (click)="toInfo()">
+        <img src="assets/images/icon/quest.png">
+        <p>ПРАВИЛА</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mem-back"></div>

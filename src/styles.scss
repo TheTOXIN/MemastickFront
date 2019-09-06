@@ -22,9 +22,57 @@
   left: 0;
 }
 
+.top-absolute {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-top: 30px;
+}
+
+.bottom-absolute {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-bottom: 30px;
+}
+
 .super-absolute {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+}
+
+.text-strong-center {
+  display: table;
+  text-align: center;
+  div {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.text-strong-middle {
+  display: table;
+  div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.memotype-delimer {
+  border: 2px solid #495057;
+  width: 95%;
+  border-radius: 30px;
+  margin: 10px auto;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
 }

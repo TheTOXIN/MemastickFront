@@ -9,10 +9,10 @@ export class ShopApiService {
     private http: HttpClient
   ) {
   }
-  
-  test(count: number) {
+
+  cookies(count: number) {
     return this.http
-      .post(API.SHOP_TEST + '/' + count, {})
+      .post(API.SHOP_COOKIES + '/' + count, {})
       .pipe();
   }
 }

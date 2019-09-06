@@ -23,7 +23,6 @@ import {SharedModule} from '../shared/shared.module';
 import {DonatModalComponent} from './donat-modal/donat-modal.component';
 import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin-history-modal.component';
 
-
 @NgModule({
   exports: [
     CommonModule,

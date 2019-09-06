@@ -1,0 +1,51 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">{{title}}</span>
+  </div>
+  <div class="battle-modal-body modal-body intro-modal">
+    <div class="battle-view-content">
+
+      <div class="battle-view-members">
+        <div class="battle-members-avatar" (click)="toMemetick(battle.forward.memetickId)">
+          <img [src]="forwardAvatars"/>
+        </div>
+        <div class="battle-members-role">
+          <img [src]="'assets/images/icon/battle.png'">
+        </div>
+        <div class="battle-members-avatar" (click)="toMemetick(battle.defender.memetickId)">
+          <img [src]="defenderAvatars"/>
+        </div>
+      </div>
+
+      <div class="battle-view-delimer"></div>
+      <div class="battle-view-memes">
+        <div class="battle-memes-img" (click)="viewMeme(forwardMeme)"><img [src]="forwardMeme"/></div>
+        <div class="battle-memes-vs text-strong-middle">
+          <div *ngIf="forwardMeme == null || defenderMeme == null"><app-spinner></app-spinner></div>
+          <div *ngIf="forwardMeme != null || defenderMeme != null">VS</div>
+        </div>
+        <div class="battle-memes-img" (click)="viewMeme(defenderMeme)"><img [src]="defenderMeme"/></div>
+      </div>
+      <div class="battle-view-delimer"></div>
+
+      <div class="battle-view-info">
+        <div *ngIf="isCounter">
+          <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
+          <div>PVP<img [src]="'assets/images/icon/cookie.png'">{{pvpCurrent}}/{{battle.pvp}}</div>
+        </div>
+        <div *ngIf="isResponse">
+          <div>ВАМ БРОСИЛИ ВЫЗОВ!</div>
+          <button class="btn-theme" (click)="response()">ОТВЕТИТЬ</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<app-meme-view></app-meme-view>

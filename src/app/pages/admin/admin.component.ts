@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminApiService} from '../../api/admin-api-service';
 import {InviteCode} from '../../model/InviteCode';
+import {InviteApiService} from '../../api/invite-api-service';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   public codes: InviteCode[] = [];
 
   constructor(
-    public adminApi: AdminApiService
+    public inviteApi: InviteApiService
   ) {
 
   }
@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
   }
 
   readInvites() {
-    this.adminApi.readInvites().subscribe(data => {
+    this.inviteApi.readInvites().subscribe(data => {
       this.codes = data;
       console.log(data);
     });
@@ -30,7 +30,7 @@ export class AdminComponent implements OnInit {
 
   sendInvite(invite: InviteCode) {
     if (invite.take) return;
-    this.adminApi.sendInvite(
+    this.inviteApi.sendInvite(
       invite.code
     );
   }

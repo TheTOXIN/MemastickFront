@@ -1,0 +1,34 @@
+<div *ngIf="isLoad" class="flex-center-absolute">
+  <app-spinner></app-spinner>
+</div>
+<div class="super-main-title">
+  <span>МОЯ КОЛЛЕКЦИЯ</span>
+</div>
+<div *ngIf="!isLoad">
+  <div *ngFor="let set of collection">
+    <div class="container">
+      <div class="row">
+        <div class="memotype-set">
+          <div class="memotype-head">
+            <app-memotype-set-head [set]="set"></app-memotype-set-head>
+          </div>
+          <div class="memotype-delimer"></div>
+          <div *ngFor="let map of set.memotypes | groupBy:'rarity'">
+            <div class="memotype-body" [style.border-color]="memotypeColors[map.key]">
+              <div class="memotype-rarity" title="{{memotypeNames[map.key]}}">
+                <i class="fa fa-circle" [style.color]="memotypeColors[map.key]"></i>
+              </div>
+              <div class="memotype-list">
+                <div *ngFor="let memotype of map.value">
+                  <app-memotype-element [memotype]="memotype"></app-memotype-element>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-theme" (click)="toShop()">КУПИТЬ<i class="fa fa-shopping-cart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mem-back"></div>

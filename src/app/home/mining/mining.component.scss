@@ -1,0 +1,112 @@
+.mining-warp {
+  background-color: #212529;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -69;
+}
+
+.mining-head {
+  span {
+    color: white;
+    font-size: 32px;
+    font-family: FuturaRound, serif;
+  }
+
+  div {
+    margin-right: auto;
+    margin-left: auto;
+    color: #bdbdbc;
+    margin-top: 10px;
+    font-size: 2.5vw;
+  }
+}
+
+.mining-content {
+  .mining-coin {
+    width: 128px;
+    height: 128px;
+  }
+  .mining-block {
+    height: 156px;
+    width: 156px;
+    position: absolute;
+  }
+  .mining-pickaxe {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-top: 100px;
+    transform: rotate(-45deg);
+    animation: pickaxe-show 1000ms;
+  }
+}
+
+@keyframes pickaxe-show {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%) rotate(-45deg);
+    opacity: 100%;
+  }
+}
+
+.mining-foot {
+  div {
+    margin-bottom: 5px;
+  }
+
+  span {
+    color: white;
+    font-size: 24px;
+  }
+
+  img {
+    margin-left: 5px;
+    margin-top: -10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  button {
+    font-size: 20px;
+  }
+}
+
+.mining-flame {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #f1c51f;
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: -50;
+  animation: flicker-background 4000ms ease-in infinite;
+}
+
+@keyframes flicker-background {
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+.blockRotate {
+  animation: rotating 5s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

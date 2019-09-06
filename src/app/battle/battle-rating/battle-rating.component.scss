@@ -1,0 +1,108 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.battle-rating-main {
+  margin-top: 30px;
+}
+
+.battle-rating-my {
+  background-color: whitesmoke;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  margin-top: 30px;
+  width: 300px;
+  padding: 15px;
+}
+
+.battle-rating-main-table {
+  background-color: whitesmoke;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.battle-rating-position {
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  font-size: 36px;
+  font-family: Gost, serif;
+}
+
+.battle-rating-member {
+  width: 100%;
+  height: 45%;
+  font-size: 24px;
+  font-family: FuturaRound, serif;
+  text-align: center;
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.battle-rating-empty {
+  width: 100%;
+  height: 70%;
+  font-size: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-family: FuturaRound, serif, serif;
+}
+
+.battle-rating-stats {
+  width: 90%;
+  height: 25%;
+  font-size: 22px;
+  color: #343a40;
+  border-radius: 30px;
+  border-style: dashed;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.battle-rating-present {
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  font-family: Futurica, serif;
+  font-size: 14px;
+  div {
+    font-family: Gost, serif;
+    font-size: 16px;
+    text-align: center;
+    width: 300px;
+    i {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.battle-rating-info {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  i {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    width: 65px;
+    font-size: 64px;
+    color: #eab000;
+    display: inline-block;
+  }
+  &:hover {
+    i {
+      color: $primary_color;
+    }
+  }
+}

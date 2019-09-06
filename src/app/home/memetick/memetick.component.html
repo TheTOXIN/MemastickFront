@@ -9,10 +9,10 @@
         <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
         <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
       </div>
-      <div *ngIf="memetickMe" class="memetick-coins text-strong-middle">
+      <div class="memetick-coins text-strong-middle">
         <div>{{memetick?.memecoins}}</div>
         <img src="assets/images/icon/memecoin.png">
-        <div (click)="memecoinHistory()"><i class="fa fa-list"></i></div>
+        <div *ngIf="memetickMe" (click)="memecoinHistory()"><i class="fa fa-list"></i></div>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div *ngIf="memetickMe" class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-cookie text-strong-middle">
         <div>Печеньки: </div>
@@ -39,12 +39,16 @@
   </div>
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="memetick-control">
-        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="memes()">
+      <div class="memetick-control" *ngIf="!memetickMe">
+        <button class="memetick-button btn-theme" (click)="memes()">
           МЕМАСИКИ
           <i class="fa fa-list"></i>
         </button>
-        <button *ngIf="!memetickMe" class="memetick-button btn-theme" (click)="follow()">
+        <button class="memetick-button btn-theme" (click)="memotypes()">
+          МЕМОТИПЫ:
+          <i class="fa fa-image"></i>
+        </button>
+        <button class="memetick-button btn-theme" (click)="follow()">
           ПОДПИСКА:
           <i *ngIf="memetick.follow" class="fa fa-eye"></i>
           <i *ngIf="!memetick.follow" class="fa fa-eye-slash"></i>

@@ -132,10 +132,12 @@ ul {
     .owl-nav {
       button {
         &.owl-next, &.owl-prev {
-          background-color: $white !important;
-          padding: 5px 15px !important;
-          font-size: 18px;
-          color: $primary_color;
+          background-color: $primary_color!important;
+          font-size: 32px;
+          color: $white ;
+          &:hover {
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+          }
         }
       }
     }
@@ -226,10 +228,16 @@ button:focus {
   display: inline-block;
   border: 0;
   letter-spacing: 1px;
+  font-family: FuturaRound, serif;
 
   &:hover {
     background: $primary_color;
     background-color: $primary_color;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -244,9 +252,16 @@ button:focus {
   display: inline-block;
   border: 0;
   letter-spacing: 1px;
+  font-family: FuturaRound, serif;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 
   &:hover {
     box-shadow: 0 0 5px 5px #ffa807;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
   }
 }
 
@@ -260,6 +275,7 @@ button:focus {
   font-weight: 600;
   transition: all 0.3s ease-in;
   border: 1px solid $secondary_color;
+  font-family: FuturaRound, serif;
 
   &:hover {
     background-color: transparent;
@@ -267,6 +283,15 @@ button:focus {
     border: 1px solid $secondary_color;
     transition: all 0.3s ease-in-out;
   }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.btn-theme-disable {
+  background: #6c757d;
 }
 
 .d-flex-1 {
@@ -1164,11 +1189,23 @@ section {
 ==========================*/
 
 .owl-theme.owl-carousel .owl-nav button.owl-next, .owl-theme.owl-carousel .owl-nav button.owl-prev {
-  font-size: 64px;
+  font-size: 54px;
+  height: 48px;
+  width: 48px;
+  border-radius: 15px;
+}
+
+.owl-nav {
+  button {
+    span {
+      position: relative;
+      bottom: 22px;
+    }
+  }
 }
 
 .team-slider .owl-nav {
-  margin-top: 0 !important;
+  margin-top: 10px !important;
 }
 
 .team-hover {
@@ -1366,6 +1403,7 @@ section {
     margin-top: 0;
 
     .owl-prev, .owl-next {
+
       position: absolute;
       top: 40%;
       opacity: 0;
@@ -3234,12 +3272,12 @@ li.nav-item.dropdown {
 .content-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
+  &::-webkit-scrollbar {width:0;}
   max-height: 100vh;
   width: 70%;
   margin: auto;
   text-align: center;
   padding: 1em;
-  &::-webkit-scrollbar {width:0;}
 }
 
 //MODAL
@@ -3268,8 +3306,17 @@ li.nav-item.dropdown {
   font-size: 32px;
   color: black;
   padding-bottom: 10px;
+  img {
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+  }
   @media(max-width: 767px) {
     font-size: 24px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 
@@ -3290,9 +3337,15 @@ li.nav-item.dropdown {
   justify-content: center;
   color: white !important;
   background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+  height: 50px;
 }
 
 .modal-xxl .modal-lg {
   max-width: 100%;
   margin: 0px;
+}
+
+.img-full-fluid {
+  max-height: 100%;
+  max-width: 100%;
 }

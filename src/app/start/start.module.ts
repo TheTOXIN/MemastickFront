@@ -14,7 +14,6 @@ import {ScreenshotComponent} from './screenshot/screenshot.component';
 import {HowItWorkComponent} from './how-it-work/how-it-work.component';
 import {TeamComponent} from './team/team.component';
 import {PriceComponent} from './price/price.component';
-import {BlogComponent} from './blog/blog.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
 import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
@@ -49,7 +48,6 @@ import {ModalsModule} from '../modals/modals.module';
     HowItWorkComponent,
     TeamComponent,
     PriceComponent,
-    BlogComponent,
     ContactUsComponent,
     FaqComponent,
     DownloadComponent,

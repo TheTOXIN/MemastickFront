@@ -6,6 +6,8 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {Observable} from 'rxjs/Observable';
 import {MemePage} from '../model/MemePage';
 import 'rxjs/add/operator/map';
+import {Meme} from '../model/Meme';
+import {MemePaginationConfig} from '../iface/MemePaginationConfig';
 
 @Injectable()
 export class MemeApiService {
@@ -29,31 +31,44 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePages(page, size, sort, filter, step, memetick): Observable<MemePage[]> {
-    if (step == null) { step = ''; }
-    if (memetick == null) { memetick = ''; }
+  public memePage(memeId: UUID): Observable<MemePage> {
+    return this.http
+      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .pipe();
+  }
 
-    const params = new HttpParams()
-      .set('page', page)
-      .set('size', size)
-      .set('sort', sort)
-      .set('step', step)
-      .set('filter', filter)
-      .set('memetick', memetick);
-
-    const headers = new HttpHeaders()
-      .set('Accept', 'application/json')
-      .set('Content-Type', 'application/json');
+  public memePages(config: MemePaginationConfig): Observable<MemePage[]> {
+    const params = this.getPaginationParams(config);
+    const headers = this.getPaginationHeaders();
 
     return this.http
       .get<MemePage[]>(API.MEMES_PAGES, {headers, params})
       .pipe();
   }
 
-  public memePage(memeId: UUID): Observable<MemePage> {
+  public memeRead(config: MemePaginationConfig): Observable<Meme[]> {
+    const params = this.getPaginationParams(config);
+    const headers = this.getPaginationHeaders();
+
     return this.http
-      .get<MemePage>(API.MEMES_PAGE + '/' + memeId)
+      .get<Meme[]>(API.MEMES_READ, {headers, params})
       .pipe();
+  }
+
+  private getPaginationParams(config: MemePaginationConfig) {
+    return new HttpParams()
+      .set('filter', config.filter)
+      .set('sort', config.sort + '')
+      .set('page', config.page != null ? config.page + '' : '')
+      .set('size', config.size != null ? config.size + '' : '')
+      .set('step', config.step != null ? config.step + '' : '')
+      .set('memetick', config.memetick != null ? config.memetick + '' : '');
+  }
+
+  private getPaginationHeaders() {
+    return new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
   }
 
   public memeIMG(memeId: UUID): Observable<any> {
@@ -74,5 +89,11 @@ export class MemeApiService {
     return this.http.get(url, {observe: 'response', responseType: 'blob'}).map((res) => {
       return new Blob([res.body], {type: res.headers.get('Content-Type')});
     });
+  }
+
+  public memeResurrect(memeId: UUID) {
+    return this.http
+      .patch(API.MEME_RESURRECT + '/' + memeId, {})
+      .pipe();
   }
 }

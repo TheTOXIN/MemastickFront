@@ -24,4 +24,5 @@ import {BlogDetailsRightsideComponent} from './blog-details-rightside/blog-detai
   ]
 })
 export class BlogModule {
+
 }
