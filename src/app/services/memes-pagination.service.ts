@@ -12,21 +12,13 @@ import {MemeFilter} from '../consts/MemeFilter';
 import {UUID} from 'angular2-uuid';
 import {GlobalConst} from '../consts/GlobalConst';
 import {StorageService} from './storage-service';
+import {MemePaginationConfig} from '../iface/MemePaginationConfig';
 
-interface QueryConfig {
-  page: number;
-  size: number;
-  sort: string;
-  reverse: boolean;
-  filter: MemeFilter;
-  step: number;
-  memetick: UUID;
-}
 
 @Injectable()
 export class MemesPaginationService {
 
-  private query: QueryConfig;
+  private config: MemePaginationConfig;
 
   private _empty;
   private _loading;
@@ -48,7 +40,7 @@ export class MemesPaginationService {
   init(sizePage, sortFiled, isReverse, filter, step, memetick) {
     const page = this.storage.getMemePage(filter);
 
-    this.query = {
+    this.config = {
       page: page,
       size: sizePage,
       sort: sortFiled,
@@ -58,11 +50,11 @@ export class MemesPaginationService {
       memetick: memetick
     };
 
-    if (this.query.reverse) {
-      this.query.sort += ',desc';
+    if (this.config.reverse) {
+      this.config.sort += ',desc';
     }
 
-    this.query.size = sizePage;
+    this.config.size = sizePage;
 
     this._empty = new BehaviorSubject(false);
     this._loading = new BehaviorSubject(false);
@@ -82,14 +74,7 @@ export class MemesPaginationService {
     if (this._empty.value) { return; }
     this._loading.next(true);
 
-    this.memeApi.memePages(
-      this.query.filter,
-      this.query.sort,
-      this.query.page,
-      this.query.size,
-      this.query.step,
-      this.query.memetick
-    ).subscribe((pages) => {
+    this.memeApi.memePages(this.config).subscribe((pages) => {
       if (pages.length === 0 || pages == null) {
         this.end();
         return;
@@ -112,10 +97,10 @@ export class MemesPaginationService {
   }
 
   private next(pages: MemeData[]) {
-    this.storage.setMemePage(this.query.filter, this.query.page);
+    this.storage.setMemePage(this.config.filter, this.config.page);
     this._data.next(pages);
     this._loading.next(false);
-    this.query.page++;
+    this.config.page++;
   }
 
   public destroy() {

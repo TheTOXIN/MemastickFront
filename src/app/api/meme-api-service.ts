@@ -7,6 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import {MemePage} from '../model/MemePage';
 import 'rxjs/add/operator/map';
 import {Meme} from '../model/Meme';
+import {MemePaginationConfig} from '../iface/MemePaginationConfig';
 
 @Injectable()
 export class MemeApiService {
@@ -36,46 +37,38 @@ export class MemeApiService {
       .pipe();
   }
 
-  public memePages(filter, sort, page, size, step?, memetick?): Observable<MemePage[]> {
-    if (step == null) { step = ''; }
-    if (memetick == null) { memetick = ''; }
-
-    const params = new HttpParams() // TODO TO IFACE
-      .set('filter', filter)
-      .set('page', page)
-      .set('size', size)
-      .set('sort', sort)
-      .set('step', step)
-      .set('memetick', memetick);
-
-    const headers = new HttpHeaders()
-      .set('Accept', 'application/json')
-      .set('Content-Type', 'application/json');
+  public memePages(config: MemePaginationConfig): Observable<MemePage[]> {
+    const params = this.getPaginationParams(config);
+    const headers = this.getPaginationHeaders();
 
     return this.http
       .get<MemePage[]>(API.MEMES_PAGES, {headers, params})
       .pipe();
   }
 
-  public memeRead(filter, sort, page, size, step?, memetick?): Observable<Meme[]> {
-    if (step == null) { step = ''; }
-    if (memetick == null) { memetick = ''; }
-
-    const params = new HttpParams() // TODO TO IFACE
-      .set('filter', filter)
-      .set('page', page)
-      .set('size', size)
-      .set('sort', sort)
-      .set('step', step)
-      .set('memetick', memetick);
-
-    const headers = new HttpHeaders()
-      .set('Accept', 'application/json')
-      .set('Content-Type', 'application/json');
+  public memeRead(config: MemePaginationConfig): Observable<Meme[]> {
+    const params = this.getPaginationParams(config);
+    const headers = this.getPaginationHeaders();
 
     return this.http
       .get<Meme[]>(API.MEMES_READ, {headers, params})
       .pipe();
+  }
+
+  private getPaginationParams(config: MemePaginationConfig) {
+    return new HttpParams()
+      .set('filter', config.filter)
+      .set('sort', config.sort + '')
+      .set('page', config.page != null ? config.page + '' : '')
+      .set('size', config.size != null ? config.size + '' : '')
+      .set('step', config.step != null ? config.step + '' : '')
+      .set('memetick', config.memetick != null ? config.memetick + '' : '');
+  }
+
+  private getPaginationHeaders() {
+    return new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
   }
 
   public memeIMG(memeId: UUID): Observable<any> {

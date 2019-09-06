@@ -46,7 +46,6 @@ import {SettingApiService} from './api/setting-api-service';
 import {StorageService} from './services/storage-service';
 import {ErrorHandlerService} from './services/error-handler-service';
 import {AngularFittextModule} from 'angular-fittext';
-import {AdminApiService} from './api/admin-api-service';
 import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
@@ -110,7 +109,6 @@ firebase.initializeApp(environment.firebase);
     PushService,
     NotifyBellApiService,
     SettingApiService,
-    AdminApiService,
     StorageService,
     ErrorHandlerService,
     MemeCoinsApiService,

@@ -1,10 +1,8 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {StorageService} from '../../services/storage-service';
 import {RoleType} from '../../consts/RoleType';
-import {AdminApiService} from '../../api/admin-api-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {FRONT_URL} from '../../app.constants';
 import {TranslatorApiService} from '../../api/translator-api-service';
