@@ -26,7 +26,7 @@
   <div *ngIf="counter?.countBells != 0 && counter != null && hideContentBells" class="control-counter">{{counter?.countBells}}</div>
 </div>
 <div class="control-bells-content control-content animated faster slideInRight" *ngIf="!hideContentBells">
-  <app-control-bells></app-control-bells>
+  <app-control-bells (closeEvent)="hideAll()"></app-control-bells>
 </div>
 
 <!--ITEMS-->
@@ -37,7 +37,7 @@
   <div *ngIf="counter?.countItems != 0 && counter != null && hideContentItems" class="control-counter">{{counter?.countItems}}</div>
 </div>
 <div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
-  <app-control-items></app-control-items>
+  <app-control-items (closeEvent)="hideAll()"></app-control-items>
 </div>
 
 <!--CLOSE-->

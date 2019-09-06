@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {MemetickInventory} from '../../model/MemetickInventory';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
@@ -27,6 +27,9 @@ export class Item {
   styleUrls: ['./control-items.component.scss']
 })
 export class ControlItemsComponent implements OnInit {
+
+  @Output()
+  public closeEvent = new EventEmitter<any>();
 
   public loader = true;
   public data: MemetickInventory;
@@ -72,7 +75,7 @@ export class ControlItemsComponent implements OnInit {
         'assets/images/icon/cell_ico.png',
         'Клетка',
         1,
-        () => this.router.navigateByUrl('/memes/create'),
+        () => this.toNavigate('/memes/create'),
         true
       );
     }
@@ -88,7 +91,7 @@ export class ControlItemsComponent implements OnInit {
       'assets/images/icon/cookie.png',
       'Печеньки',
       this.data.cookies,
-      () => this.router.navigateByUrl('/shop')
+      () => this.toNavigate('/shop/cookies')
     );
   }
 
@@ -101,6 +104,11 @@ export class ControlItemsComponent implements OnInit {
         () => this.tokenInfo(token)
       ));
     }
+  }
+
+  toNavigate(url: string) {
+    this.router.navigateByUrl(url);
+    this.closeEvent.emit(null);
   }
 
   tokenInfo(token: TokenData) {

@@ -37,7 +37,7 @@ export class MemotypeElementComponent implements OnInit {
   }
 
   viewMemotype() {
-    if (this.memotype.count === 0) { return; }
+    if (this.memotype.count === 0 && !this.buyMode) { return; }
     this.view.viewShow(this.memotype);
   }
 }

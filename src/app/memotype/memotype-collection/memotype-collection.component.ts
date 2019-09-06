@@ -9,6 +9,7 @@ import {MemotypeSetModalComponent} from '../memotype-set-modal/memotype-set-moda
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
 import {Memotype} from '../../model/memotype/Memotype';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-memotype-collection',
@@ -25,7 +26,8 @@ export class MemotypeCollectionComponent implements OnInit {
   isLoad = true;
 
   constructor(
-    private memotypeApi: MemotypeApiService
+    private memotypeApi: MemotypeApiService,
+    private router: Router
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
@@ -36,5 +38,9 @@ export class MemotypeCollectionComponent implements OnInit {
       this.collection = data.content;
       this.isLoad = false;
     });
+  }
+
+  toShop() {
+    this.router.navigateByUrl('/shop/memotypes');
   }
 }
