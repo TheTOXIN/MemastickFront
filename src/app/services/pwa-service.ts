@@ -1,10 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import {VERSION} from '../app.constants';
 import {interval} from 'rxjs/internal/observable/interval';
 
 @Injectable()
-export class PwaService implements OnInit{
+export class PwaService implements OnInit {
 
   constructor(
     private swu: SwUpdate,

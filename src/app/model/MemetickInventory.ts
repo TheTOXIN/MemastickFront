@@ -4,6 +4,7 @@ export class MemetickInventory {
     public cookies: number,
     public allowance: boolean,
     public cell: boolean,
+    public pickaxe: boolean,
     public wallet: any
   ) {
 

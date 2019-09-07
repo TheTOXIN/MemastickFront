@@ -39,7 +39,7 @@
     </div>
     <div *ngIf="!loadPickaxe">
       <div>
-        <span>*100 ударов = </span><img [src]="'assets/images/icon/pickaxe.png'"><span> = 1 час</span>
+        <span>*{{BLOCK_NONCE}} ударов = </span><img [src]="'assets/images/icon/pickaxe.png'"><span> = 1 час</span>
       </div>
       <button class="btn-theme" (click)="getPickaxe()">ПОЛУЧИТЬ КИРКУ</button>
     </div>

@@ -74,6 +74,8 @@ export class MiningComponent implements OnInit {
   isMine = false;
   isBroke = false;
 
+  BLOCK_NONCE = GlobalConst.BLOCK_NONCE;
+
   constructor(
     private blockApi: BlockCoinsApiService,
     private inventoryApi: MemetickInventoryApiService,

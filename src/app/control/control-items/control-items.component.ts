@@ -80,6 +80,16 @@ export class ControlItemsComponent implements OnInit {
       );
     }
 
+    if (this.data.pickaxe) {
+      this.inventory[this.inventory.length] = new Item(
+        'assets/images/icon/pickaxe.png',
+        'Кирка',
+        1,
+        () => this.toNavigate('/home/mining'),
+        true
+      );
+    }
+
     this.inventory[this.inventory.length] = new Item(
       'assets/images/icon/memecoin.png',
       'Мемкойны',
