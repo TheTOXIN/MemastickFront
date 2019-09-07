@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 import * as firebase from 'firebase';
-import {StorageService} from './storage-service';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 
@@ -13,7 +12,6 @@ export class PushService {
   private currentMessage;
 
   constructor(
-    private storage: StorageService,
     private http: HttpClient
   ) {
     try {
@@ -43,7 +41,7 @@ export class PushService {
       this.http.post(
         API.NOTIFY_PUSH_REGISTER,
         token
-      ).subscribe(() => this.storage.setPushReg());
+      ).toPromise();
     });
   }
 
