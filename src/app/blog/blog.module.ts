@@ -16,7 +16,6 @@ import {BlogComponent} from './blog.component';
     BlogRoutingModule
   ],
   declarations: [
-    BlogComponent,
     BlogListComponent,
     BlogDetailsComponent,
     BlogLeftsideComponent,

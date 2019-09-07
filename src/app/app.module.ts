@@ -55,6 +55,7 @@ import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
+import {BlogComponent} from './blog/blog.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -62,6 +63,7 @@ firebase.initializeApp(environment.firebase);
   declarations: [
     AppComponent,
     ShopComponent,
+    BlogComponent,
     ErrorPageComponent
   ],
   imports: [

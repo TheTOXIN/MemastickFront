@@ -1,9 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {ShopApiService} from '../../../api/shop-api-service';
 import {ErrorCode} from '../../../consts/ErrorCode';
 import {LoaderStatus} from '../../../consts/LoaderStatus';
 import {AcceptComponent} from '../../../shared/accpet/accept.component';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-shop-button',
@@ -21,10 +19,10 @@ export class ShopButtonComponent implements OnInit {
   public price: number;
 
   @Input()
-  protected disable: any;
+  public disable: any;
 
   @Output()
-  public event = new EventEmitter<null>();
+  public event = new EventEmitter<any>();
 
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
