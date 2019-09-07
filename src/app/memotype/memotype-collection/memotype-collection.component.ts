@@ -43,4 +43,8 @@ export class MemotypeCollectionComponent implements OnInit {
   toShop() {
     this.router.navigateByUrl('/shop/memotypes');
   }
+
+  back() {
+    window.history.back();
+  }
 }

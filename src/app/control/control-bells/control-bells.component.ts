@@ -53,10 +53,10 @@ export class ControlBellsComponent implements OnInit {
   event(bell: NotifyBell, index: number) {
     if (bell.link == null || bell.link === '') { return; }
 
-    const url = bell.link.substring(FRONT_URL.length);
+    const link = bell.link.substring(FRONT_URL.length);
     this.mark(bell, index);
 
     this.closeEvent.emit(null);
-    this.router.navigate([url]);
+    this.router.navigateByUrl(link);
   }
 }

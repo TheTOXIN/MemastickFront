@@ -4,6 +4,8 @@ import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {tokenIcons} from '../../model/TokenData';
+import {FRONT_URL} from '../../app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notification',
@@ -28,7 +30,8 @@ export class NotificationComponent implements OnInit {
   private tokenIcons = [];
 
   constructor(
-    private avatarApi: MemetickAvatarApiService
+    private avatarApi: MemetickAvatarApiService,
+    private router: Router
   ) {
     this.audio.src = '../../../assets/audio/nice.wav';
 
@@ -101,6 +104,7 @@ export class NotificationComponent implements OnInit {
 
   event() {
     if (this.url == null || this.url === '') { return; }
-    window.location.href = this.url;
+    const link = this.url.substring(FRONT_URL.length);
+    this.router.navigateByUrl(link);
   }
 }

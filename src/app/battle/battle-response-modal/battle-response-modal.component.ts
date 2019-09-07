@@ -65,6 +65,5 @@ export class BattleResponseModalComponent implements OnInit {
 
   close() {
     this.activeModal.dismiss('Cross click');
-    window.location.reload();
   }
 }
