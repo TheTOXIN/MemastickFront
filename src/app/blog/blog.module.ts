@@ -8,6 +8,7 @@ import {BlogLeftsideComponent} from './blog-leftside/blog-leftside.component';
 import {BlogRightsideComponent} from './blog-rightside/blog-rightside.component';
 import {BlogDetailsLeftsideComponent} from './blog-details-leftside/blog-details-leftside.component';
 import {BlogDetailsRightsideComponent} from './blog-details-rightside/blog-details-rightside.component';
+import {BlogComponent} from './blog.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {BlogDetailsRightsideComponent} from './blog-details-rightside/blog-detai
     BlogRoutingModule
   ],
   declarations: [
+    BlogComponent,
     BlogListComponent,
     BlogDetailsComponent,
     BlogLeftsideComponent,
