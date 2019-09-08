@@ -45,6 +45,8 @@ const shajs = require('sha.js');
 export class MiningComponent implements OnInit {
 
   private audio = new Audio();
+  private tapMax = 1;
+  private tapCount = 0;
 
   public loadMessage: string;
   public loadStatus: LoaderStatus;
@@ -106,7 +108,9 @@ export class MiningComponent implements OnInit {
     this.rotateState = (this.rotateState === 'right' ? 'left' : 'right');
     if (!this.isMine) { this.tapState = (this.tapState === 'default' ? 'tap' : 'default'); }
 
-    if (this.isMine) { return; }
+    this.tapCount++;
+    if (this.isMine || this.tapCount <= this.tapMax) { return; }
+    this.tapCount = 0;
 
     const nonce = this.nonce;
     const mineHash = this.sha(this.hash + nonce);

@@ -48,8 +48,8 @@ export class MemeCreatorComponent implements OnInit {
     private tokenApi: TokenApiService,
     private inventoryApi: MemetickInventoryApiService
   ) {
-    this.status = LoaderStatus.ERROR;
-    this.message = 'TEST';
+    this.status = LoaderStatus.NONE;
+    this.message = '';
   }
 
   ngOnInit(): void {
