@@ -109,7 +109,7 @@ export class MiningComponent implements OnInit {
     if (!this.isMine) { this.tapState = (this.tapState === 'default' ? 'tap' : 'default'); }
 
     this.tapCount++;
-    if (this.isMine || this.tapCount <= this.tapMax) { return; }
+    if (this.isMine || this.tapCount < this.tapMax) { return; }
     this.tapCount = 0;
 
     const nonce = this.nonce;
