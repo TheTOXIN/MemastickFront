@@ -4,7 +4,6 @@ import {BattleView} from '../model/battle/BattleView';
 import {Router} from '@angular/router';
 import {BattleStatus} from '../consts/BattleStatus';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FollowingModalComponent} from '../modals/following-modal/following-modal.component';
 import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
 import {StorageService} from '../services/storage-service';
 

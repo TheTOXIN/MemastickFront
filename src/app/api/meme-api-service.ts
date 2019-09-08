@@ -59,8 +59,8 @@ export class MemeApiService {
     return new HttpParams()
       .set('filter', config.filter)
       .set('sort', config.sort + '')
-      .set('page', config.page != null ? config.page + '' : '')
-      .set('size', config.size != null ? config.size + '' : '')
+      .set('page', config.page + '')
+      .set('size', config.size + '')
       .set('step', config.step != null ? config.step + '' : '')
       .set('memetick', config.memetick != null ? config.memetick + '' : '');
   }

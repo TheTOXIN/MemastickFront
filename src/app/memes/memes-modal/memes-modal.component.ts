@@ -51,8 +51,8 @@ export class MemesModalComponent implements OnInit {
     this.config = {
       filter: this.filter,
       sort: 'creating,desc',
-      page: null,
-      size: null
+      page: 0,
+      size: 100
     };
 
     this.memeApi.memeRead(this.config).subscribe((data) => {

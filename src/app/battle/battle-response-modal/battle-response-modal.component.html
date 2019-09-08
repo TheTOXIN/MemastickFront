@@ -6,18 +6,18 @@
     <span>Выберите PVP (противовес в печньках)</span>
     <div ngbDropdown class="battle-response-drop">
        <button class="btn btn-primary" id="dropdownConfig" ngbDropdownToggle>
-         PVP <img [src]="'assets/images/icon/cookie.png'"> {{pvpCurrent}}
+         PVP <img [src]="'assets/images/icon/pvp.png'"> {{pvpCurrent}}
        </button>
        <div ngbDropdownMenu aria-labelledby="dropdownConfig">
          <div *ngFor="let pvp of pvpList">
            <button ngbDropdownItem (click)="pvpCurrent = pvp">
-             <img [src]="'assets/images/icon/cookie.png'"> = {{pvp}}
+             <img [src]="'assets/images/icon/pvp.png'"> = {{pvp}}
              <img [src]="'assets/images/icon/memecoin.png'"> = {{pvp * pvpCoin}}
            </button>
          </div>
        </div>
      </div>
-    <p>P.s - чем больше pvp, тем больше мемкойнов получит победитель, но тем меньше вероятность этому</p>
+    <p>P.s - чем больше PVP, тем больше мемкойнов получит победитель, но тем дольше будет длиться битва</p>
   </div>
   <div class="modal-footer modal-section">
     <div class="battle-response">
