@@ -44,13 +44,15 @@
 
   <div *ngIf="battle.status === statuses.END" class="battle-row-middle">
     <div class="battle-row-icon">
-      <div><i class="fa fa-trophy" [style.color]="battle.my ? '#ffc107' : '#495057'"></i></div>
+      <div *ngIf="winner"><i class="fa fa-trophy" [style.color]="battle.my ? '#ffc107' : '#495057'"></i></div>
+      <div *ngIf="!winner"><svg-icon [src]="scullIcon" [svgStyle]="scullStyle"></svg-icon></div>
     </div>
     <div class="battle-row-content">
       <div>{{battle.forward.votes}} : {{battle.defender.votes}}</div>
     </div>
     <div class="battle-row-icon">
-      <div><svg-icon [src]="scullIcon" [svgStyle]="scullStyle"></svg-icon></div>
+      <div *ngIf="!winner"><i class="fa fa-trophy" [style.color]="!battle.my ? '#ffc107' : '#495057'"></i></div>
+      <div *ngIf="winner"><svg-icon [src]="scullIcon" [svgStyle]="scullStyle"></svg-icon></div>
     </div>
   </div>
 
