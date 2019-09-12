@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
+import {GlobalConst} from '../consts/GlobalConst';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
@@ -16,13 +17,22 @@ const HELLO = 'HELLO';
 export class StorageService {
 
   public getPushAsk(): boolean {
-    const value = localStorage.getItem(PUSH_ASK);
-    return value !== 'true';
+    let value = localStorage.getItem(PUSH_ASK);
+
+    if (value >= GlobalConst.PUSH_ASK_COUNT) { return false; }
+    if (value == null) { value = 0; }
+
+    value++;
+    localStorage.setItem(PUSH_ASK, value);
+
+    return value === GlobalConst.PUSH_ASK_COUNT;
   }
 
-  public setPushAsk(value: boolean) {
-    const str = value ? 'true' : 'false';
-    localStorage.setItem(PUSH_ASK, str);
+  public setPushAsk() {
+    localStorage.setItem(
+      PUSH_ASK,
+      GlobalConst.PUSH_ASK_COUNT + ''
+    );
   }
 
   public getMe(): User {

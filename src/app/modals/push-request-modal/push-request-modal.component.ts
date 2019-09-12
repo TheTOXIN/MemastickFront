@@ -24,7 +24,7 @@ export class PushRequestModalComponent {
   }
 
   close() {
-    this.storageService.setPushAsk(true);
+    this.storageService.setPushAsk();
     this.activeModal.dismiss('Cross click');
   }
 }
