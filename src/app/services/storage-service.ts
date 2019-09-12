@@ -17,13 +17,13 @@ const HELLO = 'HELLO';
 export class StorageService {
 
   public getPushAsk(): boolean {
-    let value = localStorage.getItem(PUSH_ASK);
+    let value: number = +localStorage.getItem(PUSH_ASK);
 
     if (value >= GlobalConst.PUSH_ASK_COUNT) { return false; }
     if (value == null) { value = 0; }
 
     value++;
-    localStorage.setItem(PUSH_ASK, value);
+    localStorage.setItem(PUSH_ASK, value + '');
 
     return value === GlobalConst.PUSH_ASK_COUNT;
   }
