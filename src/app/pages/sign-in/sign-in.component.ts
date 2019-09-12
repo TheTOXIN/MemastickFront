@@ -1,12 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OauthApiService} from '../../services/oauth-api-service';
-import {Router} from '@angular/router';
 import {ValidConst} from '../../consts/ValidConst';
-import {AppComponent} from '../../app.component';
-import {PushService} from '../../services/push-service';
-import {WebSocketService} from '../../services/web-socket-service';
-import {ErrorCode} from '../../consts/ErrorCode';
+import {FRONT_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -33,10 +29,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private oauth: OauthApiService,
-    private router: Router,
-    private push: PushService,
-    private socket: WebSocketService,
+    private oauth: OauthApiService
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -100,9 +93,6 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.toHome();
-
-    this.socket.connect();
-    this.push.register();
   }
 
   invalid(error: any) {
@@ -114,6 +104,6 @@ export class SignInComponent implements OnInit {
   }
 
   toHome() {
-    this.router.navigateByUrl('/home');
+    window.location.href = FRONT_URL + '/home';
   }
 }
