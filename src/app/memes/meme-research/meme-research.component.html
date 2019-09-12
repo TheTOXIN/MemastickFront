@@ -27,6 +27,9 @@
       <div *ngIf="meme.type === 'DEAD'">
         <app-meme-type-dead [meme]="meme"></app-meme-type-dead>
       </div>
+      <div *ngIf="meme.type === 'BAAN'">
+        <div class="text-strong-center">МЕМ БЫЛ ЗАБАНЕН, НЕ СОЗДАВАЙТЕ БОЛЬШЕ ТАКИЕ МЕМЫ</div>
+      </div>
     </div>
     <div class="meme-epi">
       <app-meme-epi [epi]="evolve.epi"></app-meme-epi>

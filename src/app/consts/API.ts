@@ -26,6 +26,7 @@ export enum API {
   MEME_LIKES_TRIGGER = '/meme-likes/trigger',
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   MEME_RESURRECT = '/memes/resurrect',
+  MEME_BAN = '/memes/ban',
 
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',

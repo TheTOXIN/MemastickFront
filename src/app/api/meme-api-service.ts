@@ -96,4 +96,10 @@ export class MemeApiService {
       .patch(API.MEME_RESURRECT + '/' + memeId, {})
       .pipe();
   }
+
+  public memeBan(memeId: UUID) {
+    this.http
+      .patch(API.MEME_BAN + '/' + memeId, {})
+      .toPromise();
+  }
 }
