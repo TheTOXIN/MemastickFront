@@ -31,9 +31,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.oauth.checkTokens()) {
+      this.me();
       this.update();
       this.notify();
       this.control(true);
+    }
+  }
+
+  public me() {
+    if (!this.storage.getMe()) {
+      this.oauth.loadMe();
     }
   }
 

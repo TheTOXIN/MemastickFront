@@ -54,7 +54,6 @@ export class OauthApiService {
       .post(API.OAUTH_TOKEN, params.toString(), options)
       .pipe(tap(data => {
         this.saveToken(data);
-        this.saveMe();
       }));
   }
 
@@ -128,13 +127,6 @@ export class OauthApiService {
     }
   }
 
-  public saveMe() {
-    this.http.get<User>(API.USER_ME).subscribe(data => {
-      this.storageService.setMe(data);
-      console.log(data);
-    });
-  }
-
   public addAuthorization(req: HttpRequest<any>, token: any) {
     return req.clone({
       setHeaders: {
@@ -149,6 +141,13 @@ export class OauthApiService {
 
   public checkTokens() {
     return Cookie.check(this.keyAccess) || Cookie.check(this.keyRefresh);
+  }
+
+  public loadMe() {
+    this.http.get<User>(API.USER_ME).subscribe(data => {
+      this.storageService.setMe(data);
+      console.log(data);
+    });
   }
 
   private initStatuses() {
