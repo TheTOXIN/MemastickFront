@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {ValidConst} from '../../consts/ValidConst';
 import {FRONT_URL} from '../../app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,14 +30,18 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private oauth: OauthApiService
+    private oauth: OauthApiService,
+    private router: Router
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
   }
 
   ngOnInit() {
-    if (this.oauth.checkTokens()) { this.toHome(); }
+    if (this.oauth.checkTokens()) {
+      this.router.navigateByUrl('/home');
+    }
+    
     this.signForm = this.fb.group({
       password: ['', Validators.required],
       email: [],
@@ -92,7 +97,7 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
-    this.toHome();
+    window.location.href = FRONT_URL + '/home';
   }
 
   invalid(error: any) {
@@ -101,9 +106,5 @@ export class SignInComponent implements OnInit {
     } else {
       this.setErrorMessage('Неверные данные для входа');
     }
-  }
-
-  toHome() {
-    window.location.href = FRONT_URL + '/home';
   }
 }

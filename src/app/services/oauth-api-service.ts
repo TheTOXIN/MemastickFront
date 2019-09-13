@@ -53,8 +53,8 @@ export class OauthApiService {
     return this.http
       .post(API.OAUTH_TOKEN, params.toString(), options)
       .pipe(tap(data => {
-        this.saveToken(data);
         this.saveMe();
+        this.saveToken(data);
       }));
   }
 
@@ -131,6 +131,7 @@ export class OauthApiService {
   public saveMe() {
     this.http.get<User>(API.USER_ME).subscribe(data => {
       this.storageService.setMe(data);
+      console.log(data);
     });
   }
 
