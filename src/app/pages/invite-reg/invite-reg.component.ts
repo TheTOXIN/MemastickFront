@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InviteApiService} from '../../api/invite-api-service';
 import {ValidConst} from '../../consts/ValidConst';
 import {ErrorCode} from '../../consts/ErrorCode';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-invite-reg',
@@ -20,6 +21,7 @@ export class InviteRegComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: InviteApiService,
+    private router: Router
   ) {
     this.text = 'Длина ника от 3 до 16 символов';
     this.load = false;
@@ -55,5 +57,9 @@ export class InviteRegComponent implements OnInit {
       }
       this.load = false;
     });
+  }
+
+  toReg() {
+    this.router.navigateByUrl('/pages/sign-up');
   }
 }

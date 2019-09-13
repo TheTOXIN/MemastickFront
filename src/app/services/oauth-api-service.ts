@@ -55,8 +55,7 @@ export class OauthApiService {
       .pipe(tap(data => {
         this.saveToken(data);
         this.saveMe();
-      }),
-    );
+      }));
   }
 
   public refresh() {
