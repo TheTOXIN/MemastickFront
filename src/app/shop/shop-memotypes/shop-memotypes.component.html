@@ -21,7 +21,7 @@
     <owl-carousel  [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="memotypeCarousel">
       <div *ngFor="let memotype of currentSet.memotypes" (click)="chooseMemotype(memotype)">
         <div class="shop-memotype-element">
-          <img [src]="memotype.image"/>
+            <img [src]="memotype.image" class="img-fluid"/>
           <i *ngIf="memotype.isChoose" class="fa fa-check"></i>
         </div>
       </div>

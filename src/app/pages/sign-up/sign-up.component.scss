@@ -1,6 +1,7 @@
 @import "src/assets/scss/base/_variable.scss";
 
 .sign-invite-code {
+  margin-bottom: 10px;
   &:hover {
     a {
       color: $primary_color;
