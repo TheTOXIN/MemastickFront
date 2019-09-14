@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {RegistrationApiService} from '../../api/registration-api-service';
 import {Registration} from '../../model/Registration';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OauthApiService} from '../../services/oauth-api-service';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-sign-up',
@@ -20,7 +21,9 @@ export class SignUpComponent implements OnInit {
     'Где тебя носит? Быстрее к нам!'
   ];
 
-  public message: String;
+  public invite: string;
+  public message: string;
+
   public error = false;
   public isLoading = false;
 
@@ -30,7 +33,8 @@ export class SignUpComponent implements OnInit {
     private fb: FormBuilder,
     private reg: RegistrationApiService,
     private oauth: OauthApiService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -58,7 +62,13 @@ export class SignUpComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(20)
       ])],
+    });
 
+    this.route.queryParams.subscribe(params => {
+      this.invite = params.invite;
+      if (this.invite != null) {
+        this.signForm.controls['invite'].setValue(this.invite);
+      }
     });
   }
 

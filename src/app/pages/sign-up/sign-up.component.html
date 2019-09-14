@@ -22,7 +22,7 @@
     </div>
     <div class="main">
       <form class="auth-form" (ngSubmit)="onSubmit()">
-        <div class="sign-invite-code" (click)="toRegInvite()">
+        <div class="sign-invite-code" (click)="toRegInvite()" *ngIf="invite == null">
           <a>ПОЛУЧИТЬ ИНВАЙТ</a>
         </div>
         <div class="form-group">
@@ -30,7 +30,7 @@
           <i class="fa fa-info"></i>
           <input class="form-control" id="exampleInputInvite" name="invite" placeholder="Инвайт код" required="" type="text"
                  [formControl]="signForm.controls['invite']"
-                 (click)="message = 'Инвайт-код можно получить на стартовой странице'">
+                 (click)="message = 'Отправь заявку на инвайт-код, и получи его по почте'">
         </div>
         <div class="form-group">
           <label for="exampleInputLogin">Логин</label>
