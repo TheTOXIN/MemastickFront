@@ -14,7 +14,7 @@
           </div>
           <div class="battle-rating-member">
             <div *ngIf="rate?.exist">
-              <img [src]="getAvatar(rate?.memetick) || ''" (click)="memetickView(rate?.memetick)">
+              <img [src]="ratingAvatars[rate?.memetick.id] || ''" (click)="memetickView(rate?.memetick)">
               <div>{{rate?.memetick.nick}}</div>
             </div>
           </div>
@@ -45,7 +45,7 @@
   <div class="battle-rating-my margin-center">
     <div class="battle-rating-member">
       <div *ngIf="ratingMy?.exist">
-        <img [src]="getAvatar(ratingMy?.memetick) || ''" (click)="memetickView(ratingMy?.memetick)">
+        <img [src]="myAvatar || ''" (click)="memetickView(ratingMy?.memetick)">
         <div>{{ratingMy?.memetick.nick}}</div>
       </div>
       <div *ngIf="!ratingMy?.exist">

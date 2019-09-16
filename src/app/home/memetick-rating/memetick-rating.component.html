@@ -11,7 +11,7 @@
       </div>
       <div class="memetick-tablet">
         <div class="memetick-avatar">
-          <img [src]="getAvatar(memetick.preview) || ''"
+          <img [src]="ratingAvatars[memetick.preview.id] || ''"
                (click)="memetickView(memetick.preview.id)">
         </div>
         <div class="memetick-nick">
@@ -35,7 +35,7 @@
     </div>
     <div class="memetick-tablet">
       <div class="memetick-avatar">
-        <img [src]="getAvatar(rating.me.preview) || ''"
+        <img [src]="myAvatar || ''"
              (click)="memetickView(rating.me.preview.id)">
       </div>
       <div class="memetick-nick">

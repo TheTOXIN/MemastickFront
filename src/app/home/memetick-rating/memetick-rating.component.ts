@@ -6,6 +6,7 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {MemetickRatingFilter} from '../../consts/MemetickRatingFilter';
 import {MemetickRating} from '../../model/MemetickRating';
 import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemetickRatingData} from '../../model/MemetickRatingData';
 
 @Component({
   selector: 'app-memetick-rating',
@@ -18,8 +19,12 @@ export class MemetickRatingComponent implements OnInit {
   isPanel = true;
 
   public icons = [];
+
   public filter = MemetickRatingFilter.DNA;
   public rating: MemetickRating;
+
+  public ratingAvatars = [];
+  public myAvatar: string;
 
   constructor(
     public memetickApi: MemetickApiService,
@@ -34,6 +39,12 @@ export class MemetickRatingComponent implements OnInit {
   ngOnInit() {
     this.memetickApi.rating(this.filter).subscribe(data => {
       this.rating = data;
+
+      for (const mr of this.rating.top) {
+        this.ratingAvatars[mr.preview.id + ''] = this.getAvatar(mr.preview);
+      }
+      this.myAvatar = this.getAvatar(this.rating.me.preview);
+
       this.isLoad = false;
     });
   }

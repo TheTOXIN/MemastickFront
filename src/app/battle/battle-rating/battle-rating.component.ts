@@ -28,6 +28,9 @@ export class BattleRatingComponent implements OnInit {
 
   public ratingCarousel: any;
 
+  public ratingAvatars = [];
+  public myAvatar: string;
+
   constructor(
     public battleApi: BattleApiService,
     public avatarApi: MemetickAvatarApiService,
@@ -43,11 +46,16 @@ export class BattleRatingComponent implements OnInit {
   ngOnInit() {
     this.battleApi.ratingMain().subscribe(data => {
       this.ratingMain = data;
+      for (const br of this.ratingMain) {
+        if (br.memetick == null) { continue; }
+        this.ratingAvatars[br.memetick.id + ''] = this.getAvatar(br.memetick);
+      }
       this.load();
     });
 
     this.battleApi.ratingMy().subscribe(data => {
       this.ratingMy = data;
+      this.myAvatar = this.getAvatar(data.memetick);
       this.load();
     });
   }

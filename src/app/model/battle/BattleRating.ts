@@ -1,5 +1,6 @@
 import {MemetickPreview} from '../MemetickPreview';
 import {MemetickRating} from '../MemetickRating';
+import {MemotypeRarity} from '../../consts/MemotypeRarity';
 
 export class BattleRating {
   constructor(
@@ -8,7 +9,7 @@ export class BattleRating {
     public position: number,
     public score: number,
     public days: number,
-    public present: MemetickRating
+    public present: MemotypeRarity
   ) {
 
   }

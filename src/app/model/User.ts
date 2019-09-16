@@ -6,7 +6,8 @@ export class User {
   constructor(
     public id: UUID,
     public login: String,
-    public role: RoleType
+    public role: RoleType,
+    public memetickId: UUID
   ) {
 
   }
