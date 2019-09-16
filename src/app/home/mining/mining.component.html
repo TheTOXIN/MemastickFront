@@ -9,17 +9,17 @@
 
   <div class="mining-content flex-center-absolute">
     <app-spinner *ngIf="!isMake"></app-spinner>
-    <img class="mining-coin animated bounceIn"
+    <img class="mining-coin animated bounceIn select-none"
          *ngIf="isMake"
          [@moveAnim]='cache'
          (click)="accept()"
          [src]="'assets/images/icon/memecoin.png'">
-    <img class="mining-block animated fadeIn"
+    <img class="mining-block animated fadeIn select-none"
          *ngIf="isMake && !isBroke"
          [ngClass]="{'blockRotate': isMine}"
          [@bounceAnim]='tapState'
          [src]="'assets/images/icon/blockcoin.png'">
-    <img class="mining-pickaxe"
+    <img class="mining-pickaxe select-none"
          *ngIf="loadPickaxe && pickaxe?.have"
          [@rotateAnim]='rotateState'
          (click)="tap()"

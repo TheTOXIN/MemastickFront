@@ -23,7 +23,7 @@
   <div class="memes-likes">
     <div class="like-icon-1">
       <div class="like-img-1">
-        <img class="img-fluid" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
+        <img class="img-fluid select-none" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
              src="assets/images/icon/2.png" [class.full]="fullChromosome(data) || isMemeDeath(data.page.meme)">
         <div class="chromosome-counter">
           <div [@counterState]='data.counterState' class="counter">
@@ -36,14 +36,14 @@
       <span class="likes-count">{{data.page?.meme.chromosomes}}</span>
     </div>
     <div class="likes-delimer" (click)="researcherEvent(data.page?.meme)">
-      <img class="img-fluid" src="assets/images/icon/research.png">
+      <img class="img-fluid select-none" src="assets/images/icon/research.png">
     </div>
     <div class="like-count-2">
       <span class="likes-count">{{data.page?.meme.likes}}</span>
     </div>
     <div class="like-icon-2">
       <div class="like-img-2">
-        <img class="img-fluid" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
+        <img class="img-fluid select-none" [@bouncedState]='data.likeState' (click)="triggerLike(data)"
              [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
       </div>
     </div>

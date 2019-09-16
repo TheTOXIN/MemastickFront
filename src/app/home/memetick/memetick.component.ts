@@ -77,6 +77,14 @@ export class MemetickComponent implements OnInit {
     });
   }
 
+  changeAvatar() {
+    this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
+  }
+
+  changeNick() {
+    this.modalService.open(ChangeNickModalComponent, {'centered': true});
+  }
+
   memes() {
     this.router.navigate(['/memes'], {
       queryParams: {

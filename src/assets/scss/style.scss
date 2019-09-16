@@ -255,6 +255,12 @@
   }
 }
 
+.select-none {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @keyframes spinMemeType {
   0% {
     transform: rotate(30deg);
