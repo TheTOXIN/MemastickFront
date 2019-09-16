@@ -13,7 +13,7 @@ export class PwaService implements OnInit {
 
   ngOnInit(): void {
     if (this.swu.isEnabled) {
-      interval(6 * 60 * 60)
+      interval(1000)
         .subscribe(() => this.swu.checkForUpdate()
           .then(() => console.log('CHECK UPDATE')));
     }
