@@ -4,7 +4,6 @@ import {UUID} from 'angular2-uuid';
 import {API} from '../consts/API';
 import {BACK_URL} from '../app.constants';
 import {StorageService} from '../services/storage-service';
-import {GlobalConst} from '../consts/GlobalConst';
 
 @Injectable()
 export class MemetickAvatarApiService {
@@ -18,11 +17,10 @@ export class MemetickAvatarApiService {
 
   public dowloadAvatar(memetickId: UUID): string {
     let url = BACK_URL + API.MEMETICK_AVATAR_DOWNLOAD + '/' + memetickId;
+
     const me = this.storage.getMe();
 
-    if (me != null && memetickId !== me.memetickId) {
-      url += '?cache=' + GlobalConst.AVATAR_CACHE;
-    }
+    if (me != null && memetickId === me.memetickId) { url += '?cache=false'; }
 
     return url;
   }
