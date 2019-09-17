@@ -19,7 +19,7 @@ export class BattleResponseModalComponent implements OnInit {
 
   public pvpCoin = BattleConst.MEMCOIN_PRESENT;
   public pvpList: number[] = [];
-  public pvpCurrent: number = 1;
+  public pvpCurrent: number = 5;
 
   loadStatus: LoaderStatus;
   loadMessage: string;
