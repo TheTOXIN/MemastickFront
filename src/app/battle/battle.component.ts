@@ -89,10 +89,10 @@ export class BattleComponent implements OnInit {
     this.myParams = {
       particles: {
         number: {
-          value: 60,
+          value: 30,
           density: {
             enable: true,
-            value_area: 800
+            value_area: 481
           }
         },
         color: {
@@ -105,36 +105,31 @@ export class BattleComponent implements OnInit {
             color: '#000000'
           },
           polygon: {
-            nb_sides: 5
-          },
-          image: {
-            src: 'img/github.svg',
-            width: 100,
-            height: 100
+            nb_sides: 12
           }
         },
         opacity: {
-          value: 0.5,
-          random: false,
+          value: 0.3,
+          random: true,
           anim: {
             enable: false,
-            speed: 1,
+            speed: 0.5,
             opacity_min: 0.1,
             sync: false
           }
         },
         size: {
-          value: 3,
+          value: 47,
           random: true,
           anim: {
-            enable: false,
-            speed: 40,
-            size_min: 0.1,
-            sync: false
+            enable: true,
+            speed: 9,
+            size_min: 5,
+            sync: true
           }
         },
         line_linked: {
-          enable: false,
+          enable: true,
           distance: 150,
           color: '#ffffff',
           opacity: 0.4,
@@ -142,16 +137,16 @@ export class BattleComponent implements OnInit {
         },
         move: {
           enable: true,
-          speed: 2,
-          direction: 'top',
+          speed: 3,
+          direction: 'none',
           random: true,
           straight: false,
-          out_mode: 'out',
+          out_mode: 'bounce',
           bounce: false,
           attract: {
-            enable: false,
-            rotateX: 600,
-            rotateY: 1200
+            enable: true,
+            rotateX: 320,
+            rotateY: 481
           }
         }
       },
@@ -159,18 +154,18 @@ export class BattleComponent implements OnInit {
         detect_on: 'canvas',
         events: {
           onhover: {
-            enable: false,
-            mode: 'grab'
+            enable: true,
+            mode: 'repulse'
           },
           onclick: {
-            enable: false,
+            enable: true,
             mode: 'push'
           },
           resize: true
         },
         modes: {
           grab: {
-            distance: 140,
+            distance: 400,
             line_linked: {
               opacity: 1
             }
