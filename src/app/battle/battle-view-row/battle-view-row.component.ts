@@ -20,6 +20,9 @@ export class BattleViewRowComponent implements OnInit {
   public forwardAvatar: string;
   public defenderAvatar: string;
 
+  public forwardWin: boolean;
+  public defenderWin: boolean;
+
   swordIcon = FRONT_URL + '/assets/images/svg/sword.svg';
   scullIcon = FRONT_URL + '/assets/images/svg/skull.svg';
 
@@ -27,7 +30,6 @@ export class BattleViewRowComponent implements OnInit {
   scullStyle: any;
 
   statuses = BattleStatus;
-  winner = false;
 
   constructor(
     private avatarApi: MemetickAvatarApiService,
@@ -41,10 +43,11 @@ export class BattleViewRowComponent implements OnInit {
     this.forwardAvatar = this.avatarApi.dowloadAvatar(this.battle.forward.memetickId);
     this.defenderAvatar = this.avatarApi.dowloadAvatar(this.battle.defender.memetickId);
 
-    this.winner = this.battle.my ? this.battle.forward.votes > this.battle.defender.votes : this.battle.forward.votes < this.battle.defender.votes;
+    this.forwardWin = this.battle.forward.votes > this.battle.defender.votes;
+    this.defenderWin = this.battle.defender.votes > this.battle.forward.votes;
 
     this.swordStyle = { 'width.px': '20', 'height.px': '20' , 'fill': this.battle.my ? '#dc3545' : '#495057'};
-    this.scullStyle = { 'width.px': '20', 'height.px': '20' , 'fill': this.battle.my ? '#000' : '#495057'};
+    this.scullStyle = { 'width.px': '20', 'height.px': '20' , 'fill': this.battle.my || this.forwardWin ? '#000' : '#495057'};
   }
 
   battleView() {
