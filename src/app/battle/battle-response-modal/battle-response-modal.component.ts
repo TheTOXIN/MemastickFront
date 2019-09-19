@@ -5,6 +5,8 @@ import {BattleConst} from '../../consts/BattleConst';
 import {BattleApiService} from '../../api/battle-api-service';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {BattleResponse} from '../../model/battle/BattleResponse';
+import {FRONT_URL} from '../../app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-battle-response-modal',
@@ -28,6 +30,7 @@ export class BattleResponseModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private battleApi: BattleApiService,
+    private router: Router,
     config: NgbDropdownConfig
   ) {
     config.placement = 'bottom-center';
@@ -65,5 +68,6 @@ export class BattleResponseModalComponent implements OnInit {
 
   close() {
     this.activeModal.dismiss('Cross click');
+    this.router.navigateByUrl('/battle/view/' + this.battleId);
   }
 }
