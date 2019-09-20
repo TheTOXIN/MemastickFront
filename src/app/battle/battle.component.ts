@@ -6,6 +6,7 @@ import {BattleStatus} from '../consts/BattleStatus';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
 import {StorageService} from '../services/storage-service';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-battle',
@@ -22,10 +23,20 @@ export class BattleComponent implements OnInit {
   public battlesCount;
   public membersCount;
 
+  public battleHint: string;
+
   isLoad = true;
 
   myStyle: object = {};
   myParams: object = {};
+
+  hints = [
+    'Выбирайте PVP граммотно, от него может зависть ваша победа',
+    'Когда отвечайте на вызов, держите в голове, что ваш мем может умереть',
+    'Старайтесь на арене угадывать мемы, с наибольшим кол-вом голосов',
+    'Если вы проголосовали за мем который проигрывает, ваше ДНК комбо обнуляется',
+    'Не забывайте, что ваше место в рейтинге, может занять другой меметик',
+  ];
 
   constructor(
     private battleApi: BattleApiService,
@@ -33,7 +44,7 @@ export class BattleComponent implements OnInit {
     private modalService: NgbModal,
     private storage: StorageService
   ) {
-
+    this.battleHint = this.hints[Math.floor(Math.random() * this.hints.length)];
   }
 
   ngOnInit() {
