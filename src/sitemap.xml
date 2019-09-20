@@ -5,7 +5,7 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://www.memastick.ru/start</loc>
+    <loc>https://www.memastick.ru</loc>
     <priority>1.0</priority>
   </url>
 
