@@ -1,2 +1,3 @@
 User-agent: *
-Allow: /
+Allow: /start
+Sitemap: https://www.memastick.ru/sitemap.xml
