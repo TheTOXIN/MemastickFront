@@ -11,7 +11,7 @@
     <div *ngFor="let meme of memes">
       <div class="meme-modal-row">
         <div class="meme-modal-epi text-strong-middle">
-          <div>ЭПИ: {{meme.epi.evolution}}/{{meme.epi.population}}/{{meme.epi.individuation}}</div>
+          <div>№: {{meme.epi.evolution}}</div>
         </div>
         <div class="meme-modal-view" (click)="view(meme)"><i class="fa fa-eye"></i></div>
         <div class="meme-modal-research" (click)="research(meme)"><i class="fa fa-search"></i></div>
