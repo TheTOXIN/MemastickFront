@@ -9,6 +9,7 @@ import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {fakeAsync} from '@angular/core/testing';
 
 @Component({
   selector: 'app-battle-rating',
@@ -20,8 +21,8 @@ export class BattleRatingComponent implements OnInit {
   public ratingMain: BattleRating[] = [];
   public ratingMy: BattleRating;
 
-  isLoad = true;
-  countLoad = 0;
+  isLoad = false;
+  myLoad = false;
 
   memotypeColors = [];
   memotypeNames = [];
@@ -50,19 +51,16 @@ export class BattleRatingComponent implements OnInit {
         if (br.memetick == null) { continue; }
         this.ratingAvatars[br.memetick.id + ''] = this.getAvatar(br.memetick);
       }
-      this.load();
-    });
-
-    this.battleApi.ratingMy().subscribe(data => {
-      this.ratingMy = data;
-      this.myAvatar = this.getAvatar(data.memetick);
-      this.load();
+      this.isLoad = true;
     });
   }
 
-  load() {
-    this.countLoad++;
-    this.isLoad = this.countLoad >= 2;
+  loadMyRating() {
+    this.battleApi.ratingMy().subscribe(data => {
+      this.ratingMy = data;
+      this.myAvatar = this.getAvatar(data.memetick);
+      this.myLoad = true;
+    });
   }
 
   getAvatar(memetick: MemetickPreview) {

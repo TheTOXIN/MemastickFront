@@ -1,4 +1,4 @@
-<div class="super-main-title">РЕЙТИНГ БИТВЫ</div>
+<div class="super-main-title">ТОП РЕЙТИНГ</div>
 
 <div *ngIf="!isLoad" class="flex-center-absolute">
   <app-spinner></app-spinner>
@@ -36,14 +36,20 @@
     </owl-carousel>
   </div>
 
-  <div class="my-button-close main-button-close" [style.margin]="'30px auto 10px'" (click)="toBattle()">
-    <i class="fa fa-close"></i>
+  <div class="battle-rating-info" (click)="info()">
+    <i class="fa fa-question-circle"></i>
   </div>
 
   <div class="super-main-title">МОЙ РЕЙТИНГ</div>
 
   <div class="battle-rating-my margin-center">
-    <div class="battle-rating-member">
+    <div *ngIf="!myLoad" class="battle-rating-my-button">
+      <button class="btn-theme" (click)="loadMyRating()">ПОСМОТРЕТЬ</button>
+    </div>
+    <div class="battle-rating-member" *ngIf="myLoad">
+      <div class="battle-rating-position" *ngIf="ratingMy?.exist">
+        #<i class="fa fa-trophy" [style.color]="'black'"></i>{{ratingMy?.position + 1}}
+      </div>
       <div *ngIf="ratingMy?.exist">
         <img [src]="myAvatar || ''" (click)="memetickView(ratingMy?.memetick)">
         <div>{{ratingMy?.memetick.nick}}</div>
@@ -59,8 +65,8 @@
     </div>
   </div>
 
-  <div class="battle-rating-info" (click)="info()">
-    <i class="fa fa-question-circle"></i>
+  <div class="my-button-close main-button-close" [style.margin]="'30px auto 10px'" (click)="toBattle()">
+    <i class="fa fa-close"></i>
   </div>
 </div>
 
