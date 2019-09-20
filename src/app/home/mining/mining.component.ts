@@ -136,6 +136,7 @@ export class MiningComponent implements OnInit {
     this.inventoryApi.getPickaxe().subscribe(data => {
       this.pickaxe = data;
       this.loadPickaxe = true;
+      this.textTitle = 'Жмите на кирку';
     });
   }
 
