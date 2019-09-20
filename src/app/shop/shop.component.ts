@@ -62,11 +62,13 @@ export class ShopComponent {
   public productImage: string;
 
   isMain: boolean;
+  fromMain: boolean;
 
   constructor(
     private router: Router
   ) {
     this.isMain = this.router.url === '/shop';
+    this.fromMain = this.isMain;
   }
 
   choose(product: Product) {
@@ -83,11 +85,15 @@ export class ShopComponent {
   }
 
   back() {
-    this.router.navigateByUrl('/shop');
-    this.isMain = true;
+    if (this.fromMain) {
+      this.router.navigateByUrl('/shop');
+      this.isMain = true;
+    } else {
+      window.history.back();
+    }
   }
 
-  close() {
+  home() {
     this.router.navigateByUrl('/home');
   }
 }

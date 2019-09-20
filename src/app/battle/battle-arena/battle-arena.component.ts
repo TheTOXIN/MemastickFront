@@ -32,18 +32,19 @@ export class BattleArenaComponent implements OnInit {
   public battleCurrent: BattlePreview;
   public battleResult: BattleResult;
 
-  isLoad = true;
-  isMessage = false;
-  isVote = false;
-  isResult = false;
-
-  cookieState = 'default';
-
   public message: string;
   public emoji: any;
 
   forwardWin = false;
   defenderWin = false;
+
+  cookieState = 'default';
+
+  isLoad = true;
+  isMessage = false;
+  isVote = false;
+  isResult = false;
+  isCookie = false;
 
   constructor(
     public battleApi: BattleApiService,
@@ -102,7 +103,8 @@ export class BattleArenaComponent implements OnInit {
 
   private voteError(data: any) {
     if (data.error.code === ErrorCode.BATTLE_COOKIE) {
-      this.setMessage('У ВАС ЗАКОНЧИЛИСЬ ПЕЧЕНЬКИ');
+      this.setMessage('ЗАКОНЧИЛИСЬ ПЕЧЕНЬКИ, КУПИТЕ В МАГАЗИН');
+      this.isCookie = true;
     } else {
       this.setMessage('ОШИБКА ГОЛОСОВАНИЯ');
     }
@@ -140,5 +142,9 @@ export class BattleArenaComponent implements OnInit {
 
   toBattle() {
     this.router.navigateByUrl('/battle');
+  }
+
+  toCookies() {
+    this.router.navigateByUrl('/shop/cookies');
   }
 }

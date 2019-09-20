@@ -38,7 +38,10 @@
 
 <div class="flex-center-absolute" *ngIf="isMessage">
   <div class="battle-arena-msg text-strong-middle animated rollIn">
-    <div>{{message}}<br/>{{emoji}}</div>
+    <div>{{message}}<br/>
+      <span *ngIf="!isCookie">{{emoji}}</span>
+      <button *ngIf="isCookie" (click)="toCookies()" class="btn-theme">КУПИТЬ</button>
+    </div>
   </div>
   <div class="battle-arena-home">
     <div class="my-button-close main-button-close" (click)="toBattle()">
