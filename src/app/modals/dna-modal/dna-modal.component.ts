@@ -10,14 +10,14 @@ export class DnaModalComponent implements OnInit {
 
   public data = [{
       text: 'За хромосомы',
-      count: '1-10',
-    },{
+      count: '0-100',
+    }, {
       text: 'Использование токена',
-      count: '10-100',
-    },{
+      count: '100-500',
+    }, {
       text: 'Создание мема',
-      count: '100-1000',
-    },{
+      count: '500-1000',
+    }, {
       text: 'Голосование в битвах',
       count: '10 x КОМБО',
     }
