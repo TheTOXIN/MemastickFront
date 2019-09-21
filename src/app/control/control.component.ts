@@ -3,11 +3,24 @@ import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
 import {NotifyCount} from '../model/NotifyCount';
+import {WebSocketService} from '../services/web-socket-service';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-control',
   templateUrl: './control.component.html',
-  styleUrls: ['./control.component.scss']
+  styleUrls: ['./control.component.scss'],
+  animations: [
+    trigger('counterState', [
+      transition('* => *', [
+        animate(300, keyframes([
+          style({ transform: 'scale(1)'}),
+          style({ transform: 'scale(1.3)'}),
+          style({ transform: 'scale(1)'})
+        ]))
+      ])
+    ])
+  ]
 })
 export class ControlComponent implements OnInit {
 
@@ -25,6 +38,7 @@ export class ControlComponent implements OnInit {
 
   constructor(
     private mainApi: MainApiService,
+    private socket: WebSocketService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -34,6 +48,12 @@ export class ControlComponent implements OnInit {
   ngOnInit() {
     this.mainApi.notifyCount().subscribe(data => {
       this.counter = data;
+    });
+
+    this.socket.counterObservable.subscribe((counter) => {
+      if (counter != null) {
+        this.counter.countBells++;
+      }
     });
   }
 
