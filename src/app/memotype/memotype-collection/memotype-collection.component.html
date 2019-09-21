@@ -5,7 +5,9 @@
   <span>МОЯ КОЛЛЕКЦИЯ</span>
 </div>
 <div *ngIf="!isLoad" [style.margin-top]="'15px'">
-  <owl-carousel [carouselClasses]="['owl-nav-inverse team-slider owl-carousel owl-theme owl-carousel-relative owl-dots-top']" [options]="collectionCarousel">
+  <owl-carousel
+    [carouselClasses]="['team-slider owl-carousel owl-theme owl-carousel-relative owl-dots-top owl-nav-bck']"
+    [options]="collectionCarousel">
   <div *ngFor="let set of collection">
     <div class="container">
       <div class="row">
