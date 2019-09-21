@@ -12,7 +12,7 @@
     <div class="dropzone"
          appDropZone
          (hovered)="toggleHover($event)"
-         (dropped)="upload($event)"
+         (dropped)="uploadDrop($event)"
          [class.hovering]="isHovering"
          [style.display]="isPreview ? 'none' : 'flex'">
       <div class="create-help create-help-up" [style.display]="isHovering ? 'none' : 'block'">
@@ -25,11 +25,11 @@
            [style.opacity]="stateCell / 100 + 0.1"
            [style.width.px]="stateCell + 10">
         <img class="img-fluid align-self-center spin-anim" src="assets/images/icon/cell.png">
-        <input type="file" (change)="upload($event.target.files)" accept=".png,.jpg,.gif"/>
       </div>
       <div class="create-help create-help-down" [style.display]="isHovering ? 'none' : 'block'">
         <p>{{stateText}}</p>
       </div>
+      <input type="file" (change)="uploadClick($event)" accept=".png,.jpg,.gif"/>
     </div>
   </div>
 

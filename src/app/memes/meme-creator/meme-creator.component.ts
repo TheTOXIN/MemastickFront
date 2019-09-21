@@ -71,7 +71,15 @@ export class MemeCreatorComponent implements OnInit {
     this.isHovering = event;
   }
 
-  upload(files) {
+  uploadDrop(event) {
+    this.upload(event.dataTransfer.files);
+  }
+
+  uploadClick(event) {
+    this.upload(event.target.files);
+  }
+
+  private upload(files) {
     if (files.length !== 1) { return; }
     if (files[0].type.match(/image\/*/) == null) { return; }
     if (files[0].size > ValidConst.MAX_MEME_SIZE) { return; }

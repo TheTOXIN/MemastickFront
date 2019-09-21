@@ -22,6 +22,8 @@
   border: 5px dashed #ffc107;
   border-radius: 30px;
   margin: auto;
+  z-index: 1;
+
   &.hovering {
     border: 6px solid #ffc107;
   }
@@ -34,6 +36,13 @@
   @media(max-width: 767px) {
     border-style: none;
   }
+}
+
+.dropzone input[type=file] {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  opacity: 0;
 }
 
 .animated-circle {
@@ -54,15 +63,6 @@
     animation-iteration-count: infinite;
     animation-name: bounceIn;
   }
-}
-
-.dropzone input[type=file] {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
 }
 
 .spin-anim {
