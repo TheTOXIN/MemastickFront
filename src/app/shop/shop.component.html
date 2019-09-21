@@ -11,16 +11,16 @@
   </div>
 
   <div class="product-info" *ngIf="!isMain">
-    <span>{{productTitle}}</span>
-    <img [src]="productImage" alt="">
-    <p>{{productText}}</p>
+    <span>{{currentProduct.val}}</span>
+    <img [src]="currentProduct.img" alt="">
+    <p>{{currentProduct.txt}}</p>
   </div>
 
   <div class="shop-product">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <router-outlet></router-outlet>
+          <router-outlet (deactivate)="isMain = true"></router-outlet>
         </div>
       </div>
     </div>

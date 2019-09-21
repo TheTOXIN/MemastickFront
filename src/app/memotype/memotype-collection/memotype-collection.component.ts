@@ -55,8 +55,8 @@ export class MemotypeCollectionComponent implements OnInit {
     this.router.navigateByUrl('/shop/memotypes?set=' + set.name);
   }
 
-  back() {
-    window.history.back();
+  home() {
+    this.router.navigateByUrl('/home');
   }
 
   initCarousel() {

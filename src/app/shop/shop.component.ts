@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 interface Product {
@@ -13,7 +13,7 @@ interface Product {
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit{
 
   public products: Product[] = [{
     txt: 'Используй печеньки для голосования в битвах',
@@ -57,9 +57,7 @@ export class ShopComponent {
     img: '/assets/images/icon/community.png',
   }];
 
-  public productText: string;
-  public productTitle: string;
-  public productImage: string;
+  public currentProduct: Product;
 
   isMain: boolean;
   fromMain: boolean;
@@ -71,11 +69,20 @@ export class ShopComponent {
     this.fromMain = this.isMain;
   }
 
-  choose(product: Product) {
-    this.productText = product.txt;
-    this.productTitle = product.val;
-    this.productImage = product.img;
+  ngOnInit() {
+    if (!this.fromMain) {
+      const url = this.router.url;
+      for (const prod of this.products) {
+        if (url.includes(prod.url)) {
+          this.currentProduct = prod;
+          break;
+        }
+      }
+    }
+  }
 
+  choose(product: Product) {
+    this.currentProduct = product;
     this.redirect(product.url);
   }
 
@@ -87,7 +94,6 @@ export class ShopComponent {
   back() {
     if (this.fromMain) {
       this.router.navigateByUrl('/shop');
-      this.isMain = true;
     } else {
       window.history.back();
     }
