@@ -51,8 +51,8 @@ export class MemotypeCollectionComponent implements OnInit {
     this.view.viewShow(memotype);
   }
 
-  toShop() {
-    this.router.navigateByUrl('/shop/memotypes');
+  toShop(set: MemotypeSet) {
+    this.router.navigateByUrl('/shop/memotypes?set=' + set.name);
   }
 
   back() {

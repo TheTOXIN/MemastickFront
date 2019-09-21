@@ -5,11 +5,12 @@ import {MemotypeApiService} from '../../api/memotype-api-service';
 import {Memotype} from '../../model/memotype/Memotype';
 import {PriceConst} from '../../consts/PriceConst';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemotypeRarityModalComponent} from '../../memotype/memotype-rarity-modal/memotype-rarity-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-shop-memotypes',
@@ -41,7 +42,8 @@ export class ShopMemotypesComponent implements OnInit {
     private memotypeApi: MemotypeApiService,
     private router: Router,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private route: ActivatedRoute,
   ) {
     this.memotypeRarities = memotypeRarities;
     this.memotypeColors = memotypeColors;
@@ -55,7 +57,22 @@ export class ShopMemotypesComponent implements OnInit {
   ngOnInit() {
     this.memotypeApi.all().subscribe(data => {
       this.collection = data.content;
+      this.checkRoute();
       this.isLoad = false;
+    });
+  }
+
+  checkRoute() {
+    this.route.queryParams.subscribe(params => {
+      const setName: MemeFilter = params.set;
+      if (setName != null) {
+        for (const set of this.collection) {
+          if (set.name === setName) {
+            this.chooseSet(set);
+            break;
+          }
+        }
+      }
     });
   }
 
