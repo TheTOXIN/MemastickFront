@@ -21,7 +21,7 @@
               </div>
               <div class="memotype-list">
                 <div *ngFor="let memotype of map.value">
-                  <app-memotype-element [memotype]="memotype"></app-memotype-element>
+                  <app-memotype-element [memotype]="memotype" (click)="viewMemotype(memotype)"></app-memotype-element>
                 </div>
               </div>
             </div>
@@ -36,4 +36,5 @@
 <div class="my-button-close main-button-close margin-center" (click)="back()">
   <i class="fa fa-close"></i>
 </div>
+<app-memotype-view></app-memotype-view>
 <div class="mem-back"></div>

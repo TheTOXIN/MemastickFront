@@ -18,6 +18,8 @@ import {Router} from '@angular/router';
 })
 export class MemotypeCollectionComponent implements OnInit {
 
+  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
+
   public collection: MemotypeSet[] = [];
 
   public memotypeColors;
@@ -42,6 +44,11 @@ export class MemotypeCollectionComponent implements OnInit {
       this.collection = data.content;
       this.isLoad = false;
     });
+  }
+
+  viewMemotype(memotype: Memotype) {
+    if (memotype.count === 0) { return; }
+    this.view.viewShow(memotype);
   }
 
   toShop() {

@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemotypeRarityModalComponent} from '../../memotype/memotype-rarity-modal/memotype-rarity-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-shop-memotypes',
@@ -18,6 +19,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class ShopMemotypesComponent implements OnInit {
 
   @ViewChild(ShopButtonComponent) button: ShopButtonComponent;
+  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
 
   public collection: MemotypeSet[] = [];
 
@@ -82,6 +84,10 @@ export class ShopMemotypesComponent implements OnInit {
     this.isMemotype = true;
 
     memotype.isChoose = true;
+  }
+
+  viewMemotype() {
+    this.view.viewShow(this.currentMemotype);
   }
 
   showRarities() {

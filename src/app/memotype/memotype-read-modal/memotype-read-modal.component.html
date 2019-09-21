@@ -1,6 +1,6 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title">МЕМОТИПЫ</span><!-- make modal with input component -->
+    <span class="modal-title">МЕМОТИПЫ</span>
   </div>
   <div class="modal-body">
     <div *ngIf="isLoad" class="flex-center-absolute">
@@ -12,7 +12,7 @@
         <div class="memotype-delimer"></div>
         <div class="memotype-list">
           <div *ngFor="let memotype of set.memotypes">
-            <app-memotype-element [memotype]="memotype" [showCount]="false" [showTitle]="false"></app-memotype-element>
+            <app-memotype-element [memotype]="memotype" [showCount]="false" [showTitle]="false" (click)="viewMemotype(memotype)"></app-memotype-element>
           </div>
         </div>
       </div>
@@ -24,3 +24,5 @@
     </button>
   </div>
 </div>
+<app-memotype-view></app-memotype-view>
+

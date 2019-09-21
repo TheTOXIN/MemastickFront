@@ -11,8 +11,6 @@ import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 })
 export class MemotypeElementComponent implements OnInit {
 
-  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
-
   @Input()
   public memotype: Memotype;
 
@@ -34,10 +32,5 @@ export class MemotypeElementComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  viewMemotype() {
-    if (this.memotype.count === 0 && !this.buyMode) { return; }
-    this.view.viewShow(this.memotype);
   }
 }

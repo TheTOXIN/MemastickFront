@@ -25,7 +25,8 @@ import {OwlModule} from 'ngx-owl-carousel';
     MemotypeElementComponent,
     MemotypeReadModalComponent,
     MemotypeRaritiesComponent,
-    MemotypeRarityModalComponent
+    MemotypeRarityModalComponent,
+    MemotypeViewComponent,
   ],
   declarations: [
     MemotypeCollectionComponent,

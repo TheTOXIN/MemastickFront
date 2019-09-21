@@ -34,7 +34,7 @@
 <div class="shop-memotype-buy margin-center">
   <app-shop-price [price]="memotypePrice"></app-shop-price>
   <p *ngIf="!isMemotype">Выберите мемотип</p>
-  <app-memotype-element *ngIf="isMemotype" [memotype]="currentMemotype" [showCount]="false" [buyMode]="true"></app-memotype-element>
+  <app-memotype-element *ngIf="isMemotype" [memotype]="currentMemotype" [showCount]="false" [buyMode]="true" (click)="viewMemotype()"></app-memotype-element>
   <app-shop-button [price]="memotypePrice" [disable]="!isMemotype" (event)="buy()"></app-shop-button>
 </div>
 
@@ -43,3 +43,4 @@
   <button class="btn-theme" (click)="toCollection()">КОЛЛЕКЦИЯ</button>
 </div>
 
+<app-memotype-view></app-memotype-view>

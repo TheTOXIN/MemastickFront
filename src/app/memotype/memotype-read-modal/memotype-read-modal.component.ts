@@ -1,10 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
 import {MemotypeApiService} from '../../api/memotype-api-service';
 import {MemotypeSet} from '../../model/memotype/MemotypeSet';
 import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Memotype} from '../../model/memotype/Memotype';
+import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-memotype-read-modal',
@@ -12,6 +14,8 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./memotype-read-modal.component.scss']
 })
 export class MemotypeReadModalComponent implements OnInit {
+
+  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
 
   @Input()
   public memetickId: UUID;
@@ -36,5 +40,10 @@ export class MemotypeReadModalComponent implements OnInit {
       this.collection = data.content;
       this.isLoad = false;
     });
+  }
+
+  viewMemotype(memotype: Memotype) {
+    if (memotype.count === 0) { return; }
+    this.view.viewShow(memotype);
   }
 }
