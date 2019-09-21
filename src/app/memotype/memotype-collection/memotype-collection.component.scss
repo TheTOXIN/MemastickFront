@@ -6,7 +6,7 @@
   margin: 10px auto;
   width: 100%;
   padding: 20px;
-  box-shadow: 0 0 90px -5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px -5px rgba(0,0,0,0.5);
   text-align: center;
 }
 
@@ -43,4 +43,9 @@
   div {
     display: inline-block;
   }
+}
+
+.my-button-close {
+  margin-bottom: 30px;
+  margin-top: 30px;
 }

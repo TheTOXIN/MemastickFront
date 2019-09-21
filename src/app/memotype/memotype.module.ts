@@ -10,11 +10,13 @@ import {MemotypeElementComponent} from './memotype-element/memotype-element.comp
 import {MemotypeReadModalComponent} from './memotype-read-modal/memotype-read-modal.component';
 import {MemotypeRaritiesComponent} from './memotype-rarities/memotype-rarities.component';
 import {MemotypeRarityModalComponent} from './memotype-rarity-modal/memotype-rarity-modal.component';
+import {OwlModule} from 'ngx-owl-carousel';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    OwlModule,
     MemotypeRoutingModule
   ],
   exports: [

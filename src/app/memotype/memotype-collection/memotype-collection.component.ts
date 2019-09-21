@@ -25,12 +25,16 @@ export class MemotypeCollectionComponent implements OnInit {
 
   isLoad = true;
 
+  collectionCarousel: any;
+
   constructor(
     private memotypeApi: MemotypeApiService,
     private router: Router
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
+
+    this.initCarousel();
   }
 
   ngOnInit() {
@@ -46,5 +50,16 @@ export class MemotypeCollectionComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  initCarousel() {
+    this.collectionCarousel = {
+      loop: true,
+      nav: true,
+      dots: true,
+      rewindNav: true,
+      autoHeight: true,
+      items: 1
+    };
   }
 }

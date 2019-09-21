@@ -4,7 +4,8 @@
 <div class="super-main-title">
   <span>МОЯ КОЛЛЕКЦИЯ</span>
 </div>
-<div *ngIf="!isLoad">
+<div *ngIf="!isLoad" [style.margin-top]="'15px'">
+  <owl-carousel [carouselClasses]="['owl-nav-inverse team-slider owl-carousel owl-theme owl-carousel-relative owl-dots-top']" [options]="collectionCarousel">
   <div *ngFor="let set of collection">
     <div class="container">
       <div class="row">
@@ -30,6 +31,7 @@
       </div>
     </div>
   </div>
+  </owl-carousel>
 </div>
 <div class="my-button-close main-button-close margin-center" (click)="back()">
   <i class="fa fa-close"></i>

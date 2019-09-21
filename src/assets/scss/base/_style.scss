@@ -947,10 +947,24 @@ section {
   }
 }
 
+.owl-carousel-relative {
+  .owl-carousel {
+    position: relative;
+  }
+}
+
+.owl-dots-top {
+  .owl-dots {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+  }
+}
+
 .testimonial-slider .owl-item img {
   display: block;
   width: 105px;
-
 }
 
 .testi-profile {

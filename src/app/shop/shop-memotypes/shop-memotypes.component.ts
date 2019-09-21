@@ -94,7 +94,7 @@ export class ShopMemotypesComponent implements OnInit {
 
   private initCarousel() {
     this.memotypeCarousel = {
-      loop: true,
+      loop: false,
       margin: 15,
       nav: true,
       dots: false,
