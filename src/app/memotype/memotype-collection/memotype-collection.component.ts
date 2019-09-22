@@ -42,8 +42,16 @@ export class MemotypeCollectionComponent implements OnInit {
   ngOnInit() {
     this.memotypeApi.collection().subscribe(data => {
       this.collection = data.content;
+      this.swapSet();
       this.isLoad = false;
     });
+  }
+
+  swapSet() {
+    const index = Math.floor(Math.random() * this.collection.length);
+    const first = this.collection[index];
+    this.collection[index] = this.collection[0];
+    this.collection[0] = first;
   }
 
   viewMemotype(memotype: Memotype) {
@@ -66,6 +74,7 @@ export class MemotypeCollectionComponent implements OnInit {
       dots: true,
       rewindNav: true,
       autoHeight: true,
+      lazyLoad: true,
       items: 1
     };
   }
