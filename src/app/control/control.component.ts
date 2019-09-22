@@ -36,6 +36,9 @@ export class ControlComponent implements OnInit {
 
   public counter: NotifyCount;
 
+  public showCountBells = false;
+  public showCountItems = false;
+
   constructor(
     private mainApi: MainApiService,
     private socket: WebSocketService,
@@ -48,11 +51,14 @@ export class ControlComponent implements OnInit {
   ngOnInit() {
     this.mainApi.notifyCount().subscribe(data => {
       this.counter = data;
+      this.showCountBells = this.counter.countBells !== 0;
+      this.showCountItems = this.counter.countItems !== 0;
     });
 
     this.socket.counterObservable.subscribe((counter) => {
       if (counter != null) {
         this.counter.countBells++;
+        this.showCountBells = true;
       }
     });
   }
@@ -77,11 +83,11 @@ export class ControlComponent implements OnInit {
 
   updateCounter() {
     if (!this.hideContentItems) {
-      this.counter.countItems = 0;
+      this.showCountItems = false;
     }
 
     if (!this.hideContentBells) {
-      this.counter.countBells = 0;
+      this.showCountBells = false;
     }
   }
 }
