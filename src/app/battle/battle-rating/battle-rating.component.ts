@@ -22,7 +22,7 @@ export class BattleRatingComponent implements OnInit {
   public ratingMy: BattleRating;
 
   isLoad = false;
-  myLoad = false;
+  myShow = false;
 
   memotypeColors = [];
   memotypeNames = [];
@@ -56,10 +56,10 @@ export class BattleRatingComponent implements OnInit {
   }
 
   loadMyRating() {
+    this.myShow = true;
     this.battleApi.ratingMy().subscribe(data => {
       this.ratingMy = data;
       this.myAvatar = this.getAvatar(data.memetick);
-      this.myLoad = true;
     });
   }
 

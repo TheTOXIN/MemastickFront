@@ -43,10 +43,10 @@
   <div class="super-main-title">МОЙ РЕЙТИНГ</div>
 
   <div class="battle-rating-my margin-center">
-    <div *ngIf="!myLoad" class="battle-rating-my-button">
+    <div *ngIf="!myShow" class="battle-rating-my-button">
       <button class="btn-theme" (click)="loadMyRating()">ПОСМОТРЕТЬ</button>
     </div>
-    <div class="battle-rating-member" *ngIf="myLoad">
+    <div *ngIf="myShow" class="battle-rating-member" >
       <div class="battle-rating-position" *ngIf="ratingMy?.exist">
         #<i class="fa fa-trophy" [style.color]="'black'"></i>{{ratingMy?.position + 1}}
       </div>
