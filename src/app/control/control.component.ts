@@ -59,6 +59,7 @@ export class ControlComponent implements OnInit {
       if (counter != null) {
         this.counter.countBells++;
         this.showCountBells = true;
+        this.hide = false;
       }
     });
   }
