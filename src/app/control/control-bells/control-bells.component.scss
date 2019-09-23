@@ -68,6 +68,9 @@
     font-size: 28px;
     margin-top: 1px;
   }
+  &:hover {
+    color: #495057;
+  }
 }
 
 .control-bells-btn-mark {
@@ -77,6 +80,9 @@
   @media(max-width: 767px) {
     font-size: 28px;
     margin-top: 2px;
+  }
+  &:hover {
+    color: #495057;
   }
 }
 
