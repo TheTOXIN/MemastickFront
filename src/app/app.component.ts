@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {OauthApiService} from './services/oauth-api-service';
@@ -13,7 +13,7 @@ import {StorageService} from './services/storage-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   @ViewChild(NotificationComponent) notification: NotificationComponent;
 
@@ -35,6 +35,12 @@ export class AppComponent implements OnInit {
       this.update();
       this.notify();
       this.control(true);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.oauth.checkTokens()) {
+      this.socket.disconnect();
     }
   }
 
