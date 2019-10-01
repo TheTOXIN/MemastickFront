@@ -25,6 +25,7 @@ import {MemesModalComponent} from './memes-modal/memes-modal.component';
 import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
 import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
 import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.co
     MemesRoutingModules,
     TokenModule,
     FormsModule,
-    AngularFittextModule
+    AngularFittextModule,
+    ParticlesModule
   ],
   exports: [
     MemesPageComponent,

@@ -11,23 +11,27 @@
 }
 
 .image {
+  margin-bottom: 50px;
   margin-top: 50px;
-  width: 90%;
+  width: 95%;
 
   img {
     max-width: 100%;
-    max-height: 70%;
+    max-height: 50%;
   }
 }
 
-.sign-buttons {
+.meme-share-button {
   position: fixed;
   right: 0;
   left: 0;
-  bottom: 15px;
+  bottom: 30px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  button {
+    font-size: 24px;
+  }
 }
 
 .home-button {
