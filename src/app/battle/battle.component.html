@@ -1,9 +1,9 @@
+<div *ngIf="isOauth">
+
 <div class="super-main-logo animated slideInDown">
   <img [src]="'assets/images/battle-logo.png'">
 </div>
-
 <div class="battle-container container">
-
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="battle-table arena">
@@ -17,7 +17,6 @@
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-6">
       <div class="battle-table battle-list">
@@ -40,7 +39,6 @@
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-12">
       <div class="battle-table">
@@ -54,7 +52,6 @@
       </div>
     </div>
   </div>
-
   <div class="row" [style.margin-bottom]="'30px'">
     <div class="col-md-4">
       <div class="battle-table button-picker" (click)="toMemes()">
@@ -78,7 +75,16 @@
   <div class="battle-hint animated fadeInUp">
     {{battleHint}}
   </div>
+</div>
 
+</div>
+<div *ngIf="!isOauth">
+  <img class="top-fixed animated slideInDown" [src]="'assets/images/mem-logo.png'" [width]="228">
+  <img class="flex-center-absolute img-fluid animated bounceIn fast" [width]="777" [src]="'assets/images/battle-logo.png'">
+  <div class="bottom-fixed">
+    <p class="animated fadeIn" [style.color]="'white'">ВАМ НУЖНО АВТОРИЗОВАТЬСЯ</p>
+    <button class="btn-theme-inverse animated slideInUp" (click)="toStart()">😉ПОДРОБНЕЕ...</button>
+  </div>
 </div>
 
 <div class="battle-back">

@@ -6,7 +6,7 @@ import {BattleStatus} from '../consts/BattleStatus';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
 import {StorageService} from '../services/storage-service';
-import {timer} from 'rxjs';
+import {OauthApiService} from '../services/oauth-api-service';
 
 @Component({
   selector: 'app-battle',
@@ -26,6 +26,7 @@ export class BattleComponent implements OnInit {
   public battleHint: string;
 
   isLoad = true;
+  isOauth = false;
 
   myStyle: object = {};
   myParams: object = {};
@@ -42,14 +43,17 @@ export class BattleComponent implements OnInit {
     private battleApi: BattleApiService,
     private router: Router,
     private modalService: NgbModal,
-    private storage: StorageService
+    private storage: StorageService,
+    private oauth: OauthApiService
   ) {
     this.battleHint = this.hints[Math.floor(Math.random() * this.hints.length)];
   }
 
   ngOnInit() {
     this.initParticles();
+    this.checkOuath();
 
+    if (!this.isOauth) { return; }
     if (this.storage.battleRule()) { this.toInfo(); }
 
     this.battleApi.home().subscribe(data => {
@@ -63,6 +67,10 @@ export class BattleComponent implements OnInit {
 
       this.isLoad = false;
     });
+  }
+
+  private checkOuath() {
+    this.isOauth = this.oauth.checkTokens();
   }
 
   toArena() {
@@ -79,6 +87,10 @@ export class BattleComponent implements OnInit {
 
   toHome() {
     this.router.navigateByUrl('/home');
+  }
+
+  toStart() {
+    this.router.navigateByUrl('/start');
   }
 
   toInfo() {

@@ -40,6 +40,26 @@
   margin-bottom: 30px;
 }
 
+.top-fixed {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.bottom-fixed {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 .super-absolute {
   position: absolute;
   top: 0;
