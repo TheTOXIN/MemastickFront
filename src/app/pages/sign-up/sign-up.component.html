@@ -30,14 +30,14 @@
           <i class="fa fa-info"></i>
           <input class="form-control" id="exampleInputInvite" name="invite" placeholder="Инвайт код" required="" type="text"
                  [formControl]="signForm.controls['invite']"
-                 (click)="message = 'Отправь заявку на инвайт-код, и получи его по почте'">
+                 (click)="message = 'Если у тебя нету инвайт-кода, отправь заявку, и получи его по почте'">
         </div>
         <div class="form-group">
           <label for="exampleInputLogin">Логин</label>
           <i class="fa fa-user"></i>
           <input class="form-control" id="exampleInputLogin" name="login" placeholder="Логин" required="" type="text"
                  [formControl]="signForm.controls['login']"
-                 (click)="message = 'Логин должен быть от 4 до 20 символов, с цифрами или латинскими буквами, начиная с буквы'">
+                 (click)="message = 'Логин должен быть от 3 до 16 символов, можно с латинскими буквами или цифрами, начиная с буквы'">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Почта</label>

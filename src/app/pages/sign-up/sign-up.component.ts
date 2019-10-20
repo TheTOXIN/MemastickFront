@@ -47,8 +47,8 @@ export class SignUpComponent implements OnInit {
 
       login: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(20)
+        Validators.minLength(3),
+        Validators.maxLength(16)
       ])],
 
       password: ['', Validators.compose([
@@ -90,8 +90,8 @@ export class SignUpComponent implements OnInit {
 
   toLogin() {
     this.oauth.login(
-      this.signForm.value.password,
-      this.signForm.value.login
+      this.signForm.value.login,
+      this.signForm.value.password
     ).subscribe(
       () => this.router.navigateByUrl('/home'),
       () => this.router.navigateByUrl('/pages/sign-in'),
