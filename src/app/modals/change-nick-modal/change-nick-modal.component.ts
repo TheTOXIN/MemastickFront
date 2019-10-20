@@ -14,7 +14,7 @@ import {ErrorCode} from '../../consts/ErrorCode';
 export class ChangeNickModalComponent implements OnInit {
 
   public nickForm: FormGroup;
-  public message = 'Длина ника от 3 до 16 символов. Менять ник можно раз в месяц';
+  public message = 'Длина от 3 до 16 символов. Менять никнейм можно раз в месяц';
 
   @Input()
   public nick = '';
