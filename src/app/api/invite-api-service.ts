@@ -9,12 +9,11 @@ export class InviteApiService {
 
   constructor(private http: HttpClient) {}
 
-  public regInvite(email, nick) {
+  public regInvite(email) {
     return this.http.post(
       API.INVITE_REGISTRATION,
       {
-        email: email,
-        nick: nick
+        email: email
       }
     );
   }

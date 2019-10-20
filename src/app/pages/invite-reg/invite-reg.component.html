@@ -21,7 +21,7 @@
     </div>
 
     <div class="invite-reg-from" *ngIf="showFrom">
-      <div class="section-title">
+      <div class="section-title section-title-my">
         <h2>ИНВАЙТ</h2>
         <span class="msg-invite">*кол-во инвайтов на БЕТА тестирование ограничено*</span>
         <div class="invite-reg-info">
@@ -30,16 +30,6 @@
         </div>
       </div>
       <form class="auth-form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="exampleInputName1">Никнейм</label>
-          <i class="fa fa-user"></i>
-          <input [formControl]="contactForm.controls['nick']" class="form-control" id="exampleInputName1" name="nick"
-                 placeholder="Никнейм"
-                 required="" type="text">
-          <div *ngIf="contactForm.controls.nick.touched && contactForm.controls.nick.errors?.required"
-               class="text text-danger">Никнейм пуст
-          </div>
-        </div>
         <div class="form-group">
           <label for="exampleInputEmail12">Почта</label>
           <i class="fa fa-envelope-o"></i>

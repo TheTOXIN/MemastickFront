@@ -23,17 +23,12 @@ export class InviteRegComponent implements OnInit {
     private service: InviteApiService,
     private router: Router
   ) {
-    this.text = 'Длина ника от 3 до 16 символов';
+    this.text = 'Введите вашу почту';
     this.load = false;
   }
 
   ngOnInit() {
     this.contactForm = this.fb.group({
-      nick: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(ValidConst.MIN_LEN_NCK),
-        Validators.maxLength(ValidConst.MAX_LEN_NCK)
-      ])],
       email: ['', Validators.email],
     });
   }
@@ -43,7 +38,6 @@ export class InviteRegComponent implements OnInit {
 
     this.service.regInvite(
       this.contactForm.value.email,
-      this.contactForm.value.nick
     ).subscribe(() => {
       this.showFrom = false;
       this.load = false;
