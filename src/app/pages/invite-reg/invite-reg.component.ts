@@ -23,7 +23,7 @@ export class InviteRegComponent implements OnInit {
     private service: InviteApiService,
     private router: Router
   ) {
-    this.text = 'Введите вашу почту';
+    this.text = 'Введите вашу почту, чтобы мы отправили вам приглашение';
     this.load = false;
   }
 

@@ -17,6 +17,10 @@ const routes: Routes = [
     path: '',
     children: [
       {
+        path: 'invite',
+        component: InviteRegComponent,
+      },
+      {
         path: 'sign-in',
         component: SignInComponent,
       },
@@ -27,10 +31,6 @@ const routes: Routes = [
       {
         path: 'forget-password',
         component: ForgetPasswordComponent,
-      },
-      {
-        path: 'invite-reg',
-        component: InviteRegComponent,
       },
       {
         path: 'review',

@@ -18,6 +18,10 @@ export class IntroComponent implements OnInit {
   ngOnInit() {
   }
 
+  toIvite() {
+    this.router.navigateByUrl('/pages/invite');
+  }
+
   toSignIn() {
     this.router.navigateByUrl('/pages/sign-in');
   }

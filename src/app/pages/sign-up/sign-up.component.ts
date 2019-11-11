@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
     'Милости прошу к нашему шалашу',
     'Тебе у нас понравится :)',
     'Ты сделал правильный выбор ;)',
-    'Тебя ждет большое будущее',
+    'Тебя ждет большое будущее!',
     'Где тебя носит? Быстрее к нам!'
   ];
 
@@ -42,7 +42,6 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.signForm = this.fb.group({
-      email: ['', Validators.email],
       invite: ['', Validators.required],
 
       login: ['', Validators.compose([
@@ -68,6 +67,7 @@ export class SignUpComponent implements OnInit {
       this.invite = params.invite;
       if (this.invite != null) {
         this.signForm.controls['invite'].setValue(this.invite);
+        this.signForm.controls['invite'].disable();
       }
     });
   }
@@ -76,11 +76,10 @@ export class SignUpComponent implements OnInit {
     this.isLoading = true;
     this.reg.registration(
       new Registration(
-        this.signForm.value.email,
+        this.signForm.value.invite,
         this.signForm.value.login,
         this.signForm.value.password,
         this.signForm.value.passwordRepeat,
-        this.signForm.value.invite
       )
     ).subscribe(
       () => this.toLogin(),
@@ -96,10 +95,6 @@ export class SignUpComponent implements OnInit {
       () => this.router.navigateByUrl('/home'),
       () => this.router.navigateByUrl('/pages/sign-in'),
     );
-  }
-
-  toRegInvite() {
-    this.router.navigateByUrl('/pages/invite-reg');
   }
 
   setError(error: any) {

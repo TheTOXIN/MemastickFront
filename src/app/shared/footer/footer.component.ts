@@ -19,6 +19,6 @@ export class FooterComponent implements OnInit {
   }
 
   toInvite() {
-    this.router.navigateByUrl('/pages/invite-reg');
+    this.router.navigateByUrl('/pages/invite');
   }
 }

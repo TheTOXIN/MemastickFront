@@ -2862,12 +2862,14 @@ li.nav-item.dropdown {
 }
 
 .thanks-bg {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: $color_zircon_approx;
+  background-color: #f5fcff;
   text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border-radius: 30px;
+  z-index: 1;
 }
 
 .error-main {
