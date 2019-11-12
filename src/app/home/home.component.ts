@@ -18,6 +18,8 @@ import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
 import {VERSION} from '../app.constants';
+import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
+import {ModalType} from '../consts/ModalType';
 
 @Component({
   selector: 'app-home',
@@ -61,6 +63,7 @@ export class HomeComponent implements OnInit {
     this.initParticles();
     this.initMe();
     this.initControl();
+    this.initStarter();
   }
 
   @HostListener('window:scroll', [])
@@ -84,6 +87,14 @@ export class HomeComponent implements OnInit {
 
   private initControl() {
     this.app.control(true);
+  }
+
+  initStarter() {
+    this.route.queryParams.subscribe(params => {
+      if (params.modal === ModalType.STARTER) {
+        this.modalService.open(StartInfoModalComponent, {'centered': true});
+      }
+    });
   }
 
   askPush() {

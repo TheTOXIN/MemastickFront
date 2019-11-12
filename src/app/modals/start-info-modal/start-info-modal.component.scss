@@ -1,0 +1,53 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.start-info-text {
+  font-family: FuturaRound, serif;
+  font-size: 24px;
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.start-info-del {
+  border: 2px solid #6c757d;
+  border-radius: 30px;
+  width: 90%;
+  margin: 5px auto;
+}
+
+.start-info-warp {
+  height: 300px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $middle_color;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primary_color;
+  }
+}
+
+.start-info-content {
+  margin: 10px;
+  text-align: center;
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+  p {
+    font-size: 24px;
+  }
+  span {
+    display: inline-block;
+    font-size: 18px;
+  }
+}

@@ -94,7 +94,7 @@ export class SignUpComponent implements OnInit {
       this.signForm.value.login,
       this.signForm.value.password
     ).subscribe(
-      () => this.router.navigateByUrl('/home'),
+      () => this.router.navigateByUrl('/home?modal=STARTER'),
       () => this.router.navigateByUrl('/pages/sign-in'),
     );
   }
