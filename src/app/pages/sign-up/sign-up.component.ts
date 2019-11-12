@@ -74,6 +74,8 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = true;
+    this.signForm.controls['invite'].enable();
+
     this.reg.registration(
       new Registration(
         this.signForm.value.invite,
