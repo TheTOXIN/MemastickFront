@@ -22,6 +22,8 @@ import {DnaModalComponent} from './dna-modal/dna-modal.component';
 import {SharedModule} from '../shared/shared.module';
 import {DonatModalComponent} from './donat-modal/donat-modal.component';
 import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin-history-modal.component';
+import {StartInfoModalComponent} from './start-info-modal/start-info-modal.component';
+import {UserDataModalComponent} from './user-data-modal/user-data-modal.component';
 
 @NgModule({
   exports: [
@@ -40,7 +42,9 @@ import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin
     EpiModalComponent,
     DnaModalComponent,
     DonatModalComponent,
-    MemeCoinHistoryModalComponent
+    MemeCoinHistoryModalComponent,
+    StartInfoModalComponent,
+    UserDataModalComponent
   ],
   imports: [
     CommonModule,
@@ -68,7 +72,9 @@ import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin
     EpiModalComponent,
     DnaModalComponent,
     DonatModalComponent,
-    MemeCoinHistoryModalComponent
+    MemeCoinHistoryModalComponent,
+    StartInfoModalComponent,
+    UserDataModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -86,7 +92,9 @@ import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin
     EpiModalComponent,
     DnaModalComponent,
     DonatModalComponent,
-    MemeCoinHistoryModalComponent
+    MemeCoinHistoryModalComponent,
+    StartInfoModalComponent,
+    UserDataModalComponent
   ]
 })
 export class ModalsModule {

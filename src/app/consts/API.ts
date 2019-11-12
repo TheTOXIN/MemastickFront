@@ -57,6 +57,7 @@ export enum API {
 
   SECURITY_LOGOUT = '/security/logout',
   USER_ME = '/user/me',
+  USER_DATA = '/user/data',
 
   ADMIN_TRANSALTE = '/translator/admin',
   USER_TRANSLATE = '/translator/user',

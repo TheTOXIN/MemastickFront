@@ -9,6 +9,8 @@ import {StorageService} from './storage-service';
 import {User} from '../model/User';
 import {AppComponent} from '../app.component';
 import {WebSocketService} from './web-socket-service';
+import {UserData} from '../model/UserData';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class OauthApiService {
@@ -148,6 +150,12 @@ export class OauthApiService {
       this.storageService.setMe(data);
       console.log(data);
     });
+  }
+
+  public loadData(): Observable<UserData> {
+    return this.http
+      .get<UserData>(API.USER_DATA)
+      .pipe();
   }
 
   private initStatuses() {

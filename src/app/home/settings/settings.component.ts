@@ -9,6 +9,7 @@ import {PushService} from '../../services/push-service';
 import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
+import {UserDataModalComponent} from '../../modals/user-data-modal/user-data-modal.component';
 
 @Component({
   selector: 'app-settings',
@@ -62,6 +63,10 @@ export class SettingsComponent implements OnInit {
   pushWork() {
     this.setting.pushWork = !this.setting.pushWork;
     this.settingApi.push(this.setting.pushWork);
+  }
+
+  profileData() {
+    this.modalService.open(UserDataModalComponent, {'centered': true});
   }
 
   requestPush() {
