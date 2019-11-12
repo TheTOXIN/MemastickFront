@@ -51,6 +51,10 @@ export class MemeTypeIndividComponent implements OnInit {
 
   battleAcceptResult(accept: boolean) {
     if (accept) {
+      if (this.loadStatus === LoaderStatus.LOAD) {
+        return;
+      }
+
       this.loadStatus = LoaderStatus.LOAD;
       this.loadMessage = 'Вызываем меметика на битву';
 

@@ -6,12 +6,14 @@
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div style="margin-top: 30px">
-        <app-spinner *ngIf="isLoad"></app-spinner>
-      </div>
-      <div class="home-table home-table-hello" *ngIf="!isLoad">
-        <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
-        <p class="home-info">{{home?.message}}</p>
+      <div class="home-table home-table-hello">
+        <div *ngIf="isLoad">
+          <app-spinner></app-spinner>
+        </div>
+        <div *ngIf="!isLoad">
+          <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
+          <p class="home-info">{{home?.message}}</p>
+        </div>
       </div>
     </div>
   </div>

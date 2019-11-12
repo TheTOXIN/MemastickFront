@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div *ngIf="isLogin">
+  <div *ngIf="isLogin" class="meme-share-login-warp">
     <app-memes-page
       (viewer)="memeView($event)"
       (researcher)="memeResearch($event)"

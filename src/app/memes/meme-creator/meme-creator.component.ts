@@ -69,6 +69,7 @@ export class MemeCreatorComponent implements OnInit {
 
   toggleHover(event: boolean) {
     this.isHovering = event;
+    console.log('test');
   }
 
   uploadDrop(event) {

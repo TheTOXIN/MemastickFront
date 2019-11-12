@@ -26,7 +26,7 @@
           <label for="exampleInputEmail1">Почта</label>
           <i class="fa fa-envelope-o"></i>
           <input [formControl]="signForm.controls['email']" class="form-control" id="exampleInputEmail1" name="email" placeholder="Почта" required="" type="email">
-          <span class="icon-form icon-form-email" (click)="signType = 'login'">Логин</span>
+          <span class="icon-form icon-form-email" (click)="signType = 'login'"><i class="fa fa-envelope icon-form"></i></span>
         </div>
         <div class="form-group" [style.display]="signType === 'login' ? 'block' : 'none'">
           <label for="exampleInputLogin1">Логин</label>

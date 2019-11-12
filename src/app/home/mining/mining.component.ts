@@ -161,6 +161,7 @@ export class MiningComponent implements OnInit {
 
   public flush() {
     if (this.cache === 0) { this.toHome(); return; }
+    if (this.loadStatus === LoaderStatus.LOAD) { return; }
 
     this.loadMessage = 'Подтверждение транзакции';
     this.loadStatus = LoaderStatus.LOAD;

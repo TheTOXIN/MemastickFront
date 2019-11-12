@@ -81,6 +81,8 @@ export class BattleArenaComponent implements OnInit {
   }
 
   giveVote(memberId: UUID, stateAnim: any) {
+    if (this.isVote) { return; }
+
     this.cookieState = stateAnim;
     this.isVote = true;
 

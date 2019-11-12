@@ -60,6 +60,7 @@
 }
 
 .home-button {
+  margin-bottom: 14px;
   button {
     font-family: FuturaRound, serif;
     border-radius: 30px;
@@ -77,14 +78,14 @@
 
 .home-stats {
   p {
-    font-family: FuturaRound, serif;
-    font-size: 24px;
+    font-family: Futurica, serif, serif;
+    font-size: 32px;
     padding: 20px;
     color: black;
   }
   @media(max-width: 767px) {
     p {
-      font-size: 18px;
+      font-size: 24px;
     }
   }
 }
