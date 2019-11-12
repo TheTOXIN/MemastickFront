@@ -58,12 +58,12 @@
 
 .create-tap {
   margin-bottom: 0;
-  z-index: 1;
-  &:hover {
-    animation-duration: 1.3s;
-    animation-iteration-count: infinite;
-    animation-name: bounceIn;
-  }
+}
+
+.cell-anim {
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-name: bounceIn;
 }
 
 .spin-anim {

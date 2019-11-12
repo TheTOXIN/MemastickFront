@@ -41,6 +41,7 @@ export class MemeCreatorComponent implements OnInit {
   isHovering = false;
   isPreview = false;
   isCreate = false;
+  isAnim = false;
 
   constructor(
     private router: Router,
@@ -77,6 +78,7 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   uploadClick(event) {
+    this.isAnim = true;
     this.upload(event.target.files);
   }
 
