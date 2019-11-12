@@ -2,3 +2,12 @@
   padding-right: 0;
   padding-left: 0;
 }
+
+.about-description {
+  font-family: FuturaRound, serif;
+  font-size: 20px;
+  margin: 10px;
+  @media(max-width: 767px) {
+    font-size: 16px;
+  }
+}
