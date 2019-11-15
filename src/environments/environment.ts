@@ -10,6 +10,7 @@ export const environment = {
   },
   version: '0.5.4 dev',
   frontUrl: 'http://localhost:4200',
-  backUrl: 'http://localhost:8080'
+  backUrl: 'http://localhost:8080',
+  vkChat: false
 };
 

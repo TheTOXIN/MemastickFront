@@ -10,5 +10,6 @@ export const environment = {
   },
   version: '0.5.4 beta',
   backUrl: 'https://memastick-back.herokuapp.com',
-  frontUrl: 'https://www.memastick.ru'
+  frontUrl: 'https://www.memastick.ru',
+  vkChat: true
 };

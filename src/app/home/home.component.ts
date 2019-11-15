@@ -17,7 +17,7 @@ import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.compo
 import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
-import {VERSION} from '../app.constants';
+import {VERSION, VK_CHAT} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {ModalType} from '../consts/ModalType';
 
@@ -100,12 +100,14 @@ export class HomeComponent implements OnInit {
   }
 
   private initVK() {
-    const ss = document.createElement('script');
+    if (VK_CHAT) {
+      const ss = document.createElement('script');
 
-    ss.type = 'text/javascript';
-    ss.innerText = 'VK.Widgets.Comments("vk_comments", {limit: 5, attach: false}, );';
+      ss.type = 'text/javascript';
+      ss.innerText = 'VK.Widgets.Comments("vk_comments", {limit: 5, attach: false}, );';
 
-    this.elementRef.nativeElement.appendChild(ss);
+      this.elementRef.nativeElement.appendChild(ss);
+    }
   }
 
   askPush() {
