@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
     private modalService: NgbModal,
     private storage: StorageService,
     private app: AppComponent,
+    private elementRef: ElementRef,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -64,6 +65,7 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
+    this.initVK();
   }
 
   @HostListener('window:scroll', [])
@@ -89,12 +91,21 @@ export class HomeComponent implements OnInit {
     this.app.control(true);
   }
 
-  initStarter() {
+  private initStarter() {
     this.route.queryParams.subscribe(params => {
       if (params.modal === ModalType.STARTER) {
         this.modalService.open(StartInfoModalComponent, {'centered': true});
       }
     });
+  }
+
+  private initVK() {
+    const ss = document.createElement('script');
+
+    ss.type = 'text/javascript';
+    ss.innerText = 'VK.Widgets.Comments("vk_comments", {limit: 5, attach: false}, );';
+
+    this.elementRef.nativeElement.appendChild(ss);
   }
 
   askPush() {
