@@ -12,6 +12,9 @@
     <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
       <img [src]="evolveIcons[data.page?.step]" (click)="evolveStepInfo(data.page?.step)">
     </div>
+    <div class="memes-info-slct" *ngIf="data.page?.meme?.type === 'SLCT'">
+      <img [src]="'assets/images/icon/select.png'">
+    </div>
   </div>
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>

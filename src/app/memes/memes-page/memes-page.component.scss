@@ -95,6 +95,25 @@
   }
 }
 
+.memes-info-slct {
+  height: 100%;
+  width: 30%;
+  img {
+    float: right;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  @media(max-width: 767px) {
+    img {
+      float: right;
+      width: 54px;
+      height: 54px;
+      max-width: none;
+      max-height: none;
+    }
+  }
+}
+
 .meme-page-text-view {
 
 }
