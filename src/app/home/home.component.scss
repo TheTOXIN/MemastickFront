@@ -149,3 +149,10 @@
   font-family: FuturaRound, serif, serif;
   text-align: center;
 }
+
+.vk-container {
+  width: 80%;
+  @media(max-width: 767px) {
+    width: 100%;
+  }
+}
