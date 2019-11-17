@@ -30,7 +30,7 @@ export class StartInfoModalComponent implements OnInit {
     image: 'assets/images/icon/mining.png',
   },{
     title: 'МЕМОТИПЫ',
-    text: 'коллекционные предметы в виде стикеров, на разные вирусы темы',
+    text: 'коллекционные предметы в виде стикеров, на разные вирусные темы',
     image: 'assets/images/icon/memotype.png',
   },{
     title: 'МАГАЗИН',

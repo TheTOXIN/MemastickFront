@@ -8,6 +8,7 @@ import {GlobalConst} from '../consts/GlobalConst';
 const PUSH_ASK = 'PUSH_ASK';
 const BATTLE_RULE = 'BATTLE_RULE';
 const ME = 'ME';
+const START_INFO = 'START_INFO';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
@@ -77,8 +78,16 @@ export class StorageService {
   }
 
   public battleRule(): boolean {
-    if (!localStorage.getItem(BATTLE_RULE)) {
-      localStorage.setItem(BATTLE_RULE, 'true');
+    return this.checkerItem(BATTLE_RULE);
+  }
+
+  public showStartInfo(): boolean {
+    return this.checkerItem(START_INFO);
+  }
+
+  private checkerItem(key: string): boolean {
+    if (!localStorage.getItem(key)) {
+      localStorage.setItem(key, 'true');
       return true;
     } else {
       return false;

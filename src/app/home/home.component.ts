@@ -94,7 +94,9 @@ export class HomeComponent implements OnInit {
   private initStarter() {
     this.route.queryParams.subscribe(params => {
       if (params.modal === ModalType.STARTER) {
-        this.modalService.open(StartInfoModalComponent, {'centered': true});
+        if (this.storage.showStartInfo()) {
+          this.modalService.open(StartInfoModalComponent, {'centered': true});
+        }
       }
     });
   }
