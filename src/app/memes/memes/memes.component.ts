@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {Meme} from '../../model/Meme';
@@ -6,6 +6,9 @@ import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {StorageService} from '../../services/storage-service';
+import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
 
 @Component({
   selector: 'app-memes',
@@ -23,7 +26,9 @@ export class MemesComponent implements OnInit, OnDestroy {
   constructor(
     public pagination: MemesPaginationService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal,
+    private storage: StorageService
   ) {
 
   }
@@ -51,6 +56,14 @@ export class MemesComponent implements OnInit, OnDestroy {
         memetick
       );
     });
+
+    this.checkEvolveInfo();
+  }
+
+  private checkEvolveInfo() {
+    if (this.storage.showEvolveInfo()) {
+      this.modalService.open(AlgorithmModalComponent, {'centered': true});
+    }
   }
 
   ngOnDestroy() {
@@ -73,9 +86,5 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   memeResearch(meme: Meme) {
     this.research.researchShow(meme);
-  }
-
-  toSelect() {
-    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.SLCT}});
   }
 }

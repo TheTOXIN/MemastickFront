@@ -1,3 +1,28 @@
 .my-modal-body {
   max-width: 100%;
 }
+
+.alg-image {
+  height: 333px;
+}
+
+.stats {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.stats-info {
+  p {
+    font-family: FuturaRound, serif;
+    font-size: 20px;
+    color: black;
+  }
+  img {
+    width: 32px;
+    height: 32px;
+  }
+  span {
+    font-family: Arial, serif;
+    font-size: 18px;
+  }
+}

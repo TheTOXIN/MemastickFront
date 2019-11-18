@@ -7,8 +7,9 @@ import {GlobalConst} from '../consts/GlobalConst';
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
 const BATTLE_RULE = 'BATTLE_RULE';
-const ME = 'ME';
 const START_INFO = 'START_INFO';
+const EVOLVE_INFO = 'EVOLVE_INFO';
+const ME = 'ME';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
@@ -79,6 +80,10 @@ export class StorageService {
 
   public battleRule(): boolean {
     return this.checkerItem(BATTLE_RULE);
+  }
+
+  public showEvolveInfo() {
+    return this.checkerItem(EVOLVE_INFO);
   }
 
   public showStartInfo(): boolean {
