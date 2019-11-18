@@ -43,24 +43,9 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.signForm = this.fb.group({
       invite: ['', Validators.required],
-
-      login: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(16)
-      ])],
-
-      password: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20)
-      ])],
-
-      passwordRepeat: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20)
-      ])],
+      login: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
     });
 
     this.route.queryParams.subscribe(params => {

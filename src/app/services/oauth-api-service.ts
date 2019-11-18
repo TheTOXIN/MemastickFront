@@ -162,7 +162,7 @@ export class OauthApiService {
     this.statuses['SUCCESSFUL'] = 'Успешная операция!';
     this.statuses['ERROR'] = 'Ошибка операции!';
     this.statuses['PASSWORD_WEAK'] = 'Слабый или неподходящий пароль';
-    this.statuses['PASSWORD_REPEAT'] = 'Неверно  подтвержден пароль';
+    this.statuses['PASSWORD_REPEAT'] = 'Неверно подтвержден пароль';
     this.statuses['LOGIN_EXIST'] = 'Логин уже занят';
     this.statuses['EMAIL_EXIST'] = 'Почта уже используется';
     this.statuses['LOGIN_INVALID'] = 'Некорректный логин';
