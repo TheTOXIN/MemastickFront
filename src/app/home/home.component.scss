@@ -156,3 +156,10 @@
     width: 100%;
   }
 }
+
+.col-picker {
+  @media(max-width: 767px) {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+}
