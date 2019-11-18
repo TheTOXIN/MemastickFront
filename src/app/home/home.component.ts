@@ -28,6 +28,7 @@ import {ModalType} from '../consts/ModalType';
 })
 export class HomeComponent implements OnInit {
 
+  public today: number = Date.now();
   public versionMessage = 'ver: ' + VERSION;
 
   filters = MemeFilter;
@@ -275,9 +276,5 @@ export class HomeComponent implements OnInit {
       },
       retina_detect: true
     };
-  }
-
-  year() {
-    return (new Date()).getFullYear();
   }
 }
