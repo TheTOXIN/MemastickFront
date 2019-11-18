@@ -2,8 +2,12 @@
   max-width: 100%;
 }
 
-.alg-image {
+.alg-modal-wrap {
   height: 333px;
+}
+
+.alg-image {
+  height: 300px;
 }
 
 .stats {
@@ -12,17 +16,20 @@
 }
 
 .stats-info {
-  p {
-    font-family: FuturaRound, serif;
-    font-size: 20px;
-    color: black;
-  }
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   img {
     width: 32px;
     height: 32px;
   }
   span {
-    font-family: Arial, serif;
+    font-family: FuturaRound, serif;
+    font-size: 20px;
+    color: black;
+  }
+  div {
+    font-family: Futurica, serif;
     font-size: 18px;
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {ValidConst} from '../../consts/ValidConst';
 
 @Component({
   selector: 'app-algorithm-modal',
@@ -7,6 +8,8 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./algorithm-modal.component.scss']
 })
 export class AlgorithmModalComponent {
+
+  constants = ValidConst;
 
   constructor(
     public activeModal: NgbActiveModal

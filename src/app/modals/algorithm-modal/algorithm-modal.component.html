@@ -1,26 +1,33 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title">АЛГОРИТМ</span>
+    <span class="modal-title">АЛГОРИТМ ЭВОЛЮЦИИ</span>
   </div>
   <div class="my-modal-body modal-body">
-    <p>*Каждый час новый этап</p>
-    <img class="img-fluid alg-image" src="assets/images/steps/algorithm.png">
-    <p>*Отбор начинается в 00:00 по UTC</p>
-    <div class="stats">
-      <div class="stats-info">
-        <img class="img-fluid" src="assets/images/icon/1.png">
-        <p>ОСОБИ</p>
-        <span>...</span>
+    <div class="alg-modal-wrap my-scroll">
+      <div>
+      <p>Создавать мем можно раз в день</p>
+      <p>Каждый час  наступает новый этап</p>
+      <img class="img-fluid alg-image" src="assets/images/steps/algorithm.png">
+      <p>Отбор начинается в 00:00 по UTC</p>
+      <p>Выживает 50% и иммунизированные</p>
       </div>
-      <div class="stats-info">
-        <img class="img-fluid" src="assets/images/icon/2.png">
-        <p>ХРОМОСОМЫ</p>
-        <span>...</span>
-      </div>
-      <div class="stats-info">
-        <img class="img-fluid" src="assets/images/icon/3.png">
-        <p class="stats-title">ДНК</p>
-        <span>...</span>
+      <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
+      <div class="stats">
+        <div class="stats-info">
+          <img class="img-fluid" src="assets/images/icon/1.png">
+          <span>ОСОБИ</span>
+          <div>Особь - это мем который прошёл весь алгоритм эволюции и выжил при отборе. Может принимать участие в битвах</div>
+        </div>
+        <div class="stats-info">
+          <img class="img-fluid" src="assets/images/icon/2.png">
+          <span>ХРОМОСОМЫ</span>
+          <div>Хромосомы являются основным показателем приспособленности мемов. Каждый Мемеметик может накрутить мему до {{constants.MAX_CHROMOSOME}} хромосом.</div>
+        </div>
+        <div class="stats-info">
+          <img class="img-fluid" src="assets/images/icon/3.png">
+          <span class="stats-title">ДНК</span>
+          <div>Это опыт для прокачки уровня и звания(*в разарботке) Меметика, получаемый за исследования и различную активность в системе</div>
+        </div>
       </div>
     </div>
   </div>
