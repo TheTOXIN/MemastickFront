@@ -5,12 +5,19 @@ import {ValidConst} from '../../consts/ValidConst';
 import {FRONT_URL} from '../../app.constants';
 import {Router} from '@angular/router';
 
+enum SignType {
+  LOGIN,
+  EMAIL
+}
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+
+  public signTypes = SignType;
 
   private messages = [
     'Мы уже соскучились по тебе :)',
@@ -24,7 +31,7 @@ export class SignInComponent implements OnInit {
   public error = false;
 
   public signForm: FormGroup;
-  public signType: String = 'login';
+  public signType: SignType = SignType.LOGIN;
 
   public isLoading = false;
 
@@ -54,12 +61,17 @@ export class SignInComponent implements OnInit {
 
     if (!this.onValid()) { return; }
 
-    let username = this.signForm.value.login;
-    const password = this.signForm.value.password;
+    let username;
 
-    if (username == null || username === '') {
+    if (this.signType === SignType.LOGIN) {
+      username = this.signForm.value.login;
+    }
+
+    if (this.signType === SignType.EMAIL) {
       username = this.signForm.value.email;
     }
+
+    const password = this.signForm.value.password;
 
     this.oauth
       .login(username, password)
@@ -68,6 +80,10 @@ export class SignInComponent implements OnInit {
         () => this.login(),
         (data) => this.invalid(data.error),
       );
+  }
+
+  setSignType(type: SignType) {
+    this.signType = type;
   }
 
   setErrorMessage(mes: String) {
