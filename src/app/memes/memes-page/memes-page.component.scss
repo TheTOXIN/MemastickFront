@@ -44,18 +44,10 @@
 .memes-info-nick {
   height: 100%;
   width: 50%;
-  span {
+  text-align: left;
+  div {
     font-family: Futurica, serif;
-    float: left;
-    margin-left: 10px;
     color: #212529;
-    font-size: 32px;
-    margin-top: 14px;
-  }
-  @media(max-width: 767px) {
-    span {
-      font-size: 28px;
-    }
   }
 }
 

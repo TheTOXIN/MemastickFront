@@ -3,8 +3,8 @@
     <div class="memes-info-avatar">
       <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickView(data.page?.memetick.id)">
     </div>
-    <div class="memes-info-nick">
-      <span> {{data.page?.memetick?.nick}} </span>
+    <div class="memes-info-nick text-strong-middle">
+      <div fittext [minFontSize]="16" [maxFontSize]="28"> {{data.page?.memetick?.nick}} </div>
     </div>
     <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
       <span>#{{data.page?.meme.epi.individuation}}</span>
