@@ -196,8 +196,12 @@
     }
   }
   @media(max-width: 767px) {
+    img {
+      width: 64px;
+      height: 64px;
+    }
     p {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 }
@@ -269,6 +273,11 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+.border-padding-zero {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @keyframes spinMemeType {
