@@ -17,7 +17,7 @@
 <div *ngIf="showPanel">
   <div class="step-panel">
     <div class="step-panel-icon" (click)="update()">
-      <i class="fa fa-retweet"></i>
+      <i class="fa fa-retweet" [style.color]="!isUpdate ? '#495057' : ''"></i>
     </div>
     <div class="step-panel-img" (click)="show()">
       <img [src]="filterIcons[modePanel]">

@@ -3,23 +3,23 @@
     <span class="modal-title">СПРАВОЧНИК</span>
   </div>
   <div class="modal-body user-data-modal">
+    <div class="start-info-warp my-scroll">
     <div class="start-info-text">
       Добро пожаловать! 😉
       Вот тебе небольшая справка по проекту.
     </div>
     <div class="start-info-del"></div>
-    <div class="start-info-warp">
       <div *ngFor="let info of inofs" class="start-info-content">
         <img [src]="info.image">
         <p>{{info.title}}</p>
         <span>{{info.text}}</span>
       </div>
-    </div>
     <div class="start-info-del"></div>
     <div class="start-info-text">
       Отлично! 😀
       Теперь ты готов творить контент!
     </div>
+  </div>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">

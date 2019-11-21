@@ -24,6 +24,7 @@ export class MemesPanelComponent implements OnInit {
   private filterIcons = [];
 
   currentStep: any = null;
+  isUpdate = false;
 
   steps = [{
     name: 'Адаптация',
@@ -55,6 +56,10 @@ export class MemesPanelComponent implements OnInit {
   ngOnInit() {
     if (this.modePanel === MemeFilter.POOL) {
       this.needStepList = true;
+    }
+
+    if (this.storage.getMemePage(this.modePanel) !== 0) {
+      this.isUpdate = true;
     }
   }
 
