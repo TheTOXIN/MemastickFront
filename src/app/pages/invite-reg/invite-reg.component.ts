@@ -46,6 +46,8 @@ export class InviteRegComponent implements OnInit {
         this.text = 'Вы уже отправляли запрос, попробуйте позже';
       } else if (data.error.code === ErrorCode.EMAIL_NOT_SEND) {
         this.text = 'Не удалось отправить инвайт на почту';
+      } else if (data.error.code === ErrorCode.EMAIL_INVALID) {
+        this.text = 'Неверно введена почта!';
       } else {
         this.text = 'Ошибка, попробуйте в другой раз';
       }

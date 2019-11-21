@@ -5,6 +5,7 @@ import {Registration} from '../../model/Registration';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {securityStatuses} from '../../consts/SecurityStatus';
 
 @Component({
   selector: 'app-sign-up',
@@ -87,7 +88,7 @@ export class SignUpComponent implements OnInit {
   setError(error: any) {
     this.error = true;
     this.isLoading = false;
-    this.message = this.oauth.statuses[error.error];
+    this.message = securityStatuses[error.error];
     if (this.message == null) { this.message = 'Ошибка регистрации'; }
   }
 }

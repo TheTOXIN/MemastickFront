@@ -1,11 +1,22 @@
 export enum SecurityStatus {
-  SUCCESSFUL = 'Успешная операция!',
-  ERROR = 'Ошибка операции!',
-  PASSWORD_WEAK = 'Слабый или неподходящий пароль',
-  PASSWORD_REPEAT = 'Неверно подтвержден пароль',
-  LOGIN_EXIST = 'Логин уже занят',
-  EMAIL_EXIST = 'Почта уже испольлзуется',
-  LOGIN_INVALID = 'Некорректный логин',
-  EMAIL_INVALID = 'Некорректная почта',
-  INVITE = 'Инвайт-код не действителен'
+  SUCCESSFUL = 'SUCCESSFUL',
+  ERROR = 'ERROR',
+  PASSWORD_INVALID = 'PASSWORD_INVALID',
+  PASSWORD_REPEAT = 'PASSWORD_REPEAT',
+  LOGIN_EXIST = 'LOGIN_EXIST',
+  LOGIN_INVALID = 'LOGIN_INVALID',
+  INVITE = 'INVITE'
 }
+
+export const securityStatuses = [];
+
+securityStatuses[SecurityStatus.SUCCESSFUL] = 'Успешная операция!';
+securityStatuses[SecurityStatus.ERROR] = 'Ошибка операции!';
+securityStatuses[SecurityStatus.PASSWORD_INVALID] = 'Некорректный пароль';
+securityStatuses[SecurityStatus.PASSWORD_REPEAT] = 'Неверно подтвержден пароль';
+securityStatuses[SecurityStatus.LOGIN_EXIST] = 'Логин уже занят';
+securityStatuses[SecurityStatus.LOGIN_INVALID] = 'Некорректный логин';
+securityStatuses[SecurityStatus.INVITE] = 'Инвайт-код не действителен';
+
+
+

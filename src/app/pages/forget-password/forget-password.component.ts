@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PasswordApiService} from '../../api/password-api-service';
 import {OauthApiService} from '../../services/oauth-api-service';
+import {securityStatuses} from '../../consts/SecurityStatus';
 
 @Component({
   selector: 'app-forget-password',
@@ -73,7 +74,7 @@ export class ForgetPasswordComponent implements OnInit {
       this.changeForm.value.passwordRepeat
     ).subscribe(
       () => this.nextStep(),
-      error => this.setError(this.oauth.statuses[error.error])
+      error => this.setError(securityStatuses[error.error])
     );
   }
 
@@ -89,5 +90,4 @@ export class ForgetPasswordComponent implements OnInit {
     this.stepNumber++;
     this.message = this.messages[this.stepNumber - 1];
   }
-
 }

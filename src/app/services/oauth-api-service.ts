@@ -7,15 +7,12 @@ import {tap} from 'rxjs/operators';
 import {PushService} from './push-service';
 import {StorageService} from './storage-service';
 import {User} from '../model/User';
-import {AppComponent} from '../app.component';
 import {WebSocketService} from './web-socket-service';
 import {UserData} from '../model/UserData';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class OauthApiService {
-
-  public statuses = [];
 
   private keyAccess = 'access_token_meme';
   private keyRefresh = 'refresh_token_meme';
@@ -30,7 +27,7 @@ export class OauthApiService {
     private storageService: StorageService,
     private socket: WebSocketService
   ) {
-    this.initStatuses();
+
   }
 
   public login(username, password) {
@@ -156,17 +153,5 @@ export class OauthApiService {
     return this.http
       .get<UserData>(API.USER_DATA)
       .pipe();
-  }
-
-  private initStatuses() {
-    this.statuses['SUCCESSFUL'] = 'Успешная операция!';
-    this.statuses['ERROR'] = 'Ошибка операции!';
-    this.statuses['PASSWORD_WEAK'] = 'Слабый или неподходящий пароль';
-    this.statuses['PASSWORD_REPEAT'] = 'Неверно подтвержден пароль';
-    this.statuses['LOGIN_EXIST'] = 'Логин уже занят';
-    this.statuses['EMAIL_EXIST'] = 'Почта уже используется';
-    this.statuses['LOGIN_INVALID'] = 'Некорректный логин';
-    this.statuses['EMAIL_INVALID'] = 'Некорректная почта';
-    this.statuses['INVITE'] = 'Инвайт-код не действителен';
   }
 }
