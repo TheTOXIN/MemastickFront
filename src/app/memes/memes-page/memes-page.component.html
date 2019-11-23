@@ -9,12 +9,18 @@
     <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
       <span>#{{data.page?.meme.epi.individuation}}</span>
     </div>
+
+    <!-- TODO ЗАРИФАКАРИТЬ НАХУЙ -->
     <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
       <img [src]="evolveIcons[data.page?.step]" (click)="evolveStepInfo(data.page?.step)">
     </div>
     <div class="memes-info-slct" *ngIf="data.page?.meme?.type === 'SLCT'">
       <img [src]="'assets/images/icon/select.png'">
     </div>
+    <div class="memes-info-slct" *ngIf="data.page?.meme?.type === 'INDV'">
+      <img [src]="'assets/images/icon/1.png'">
+    </div>
+
   </div>
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
@@ -27,7 +33,7 @@
     <div class="like-icon-1">
       <div class="like-img-1">
         <img class="img-fluid select-none" [@rotatedState]='data.chromosomeState' (click)="triggerChromosome(data)"
-             src="assets/images/icon/2.png" [class.full]="fullChromosome(data) || isMemeDeath(data.page.meme)">
+             src="assets/images/icon/chromosome.png" [class.full]="fullChromosome(data) || isMemeDeath(data.page.meme)">
         <div class="chromosome-counter">
           <div [@counterState]='data.counterState' class="counter">
             <span>{{data.page?.likes.myChromosomes}}</span>
