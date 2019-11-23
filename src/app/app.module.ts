@@ -56,6 +56,7 @@ import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
+import {MetrikaModule} from 'ng-yandex-metrika';
 
 firebase.initializeApp(environment.firebase);
 
@@ -83,7 +84,8 @@ firebase.initializeApp(environment.firebase);
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    MetrikaModule.forRoot({id: 56352478, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true})
   ],
   providers: [
     AppComponent,
