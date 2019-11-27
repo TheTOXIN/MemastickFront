@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "xyz.appmaker.qkufdm",
-      "sha256_cert_fingerprints": ["1D:3E:B1:59:AB:A6:8A:57:48:54:42:3D:2C:84:4B:D3:3C:A5:59:43:0E:CE:F0:40:C4:CC:EC:1E:A5:90:CD:56"]
+      "sha256_cert_fingerprints": ["1C:C5:18:79:B4:03:4D:AB:DC:1D:85:E1:0C:E9:DC:DD:C6:CE:0C:CC:5C:6E:E0:F4:44:D6:7B:67:BA:58:B5:6D"]
     }
   }
 ]
