@@ -57,6 +57,7 @@ import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
 import {MetrikaModule} from 'ng-yandex-metrika';
+import {DonaterApiService} from './api/donater-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -121,6 +122,7 @@ firebase.initializeApp(environment.firebase);
     TranslatorApiService,
     MemotypeApiService,
     BattleApiService,
+    DonaterApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

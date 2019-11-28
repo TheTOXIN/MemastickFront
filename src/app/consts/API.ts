@@ -86,4 +86,7 @@ export enum API {
   BATTLE_HOME = '/battle/home',
   BATTLE_RATING_MY = '/battle-rating/my',
   BATTLE_RATING_MAIN = '/battle-rating/main',
+
+  DONATER_RANDOM_MESSAGE = '/donater-messages/random',
+  DONATER_READ_RATING = '/donater-ratings/read',
 }
