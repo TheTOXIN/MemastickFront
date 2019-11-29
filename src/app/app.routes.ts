@@ -3,6 +3,7 @@ import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {RedirectRootComponent} from './shared/redirect-root/redirect-root.component';
 import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 import {ShopComponent} from './shop/shop.component';
+import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -34,6 +35,10 @@ export const rootRouterConfig: Routes = [
   {
     path: 'modal',
     component: ModalLinkComponent
+  },
+  {
+    path: 'donaters',
+    component: DonaterRatingComponent
   },
   {
     path: '**',

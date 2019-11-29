@@ -76,36 +76,44 @@
     </div>
   </div>
 
-    <div class="row" style="padding-bottom: 30px">
+  <div class="row">
 
-        <div class="col-3 text-center col-picker">
-          <div class="home-table button-picker" (click)="allowance()">
-            <img src="assets/images/icon/allowance.png">
-            <p>ПОСОБИЕ</p>
-          </div>
+      <div class="col-3 text-center col-picker">
+        <div class="home-table button-picker" (click)="allowance()">
+          <img src="assets/images/icon/allowance.png">
+          <p>ПОСОБИЕ</p>
         </div>
+      </div>
 
-        <div class="col-3 text-center col-picker">
-          <div class="home-table button-picker" (click)="algorithm()">
-            <img src="assets/images/icon/algorithm_icon.png">
-            <p>АЛГОРИТМ</p>
-          </div>
+      <div class="col-3 text-center col-picker">
+        <div class="home-table button-picker" (click)="algorithm()">
+          <img src="assets/images/icon/algorithm_icon.png">
+          <p>АЛГОРИТМ</p>
         </div>
+      </div>
 
-        <div class="col-3 text-center col-picker">
-          <div class="home-table button-picker" (click)="docDna()">
-            <img src="assets/images/icon/dna_doc.png">
-            <p>ДОК.ДНК</p>
-          </div>
+      <div class="col-3 text-center col-picker">
+        <div class="home-table button-picker" (click)="docDna()">
+          <img src="assets/images/icon/dna_doc.png">
+          <p>ДОК.ДНК</p>
         </div>
-        <div class="col-3 text-center col-picker">
-          <div class="home-table button-picker" (click)="socNet()">
-            <img src="assets/images/icon/community.png">
-            <p>СОЦ.СЕТИ</p>
-          </div>
+      </div>
+      <div class="col-3 text-center col-picker">
+        <div class="home-table button-picker" (click)="socNet()">
+          <img src="assets/images/icon/community.png">
+          <p>СОЦ.СЕТИ</p>
         </div>
+      </div>
 
+  </div>
+
+  <div class="row" style="padding-bottom: 30px">
+    <div class="col-md-12 text-center">
+      <div class="home-table">
+        <app-donater-message></app-donater-message>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="vk-container container">

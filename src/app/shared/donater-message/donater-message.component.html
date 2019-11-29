@@ -1,0 +1,19 @@
+<div *ngIf="isLoad">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoad" class="donate-msg-content">
+  <div class="donate-msg-wrap">
+    <div class="donate-msg-number">
+      МЕССЕДЖ #{{donater.number}}
+    </div>
+    <div class="donate-msg-message">
+      „ {{donater.message}} “
+    </div>
+    <div class="donate-msg-name">
+      © {{donater.name}}
+    </div>
+  </div>
+  <div class="donate-info">
+    <i class="fa fa-question-circle" (click)="messageInfo()"></i>
+  </div>
+</div>

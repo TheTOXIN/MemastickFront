@@ -6,6 +6,7 @@ import {MemetickRatingComponent} from './memetick-rating/memetick-rating.compone
 import {SettingsComponent} from './settings/settings.component';
 import {LibraryComponent} from './library/library.component';
 import {MiningComponent} from './mining/mining.component';
+import {DonaterRatingComponent} from '../shared/donater-rating/donater-rating.component';
 
 const routes: Routes = [
   {

@@ -24,6 +24,7 @@ import {DonatModalComponent} from './donat-modal/donat-modal.component';
 import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin-history-modal.component';
 import {StartInfoModalComponent} from './start-info-modal/start-info-modal.component';
 import {UserDataModalComponent} from './user-data-modal/user-data-modal.component';
+import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/donater-message-info-modal.component';
 
 @NgModule({
   exports: [
@@ -44,7 +45,8 @@ import {UserDataModalComponent} from './user-data-modal/user-data-modal.componen
     DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
-    UserDataModalComponent
+    UserDataModalComponent,
+    DonaterMessageInfoModalComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,8 @@ import {UserDataModalComponent} from './user-data-modal/user-data-modal.componen
     DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
-    UserDataModalComponent
+    UserDataModalComponent,
+    DonaterMessageInfoModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -94,7 +97,8 @@ import {UserDataModalComponent} from './user-data-modal/user-data-modal.componen
     DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
-    UserDataModalComponent
+    UserDataModalComponent,
+    DonaterMessageInfoModalComponent
   ]
 })
 export class ModalsModule {

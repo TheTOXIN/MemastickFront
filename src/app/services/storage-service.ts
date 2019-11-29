@@ -3,6 +3,7 @@ import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
 import {GlobalConst} from '../consts/GlobalConst';
+import {DonaterMessage} from '../model/donaters/DonaterMessage';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
@@ -14,6 +15,7 @@ const ME = 'ME';
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const HELLO = 'HELLO';
+const DONATER_MESSAGE = 'DONATER_MESSAGE';
 
 @Injectable()
 export class StorageService {
@@ -76,6 +78,16 @@ export class StorageService {
 
   public setHello(hello: string) {
     sessionStorage.setItem(HELLO, hello);
+  }
+
+  public getDonaterMessage(): DonaterMessage {
+    const value = sessionStorage.getItem(DONATER_MESSAGE);
+    return value == null ? null : <DonaterMessage>JSON.parse(value);
+  }
+
+  public setDonaterMessage(data: DonaterMessage) {
+    const value = JSON.stringify(data);
+    sessionStorage.setItem(DONATER_MESSAGE, value);
   }
 
   public battleRule(): boolean {

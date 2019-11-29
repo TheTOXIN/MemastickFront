@@ -3,9 +3,9 @@ import {MemotypeRarity} from '../../consts/MemotypeRarity';
 export class DonaterRating {
 
   constructor(
-    name: string,
-    avatar: string,
-    rarity: MemotypeRarity
+    public name: string,
+    public avatar: string,
+    public rarity: MemotypeRarity
   ) {
 
   }

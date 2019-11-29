@@ -18,6 +18,8 @@ import {TimerComponent} from './timer/timer.component';
 import {ModalLinkComponent} from './modal-link/modal-link.component';
 import {AcceptComponent} from './accpet/accept.component';
 import {GroupByPipe} from './pipes/GroupByPipe';
+import {DonaterRatingComponent} from './donater-rating/donater-rating.component';
+import {DonaterMessageComponent} from './donater-message/donater-message.component';
 
 @NgModule({
   exports: [
@@ -32,7 +34,9 @@ import {GroupByPipe} from './pipes/GroupByPipe';
     TimerComponent,
     ModalLinkComponent,
     AcceptComponent,
-    GroupByPipe
+    GroupByPipe,
+    DonaterRatingComponent,
+    DonaterMessageComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,9 @@ import {GroupByPipe} from './pipes/GroupByPipe';
     TimerComponent,
     ModalLinkComponent,
     AcceptComponent,
-    GroupByPipe
+    GroupByPipe,
+    DonaterRatingComponent,
+    DonaterMessageComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

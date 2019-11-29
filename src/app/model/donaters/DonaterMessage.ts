@@ -1,9 +1,9 @@
 export class DonaterMessage {
 
   constructor(
-    name: string,
-    avatar: string,
-    text: string
+    public name: string,
+    public message: string,
+    public number: number
   ) {
 
   }

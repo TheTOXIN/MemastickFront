@@ -1,0 +1,84 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.donate-msg-wrap {
+  padding: 5px;
+  text-align: center;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 30px;
+
+  @media(max-width: 767px) {
+    width: 300px;
+    padding: 3px;
+  }
+}
+
+.donate-msg-number {
+  text-align: left;
+  font-family: Gost, serif;
+  margin-left: 10px;
+  font-size: 14px;
+
+  @media(max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.donate-msg-message {
+  text-align: center;
+  font-family: MontHeavy, serif;
+  font-size: 16px;
+
+  @media(max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+.donate-msg-name {
+  text-align: right;
+  font-family: FuturaRound, serif;
+  margin-right: 10px;
+  font-size: 14px;
+
+  @media(max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.donate-msg-content {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  padding: 10px;
+
+  @media(max-width: 767px) {
+    padding: 5px;
+  }
+}
+
+.donate-info {
+  position: absolute;
+  right: 32px;
+
+  i {
+    font-size: 32px;
+    color: #eab000;
+    display: inline-block;
+  }
+
+  &:hover {
+    i {
+      color: $primary_color;
+    }
+  }
+
+  @media(max-width: 767px) {
+    i {
+      font-size: 28px;
+    }
+
+    right: 28px;
+  }
+}
