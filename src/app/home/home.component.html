@@ -120,12 +120,12 @@
   <div id="vk_comments"></div>
 </div>
 
+<div class="home-copyright">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
+
 <div class="home-support">
   <button class="btn-theme btn-donater" type="submit" (click)="toDonaters()">
     ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
   </button>
 </div>
 
-<div class="home-copyright">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
-<div style="margin-top: 5px"></div>
 <div class="home-mini-btn" (click)="toAdmin()" *ngIf="role == roles.ADMIN"><a>АДМИНКА</a></div>

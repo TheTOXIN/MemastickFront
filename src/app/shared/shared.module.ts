@@ -20,6 +20,7 @@ import {AcceptComponent} from './accpet/accept.component';
 import {GroupByPipe} from './pipes/GroupByPipe';
 import {DonaterRatingComponent} from './donater-rating/donater-rating.component';
 import {DonaterMessageComponent} from './donater-message/donater-message.component';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   exports: [
@@ -44,7 +45,8 @@ import {DonaterMessageComponent} from './donater-message/donater-message.compone
     NgxPageScrollModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ParticlesModule
   ],
   declarations: [
     SpinnerComponent,

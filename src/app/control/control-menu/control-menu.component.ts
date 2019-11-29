@@ -34,6 +34,10 @@ export class ControlMenuComponent implements OnInit {
     this.modalService.open(FollowingModalComponent, {'centered': true});
   }
 
+  donaters() {
+    this.navigate('/donaters');
+  }
+
   settings() {
     this.navigate('/home/settings');
   }

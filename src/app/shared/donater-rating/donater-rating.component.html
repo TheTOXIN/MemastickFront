@@ -1,3 +1,29 @@
-<p>
-  donater-rating works!
-</p>
+<div *ngIf="isLoad" class="flex-center-absolute">
+  <app-spinner></app-spinner>
+</div>
+<div *ngIf="!isLoad">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="donaters-rating-table donaters-rating-title">
+          <span>🏅 РЕЙТИНГ ДОНАТЕРОВ 🔥</span>
+          <div>
+            🚀 Поддержи Мемастик на <a [href]="boomHref" target="_blank">Бумстартере</a>
+            и ты станешь одним из этих сверх людей! 😎
+          </div>
+          <p>P.s - а ещё ты можешь сделать - "Cупер Месседж", который смогут увидеть пользоватли Мемастика на домашней странице</p>
+          <button class="btn-theme" type="submit" (click)="toBoom()">
+             ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+<!--TODO ADD RATING-->
+
+  </div>
+</div>
+<div class="mem-back">
+  <particles [style]="myStyle" [width]="100" [height]="100" [params]="myParams"></particles>
+</div>

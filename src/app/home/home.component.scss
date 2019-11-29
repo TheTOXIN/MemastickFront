@@ -118,15 +118,17 @@
 }
 
 .home-copyright {
-  margin-top: 5px;
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .home-mini-btn {
   background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
   border-radius: 50px;
   width: 150px;
-  margin: 5px auto;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
   text-align: center;
 
   a {
@@ -170,6 +172,7 @@
 .home-support {
   font-size: 16px;
   text-align: center;
+  margin-bottom: 5px;
   @media(max-width: 767px) {
     font-size: 12px;
   }
