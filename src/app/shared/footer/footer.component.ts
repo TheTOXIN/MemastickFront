@@ -11,9 +11,14 @@ export class FooterComponent implements OnInit {
   today: number = Date.now();
 
   constructor(
+    private router: Router
   ) {
   }
 
   ngOnInit() {
+  }
+
+  toDonaters() {
+    this.router.navigateByUrl('/donaters');
   }
 }

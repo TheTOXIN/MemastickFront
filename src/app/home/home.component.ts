@@ -154,10 +154,6 @@ export class HomeComponent implements OnInit {
     this.modalService.open(SocialsModalComponent, {'centered': true});
   }
 
-  donate() {
-    this.modalService.open(DonatModalComponent, {'centered': true});
-  }
-
   toBattle() {
     this.router.navigateByUrl('/battle');
   }
@@ -168,6 +164,10 @@ export class HomeComponent implements OnInit {
 
   toAdmin() {
     this.router.navigateByUrl('/pages/admin');
+  }
+
+  toDonaters() {
+    this.router.navigateByUrl('/donaters');
   }
 
   initParticles() {

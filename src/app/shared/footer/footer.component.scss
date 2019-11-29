@@ -1,3 +1,11 @@
 .img-fluid {
   max-width: 40%;
 }
+
+.btn-donater {
+  font-size: 20px;
+
+  @media(max-width: 767px) {
+    font-size: 14px;
+  }
+}

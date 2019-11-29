@@ -8,6 +8,8 @@
   margin-right: auto;
   background-color: white;
   border-radius: 30px;
+  border-style: dotted;
+  border-color: $primary_color;
 
   @media(max-width: 767px) {
     width: 300px;
@@ -66,6 +68,10 @@
     font-size: 32px;
     color: #eab000;
     display: inline-block;
+    background-color: white;
+    border-radius: 50%;
+    padding-left: 2px;
+    padding-right: 1px;
   }
 
   &:hover {

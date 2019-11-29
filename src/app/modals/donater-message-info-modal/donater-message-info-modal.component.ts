@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
+import {BOOMSTARTER} from '../../app.constants';
 
 @Component({
   selector: 'app-donater-message-info-modal',
@@ -8,6 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./donater-message-info-modal.component.scss']
 })
 export class DonaterMessageInfoModalComponent implements OnInit {
+
+  public boomHref = BOOMSTARTER;
 
   constructor(
     public activeModal: NgbActiveModal,

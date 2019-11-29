@@ -118,7 +118,7 @@
 }
 
 .home-copyright {
-  margin-top: 15px;
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -126,7 +126,7 @@
   background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
   border-radius: 50px;
   width: 150px;
-  margin: 10px auto;
+  margin: 5px auto;
   text-align: center;
 
   a {
@@ -161,5 +161,16 @@
   @media(max-width: 767px) {
     padding-right: 2px;
     padding-left: 2px;
+    p {
+      display: none;
+    }
+  }
+}
+
+.home-support {
+  font-size: 16px;
+  text-align: center;
+  @media(max-width: 767px) {
+    font-size: 12px;
   }
 }
