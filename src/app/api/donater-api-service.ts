@@ -21,7 +21,7 @@ export class DonaterApiService {
 
   public readRating(): Observable<any> {
     return this.http
-      .get<any>(API.DONATER_RANDOM_MESSAGE)
+      .get<any>(API.DONATER_READ_RATING)
       .pipe();
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DonaterApiService} from '../../api/donater-api-service';
 import {BOOMSTARTER} from '../../app.constants';
+import {MemotypeRarity} from '../../consts/MemotypeRarity';
+import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 
 @Component({
   selector: 'app-donater-rating',
@@ -10,18 +12,23 @@ import {BOOMSTARTER} from '../../app.constants';
 export class DonaterRatingComponent implements OnInit {
 
   public boomHref = BOOMSTARTER;
+  public memotypeColors = memotypeColors;
+  public memotypeLvl = memotypeLvl;
+  public memotypeNames = memotypeNames;
 
   isLoad = true;
 
   myStyle: object = {};
   myParams: object = {};
 
+  public donatersCarousel: any;
   public rating: any;
 
   constructor(
     private donaterApi: DonaterApiService
   ) {
     this.initParticles();
+    this.initCarousel();
   }
 
   ngOnInit() {
@@ -33,6 +40,18 @@ export class DonaterRatingComponent implements OnInit {
 
   toBoom() {
     window.open(this.boomHref, '_blank');
+  }
+
+  private initCarousel() {
+    this.donatersCarousel = {
+      loop: true,
+      dots: false,
+      autoplay: false,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      center: true,
+      margin: 10
+    };
   }
 
   private initParticles() {

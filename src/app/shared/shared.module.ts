@@ -21,6 +21,7 @@ import {GroupByPipe} from './pipes/GroupByPipe';
 import {DonaterRatingComponent} from './donater-rating/donater-rating.component';
 import {DonaterMessageComponent} from './donater-message/donater-message.component';
 import {ParticlesModule} from 'angular-particle';
+import {OwlModule} from 'ngx-owl-carousel';
 
 @NgModule({
   exports: [
@@ -46,7 +47,8 @@ import {ParticlesModule} from 'angular-particle';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    ParticlesModule
+    ParticlesModule,
+    OwlModule
   ],
   declarations: [
     SpinnerComponent,
