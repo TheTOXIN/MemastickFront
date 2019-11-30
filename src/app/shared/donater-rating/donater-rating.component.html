@@ -20,22 +20,25 @@
       </div>
     </div>
 
-    <div  *ngFor="let map of rating | keyvalue">
+    <div *ngFor="let rarity of raritySiquence">
       <div class="dnt-rating-table dnt-msg-rariry text-strong-middle">
-        <i class="fa fa-circle" [style.color]="memotypeColors[map.key]"></i>
-        <div [style.color]="memotypeColors[map.key]">{{memotypeNames[map.key]}}</div>
-        <div>{{memotypeLvl[map.key] * 100}}₽</div>
+        <i class="fa fa-circle" [style.color]="memotypeColors[rarity]"></i>
+        <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
+        <div>{{memotypeLvl[rarity] * 100}}руб</div>
       </div>
       <owl-carousel  [carouselClasses]="['owl-carousel owl-theme']" [options]="donatersCarousel">
-        <div *ngFor="let donate of map.value">
+        <div *ngFor="let donate of rating[rarity]">
           <div class="dnt-rating-table dnt-msg-donate-container ">
             <div class=" dnt-msg-donate">
-              <img [src]="donate.avatar" class="img-fluid" [style.border-color]="memotypeColors[map.key]">
+              <img [src]="donate.avatar" class="img-fluid" [style.border-color]="memotypeColors[rarity]">
             </div>
+            <div>{{donate.name}}</div>
           </div>
         </div>
       </owl-carousel>
     </div>
+
+    <div style="margin-bottom: 30px"></div>
 
     </div>
 </div>

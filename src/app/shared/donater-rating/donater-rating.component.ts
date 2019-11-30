@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DonaterApiService} from '../../api/donater-api-service';
 import {BOOMSTARTER} from '../../app.constants';
+import {memotypeColors, memotypeLvl, memotypeNames, memotypeRarities} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
-import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 
 @Component({
   selector: 'app-donater-rating',
@@ -11,12 +11,14 @@ import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeD
 })
 export class DonaterRatingComponent implements OnInit {
 
-  public boomHref = BOOMSTARTER;
+  raritySiquence = [];
+
   public memotypeColors = memotypeColors;
   public memotypeLvl = memotypeLvl;
   public memotypeNames = memotypeNames;
 
   isLoad = true;
+  boomHref = BOOMSTARTER;
 
   myStyle: object = {};
   myParams: object = {};
@@ -29,6 +31,7 @@ export class DonaterRatingComponent implements OnInit {
   ) {
     this.initParticles();
     this.initCarousel();
+    this.initSiquence();
   }
 
   ngOnInit() {
@@ -42,11 +45,19 @@ export class DonaterRatingComponent implements OnInit {
     window.open(this.boomHref, '_blank');
   }
 
+  public initSiquence() {
+    this.raritySiquence[0] = MemotypeRarity.INCREDIBLE;
+    this.raritySiquence[1] = MemotypeRarity.LEGENDARY;
+    this.raritySiquence[2] = MemotypeRarity.EPIC;
+    this.raritySiquence[3] = MemotypeRarity.RARE;
+    this.raritySiquence[4] = MemotypeRarity.CLASSIC;
+  }
+
   private initCarousel() {
     this.donatersCarousel = {
       loop: true,
       dots: false,
-      autoplay: false,
+      autoplay: true,
       autoplayTimeout: 3000,
       autoplayHoverPause: true,
       center: true,
