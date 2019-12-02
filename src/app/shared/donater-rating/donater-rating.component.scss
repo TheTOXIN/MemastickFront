@@ -1,4 +1,5 @@
 .dnt-rating-title {
+  text-align: center;
   span {
     font-size: 48px;
     font-family: MontHeavy, serif;
@@ -16,7 +17,6 @@
 }
 
 .dnt-rating-table {
-  text-align: center;
   padding: 5px;
   background-color: whitesmoke;
   margin-top: 30px;
@@ -25,6 +25,7 @@
 }
 
 .dnt-msg-rariry {
+  text-align: center;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -33,14 +34,12 @@
 }
 
 .dnt-msg-donate-container {
+  text-align: center;
   width: 100%;
 }
 
 .dnt-msg-donate {
   display: inline-block;
-
-  width: 100px;
-  height: 100px;
 
   img {
     border-style: solid;

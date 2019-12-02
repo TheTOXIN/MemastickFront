@@ -26,6 +26,8 @@ export class DonaterRatingComponent implements OnInit {
   public donatersCarousel: any;
   public rating: any;
 
+  public sizeCoef = 69;
+
   constructor(
     private donaterApi: DonaterApiService
   ) {
@@ -57,7 +59,7 @@ export class DonaterRatingComponent implements OnInit {
     this.donatersCarousel = {
       loop: true,
       dots: false,
-      autoplay: true,
+      autoplay: false,
       autoplayTimeout: 3000,
       autoplayHoverPause: true,
       center: true,

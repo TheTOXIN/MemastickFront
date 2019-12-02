@@ -14,7 +14,7 @@
           </div>
           <p>P.s - а ещё ты можешь сделать - "Cупер Месседж", который смогут увидеть пользоватли Мемастика на домашней странице</p>
           <button class="btn-theme" type="submit" (click)="toBoom()">
-             ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
+            ПОДДЕРЖАТЬ <img src="assets/images/social/boomstarter.png"/>
           </button>
         </div>
       </div>
@@ -28,11 +28,11 @@
       </div>
       <owl-carousel  [carouselClasses]="['owl-carousel owl-theme']" [options]="donatersCarousel">
         <div *ngFor="let donate of rating[rarity]">
-          <div class="dnt-rating-table dnt-msg-donate-container ">
-            <div class=" dnt-msg-donate">
+          <div class=" dnt-msg-donate-container ">
+            <div class="dnt-rating-table dnt-msg-donate" [style.width.px]="sizeCoef * memotypeLvl[rarity]" [style.hieght.px]="sizeCoef * memotypeLvl[rarity]">
               <img [src]="donate.avatar" class="img-fluid" [style.border-color]="memotypeColors[rarity]">
+              <div>{{donate.name}}</div>
             </div>
-            <div>{{donate.name}}</div>
           </div>
         </div>
       </owl-carousel>
