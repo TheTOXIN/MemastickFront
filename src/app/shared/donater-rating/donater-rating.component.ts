@@ -26,8 +26,6 @@ export class DonaterRatingComponent implements OnInit {
   public donatersCarousel: any;
   public rating: any;
 
-  public sizeCoef = 69;
-
   constructor(
     private donaterApi: DonaterApiService
   ) {

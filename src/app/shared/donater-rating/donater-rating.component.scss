@@ -39,11 +39,28 @@
 }
 
 .dnt-msg-donate {
-  display: inline-block;
+  margin-top: 10px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.dnt-msg-avatar {
+  width: 30%;
+  height: 100%;
 
   img {
-    border-style: solid;
+    width: auto;
+    max-height: 100%;
     border-radius: 50%;
-    border-width: 5px;
+    border: 5px solid;
   }
+}
+
+.dnt-msg-name {
+  width: 70%;
+  height: 100%;
+  text-align: left;
+  font-family: FuturaRound, serif;
 }
