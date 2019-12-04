@@ -1,18 +1,39 @@
 .dnt-rating-title {
   text-align: center;
+
   span {
     font-size: 48px;
     font-family: MontHeavy, serif;
   }
   div {
-    font-size: 16px;
+    font-size: 18px;
     font-family: FuturaRound, serif;
+    line-height: 20px;
   }
   p {
-    font-size: 12px;
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 12px;
   }
   button {
     margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  @media(max-width: 767px) {
+    span {
+      font-size: 32px;
+      font-family: MontHeavy, serif;
+    }
+    div {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+    }
+    button {
+      font-size: 18px;
+    }
   }
 }
 
