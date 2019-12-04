@@ -22,6 +22,7 @@ import {DonaterRatingComponent} from './donater-rating/donater-rating.component'
 import {DonaterMessageComponent} from './donater-message/donater-message.component';
 import {ParticlesModule} from 'angular-particle';
 import {OwlModule} from 'ngx-owl-carousel';
+import {AngularFittextModule} from 'angular-fittext';
 
 @NgModule({
   exports: [
@@ -48,7 +49,8 @@ import {OwlModule} from 'ngx-owl-carousel';
     ReactiveFormsModule,
     FormsModule,
     ParticlesModule,
-    OwlModule
+    OwlModule,
+    AngularFittextModule
   ],
   declarations: [
     SpinnerComponent,

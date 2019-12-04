@@ -39,28 +39,60 @@
 }
 
 .dnt-msg-donate {
+  height: 100px;
   margin-top: 10px;
-
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+
+  @media(max-width: 767px) {
+    flex-direction: column;
+    height: 125px;
+  }
 }
 
 .dnt-msg-avatar {
   width: 30%;
   height: 100%;
+  position: relative;
 
   img {
     width: auto;
     max-height: 100%;
+    max-width: 100%;
     border-radius: 50%;
     border: 5px solid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  @media(max-width: 767px) {
+    width: 100%;
+    height: 70%;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      border-width: 3px;
+      right: 0;
+    }
   }
 }
 
 .dnt-msg-name {
   width: 70%;
   height: 100%;
+
   text-align: left;
+  margin-left: 5px;
   font-family: FuturaRound, serif;
+
+  @media(max-width: 767px) {
+    width: 100%;
+    height: 30%;
+
+    text-align: center;
+    margin-left: 0px;
+  }
 }

@@ -33,17 +33,17 @@
                     autoplay: false,
                     autoplayTimeout: 3000,
                     autoplayHoverPause: true,
-                    margin: 10,
+                    margin: 5,
                     items: 5 - memotypeLvl[rarity] + 1
                     }">
         <div *ngFor="let donate of rating[rarity]">
           <div class=" dnt-msg-donate-container ">
-            <div class="dnt-rating-table dnt-msg-donate" [style.width.%]="100" [style.height.px]="100">
+            <div class="dnt-rating-table dnt-msg-donate" [style.width.%]="100">
               <div class="dnt-msg-avatar">
                 <img [src]="donate.avatar" [style.border-color]="memotypeColors[rarity]">
               </div>
               <div class="dnt-msg-name text-strong-middle">
-                <div>{{donate.name}}</div>
+                <div fittext>{{donate.name}}</div>
               </div>
             </div>
           </div>
