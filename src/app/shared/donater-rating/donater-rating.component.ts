@@ -80,7 +80,7 @@ export class DonaterRatingComponent implements OnInit {
     this.myParams = {
       'particles': {
         'number': {
-          'value': 69,
+          'value': 15,
           'density': {
             'enable': true,
             'value_area': 500
@@ -128,7 +128,7 @@ export class DonaterRatingComponent implements OnInit {
           'enable': false,
             'distance': 150,
             'color': '#ffffff',
-            'opacity': 0.4,
+            'opacity': 0.5,
             'width': 1
         },
         'move': {
@@ -163,7 +163,7 @@ export class DonaterRatingComponent implements OnInit {
           'grab': {
             'distance': 400,
               'line_linked': {
-              'opacity': 1
+              'opacity': 0.5
             }
           },
           'bubble': {
