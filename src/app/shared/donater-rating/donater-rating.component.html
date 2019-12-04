@@ -26,16 +26,7 @@
         <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
         <div>{{memotypeLvl[rarity] * 100}}руб</div>
       </div>
-      <owl-carousel [carouselClasses]="['owl-carousel owl-theme']"
-                    [options]="{
-                    loop: true,
-                    dots: false,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    autoplayHoverPause: true,
-                    margin: 5,
-                    items: 5 - memotypeLvl[rarity] + 1
-                    }">
+      <owl-carousel [carouselClasses]="['owl-carousel owl-theme']" [options]="{ dots: false,margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">
         <div *ngFor="let donate of rating[rarity]">
           <div class=" dnt-msg-donate-container ">
             <div class="dnt-rating-table dnt-msg-donate" [style.width.%]="100">
