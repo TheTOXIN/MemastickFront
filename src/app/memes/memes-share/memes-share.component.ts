@@ -7,6 +7,7 @@ import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {Meme} from '../../model/Meme';
 import {MemeData} from '../../model/MemeData';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-memes-share',
@@ -32,7 +33,8 @@ export class MemesShareComponent implements OnInit {
     private route: ActivatedRoute,
     private memeApi: MemeApiService,
     public avatrApi: MemetickAvatarApiService,
-    public ouath: OauthApiService
+    public ouath: OauthApiService,
+    private meta: Meta
   ) {
   }
 
@@ -50,6 +52,7 @@ export class MemesShareComponent implements OnInit {
         );
       } else {
         this.memeApi.memeIMG(params['id']).subscribe(data => {
+            this.addMeta(data.url);
             this.memeURL = data.url;
             this.isLoad = false;
           },
@@ -57,6 +60,10 @@ export class MemesShareComponent implements OnInit {
         );
       }
     });
+  }
+
+  addMeta(url: string) {
+    this.meta.addTag( { property: 'og:image', content: url } );
   }
 
   toHome() {
