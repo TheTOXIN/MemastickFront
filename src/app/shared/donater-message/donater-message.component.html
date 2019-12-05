@@ -2,7 +2,10 @@
   <app-spinner></app-spinner>
 </div>
 <div *ngIf="!isLoad" class="donate-msg-content">
-  <div class="donate-msg-wrap">
+  <div class="donate-img">
+    <img [src]="donater.avatar">
+  </div>
+  <div class="donate-msg">
     <div class="donate-msg-number">
       МЕССЕДЖ #{{donater.number}}
     </div>
@@ -13,7 +16,7 @@
       © {{donater.name}}
     </div>
   </div>
-  <div class="donate-info">
+  <div class="donate-inf">
     <i class="fa fa-question-circle" (click)="messageInfo()"></i>
   </div>
 </div>

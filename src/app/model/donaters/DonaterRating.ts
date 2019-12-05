@@ -7,6 +7,7 @@ export class DonaterRating {
     public id: UUID,
     public name: string,
     public avatar: string,
+    public time: string,
     public rarity: MemotypeRarity
   ) {
 
