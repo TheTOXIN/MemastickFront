@@ -21,28 +21,32 @@
     </div>
 
     <div *ngFor="let rarity of raritySiquence">
-      <div class="dnt-rating-table dnt-msg-rariry text-strong-middle">
+      <div class="dnt-rating-table dnt-msg-rarity text-strong-middle">
         <i class="fa fa-circle" [style.color]="memotypeColors[rarity]"></i>
         <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
         <div>{{memotypeLvl[rarity] * 100}}руб</div>
       </div>
-      <owl-carousel [carouselClasses]="['owl-carousel owl-theme']" [options]="{ dots: false,margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">
-        <div *ngFor="let donate of rating[rarity]">
-          <div class=" dnt-msg-donate-container ">
-            <div class="dnt-rating-table dnt-msg-donate" [style.width.%]="100">
-              <div class="dnt-msg-avatar">
-                <img [src]="donate.avatar" [style.border-color]="memotypeColors[rarity]">
-              </div>
-              <div class="dnt-msg-name">
-                <div fittext [maxFontSize]="42">{{donate.name}}</div>
+      <div class="dnt-msg-list">
+        <owl-carousel [carouselClasses]="['owl-carousel owl-theme']" [options]="{ dots: false,margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">
+          <div *ngFor="let donate of rating[rarity]">
+            <div class=" dnt-msg-donate-container ">
+              <div class="dnt-rating-table dnt-msg-donate" [style.width.%]="100">
+                <div class="dnt-msg-avatar">
+                  <img [src]="donate.avatar" [style.border-color]="memotypeColors[rarity]">
+                </div>
+                <div class="dnt-msg-name">
+                  <div fittext [maxFontSize]="42">{{donate.name}}</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </owl-carousel>
+        </owl-carousel>
+      </div>
     </div>
 
-    <div style="margin-bottom: 30px"></div>
+    <div class="dnt-rating-table dnt-footer-msg">
+      <p>*сначала отображаются новые донаты, списки можно свайпать, чтобы посмотреть более старые донаты*</p>
+    </div>
 
     </div>
 </div>
