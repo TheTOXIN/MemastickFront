@@ -27,7 +27,8 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.INVITE_REGISTRATION,
     API.REGISTRATION,
     API.PASSWORD_RESET_SEND,
-    API.PASSWORD_RESET_TAKE
+    API.PASSWORD_RESET_TAKE,
+    API.DONATER_READ_RATING
   ];
 
   constructor(
