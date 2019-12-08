@@ -6,6 +6,7 @@ import {PwaService} from './services/pwa-service';
 import {PushService} from './services/push-service';
 import {StorageService} from './services/storage-service';
 import {MemeFilter} from './consts/MemeFilter';
+import {ANDROID_URL} from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,8 @@ export class AppComponent implements OnInit, OnDestroy {
       this.clear();
       this.control(true);
     }
+
+    this.checkTWA();
   }
 
   ngOnDestroy(): void {
@@ -74,5 +77,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public control(val: boolean) {
     this.controlWork = val;
+  }
+
+  public checkTWA() {
+    if (document.referrer.startsWith(ANDROID_URL)) {
+      this.storage.asTWA();
+    }
   }
 }

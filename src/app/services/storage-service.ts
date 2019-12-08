@@ -16,6 +16,7 @@ const ME = 'ME';
 const MEME_PAGE = 'MEME_PAGE_';
 const HELLO = 'HELLO';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
+const TWA = 'TWA';
 
 @Injectable()
 export class StorageService {
@@ -109,6 +110,14 @@ export class StorageService {
     } else {
       return false;
     }
+  }
+
+  public asTWA() {
+    return sessionStorage.setItem(TWA, TWA);
+  }
+
+  public isTWA() {
+    return sessionStorage.getItem(TWA) === TWA;
   }
 
   public clearLogOut() {

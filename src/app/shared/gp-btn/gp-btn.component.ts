@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StorageService} from '../../services/storage-service';
 
 @Component({
   selector: 'app-gp-btn',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GpBtnComponent implements OnInit {
 
-  constructor() { }
+  show = false;
 
-  ngOnInit() {
+  constructor(
+    private storage: StorageService
+  ) {
+
   }
 
+  ngOnInit() {
+    if (!this.storage.isTWA()) {
+      this.show = true;
+    }
+  }
 }
