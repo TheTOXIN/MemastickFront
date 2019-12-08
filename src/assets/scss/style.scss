@@ -23,7 +23,7 @@
   top: 6px;
   right: -6px;
   margin-right: 12px;
-  background-color: $primary_color;
+  background-color: $middle_color;
   border-radius: 30px;
   color: white;
 }
@@ -322,7 +322,7 @@
 .gp-btn {
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   position: absolute;
 }
 
