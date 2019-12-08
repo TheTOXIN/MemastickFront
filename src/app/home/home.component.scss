@@ -12,6 +12,7 @@
 }
 
 .home-logo {
+  cursor: pointer;
   border-radius: 0 0 30px 30px;
   left: 50%;
   top: 0;
@@ -121,7 +122,8 @@
 
 .home-copyright {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .home-mini-btn {
@@ -130,7 +132,7 @@
   width: 150px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
 
   a {
@@ -154,40 +156,10 @@
   text-align: center;
 }
 
-.vk-title {
-  text-align: center;
-  background-color: $primary_color;
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
-  font-size: 18px;
-  border-radius: 15px 15px 0px 0px;
-  font-family: FuturaRound, serif;
-}
-
-.vk-container {
-  width: 80%;
-
-  overflow-y: scroll;
-  max-height: 500px;
-  border-style: solid;
-  border-width: 10px;
-  border-radius: 15px;
-  padding: 10px;
-  border-color: $primary_color;
-
-  @media(max-width: 767px) {
-    width: 100%;
-    border-left-width: 0;
-    border-right-width: 0;
-  }
-}
-
 .home-support {
   font-size: 16px;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 
   @media(max-width: 767px) {
     font-size: 12px;

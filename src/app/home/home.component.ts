@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit {
     private modalService: NgbModal,
     private storage: StorageService,
     private app: AppComponent,
-    private elementRef: ElementRef,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -66,7 +65,6 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
-    this.initVK();
   }
 
   @HostListener('window:scroll', [])
@@ -100,17 +98,6 @@ export class HomeComponent implements OnInit {
         }
       }
     });
-  }
-
-  private initVK() {
-    if (VK_CHAT) {
-      const ss = document.createElement('script');
-
-      ss.type = 'text/javascript';
-      ss.innerText = 'VK.Widgets.Comments("vk_comments", {limit: 5, attach: false}, );';
-
-      this.elementRef.nativeElement.appendChild(ss);
-    }
   }
 
   askPush() {

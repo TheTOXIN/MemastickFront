@@ -24,6 +24,7 @@ import {ParticlesModule} from 'angular-particle';
 import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
+import {VkChatComponent} from './vk-chat/vk-chat.component';
 
 @NgModule({
   exports: [
@@ -41,7 +42,8 @@ import {GpBtnComponent} from './gp-btn/gp-btn.component';
     GroupByPipe,
     DonaterRatingComponent,
     DonaterMessageComponent,
-    GpBtnComponent
+    GpBtnComponent,
+    VkChatComponent
   ],
   imports: [
     CommonModule,
@@ -68,7 +70,8 @@ import {GpBtnComponent} from './gp-btn/gp-btn.component';
     GroupByPipe,
     DonaterRatingComponent,
     DonaterMessageComponent,
-    GpBtnComponent
+    GpBtnComponent,
+    VkChatComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
