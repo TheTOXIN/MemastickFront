@@ -1,10 +1,10 @@
 <div class="token-wallet" *ngIf="!showEgg">
   <div class="token"
-       [style.opacity]="token?.count == 0 ? ' 0.5' : '1'"
+       [style.opacity]="wallet[token?.type] == 0 ? ' 0.5' : '1'"
        *ngFor="let token of tokens"
        (click)="showInfo(token)">
     <img class="token-img" [src]="token?.image">
-    <p [style.color]="token?.count == 10 ? 'red' : ''">{{wallet[token?.type]}}</p>
+    <p [style.color]="wallet[token?.type] == 10 ? 'red' : ''">{{wallet[token?.type]}}</p>
   </div>
 </div>
 

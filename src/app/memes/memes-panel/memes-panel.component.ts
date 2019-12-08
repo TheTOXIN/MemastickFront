@@ -64,6 +64,7 @@ export class MemesPanelComponent implements OnInit {
   }
 
   update() {
+    this.isUpdate = false;
     this.storage.remMemePage(this.modePanel);
     window.location.reload();
   }

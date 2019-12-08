@@ -107,12 +107,15 @@ export class ControlItemsComponent implements OnInit {
 
   initTokens() {
     for (const token of tokensData) {
-      this.tokens.push(new Item(
-        token.image,
-        token.name,
-        this.data.wallet[token.type],
-        () => this.tokenInfo(token)
-      ));
+      const count = this.data.wallet[token.type];
+      if (count !== 0) {
+        this.tokens.push(new Item(
+          token.image,
+          token.name,
+          count,
+          () => this.tokenInfo(token)
+        ));
+      }
     }
   }
 

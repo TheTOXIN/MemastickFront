@@ -1,16 +1,16 @@
-import {Component, HostListener, OnInit, ViewChild, ɵcompilePipe} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {TokenApiService} from '../../api/token-api-service';
-import {TokenType} from '../../consts/TokenType';
 import {ValidConst} from '../../consts/ValidConst';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
-import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemeTextInputComponent} from '../meme-text-input/meme-text-input.component';
 import {EPI} from '../../model/EPI';
+import {StorageService} from '../../services/storage-service';
+import {MemeFilter} from '../../consts/MemeFilter';
 
 @Component({
   selector: 'app-meme-creator',
@@ -47,7 +47,8 @@ export class MemeCreatorComponent implements OnInit {
     private router: Router,
     private memeApi: MemeApiService,
     private tokenApi: TokenApiService,
-    private inventoryApi: MemetickInventoryApiService
+    private inventoryApi: MemetickInventoryApiService,
+    private storage: StorageService
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -122,6 +123,7 @@ export class MemeCreatorComponent implements OnInit {
     this.isCreate = true;
     this.status = LoaderStatus.DONE;
     this.message = 'МЕМ создан!';
+    this.storage.remMemePage(MemeFilter.POOL);
   }
 
   createError(error: any) {

@@ -40,7 +40,7 @@
         (pageChange)="getHistory()">
       </ngb-pagination>
       <div class="history-load"><i *ngIf="isLoad" class="fa fa-circle-o-notch fa-spin sign-spinner"></i></div>
-      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (click)="getHistory()">
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
         <option [ngValue]="3">3</option>
         <option [ngValue]="5">5</option>
         <option [ngValue]="10">10</option>
