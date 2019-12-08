@@ -164,11 +164,6 @@
   font-size: 18px;
   border-radius: 15px 15px 0px 0px;
   font-family: FuturaRound, serif;
-
-  @media(max-width: 767px) {
-    border-left-width: 0;
-    border-right-width: 0;
-  }
 }
 
 .vk-container {
@@ -184,6 +179,8 @@
 
   @media(max-width: 767px) {
     width: 100%;
+    border-left-width: 0;
+    border-right-width: 0;
   }
 }
 
