@@ -39,6 +39,9 @@ export class MemeResearchComponent {
   }
 
   researchClose() {
+    this.meme = null;
+    this.evolve = null;
+    this.isLoading = true;
     this.isPreview = false;
   }
 }
