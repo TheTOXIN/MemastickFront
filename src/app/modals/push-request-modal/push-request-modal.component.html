@@ -18,13 +18,15 @@
       <p>Запросите и разришите использовать их</p>
       <span style="color: darkred">уведомлениями можно управлять в настройках*</span>
     </div>
-    <button class="push-request-button settings-button btn-theme" (click)="request()">
-      ВКЛЮЧИТЬ
-    </button>
   </div>
   <div class="modal-footer modal-section">
-    <button type="button" class="modal-close" aria-label="Close" (click)="close()">
-      <span aria-hidden="true">&times;</span>
+    <button class="btn-theme-inverse" (click)="close()">
+      ЗАКРЫТЬ
+      <i class="fa fa-close button-close" style="color: darkred"></i>
+    </button>
+    <button class="btn-theme-inverse" (click)="request()">
+      ВКЛЮЧИТЬ
+      <i class="fa fa-check button-check" style="color: darkgreen"></i>
     </button>
   </div>
 </div>

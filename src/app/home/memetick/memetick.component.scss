@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .memetick-container {
   background: whitesmoke;
   border-radius: 50px;
@@ -13,7 +15,7 @@
 
 .memetick-avatar {
   border-style: solid;
-  border-color: #ffc107;
+  border-color: $color_saffron_approx;
   border-radius: 100%;
   border-width: 5px;
   width: 96px;
@@ -40,6 +42,18 @@
   font-family: Gost, serif;
   font-size: 32px;
   margin-top: 10px;
+
+  i {
+    font-size: 30px;
+    margin-left: 10px;
+    color: $primary_color;
+  }
+
+  &:hover {
+    i {
+      color: $color_saffron_approx;
+    }
+  }
 }
 
 .memetick-online {

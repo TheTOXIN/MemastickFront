@@ -203,6 +203,9 @@
     p {
       font-size: 12px;
     }
+    i {
+      font-size: 54px;
+    }
   }
 }
 
@@ -311,4 +314,14 @@
   right: 0;
   bottom: 0;
   position: absolute;
+}
+
+.col-picker {
+  @media(max-width: 767px) {
+    padding-right: 2px;
+    padding-left: 2px;
+    p {
+      display: none;
+    }
+  }
 }

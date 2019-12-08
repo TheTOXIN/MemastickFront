@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .home-hello {
   color: #000;
   font-size: 56px;
@@ -152,20 +154,35 @@
   text-align: center;
 }
 
-.vk-container {
-  width: 80%;
-  @media(max-width: 767px) {
-    width: 100%;
-  }
+.vk-title {
+  text-align: center;
+  background-color: $primary_color;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 18px;
+  border-radius: 15px 15px 0px 0px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 122px;
+  font-family: FuturaRound, serif;
 }
 
-.col-picker {
+.vk-container {
+  width: 80%;
+
+  overflow-y: scroll;
+  max-height: 500px;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  border-color: $primary_color;
+
   @media(max-width: 767px) {
-    padding-right: 2px;
-    padding-left: 2px;
-    p {
-      display: none;
-    }
+    width: 100%;
   }
 }
 

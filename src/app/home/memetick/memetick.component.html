@@ -5,8 +5,8 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-info">
-        <p class="memetick-nick">{{memetick?.nick}}</p>
-        <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''">
+        <p class="memetick-nick" (click)="changeNick()">{{memetick?.nick}}<i class="fa fa-pencil-square" *ngIf="memetickMe" aria-hidden="true"></i></p>
+        <img class="img-fluid memetick-avatar animated heartBeat" (click)="changeAvatar()" [src]="avatarURL || ''">
       </div>
       <div class="memetick-online">
         <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
