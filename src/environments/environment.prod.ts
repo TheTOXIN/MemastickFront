@@ -8,7 +8,7 @@ export const environment = {
     storageBucket: 'memastick-d525f.appspot.com',
     messagingSenderId: '1004879436852'
   },
-  version: '0.5.4 beta',
+  version: '0.5.5 beta',
   backUrl: 'https://memastick-back.herokuapp.com',
   frontUrl: 'https://www.memastick.ru',
   vkChat: true
