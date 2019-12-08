@@ -2,11 +2,10 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from './services/web-socket-service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {OauthApiService} from './services/oauth-api-service';
-import {ControlComponent} from './control/control.component';
 import {PwaService} from './services/pwa-service';
-import {VERSION} from './app.constants';
 import {PushService} from './services/push-service';
 import {StorageService} from './services/storage-service';
+import {MemeFilter} from './consts/MemeFilter';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.me();
       this.update();
       this.notify();
+      this.clear();
       this.control(true);
     }
   }
@@ -66,6 +66,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.notification.show(notify);
       }
     });
+  }
+
+  public clear() {
+    this.storage.remMemePage(MemeFilter.POOL);
   }
 
   public control(val: boolean) {

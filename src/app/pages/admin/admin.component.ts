@@ -11,6 +11,9 @@ export class AdminComponent implements OnInit {
 
   public codes: InviteCode[] = [];
 
+  HREF = location.href;
+  REFERRER = document.referrer;
+
   constructor(
     public inviteApi: InviteApiService
   ) {

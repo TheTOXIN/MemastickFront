@@ -58,9 +58,6 @@ import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
 import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
-import { DonaterRatingComponent } from './shared/donater-rating/donater-rating.component';
-import { DonaterMessageComponent } from './shared/donater-message/donater-message.component';
-import { DonaterMessageInfoModalComponent } from './modals/donater-message-info-modal/donater-message-info-modal.component';
 
 firebase.initializeApp(environment.firebase);
 

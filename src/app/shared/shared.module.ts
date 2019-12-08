@@ -23,6 +23,7 @@ import {DonaterMessageComponent} from './donater-message/donater-message.compone
 import {ParticlesModule} from 'angular-particle';
 import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
+import {GpBtnComponent} from './gp-btn/gp-btn.component';
 
 @NgModule({
   exports: [
@@ -39,7 +40,8 @@ import {AngularFittextModule} from 'angular-fittext';
     AcceptComponent,
     GroupByPipe,
     DonaterRatingComponent,
-    DonaterMessageComponent
+    DonaterMessageComponent,
+    GpBtnComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +67,8 @@ import {AngularFittextModule} from 'angular-fittext';
     AcceptComponent,
     GroupByPipe,
     DonaterRatingComponent,
-    DonaterMessageComponent
+    DonaterMessageComponent,
+    GpBtnComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
