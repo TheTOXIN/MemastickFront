@@ -1,3 +1,42 @@
 .icon-form-custom {
   margin-right: 12px;
 }
+
+.icon-auth {
+  cursor: pointer;
+  width: 53px;
+  height: 37px;
+  text-align: center;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #8136EC;
+  border-radius: 30px;
+  margin-top: 4px;
+  margin-right: 4px;
+
+  i {
+    font-size: 20px;
+    color: white;
+    top: -7px
+  }
+
+  .fa-envelope {
+    left: 17px;
+  }
+
+  .fa-user {
+    left: 20px;
+  }
+
+  .fa-eye {
+    left: 16px;
+    font-size: 23px;
+  }
+
+  .fa-eye-slash {
+    left: 16px;
+    font-size: 23px;
+  }
+}

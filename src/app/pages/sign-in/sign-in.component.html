@@ -28,24 +28,27 @@
           <label for="exampleInputEmail1">Почта</label>
           <i class="fa fa-envelope-o"></i>
           <input [formControl]="signForm.controls['email']" class="form-control" id="exampleInputEmail1" name="email" placeholder="Почта" required="" type="email">
-          <span class="icon-form icon-form-custom" (click)="setSignType(signTypes.LOGIN)">Логин</span>
+          <span class="icon-auth" (click)="setSignType(signTypes.LOGIN)"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <!--<span class="icon-form icon-form-custom" (click)="setSignType(signTypes.LOGIN)">Логин</span>-->
         </div>
         <div class="form-group" [style.display]="signType === signTypes.LOGIN ? 'block' : 'none'">
           <label for="exampleInputLogin1">Логин</label>
           <i class="fa fa-user"></i>
           <input [formControl]="signForm.controls['login']" class="form-control" id="exampleInputLogin1" name="login" placeholder="Логин" required="" type="text">
-          <span class="icon-form icon-form-custom" (click)="setSignType(signTypes.EMAIL)">Почта</span>
+          <span class="icon-auth" (click)="setSignType(signTypes.EMAIL)"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <!--<span class="icon-form icon-form-custom" (click)="setSignType(signTypes.EMAIL)">Почта</span>-->
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Пароль</label>
           <i class="fa fa-lock"></i>
-          <input [formControl]="signForm.controls['password']" class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль" required="" type="password">
-          <span class="icon-form " [routerLink]="'/pages/forget-password'">Забыл</span>
+          <input [formControl]="signForm.controls['password']" class="form-control" id="exampleInputPassword1" name="password" placeholder="Пароль" required="" [type]="isPassword ? 'text' : 'password'">
+          <span class="icon-auth" (click)="showPassword()"><i class="fa" [ngClass]="{'fa-eye': !isPassword, 'fa-eye-slash': isPassword}" aria-hidden="true"></i></span>
           <div *ngIf="signForm.controls.password.touched && signForm.controls.password.errors?.required" class="text text-danger">Пароль пуст</div>
         </div>
         <div class="form-group sign-button">
           <button class="btn submit" type="submit">ВХОД</button>
         </div>
+        <div *ngIf="isForgot" class="sub-href animated fadeInDown" (click)="toForgot()">восстановить пароль</div>
       </form>
     </div>
   </div>

@@ -34,6 +34,8 @@ export class SignInComponent implements OnInit {
   public signType: SignType = SignType.LOGIN;
 
   public isLoading = false;
+  public isPassword = false;
+  public isForgot = false;
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +50,7 @@ export class SignInComponent implements OnInit {
     if (this.oauth.checkTokens()) {
       this.router.navigateByUrl('/home');
     }
-    
+
     this.signForm = this.fb.group({
       password: ['', Validators.required],
       email: [],
@@ -112,6 +114,14 @@ export class SignInComponent implements OnInit {
     return true;
   }
 
+  showPassword() {
+    this.isPassword = !this.isPassword;
+  }
+
+  toForgot() {
+    this.router.navigateByUrl('/pages/forget-password');
+  }
+
   login() {
     window.location.href = FRONT_URL + '/home';
   }
@@ -121,6 +131,7 @@ export class SignInComponent implements OnInit {
       this.setErrorMessage('ВАШ АККАУНТ ЗАБАНЕН!');
     } else {
       this.setErrorMessage('Неверные данные для входа');
+      this.isForgot = true;
     }
   }
 }
