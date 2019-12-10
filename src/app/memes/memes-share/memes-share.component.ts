@@ -63,6 +63,7 @@ export class MemesShareComponent implements OnInit {
   }
 
   addMeta(url: string) {
+    this.meta.removeTag('property=\"og:image\"');
     this.meta.addTag( { property: 'og:image', content: url } );
   }
 
