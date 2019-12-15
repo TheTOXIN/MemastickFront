@@ -1,8 +1,10 @@
 import {EvolveStep} from './EvolveStep';
 import {MemeFilter} from './MemeFilter';
+import {MemeType} from './MemeType';
 
 export const evolveIcons = [];
 export const filterIcons = [];
+export const memeIcons = [];
 
 export class IconsData {}
 
@@ -12,6 +14,11 @@ evolveIcons[EvolveStep.MUTATION] = 'assets/images/steps/3.png';
 evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
 evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
 
+memeIcons[MemeType.EVLV] = 'assets/images/icon/world.png';
+memeIcons[MemeType.SLCT] = 'assets/images/icon/select.png';
+memeIcons[MemeType.INDV] = 'assets/images/icon/1.png';
+memeIcons[MemeType.DEAD] = 'assets/images/icon/dead.png';
+memeIcons[MemeType.BAAN] = 'assets/images/icon/ban.png';
 
 filterIcons[MemeFilter.POOL] = 'assets/images/icon/world.png';
 filterIcons[MemeFilter.SLCT] = 'assets/images/icon/select.png';

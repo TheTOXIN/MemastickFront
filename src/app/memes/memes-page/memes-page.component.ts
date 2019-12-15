@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MemeData} from '../../model/MemeData';
-import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 import {UUID} from 'angular2-uuid';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
@@ -13,8 +13,8 @@ import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
 import {MemeType} from '../../consts/MemeType';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {ValidConst} from '../../consts/ValidConst';
+import {evolveIcons, memeIcons} from '../../consts/IconsData';
 
 @Component({
   selector: 'app-memes-page',
@@ -61,7 +61,8 @@ export class MemesPageComponent implements OnInit {
   private timerChromosome;
   private counterChromosome = 0;
 
-  private evolveIcons = [];
+  private stepIcons;
+  private typeIcons;
 
   viewerEvent(meme: Meme) {
     if (this.isMemeDeath(meme)) { return; }
@@ -80,11 +81,8 @@ export class MemesPageComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router
   ) {
-    this.evolveIcons[EvolveStep.ADAPTATION] = 'assets/images/steps/1.png';
-    this.evolveIcons[EvolveStep.FITNESS] = 'assets/images/steps/2.png';
-    this.evolveIcons[EvolveStep.MUTATION] = 'assets/images/steps/3.png';
-    this.evolveIcons[EvolveStep.CROSSING] = 'assets/images/steps/4.png';
-    this.evolveIcons[EvolveStep.SURVIVAL] = 'assets/images/steps/5.png';
+    this.stepIcons = evolveIcons;
+    this.typeIcons = memeIcons;
   }
 
   ngOnInit() {

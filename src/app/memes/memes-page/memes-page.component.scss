@@ -47,6 +47,7 @@
   width: 50%;
   text-align: left;
   div {
+    padding-left: 5px;
     font-family: Futurica, serif;
     color: #212529;
   }
@@ -88,48 +89,26 @@
   }
 }
 
-.memes-info-slct {
+.memes-info-type {
   height: 100%;
   width: 30%;
   img {
+    margin-top: 0;
+    padding: 5px;
     float: right;
     max-width: 100%;
     max-height: 100%;
   }
   @media(max-width: 767px) {
     img {
-      float: right;
-      width: 54px;
-      height: 54px;
-      max-width: none;
-      max-height: none;
-    }
-  }
-}
-
-.memes-info-indv {
-  height: 100%;
-  width: 30%;
-  img {
-    float: right;
-    max-width: 100%;
-    max-height: 100%;
-  }
-  @media(max-width: 767px) {
-    img {
-      float: right;
-      width: 54px;
-      height: 54px;
-      max-width: none;
-      max-height: none;
-      margin-right: 5px;
+      padding: 0;
       margin-top: 5px;
+      width: 54px;
+      height: 54px;
+      max-width: none;
+      max-height: none;
     }
   }
-}
-
-.meme-page-text-view {
-
 }
 
 .memes-image {
