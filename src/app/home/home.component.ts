@@ -107,17 +107,8 @@ export class HomeComponent implements OnInit {
   }
 
   initHello() {
-    let hello = this.storage.getHello();
-
-    this.isHello = hello == null;
-
-    if (this.isHello) {
       const emoji = randomEmoji.random({count: 1})[0].character;
-      hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
-      this.storage.setHello(hello);
-    }
-
-    this.hello = hello;
+      this.hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
   }
 
   memes(filter: MemeFilter) {

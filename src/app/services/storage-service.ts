@@ -14,7 +14,6 @@ const ME = 'ME';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
-const HELLO = 'HELLO';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
 
@@ -73,14 +72,6 @@ export class StorageService {
     sessionStorage.removeItem(MEME_PAGE + filter);
   }
 
-  public getHello(): string {
-    return sessionStorage.getItem(HELLO);
-  }
-
-  public setHello(hello: string) {
-    sessionStorage.setItem(HELLO, hello);
-  }
-
   public getDonaterMessage(): DonaterMessage {
     const value = sessionStorage.getItem(DONATER_MESSAGE);
     return value == null ? null : <DonaterMessage>JSON.parse(value);
@@ -121,7 +112,6 @@ export class StorageService {
   }
 
   public clearLogOut() {
-    sessionStorage.removeItem(HELLO);
     localStorage.removeItem(ME);
   }
 }
