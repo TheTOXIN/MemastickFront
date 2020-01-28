@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DonaterApiService} from '../../api/donater-api-service';
-import {BOOMSTARTER} from '../../app.constants';
-import {memotypeColors, memotypeLvl, memotypeNames, memotypeRarities} from '../../consts/MemotypeData';
+import {DONAT} from '../../app.constants';
+import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 
 @Component({
@@ -18,7 +18,7 @@ export class DonaterRatingComponent implements OnInit {
   public memotypeNames = memotypeNames;
 
   isLoad = true;
-  boomHref = BOOMSTARTER;
+  donatHref = DONAT;
 
   myStyle: object = {};
   myParams: object = {};
@@ -41,8 +41,8 @@ export class DonaterRatingComponent implements OnInit {
     });
   }
 
-  toBoom() {
-    window.open(this.boomHref, '_blank');
+  toDonat() {
+    window.open(this.donatHref, '_blank');
   }
 
   public initSiquence() {

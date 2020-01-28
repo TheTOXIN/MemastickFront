@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
-import {BOOMSTARTER} from '../../app.constants';
+import {DONAT} from '../../app.constants';
 
 @Component({
   selector: 'app-donater-message-info-modal',
@@ -10,7 +10,7 @@ import {BOOMSTARTER} from '../../app.constants';
 })
 export class DonaterMessageInfoModalComponent implements OnInit {
 
-  public boomHref = BOOMSTARTER;
+  public donatHref = DONAT;
 
   constructor(
     public activeModal: NgbActiveModal,
