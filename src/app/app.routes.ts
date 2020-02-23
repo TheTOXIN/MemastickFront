@@ -1,14 +1,14 @@
 import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
-import {RedirectRootComponent} from './shared/redirect-root/redirect-root.component';
 import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 import {ShopComponent} from './shop/shop.component';
 import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.component';
+import {AppComponent} from './app.component';
 
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    component: RedirectRootComponent,
+    component: AppComponent,
     pathMatch: 'full'
   },
   {

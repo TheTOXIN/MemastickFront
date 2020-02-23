@@ -10,7 +10,6 @@ import {LandingFixService} from './services/landing-fix.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoaderComponent} from './loader/loader.component';
-import {RedirectRootComponent} from './redirect-root/redirect-root.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NotificationComponent} from './notification/notification.component';
@@ -25,6 +24,7 @@ import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
 import {VkChatComponent} from './vk-chat/vk-chat.component';
+import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
 
 @NgModule({
   exports: [
@@ -32,7 +32,6 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent,
     SpinnerComponent,
     MemLogoComponent,
     NotificationComponent,
@@ -43,7 +42,8 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent
+    VkChatComponent,
+    PreviewScreenComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +61,6 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent,
     MemLogoComponent,
     NotificationComponent,
     TimerComponent,
@@ -71,7 +70,8 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent
+    VkChatComponent,
+    PreviewScreenComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

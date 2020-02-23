@@ -16,6 +16,7 @@ const ME = 'ME';
 const MEME_PAGE = 'MEME_PAGE_';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
+const PEVIEW = 'PEVIEW';
 
 @Injectable()
 export class StorageService {
@@ -109,6 +110,16 @@ export class StorageService {
 
   public isTWA() {
     return sessionStorage.getItem(TWA) === TWA;
+  }
+
+  public isPreview(): boolean {
+    const wasPreview = sessionStorage.getItem(PEVIEW) === PEVIEW;
+
+    if (!wasPreview) {
+      sessionStorage.setItem(PEVIEW, PEVIEW);
+    }
+
+    return !wasPreview;
   }
 
   public clearLogOut() {
