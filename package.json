@@ -41,7 +41,7 @@
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.5",
     "express": "*",
-    "fabric": "^4.0.0-beta.7",
+    "fabric": "^3.6.2",
     "file-saver": "^2.0.1",
     "firebase": "^5.8.6",
     "font-awesome": "^4.7.0",

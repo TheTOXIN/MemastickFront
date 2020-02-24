@@ -47,22 +47,13 @@
       <div class="card">
         <div class="card-header">Изображение</div>
         <div class="card-body text-center">
-          <img id="testImage" *ngIf="url" class="images-item-upload" [src]="url" (click)="addImageOnCanvas(url);">
           <input type="file" (change)="readUrl($event);">
           <br/>
-          <br/>
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeWhite(url);">
-                <i class="fa fa-times" aria-hidden="true"></i> Убрать
-              </button>
-            </div>
-          </div>
         </div>
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Фигура</div>
+        <div class="card-header">Фигуры</div>
         <div class="card-body text-center max-height">
           <div class="btn-group btn-group-vertical" role="group" aria-label="...">
             <button type="button" class="btn btn-primary" (click)="addFigure('rectangle');">Прямоугольник</button>
@@ -80,27 +71,27 @@
         <div class="card-header">Опции</div>
         <div class="card-body text-center">
           <div class="btn-group" role="group" aria-label="...">
-            <button data-toggle="tooltip" data-placement="bottom" title="Delete element" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Удалить элемент" type="button"
                     class="btn btn-outline-danger" [disabled]="!selected"
                     (click)="removeSelected();">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
-            <button data-toggle="tooltip" data-placement="bottom" title="Send to back" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Переместить назад" type="button"
                     class="btn btn-outline-primary" [disabled]="!selected"
                     (click)="sendToBack();">
               <i class="fa fa-level-down" aria-hidden="true"></i>
             </button>
-            <button data-toggle="tooltip" data-placement="bottom" title="Send to front" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Переместить вперед" type="button"
                     class="btn btn-outline-primary" [disabled]="!selected"
                     (click)="bringToFront();">
               <i class="fa fa-level-up" aria-hidden="true"></i>
             </button>
-            <button data-toggle="tooltip" data-placement="bottom" title="Clone" type="button"
-                    class="btn btn-outline-primary" [disabled]="!selected || selected.type == 'group'"
+            <button data-toggle="tooltip" data-placement="bottom" title="Клонировать элемент" type="button"
+                    class="btn btn-outline-primary" [disabled]="!selected || selected.type == groupType"
                     (click)="clone();">
               <i class="fa fa-clone" aria-hidden="true"></i>
             </button>
-            <button data-toggle="tooltip" data-placement="bottom" title="Unselect" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Убрать выделение" type="button"
                     class="btn btn-outline-primary" [disabled]="!selected"
                     (click)="cleanSelect()">
               <i class="fa fa-remove" aria-hidden="true"></i>
@@ -131,17 +122,11 @@
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Прочее</div>
+        <div class="card-header">Обьект</div>
         <div class="card-body">
-          <div class="custom-item" *ngIf="selected  && selected.type == 'group'">Группа выбрана</div>
+          <div class="custom-item" *ngIf="selected  && selected.type == groupType">Выбрано несколько</div>
           <div class="custom-item" *ngIf="!selected">Ничего не выбрано</div>
-          <div class="custom-item" *ngIf="selected && selected.type != 'group'">
-            <div class="custom-item-title">ID</div>
-            <div class="custom-item-body">
-              <input type="text" class="form-control" [(ngModel)]="props.id" (keyup)="setId()">
-            </div>
-          </div>
-          <div class="custom-item" *ngIf="selected && selected.type != 'group'">
+          <div class="custom-item" *ngIf="selected && selected.type != groupType">
             <div class="custom-item-title">Прозрачность</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.opacity" (change)="setOpacity()">{{props.opacity}}</div>
@@ -238,13 +223,13 @@
                      max="120">{{props.fontSize}}</div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Высота шрфита</div>
+            <div class="custom-item-title">Отступы строк</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.lineHeight" (change)="setLineHeight()" step="0.1" min="0"
                      max="10">{{props.lineHeight}}</div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Ширина шрфита</div>
+            <div class="custom-item-title">Ширина пробелов</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.charSpacing" (change)="setCharSpacing()" step="10" min="-200"
                      max="800">{{props.charSpacing}}</div>

@@ -29,14 +29,13 @@ export class LaboratoryComponent implements OnInit {
     TextDecoration: ''
   };
 
+  private groupType = 'activeSelection';
   private textString: string;
-  private url = '';
   private size: any = {
     width: 500,
     height: 800
   };
 
-  private globalEditor = false;
   private textEditor = false;
   private imageEditor = false;
   private figureEditor = false;
@@ -46,7 +45,6 @@ export class LaboratoryComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // setup front side canvas
     this.canvas = new fabric.Canvas('canvas', {
       hoverCursor: 'pointer',
@@ -59,17 +57,16 @@ export class LaboratoryComponent implements OnInit {
       },
       'object:modified': (e) => {
       },
-      'object:selected': (e) => {
+      'selection:created': (e) => {
 
         const selectedObject = e.target;
         this.selected = selectedObject;
         selectedObject.hasRotatingPoint = true;
         selectedObject.transparentCorners = false;
-        // selectedObject.cornerColor = 'rgba(255, 87, 34, 0.7)';
 
         this.resetPanels();
 
-        if (selectedObject.type !== 'group' && selectedObject) {
+        if (selectedObject.type !== this.groupType && selectedObject) {
 
           this.getId();
           this.getOpacity();
@@ -93,7 +90,6 @@ export class LaboratoryComponent implements OnInit {
               this.getFontFamily();
               break;
             case 'image':
-              console.log('image');
               break;
           }
         }
@@ -145,28 +141,6 @@ export class LaboratoryComponent implements OnInit {
     this.textString = '';
   }
 
-  // Block "Add images"
-
-  getImgPolaroid(event: any) {
-    const el = event.target;
-    fabric.Image.fromURL(el.src, (image) => {
-      image.set({
-        left: 10,
-        top: 10,
-        angle: 0,
-        padding: 10,
-        cornersize: 10,
-        hasRotatingPoint: true,
-        peloas: 12
-      });
-      image.setWidth(150);
-      image.setHeight(150);
-      this.extend(image, this.randomId());
-      this.canvas.add(image);
-      this.selectItemAfterAdded(image);
-    });
-  }
-
   // Block "Upload Image"
 
   addImageOnCanvas(url) {
@@ -180,8 +154,8 @@ export class LaboratoryComponent implements OnInit {
           cornersize: 10,
           hasRotatingPoint: true
         });
-        image.setWidth(200);
-        image.setHeight(200);
+        image.scaleToWidth(200);
+        image.scaleToHeight(200);
         this.extend(image, this.randomId());
         this.canvas.add(image);
         this.selectItemAfterAdded(image);
@@ -193,14 +167,11 @@ export class LaboratoryComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.onload = (eventLoad) => {
-        this.url = eventLoad.target['result'];
+        const url = eventLoad.target['result'];
+        this.addImageOnCanvas(url);
       };
       reader.readAsDataURL(event.target.files[0]);
     }
-  }
-
-  removeWhite(url) {
-    this.url = '';
   }
 
   // Block "Add figure"
@@ -220,11 +191,6 @@ export class LaboratoryComponent implements OnInit {
           fill: '#4caf50'
         });
         break;
-      case 'triangle':
-        add = new fabric.Triangle({
-          width: 100, height: 100, left: 10, top: 10, fill: '#2196f3'
-        });
-        break;
       case 'circle':
         add = new fabric.Circle({
           radius: 50, left: 10, top: 10, fill: '#ff5722'
@@ -239,11 +205,10 @@ export class LaboratoryComponent implements OnInit {
   /*Canvas*/
 
   cleanSelect() {
-    this.canvas.deactivateAllWithDispatch().renderAll();
+    this.canvas.discardActiveObject().renderAll();
   }
 
   selectItemAfterAdded(obj) {
-    this.canvas.deactivateAllWithDispatch().renderAll();
     this.canvas.setActiveObject(obj);
   }
 
@@ -331,7 +296,7 @@ export class LaboratoryComponent implements OnInit {
   }
 
   clone() {
-    const activeObject = this.canvas.getActiveObject(), activeGroup = this.canvas.getActiveGroup();
+    const activeObject = this.canvas.getActiveObject();
 
     if (activeObject) {
       let clone;
@@ -471,52 +436,33 @@ export class LaboratoryComponent implements OnInit {
   /*System*/
 
   removeSelected() {
-    const activeObject = this.canvas.getActiveObject(),
-      activeGroup = this.canvas.getActiveGroup();
+    const activeObjects = this.canvas.getActiveObjects();
 
-    if (activeObject) {
-      this.canvas.remove(activeObject);
-      // this.textString = '';
-    } else if (activeGroup) {
-      const objectsInGroup = activeGroup.getObjects();
-      this.canvas.discardActiveGroup();
-      const self = this;
-      objectsInGroup.forEach(function (object) {
-        self.canvas.remove(object);
-      });
-    }
+    activeObjects.forEach((object) => {
+      this.canvas.remove(object);
+    });
+
+    this.canvas.discardActiveObject();
   }
 
   bringToFront() {
-    const activeObject = this.canvas.getActiveObject(),
-      activeGroup = this.canvas.getActiveGroup();
+    const activeObjects = this.canvas.getActiveObjects();
 
-    if (activeObject) {
-      activeObject.bringToFront();
-      // activeObject.opacity = 1;
-    } else if (activeGroup) {
-      const objectsInGroup = activeGroup.getObjects();
-      this.canvas.discardActiveGroup();
-      objectsInGroup.forEach((object) => {
-        object.bringToFront();
-      });
-    }
+    activeObjects.forEach((object) => {
+      object.bringToFront();
+    });
+
+    this.canvas.discardActiveObject();
   }
 
   sendToBack() {
-    const activeObject = this.canvas.getActiveObject(),
-      activeGroup = this.canvas.getActiveGroup();
+    const activeObjects = this.canvas.getActiveObjects();
 
-    if (activeObject) {
-      activeObject.sendToBack();
-      // activeObject.opacity = 1;
-    } else if (activeGroup) {
-      const objectsInGroup = activeGroup.getObjects();
-      this.canvas.discardActiveGroup();
-      objectsInGroup.forEach((object) => {
-        object.sendToBack();
-      });
-    }
+    activeObjects.forEach((object) => {
+      object.sendToBack();
+    });
+
+    this.canvas.discardActiveObject();
   }
 
   confirmClear() {
