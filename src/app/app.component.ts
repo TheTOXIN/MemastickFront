@@ -100,6 +100,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private redirecter(isAuth: boolean) {
+    if (location.pathname !== '/') { return; }
+
     if (isAuth) {
       this.router.navigateByUrl('/home');
     } else {

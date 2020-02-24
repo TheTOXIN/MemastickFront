@@ -58,7 +58,7 @@ import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
 import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
-import { VkChatComponent } from './shared/vk-chat/vk-chat.component';
+import {LaboratoryModule} from './laboratory/laboratory.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -81,6 +81,7 @@ firebase.initializeApp(environment.firebase);
     ControlModule,
     MemotypeModule,
     BattleModule,
+    LaboratoryModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
