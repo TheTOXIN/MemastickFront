@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-xl-3">
       <div class="card">
-        <div class="card-header">Size</div>
+        <div class="card-header">Размер</div>
         <div class="card-body">
           <div class="form-group">
             <div class="input-group">
               <input type="text" class="form-control" [(ngModel)]="size.width" (keyup)="changeSize()">
               <div class="input-group-append">
                 <span class="input-group-text">
-                  Width
+                  Ширина
                 </span>
               </div>
             </div>
@@ -19,7 +19,7 @@
               <input type="text" class="form-control" [(ngModel)]="size.height" (keyup)="changeSize()">
               <div class="input-group-append">
                 <span class="input-group-text">
-                  Height
+                  Высота
                 </span>
               </div>
             </div>
@@ -28,13 +28,13 @@
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Add text</div>
+        <div class="card-header">Текст</div>
         <div class="card-body">
           <div class="input-group">
             <input type="text" class="form-control" [(ngModel)]="textString">
             <div class="input-group-append">
               <span class="input-group-text">
-                <button id="add-text" data-toggle="tooltip" data-placement="bottom" title="Add text"
+                <button id="add-text" data-toggle="tooltip" data-placement="bottom" title="Добавить"
                         class="btn btn-primary" (click)="addText()">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
@@ -45,7 +45,7 @@
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Upload image</div>
+        <div class="card-header">Изображение</div>
         <div class="card-body text-center">
           <img id="testImage" *ngIf="url" class="images-item-upload" [src]="url" (click)="addImageOnCanvas(url);">
           <input type="file" (change)="readUrl($event);">
@@ -54,7 +54,7 @@
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeWhite(url);">
-                <i class="fa fa-times" aria-hidden="true"></i> Remove
+                <i class="fa fa-times" aria-hidden="true"></i> Убрать
               </button>
             </div>
           </div>
@@ -62,12 +62,12 @@
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Add figure</div>
+        <div class="card-header">Фигура</div>
         <div class="card-body text-center max-height">
           <div class="btn-group btn-group-vertical" role="group" aria-label="...">
-            <button type="button" class="btn btn-primary" (click)="addFigure('rectangle');">Rectangle</button>
-            <button type="button" class="btn btn-primary" (click)="addFigure('square');">Square</button>
-            <button type="button" class="btn btn-primary" (click)="addFigure('circle');">Circle</button>
+            <button type="button" class="btn btn-primary" (click)="addFigure('rectangle');">Прямоугольник</button>
+            <button type="button" class="btn btn-primary" (click)="addFigure('square');">Квадрат</button>
+            <button type="button" class="btn btn-primary" (click)="addFigure('circle');">Круг</button>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
     </div>
     <div class="col-xl-3">
       <div class="card">
-        <div class="card-header">Options</div>
+        <div class="card-header">Опции</div>
         <div class="card-body text-center">
           <div class="btn-group" role="group" aria-label="...">
             <button data-toggle="tooltip" data-placement="bottom" title="Delete element" type="button"
@@ -110,10 +110,10 @@
       </div>
       <br/>
       <div class="card" *ngIf="!selected">
-        <div class="card-header">Canvas</div>
+        <div class="card-header">Холст</div>
         <div class="card-body">
           <div class="custom-item" *ngIf="!props.canvasImage">
-            <div class="custom-item-title">Background Color</div>
+            <div class="custom-item-title">Цвет фона</div>
             <div class="custom-item-body">
               <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.canvasFill"
                      [style.background]="props.canvasFill"
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div class="custom-item">
-            <div class="custom-item-title">Background Image (url)</div>
+            <div class="custom-item-title">Задний Фон (URL)</div>
             <div class="custom-item-body">
               <input type="text" class="form-control" placeholder="http://example.jpg" [(ngModel)]="props.canvasImage"
                      (keyup)="setCanvasImage()">
@@ -131,10 +131,10 @@
       </div>
       <br/>
       <div class="card">
-        <div class="card-header">Custom</div>
+        <div class="card-header">Прочее</div>
         <div class="card-body">
-          <div class="custom-item" *ngIf="selected  && selected.type == 'group'">Group Selected</div>
-          <div class="custom-item" *ngIf="!selected">No items selected</div>
+          <div class="custom-item" *ngIf="selected  && selected.type == 'group'">Группа выбрана</div>
+          <div class="custom-item" *ngIf="!selected">Ничего не выбрано</div>
           <div class="custom-item" *ngIf="selected && selected.type != 'group'">
             <div class="custom-item-title">ID</div>
             <div class="custom-item-body">
@@ -142,12 +142,12 @@
             </div>
           </div>
           <div class="custom-item" *ngIf="selected && selected.type != 'group'">
-            <div class="custom-item-title">Opacity</div>
+            <div class="custom-item-title">Прозрачность</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.opacity" (change)="setOpacity()">{{props.opacity}}</div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor || selected && figureEditor">
-            <div class="custom-item-title">Fill</div>
+            <div class="custom-item-title">Заливка</div>
             <div class="custom-item-body">
               <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.fill"
                      [style.background]="props.fill"
@@ -155,7 +155,7 @@
             </div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Font family</div>
+            <div class="custom-item-title">Шрифт</div>
             <div class="custom-item-body">
               <select [(ngModel)]="props.fontFamily" class="form-control" (change)="setFontFamily()">
                 <option value="arial">Arial</option>
@@ -179,7 +179,7 @@
             </div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Text Align</div>
+            <div class="custom-item-title">Текст шрфита</div>
             <div class="custom-item-body text-center">
               <div class="btn-group" role="group" aria-label="...">
                 <button type="button" class="btn btn-primary" [ngClass]="{'active': props.textAlign == 'left' }"
@@ -202,7 +202,7 @@
             </div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Style</div>
+            <div class="custom-item-title">Стиль шрфита</div>
             <div class="custom-item-body text-center">
               <div class="btn-group" role="group" aria-label="...">
                 <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'active': props.fontWeight }"
@@ -232,19 +232,19 @@
             </div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Font Size</div>
+            <div class="custom-item-title">Размер шрфита</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.fontSize" (change)="setFontSize()" step="1" min="1"
                      max="120">{{props.fontSize}}</div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Line Height</div>
+            <div class="custom-item-title">Высота шрфита</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.lineHeight" (change)="setLineHeight()" step="0.1" min="0"
                      max="10">{{props.lineHeight}}</div>
           </div>
           <div class="custom-item" *ngIf="selected && textEditor">
-            <div class="custom-item-title">Char Spacing</div>
+            <div class="custom-item-title">Ширина шрфита</div>
             <div class="custom-item-body">
               <input type="range" [(ngModel)]="props.charSpacing" (change)="setCharSpacing()" step="10" min="-200"
                      max="800">{{props.charSpacing}}</div>
@@ -260,11 +260,11 @@
         <div class="col-xl-12 lab-footer">
           <button data-toggle="tooltip" data-placement="bottom" title="Export to image" type="button"
                   class="btn btn-primary" (click)="rasterize();">
-            <i class="fa fa-download" aria-hidden="true"></i> Export to image
+            <i class="fa fa-download" aria-hidden="true"></i> Сохранить
           </button>
           <button data-toggle="tooltip" data-placement="bottom" title="Clean Canvas" type="button"
                   class="btn btn-danger" (click)="confirmClear();">
-            <i class="fa fa-ban" aria-hidden="true"></i> Clean
+            <i class="fa fa-ban" aria-hidden="true"></i> Очистить
           </button>
         </div>
       </div>

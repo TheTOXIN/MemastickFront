@@ -520,14 +520,14 @@ export class LaboratoryComponent implements OnInit {
   }
 
   confirmClear() {
-    if (confirm('Are you sure?')) {
+    if (confirm('Вы в этом уверены?')) {
       this.canvas.clear();
     }
   }
 
   rasterize() {
     if (!fabric.Canvas.supports('toDataURL')) {
-      alert('This browser doesn\'t provide means to serialize canvas to an image');
+      alert('Ваш браузер не поддерживает сохранение');
     } else {
       console.log(this.canvas.toDataURL('png'));
       // window.open(this.canvas.toDataURL('png'));
