@@ -28,7 +28,9 @@ export class ChangeAvatarModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  showAvatar(files) {
+  showAvatar(event) {
+    const files = event.target.files;
+
     if (files.length !== 1) {
       this.message = 'НУЖЕН ТОЛЬКО 1 ФАЙЛ';
       return;
