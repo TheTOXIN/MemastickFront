@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import 'fabric';
+import {Router} from '@angular/router';
 
 declare const fabric: any;
 
@@ -16,7 +17,6 @@ export class LaboratoryComponent implements OnInit {
   private props: any = {
     canvasFill: '#ffffff',
     canvasImage: '',
-    id: null,
     opacity: null,
     fill: null,
     fontSize: null,
@@ -25,7 +25,7 @@ export class LaboratoryComponent implements OnInit {
     fontWeight: null,
     fontStyle: null,
     textAlign: null,
-    fontFamily: null,
+    fontFamily: 'arial',
     TextDecoration: ''
   };
 
@@ -33,7 +33,7 @@ export class LaboratoryComponent implements OnInit {
   private textString: string;
   private size: any = {
     width: 500,
-    height: 800
+    height: 600
   };
 
   private textEditor = false;
@@ -41,7 +41,10 @@ export class LaboratoryComponent implements OnInit {
   private figureEditor = false;
   private selected: any;
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
+
   }
 
   ngOnInit() {
@@ -51,6 +54,8 @@ export class LaboratoryComponent implements OnInit {
       selection: true,
       selectionBorderColor: 'blue'
     });
+
+    this.setCanvasFill();
 
     this.canvas.on({
       'object:moving': (e) => {
@@ -68,7 +73,6 @@ export class LaboratoryComponent implements OnInit {
 
         if (selectedObject.type !== this.groupType && selectedObject) {
 
-          this.getId();
           this.getOpacity();
 
           switch (selectedObject.type) {
@@ -164,13 +168,15 @@ export class LaboratoryComponent implements OnInit {
   }
 
   readUrl(event) {
-    if (event.target.files && event.target.files[0]) {
+    const files = event.target.files;
+
+    if (files && files[0]) {
       const reader = new FileReader();
       reader.onload = (eventLoad) => {
         const url = eventLoad.target['result'];
         this.addImageOnCanvas(url);
       };
-      reader.readAsDataURL(event.target.files[0]);
+      reader.readAsDataURL(files[0]);
     }
   }
 
@@ -227,7 +233,6 @@ export class LaboratoryComponent implements OnInit {
     const self = this;
     if (this.props.canvasImage) {
       this.canvas.setBackgroundColor({source: this.props.canvasImage, repeat: 'repeat'}, function () {
-        // self.props.canvasFill = '';
         self.canvas.renderAll();
       });
     }
@@ -250,7 +255,6 @@ export class LaboratoryComponent implements OnInit {
       : (object[styleName] || '');
   }
 
-
   setActiveStyle(styleName, value, object) {
     object = object || this.canvas.getActiveObject();
     if (!object) {
@@ -269,7 +273,6 @@ export class LaboratoryComponent implements OnInit {
     object.setCoords();
     this.canvas.renderAll();
   }
-
 
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
@@ -317,20 +320,6 @@ export class LaboratoryComponent implements OnInit {
         this.selectItemAfterAdded(clone);
       }
     }
-  }
-
-  getId() {
-    this.props.id = this.canvas.getActiveObject().toObject().id;
-  }
-
-  setId() {
-    const val = this.props.id;
-    const complete = this.canvas.getActiveObject().toObject();
-    console.log(complete);
-    this.canvas.getActiveObject().toObject = () => {
-      complete.id = val;
-      return complete;
-    };
   }
 
   getOpacity() {
@@ -459,23 +448,29 @@ export class LaboratoryComponent implements OnInit {
     this.canvas.discardActiveObject();
   }
 
-  confirmClear() {
+  cleaner() {
     if (confirm('Вы в этом уверены?')) {
       this.canvas.clear();
     }
   }
 
-  rasterize() {
-    if (!fabric.Canvas.supports('toDataURL')) {
-      alert('Ваш браузер не поддерживает сохранение');
-    } else {
-      console.log(this.canvas.toDataURL('png'));
-      // window.open(this.canvas.toDataURL('png'));
+  viewer() {
       const image = new Image();
       image.src = this.canvas.toDataURL('png');
       const w = window.open('');
       w.document.write(image.outerHTML);
-    }
+  }
+
+  creator() {
+    alert('TODO');
+  }
+
+  saver() {
+    alert('TODO');
+  }
+
+  redirecter() {
+    this.router.navigateByUrl('/');
   }
 
   resetPanels() {

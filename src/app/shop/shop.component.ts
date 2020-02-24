@@ -13,7 +13,7 @@ interface Product {
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit{
+export class ShopComponent implements OnInit {
 
   public products: Product[] = [{
     txt: 'Используй печеньки для голосования в битвах',

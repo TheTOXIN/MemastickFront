@@ -1,14 +1,44 @@
+<div class="lab-meme-logo" (click)="redirecter()">
+  <img src="assets/images/footer-logo.png">
+</div>
 <div class="container">
   <div class="row">
+    <div class="col-xl-12">
+      <div class="lab-footer">
+        <button data-toggle="tooltip" data-placement="bottom" title="Скачать изображение" type="button"
+                class="btn btn-primary" (click)="saver();">
+          <i class="fa fa-download" aria-hidden="true"></i> Сохранить
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Посмотреть итоговое" type="button"
+                class="btn btn-warning" (click)="viewer();">
+          <i class="fa fa-eye" aria-hidden="true"></i> Посмотреть
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Создать на Мемастике" type="button"
+                class="btn btn-success" (click)="creator();">
+          <i class="fa fa-globe" aria-hidden="true"></i> Создать
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+                class="btn btn-danger" (click)="cleaner();">
+          <i class="fa fa-ban" aria-hidden="true"></i> Очистить
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+                class="btn btn-info" (click)="redirecter();">
+          <i class="fa fa-home" aria-hidden="true"></i> Домой
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
     <div class="col-xl-3">
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Размер</div>
-        <div class="card-body">
+        <div class="card-body lab-card-body">
           <div class="form-group">
             <div class="input-group">
               <input type="text" class="form-control" [(ngModel)]="size.width" (keyup)="changeSize()">
               <div class="input-group-append">
-                <span class="input-group-text">
+                <span class="input-group-text lab-input-size">
                   Ширина
                 </span>
               </div>
@@ -18,7 +48,7 @@
             <div class="input-group mb-3">
               <input type="text" class="form-control" [(ngModel)]="size.height" (keyup)="changeSize()">
               <div class="input-group-append">
-                <span class="input-group-text">
+                <span class="input-group-text lab-input-size">
                   Высота
                 </span>
               </div>
@@ -26,11 +56,10 @@
           </div>
         </div>
       </div>
-      <br/>
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Текст</div>
         <div class="card-body">
-          <div class="input-group">
+          <div class="input-group lab-input-text">
             <input type="text" class="form-control" [(ngModel)]="textString">
             <div class="input-group-append">
               <span class="input-group-text">
@@ -43,16 +72,15 @@
           </div>
         </div>
       </div>
-      <br/>
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Изображение</div>
         <div class="card-body text-center">
-          <input type="file" (change)="readUrl($event);">
+          <input type="file" class="lab-file-input" (change)="readUrl($event);" accept=".png,.jpg">
+          <button title="Добавить" class="btn btn-primary">Загрузить</button>
           <br/>
         </div>
       </div>
-      <br/>
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Фигуры</div>
         <div class="card-body text-center max-height">
           <div class="btn-group" role="group" aria-label="...">
@@ -66,11 +94,11 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-6">
+    <div class="col-xl-6 canvas-container-wrap">
       <canvas id="canvas"></canvas>
     </div>
     <div class="col-xl-3">
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Опции</div>
         <div class="card-body text-center">
           <div class="btn-group" role="group" aria-label="...">
@@ -102,8 +130,7 @@
           </div>
         </div>
       </div>
-      <br/>
-      <div class="card" *ngIf="!selected">
+      <div class="card lab-card " *ngIf="!selected">
         <div class="card-header">Холст</div>
         <div class="card-body">
           <div class="custom-item" *ngIf="!props.canvasImage">
@@ -123,8 +150,7 @@
           </div>
         </div>
       </div>
-      <br/>
-      <div class="card">
+      <div class="card lab-card">
         <div class="card-header">Обьект</div>
         <div class="card-body">
           <div class="custom-item" *ngIf="selected  && selected.type == groupType">Выбрано несколько</div>
@@ -147,7 +173,7 @@
             <div class="custom-item-body">
               <label>
                 <select [(ngModel)]="props.fontFamily" class="form-control" (change)="setFontFamily()">
-                  <option value="arial" selected>Arial</option>
+                  <option value="arial">Arial</option>
                   <option value="Futurica">Futurica</option>
                   <option value="FuturaRound">FuturaRound</option>
                   <option value="MontHeavy">MontHeavy</option>
@@ -235,23 +261,6 @@
       </div>
     </div>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xl-12">
-      <div class="row">
-        <div class="col-xl-12 lab-footer">
-          <button data-toggle="tooltip" data-placement="bottom" title="Export to image" type="button"
-                  class="btn btn-primary" (click)="rasterize();">
-            <i class="fa fa-download" aria-hidden="true"></i> Сохранить
-          </button>
-          <button data-toggle="tooltip" data-placement="bottom" title="Clean Canvas" type="button"
-                  class="btn btn-danger" (click)="confirmClear();">
-            <i class="fa fa-ban" aria-hidden="true"></i> Очистить
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
   <br>
 </div>
+<div class="mem-back"></div>
