@@ -1,8 +1,9 @@
 <app-laboratory-warn-screen></app-laboratory-warn-screen>
-<div class="lab-meme-logo" (click)="redirecter()">
-  <img src="assets/images/footer-logo.png">
+<div class="lab-meme-logo">
+  <img (click)="redirecter()" src="assets/images/lab_mem_logo.png">
 </div>
 <div class="container">
+  <hr>
   <div class="row">
     <div class="col-xl-12">
       <div class="lab-footer">
@@ -33,7 +34,6 @@
       </div>
     </div>
   </div>
-  <hr>
   <div class="row">
     <div class="col-xl-3">
       <div class="card lab-card">
@@ -149,7 +149,7 @@
             </div>
           </div>
           <div class="custom-item">
-            <div class="custom-item-title">Задний Фон (URL)</div>
+            <div class="custom-item-title">Задний фон (URL)</div>
             <div class="custom-item-body">
               <input type="text" class="form-control" placeholder="http://example.jpg" [(ngModel)]="props.canvasImage"
                      (keyup)="setCanvasImage()">
@@ -268,6 +268,9 @@
       </div>
     </div>
   </div>
-  <br>
+  <hr>
+</div>
+<div class="lab-cop">
+  <span (click)="redirecter()">Лаборатрия Мемастика (ver: {{labVer}}) Powerd by Toxin</span>
 </div>
 <div class="mem-back"></div>

@@ -81,12 +81,12 @@
 }
 
 .lab-meme-logo {
-  cursor: pointer;
   text-align: center;
-  padding: 15px;
+  margin-top: 15px;
 
   img {
-    width: 300px;
+    cursor: pointer;
+    width: 250px;
   }
 }
 
@@ -100,4 +100,18 @@
 .lab-spinner {
   font-size: 25px;
   color: #007bff;
+}
+
+.lab-cop {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+  span {
+    cursor: pointer;
+  }
+}
+
+.canvas-container-wrap {
+  margin-top: 15px;
 }

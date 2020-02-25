@@ -6,6 +6,7 @@ import {OauthApiService} from '../services/oauth-api-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {LaboratoryInfoModalComponent} from './laboratory-info-modal/laboratory-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {UUID} from 'angular2-uuid';
 
 declare const fabric: any;
 
@@ -15,6 +16,8 @@ declare const fabric: any;
   styleUrls: ['./laboratory.component.scss']
 })
 export class LaboratoryComponent implements OnInit {
+
+  private labVer = 0.1;
 
   private canvas: any;
 
@@ -88,6 +91,7 @@ export class LaboratoryComponent implements OnInit {
             case 'circle':
             case 'triangle':
               this.figureEditor = true;
+              this.textEditor = false;
               this.getFill();
               break;
             case 'i-text':
@@ -102,6 +106,7 @@ export class LaboratoryComponent implements OnInit {
               this.getFontFamily();
               break;
             case 'image':
+              this.textEditor = false;
               break;
           }
         }
@@ -224,8 +229,10 @@ export class LaboratoryComponent implements OnInit {
 
   setCanvasFill() {
     if (!this.props.canvasImage) {
-      this.canvas.backgroundColor = this.props.canvasFill;
-      this.canvas.renderAll();
+      this.canvas.setBackgroundColor(
+        this.props.canvasFill,
+        () => this.canvas.renderAll()
+      );
     }
   }
 
@@ -240,10 +247,15 @@ export class LaboratoryComponent implements OnInit {
   }
 
   setCanvasImage() {
-    const self = this;
     if (this.props.canvasImage) {
-      this.canvas.setBackgroundColor({source: this.props.canvasImage, repeat: 'repeat'}, function () {
-        self.canvas.renderAll();
+
+      const image = new Image();
+      image.src = this.props.canvasImage;
+
+      const self = this;
+      this.canvas.setBackgroundImage(image.src, () => self.canvas.renderAll(), {
+        scaleX: this.canvas.width / image.width,
+        scaleY: this.canvas.height / image.height,
       });
     }
   }
@@ -444,8 +456,6 @@ export class LaboratoryComponent implements OnInit {
     activeObjects.forEach((object) => {
       object.bringToFront();
     });
-
-    this.canvas.discardActiveObject();
   }
 
   sendToBack() {
@@ -454,14 +464,6 @@ export class LaboratoryComponent implements OnInit {
     activeObjects.forEach((object) => {
       object.sendToBack();
     });
-
-    this.canvas.discardActiveObject();
-  }
-
-  cleaner() {
-    if (confirm('Вы в этом уверены?')) {
-      this.canvas.clear();
-    }
   }
 
   viewer() {
@@ -471,12 +473,29 @@ export class LaboratoryComponent implements OnInit {
       w.document.write(image.outerHTML);
   }
 
-  creator() {
-    alert('TODO');
+  saver() {
+    const url = this.canvas.toDataURL('png');
+    const link = document.createElement('a');
+    link.download = UUID.UUID() + '.png';
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 
-  saver() {
-    alert('TODO');
+  creator() {
+    if (this.isAuth) {
+      this.router.navigateByUrl('/memes/create');
+    } else {
+      alert('Создавать мемы на Мемастике могут только авторизованные пользователи');
+      this.router.navigateByUrl('/start');
+    }
+  }
+
+  cleaner() {
+    if (confirm('Вы в этом уверены?')) {
+      this.canvas.clear();
+    }
   }
 
   helper() {
@@ -484,11 +503,11 @@ export class LaboratoryComponent implements OnInit {
   }
 
   redirecter() {
-    if (this.isAuth) {
-      this.router.navigateByUrl('/home');
-    } else {
-      this.router.navigateByUrl('/start');
-    }
+      if (this.isAuth) {
+        this.router.navigateByUrl('/home');
+      } else {
+        this.router.navigateByUrl('/start');
+      }
   }
 
   resetPanels() {
