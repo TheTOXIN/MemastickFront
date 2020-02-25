@@ -7,6 +7,7 @@ import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token
 import {LaboratoryInfoModalComponent} from './laboratory-info-modal/laboratory-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
+import {FRONT_URL} from '../app.constants';
 
 declare const fabric: any;
 
@@ -119,13 +120,6 @@ export class LaboratoryComponent implements OnInit {
 
     this.canvas.setWidth(this.size.width);
     this.canvas.setHeight(this.size.height);
-
-    // get references to the html canvas element & its context
-    // this.canvas.on('mouse:down', (e) => {
-    // let canvasElement: any = document.getElementById('canvas');
-    // console.log(canvasElement)
-    // });
-
   }
 
   /*------------------------Block elements------------------------*/
@@ -298,18 +292,13 @@ export class LaboratoryComponent implements OnInit {
 
   getActiveProp(name) {
     const object = this.canvas.getActiveObject();
-    if (!object) {
-      return '';
-    }
-
+    if (!object) { return ''; }
     return object[name] || '';
   }
 
   setActiveProp(name, value) {
     const object = this.canvas.getActiveObject();
-    if (!object) {
-      return;
-    }
+    if (!object) { return; }
     object.set(name, value).setCoords();
     this.canvas.renderAll();
   }
@@ -435,7 +424,9 @@ export class LaboratoryComponent implements OnInit {
   }
 
   setFontFamily() {
-    this.setActiveProp('fontFamily', this.props.fontFamily);
+    if (this.props.fontFamily) {
+      this.setActiveProp('fontFamily', this.props.fontFamily);
+    }
   }
 
   /*System*/
@@ -474,13 +465,25 @@ export class LaboratoryComponent implements OnInit {
   }
 
   saver() {
-    const url = this.canvas.toDataURL('png');
-    const link = document.createElement('a');
-    link.download = UUID.UUID() + '.png';
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    fabric.Image.fromURL(FRONT_URL + '/assets/images/lab_mark.png', (image) => {
+      image.set({
+        left: this.canvas.width - 200,
+        top: this.canvas.height - 28,
+      });
+
+      this.canvas.add(image);
+      this.canvas.renderAll();
+
+      const url = this.canvas.toDataURL('png');
+      const link = document.createElement('a');
+
+      link.download = UUID.UUID() + '.png';
+      link.href = url;
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   }
 
   creator() {

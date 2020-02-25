@@ -88,7 +88,7 @@ firebase.initializeApp(environment.firebase);
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    MetrikaModule.forRoot({id: 56352478, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true})
+    MetrikaModule.forRoot({id: 56352478, webvisor: environment.production, clickmap: environment.production, trackLinks: environment.production, accurateTrackBounce: environment.production})
   ],
   providers: [
     AppComponent,

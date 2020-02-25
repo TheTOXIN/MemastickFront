@@ -23,11 +23,11 @@
                 class="btn btn-danger" (click)="cleaner();">
           <i class="fa fa-ban" aria-hidden="true"></i> Очистить
         </button>
-        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+        <button data-toggle="tooltip" data-placement="bottom" title="Помощь по лаборатории" type="button"
                 class="btn btn-info" (click)="helper();">
           <i class="fa fa-info" aria-hidden="true"></i> Помощь
         </button>
-        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+        <button data-toggle="tooltip" data-placement="bottom" title="Вернуться домой" type="button"
                 class="btn btn-secondary" (click)="redirecter();">
           <i class="fa fa-home" aria-hidden="true"></i> Домой
         </button>
@@ -180,15 +180,15 @@
             <div class="custom-item-body">
               <label>
                 <select [(ngModel)]="props.fontFamily" class="form-control" (change)="setFontFamily()">
-                  <option value="arial">Arial</option>
-                  <option value="Futurica">Futurica</option>
-                  <option value="FuturaRound">FuturaRound</option>
-                  <option value="MontHeavy">MontHeavy</option>
-                  <option value="verdana">Verdana</option>
-                  <option value="courier">Courier</option>
-                  <option value="Roboto">Roboto</option>
-                  <option value="Lato">Lato</option>
-                  <option value="Gost">Gost</option>
+                  <option value="Arial" style="font-family: Arial,serif">Arial</option>
+                  <option value="Futurica" style="font-family: Futurica,serif">Futurica</option>
+                  <option value="FuturaRound" style="font-family: FuturaRound,serif">FuturaRound</option>
+                  <option value="MontHeavy" style="font-family: MontHeavy,serif">MontHeavy</option>
+                  <option value="verdana" style="font-family: verdana,serif">Verdana</option>
+                  <option value="courier" style="font-family: courier,serif">Courier</option>
+                  <option value="Roboto" style="font-family: Roboto,serif">Roboto</option>
+                  <option value="Lato" style="font-family: Lato,serif">Lato</option>
+                  <option value="Gost" style="font-family: Gost,serif">Gost</option>
                 </select>
               </label>
             </div>
