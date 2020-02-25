@@ -1,3 +1,4 @@
+<app-laboratory-warn-screen></app-laboratory-warn-screen>
 <div class="lab-meme-logo" (click)="redirecter()">
   <img src="assets/images/footer-logo.png">
 </div>
@@ -22,7 +23,11 @@
           <i class="fa fa-ban" aria-hidden="true"></i> Очистить
         </button>
         <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
-                class="btn btn-info" (click)="redirecter();">
+                class="btn btn-info" (click)="helper();">
+          <i class="fa fa-info" aria-hidden="true"></i> Помощь
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+                class="btn btn-secondary" (click)="redirecter();">
           <i class="fa fa-home" aria-hidden="true"></i> Домой
         </button>
       </div>
@@ -75,9 +80,11 @@
       <div class="card lab-card">
         <div class="card-header">Изображение</div>
         <div class="card-body text-center">
-          <input type="file" class="lab-file-input" (change)="readUrl($event);" accept=".png,.jpg">
-          <button title="Добавить" class="btn btn-primary">Загрузить</button>
-          <br/>
+          <div class="lab-file-border">
+            <input type="file" class="lab-file-input" (change)="readUrl($event);" accept=".png,.jpg">
+            <button title="Добавить" class="btn btn-primary" *ngIf="!loadFile">Загрузить</button>
+            <i class="fa fa-circle-o-notch fa-spin lab-spinner" *ngIf="loadFile"></i>
+          </div>
         </div>
       </div>
       <div class="card lab-card">
@@ -102,7 +109,7 @@
         <div class="card-header">Опции</div>
         <div class="card-body text-center">
           <div class="btn-group" role="group" aria-label="...">
-            <button data-toggle="tooltip" data-placement="bottom" title="Удалить элемент" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Удалить обьект" type="button"
                     class="btn btn-outline-danger" [disabled]="!selected"
                     (click)="removeSelected();">
               <i class="fa fa-trash" aria-hidden="true"></i>
@@ -117,7 +124,7 @@
                     (click)="bringToFront();">
               <i class="fa fa-level-up" aria-hidden="true"></i>
             </button>
-            <button data-toggle="tooltip" data-placement="bottom" title="Клонировать элемент" type="button"
+            <button data-toggle="tooltip" data-placement="bottom" title="Клонировать обьект" type="button"
                     class="btn btn-outline-primary" [disabled]="!selected || selected.type == groupType"
                     (click)="clone();">
               <i class="fa fa-clone" aria-hidden="true"></i>

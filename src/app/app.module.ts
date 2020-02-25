@@ -67,7 +67,7 @@ firebase.initializeApp(environment.firebase);
     AppComponent,
     ShopComponent,
     BlogComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

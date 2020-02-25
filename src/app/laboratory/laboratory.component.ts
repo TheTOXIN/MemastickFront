@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import 'fabric';
 import {Router} from '@angular/router';
+import {OauthApiService} from '../services/oauth-api-service';
+import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
+import {LaboratoryInfoModalComponent} from './laboratory-info-modal/laboratory-info-modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 declare const fabric: any;
 
@@ -39,12 +43,16 @@ export class LaboratoryComponent implements OnInit {
   private textEditor = false;
   private imageEditor = false;
   private figureEditor = false;
+  private loadFile = false;
+  private isAuth = false;
   private selected: any;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private oauth: OauthApiService,
+    private modalService: NgbModal
   ) {
-
+    this.isAuth = oauth.checkTokens();
   }
 
   ngOnInit() {
@@ -168,6 +176,7 @@ export class LaboratoryComponent implements OnInit {
   }
 
   readUrl(event) {
+    this.loadFile = true;
     const files = event.target.files;
 
     if (files && files[0]) {
@@ -175,6 +184,7 @@ export class LaboratoryComponent implements OnInit {
       reader.onload = (eventLoad) => {
         const url = eventLoad.target['result'];
         this.addImageOnCanvas(url);
+        this.loadFile = false;
       };
       reader.readAsDataURL(files[0]);
     }
@@ -469,8 +479,16 @@ export class LaboratoryComponent implements OnInit {
     alert('TODO');
   }
 
+  helper() {
+    this.modalService.open(LaboratoryInfoModalComponent, {'centered': true});
+  }
+
   redirecter() {
-    this.router.navigateByUrl('/');
+    if (this.isAuth) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/start');
+    }
   }
 
   resetPanels() {
