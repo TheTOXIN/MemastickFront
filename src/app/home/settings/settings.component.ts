@@ -10,6 +10,7 @@ import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 import {UserDataModalComponent} from '../../modals/user-data-modal/user-data-modal.component';
+import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
 
 @Component({
   selector: 'app-settings',
@@ -44,6 +45,27 @@ export class SettingsComponent implements OnInit {
     this.modalService.open(ChangeNickModalComponent, {'centered': true});
   }
 
+  profileData() {
+    this.modalService.open(UserDataModalComponent, {'centered': true});
+  }
+
+  following() {
+    this.modalService.open(FollowingModalComponent, {'centered': true});
+  }
+
+  logOut() {
+    this.modalService.open(LogoutModalComponent, {'centered': true});
+  }
+
+  pushWork() {
+    this.setting.pushWork = !this.setting.pushWork;
+    this.settingApi.push(this.setting.pushWork);
+  }
+
+  requestPush() {
+    this.modalService.open(PushRequestModalComponent, {'centered': true});
+  }
+
   pushNotification() {
     if (this.pushService.work()) {
       this.pushService.tokener().then(token => {
@@ -58,23 +80,6 @@ export class SettingsComponent implements OnInit {
     } else {
       this.pushWork();
     }
-  }
-
-  pushWork() {
-    this.setting.pushWork = !this.setting.pushWork;
-    this.settingApi.push(this.setting.pushWork);
-  }
-
-  profileData() {
-    this.modalService.open(UserDataModalComponent, {'centered': true});
-  }
-
-  requestPush() {
-    this.modalService.open(PushRequestModalComponent, {'centered': true});
-  }
-
-  logOut() {
-    this.modalService.open(LogoutModalComponent, {'centered': true});
   }
 
   back() {
