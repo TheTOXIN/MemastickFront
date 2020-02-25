@@ -36,7 +36,8 @@ export enum API {
   ALLOWANCE_MAKE = '/token-allowance/make',
   ALLOWANCE_HAVE = '/token-allowance/have',
 
-  INVENTORY_CELL = '/memetick-inventories/cell',
+  INVENTORY_CELL_STATE = '/memetick-inventories/cell/state',
+  INVENTORY_CELL_HAVE = '/memetick-inventories/cell/have',
   INVENTORY_ALL = '/memetick-inventories/all',
   PICKAXE = '/pickaxe',
 

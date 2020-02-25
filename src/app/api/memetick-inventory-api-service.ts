@@ -17,7 +17,13 @@ export class MemetickInventoryApiService {
 
   public stateCell(): Observable<Cell> {
     return this.http
-      .get<Cell>(API.INVENTORY_CELL)
+      .get<Cell>(API.INVENTORY_CELL_STATE)
+      .pipe();
+  }
+
+  public haveCell() {
+    return this.http
+      .get(API.INVENTORY_CELL_HAVE)
       .pipe();
   }
 

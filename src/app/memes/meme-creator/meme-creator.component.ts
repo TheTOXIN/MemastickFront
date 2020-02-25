@@ -13,6 +13,9 @@ import {StorageService} from '../../services/storage-service';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {ImageUtils} from '../../utils/image-utils';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
+import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -51,7 +54,8 @@ export class MemeCreatorComponent implements OnInit {
     private memeApi: MemeApiService,
     private tokenApi: TokenApiService,
     private inventoryApi: MemetickInventoryApiService,
-    private storage: StorageService
+    private storage: StorageService,
+    private modalService: NgbModal,
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
@@ -182,6 +186,14 @@ export class MemeCreatorComponent implements OnInit {
 
   close() {
     this.router.navigateByUrl('/home');
+  }
+
+  lab() {
+    this.router.navigateByUrl('/lab');
+  }
+
+  info() {
+    this.modalService.open(AlgorithmModalComponent, {'centered': true});
   }
 
   cancel() {

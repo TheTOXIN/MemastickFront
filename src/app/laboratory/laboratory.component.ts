@@ -64,6 +64,11 @@ export class LaboratoryComponent implements OnInit {
     this.isAuth = oauth.checkTokens();
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  doSomething($event) {
+    $event.returnValue = 'Ваша работа может пропасть!';
+  }
+
   ngOnInit() {
     // setup front side canvas
     this.canvas = new fabric.Canvas('canvas', {
@@ -493,15 +498,13 @@ export class LaboratoryComponent implements OnInit {
 
   creator() {
     if (this.isAuth) {
-      this.inventoryApi.stateCell().subscribe(data => {
-        if (data.state === GlobalConst.CELL_SATE) {
-          let dataURL = this.canvas.toDataURL('png');
-          dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
-          this.storage.saveLabMeme(dataURL);
-          this.router.navigateByUrl('/memes/create?lab=true');
-        } else {
-          alert('Ваша клетка ещё не выросла, осталось: ' + (GlobalConst.CELL_SATE - data.state) + '%');
-        }
+      this.inventoryApi.haveCell().subscribe(() => {
+        let dataURL = this.canvas.toDataURL('png');
+        dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+        this.storage.saveLabMeme(dataURL);
+        this.router.navigateByUrl('/memes/create?lab=true');
+      }, () => {
+        alert('Ваша клетка ещё не выросла');
       });
     } else {
       alert('Создавать мемы на Мемастике могут только авторизованные пользователи');
