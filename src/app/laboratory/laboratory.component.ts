@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 import 'fabric';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OauthApiService} from '../services/oauth-api-service';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {LaboratoryInfoModalComponent} from './laboratory-info-modal/laboratory-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
 import {FRONT_URL} from '../app.constants';
+import {MemetickInventoryApiService} from '../api/memetick-inventory-api-service';
+import {GlobalConst} from '../consts/GlobalConst';
+import {StorageService} from '../services/storage-service';
 
 declare const fabric: any;
 
@@ -54,7 +57,9 @@ export class LaboratoryComponent implements OnInit {
   constructor(
     private router: Router,
     private oauth: OauthApiService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private inventoryApi: MemetickInventoryApiService,
+    private storage: StorageService
   ) {
     this.isAuth = oauth.checkTokens();
   }
@@ -488,7 +493,16 @@ export class LaboratoryComponent implements OnInit {
 
   creator() {
     if (this.isAuth) {
-      this.router.navigateByUrl('/memes/create');
+      this.inventoryApi.stateCell().subscribe(data => {
+        if (data.state === GlobalConst.CELL_SATE) {
+          let dataURL = this.canvas.toDataURL('png');
+          dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
+          this.storage.saveLabMeme(dataURL);
+          this.router.navigateByUrl('/memes/create?lab=true');
+        } else {
+          alert('Ваша клетка ещё не выросла, осталось: ' + (GlobalConst.CELL_SATE - data.state) + '%');
+        }
+      });
     } else {
       alert('Создавать мемы на Мемастике могут только авторизованные пользователи');
       this.router.navigateByUrl('/start');
@@ -506,11 +520,13 @@ export class LaboratoryComponent implements OnInit {
   }
 
   redirecter() {
+    if (confirm('Покинуть лабораторию?')) {
       if (this.isAuth) {
         this.router.navigateByUrl('/home');
       } else {
         this.router.navigateByUrl('/start');
       }
+    }
   }
 
   resetPanels() {

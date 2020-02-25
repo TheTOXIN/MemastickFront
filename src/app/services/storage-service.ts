@@ -17,6 +17,7 @@ const MEME_PAGE = 'MEME_PAGE_';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
 const PEVIEW = 'PEVIEW';
+const LAB_MEM = 'LAB_MEM';
 
 @Injectable()
 export class StorageService {
@@ -120,6 +121,14 @@ export class StorageService {
     }
 
     return !wasPreview;
+  }
+
+  public saveLabMeme(meme: any) {
+    sessionStorage.setItem(LAB_MEM, meme);
+  }
+
+  public loadLabMeme(): any {
+    return sessionStorage.getItem(LAB_MEM);
   }
 
   public clearLogOut() {

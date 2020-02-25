@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
@@ -11,6 +11,8 @@ import {MemeTextInputComponent} from '../meme-text-input/meme-text-input.compone
 import {EPI} from '../../model/EPI';
 import {StorageService} from '../../services/storage-service';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {GlobalConst} from '../../consts/GlobalConst';
+import {ImageUtils} from '../../utils/image-utils';
 
 @Component({
   selector: 'app-meme-creator',
@@ -45,6 +47,7 @@ export class MemeCreatorComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private memeApi: MemeApiService,
     private tokenApi: TokenApiService,
     private inventoryApi: MemetickInventoryApiService,
@@ -59,7 +62,9 @@ export class MemeCreatorComponent implements OnInit {
       this.stateCell = data.state;
       this.epiCell = data.epi;
 
-      if (this.stateCell === 100) {
+      if (this.stateCell === GlobalConst.CELL_SATE) {
+        this.checkLab();
+
         this.stateText = 'КЛЕТКА ГОТОВА';
         this.stateTitle = 'ПЕРЕТАЩИ ИЛИ НАЖМИ';
       } else {
@@ -68,6 +73,23 @@ export class MemeCreatorComponent implements OnInit {
       }
     });
   }
+
+  checkLab() {
+    this.route.queryParams.subscribe(params => {
+      if (!params.lab) { return; }
+
+      const labMeme = this.storage.loadLabMeme();
+      const fileName = 'MemeLab_' +  new Date().valueOf() + '.png';
+      const imageBlob = ImageUtils.dataURLtoBlob(labMeme);
+
+      if (imageBlob == null) { return; }
+
+      this.imageFile = new File([imageBlob], fileName, { type: 'image/png' });
+      this.imgURL = 'data:image/png;base64,' + labMeme;
+      this.isPreview = true;
+    });
+  }
+
 
   toggleHover(event: boolean) {
     this.isHovering = event;
@@ -90,7 +112,7 @@ export class MemeCreatorComponent implements OnInit {
 
     this.status = LoaderStatus.LOAD;
 
-    if (this.stateCell === 100) {
+    if (this.stateCell === GlobalConst.CELL_SATE) {
       this.show(files);
     } else {
       this.error('Клетка не выросла!');
