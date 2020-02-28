@@ -13,6 +13,7 @@
         <div *ngIf="!isLoad">
           <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
           <p class="home-info">{{home?.message}}</p>
+          <span [style.color]="'blue'">DNA:{{home?.rank.dna}} / LVL:{{home?.rank.lvl}} / NAME:{{home?.rank.name}}</span>
         </div>
       </div>
     </div>

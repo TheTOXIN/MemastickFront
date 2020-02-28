@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
 
   initHello() {
       const emoji = randomEmoji.random({count: 1})[0].character;
-      this.hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
+      this.hello = emoji + ' ПРИВЕТ ' + this.home.memetick.nick + '!';
   }
 
   memes(filter: MemeFilter) {
