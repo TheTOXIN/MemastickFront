@@ -14,6 +14,8 @@ import {LibraryComponent} from './library/library.component';
 import {StartModule} from '../start/start.module';
 import {TokenModule} from '../token/token.module';
 import {MiningComponent} from './mining/mining.component';
+import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
+import {AngularFittextModule} from 'angular-fittext';
 
 @NgModule({
   imports: [
@@ -24,7 +26,8 @@ import {MiningComponent} from './mining/mining.component';
     ModalsModule,
     ControlModule,
     StartModule,
-    TokenModule
+    TokenModule,
+    AngularFittextModule
   ],
   declarations: [
     HomeComponent,
@@ -33,7 +36,8 @@ import {MiningComponent} from './mining/mining.component';
     MemetickRatingComponent,
     SettingsComponent,
     LibraryComponent,
-    MiningComponent
+    MiningComponent,
+    HomeMemetickComponent,
   ]
 })
 export class HomeModule {

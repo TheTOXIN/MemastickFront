@@ -7,19 +7,19 @@ import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
-import * as randomEmoji from 'random-emoji';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {StorageService} from '../services/storage-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
-import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
-import {VERSION, VK_CHAT} from '../app.constants';
+import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {ModalType} from '../consts/ModalType';
+import {MemetickApiService} from '../api/memetick-api-service';
+import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 
 @Component({
   selector: 'app-home',
@@ -39,9 +39,6 @@ export class HomeComponent implements OnInit {
 
   isLoad = true;
   showLogo = true;
-
-  public isHello;
-  public hello;
 
   public home: Home;
   public role: RoleType = RoleType.USER;
@@ -82,7 +79,6 @@ export class HomeComponent implements OnInit {
       this.home = home;
       this.isLoad = false;
       this.askPush();
-      this.initHello();
     });
   }
 
@@ -104,11 +100,6 @@ export class HomeComponent implements OnInit {
     if (this.storage.getPushAsk()) {
       this.modalService.open(PushRequestModalComponent, {'centered': true});
     }
-  }
-
-  initHello() {
-      const emoji = randomEmoji.random({count: 1})[0].character;
-      this.hello = emoji + ' ПРИВЕТ ' + this.home.memetick.nick + '!';
   }
 
   memes(filter: MemeFilter) {

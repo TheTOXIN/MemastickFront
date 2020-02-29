@@ -1,0 +1,132 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.home-memetick {
+
+}
+
+.home-memetick-rank {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 32px;
+  div {
+    color: $dark_color;
+    font-size: 20px;
+    font-family: MontHeavy, serif;
+  }
+
+  @media(max-width: 767px) {
+    div {
+      font-size: 18px;
+    }
+  }
+}
+
+.home-memetick-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 69px;
+}
+
+.home-memetick-ava {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  img {
+    width: 72px;
+    height: 72px;
+
+    max-height: 100%;
+    max-width: 100%;
+
+    border-width: 3px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #3c803b;
+  }
+
+  @media(max-width: 767px) {
+    img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.home-memetick-txt {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.home-memetick-lvl {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .lvl {
+    text-align: center;
+    font-size: 36px;
+    background-color: whitesmoke;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #307ac3;
+    color: #3c4751;
+
+    div {
+      font-size: 16px;
+      margin-top: -16px;
+    }
+  }
+
+  @media(max-width: 767px) {
+    .lvl {
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+
+      div {
+        font-size: 12px;
+        margin-top: -12px;
+      }
+    }
+  }
+}
+
+.home-memetick-dna {
+  img {
+    max-width: 404px;
+    width: 100%;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: Gost, serif;
+    margin-bottom: 0;
+  }
+
+  @media(max-width: 767px) {
+    img {
+      max-width: 228px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}

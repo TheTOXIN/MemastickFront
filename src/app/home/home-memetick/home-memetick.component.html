@@ -1,0 +1,23 @@
+<div class="home-memetick">
+  <div class="home-memetick-rank">
+    <div>{{home?.rank?.name}}</div>
+  </div>
+  <div class="home-memetick-row">
+    <div class="home-memetick-ava">
+      <img [src]="memetickAvatar || ''">
+    </div>
+    <div class="home-memetick-txt animated bounceIn">
+      <div  fittext [minFontSize]="16" [maxFontSize]="54">{{home?.memetick?.nick}}</div>
+    </div>
+    <div class="home-memetick-lvl">
+      <div class="lvl">
+        {{home?.rank?.lvl}}
+        <div>lvl</div>
+      </div>
+    </div>
+  </div>
+  <div class="home-memetick-dna">
+    <img src="assets/images/dna_line.png" class="animated flipInX slow">
+    <p>ДНК: {{home?.rank?.dna}}</p>
+  </div>
+</div>

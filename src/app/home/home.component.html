@@ -6,15 +6,10 @@
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="home-table home-table-hello">
-        <div *ngIf="isLoad">
-          <app-spinner></app-spinner>
-        </div>
-        <div *ngIf="!isLoad">
-          <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
-          <p class="home-info">{{home?.message}}</p>
-          <span [style.color]="'blue'">DNA:{{home?.rank.dna}} / LVL:{{home?.rank.lvl}} / NAME:{{home?.rank.name}}</span>
-        </div>
+      <div class="home-table home-table-main">
+        <app-home-memetick [home]="home" *ngIf="!isLoad; else spinnerTableMain"></app-home-memetick>
+        <ng-template #spinnerTableMain> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
+<!--                  <p class="home-info">{{home?.message}}</p> TODO !!!-->
       </div>
     </div>
   </div>
@@ -79,32 +74,32 @@
 
   <div class="row">
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="allowance()">
-          <img src="assets/images/icon/allowance.png">
-          <p>ПОСОБИЕ</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="allowance()">
+        <img src="assets/images/icon/allowance.png">
+        <p>ПОСОБИЕ</p>
       </div>
+    </div>
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="algorithm()">
-          <img src="assets/images/icon/algorithm_icon.png">
-          <p>АЛГОРИТМ</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="algorithm()">
+        <img src="assets/images/icon/algorithm_icon.png">
+        <p>АЛГОРИТМ</p>
       </div>
+    </div>
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="docDna()">
-          <img src="assets/images/icon/dna_doc.png">
-          <p>ДОК.ДНК</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="docDna()">
+        <img src="assets/images/icon/dna_doc.png">
+        <p>ДОК.ДНК</p>
       </div>
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="socNet()">
-          <img src="assets/images/icon/community.png">
-          <p>СОЦ.СЕТИ</p>
-        </div>
+    </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="socNet()">
+        <img src="assets/images/icon/community.png">
+        <p>СОЦ.СЕТИ</p>
       </div>
+    </div>
 
   </div>
 

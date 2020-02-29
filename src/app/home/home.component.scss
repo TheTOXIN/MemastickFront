@@ -1,16 +1,5 @@
 @import "src/assets/scss/base/_variable.scss";
 
-.home-hello {
-  color: #000;
-  font-size: 56px;
-  padding-bottom: 15px;
-  line-height: 64px;
-  overflow-x: hidden;
-  @media(max-width: 767px) {
-    font-size: 40px;
-  }
-}
-
 .home-logo {
   cursor: pointer;
   border-radius: 0 0 30px 30px;
@@ -39,7 +28,7 @@
   }
 }
 
-.home-table-hello {
+.home-table-main {
   padding: 15px;
 }
 
