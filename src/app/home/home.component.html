@@ -4,12 +4,20 @@
   <div class="version-message">{{versionMessage}}</div>
 </div>
 <div class="home-container container">
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="home-table">
+        <p class="home-info">{{home?.message}}</p>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table-main home-table">
         <app-home-memetick [home]="home" *ngIf="!isLoad; else spinnerTableMain"></app-home-memetick>
         <ng-template #spinnerTableMain> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
-<!--        <p class="home-info">{{home?.message}}</p>-->
       </div>
     </div>
   </div>
