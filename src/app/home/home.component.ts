@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
   myParams: object = {};
 
   isLoad = true;
-  showLogo = true;
 
   public home: Home;
   public role: RoleType = RoleType.USER;
@@ -62,16 +61,6 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 42) {
-      this.showLogo = false;
-    } else {
-      this.showLogo = true;
-    }
   }
 
   private initMe() {

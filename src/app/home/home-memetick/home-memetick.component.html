@@ -1,13 +1,10 @@
 <div class="home-memetick">
-  <div class="home-memetick-rank">
-    <div>{{home?.rank?.name}}</div>
-  </div>
   <div class="home-memetick-row">
     <div class="home-memetick-ava" (click)="memetick()">
       <img [src]="memetickAvatar || ''" [style.border-color]="colorAvatar">
     </div>
     <div class="home-memetick-txt animated bounceIn">
-      <div  fittext [minFontSize]="16" [maxFontSize]="54">{{home?.memetick?.nick}}</div>
+      <div>{{home?.memetick?.nick}}</div>
     </div>
     <div class="home-memetick-lvl" (click)="rank()">
       <div class="lvl">
@@ -16,8 +13,13 @@
       </div>
     </div>
   </div>
-  <div class="home-memetick-dna">
-    <img src="assets/images/dna_line.png" class="animated flipInX slow">
-    <p>ДНК: {{home?.rank?.dna}}</p>
+  <div class="home-memetick-rank">
+    <div>{{home?.rank?.name}}</div>
+  </div>
+  <div class="home-memetick-dna-line">
+    <img src="assets/images/dna_line_new.png" class="animated flipInX slow">
+  </div>
+  <div class="home-memetick-dna-count">
+    ДНК: {{home?.rank?.dna}}
   </div>
 </div>

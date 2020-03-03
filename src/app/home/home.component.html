@@ -1,12 +1,12 @@
 <particles [style]="myStyle" [width]="100" [height]="100" [params]="myParams"></particles>
-<div class="home-logo" *ngIf="showLogo" (click)="toStart()">
+<div class="home-logo" (click)="toStart()">
   <img src="assets/images/footer-logo.png">
   <div class="version-message">{{versionMessage}}</div>
 </div>
 <div class="home-container container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="home-table home-table-main">
+      <div class="home-table-main home-table">
         <app-home-memetick [home]="home" *ngIf="!isLoad; else spinnerTableMain"></app-home-memetick>
         <ng-template #spinnerTableMain> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
 <!--                  <p class="home-info">{{home?.message}}</p> TODO !!!-->
