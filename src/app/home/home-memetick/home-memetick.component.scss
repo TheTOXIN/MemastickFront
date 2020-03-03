@@ -46,21 +46,34 @@
 
 .home-memetick-txt {
   height: 100%;
-  min-width: 150px;
-
   padding-left: 10px;
   padding-right: 10px;
 
-  font-size: 32px;
-
   @media(max-width: 767px) {
-    min-width: 100px;
-
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
+  }
+}
 
-    font-size: 18px;
+.home-memetick-nick {
+  font-size: 32px;
+  font-family: Futurica, serif;
+
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.home-memetick-rank {
+  color: $dark_color;
+  font-size: 20px;
+  font-family: MontHeavy, serif;
+  margin-top: -5px;
+
+  @media(max-width: 767px) {
+    margin-top: 0;
+    font-size: 14px;
   }
 }
 
@@ -102,30 +115,9 @@
   }
 }
 
-.home-memetick-rank {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 82px;
-
-  div {
-    color: $dark_color;
-    font-size: 20px;
-    font-family: MontHeavy, serif;
-  }
-
-  @media(max-width: 767px) {
-    top: 64px;
-
-    div {
-      font-size: 16px;
-    }
-  }
-}
-
-
 .home-memetick-dna-line {
   margin-top: 5px;
+  margin-bottom: 5px;
 
   img {
     max-width: 500px;
@@ -143,18 +135,24 @@
 .home-memetick-dna-count {
   font-size: 18px;
   font-family: Gost, serif;
-
-  display: inline-block;
-  background-color: #347ec3;
-  color: white;
-  border-radius: 30px;
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  left: 0;
+  right: 0;
+  bottom: -15px;
+
+  div {
+    background-color: #347ec3;
+    display: inline-block;
+    color: white;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   @media(max-width: 767px) {
+    bottom: -10px;
     font-size: 14px;
   }
 }

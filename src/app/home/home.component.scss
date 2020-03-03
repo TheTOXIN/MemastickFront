@@ -80,6 +80,12 @@
 
 }
 
+.home-stats-warp {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}
+
 .home-stats {
   p {
     font-family: Futurica, serif, serif;

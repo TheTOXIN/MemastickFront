@@ -4,22 +4,19 @@
       <img [src]="memetickAvatar || ''" [style.border-color]="colorAvatar">
     </div>
     <div class="home-memetick-txt animated bounceIn">
-      <div>{{home?.memetick?.nick}}</div>
+      <div class="home-memetick-nick">{{home?.memetick?.nick}}</div>
+      <div class="home-memetick-rank">{{home?.rank?.name}}</div>
     </div>
     <div class="home-memetick-lvl" (click)="rank()">
-      <div class="lvl">
-        {{home?.rank?.lvl}}
-        <div>lvl</div>
+      <div class="lvl" [style.border-color]="colorAvatar">
+        {{home?.rank?.lvl}} <div>lvl</div>
       </div>
     </div>
-  </div>
-  <div class="home-memetick-rank">
-    <div>{{home?.rank?.name}}</div>
   </div>
   <div class="home-memetick-dna-line">
     <img src="assets/images/dna_line.png" class="animated flipInX slow">
   </div>
-<!--  <div class="home-memetick-dna-count">-->
-<!--    {{home?.rank?.dna}} / {{home?.rank?.next}}-->
-<!--  </div>-->
+  <div class="home-memetick-dna-count">
+    <div>ДНК: {{home?.rank?.dna}} / {{home?.rank?.next}}</div>
+  </div>
 </div>
