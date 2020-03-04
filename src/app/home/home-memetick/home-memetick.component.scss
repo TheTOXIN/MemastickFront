@@ -72,8 +72,8 @@
   margin-top: -5px;
 
   @media(max-width: 767px) {
-    margin-top: 0;
-    font-size: 14px;
+    margin-top: -2px;
+    font-size: 16px;
   }
 }
 
@@ -85,31 +85,31 @@
 
   .lvl {
     text-align: center;
-    font-size: 36px;
-    background-color: whitesmoke;
+    font-size: 28px;
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    border: 5px solid #307ac3;
-    color: #3c4751;
+    background-color: $primary_color;
+    border: 10px double white;
+    color: white;
     cursor: pointer;
 
     div {
-      font-size: 16px;
-      margin-top: -16px;
+      font-size: 14px;
+      margin-top: -14px;
     }
   }
 
   @media(max-width: 767px) {
     .lvl {
-      width: 48px;
-      height: 48px;
-      font-size: 22px;
-      border-width: 3px;
+      width: 54px;
+      height: 54px;
+      font-size: 20px;
+      border-width: 7px;
 
       div {
-        font-size: 12px;
-        margin-top: -12px;
+        font-size: 11px;
+        margin-top: -9px;
       }
     }
   }
@@ -140,7 +140,7 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: -15px;
+  bottom: -18px;
 
   div {
     background-color: #347ec3;

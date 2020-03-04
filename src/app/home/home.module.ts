@@ -26,8 +26,7 @@ import {AngularFittextModule} from 'angular-fittext';
     ModalsModule,
     ControlModule,
     StartModule,
-    TokenModule,
-    AngularFittextModule
+    TokenModule
   ],
   declarations: [
     HomeComponent,

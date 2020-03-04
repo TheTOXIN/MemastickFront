@@ -3,12 +3,12 @@
     <div class="home-memetick-ava" (click)="memetick()">
       <img [src]="memetickAvatar || ''" [style.border-color]="colorAvatar">
     </div>
-    <div class="home-memetick-txt animated bounceIn">
+    <div class="home-memetick-txt">
       <div class="home-memetick-nick">{{home?.memetick?.nick}}</div>
       <div class="home-memetick-rank">{{home?.rank?.name}}</div>
     </div>
     <div class="home-memetick-lvl" (click)="rank()">
-      <div class="lvl" [style.border-color]="colorAvatar">
+      <div class="lvl">
         {{home?.rank?.lvl}} <div>lvl</div>
       </div>
     </div>
