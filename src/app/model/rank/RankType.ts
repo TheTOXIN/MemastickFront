@@ -1,8 +1,8 @@
 export class RankType {
   constructor(
-    lvl: number,
-    dna: number,
-    name: string
+    public lvl: number,
+    public dna: number,
+    public name: string
   ) {
 
   }

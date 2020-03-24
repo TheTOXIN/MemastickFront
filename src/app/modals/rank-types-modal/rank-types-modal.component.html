@@ -3,8 +3,10 @@
     <span class="modal-title">ТИПЫ РАНГОВ</span>
   </div>
   <div class="modal-body intro-modal">
-    <div *ngIf="!isLoad; else spinnerRankType">
-      {{data}}
+    <div class="rank-types my-scroll" *ngIf="!isLoad; else spinnerRankType">
+      <div *ngFor="let d of data">
+        <app-rank-level [lvl]="d.lvl"></app-rank-level>
+      </div>
     </div>
     <ng-template #spinnerRankType> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
   </div>

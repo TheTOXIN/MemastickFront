@@ -25,6 +25,7 @@ import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
 import {VkChatComponent} from './vk-chat/vk-chat.component';
 import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
+import {RankLevelComponent} from './rank-level/rank-level.component';
 
 @NgModule({
   exports: [
@@ -43,7 +44,8 @@ import {PreviewScreenComponent} from './preview-screen/preview-screen.component'
     DonaterMessageComponent,
     GpBtnComponent,
     VkChatComponent,
-    PreviewScreenComponent
+    PreviewScreenComponent,
+    RankLevelComponent,
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import {PreviewScreenComponent} from './preview-screen/preview-screen.component'
     DonaterMessageComponent,
     GpBtnComponent,
     VkChatComponent,
-    PreviewScreenComponent
+    PreviewScreenComponent,
+    RankLevelComponent,
   ],
   providers: [
     WINDOW_PROVIDERS,

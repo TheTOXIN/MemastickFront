@@ -2,8 +2,8 @@ import {TokenType} from '../../consts/TokenType';
 
 export class RankToken {
   constructor(
-    lvl: number,
-    tokens: Map<TokenType, number>
+    public lvl: number,
+    public tokens: Map<TokenType, number>
   ) {
 
   }
