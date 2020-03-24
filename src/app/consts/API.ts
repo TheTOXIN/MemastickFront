@@ -18,6 +18,9 @@ export enum API {
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMETICK_RATING = '/memeticks/rating',
 
+  RANK_TYPES = '/memetick-rank/types',
+  RANK_TOKENS = '/memetick-rank/tokens',
+
   MEMES_CREATE = '/memes/create',
   MEMES_IMG = '/memes/img',
   MEMES_PAGE = '/memes/page',
