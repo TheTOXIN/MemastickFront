@@ -1,4 +1,4 @@
-export class RankTypes {
+export class RankType {
   constructor(
     lvl: number,
     dna: number,

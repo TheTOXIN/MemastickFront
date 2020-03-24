@@ -1,6 +1,6 @@
 import {TokenType} from '../../consts/TokenType';
 
-export class RankTokens {
+export class RankToken {
   constructor(
     lvl: number,
     tokens: Map<TokenType, number>

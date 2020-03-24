@@ -25,7 +25,8 @@ import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin
 import {StartInfoModalComponent} from './start-info-modal/start-info-modal.component';
 import {UserDataModalComponent} from './user-data-modal/user-data-modal.component';
 import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/donater-message-info-modal.component';
-import {RankInfoModalComponent} from './rank-info-modal/rank-info-modal.component';
+import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
+import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
 
 @NgModule({
   exports: [
@@ -48,7 +49,8 @@ import {RankInfoModalComponent} from './rank-info-modal/rank-info-modal.componen
     StartInfoModalComponent,
     UserDataModalComponent,
     DonaterMessageInfoModalComponent,
-    RankInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
   ],
   imports: [
     CommonModule,
@@ -80,7 +82,8 @@ import {RankInfoModalComponent} from './rank-info-modal/rank-info-modal.componen
     StartInfoModalComponent,
     UserDataModalComponent,
     DonaterMessageInfoModalComponent,
-    RankInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
   ],
   entryComponents: [
     IntroModalComponent,
@@ -102,7 +105,8 @@ import {RankInfoModalComponent} from './rank-info-modal/rank-info-modal.componen
     StartInfoModalComponent,
     UserDataModalComponent,
     DonaterMessageInfoModalComponent,
-    RankInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
   ]
 })
 export class ModalsModule {

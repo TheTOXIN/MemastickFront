@@ -1,9 +1,12 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title">ИНФО ЗВАНИЙ</span>
+    <span class="modal-title">ТИПЫ РАНГОВ</span>
   </div>
   <div class="modal-body intro-modal">
-    ...
+    <div *ngIf="!isLoad; else spinnerRankType">
+      {{data}}
+    </div>
+    <ng-template #spinnerRankType> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">

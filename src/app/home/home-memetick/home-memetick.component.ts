@@ -1,11 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Home} from '../../model/Home';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {MainApiService} from '../../api/main-api-service';
-import {DomSanitizer} from '@angular/platform-browser';
+import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {RankInfoModalComponent} from '../../modals/rank-info-modal/rank-info-modal.component';
 import {memotypeColors, memotypeRarities} from '../../consts/MemotypeData';
 import {GlobalConst} from '../../consts/GlobalConst';
 
@@ -37,9 +34,5 @@ export class HomeMemetickComponent implements OnInit {
 
   memetick() {
     this.router.navigateByUrl('/home/memetick/me');
-  }
-
-  rank() {
-    this.modalService.open(RankInfoModalComponent, {'centered': true});
   }
 }

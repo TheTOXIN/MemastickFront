@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {RankTokensModalComponent} from '../rank-tokens-modal/rank-tokens-modal.component';
+import {RankTypesModalComponent} from '../rank-types-modal/rank-types-modal.component';
 
 @Component({
   selector: 'app-dna-modal',
@@ -24,11 +26,20 @@ export class DnaModalComponent implements OnInit {
   ];
 
   constructor(
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    private modalService: NgbModal
   ) {
 
   }
 
   ngOnInit() {
+  }
+
+  showRankTypes() {
+    this.modalService.open(RankTypesModalComponent, {'centered': true});
+  }
+
+  close() {
+    this.activeModal.close('success');
   }
 }
