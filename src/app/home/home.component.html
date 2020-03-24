@@ -7,7 +7,7 @@
 
 <div class="home-container container">
 
-  <div class="home-message animated zoomIn faster" *ngIf="!isLoad">
+  <div class="home-message animated zoomIn faster" *ngIf="isMesg">
     <p>{{home?.message}}</p>
   </div>
 
@@ -109,23 +109,21 @@
 
   </div>
 
-  <div class="row" style="padding-bottom: 30px">
+  <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table">
         <app-donater-message></app-donater-message>
+          <button class="home-support btn-theme btn-donater" type="submit" (click)="toDonaters()">
+            ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
+          </button>
       </div>
     </div>
   </div>
 </div>
 
-<app-vk-chat></app-vk-chat>
-
-<div class="home-copyright">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
-
-<div class="home-support">
-  <button class="btn-theme btn-donater" type="submit" (click)="toDonaters()">
-    ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
-  </button>
+<div class="margin-home">
+  <app-vk-chat></app-vk-chat>
 </div>
 
+<div class="home-copyright margin-home">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
 <div class="home-mini-btn" (click)="toAdmin()" *ngIf="role == roles.ADMIN"><a>АДМИНКА</a></div>
