@@ -1,0 +1,21 @@
+.rank-lvl-num {
+  width: 32px;
+  height: 32px;
+  color: white;
+  font-size: 22px;
+  border-radius: 50%;
+  font-family: Gost, serif;
+}
+
+.rank-lvl-txt {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+.rank-lvl {
+  text-align: left;
+  div {
+    display: inline-block;
+    text-align: center;
+  }
+}

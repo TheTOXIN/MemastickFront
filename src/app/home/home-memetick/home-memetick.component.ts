@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {memotypeColors, memotypeRarities} from '../../consts/MemotypeData';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {ColorUtils} from '../../utils/color-utils';
 
 @Component({
   selector: 'app-home-memetick',
@@ -17,7 +18,7 @@ export class HomeMemetickComponent implements OnInit {
   public home: Home;
 
   public memetickAvatar: string;
-  public colorAvatar;
+  public colorRarity: string;
 
   constructor(
     private router: Router,
@@ -29,7 +30,7 @@ export class HomeMemetickComponent implements OnInit {
 
   ngOnInit() {
     this.memetickAvatar = this.avatarApi.dowloadAvatar(this.home.memetick.id);
-    this.colorAvatar = memotypeColors[memotypeRarities[Math.floor(this.home.rank.lvl / GlobalConst.LVL_COF)]];
+    this.colorRarity = ColorUtils.getRarityColor(this.home.rank.lvl);
   }
 
   memetick() {

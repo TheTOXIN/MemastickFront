@@ -6,6 +6,7 @@
     <div class="rank-modal my-scroll" *ngIf="!isLoad; else spinnerRankType">
       <div *ngFor="let d of data">
         <app-rank-level [lvl]="d.lvl"></app-rank-level>
+        <app-token-wallet [wallet]="d.tokens"></app-token-wallet>
       </div>
     </div>
     <ng-template #spinnerRankType> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>

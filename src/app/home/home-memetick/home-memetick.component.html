@@ -1,14 +1,14 @@
 <div class="home-memetick">
   <div class="home-memetick-row">
     <div class="home-memetick-ava" (click)="memetick()">
-      <img [src]="memetickAvatar || ''" [style.border-color]="colorAvatar">
+      <img [src]="memetickAvatar || ''" [style.border-color]="colorRarity">
     </div>
     <div class="home-memetick-txt">
       <div class="home-memetick-nick">{{home?.memetick?.nick}}</div>
       <div class="home-memetick-rank">{{home?.rank?.name}}</div>
     </div>
     <div class="home-memetick-lvl">
-      <div class="lvl">
+      <div class="lvl" [style.background-color]="colorRarity">
         {{home?.rank?.lvl}} <div>lvl</div>
       </div>
     </div>

@@ -27,6 +27,7 @@ import {UserDataModalComponent} from './user-data-modal/user-data-modal.componen
 import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/donater-message-info-modal.component';
 import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
 import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
+import {TokenModule} from '../token/token.module';
 
 @NgModule({
   exports: [
@@ -60,7 +61,8 @@ import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.co
     ReactiveFormsModule,
     FormsModule,
     PinchZoomModule,
-    SharedModule
+    SharedModule,
+    TokenModule
   ],
   declarations: [
     IntroModalComponent,
