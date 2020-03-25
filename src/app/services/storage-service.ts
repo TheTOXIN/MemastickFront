@@ -18,9 +18,18 @@ const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
 const PEVIEW = 'PEVIEW';
 const LAB_MEM = 'LAB_MEM';
+const HOME_MSG = 'HOME_MSG';
 
 @Injectable()
 export class StorageService {
+
+  public setHomeMessage(msg: string) {
+    sessionStorage.setItem(HOME_MSG, msg);
+  }
+
+  public getHomeMessage() {
+    return sessionStorage.getItem(HOME_MSG);
+  }
 
   public getPushAsk(): boolean {
     let value: number = +localStorage.getItem(PUSH_ASK);

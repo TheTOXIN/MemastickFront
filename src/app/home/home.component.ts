@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   isMesg = false;
 
   public home: Home;
+  public message: string;
   public role: RoleType = RoleType.USER;
 
   constructor(
@@ -55,6 +56,8 @@ export class HomeComponent implements OnInit {
     @Inject(WINDOW) private window
   ) {
     this.role = this.storage.getRole();
+    this.message = this.storage.getHomeMessage();
+    this.isMesg = this.message != null;
   }
 
   ngOnInit() {
@@ -68,8 +71,8 @@ export class HomeComponent implements OnInit {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
-      this.isMesg = home.message != null;
       this.askPush();
+      this.homeMessage();
     });
   }
 
@@ -85,6 +88,14 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+  }
+
+  homeMessage() {
+    if (!this.isMesg) {
+      this.message = this.home.message;
+      this.isMesg = true;
+      this.storage.setHomeMessage(this.message);
+    }
   }
 
   askPush() {

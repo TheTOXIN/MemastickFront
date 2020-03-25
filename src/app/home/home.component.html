@@ -7,8 +7,9 @@
 
 <div class="home-container container">
 
-  <div class="home-message animated zoomIn faster" *ngIf="isMesg">
-    <p>{{home?.message}}</p>
+  <div class="home-message">
+    <p *ngIf="isMesg; else homeMsgDef">{{message}}</p>
+    <ng-template #homeMsgDef><p>...</p></ng-template>
   </div>
 
   <div class="row">
