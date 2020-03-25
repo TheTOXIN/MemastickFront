@@ -18,6 +18,8 @@ import {AppComponent} from '../app.component';
 import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {ModalType} from '../consts/ModalType';
+import {RankTokensModalComponent} from '../modals/rank-tokens-modal/rank-tokens-modal.component';
+import {RankTypesModalComponent} from '../modals/rank-types-modal/rank-types-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -60,6 +62,9 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
+
+    this.modalService.open(RankTypesModalComponent, {'centered': true});
+
   }
 
   private initMe() {

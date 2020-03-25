@@ -4,5 +4,6 @@ export enum GlobalConst {
   BLOCK_NONCE = 300,
   PUSH_ASK_COUNT = 3,
   CELL_SATE = 100,
-  LVL_COF = 10
+  LVL_COF = 10,
+  MAX_LVL = 50,
 }
