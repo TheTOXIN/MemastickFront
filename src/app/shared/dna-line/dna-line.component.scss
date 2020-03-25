@@ -36,16 +36,21 @@
   position: absolute;
   bottom: 0;
   font-size: 15px;
-  padding: 5px;
   color: white;
   background-color: $primary_color;
-  border-radius: 50%;
+  border-radius: 30px;
   font-family: Gost, serif;
-  margin-left: -10px;
-  box-shadow: 0 0 2px 0 black;
+  box-shadow: 0 0 1px 0 black;
+  left: 91%;
+  height: 115%;
+  width: 5px;
+  top: -2px;
+  margin-left: -5px;
 
   @media(max-width: 767px) {
-    font-size: 10px;
-    padding: 2px;
+    height: 113%;
+    width: 3px;
+    top: 0;
+    margin-left: -3px;
   }
 }
