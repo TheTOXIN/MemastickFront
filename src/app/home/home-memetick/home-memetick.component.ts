@@ -6,6 +6,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {memotypeColors, memotypeRarities} from '../../consts/MemotypeData';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {ColorUtils} from '../../utils/color-utils';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-memetick',
@@ -20,10 +21,13 @@ export class HomeMemetickComponent implements OnInit {
   public memetickAvatar: string;
   public colorRarity: string;
 
+  public dnaCrop = 'inset(0px 0px 0px 0px)';
+
   constructor(
     private router: Router,
     private modalService: NgbModal,
     private avatarApi: MemetickAvatarApiService,
+    private sanitizer: DomSanitizer,
   ) {
 
   }
@@ -31,6 +35,11 @@ export class HomeMemetickComponent implements OnInit {
   ngOnInit() {
     this.memetickAvatar = this.avatarApi.dowloadAvatar(this.home.memetick.id);
     this.colorRarity = ColorUtils.getRarityColor(this.home.rank.lvl);
+    this.dnaCrop = `inset(0px ${100 - this.home.rank.percent}% 0px 0px)`;
+  }
+
+  public get getDnaCrop() {
+    return this.sanitizer.bypassSecurityTrustStyle(this.dnaCrop);
   }
 
   memetick() {

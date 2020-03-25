@@ -60,6 +60,7 @@ import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
+import { DnaLineComponent } from './dna-line/dna-line.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -69,6 +70,7 @@ firebase.initializeApp(environment.firebase);
     ShopComponent,
     BlogComponent,
     ErrorPageComponent,
+    DnaLineComponent,
   ],
   imports: [
     BrowserModule,

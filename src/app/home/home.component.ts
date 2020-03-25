@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private mainApi: MainApiService,
-    private _sanitizer: DomSanitizer,
+    private sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private storage: StorageService,
     private app: AppComponent,
@@ -62,9 +62,6 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
-
-    this.modalService.open(RankTypesModalComponent, {'centered': true});
-
   }
 
   private initMe() {
