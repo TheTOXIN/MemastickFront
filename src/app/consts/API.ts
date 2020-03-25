@@ -93,4 +93,7 @@ export enum API {
 
   DONATER_RANDOM_MESSAGE = '/donater-messages/random',
   DONATER_READ_RATING = '/donater-ratings/read',
+
+  ADMIN_MESSAGE = '/admin-message',
+  ADMIN_NOTFY = '/admin-notify',
 }

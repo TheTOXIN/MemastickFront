@@ -1,7 +1,34 @@
 <div class="super-main-title">АДМИНКА</div>
-<div>HREF = {{HREF}}</div>
-<div>REFERRER = {{REFERRER}}</div>
-<div>
+
+<div class="admin-form-group">
+  <form (ngSubmit)="sendNotifyMesg()">
+    <div class="admin-form">
+      <p>MESSAGE NOTIFY</p>
+      <input [formControl]="mesgNotifyForm.controls['text']" name="text" placeholder="text" type="text">
+      <input [formControl]="mesgNotifyForm.controls['days']" name="days" placeholder="days" type="number">
+      <button class="btn btn-primary" type="submit" [disabled]="!mesgNotifyForm.valid">SEND</button>
+    </div>
+  </form>
+
+  <form (ngSubmit)="sendNotifyPush()">
+    <div class="admin-form">
+      <p>SUPER NOTIFY</p>
+      <input [formControl]="suprNotifyForm.controls['text']" name="text" placeholder="text" type="text">
+      <button class="btn btn-primary" type="submit" [disabled]="!suprNotifyForm.valid">SEND</button>
+    </div>
+  </form>
+
+  <form (ngSubmit)="sendNotifyUser()">
+    <div class="admin-form">
+      <p>USER NOTIFY</p>
+      <input [formControl]="userNotifyForm.controls['text']" name="text" placeholder="text" type="text">
+      <input [formControl]="userNotifyForm.controls['uuid']" name="uuid" placeholder="uuid" type="text">
+      <button class="btn btn-primary" type="submit" [disabled]="!userNotifyForm.valid">SEND</button>
+    </div>
+  </form>
+</div>
+
+<div class="admin-invites my-scroll">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -28,3 +55,9 @@
     </tbody>
   </table>
 </div>
+
+<div class="admin-alert animated slideInUp" *ngIf="isAlert">
+  <ngb-alert [type]="typeAlert" (close)="closeAlert()">{{ msgAlert }}</ngb-alert>
+</div>
+
+

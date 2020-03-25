@@ -60,6 +60,7 @@ import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
+import {AdminApiService} from './api/admin-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -127,6 +128,7 @@ firebase.initializeApp(environment.firebase);
     BattleApiService,
     DonaterApiService,
     RankApiService,
+    AdminApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
