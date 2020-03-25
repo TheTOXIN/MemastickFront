@@ -1,0 +1,7 @@
+<div class="home-memetick-dna-line">
+  <div id="dna_line_1"><img src="assets/images/dna_line.png"></div>
+  <div id="dna_line_2" class="animated flipInX slow">
+    <img src="assets/images/dna_line.png" [style.clip-path]="getDnaCrop">
+    <span class="dna_percent" [style.left.%]="this.rank.percent">{{this.rank.percent}}%</span>
+  </div>
+</div>

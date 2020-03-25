@@ -26,6 +26,7 @@ import {GpBtnComponent} from './gp-btn/gp-btn.component';
 import {VkChatComponent} from './vk-chat/vk-chat.component';
 import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
 import {RankLevelComponent} from './rank-level/rank-level.component';
+import {DnaLineComponent} from './dna-line/dna-line.component';
 
 @NgModule({
   exports: [
@@ -46,6 +47,7 @@ import {RankLevelComponent} from './rank-level/rank-level.component';
     VkChatComponent,
     PreviewScreenComponent,
     RankLevelComponent,
+    DnaLineComponent,
   ],
   imports: [
     CommonModule,
@@ -75,6 +77,7 @@ import {RankLevelComponent} from './rank-level/rank-level.component';
     VkChatComponent,
     PreviewScreenComponent,
     RankLevelComponent,
+    DnaLineComponent,
   ],
   providers: [
     WINDOW_PROVIDERS,
