@@ -27,6 +27,8 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
 import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
 import {RankLevelComponent} from './rank-level/rank-level.component';
 import {DnaLineComponent} from './dna-line/dna-line.component';
+import {TemplateModalComponent} from './template-modal/template-modal.component';
+import {StatisticComponent} from './statistic/statistic.component';
 
 @NgModule({
   exports: [
@@ -48,6 +50,8 @@ import {DnaLineComponent} from './dna-line/dna-line.component';
     PreviewScreenComponent,
     RankLevelComponent,
     DnaLineComponent,
+    TemplateModalComponent,
+    StatisticComponent,
   ],
   imports: [
     CommonModule,
@@ -78,6 +82,8 @@ import {DnaLineComponent} from './dna-line/dna-line.component';
     PreviewScreenComponent,
     RankLevelComponent,
     DnaLineComponent,
+    TemplateModalComponent,
+    StatisticComponent,
   ],
   providers: [
     WINDOW_PROVIDERS,

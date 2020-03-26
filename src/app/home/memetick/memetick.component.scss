@@ -3,9 +3,9 @@
 .memetick-container {
   background: whitesmoke;
   border-radius: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
   box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.5);
 }
 
@@ -19,6 +19,7 @@
   border-radius: 100%;
   border-width: 5px;
   width: 96px;
+  cursor: pointer;
 }
 
 .memetick-stats {
@@ -42,6 +43,7 @@
   font-family: Gost, serif;
   font-size: 32px;
   margin-top: 10px;
+  cursor: pointer;
 
   i {
     font-size: 30px;

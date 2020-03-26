@@ -1,0 +1,13 @@
+<div>
+  <div class="modal-header modal-section">
+    <span class="modal-title">{{title}}</span>
+  </div>
+  <div class="modal-body intro-modal">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer modal-section">
+    <button type="button" class="modal-close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

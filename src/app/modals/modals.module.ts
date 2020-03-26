@@ -28,6 +28,7 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
 import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
 import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
 import {TokenModule} from '../token/token.module';
+import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
 
 @NgModule({
   exports: [
@@ -52,6 +53,7 @@ import {TokenModule} from '../token/token.module';
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
+    MemetickStatsModalComponent,
   ],
   imports: [
     CommonModule,
@@ -86,6 +88,7 @@ import {TokenModule} from '../token/token.module';
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
+    MemetickStatsModalComponent,
   ],
   entryComponents: [
     IntroModalComponent,
@@ -109,6 +112,7 @@ import {TokenModule} from '../token/token.module';
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
+    MemetickStatsModalComponent,
   ]
 })
 export class ModalsModule {
