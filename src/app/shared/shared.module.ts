@@ -29,6 +29,7 @@ import {RankLevelComponent} from './rank-level/rank-level.component';
 import {DnaLineComponent} from './dna-line/dna-line.component';
 import {TemplateModalComponent} from './template-modal/template-modal.component';
 import {StatisticComponent} from './statistic/statistic.component';
+import {DnaCountComponent} from './dna-count/dna-count.component';
 
 @NgModule({
   exports: [
@@ -52,6 +53,7 @@ import {StatisticComponent} from './statistic/statistic.component';
     DnaLineComponent,
     TemplateModalComponent,
     StatisticComponent,
+    DnaCountComponent
   ],
   imports: [
     CommonModule,
@@ -84,6 +86,7 @@ import {StatisticComponent} from './statistic/statistic.component';
     DnaLineComponent,
     TemplateModalComponent,
     StatisticComponent,
+    DnaCountComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

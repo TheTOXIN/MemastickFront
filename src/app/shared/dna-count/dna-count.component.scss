@@ -1,0 +1,19 @@
+.dna-count {
+  font-size: 18px;
+  font-family: Gost, serif;
+
+  div {
+    background-color: #347ec3;
+    display: inline-block;
+    color: white;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media(max-width: 767px) {
+    bottom: -10px;
+    font-size: 14px;
+  }
+}
+

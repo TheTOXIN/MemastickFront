@@ -3,10 +3,9 @@ import {Home} from '../../model/Home';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {memotypeColors, memotypeRarities} from '../../consts/MemotypeData';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {ColorUtils} from '../../utils/color-utils';
-import {DomSanitizer} from '@angular/platform-browser';
+import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
+import {RankTypesModalComponent} from '../../modals/rank-types-modal/rank-types-modal.component';
 
 @Component({
   selector: 'app-home-memetick',
@@ -27,6 +26,10 @@ export class HomeMemetickComponent implements OnInit {
     private avatarApi: MemetickAvatarApiService,
   ) {
 
+  }
+
+  showLvls() {
+    this.modalService.open(RankTypesModalComponent, {'centered': true});
   }
 
   ngOnInit() {

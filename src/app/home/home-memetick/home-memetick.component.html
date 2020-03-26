@@ -7,14 +7,16 @@
       <div class="home-memetick-nick">{{home?.memetick?.nick}}</div>
       <div class="home-memetick-rank">{{home?.rank?.name}}</div>
     </div>
-    <div class="home-memetick-lvl">
+    <div class="home-memetick-lvl" (click)="showLvls()">
       <div class="lvl" [style.background-color]="colorRarity">
         {{home?.rank?.lvl}} <div>lvl</div>
       </div>
     </div>
   </div>
-  <app-dna-line [rank]="home?.rank"></app-dna-line>
+  <div>
+    <app-dna-line [rank]="home?.rank"></app-dna-line>
+  </div>
   <div class="home-memetick-dna-count">
-    <div>ДНК: {{home?.rank?.dna}} / {{home?.rank?.next}}</div>
+    <app-dna-count [rank]="home?.rank"></app-dna-count>
   </div>
 </div>

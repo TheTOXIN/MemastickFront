@@ -115,26 +115,10 @@
 }
 
 .home-memetick-dna-count {
-  font-size: 18px;
-  font-family: Gost, serif;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   bottom: -18px;
-
-  div {
-    background-color: #347ec3;
-    display: inline-block;
-    color: white;
-    border-radius: 30px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  @media(max-width: 767px) {
-    bottom: -10px;
-    font-size: 14px;
-  }
 }

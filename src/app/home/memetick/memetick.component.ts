@@ -18,6 +18,7 @@ import {MemeFilter} from '../../consts/MemeFilter';
 import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 import {MemotypeReadModalComponent} from '../../memotype/memotype-read-modal/memotype-read-modal.component';
 import {MemetickStatsModalComponent} from '../../modals/memetick-stats-modal/memetick-stats-modal.component';
+import {ColorUtils} from '../../utils/color-utils';
 
 @Component({
   selector: 'app-memetick',
@@ -30,7 +31,7 @@ export class MemetickComponent implements OnInit {
   memetickMe = false;
 
   public wallet: any;
-
+  public colorRarity: any;
   public avatarURL: string;
   public memetick: Memetick;
 
@@ -63,10 +64,13 @@ export class MemetickComponent implements OnInit {
       apiObservable.subscribe(memetick => {
         this.memetick = memetick;
         this.avatarURL = this.memetickAvatarsApi.dowloadAvatar(this.memetick.id);
+
         this.tokensApi.memetick(this.memetick.id).subscribe((data) => {
           this.wallet = data.wallet;
           this.memetickLoad = true;
         });
+
+        this.colorRarity = ColorUtils.getRarityColor(this.memetick.rank.lvl);
       });
     });
   }
