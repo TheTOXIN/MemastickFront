@@ -7,6 +7,7 @@ import {MemetickRatingFilter} from '../../consts/MemetickRatingFilter';
 import {MemetickRating} from '../../model/MemetickRating';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemetickRatingData} from '../../model/MemetickRatingData';
+import {ColorUtils} from '../../utils/color-utils';
 
 @Component({
   selector: 'app-memetick-rating',
@@ -24,7 +25,10 @@ export class MemetickRatingComponent implements OnInit {
   public rating: MemetickRating;
 
   public ratingAvatars = [];
+  public rarityAvatars = [];
+
   public myAvatar: string;
+  public myRarity: string;
 
   constructor(
     public memetickApi: MemetickApiService,
@@ -42,8 +46,11 @@ export class MemetickRatingComponent implements OnInit {
 
       for (const mr of this.rating.top) {
         this.ratingAvatars[mr.preview.id + ''] = this.getAvatar(mr.preview);
+        this.rarityAvatars[mr.preview.id + ''] = ColorUtils.getRarityColor(mr.preview.lvl);
       }
+
       this.myAvatar = this.getAvatar(this.rating.me.preview);
+      this.myRarity = ColorUtils.getRarityColor(this.rating.me.preview.lvl);
 
       this.isLoad = false;
     });
