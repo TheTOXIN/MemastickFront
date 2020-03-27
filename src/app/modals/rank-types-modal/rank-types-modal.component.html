@@ -5,14 +5,22 @@
   <div class="modal-body intro-modal">
     <div class="rank-types my-scroll" *ngIf="!isLoad; else spinnerRankType">
       <div *ngFor="let d of data">
-        <app-rank-level [lvl]="d.lvl"></app-rank-level>
-        <div class="rank-types-name">
-          {{d.name}}
-          <div>{{d.dna}}<img src="assets/images/icon/3.png"> </div>
+        <div class="rank-type-wrap">
+          <div class="rank-type-lvl">
+            <app-rank-level [lvl]="d.lvl"></app-rank-level>
+          </div>
+          <div class="rank-type-name">
+            {{d.name}}
+          </div>
+          <div class="rank-type-dna">
+            {{d.dna}}<img src="assets/images/icon/3.png">
+          </div>
         </div>
       </div>
     </div>
-    <ng-template #spinnerRankType> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
+    <ng-template #spinnerRankType>
+      <app-spinner *ngIf="isLoad"></app-spinner>
+    </ng-template>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">

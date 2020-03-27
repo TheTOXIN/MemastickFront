@@ -1,30 +1,60 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .rank-types {
   height: 333px;
 }
 
-.rank-types-name {
-  border-style: solid;
-  border-radius: 50px;
-  padding: 5px;
-  width: 90%;
-  margin: 5px auto;
-  border-width: 4px;
-  border-color: #adb5bd;
-  font-family: MontHeavy, serif;
-  font-size: 32px;
-
-  @media(max-width: 767px) {
-    font-size: 28px;
-  }
+.rank-type-wrap {
+  height: 50px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 
   div {
-    font-family: Gost, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.rank-type-lvl {
+  height: 100%;
+  width: 20%;
+}
+
+.rank-type-name {
+  height: 100%;
+  width: 50%;
+
+  font-family: MontHeavy, serif;
+  font-size: 28px;
+  color: $dark_color;
+
+  @media(max-width: 767px) {
     font-size: 22px;
-    text-align: center;
+  }
+}
+
+.rank-type-dna {
+  height: 100%;
+  width: 30%;
+
+  font-family: Gost, serif;
+  font-size: 22px;
+  text-align: center;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media(max-width: 767px) {
+    font-size: 18px;
 
     img {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
     }
   }
 }
