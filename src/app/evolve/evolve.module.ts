@@ -9,6 +9,7 @@ import {EvolveAdaptationComponent} from './evolve-adaptation/evolve-adaptation.c
 import {EvolveCrossingComponent} from './evolve-crossing/evolve-crossing.component';
 import {EvolveMutationComponent} from './evolve-mutation/evolve-mutation.component';
 import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.component';
+import {Ng5SliderModule} from 'ng5-slider';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.compone
     ModalsModule,
     HomeModule,
     SharedModule,
-    TokenModule
+    TokenModule,
+    Ng5SliderModule
   ],
   exports: [
     EvolveAdaptationComponent,

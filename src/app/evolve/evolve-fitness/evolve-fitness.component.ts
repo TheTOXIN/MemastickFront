@@ -9,6 +9,7 @@ import {MemeLoh} from '../../model/meme/MemeLoh';
 import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {ErrorHandlerService} from '../../services/error-handler-service';
 import {TokenAccept} from '../../model/tokens/TokenAccept';
+import {Options} from 'ng5-slider';
 
 @Component({
   selector: 'app-evolve-fitness',
@@ -25,11 +26,17 @@ export class EvolveFitnessComponent implements OnInit {
   public img;
 
   public loh: MemeLoh;
-  public myLoh: MemeLoh = new MemeLoh(5, 5, 3);
+  public myLoh: MemeLoh = new MemeLoh(1, 1, 1);
   public lohLoad = false;
 
   @Input()
   public evolve: EvolveMeme;
+
+  public sliderOptions: Options = {
+    floor: 1,
+    ceil: 10,
+    vertical: true
+  };
 
   constructor(
     private tokenAcceptApi: TokenAcceptApiService,
@@ -49,8 +56,6 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   fitness() {
-    if (this.myLoh == null) { return; }
-
     this.status = LoaderStatus.LOAD;
     this.message = 'Подтвердить оценку?';
     this.tokenAccept.show();

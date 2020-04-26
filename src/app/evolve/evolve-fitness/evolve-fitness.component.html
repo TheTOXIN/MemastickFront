@@ -1,6 +1,11 @@
 <div class="evolve-fitness">
   <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
   <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
+  <div class="evolve-fitness-sliders">
+    <ng5-slider [(value)]="myLoh.lol" [options]="sliderOptions"></ng5-slider>
+    <ng5-slider [(value)]="myLoh.omg" [options]="sliderOptions"></ng5-slider>
+    <ng5-slider [(value)]="myLoh.hmm" [options]="sliderOptions"></ng5-slider>
+  </div>
   <div class="main-research-control">
     <button class="btn-theme" (click)="fitness()">ОЦЕНИТЬ</button>
   </div>
