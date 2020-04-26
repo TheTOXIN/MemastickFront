@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 import {MemeLoh} from '../../model/meme/MemeLoh';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-loh-radar',
@@ -48,6 +49,8 @@ export class LohRadarComponent implements OnInit {
   }
 
   private initChart() {
+    const isMob = window.innerWidth <= GlobalConst.MOBILE_WIDTH;
+
     this.radarChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
@@ -59,14 +62,14 @@ export class LohRadarComponent implements OnInit {
           borderWidth: 5
         },
         point: {
-          radius: 10,
+          radius: isMob ? 7 : 10,
           borderWidth: 3,
           hoverRadius: 5,
         }
       },
       scale: {
         pointLabels: {
-          fontSize: 28,
+          fontSize: isMob ? 18 : 24,
           fontColor: '#000',
           fontFamily: 'Gost'
         },

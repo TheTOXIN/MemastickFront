@@ -1,8 +1,9 @@
 <div class="evolve-fitness">
   <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
   <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
-  <p *ngIf="lohPoints != 0">Распределите очки оценки: {{lohPoints}}</p>
-  <p *ngIf="lohPoints == 0">Готово! Нажмите оценить.</p>
+  <p *ngIf="lohPoints > 0" [style.color]="'#495057'">Распределите очки оценки: {{lohPoints}}</p>
+  <p *ngIf="lohPoints == 0" [style.color]="'#28a745'">Готово! Нажмите оценить.</p>
+  <p *ngIf="lohPoints < 0" [style.color]="'#dc3545'">Слишком много: {{lohPoints}}</p>
   <div class="evolve-fitness-emoji">🤔 😆 😯</div>
   <div class="evolve-fitness-sliders">
     <ng5-slider [(value)]="myLoh.hmm" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
