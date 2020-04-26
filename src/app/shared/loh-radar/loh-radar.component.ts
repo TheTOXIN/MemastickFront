@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 import {MemeLoh} from '../../model/meme/MemeLoh';
@@ -23,18 +23,26 @@ export class LohRadarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initData();
+    this.initData(this.loh);
     this.initChart();
   }
 
-  private initData() {
-    const sum = this.loh.lol + this.loh.omg + this.loh.hmm;
+  updateData(loh: MemeLoh) {
+    this.initData(new MemeLoh(
+      loh.lol + this.loh.lol,
+      loh.omg + this.loh.omg,
+      loh.hmm + this.loh.hmm
+    ));
+  }
+
+  private initData(loh: MemeLoh) {
+    const sum = loh.lol + loh.omg + loh.hmm;
 
     this.radarChartData = [{
       data: [
-        Math.round(this.loh.lol / sum * 100),
-        Math.round(this.loh.omg / sum * 100),
-        Math.round(this.loh.hmm / sum * 100)
+        Math.round(loh.lol / sum * 100),
+        Math.round(loh.omg / sum * 100),
+        Math.round(loh.hmm / sum * 100)
       ]
     }];
   }

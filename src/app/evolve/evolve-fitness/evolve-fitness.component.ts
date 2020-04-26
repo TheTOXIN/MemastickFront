@@ -10,6 +10,7 @@ import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {ErrorHandlerService} from '../../services/error-handler-service';
 import {TokenAccept} from '../../model/tokens/TokenAccept';
 import {Options} from 'ng5-slider';
+import {LohRadarComponent} from '../../shared/loh-radar/loh-radar.component';
 
 @Component({
   selector: 'app-evolve-fitness',
@@ -19,6 +20,7 @@ import {Options} from 'ng5-slider';
 export class EvolveFitnessComponent implements OnInit {
 
   @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
+  @ViewChild(LohRadarComponent) lohRadar: LohRadarComponent;
 
   public status;
   public message;
@@ -58,7 +60,17 @@ export class EvolveFitnessComponent implements OnInit {
     });
   }
 
+  sliderEvent() {
+    this.lohPoints = 10 - (this.myLoh.lol + this.myLoh.omg + this.myLoh.hmm);
+  }
+
+  updateLoh() {
+    this.lohRadar.updateData(this.myLoh);
+  }
+
   fitness() {
+    if (this.lohPoints !== 0) { return; }
+
     this.status = LoaderStatus.LOAD;
     this.message = 'Подтвердить оценку?';
     this.tokenAccept.show();
