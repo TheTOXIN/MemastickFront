@@ -30,6 +30,8 @@ import {DnaLineComponent} from './dna-line/dna-line.component';
 import {TemplateModalComponent} from './template-modal/template-modal.component';
 import {StatisticComponent} from './statistic/statistic.component';
 import {DnaCountComponent} from './dna-count/dna-count.component';
+import {LohRadarComponent} from './loh-radar/loh-radar.component';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   exports: [
@@ -53,7 +55,8 @@ import {DnaCountComponent} from './dna-count/dna-count.component';
     DnaLineComponent,
     TemplateModalComponent,
     StatisticComponent,
-    DnaCountComponent
+    DnaCountComponent,
+    LohRadarComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +67,8 @@ import {DnaCountComponent} from './dna-count/dna-count.component';
     FormsModule,
     ParticlesModule,
     OwlModule,
-    AngularFittextModule
+    AngularFittextModule,
+    ChartsModule
   ],
   declarations: [
     SpinnerComponent,
@@ -86,7 +90,8 @@ import {DnaCountComponent} from './dna-count/dna-count.component';
     DnaLineComponent,
     TemplateModalComponent,
     StatisticComponent,
-    DnaCountComponent
+    DnaCountComponent,
+    LohRadarComponent
   ],
   providers: [
     WINDOW_PROVIDERS,
