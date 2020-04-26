@@ -10,6 +10,8 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {BattleRequest} from '../../model/battle/BattleRequest';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {MemesModalComponent} from '../memes-modal/memes-modal.component';
+import {MemeLoh} from '../../model/meme/MemeLoh';
+import {MemeLohApiService} from '../../api/meme-loh-api-service';
 
 @Component({
   selector: 'app-meme-type-individ',
@@ -25,6 +27,9 @@ export class MemeTypeIndividComponent implements OnInit {
 
   public my: Meme;
 
+  public loh: MemeLoh;
+  public lohLoad = false;
+
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
 
@@ -32,11 +37,16 @@ export class MemeTypeIndividComponent implements OnInit {
     private battleApi: BattleApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    private memeLohApi: MemeLohApiService
   ) {
 
   }
 
   ngOnInit() {
+    this.memeLohApi.read(this.meme.id).subscribe(data => {
+      this.loh = data;
+      this.lohLoad = true;
+    });
   }
 
   battle() {

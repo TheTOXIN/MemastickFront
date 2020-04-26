@@ -13,7 +13,7 @@ export class TokenAcceptApiService {
   ) {
   }
 
-  public accept(memeId: UUID, token: TokenType, body?: TokenAccept) {
+  public accept(memeId: UUID, token: TokenType, body = new TokenAccept(null)) {
     return this.http
       .patch(`${API.TOKEN_ACCEPT}/token/${token}/meme/${memeId}`, body)
       .pipe();
