@@ -235,6 +235,11 @@ button:focus {
     background-color: $primary_color;
   }
 
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
+
   img {
     width: 32px;
     height: 32px;

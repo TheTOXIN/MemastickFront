@@ -25,17 +25,20 @@ export class EvolveFitnessComponent implements OnInit {
   public type;
   public img;
 
+  public lohPoints = 10;
   public loh: MemeLoh;
-  public myLoh: MemeLoh = new MemeLoh(1, 1, 1);
+  public myLoh: MemeLoh = new MemeLoh(0, 0, 0);
   public lohLoad = false;
 
   @Input()
   public evolve: EvolveMeme;
 
   public sliderOptions: Options = {
-    floor: 1,
+    floor: 0,
     ceil: 10,
-    vertical: true
+    vertical: true,
+    showSelectionBar: true,
+    hideLimitLabels: true
   };
 
   constructor(

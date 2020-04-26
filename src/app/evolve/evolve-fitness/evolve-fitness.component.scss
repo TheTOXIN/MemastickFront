@@ -1,7 +1,15 @@
 .evolve-fitness {
   text-align: center;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .evolve-fitness-sliders {
   height: 150px;
+  padding-bottom: 20px;
+}
+
+.evolve-fitness-emoji {
+  font-size: 26px;
 }

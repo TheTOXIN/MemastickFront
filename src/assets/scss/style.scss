@@ -2,6 +2,11 @@
 @import 'base/style';
 @import 'base/responsive';
 
+// блять что
+.ng5-slider.vertical .ng5-slider-bar-wrapper {
+  padding: 0 !important;
+}
+
 .sign-button {
   margin-bottom: 0 !important;
   margin-top: 40px;
