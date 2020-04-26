@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ChartColor, ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 
 @Component({
@@ -12,7 +12,7 @@ export class LohRadarComponent implements OnInit {
   public radarChartOptions: ChartOptions;
   public radarChartData: ChartDataSets[] = [{data: [40, 30, 60]}];
   public radarChartColors: Color[];
-  public radarChartLabels: Label[] = ['LoL', 'OMG', 'Hmm'];
+  public radarChartLabels: Label[] = ['LoL😆', 'OMG😯', 'Hmm🤔'];
   public radarChartType: ChartType = 'radar';
 
   constructor() {
@@ -41,7 +41,7 @@ export class LohRadarComponent implements OnInit {
       },
       scale: {
         pointLabels: {
-          fontSize: 32,
+          fontSize: 28,
           fontColor: '#000',
           fontFamily: 'Gost'
         },
