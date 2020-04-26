@@ -26,24 +26,45 @@
   border: 5px dashed #585f82;
   border-radius: 50px;
   padding: 15px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.meme-type-img {
+  text-align: center;
+  img {
+    width: 80px;
+    margin: 15px;
+    border-radius: 100%;
+    border: 3px solid black;
+  }
 }
 
 .meme-chromosome {
   text-align: center;
   img {
-    width: 90px;
-    margin: 15px;
-    border-radius: 100%;
-    border: 3px solid darkgreen;
-    padding: 10px;
+    width: 36px;
+    margin-top: -8px;
   }
   p {
     font-family: FuturaRound, serif;
     color: darkgreen;
     font-size: 32px;
-    margin-top: -5px;
+    margin-bottom: 0;
+  }
+}
+
+.meme-description {
+  font-size: 22px;
+  text-align: center;
+  font-family: FuturaRound, serif;
+
+  img {
+    width: 36px;
+  }
+
+  @media(max-width: 767px) {
+    font-size: 18px;
   }
 }
 
@@ -67,4 +88,9 @@
 .research-close-wrap {
   position: absolute;
   width: 100%;
+}
+
+.meme-research-ban {
+  text-align: center;
+  font-size: 54px;
 }

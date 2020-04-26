@@ -1,10 +1,4 @@
 <div>
-  <div class="meme-research-img">
-    <img src="assets/images/icon/1.png">
-  </div>
-  <div class="meme-research-title">
-    <p>мем прошел отбор и стал особью</p>
-  </div>
   <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
   <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
   <div class="main-research-control">

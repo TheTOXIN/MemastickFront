@@ -3,6 +3,9 @@ import {Meme} from '../../model/Meme';
 import {MemeType} from '../../consts/MemeType';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {EvolveMeme} from '../../model/EvolveMeme';
+import {evolveIcons, memeIcons} from '../../consts/IconsData';
+import {EvolveStep} from '../../consts/EvolveStep';
+import {evolveStepText, memeTypeText} from '../../consts/TextData';
 
 @Component({
   selector: 'app-meme-research',
@@ -12,9 +15,16 @@ import {EvolveMeme} from '../../model/EvolveMeme';
 export class MemeResearchComponent {
 
   public meme: Meme;
-
   public evolve: EvolveMeme;
-  public types = [];
+
+  public typeIcons;
+  public typesText;
+
+  public stepIcons;
+  public stepText;
+
+  public typeMeme = MemeType;
+  public stepEvlv = EvolveStep;
 
   isLoading = true;
   isPreview = false;
@@ -22,15 +32,18 @@ export class MemeResearchComponent {
   constructor(
     private evolveApi: EvolveMemeApiService
   ) {
-    this.types[MemeType.EVLV] = 'ЭВОЛЮЦИЯ';
-    this.types[MemeType.SLCT] = 'ОТБОР';
-    this.types[MemeType.DEAD] = 'МЁРТВ';
-    this.types[MemeType.INDV] = 'ОСОБЬ';
+
   }
 
   researchShow(meme: Meme) {
     this.meme = meme;
     this.isPreview = true;
+
+    this.typeIcons = memeIcons;
+    this.typesText = memeTypeText;
+
+    this.stepIcons = evolveIcons;
+    this.stepText = evolveStepText;
 
     this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => {
       this.evolve = evolve;

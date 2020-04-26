@@ -30,7 +30,7 @@ export const tokensData = [
     'assets/images/tokens/2.png',
     'Микроскоп',
     'Токен оценки',
-    'даёт 30 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)'
+    'даёт 10 очков для оценки 3 критериев мема (ЛОЛ, ОМГ, ХММ)'
   ),
   new TokenData(
     TokenType.MUTAGEN,
