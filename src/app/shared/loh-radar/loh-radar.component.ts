@@ -28,11 +28,13 @@ export class LohRadarComponent implements OnInit {
   }
 
   private initData() {
+    const sum = this.loh.lol + this.loh.omg + this.loh.hmm;
+
     this.radarChartData = [{
       data: [
-        this.loh.lol,
-        this.loh.omg,
-        this.loh.hmm
+        this.loh.lol / sum * 100,
+        this.loh.omg / sum * 100,
+        this.loh.hmm / sum * 100
       ]
     }];
   }
