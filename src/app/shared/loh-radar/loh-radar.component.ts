@@ -32,9 +32,9 @@ export class LohRadarComponent implements OnInit {
 
     this.radarChartData = [{
       data: [
-        this.loh.lol / sum * 100,
-        this.loh.omg / sum * 100,
-        this.loh.hmm / sum * 100
+        Math.round(this.loh.lol / sum * 100),
+        Math.round(this.loh.omg / sum * 100),
+        Math.round(this.loh.hmm / sum * 100)
       ]
     }];
   }
@@ -71,7 +71,7 @@ export class LohRadarComponent implements OnInit {
           suggestedMin: 0,
           suggestedMax: 100,
           showLabelBackdrop: false,
-          fontSize: 0,
+          fontSize: 0
         },
         gridLines: {
           circular: false,

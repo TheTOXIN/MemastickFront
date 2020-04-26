@@ -5,9 +5,10 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
-import {MemeLikeApiService} from '../../api/meme-like-api-service';
 import {MemeLoh} from '../../model/meme/MemeLoh';
 import {MemeLohApiService} from '../../api/meme-loh-api-service';
+import {ErrorHandlerService} from '../../services/error-handler-service';
+import {TokenAccept} from '../../model/tokens/TokenAccept';
 
 @Component({
   selector: 'app-evolve-fitness',
@@ -24,6 +25,7 @@ export class EvolveFitnessComponent implements OnInit {
   public img;
 
   public loh: MemeLoh;
+  public myLoh: MemeLoh = new MemeLoh(5, 5, 3);
   public lohLoad = false;
 
   @Input()
@@ -46,7 +48,38 @@ export class EvolveFitnessComponent implements OnInit {
     });
   }
 
-  acceptTokenResult(accept: boolean) {
+  fitness() {
+    if (this.myLoh == null) { return; }
 
+    this.status = LoaderStatus.LOAD;
+    this.message = 'Подтвердить оценку?';
+    this.tokenAccept.show();
+  }
+
+  acceptTokenResult(accept: boolean) {
+    if (accept) {
+      this.makeFitness();
+    } else {
+      this.status = LoaderStatus.NONE;
+    }
+  }
+
+  makeFitness() {
+    const body = new TokenAccept(this.myLoh);
+
+    this.tokenAcceptApi.accept(this.evolve.memeId, this.type, body).subscribe(
+      () => this.successFitness(),
+      (error) => this.errorFitness(error)
+    );
+  }
+
+  successFitness() {
+    this.message = 'Мем оценен!';
+    this.status = LoaderStatus.DONE;
+  }
+
+  errorFitness(error: any) {
+    this.message = ErrorHandlerService.tokenError(error.error.code);
+    this.status = LoaderStatus.ERROR;
   }
 }
