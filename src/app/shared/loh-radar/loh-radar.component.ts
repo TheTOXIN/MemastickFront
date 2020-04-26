@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
+import {MemeLoh} from '../../model/meme/MemeLoh';
 
 @Component({
   selector: 'app-loh-radar',
@@ -9,20 +10,34 @@ import {Color, Label} from 'ng2-charts';
 })
 export class LohRadarComponent implements OnInit {
 
+  @Input()
+  public loh: MemeLoh;
+
   public radarChartOptions: ChartOptions;
-  public radarChartData: ChartDataSets[] = [{data: [40, 30, 60]}];
   public radarChartColors: Color[];
   public radarChartLabels: Label[] = ['LoL😆', 'OMG😯', 'Hmm🤔'];
+  public radarChartData: ChartDataSets[] = [{data: [0, 0, 0]}];
   public radarChartType: ChartType = 'radar';
 
   constructor() {
   }
 
   ngOnInit() {
+    this.initData();
     this.initChart();
   }
 
-  initChart() {
+  private initData() {
+    this.radarChartData = [{
+      data: [
+        this.loh.lol,
+        this.loh.omg,
+        this.loh.hmm
+      ]
+    }];
+  }
+
+  private initChart() {
     this.radarChartOptions = {
       responsive: true,
       maintainAspectRatio: false,

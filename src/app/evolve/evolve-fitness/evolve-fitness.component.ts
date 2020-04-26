@@ -5,6 +5,9 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
+import {MemeLikeApiService} from '../../api/meme-like-api-service';
+import {MemeLoh} from '../../model/meme/MemeLoh';
+import {MemeLohApiService} from '../../api/meme-loh-api-service';
 
 @Component({
   selector: 'app-evolve-fitness',
@@ -20,11 +23,15 @@ export class EvolveFitnessComponent implements OnInit {
   public type;
   public img;
 
+  public loh: MemeLoh;
+  public lohLoad = false;
+
   @Input()
   public evolve: EvolveMeme;
 
   constructor(
-    private tokenAcceptApi: TokenAcceptApiService
+    private tokenAcceptApi: TokenAcceptApiService,
+    private memeLohApi: MemeLohApiService
   ) {
     this.type = TokenType.SCOPE;
     this.status = LoaderStatus.NONE;
@@ -33,6 +40,10 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.memeLohApi.read(this.evolve.memeId).subscribe(data => {
+      this.loh = data;
+      this.lohLoad = true;
+    });
   }
 
   acceptTokenResult(accept: boolean) {

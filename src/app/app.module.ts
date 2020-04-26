@@ -61,6 +61,7 @@ import {DonaterApiService} from './api/donater-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
 import {AdminApiService} from './api/admin-api-service';
+import {MemeLohApiService} from './api/meme-loh-api-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -129,6 +130,7 @@ firebase.initializeApp(environment.firebase);
     DonaterApiService,
     RankApiService,
     AdminApiService,
+    MemeLohApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

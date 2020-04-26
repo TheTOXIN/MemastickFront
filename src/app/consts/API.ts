@@ -30,6 +30,7 @@ export enum API {
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   MEME_RESURRECT = '/memes/resurrect',
   MEME_BAN = '/memes/ban',
+  MEME_LOH = '/memes-loh/meme',
 
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
