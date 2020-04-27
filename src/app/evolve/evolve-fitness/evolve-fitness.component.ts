@@ -85,9 +85,7 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   makeFitness() {
-    const body = new TokenAccept(this.myLoh);
-
-    this.tokenAcceptApi.accept(this.evolve.memeId, this.type, body).subscribe(
+    this.tokenAcceptApi.acceptLoh(this.evolve.memeId, this.type, this.myLoh).subscribe(
       () => this.successFitness(),
       (error) => this.errorFitness(error)
     );

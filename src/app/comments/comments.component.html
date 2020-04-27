@@ -3,7 +3,7 @@
     <div><img [src]="memetickAvatars[comment.memetickId]"></div>
     <div>{{comment.comment}}</div>
     <div>{{comment.point}}</div>
-    <div>
+    <div class="comment-vote">
       <i class="fa fa-caret-up"
          (click)="approveComment(comment.commentId)"
          [style.color]="comment.vote != null && comment.vote ? '#28a745' : ''">

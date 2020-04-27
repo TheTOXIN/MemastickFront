@@ -23,7 +23,7 @@ export class MemeCommentApiService {
   }
 
   public voteComment(commentId: UUID, vote: boolean) {
-    return this.http
+    this.http
       .patch(`${API.MEME_COMMENT_VOTE}/${commentId}`, vote)
       .toPromise();
   }

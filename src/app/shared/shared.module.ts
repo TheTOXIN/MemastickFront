@@ -32,6 +32,7 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {DnaCountComponent} from './dna-count/dna-count.component';
 import {LohRadarComponent} from './loh-radar/loh-radar.component';
 import {ChartsModule} from 'ng2-charts';
+import {CommentsComponent} from '../comments/comments.component';
 
 @NgModule({
   exports: [
@@ -56,7 +57,8 @@ import {ChartsModule} from 'ng2-charts';
     TemplateModalComponent,
     StatisticComponent,
     DnaCountComponent,
-    LohRadarComponent
+    LohRadarComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,
@@ -91,7 +93,8 @@ import {ChartsModule} from 'ng2-charts';
     TemplateModalComponent,
     StatisticComponent,
     DnaCountComponent,
-    LohRadarComponent
+    LohRadarComponent,
+    CommentsComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

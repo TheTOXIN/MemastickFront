@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MemeComment} from '../model/meme/MemeComment';
 import {MemeCommentApiService} from '../api/meme-comment-api.-service';
 import {UUID} from 'angular2-uuid';
-import {ColorUtils} from '../utils/color-utils';
 import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 
 @Component({
@@ -24,7 +23,7 @@ export class CommentsComponent implements OnInit {
   public memetickAvatars = [];
 
   constructor(
-    private avatrApi: MemetickAvatarApiService,
+    private avatarApi: MemetickAvatarApiService,
     private commentApi: MemeCommentApiService
   ) {
 
@@ -44,7 +43,7 @@ export class CommentsComponent implements OnInit {
 
   initAvatars() {
     for (const c of this.comments) {
-      this.memetickAvatars[c.memetickId + ''] = this.avatrApi.dowloadAvatar(c.memetickId);
+      this.memetickAvatars[c.memetickId + ''] = this.avatarApi.dowloadAvatar(c.memetickId);
     }
   }
 

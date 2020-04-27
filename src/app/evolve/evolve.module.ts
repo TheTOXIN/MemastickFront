@@ -10,6 +10,7 @@ import {EvolveCrossingComponent} from './evolve-crossing/evolve-crossing.compone
 import {EvolveMutationComponent} from './evolve-mutation/evolve-mutation.component';
 import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.component';
 import {Ng5SliderModule} from 'ng5-slider';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {Ng5SliderModule} from 'ng5-slider';
     HomeModule,
     SharedModule,
     TokenModule,
+    FormsModule,
     Ng5SliderModule
   ],
   exports: [
