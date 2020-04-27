@@ -31,6 +31,8 @@ export enum API {
   MEME_RESURRECT = '/memes/resurrect',
   MEME_BAN = '/memes/ban',
   MEME_LOH = '/memes-loh/meme',
+  MEME_COMMENT = '/memes-comment/meme',
+  MEME_COMMENT_VOTE = '/memes-comment/vote',
 
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
