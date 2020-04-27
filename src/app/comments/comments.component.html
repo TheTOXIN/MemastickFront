@@ -1,0 +1,17 @@
+<div *ngFor="let comment of comments">
+  <div>
+    <div><img [src]="memetickAvatars[comment.memetickId]"></div>
+    <div>{{comment.comment}}</div>
+    <div>{{comment.point}}</div>
+    <div>
+      <i class="fa fa-caret-up"
+         (click)="approveComment(comment.commentId)"
+         [style.color]="comment.vote != null && comment.vote ? '#28a745' : ''">
+      </i>
+      <i  class="fa fa-caret-down"
+          (click)="disapproveComment(comment.commentId)"
+          [style.color]="comment.vote != null && !comment.vote ? '#dc3545' : ''">
+      </i>
+    </div>
+  </div>
+</div>
