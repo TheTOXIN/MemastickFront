@@ -3,11 +3,24 @@ import {MemeComment} from '../model/meme/MemeComment';
 import {MemeCommentApiService} from '../api/meme-comment-api.-service';
 import {UUID} from 'angular2-uuid';
 import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
+import {Router} from '@angular/router';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
+  animations: [
+    trigger('pointState', [
+      transition('* => *', [
+        animate(200, keyframes([
+          style({ transform: 'scale(1)'}),
+          style({ transform: 'scale(1.2)'}),
+          style({ transform: 'scale(1)'})
+        ]))
+      ])
+    ]),
+  ]
 })
 export class CommentsComponent implements OnInit {
 
@@ -24,7 +37,8 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private avatarApi: MemetickAvatarApiService,
-    private commentApi: MemeCommentApiService
+    private commentApi: MemeCommentApiService,
+    private router: Router
   ) {
 
   }
@@ -47,11 +61,25 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  approveComment(commentId: UUID) {
-    this.commentApi.voteComment(commentId, true);
+  approveComment(comment: MemeComment) {
+    this.voteComment(comment, true);
   }
 
-  disapproveComment(commentId: UUID) {
-    this.commentApi.voteComment(commentId, false);
+  disapproveComment(comment: MemeComment) {
+    this.voteComment(comment, false);
+  }
+
+  voteComment(comment: MemeComment, vote: boolean) {
+    if (comment.vote === vote) { return; }
+    comment.vote = vote;
+
+    const point = vote ? 1 : -1;
+    comment.point += point;
+
+    this.commentApi.voteComment(comment.commentId, vote);
+  }
+
+  toMemetick(memetickId: UUID) {
+    this.router.navigate(['/home/memetick', memetickId]);
   }
 }
