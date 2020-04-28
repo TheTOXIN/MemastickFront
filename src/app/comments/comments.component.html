@@ -3,7 +3,7 @@
   <div *ngFor="let comment of comments">
     <div class="comment-row">
       <div class="comment-image"><img (click)="toMemetick(comment.memetickId)" [src]="memetickAvatars[comment.memetickId]"></div>
-      <div class="comment-text">{{comment.comment}}</div>
+      <div class="comment-text"><div>{{comment.comment}}</div></div>
       <div class="comment-point" [@pointState]="comment.point">{{comment.point}}</div>
       <div class="comment-vote">
         <i id=vote-up class="fa fa-caret-up"

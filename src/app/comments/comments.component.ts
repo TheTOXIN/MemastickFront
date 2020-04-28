@@ -48,6 +48,7 @@ export class CommentsComponent implements OnInit {
   }
 
   initComments() {
+    this.commentsLoad = false;
     this.commentApi.readComments(this.memeId, this.sort).subscribe(data => {
       this.comments = data;
       this.initAvatars();

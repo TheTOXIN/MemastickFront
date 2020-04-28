@@ -10,6 +10,7 @@ import {ErrorHandlerService} from '../../services/error-handler-service';
 import {MemeComment} from '../../model/meme/MemeComment';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {ValidConst} from '../../consts/ValidConst';
+import {CommentsComponent} from '../../comments/comments.component';
 
 @Component({
   selector: 'app-evolve-mutation',
@@ -19,6 +20,7 @@ import {ValidConst} from '../../consts/ValidConst';
 export class EvolveMutationComponent implements OnInit {
 
   @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
+  @ViewChild(CommentsComponent) memeComments: CommentsComponent;
 
   public status;
   public message;
@@ -38,6 +40,8 @@ export class EvolveMutationComponent implements OnInit {
     this.message = '';
     this.img = tokenIcons[this.type];
   }
+
+  // TODO ADD VALID AND HOIDE INPUT
 
   ngOnInit() {
   }
@@ -71,6 +75,7 @@ export class EvolveMutationComponent implements OnInit {
   }
 
   successMutation() {
+    this.memeComments.initComments();
     this.message = 'Мем мутирован!';
     this.status = LoaderStatus.DONE;
   }

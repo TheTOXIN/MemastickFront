@@ -1,18 +1,14 @@
 <div class="evolve-mutation">
-
-  <div>
+  <div class="evolve-comments">
     <app-comments [memeId]="evolve.memeId" [sort]="'creating'"></app-comments>
   </div>
-
-  <div>
+  <div class="evolve-my-comment">
     <label for="textCommentId">Комментарий для мутации: (до 256 символов)</label>
-    <textarea class="form-control" rows="5" id="textCommentId" [(ngModel)]="myComment"></textarea>
+    <textarea class="form-control my-scroll" rows="5" id="textCommentId" [(ngModel)]="myComment" autofocus></textarea>
   </div>
-
   <div class="main-research-control">
     <button class="btn-theme" (click)="mutation()">МУТИРОВАТЬ <img [src]="img"></button>
   </div>
-
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>
 <app-accept [img]="img" (accept)="acceptTokenResult($event)"></app-accept>
