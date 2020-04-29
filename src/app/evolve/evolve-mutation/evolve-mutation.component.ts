@@ -32,6 +32,9 @@ export class EvolveMutationComponent implements OnInit {
 
   public myComment: string;
 
+  validComment = false;
+  showMutation = true;
+
   constructor(
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
@@ -41,7 +44,7 @@ export class EvolveMutationComponent implements OnInit {
     this.img = tokenIcons[this.type];
   }
 
-  // TODO ADD VALID AND HOIDE INPUT
+  // TODO ADD VALID AND HIDE INPUT
 
   ngOnInit() {
   }
@@ -52,6 +55,10 @@ export class EvolveMutationComponent implements OnInit {
     this.status = LoaderStatus.LOAD;
     this.message = 'Мутировать комментарием?';
     this.tokenAccept.show();
+  }
+
+  checkValid() {
+    this.validComment = this.commentValid();
   }
 
   commentValid() {
@@ -75,6 +82,7 @@ export class EvolveMutationComponent implements OnInit {
   }
 
   successMutation() {
+    this.showMutation = false;
     this.memeComments.initComments();
     this.message = 'Мем мутирован!';
     this.status = LoaderStatus.DONE;

@@ -31,7 +31,7 @@ export class CommentsComponent implements OnInit {
   public sort: string;
 
   public commentsLoad = false;
-  public comments: MemeComment[];
+  public comments: MemeComment[] = [];
 
   public memetickAvatars = [];
 
