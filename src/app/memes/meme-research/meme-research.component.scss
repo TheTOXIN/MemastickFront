@@ -5,9 +5,17 @@
   position: relative;
   border-radius: 50px;
   background-color: whitesmoke;
-  box-shadow: 0 0 91px -6px rgba(0,0,0,0.5);
+  box-shadow: 0 0 91px -6px rgba(0, 0, 0, 0.5);
   overflow-y: scroll;
-  &::-webkit-scrollbar {width:0;}
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  @media(max-width: 767px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .meme-type-title {
@@ -15,10 +23,19 @@
   background-color: #544ce2;
   border-radius: 90px;
   height: 48px;
+
   p {
     font-size: 30px;
     color: whitesmoke;
     padding-top: 10px;
+  }
+
+  @media(max-width: 767px) {
+    height: 36px;
+    p {
+      padding-top: 7px;
+      font-size: 24px;
+    }
   }
 }
 
@@ -28,29 +45,55 @@
   padding: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
+
+  @media(max-width: 767px) {
+    border-width: 3px;
+    border-radius: 30px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .meme-type-img {
   text-align: center;
+
   img {
     width: 80px;
     margin: 15px;
     border-radius: 100%;
     border: 3px solid black;
   }
+
+  @media(max-width: 767px) {
+    img {
+      width: 64px;
+    }
+  }
 }
 
 .meme-chromosome {
   text-align: center;
+
   img {
     width: 36px;
     margin-top: -8px;
   }
+
   p {
     font-family: FuturaRound, serif;
     color: darkgreen;
     font-size: 32px;
     margin-bottom: 0;
+  }
+
+  @media(max-width: 767px) {
+    img {
+      width: 28px;
+    }
+    p {
+      font-size: 24px;
+    }
   }
 }
 
@@ -64,7 +107,11 @@
   }
 
   @media(max-width: 767px) {
-    font-size: 18px;
+    font-size: 16px;
+
+    img {
+      width: 28px;
+    }
   }
 }
 
