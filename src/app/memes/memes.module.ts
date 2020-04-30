@@ -26,6 +26,7 @@ import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
 import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
 import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
 import {ParticlesModule} from 'angular-particle';
+import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 
 @NgModule({
   imports: [
@@ -62,7 +63,8 @@ import {ParticlesModule} from 'angular-particle';
     MemesModalComponent,
     MemeTypeSelectComponent,
     MemeTypeIndividComponent,
-    MemeTypeDeadComponent
+    MemeTypeDeadComponent,
+    MemeBestCommentComponent
   ],
   entryComponents: [
     MemesModalComponent

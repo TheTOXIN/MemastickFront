@@ -23,6 +23,9 @@
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
          [class.blur]="isMemeDeath(data.page.meme)">
   </div>
+  <div class="meme-page-comment" *ngIf="data.page?.meme.comment != null">
+    <app-meme-best-comment [comment]="data.page?.meme.comment"></app-meme-best-comment>
+  </div>
   <div class="memes-likes">
     <div class="like-icon-1">
       <div class="like-img-1">
