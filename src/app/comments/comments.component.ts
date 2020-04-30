@@ -30,6 +30,9 @@ export class CommentsComponent implements OnInit {
   @Input()
   public sort: string;
 
+  @Input()
+  public emptyText = 'Без комментариев 🤐';
+
   public commentsLoad = false;
   public comments: MemeComment[] = [];
 

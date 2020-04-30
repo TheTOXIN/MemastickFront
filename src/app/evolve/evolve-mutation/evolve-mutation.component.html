@@ -1,6 +1,6 @@
 <div class="evolve-mutation">
   <div class="evolve-comments">
-    <app-comments [memeId]="evolve.memeId" [sort]="'creating'"></app-comments>
+    <app-comments [memeId]="evolve.memeId" [sort]="'creating'" [emptyText]="commentMsg"></app-comments>
   </div>
   <div class="evolve-my-comment" *ngIf="showMutation">
     <label for="textCommentId">Комментарий для мутации: (до 256 символов)</label>

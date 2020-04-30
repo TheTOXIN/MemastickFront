@@ -35,6 +35,8 @@ export class EvolveMutationComponent implements OnInit {
   validComment = false;
   showMutation = true;
 
+  commentMsg = 'Оставь комментарий первым 😉 Лучший комментарий будет закреплен за мемом 😱';
+
   constructor(
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
