@@ -34,10 +34,6 @@ export class ControlMenuComponent implements OnInit {
     this.navigate('/donaters');
   }
 
-  laboratory() {
-    this.navigate('/lab');
-  }
-
   settings() {
     this.navigate('/home/settings');
   }

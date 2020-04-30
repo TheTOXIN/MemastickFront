@@ -3,6 +3,7 @@ import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 import {MemeLoh} from '../../model/meme/MemeLoh';
 import {GlobalConst} from '../../consts/GlobalConst';
+import {ScreenUtils} from '../../utils/screen-utils';
 
 @Component({
   selector: 'app-loh-radar',
@@ -49,7 +50,7 @@ export class LohRadarComponent implements OnInit {
   }
 
   private initChart() {
-    const isMob = window.innerWidth <= GlobalConst.MOBILE_WIDTH;
+    const isMob = ScreenUtils.isMobileScreen();
 
     this.radarChartOptions = {
       responsive: true,

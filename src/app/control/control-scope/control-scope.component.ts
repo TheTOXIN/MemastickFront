@@ -53,10 +53,6 @@ export class ControlScopeComponent implements OnInit {
     this.navigate('/battle');
   }
 
-  laboratory() {
-    this.navigate('/lab');
-  }
-
   memotypes() {
     this.navigate('/memotype/collection');
   }

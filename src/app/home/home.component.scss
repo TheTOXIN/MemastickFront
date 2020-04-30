@@ -201,3 +201,9 @@
     margin-top: 10px;
   }
 }
+
+.lab-btn-col {
+  @media(max-width: 767px) {
+    display: none;
+  }
+}

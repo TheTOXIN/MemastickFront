@@ -129,6 +129,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/battle');
   }
 
+  toLab() {
+    this.router.navigateByUrl('/lab');
+  }
+
   toStart() {
     this.router.navigateByUrl('/start');
   }
