@@ -12,7 +12,9 @@
     <p>Используйте пробирку, чтобы адаптировать мем и продвинуть его вверх среди своей популяции</p>
   </div>
   <div class="main-research-control">
-    <button class="btn-theme" (click)="adaptation()">АДАПТИРОВАТЬ</button>
+    <button class="btn-theme" (click)="adaptation()">
+      АДАПТИРОВАТЬ <img [src]="img">
+    </button>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

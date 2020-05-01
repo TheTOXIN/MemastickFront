@@ -46,8 +46,6 @@ export class EvolveMutationComponent implements OnInit {
     this.img = tokenIcons[this.type];
   }
 
-  // TODO ADD VALID AND HIDE INPUT
-
   ngOnInit() {
   }
 
