@@ -12,6 +12,9 @@ export const environment = {
   frontUrl: 'http://localhost:4200',
   backUrl: 'http://localhost:8080',
   androidUrl: 'test',
-  vkChat: false
+  accessTokenTime: 3600,
+  refreshTokenTime: 2592000,
+  vkChat: false,
+  metrika: false
 };
 

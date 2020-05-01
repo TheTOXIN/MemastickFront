@@ -10,15 +10,11 @@ import {User} from '../model/User';
 import {WebSocketService} from './web-socket-service';
 import {UserData} from '../model/UserData';
 import {Observable} from 'rxjs/Observable';
+import {throwError} from 'rxjs';
+import {ACCESS_TOKEN_KEY, ACCESS_TOKEN_TIME, REFRESH_TOKEN_KEY, REFRESH_TOKEN_TIME} from '../app.constants';
 
 @Injectable()
 export class OauthApiService {
-
-  private keyAccess = 'access_token_meme';
-  private keyRefresh = 'refresh_token_meme';
-
-  public accessTime = 3600;
-  public refreshTime = 2592000;
 
   constructor(
     private router: Router,
@@ -59,9 +55,15 @@ export class OauthApiService {
   public refresh() {
     console.log('REFRESH');
 
+    const refreshToken = Cookie.get(REFRESH_TOKEN_KEY);
+
+    if (refreshToken === null) {
+      throwError(new Error('REFRESH IS NULL'));
+    }
+
     const params = new URLSearchParams();
 
-    params.append('refresh_token', Cookie.get(this.keyRefresh));
+    params.append('refresh_token', refreshToken);
     params.append('grant_type', 'refresh_token');
     params.append('client_id', 'memastick-client');
 
@@ -102,8 +104,8 @@ export class OauthApiService {
   }
 
   private clearData() {
-    Cookie.delete(this.keyAccess);
-    Cookie.delete(this.keyRefresh);
+    Cookie.delete(ACCESS_TOKEN_KEY);
+    Cookie.delete(REFRESH_TOKEN_KEY);
 
     this.storageService.clearLogOut();
   }
@@ -116,13 +118,13 @@ export class OauthApiService {
     const dateAccess = new Date();
     const dateRefresh = new Date();
 
-    dateAccess.setSeconds(dateAccess.getSeconds() + this.accessTime);
-    dateRefresh.setSeconds(dateRefresh.getSeconds() + this.refreshTime);
+    dateAccess.setSeconds(dateAccess.getSeconds() + ACCESS_TOKEN_TIME);
+    dateRefresh.setSeconds(dateRefresh.getSeconds() + REFRESH_TOKEN_TIME);
 
-    Cookie.set(this.keyAccess, token.access_token, dateAccess, '/');
+    Cookie.set(ACCESS_TOKEN_KEY, token.access_token, dateAccess, '/');
 
-    if (!Cookie.check(this.keyRefresh)) {
-      Cookie.set(this.keyRefresh, token.refresh_token, dateRefresh, '/');
+    if (!Cookie.check(REFRESH_TOKEN_KEY)) {
+      Cookie.set(REFRESH_TOKEN_KEY, token.refresh_token, dateRefresh, '/');
     }
   }
 
@@ -135,11 +137,11 @@ export class OauthApiService {
   }
 
   public readToken() {
-    return Cookie.get(this.keyAccess);
+    return Cookie.get(ACCESS_TOKEN_KEY);
   }
 
   public checkTokens() {
-    return Cookie.check(this.keyAccess) || Cookie.check(this.keyRefresh);
+    return Cookie.check(ACCESS_TOKEN_KEY) || Cookie.check(REFRESH_TOKEN_KEY);
   }
 
   public loadMe() {

@@ -12,5 +12,8 @@ export const environment = {
   backUrl: 'https://memastick-back.herokuapp.com',
   frontUrl: 'https://www.memastick.ru',
   androidUrl: 'android-app://xyz.appmaker.qkufdm',
-  vkChat: true
+  accessTokenTime: 3600,
+  refreshTokenTime: 2592000,
+  vkChat: true,
+  metrika: false
 };
