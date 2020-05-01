@@ -11,6 +11,7 @@ const BATTLE_RULE = 'BATTLE_RULE';
 const START_INFO = 'START_INFO';
 const EVOLVE_INFO = 'EVOLVE_INFO';
 const ME = 'ME';
+const PUSH_TOKEN = 'PUSH_TOKEN';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
@@ -138,6 +139,14 @@ export class StorageService {
 
   public loadLabMeme(): any {
     return sessionStorage.getItem(LAB_MEM);
+  }
+
+  public setPushToken(token: any) {
+    localStorage.setItem(PUSH_TOKEN, token);
+  }
+
+  public getPushToken(): any {
+    return localStorage.getItem(PUSH_TOKEN);
   }
 
   public clearLogOut() {

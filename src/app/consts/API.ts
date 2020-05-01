@@ -51,6 +51,7 @@ export enum API {
   TOKENS_WALLETS_MEMETICK = '/token-wallets/memetick',
 
   NOTIFY_PUSH_REGISTER = '/notify/push/register',
+  NOTIFY_PUSH_REFRESHER = '/notify/push/refresher',
   NOTIFY_WEB_REGISTER = '/notify/web/register',
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
