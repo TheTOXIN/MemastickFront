@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .items-title {
   font-size: 24px;
   margin-left: 10px;
@@ -62,6 +64,14 @@
     font-size: 24px;
     color: #343a40;
     font-family: Futurica, serif;
+    border-radius: 30px;
+    transition: 0.2s;
+  }
+  &:hover {
+    div {
+      color: white;
+      background-color: $primary_color;
+    }
   }
   @media(max-width: 767px) {
     div {
