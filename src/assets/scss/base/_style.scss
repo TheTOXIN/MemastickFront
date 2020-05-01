@@ -259,6 +259,7 @@ button:focus {
   letter-spacing: 1px;
   font-family: FuturaRound, serif;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  transition: 0.2s;
 
   &:hover {
     box-shadow: 0 0 5px 5px #ffa807;
