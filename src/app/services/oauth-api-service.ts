@@ -58,7 +58,7 @@ export class OauthApiService {
     const refreshToken = Cookie.get(REFRESH_TOKEN_KEY);
 
     if (refreshToken === null) {
-      throwError(new Error('REFRESH IS NULL'));
+      return throwError(new Error('REFRESH IS NULL'));
     }
 
     const params = new URLSearchParams();
