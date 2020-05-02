@@ -2,14 +2,16 @@
   <div class="evolve-comments">
     <app-comments [memeId]="evolve.memeId" [sort]="'creating'" [emptyText]="commentMsg"></app-comments>
   </div>
-  <div class="evolve-my-comment" *ngIf="showMutation">
-    <label for="textCommentId">Комментарий для мутации: (до 256 символов)</label>
-    <textarea class="form-control my-scroll" rows="5" id="textCommentId" [(ngModel)]="myComment" (ngModelChange)="checkValid()" autofocus></textarea>
-  </div>
-  <div class="main-research-control" *ngIf="showMutation">
-    <button class="btn-theme" (click)="mutation()" [disabled]="!validComment">
-      МУТИРОВАТЬ <img [src]="img">
-    </button>
+  <div *ngIf="evolve?.canApplyToken">
+    <div class="evolve-my-comment">
+      <label for="textCommentId">Комментарий для мутации: (до 256 символов)</label>
+      <textarea class="form-control my-scroll" rows="5" id="textCommentId" [(ngModel)]="myComment" (ngModelChange)="checkValid()" autofocus></textarea>
+    </div>
+    <div class="main-research-control">
+      <button class="btn-theme" (click)="mutation()" [disabled]="!validComment">
+        МУТИРОВАТЬ <img [src]="img">
+      </button>
+    </div>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

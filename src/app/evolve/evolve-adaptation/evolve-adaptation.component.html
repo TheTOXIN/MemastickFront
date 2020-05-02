@@ -8,13 +8,15 @@
   <div class="evolve-adaptation-value">
     <p>{{evolve?.adaptation}}</p>
   </div>
-  <div class="evolve-text">
-    <p>Используйте пробирку, чтобы адаптировать мем и продвинуть его вверх среди своей популяции</p>
-  </div>
-  <div class="main-research-control">
-    <button class="btn-theme" (click)="adaptation()">
-      АДАПТИРОВАТЬ <img [src]="img">
-    </button>
+  <div *ngIf="evolve?.canApplyToken">
+    <div class="evolve-text">
+      <p>Используйте пробирку, чтобы адаптировать мем и продвинуть его вверх среди своей популяции</p>
+    </div>
+    <div class="main-research-control">
+      <button class="btn-theme" (click)="adaptation()">
+        АДАПТИРОВАТЬ <img [src]="img">
+      </button>
+    </div>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

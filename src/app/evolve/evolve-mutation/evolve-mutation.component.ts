@@ -33,7 +33,6 @@ export class EvolveMutationComponent implements OnInit {
   public myComment: string;
 
   validComment = false;
-  showMutation = true;
 
   commentMsg = 'Оставь комментарий первым 😉 Лучший комментарий будет закреплен за мемом 😱';
 
@@ -82,7 +81,7 @@ export class EvolveMutationComponent implements OnInit {
   }
 
   successMutation() {
-    this.showMutation = false;
+    this.evolve.canApplyToken = false;
     this.memeComments.initComments();
     this.message = 'Мем мутирован!';
     this.status = LoaderStatus.DONE;

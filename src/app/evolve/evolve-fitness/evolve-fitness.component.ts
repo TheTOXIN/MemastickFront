@@ -92,6 +92,7 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   successFitness() {
+    this.evolve.canApplyToken = false;
     this.message = 'Мем оценен!';
     this.status = LoaderStatus.DONE;
   }

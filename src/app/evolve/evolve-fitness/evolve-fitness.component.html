@@ -1,19 +1,21 @@
 <div class="evolve-fitness">
   <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
   <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
-  <p *ngIf="lohPoints > 0" [style.color]="'#495057'">Распределите очки оценки: {{lohPoints}}</p>
-  <p *ngIf="lohPoints == 0" [style.color]="'#28a745'">Готово! Нажмите оценить.</p>
-  <p *ngIf="lohPoints < 0" [style.color]="'#dc3545'">Слишком много: {{lohPoints}}</p>
-  <div class="evolve-fitness-emoji">🤔 😆 😯</div>
-  <div class="evolve-fitness-sliders">
-    <ng5-slider [(value)]="myLoh.hmm" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
-    <ng5-slider [(value)]="myLoh.lol" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
-    <ng5-slider [(value)]="myLoh.omg" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
-  </div>
-  <div class="main-research-control">
-    <button class="btn-theme" [disabled]="lohPoints != 0" (click)="fitness()">
-      ОЦЕНИТЬ <img [src]="img">
-    </button>
+  <div *ngIf="evolve?.canApplyToken">
+    <p *ngIf="lohPoints > 0" [style.color]="'#495057'">Распределите очки оценки: {{lohPoints}}</p>
+    <p *ngIf="lohPoints == 0" [style.color]="'#28a745'">Готово! Нажмите оценить.</p>
+    <p *ngIf="lohPoints < 0" [style.color]="'#dc3545'">Слишком много: {{lohPoints}}</p>
+    <div class="evolve-fitness-emoji">🤔 😆 😯</div>
+    <div class="evolve-fitness-sliders">
+      <ng5-slider [(value)]="myLoh.hmm" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
+      <ng5-slider [(value)]="myLoh.lol" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
+      <ng5-slider [(value)]="myLoh.omg" [options]="sliderOptions" (valueChange)="sliderEvent()" (userChangeEnd)="updateLoh()"></ng5-slider>
+    </div>
+    <div class="main-research-control" *ngIf="evolve?.canApplyToken">
+      <button class="btn-theme" [disabled]="lohPoints != 0" (click)="fitness()">
+        ОЦЕНИТЬ <img [src]="img">
+      </button>
+    </div>
   </div>
 </div>
 <app-loader [message]="message" [status]="status"></app-loader>

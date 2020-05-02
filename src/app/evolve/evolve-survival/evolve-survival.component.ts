@@ -58,6 +58,7 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   successChance() {
+    this.evolve.canApplyToken = false;
     this.evolve.immunity = true;
     this.message = 'Иммунитет увеличен!';
     this.status = LoaderStatus.DONE;

@@ -7,7 +7,7 @@
     <p *ngIf="!evolve?.immunity">Мем выживает, вы можете дать антибиотик для иммунитета чтобы гарантировать отбор</p>
     <p *ngIf="evolve?.immunity">У мема повышенный иммунитет к выживанию, шанс отбора гарантирован</p>
   </div>
-  <div class="main-research-control">
+  <div class="main-research-control" *ngIf="evolve?.canApplyToken">
     <button *ngIf="!evolve?.immunity" class="btn-theme" (click)="chance()">
       ИММУНИЗИРОВАТЬ <img [src]="img">
     </button>
