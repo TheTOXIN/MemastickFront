@@ -119,8 +119,6 @@ export class MemesPageComponent implements OnInit {
   }
 
   triggerLike(data: MemeData) {
-    if (this.isMemeDeath(data.page.meme)) { return; }
-
     data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
     data.page.likes.myLike = !data.page.likes.myLike;
