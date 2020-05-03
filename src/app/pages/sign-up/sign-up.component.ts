@@ -4,8 +4,9 @@ import {RegistrationApiService} from '../../api/registration-api-service';
 import {Registration} from '../../model/Registration';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OauthApiService} from '../../services/oauth-api-service';
-import {MemeFilter} from '../../consts/MemeFilter';
 import {securityStatuses} from '../../consts/SecurityStatus';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CreedModalComponent} from '../../modals/creed-modal/creed-modal.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -29,13 +30,15 @@ export class SignUpComponent implements OnInit {
   public isLoading = false;
 
   public signForm: FormGroup;
+  public agreeCreed = false;
 
   constructor(
     private fb: FormBuilder,
     private reg: RegistrationApiService,
     private oauth: OauthApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modalService: NgbModal
   ) {
     this.signForm = new FormGroup({});
     this.message = this.messages[Math.floor(Math.random() * this.messages.length)];
@@ -59,6 +62,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.agreeCreed) {
+      return;
+    }
+
     this.isLoading = true;
     this.signForm.controls['invite'].enable();
 
@@ -90,5 +97,10 @@ export class SignUpComponent implements OnInit {
     this.isLoading = false;
     this.message = securityStatuses[error.error];
     if (this.message == null) { this.message = 'Ошибка регистрации'; }
+  }
+
+  showCreed() {
+    this.modalService.open(CreedModalComponent, {'centered': true, backdrop: 'static'});
+    this.agreeCreed = true;
   }
 }

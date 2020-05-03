@@ -29,6 +29,7 @@ import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.compo
 import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
 import {TokenModule} from '../token/token.module';
 import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
+import {CreedModalComponent} from './creed-modal/creed-modal.component';
 
 @NgModule({
   exports: [
@@ -54,6 +55,7 @@ import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats
     RankTypesModalComponent,
     RankTokensModalComponent,
     MemetickStatsModalComponent,
+    CreedModalComponent
   ],
   imports: [
     CommonModule,
@@ -89,6 +91,7 @@ import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats
     RankTypesModalComponent,
     RankTokensModalComponent,
     MemetickStatsModalComponent,
+    CreedModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -113,6 +116,7 @@ import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats
     RankTypesModalComponent,
     RankTokensModalComponent,
     MemetickStatsModalComponent,
+    CreedModalComponent
   ]
 })
 export class ModalsModule {
