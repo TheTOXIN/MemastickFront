@@ -40,4 +40,10 @@ export class MemetickApiService {
       .get<MemetickRating>(API.MEMETICK_RATING + '/' + filter)
       .pipe();
   }
+
+  public creedAgree() {
+    this.http
+      .patch(API.MEMETICK_CREED, {})
+      .toPromise();
+  }
 }

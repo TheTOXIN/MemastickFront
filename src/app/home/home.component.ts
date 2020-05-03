@@ -64,8 +64,6 @@ export class HomeComponent implements OnInit {
     this.initMe();
     this.initControl();
     this.initStarter();
-
-    this.showCreed();
   }
 
   private initMe() {
@@ -73,6 +71,7 @@ export class HomeComponent implements OnInit {
       this.home = home;
       this.isLoad = false;
       this.askPush();
+      this.showCreed();
       this.homeMessage();
     });
   }
@@ -100,7 +99,10 @@ export class HomeComponent implements OnInit {
   }
 
   showCreed() {
-    this.modalService.open(CreedModalComponent, {'centered': true});
+    if (!this.home.creedAgree) {
+      const modalRef = this.modalService.open(CreedModalComponent, {'centered': true});
+      modalRef.componentInstance.needAgree = true;
+    }
   }
 
   askPush() {

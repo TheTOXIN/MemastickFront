@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {creedRules} from '../../consts/TextData';
+import {MemetickApiService} from '../../api/memetick-api-service';
 
 @Component({
   selector: 'app-creed-modal',
@@ -12,13 +13,17 @@ export class CreedModalComponent implements OnInit {
   @Input()
   public alreadyAgree = false;
 
+  @Input()
+  public needAgree = false;
+
   public creedRules = [];
   public accessAgree = false;
   public secondsAgree = 10;
   public intervalAgree;
 
   constructor(
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    public memetickApi: MemetickApiService
   ) {
     this.creedRules = creedRules;
   }
@@ -39,5 +44,8 @@ export class CreedModalComponent implements OnInit {
 
   close() {
     this.activeModal.dismiss('Cross click');
+    if (this.needAgree) {
+      this.memetickApi.creedAgree();
+    }
   }
 }

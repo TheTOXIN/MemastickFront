@@ -8,7 +8,8 @@ export class Home {
     public message: string,
     public day: number,
     public memes: number,
-    public selectTimer: string
+    public creedAgree: boolean,
+    public selectTimer: string,
   ) {
 
   }

@@ -17,6 +17,7 @@ export enum API {
   MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMETICK_RATING = '/memeticks/rating',
+  MEMETICK_CREED = '/memeticks/creed/agree',
 
   RANK_TYPES = '/memetick-rank/types',
   RANK_TOKENS = '/memetick-rank/tokens',

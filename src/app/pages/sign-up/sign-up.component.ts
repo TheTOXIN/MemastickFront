@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
   public isLoading = false;
 
   public signForm: FormGroup;
-  public agreeCreed = false;
+  public creedAgree = false;
 
   constructor(
     private fb: FormBuilder,
@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.agreeCreed) {
+    if (!this.creedAgree) {
       return;
     }
 
@@ -75,6 +75,7 @@ export class SignUpComponent implements OnInit {
         this.signForm.value.login,
         this.signForm.value.password,
         this.signForm.value.passwordRepeat,
+        this.creedAgree
       )
     ).subscribe(
       () => this.toLogin(),
@@ -101,6 +102,6 @@ export class SignUpComponent implements OnInit {
 
   showCreed() {
     this.modalService.open(CreedModalComponent, {'centered': true, backdrop: 'static'});
-    this.agreeCreed = true;
+    this.creedAgree = true;
   }
 }
