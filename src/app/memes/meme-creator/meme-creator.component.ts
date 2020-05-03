@@ -16,6 +16,7 @@ import {ImageUtils} from '../../utils/image-utils';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
+import {MemeCreateModalComponent} from '../../modals/meme-create-modal/meme-create-modal.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -36,6 +37,7 @@ export class MemeCreatorComponent implements OnInit {
   public firePath: string;
 
   public stateCell: number;
+  public dnaCombo: number;
   public epiCell: EPI;
 
   public stateTitle;
@@ -64,12 +66,13 @@ export class MemeCreatorComponent implements OnInit {
   ngOnInit(): void {
     this.inventoryApi.stateCell().subscribe(data => {
       this.stateCell = data.state;
+      this.dnaCombo = data.combo;
       this.epiCell = data.epi;
 
       if (this.stateCell === GlobalConst.CELL_SATE) {
         this.checkLab();
 
-        this.stateText = 'КЛЕТКА ГОТОВА';
+        this.stateText = 'ДНК комбо = x' + this.dnaCombo;
         this.stateTitle = 'ПЕРЕТАЩИ ИЛИ НАЖМИ';
       } else {
         this.stateText = 'СОСТОЯНИЕ = ' + this.stateCell + '%';
@@ -193,7 +196,7 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   info() {
-    this.modalService.open(AlgorithmModalComponent, {'centered': true});
+    this.modalService.open(MemeCreateModalComponent, {'centered': true});
   }
 
   cancel() {
