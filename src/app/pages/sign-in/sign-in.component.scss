@@ -40,3 +40,13 @@
     font-size: 23px;
   }
 }
+
+.sub-href-reset {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  @media(max-width: 767px) {
+    bottom: 10px;
+  }
+}
