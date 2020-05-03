@@ -1,17 +1,25 @@
 <div class="evolve-adaptation">
+  <div class="evolve-text">
+    <p>Адаптация продвигает мем вверх в списке среди своей популяции</p>
+  </div>
   <div class="evolve-img">
-    <img class="img-fluid" [src]="'assets/images/icon/like_push.png'">
+    <img class="img-fluid" [src]="'assets/images/icon/adapation.png'">
   </div>
   <div class="evolve-text">
-    <p>Мем только что был создан!</p>
+    <p>Очки адаптаций:</p>
   </div>
-  <div class="evolve-adaptation-value">
-    <p>{{evolve?.adaptation}}</p>
+  <div class="evolve-adaptation-score">
+    <div class="evolve-adaptation-value">
+      <p>{{evolve?.adaptation}}</p>
+    </div>
+    <div class="evolve-adaptation-arrow" *ngIf="evolve?.canApplyToken">
+      <i class="fa fa-arrow-right"></i>
+    </div>
+    <div class="evolve-adaptation-value" *ngIf="evolve?.canApplyToken">
+      <p>{{evolve?.adaptation + 1}}</p>
+    </div>
   </div>
   <div *ngIf="evolve?.canApplyToken">
-    <div class="evolve-text">
-      <p>Используйте пробирку, чтобы адаптировать мем и продвинуть его вверх среди своей популяции</p>
-    </div>
     <div class="main-research-control">
       <button class="btn-theme" (click)="adaptation()">
         АДАПТИРОВАТЬ <img [src]="img">
