@@ -260,6 +260,7 @@ export class LaboratoryComponent implements OnInit {
     const canvas = this.canvas;
 
     reader.onload = (f) => {
+      // @ts-ignore
       fabric.Image.fromURL(f.target.result, (img) => {
         canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
           scaleX: canvas.width / img.width,

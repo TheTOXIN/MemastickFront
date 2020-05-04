@@ -1,23 +1,25 @@
-<div class="container">
-<div class="row">
-  <div class="col-md-12">
-    <div class="dnt-rating-table dnt-rating-title">
-      <span>🏅 СУПЕР МЕССЕДЖИ 🔥</span>
-      <div>
-        🚀Поддержи Мемастик
-        <a [href]="donatHref" target="_blank"> донатом </a> (от 1000 руб) 💸
-        и твой месседж бдует случайно отображаться на домащней странице! 😎
+<ng-template #donterMessagesLoad>
+  <app-spinner class="flex-center-absolute"></app-spinner>
+</ng-template>
+<div class="container" *ngIf="isLoad; else donterMessagesLoad">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="dnt-rating-table dnt-rating-title">
+        <span>🏅 СУПЕР МЕССЕДЖИ 🔥</span>
+        <div>
+          🚀Поддержи Мемастик
+          <a [href]="donatHref" target="_blank"> донатом </a> (от 1000 руб) 💸
+          и твой месседж бдует случайно отображаться на домащней странице! 😎
+        </div>
+        <p>P.s - а ещё ты можешь попасть в -
+          <a [href]="ratingHref">"Рейтинг донатов"</a>
+          , и занять там свое почетное место</p>
+        <button class="btn-theme" type="submit" (click)="toDonat()">
+          ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
+        </button>
       </div>
-      <p>P.s - а ещё ты можешь попасть в -
-        <a [href]="ratingHref">"Рейтинг донатов"</a>
-        , и занять там свое почетное место</p>
-      <button class="btn-theme" type="submit" (click)="toDonat()">
-        ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
-      </button>
     </div>
   </div>
-</div>
-<div *ngIf="isLoad; else donterMessagesLoad">
   <div *ngFor="let msg of messages">
     <div class="row">
       <div class="col-md-12">
@@ -27,12 +29,8 @@
       </div>
     </div>
   </div>
-</div>
-<div class="main-button-close" style="margin: 30px auto" (click)="close()">
-  <i class="fa fa-close"></i>
-</div>
+  <div class="main-button-close" style="margin: 30px auto" (click)="close()">
+    <i class="fa fa-close"></i>
+  </div>
 </div>
 <div class="mem-back"></div>
-<ng-template #donterMessagesLoad>
-  <app-spinner></app-spinner>
-</ng-template>
