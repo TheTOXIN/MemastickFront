@@ -486,7 +486,7 @@ export class LaboratoryComponent implements OnInit {
     fabric.Image.fromURL(FRONT_URL + '/assets/images/lab_mark.png', (image) => {
       image.set({
         left: this.canvas.width - 200,
-        top: this.canvas.height - 28,
+        top: this.canvas.height - 40,
       });
 
       this.canvas.add(image);
