@@ -1,9 +1,4 @@
-<div *ngIf="isLoad" class="flex-center-absolute">
-  <app-spinner></app-spinner>
-</div>
-
-<div *ngIf="!isLoad">
-
+<div *ngIf="!isLoad; else shopMemotypeLoad">
   <div ngbDropdown class="shop-memotype-drop">
     <button class="btn-theme-inverse " id="dropdownBasic1" ngbDropdownToggle (click)="dropSet()">
       <span *ngIf="!isSet">ВЫБЕРИТЕ СЕТ</span>
@@ -29,18 +24,18 @@
     <div class="memotype-delimer"></div>
   </div>
 
-</div>
+  <div class="shop-memotype-buy margin-center">
+    <app-shop-price [price]="memotypePrice"></app-shop-price>
+    <p *ngIf="!isMemotype">Выберите мемотип</p>
+    <app-memotype-element *ngIf="isMemotype" [memotype]="currentMemotype" [showCount]="false" [buyMode]="true" (click)="viewMemotype()"></app-memotype-element>
+    <app-shop-button [price]="memotypePrice" [disable]="!isMemotype" (event)="buy()"></app-shop-button>
+  </div>
 
-<div class="shop-memotype-buy margin-center">
-  <app-shop-price [price]="memotypePrice"></app-shop-price>
-  <p *ngIf="!isMemotype">Выберите мемотип</p>
-  <app-memotype-element *ngIf="isMemotype" [memotype]="currentMemotype" [showCount]="false" [buyMode]="true" (click)="viewMemotype()"></app-memotype-element>
-  <app-shop-button [price]="memotypePrice" [disable]="!isMemotype" (event)="buy()"></app-shop-button>
-</div>
+  <div class="shop-memotype-control">
+    <button class="btn-theme" (click)="showRarities()">РЕДКОСТИ</button>
+    <button class="btn-theme" (click)="toCollection()">КОЛЛЕКЦИЯ</button>
+  </div>
 
-<div class="shop-memotype-control">
-  <button class="btn-theme" (click)="showRarities()">РЕДКОСТИ</button>
-  <button class="btn-theme" (click)="toCollection()">КОЛЛЕКЦИЯ</button>
+  <app-memotype-view></app-memotype-view>
 </div>
-
-<app-memotype-view></app-memotype-view>
+<ng-template #shopMemotypeLoad><app-spinner></app-spinner></ng-template>
