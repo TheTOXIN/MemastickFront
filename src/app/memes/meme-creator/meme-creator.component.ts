@@ -100,7 +100,6 @@ export class MemeCreatorComponent implements OnInit {
 
   toggleHover(event: boolean) {
     this.isHovering = event;
-    console.log('test');
   }
 
   uploadDrop(event) {
@@ -128,6 +127,8 @@ export class MemeCreatorComponent implements OnInit {
 
   create() {
     if (!this.isPreview || this.isCreate) { return; }
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.status = LoaderStatus.LOAD;
 
     this.fireId = UUID.UUID();
@@ -200,6 +201,8 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   cancel() {
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.imageFile = null;
     this.imgURL = null;
 
@@ -207,6 +210,8 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   showText() {
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.textInput.show(this.textMeme);
   }
 
