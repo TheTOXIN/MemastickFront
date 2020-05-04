@@ -10,7 +10,9 @@ import {DONAT} from '../../app.constants';
 })
 export class DonaterMessageInfoModalComponent implements OnInit {
 
-  public donatHref = DONAT;
+  donatHref = DONAT;
+  msgsHref = '/donaters/messages';
+  ratingHref = '/donaters/rating';
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -23,7 +25,7 @@ export class DonaterMessageInfoModalComponent implements OnInit {
   }
 
   toDonaters() {
-    this.router.navigateByUrl('/donaters/rating');
+    this.router.navigateByUrl(this.msgsHref);
     this.close();
   }
 
