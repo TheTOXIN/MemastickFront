@@ -97,6 +97,7 @@ export class MemesPageComponent implements OnInit {
     this.startTimerChromosome(data);
 
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
+    data.page.likes.firstChromosome = true;
 
     data.page.meme.chromosomes++;
     data.page.likes.myChromosomes++;

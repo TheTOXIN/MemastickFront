@@ -231,3 +231,25 @@
     color: whitesmoke;
   }
 }
+
+.firstChromosome {
+  animation: triggleChromosome 2.5s infinite;
+}
+
+@keyframes triggleChromosome {
+  0% {
+    transform: rotate(20deg);
+  }
+  5% {
+    transform: rotate(-20deg);
+  }
+  10% {
+    transform: rotate(20deg);
+  }
+  15% {
+    transform: rotate(-20deg);
+  }
+  30%, 0% {
+    transform: rotate(0deg);
+  }
+}
