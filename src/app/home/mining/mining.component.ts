@@ -73,6 +73,7 @@ export class MiningComponent implements OnInit {
   isMake = false;
   isMine = false;
   isBroke = false;
+  isDone = false;
 
   BLOCK_NONCE = GlobalConst.BLOCK_NONCE;
 
@@ -169,6 +170,7 @@ export class MiningComponent implements OnInit {
       () => {
         this.loadMessage = 'Успешно!';
         this.loadStatus = LoaderStatus.DONE;
+        this.isDone = true;
       }, (data) => this.error(data.error, 'Ошибка транзакции')
     );
   }
