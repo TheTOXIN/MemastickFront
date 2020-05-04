@@ -27,7 +27,7 @@ export class LaboratoryComponent implements OnInit {
 
   private props: any = {
     canvasFill: '#ffffff',
-    canvasImage: '',
+    canvasImage: false,
     opacity: null,
     fill: null,
     fontSize: null,
@@ -250,18 +250,26 @@ export class LaboratoryComponent implements OnInit {
     })(obj.toObject);
   }
 
-  setCanvasImage() {
-    if (this.props.canvasImage) {
+  setCanvasImage(e) {
+    const files = e.target.files;
 
-      const image = new Image();
-      image.src = this.props.canvasImage;
+    if (!files || !files[0]) { return; }
 
-      const self = this;
-      this.canvas.setBackgroundImage(image.src, () => self.canvas.renderAll(), {
-        scaleX: this.canvas.width / image.width,
-        scaleY: this.canvas.height / image.height,
+    const file = files[0];
+    const reader = new FileReader();
+    const canvas = this.canvas;
+
+    reader.onload = (f) => {
+      fabric.Image.fromURL(f.target.result, (img) => {
+        canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+          scaleX: canvas.width / img.width,
+          scaleY: canvas.height / img.height
+        });
+        this.props.canvasImage = true;
       });
-    }
+    };
+
+    reader.readAsDataURL(file);
   }
 
   randomId() {

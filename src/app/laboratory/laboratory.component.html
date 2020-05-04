@@ -149,10 +149,12 @@
             </div>
           </div>
           <div class="custom-item">
-            <div class="custom-item-title">Задний фон (URL)</div>
+            <div class="custom-item-title">Задний фон</div>
             <div class="custom-item-body">
-              <input type="text" class="form-control" placeholder="http://example.jpg" [(ngModel)]="props.canvasImage"
-                     (keyup)="setCanvasImage()">
+              <div class="lab-file-border">
+                <input type="file" class="lab-file-input-back" (change)="setCanvasImage($event);" accept=".jpg">
+                <button title="Открыть" class="btn btn-primary">Открыть</button>
+              </div>
             </div>
           </div>
         </div>
