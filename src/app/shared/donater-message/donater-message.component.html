@@ -16,7 +16,7 @@
       © {{donater.name}}
     </div>
   </div>
-  <div class="donate-inf">
+  <div class="donate-inf" *ngIf="info">
     <i class="fa fa-question-circle" (click)="messageInfo()"></i>
   </div>
 </div>

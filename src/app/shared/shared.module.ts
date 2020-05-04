@@ -33,6 +33,7 @@ import {DnaCountComponent} from './dna-count/dna-count.component';
 import {LohRadarComponent} from './loh-radar/loh-radar.component';
 import {ChartsModule} from 'ng2-charts';
 import {CommentsComponent} from '../comments/comments.component';
+import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
 
 @NgModule({
   exports: [
@@ -58,7 +59,8 @@ import {CommentsComponent} from '../comments/comments.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    CommentsComponent
+    CommentsComponent,
+    DonaterMessagesComponent
   ],
   imports: [
     CommonModule,
@@ -94,7 +96,8 @@ import {CommentsComponent} from '../comments/comments.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    CommentsComponent
+    CommentsComponent,
+    DonaterMessagesComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

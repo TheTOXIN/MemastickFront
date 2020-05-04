@@ -31,7 +31,7 @@ export class ControlMenuComponent implements OnInit {
   }
 
   donaters() {
-    this.navigate('/donaters');
+    this.navigate('/donaters/rating');
   }
 
   settings() {

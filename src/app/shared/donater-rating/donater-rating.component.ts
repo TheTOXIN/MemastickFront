@@ -19,6 +19,7 @@ export class DonaterRatingComponent implements OnInit {
 
   isLoad = true;
   donatHref = DONAT;
+  msgsHref = '/donaters/messages';
 
   myStyle: object = {};
   myParams: object = {};
@@ -43,6 +44,10 @@ export class DonaterRatingComponent implements OnInit {
 
   toDonat() {
     window.open(this.donatHref, '_blank');
+  }
+
+  close() {
+    window.history.back();
   }
 
   public initSiquence() {

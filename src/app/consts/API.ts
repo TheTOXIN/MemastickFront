@@ -96,6 +96,7 @@ export enum API {
   BATTLE_RATING_MY = '/battle-rating/my',
   BATTLE_RATING_MAIN = '/battle-rating/main',
 
+  DONATER_READ_ALL_MESSAGE = '/donater-messages/read-all',
   DONATER_RANDOM_MESSAGE = '/donater-messages/random',
   DONATER_READ_RATING = '/donater-ratings/read',
 

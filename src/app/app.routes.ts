@@ -5,6 +5,7 @@ import {ShopComponent} from './shop/shop.component';
 import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.component';
 import {AppComponent} from './app.component';
 import {LaboratoryComponent} from './laboratory/laboratory.component';
+import {DonaterMessagesComponent} from './shared/donater-messages/donater-messages.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -43,8 +44,12 @@ export const rootRouterConfig: Routes = [
     component: ModalLinkComponent
   },
   {
-    path: 'donaters',
+    path: 'donaters/rating',
     component: DonaterRatingComponent
+  },
+  {
+    path: 'donaters/messages',
+    component: DonaterMessagesComponent
   },
   {
     path: '**',

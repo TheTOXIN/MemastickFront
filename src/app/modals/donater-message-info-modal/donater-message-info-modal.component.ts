@@ -23,7 +23,7 @@ export class DonaterMessageInfoModalComponent implements OnInit {
   }
 
   toDonaters() {
-    this.router.navigateByUrl('/donaters');
+    this.router.navigateByUrl('/donaters/rating');
     this.close();
   }
 
