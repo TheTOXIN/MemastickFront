@@ -21,11 +21,11 @@ declare const fabric: any;
 })
 export class LaboratoryComponent implements OnInit {
 
-  private labVer = 0.1;
+  public labVer = 0.1;
 
-  private canvas: any;
+  public canvas: any;
 
-  private props: any = {
+  public props: any = {
     canvasFill: '#ffffff',
     canvasImage: false,
     opacity: null,
@@ -40,19 +40,19 @@ export class LaboratoryComponent implements OnInit {
     TextDecoration: ''
   };
 
-  private groupType = 'activeSelection';
-  private textString: string;
-  private size: any = {
+  public groupType = 'activeSelection';
+  public textString: string;
+  public size: any = {
     width: 500,
     height: 600
   };
 
-  private textEditor = false;
-  private imageEditor = false;
-  private figureEditor = false;
-  private loadFile = false;
-  private isAuth = false;
-  private selected: any;
+  public textEditor = false;
+  public imageEditor = false;
+  public figureEditor = false;
+  public loadFile = false;
+  public isAuth = false;
+  public selected: any;
 
   constructor(
     private router: Router,
