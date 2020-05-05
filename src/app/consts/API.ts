@@ -40,7 +40,6 @@ export enum API {
   EVOLVE_MEME_CHANCE = '/evolve-memes/meme/chance',
 
   ALLOWANCE_TAKE = '/token-allowance/take',
-  ALLOWANCE_MAKE = '/token-allowance/make',
   ALLOWANCE_HAVE = '/token-allowance/have',
 
   INVENTORY_CELL_STATE = '/memetick-inventories/cell/state',
@@ -80,6 +79,7 @@ export enum API {
   BLOCK_COINS_MINE = '/block-coins/mine',
   BLOCK_COINS_FLUSH = '/block-coins/flush',
   SHOP_COOKIES = '/shop/cookies',
+  SHOP_TOKENS = '/shop/tokens',
 
   MEMOTYPE_COLLECTION = '/memotype-set/collection',
   MEMOTYPE_READ = '/memotype-memetick/read',

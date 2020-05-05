@@ -3,13 +3,15 @@ import {TokenType} from '../consts/TokenType';
 export class TokenData {
 
   public type: TokenType;
+  public lvl: number;
   public image: string;
   public name: string;
   public designation: string;
   public description: string;
 
-  constructor(type: TokenType, image: string, name: string, designation: string, description: string) {
+  constructor(type: TokenType, lvl: number, image: string, name: string, designation: string, description: string) {
     this.type = type;
+    this.lvl = lvl;
     this.image = image;
     this.name = name;
     this.designation = designation;
@@ -20,6 +22,7 @@ export class TokenData {
 export const tokensData = [
   new TokenData(
     TokenType.TUBE,
+    1,
     'assets/images/tokens/1.png',
     'Пробирка',
     'Токен адаптации',
@@ -27,6 +30,7 @@ export const tokensData = [
   ),
   new TokenData(
     TokenType.SCOPE,
+    2,
     'assets/images/tokens/2.png',
     'Микроскоп',
     'Токен оценки',
@@ -34,6 +38,7 @@ export const tokensData = [
   ),
   new TokenData(
     TokenType.MUTAGEN,
+    3,
     'assets/images/tokens/3.png',
     'Мутаген',
     'Токен мутации',
@@ -41,6 +46,7 @@ export const tokensData = [
   ),
   new TokenData(
     TokenType.CROSSOVER,
+    4,
     'assets/images/tokens/4.png',
     'Кроссовер',
     'Токен скрещивания',
@@ -48,6 +54,7 @@ export const tokensData = [
   ),
   new TokenData(
     TokenType.ANTIBIOTIC,
+    5,
     'assets/images/tokens/5.png',
     'Антибиотик',
     'Токен выживания',

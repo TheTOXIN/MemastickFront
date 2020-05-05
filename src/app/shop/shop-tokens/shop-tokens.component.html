@@ -1,0 +1,28 @@
+<div ngbDropdown class="shop-tokens-drop">
+  <button class="btn-theme-inverse " id="dropdownBasic1" ngbDropdownToggle (click)="dropToken()">
+    <span *ngIf="!isToken">ВЫБЕРИТЕ ТОКЕН</span>
+    <span *ngIf="isToken">
+      <img [src]="currentToken.image" class="img-drop-token"> {{currentToken.name}}
+    </span>
+  </button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <div *ngFor="let token of tokens">
+      <button ngbDropdownItem (click)="chooseToken(token)">
+        <img [src]="token.image" class="img-drop-token"> {{token.name}}
+      </button>
+    </div>
+  </div>
+</div>
+<div class="shop-border margin-center">
+  <p>У вас может быть максимум 10 токенов каждого вида</p>
+  <app-shop-price [price]="tokenPrice"></app-shop-price>
+  <div *ngIf="!isToken">
+    <img class="shop-token-view" src="/assets/images/tokens/tmp.png">
+    <p>Токен не выбран</p>
+  </div>
+  <div *ngIf="isToken" style="margin-bottom: 1rem">
+    <img class="shop-token-view" *ngIf="isToken" [src]="currentToken.image" (click)="tokenInfo()" alt="хай">
+    <app-counter [min]="1" [max]="10" (changeEvent)="computePrice($event)"></app-counter>
+  </div>
+  <app-shop-button [price]="tokenPrice" [disable]="!isToken" (event)="buyToken()"></app-shop-button>
+</div>

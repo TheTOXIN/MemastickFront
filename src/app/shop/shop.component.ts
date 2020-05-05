@@ -26,10 +26,10 @@ export class ShopComponent implements OnInit {
     url: '/memotypes',
     img: '/assets/images/icon/memotype.png',
   }, {
-    txt: 'Купи и получи пособие прямо сейчас!',
-    val: 'ПОСОБИЕ',
-    url: '/allowance',
-    img: '/assets/images/icon/allowance.png',
+    txt: 'Покупка токенов будет удалена после релиза ⛔️',
+    val: 'ТОКЕНЫ',
+    url: '/tokens',
+    img: '/assets/images/tokens/all.png',
   }, {
     txt: 'Получи новые возможности в системе',
     val: 'ГРАНТЫ*',

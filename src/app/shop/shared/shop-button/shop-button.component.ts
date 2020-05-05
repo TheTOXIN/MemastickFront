@@ -59,9 +59,12 @@ export class ShopButtonComponent implements OnInit {
   buyError(data: any) {
     if (data.error.code === ErrorCode.MEME_COIN_ENOUGH) {
       this.loadMessage = 'Не хватает мемкойнов';
+    } else if (data.error.code === ErrorCode.TOO_MUCH) {
+      this.loadMessage = 'Слишком много';
     } else {
       this.loadMessage = 'Ошибка покупки';
     }
+
     this.loadStatus = LoaderStatus.ERROR;
   }
 }
