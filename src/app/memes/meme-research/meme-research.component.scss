@@ -6,10 +6,10 @@
   border-radius: 50px;
   background-color: whitesmoke;
   box-shadow: 0 0 91px -6px rgba(0, 0, 0, 0.5);
-  overflow-y: scroll;
 
-  &::-webkit-scrollbar {
-    width: 0;
+  &::-webkit-scrollbar-track {
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 
   @media(max-width: 767px) {

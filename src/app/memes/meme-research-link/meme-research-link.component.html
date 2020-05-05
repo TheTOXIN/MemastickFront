@@ -1,0 +1,7 @@
+<ng-template #memeResearchLinkLoad>
+  <app-spinner class="flex-center-absolute"></app-spinner>
+</ng-template>
+<div *ngIf="!isLoad; else memeResearchLinkLoad">
+  <app-meme-research class="super-absolute" [meme]="memeData?.page?.meme" (closer)="toHome()"></app-meme-research>
+</div>
+<div class="mem-back"></div>

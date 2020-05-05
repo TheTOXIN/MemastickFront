@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {MemeType} from '../../consts/MemeType';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
@@ -12,8 +12,9 @@ import {evolveStepText, memeTypeText} from '../../consts/TextData';
   templateUrl: './meme-research.component.html',
   styleUrls: ['./meme-research.component.scss']
 })
-export class MemeResearchComponent {
+export class MemeResearchComponent implements OnInit {
 
+  @Input()
   public meme: Meme;
   public evolve: EvolveMeme;
 
@@ -26,25 +27,36 @@ export class MemeResearchComponent {
   public typeMeme = MemeType;
   public stepEvlv = EvolveStep;
 
-  isLoading = true;
-  isPreview = false;
+  public isPreview = false;
+  public isLoading = true;
+
+  @Output()
+  public closer = new EventEmitter<null>();
 
   constructor(
     private evolveApi: EvolveMemeApiService
   ) {
-
-  }
-
-  researchShow(meme: Meme) {
-    this.meme = meme;
-    this.isPreview = true;
-
     this.typeIcons = memeIcons;
     this.typesText = memeTypeText;
 
     this.stepIcons = evolveIcons;
     this.stepText = evolveStepText;
+  }
 
+  ngOnInit(): void {
+    if (this.meme != null) {
+      this.isPreview = true;
+      this.initEvolve();
+    }
+  }
+
+  researchShow(meme: Meme) {
+    this.meme = meme;
+    this.isPreview = true;
+    this.initEvolve();
+  }
+
+  initEvolve() {
     this.evolveApi.evolveMeme(this.meme.id).subscribe(evolve => {
       this.evolve = evolve;
       this.isLoading = false;
@@ -52,6 +64,7 @@ export class MemeResearchComponent {
   }
 
   researchClose() {
+    this.closer.emit(null);
     this.meme = null;
     this.evolve = null;
     this.isLoading = true;
