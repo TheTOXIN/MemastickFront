@@ -232,6 +232,10 @@
   }
 }
 
+.notFirstChromosome {
+  animation: triggleChromosome 3s;
+}
+
 .firstChromosome {
   animation: triggleChromosome 3s infinite;
 }

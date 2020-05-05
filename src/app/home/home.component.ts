@@ -27,6 +27,8 @@ import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
 })
 export class HomeComponent implements OnInit {
 
+  public home: Home;
+
   public today: number = Date.now();
   public versionMessage = 'ver: ' + VERSION;
 
@@ -39,7 +41,6 @@ export class HomeComponent implements OnInit {
   isLoad = true;
   isMesg = false;
 
-  public home: Home;
   public message: string;
   public role: RoleType = RoleType.USER;
 
@@ -81,13 +82,9 @@ export class HomeComponent implements OnInit {
   }
 
   private initStarter() {
-    this.route.queryParams.subscribe(params => {
-      if (params.modal === ModalType.STARTER) {
-        if (this.storage.showStartInfo()) {
-          this.modalService.open(StartInfoModalComponent, {'centered': true});
-        }
-      }
-    });
+    if (this.storage.showStartInfo()) {
+      this.modalService.open(StartInfoModalComponent, {'centered': true});
+    }
   }
 
   homeMessage() {

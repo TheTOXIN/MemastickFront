@@ -94,10 +94,10 @@ export class MemesPageComponent implements OnInit {
     if (this.fullChromosome(data)) { return; }
     if (this.isMemeDeath(data.page.meme)) { return; }
 
+    data.page.likes.firstChromosome = false;
     this.startTimerChromosome(data);
 
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
-    data.page.likes.firstChromosome = true;
 
     data.page.meme.chromosomes++;
     data.page.likes.myChromosomes++;

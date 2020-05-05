@@ -32,6 +32,7 @@
         <img class="img-fluid select-none" src="assets/images/icon/2.png"
              [@rotatedState]='data.chromosomeState'
              (click)="triggerChromosome(data)"
+             [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
              [class.firstChromosome]="data.page?.likes.firstChromosome"
              [class.full]="fullChromosome(data)">
         <div class="chromosome-counter">
