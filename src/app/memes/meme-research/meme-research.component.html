@@ -9,7 +9,7 @@
     <p>{{meme.chromosomes}}<img src="assets/images/icon/2.png"></p>
   </div>
   <div class="meme-description">
-    <div *ngIf="meme.type === typeMeme.EVLV">Этап эволюции: <img [src]="stepIcons[evolve?.step]"> {{stepText[evolve?.step]}}</div>
+    <div *ngIf="meme.type === typeMeme.EVLV">Этап эволюции: <img [src]="stepIcons[evolve?.step]" alt=":)"> {{stepText[evolve?.step]}}</div>
     <div *ngIf="meme.type === typeMeme.SLCT">Мем ожидает результаты отбора</div>
     <div *ngIf="meme.type === typeMeme.INDV">Мем прошел отбор и стал особью</div>
     <div *ngIf="meme.type === typeMeme.DEAD">Мем не выжел при отборе и умер</div>
