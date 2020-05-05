@@ -64,6 +64,8 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.checkInfo();
+
     this.inventoryApi.stateCell().subscribe(data => {
       this.stateCell = data.state;
       this.dnaCombo = data.combo;
@@ -79,6 +81,12 @@ export class MemeCreatorComponent implements OnInit {
         this.stateTitle = 'КЛЕТКА РАСТЁТ';
       }
     });
+  }
+
+  checkInfo() {
+    if (this.storage.showCreateInfo()) {
+      this.info();
+    }
   }
 
   checkLab() {

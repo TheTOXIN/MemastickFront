@@ -10,6 +10,7 @@ const PUSH_ASK = 'PUSH_ASK';
 const BATTLE_RULE = 'BATTLE_RULE';
 const START_INFO = 'START_INFO';
 const EVOLVE_INFO = 'EVOLVE_INFO';
+const CREATE_INFO = 'CREATE_INFO';
 const ME = 'ME';
 const PUSH_TOKEN = 'PUSH_TOKEN';
 
@@ -100,6 +101,10 @@ export class StorageService {
 
   public showEvolveInfo() {
     return this.checkerItem(EVOLVE_INFO);
+  }
+
+  public showCreateInfo() {
+    return this.checkerItem(CREATE_INFO);
   }
 
   public showStartInfo(): boolean {
