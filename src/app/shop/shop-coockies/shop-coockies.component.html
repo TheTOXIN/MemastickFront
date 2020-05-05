@@ -3,11 +3,7 @@
   <div class="shop-test-img">
     <img [src]="'assets/images/icon/cookie.png'">
   </div>
-  <div class="shop-test-cnt">
-    <i class="fa fa-plus-square" [style.color]="'#28a745'" (click)="plusCount()"></i>
-    <div>{{counter}}</div>
-    <i class="fa fa-minus-square" [style.color]="'#dc3545'" (click)="minusCount()"></i>
-  </div>
+  <app-counter [min]="1" (changeEvent)="initPrice($event)"></app-counter>
   <app-shop-button [price]="price" (event)="buy()"></app-shop-button>
 </div>
 

@@ -33,19 +33,8 @@ export class ShopCoockiesComponent implements OnInit {
     );
   }
 
-  plusCount() {
-    this.counter++;
-    this.initPrice();
-  }
-
-  minusCount() {
-    if (this.counter !== 0) {
-      this.counter--;
-      this.initPrice();
-    }
-  }
-
-  initPrice() {
+  initPrice(count) {
+    this.counter = count;
     this.price = PriceConst.COOKIE * this.counter;
   }
 }
