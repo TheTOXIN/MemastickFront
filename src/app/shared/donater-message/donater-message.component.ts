@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DonaterApiService} from '../../api/donater-api-service';
 import {DonaterMessage} from '../../model/donaters/DonaterMessage';
 import {DonaterMessageInfoModalComponent} from '../../modals/donater-message-info-modal/donater-message-info-modal.component';
@@ -14,7 +14,11 @@ export class DonaterMessageComponent implements OnInit {
 
   isLoad = true;
 
+  @Input()
   public donater: DonaterMessage;
+
+  @Input()
+  public info = false;
 
   constructor(
     private donaterApi: DonaterApiService,
@@ -25,6 +29,14 @@ export class DonaterMessageComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.donater == null) {
+      this.initRandom();
+    } else {
+      this.isLoad = false;
+    }
+  }
+
+  initRandom() {
     const donaterMessage = this.storage.getDonaterMessage();
 
     if (donaterMessage == null) {

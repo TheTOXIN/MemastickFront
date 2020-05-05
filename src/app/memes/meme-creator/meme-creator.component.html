@@ -34,7 +34,9 @@
   </div>
 
   <div class="create-button bottom-absolute" *ngIf="!isPreview">
+    <button class="btn-theme" (click)="info()"><i class="fa fa-question-circle"></i></button>
     <button class="btn-theme" (click)="close()"><i class="fa fa-home"></i></button>
+    <button class="btn-theme" (click)="lab()"><i class="fa fa-flask"></i></button>
   </div>
 
   <div class="create-button bottom-absolute" *ngIf="isPreview && !isCreate">
@@ -44,7 +46,7 @@
   </div>
 
   <div class="create-button bottom-absolute" *ngIf="isCreate">
-    <button class="btn-theme" (click)="memes()"><i class="fa fa-globe"></i></button>
+    <button class="btn-theme" (click)="memes()"><i class="fa fa-globe"></i> Эволюция</button>
   </div>
 
   <app-loader [message]="message" [status]="status"></app-loader>

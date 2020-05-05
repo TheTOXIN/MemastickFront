@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import {HomeRoutingModule} from './home-routing.modules';
 import {MemetickComponent} from './memetick/memetick.component';
 import {ParticlesModule} from 'angular-particle';
-import {StatisticComponent} from './statistic/statistic.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
@@ -14,6 +13,7 @@ import {LibraryComponent} from './library/library.component';
 import {StartModule} from '../start/start.module';
 import {TokenModule} from '../token/token.module';
 import {MiningComponent} from './mining/mining.component';
+import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 
 @NgModule({
   imports: [
@@ -29,11 +29,11 @@ import {MiningComponent} from './mining/mining.component';
   declarations: [
     HomeComponent,
     MemetickComponent,
-    StatisticComponent,
     MemetickRatingComponent,
     SettingsComponent,
     LibraryComponent,
-    MiningComponent
+    MiningComponent,
+    HomeMemetickComponent,
   ]
 })
 export class HomeModule {

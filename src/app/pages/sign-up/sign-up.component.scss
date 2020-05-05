@@ -8,3 +8,11 @@
     }
   }
 }
+
+.sign-up-creed {
+  font-size: 16px;
+  font-family: Futurica, serif;
+  @media(max-width: 767px) {
+    font-size: 14px;
+  }
+}

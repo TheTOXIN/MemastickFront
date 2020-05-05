@@ -58,7 +58,11 @@ import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
 import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
-import { VkChatComponent } from './shared/vk-chat/vk-chat.component';
+import {LaboratoryModule} from './laboratory/laboratory.module';
+import {RankApiService} from './api/rank-api-service';
+import {AdminApiService} from './api/admin-api-service';
+import {MemeLohApiService} from './api/meme-loh-api-service';
+import {MemeCommentApiService} from './api/meme-comment-api.-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -81,13 +85,14 @@ firebase.initializeApp(environment.firebase);
     ControlModule,
     MemotypeModule,
     BattleModule,
+    LaboratoryModule,
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    MetrikaModule.forRoot({id: 56352478, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true})
+    MetrikaModule.forRoot({id: 56352478, webvisor: environment.metrika, clickmap: environment.metrika, trackLinks: environment.metrika, accurateTrackBounce: environment.metrika})
   ],
   providers: [
     AppComponent,
@@ -124,6 +129,10 @@ firebase.initializeApp(environment.firebase);
     MemotypeApiService,
     BattleApiService,
     DonaterApiService,
+    RankApiService,
+    AdminApiService,
+    MemeLohApiService,
+    MemeCommentApiService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

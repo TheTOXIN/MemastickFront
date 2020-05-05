@@ -17,6 +17,10 @@ export enum API {
   MEMETICK_AVATAR_UPLOAD = '/memetick-avatars/upload',
   MEMETICK_NICK_CHANE = '/memeticks/nick/change',
   MEMETICK_RATING = '/memeticks/rating',
+  MEMETICK_CREED = '/memeticks/creed/agree',
+
+  RANK_TYPES = '/memetick-rank/types',
+  RANK_TOKENS = '/memetick-rank/tokens',
 
   MEMES_CREATE = '/memes/create',
   MEMES_IMG = '/memes/img',
@@ -27,16 +31,19 @@ export enum API {
   MEME_LIKES_CHROMOSOME = '/meme-likes/chromosome',
   MEME_RESURRECT = '/memes/resurrect',
   MEME_BAN = '/memes/ban',
+  MEME_LOH = '/memes-loh/meme',
+  MEME_COMMENT = '/memes-comment/meme',
+  MEME_COMMENT_VOTE = '/memes-comment/vote',
 
   TOKENS_WALLETS_HAVE = '/token-wallets/have',
   EVOLVE_MEME = '/evolve-memes/meme',
   EVOLVE_MEME_CHANCE = '/evolve-memes/meme/chance',
 
   ALLOWANCE_TAKE = '/token-allowance/take',
-  ALLOWANCE_MAKE = '/token-allowance/make',
   ALLOWANCE_HAVE = '/token-allowance/have',
 
-  INVENTORY_CELL = '/memetick-inventories/cell',
+  INVENTORY_CELL_STATE = '/memetick-inventories/cell/state',
+  INVENTORY_CELL_HAVE = '/memetick-inventories/cell/have',
   INVENTORY_ALL = '/memetick-inventories/all',
   PICKAXE = '/pickaxe',
 
@@ -44,6 +51,7 @@ export enum API {
   TOKENS_WALLETS_MEMETICK = '/token-wallets/memetick',
 
   NOTIFY_PUSH_REGISTER = '/notify/push/register',
+  NOTIFY_PUSH_REFRESHER = '/notify/push/refresher',
   NOTIFY_WEB_REGISTER = '/notify/web/register',
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
@@ -71,6 +79,7 @@ export enum API {
   BLOCK_COINS_MINE = '/block-coins/mine',
   BLOCK_COINS_FLUSH = '/block-coins/flush',
   SHOP_COOKIES = '/shop/cookies',
+  SHOP_TOKENS = '/shop/tokens',
 
   MEMOTYPE_COLLECTION = '/memotype-set/collection',
   MEMOTYPE_READ = '/memotype-memetick/read',
@@ -87,6 +96,10 @@ export enum API {
   BATTLE_RATING_MY = '/battle-rating/my',
   BATTLE_RATING_MAIN = '/battle-rating/main',
 
+  DONATER_READ_MESSAGE = '/donater-messages/read',
   DONATER_RANDOM_MESSAGE = '/donater-messages/random',
   DONATER_READ_RATING = '/donater-ratings/read',
+
+  ADMIN_MESSAGE = '/admin-message',
+  ADMIN_NOTFY = '/admin-notify',
 }

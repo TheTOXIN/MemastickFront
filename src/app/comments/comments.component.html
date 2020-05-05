@@ -1,0 +1,33 @@
+<div class="comment-title">Комментарии:</div>
+<div class="comment-wrap my-scroll">
+  <div *ngIf="commentsLoad; else commentNotLoad">
+    <div *ngFor="let comment of comments">
+      <div class="comment-row">
+        <div class="comment-image">
+          <img (click)="toMemetick(comment.memetickId)" [src]="memetickAvatars[comment.memetickId]">
+        </div>
+        <div class="comment-text">
+          <div>{{comment.comment}}</div>
+        </div>
+        <div class="comment-point" [@pointState]="comment.point">{{comment.point}}</div>
+        <div class="comment-vote">
+          <i id=vote-up class="fa fa-caret-up"
+             (click)="approveComment(comment)"
+             [style.color]="comment.vote != null && comment.vote ? '#28a745' : ''">
+          </i>
+          <i id=vote-down class="fa fa-caret-down"
+             (click)="disapproveComment(comment)"
+             [style.color]="comment.vote != null && !comment.vote ? '#dc3545' : ''">
+          </i>
+        </div>
+      </div>
+      <div class="comment-del"></div>
+    </div>
+    <div class="comment-empty" *ngIf="comments.length == 0">
+      {{emptyText}}
+    </div>
+  </div>
+  <ng-template #commentNotLoad>
+    <app-spinner></app-spinner>
+  </ng-template>
+</div>

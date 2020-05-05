@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
@@ -7,19 +7,18 @@ import {MainApiService} from '../api/main-api-service';
 import {Home} from '../model/Home';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {DomSanitizer} from '@angular/platform-browser';
-import * as randomEmoji from 'random-emoji';
 import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {AlgorithmModalComponent} from '../modals/algorithm-modal/algorithm-modal.component';
 import {StorageService} from '../services/storage-service';
 import {PushRequestModalComponent} from '../modals/push-request-modal/push-request-modal.component';
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
-import {DonatModalComponent} from '../modals/donat-modal/donat-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
-import {VERSION, VK_CHAT} from '../app.constants';
+import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {ModalType} from '../consts/ModalType';
+import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +26,8 @@ import {ModalType} from '../consts/ModalType';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  public home: Home;
 
   public today: number = Date.now();
   public versionMessage = 'ver: ' + VERSION;
@@ -38,19 +39,16 @@ export class HomeComponent implements OnInit {
   myParams: object = {};
 
   isLoad = true;
-  showLogo = true;
+  isMesg = false;
 
-  public isHello;
-  public hello;
-
-  public home: Home;
+  public message: string;
   public role: RoleType = RoleType.USER;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private mainApi: MainApiService,
-    private _sanitizer: DomSanitizer,
+    private sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private storage: StorageService,
     private app: AppComponent,
@@ -58,6 +56,8 @@ export class HomeComponent implements OnInit {
     @Inject(WINDOW) private window
   ) {
     this.role = this.storage.getRole();
+    this.message = this.storage.getHomeMessage();
+    this.isMesg = this.message != null;
   }
 
   ngOnInit() {
@@ -67,22 +67,13 @@ export class HomeComponent implements OnInit {
     this.initStarter();
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-    if (number >= 42) {
-      this.showLogo = false;
-    } else {
-      this.showLogo = true;
-    }
-  }
-
   private initMe() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
       this.askPush();
-      this.initHello();
+      this.showCreed();
+      this.homeMessage();
     });
   }
 
@@ -91,24 +82,30 @@ export class HomeComponent implements OnInit {
   }
 
   private initStarter() {
-    this.route.queryParams.subscribe(params => {
-      if (params.modal === ModalType.STARTER) {
-        if (this.storage.showStartInfo()) {
-          this.modalService.open(StartInfoModalComponent, {'centered': true});
-        }
-      }
-    });
+    if (this.storage.showStartInfo()) {
+      this.modalService.open(StartInfoModalComponent, {'centered': true});
+    }
+  }
+
+  homeMessage() {
+    if (!this.isMesg) {
+      this.message = this.home.message;
+      this.isMesg = true;
+      this.storage.setHomeMessage(this.message);
+    }
+  }
+
+  showCreed() {
+    if (!this.home.creedAgree) {
+      const modalRef = this.modalService.open(CreedModalComponent, {'centered': true});
+      modalRef.componentInstance.needAgree = true;
+    }
   }
 
   askPush() {
     if (this.storage.getPushAsk()) {
       this.modalService.open(PushRequestModalComponent, {'centered': true});
     }
-  }
-
-  initHello() {
-      const emoji = randomEmoji.random({count: 1})[0].character;
-      this.hello = emoji + ' ПРИВЕТ ' + this.home.nick + '!';
   }
 
   memes(filter: MemeFilter) {
@@ -136,6 +133,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/battle');
   }
 
+  toLab() {
+    this.router.navigateByUrl('/lab');
+  }
+
   toStart() {
     this.router.navigateByUrl('/start');
   }
@@ -145,7 +146,7 @@ export class HomeComponent implements OnInit {
   }
 
   toDonaters() {
-    this.router.navigateByUrl('/donaters');
+    this.router.navigateByUrl('/donaters/rating');
   }
 
   initParticles() {

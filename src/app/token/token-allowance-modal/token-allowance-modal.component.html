@@ -29,8 +29,13 @@
     </div>
     <div class="message-allowance">
       <p>пособие начисляют ежедневно в 12:00 по UTC</p>
-      <span>(пока что кол-во токенов выдается случайно)</span>
+      <span>(кол-во токенов зависит от вашего уровня)</span>
     </div>
+  </div>
+  <div class="my-margin-bot align-center">
+    <button class="btn-theme" (click)="showRankTokens()">
+      РАНГИ ПОСОБИЙ
+    </button>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="close()">

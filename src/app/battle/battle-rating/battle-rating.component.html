@@ -17,9 +17,10 @@
               <img [src]="ratingAvatars[rate?.memetick.id] || ''" (click)="memetickView(rate?.memetick)">
               <div>{{rate?.memetick.nick}}</div>
             </div>
-          </div>
-          <div *ngIf="!rate?.exist" class="battle-rating-empty text-strong-middle">
-            <div>МЕСТО СВОБОДНО</div>
+            <div *ngIf="!rate?.exist">
+              <img src="assets/images/other/netral_avatar.png">
+              <div>МЕСТО СВОБОДНО</div>
+            </div>
           </div>
           <div *ngIf="rate?.exist" class="battle-rating-stats">
             <div class="battle-rating-msg">pvp очков = {{rate?.score}}</div>

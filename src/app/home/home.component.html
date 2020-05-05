@@ -1,19 +1,24 @@
 <particles [style]="myStyle" [width]="100" [height]="100" [params]="myParams"></particles>
-<div class="home-logo" *ngIf="showLogo" (click)="toStart()">
+
+<div class="title-logo" (click)="toStart()">
   <img src="assets/images/footer-logo.png">
   <div class="version-message">{{versionMessage}}</div>
 </div>
+
 <div class="home-container container">
+
+  <div class="home-message">
+    <p *ngIf="isMesg; else homeMsgDef">{{message}}</p>
+    <ng-template #homeMsgDef><p>ЗагрузОчка...</p></ng-template>
+  </div>
+
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="home-table home-table-hello">
-        <div *ngIf="isLoad">
-          <app-spinner></app-spinner>
-        </div>
-        <div *ngIf="!isLoad">
-          <p class="home-hello tada" [ngClass]="{'animated':isHello}">{{hello}}</p>
-          <p class="home-info">{{home?.message}}</p>
-        </div>
+      <div class="home-table-main home-table">
+        <app-home-memetick [home]="home" *ngIf="!isLoad; else spinnerTableMain"></app-home-memetick>
+        <ng-template #spinnerTableMain>
+          <app-spinner *ngIf="isLoad"></app-spinner>
+        </ng-template>
       </div>
     </div>
   </div>
@@ -21,13 +26,13 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="button-big home-table" (click)="memes(filters.POOL)">
-        <app-timer *ngIf="home != null" [text]="'Отбор через'" [time]="home.selectTimer"></app-timer>
+        <p>(новых мемов: {{home?.memes}})</p>
         <div class="button-biп-content">
           <img src="assets/images/icon/world.png" class="spin-anim-evolution">
           <span>ЭВОЛЮЦИЯ</span>
           <span> #{{home?.day}}</span>
         </div>
-        <p>(новых мемов: {{home?.memes}})</p>
+        <app-timer *ngIf="home != null" [text]="'Отбор через'" [time]="home.selectTimer"></app-timer>
       </div>
     </div>
   </div>
@@ -57,7 +62,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center home-stats-warp">
       <div class="home-table home-stats">
         <p>СТАТИСТИКА</p>
         <app-statistic></app-statistic>
@@ -66,7 +71,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-6 text-center">
       <div class="button-big home-table" (click)="toBattle()">
         <div class="button-biп-content">
           <span>БИТВЫ</span>
@@ -74,53 +79,63 @@
         </div>
       </div>
     </div>
+    <div class="col-md-6 text-center lab-btn-col">
+      <div class="button-big home-table" (click)="toLab()">
+        <div class="button-biп-content">
+          <span>ЛАБОРАТОРИЯ</span>
+          <img src="assets/images/icon/lab.png" class="rotate-anim-lab">
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row">
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="allowance()">
-          <img src="assets/images/icon/allowance.png">
-          <p>ПОСОБИЕ</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="allowance()">
+        <img src="assets/images/icon/allowance.png">
+        <p>ПОСОБИЕ</p>
       </div>
+    </div>
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="algorithm()">
-          <img src="assets/images/icon/algorithm_icon.png">
-          <p>АЛГОРИТМ</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="algorithm()">
+        <img src="assets/images/icon/algorithm_icon.png">
+        <p>АЛГОРИТМ</p>
       </div>
+    </div>
 
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="docDna()">
-          <img src="assets/images/icon/dna_doc.png">
-          <p>ДОК.ДНК</p>
-        </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="docDna()">
+        <img src="assets/images/icon/dna_doc.png">
+        <p>ДОК.ДНК</p>
       </div>
-      <div class="col-3 text-center col-picker">
-        <div class="home-table button-picker" (click)="socNet()">
-          <img src="assets/images/icon/community.png">
-          <p>СОЦ.СЕТИ</p>
-        </div>
+    </div>
+    <div class="col-3 text-center col-picker">
+      <div class="home-table button-picker" (click)="socNet()">
+        <img src="assets/images/icon/community.png">
+        <p>СОЦ.СЕТИ</p>
       </div>
+    </div>
 
   </div>
 
-  <div class="row" style="padding-bottom: 30px">
+  <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table">
-        <app-donater-message></app-donater-message>
+        <app-donater-message [info]="true"></app-donater-message>
       </div>
     </div>
   </div>
 </div>
 
-<app-vk-chat></app-vk-chat>
+<div class="margin-home">
+  <app-vk-chat></app-vk-chat>
+</div>
 
-<div class="home-copyright">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
+<div class="home-copyright margin-home">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
 
-<div class="home-support">
+<div class="margin-center home-support">
   <button class="btn-theme btn-donater" type="submit" (click)="toDonaters()">
     ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
   </button>

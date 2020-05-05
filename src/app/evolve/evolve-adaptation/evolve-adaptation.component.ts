@@ -58,7 +58,8 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   successAdaptation() {
-    this.evolve.immunity = true;
+    this.evolve.canApplyToken = false;
+    this.evolve.adaptation++;
     this.message = 'Мем адаптировался!';
     this.status = LoaderStatus.DONE;
   }

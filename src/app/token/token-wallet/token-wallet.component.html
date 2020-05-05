@@ -1,5 +1,5 @@
 <div class="token-wallet" *ngIf="!showEgg">
-  <div class="token"
+  <div class="token pointer"
        [style.opacity]="wallet[token?.type] == 0 ? ' 0.5' : '1'"
        *ngFor="let token of tokens"
        (click)="showInfo(token)">

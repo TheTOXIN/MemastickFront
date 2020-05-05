@@ -4,12 +4,19 @@
 
 .evolve-text {
   text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .evolve-img {
   text-align: center;
+  margin: 10px;
   img {
-    width: 54px;
+    width: 72px;
   }
 }
 
@@ -17,8 +24,9 @@
   width: 64px;
   height: 64px;
   border-radius: 100%;
-  margin: auto;
   border: 4px solid firebrick;
+  margin: auto auto 10px;
+  display: inline-block;
   p {
     font-size: 30px;
     color: #343a40;
@@ -34,4 +42,16 @@
     font-family: FuturaRound, serif;
     border-radius: 30px;
   }
+}
+
+.evolve-adaptation-arrow {
+  font-size: 32px;
+  color: #28a745;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.evolve-adaptation-score {
+  margin-top: 5px;
 }

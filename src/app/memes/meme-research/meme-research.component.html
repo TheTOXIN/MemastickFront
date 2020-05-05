@@ -1,40 +1,49 @@
-<div *ngIf="isPreview" class="meme-research-container animated fadeIn faster">
+<div *ngIf="isPreview" class="meme-research-container my-scroll animated fadeIn faster">
   <div class="meme-type-title">
-    <p>{{types[meme.type]}}</p>
+    <p>{{typesText[meme.type]}}</p>
+  </div>
+  <div class="meme-type-img">
+    <img [src]="typeIcons[meme.type]">
   </div>
   <div class="meme-chromosome">
-    <img src="assets/images/icon/2.png">
-    <p>{{meme.chromosomes}}</p>
+    <p>{{meme.chromosomes}}<img src="assets/images/icon/2.png"></p>
+  </div>
+  <div class="meme-description">
+    <div *ngIf="meme.type === typeMeme.EVLV">Этап эволюции: <img [src]="stepIcons[evolve?.step]" alt=":)"> {{stepText[evolve?.step]}}</div>
+    <div *ngIf="meme.type === typeMeme.SLCT">Мем ожидает результаты отбора</div>
+    <div *ngIf="meme.type === typeMeme.INDV">Мем прошел отбор и стал особью</div>
+    <div *ngIf="meme.type === typeMeme.DEAD">Мем не выжел при отборе и умер</div>
+    <div *ngIf="meme.type === typeMeme.BAAN">МЕМ БЫЛ ЗАБАНЕН, НЕ СОЗДАВАЙТЕ БОЛЬШЕ ТАКИЕ МЕМЫ</div>
   </div>
   <div *ngIf="isLoading" style="margin-top: 50px">
     <app-spinner></app-spinner>
   </div>
   <div *ngIf="!isLoading">
     <div class="meme-research">
-      <div *ngIf="meme.type === 'EVLV'">
-        <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === 'ADAPTATION'"></app-evolve-adaptation>
-        <app-evolve-fitness [evolve]="evolve" *ngIf="evolve.step === 'FITNESS'"></app-evolve-fitness>
-        <app-evolve-mutation [evolve]="evolve" *ngIf="evolve.step === 'MUTATION'"></app-evolve-mutation>
-        <app-evolve-crossing [evolve]="evolve" *ngIf="evolve.step === 'CROSSING'"></app-evolve-crossing>
-        <app-evolve-survival [evolve]="evolve" *ngIf="evolve.step === 'SURVIVAL'"></app-evolve-survival>
+      <div *ngIf="meme.type === typeMeme.EVLV">
+        <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === stepEvlv.ADAPTATION"></app-evolve-adaptation>
+        <app-evolve-fitness [evolve]="evolve" *ngIf="evolve.step === stepEvlv.FITNESS"></app-evolve-fitness>
+        <app-evolve-mutation [evolve]="evolve" *ngIf="evolve.step === stepEvlv.MUTATION"></app-evolve-mutation>
+        <app-evolve-crossing [evolve]="evolve" *ngIf="evolve.step === stepEvlv.CROSSING"></app-evolve-crossing>
+        <app-evolve-survival [evolve]="evolve" *ngIf="evolve.step === stepEvlv.SURVIVAL"></app-evolve-survival>
       </div>
-      <div *ngIf="meme.type === 'SLCT'">
+      <div *ngIf="meme.type === typeMeme.SLCT">
         <app-meme-type-select [meme]="meme"></app-meme-type-select>
       </div>
-      <div *ngIf="meme.type === 'INDV'">
+      <div *ngIf="meme.type === typeMeme.INDV">
         <app-meme-type-individ [meme]="meme"></app-meme-type-individ>
       </div>
-      <div *ngIf="meme.type === 'DEAD'">
+      <div *ngIf="meme.type === typeMeme.DEAD">
         <app-meme-type-dead [meme]="meme"></app-meme-type-dead>
       </div>
-      <div *ngIf="meme.type === 'BAAN'">
-        <div class="text-strong-center">МЕМ БЫЛ ЗАБАНЕН, НЕ СОЗДАВАЙТЕ БОЛЬШЕ ТАКИЕ МЕМЫ</div>
+      <div *ngIf="meme.type === typeMeme.BAAN">
+        <div class="meme-research-ban">😰</div>
       </div>
     </div>
     <div class="meme-epi">
-      <app-meme-epi [epi]="evolve.epi"></app-meme-epi>
+      <app-meme-epi [epi]="evolve.epi">;-(</app-meme-epi>
     </div>
-    <div *ngIf="meme.type === 'EVLV'" class="meme-research-timer" style="margin-bottom: 50px">
+    <div *ngIf="meme.type === typeMeme.EVLV" class="meme-research-timer" style="margin-bottom: 50px">
       <app-timer [time]="evolve.nextTimer" [text]="'След.этап чрез'"></app-timer>
     </div>
   </div>

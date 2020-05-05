@@ -11,7 +11,10 @@
       <button class="btn-theme btn-donater" type="submit" (click)="toDonaters()">
         ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
       </button>
-      <p>P.s - а ещё ты можешь попасть в рейтинг донатеров :)</p>
+      <p>
+        P.s - а ещё ты можешь попасть в
+        <a [href]="ratingHref">рейтинг донатеров</a> :)
+      </p>
     </div>
   </div>
   <div class="modal-footer modal-section">

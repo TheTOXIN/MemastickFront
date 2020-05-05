@@ -1,0 +1,61 @@
+.creed-modal {
+  border-style: solid;
+  border-color: #7129f8;
+  border-width: 5px;
+  padding: 5px;
+  border-radius: 30px;
+  text-align: center;
+
+  div {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+  }
+
+  img {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  @media(max-width: 767px) {
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.creed-modal-title {
+  font-size: 32px;
+  font-family: MontHeavy, serif;
+  @media(max-width: 767px) {
+    font-size: 22px;
+  }
+}
+
+.creed-modal-rules {
+  ul {
+    li {
+      margin-bottom: 10px;
+      font-family: Roboto, serif;
+      font-size: 18px;
+    }
+  }
+  @media(max-width: 767px) {
+    ul {
+      li {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.creed-modal-agree {
+  i {
+    margin-left: 5px;
+    font-size: 16px;
+  }
+}
+

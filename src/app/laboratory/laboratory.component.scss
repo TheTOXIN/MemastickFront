@@ -1,0 +1,128 @@
+@import "src/assets/scss/base/_variable.scss";
+
+#canvas {
+  border: 2px dashed #cccccc;
+}
+
+.main-title {
+  margin-top: 10px;
+}
+
+.images-item {
+  width: 48%;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  padding: 3px;
+  max-width: 120px;
+}
+
+.images-item:hover {
+  opacity: 0.7;
+}
+
+.custom-item {
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.custom-item .custom-item-title {
+  color: #666666;
+  font-weight: 600;
+}
+
+.custom-item .custom-item-body {
+  padding: 10px 0;
+}
+
+.max-height {
+  overflow: auto;
+  max-height: 300px;
+}
+
+
+.lab-footer {
+  background-color: whitesmoke;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+
+  button {
+    margin: 15px 10px;
+  }
+}
+
+.lab-card {
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.lab-input-size {
+  width: 90px;
+}
+
+.lab-input-text {
+  input {
+    height: 54px;
+  }
+}
+
+.lab-file-input {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.lab-file-input-back {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.lab-card-body {
+  padding-bottom: 5px;
+}
+
+.lab-meme-logo {
+  text-align: center;
+  margin-top: 15px;
+
+  img {
+    cursor: pointer;
+    width: 250px;
+  }
+}
+
+.lab-file-border {
+  border-style: dashed;
+  padding: 10px;
+  border-color: #adb5bd;
+  border-width: 3px;
+  text-align: center;
+}
+
+.lab-spinner {
+  font-size: 25px;
+  color: #007bff;
+}
+
+.lab-cop {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+  span {
+    cursor: pointer;
+  }
+}
+
+.canvas-container-wrap {
+  margin-top: 15px;
+}

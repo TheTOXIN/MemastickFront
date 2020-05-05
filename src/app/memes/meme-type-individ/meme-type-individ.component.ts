@@ -10,6 +10,9 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {BattleRequest} from '../../model/battle/BattleRequest';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {MemesModalComponent} from '../memes-modal/memes-modal.component';
+import {MemeLoh} from '../../model/meme/MemeLoh';
+import {MemeLohApiService} from '../../api/meme-loh-api-service';
+import {BattleConst} from '../../consts/BattleConst';
 
 @Component({
   selector: 'app-meme-type-individ',
@@ -25,24 +28,34 @@ export class MemeTypeIndividComponent implements OnInit {
 
   public my: Meme;
 
+  public loh: MemeLoh;
+  public lohLoad = false;
+
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
+
+  costBattle = BattleConst.MAX_PVP;
 
   constructor(
     private battleApi: BattleApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    private memeLohApi: MemeLohApiService
   ) {
 
   }
 
   ngOnInit() {
+    this.memeLohApi.read(this.meme.id).subscribe(data => {
+      this.loh = data;
+      this.lohLoad = true;
+    });
   }
 
   battle() {
     const modalRef = this.modalService.open(MemesModalComponent);
     modalRef.componentInstance.title = 'ВЫБЕРЕТЕ СВОЙ МЕМ';
-    modalRef.componentInstance.filter = MemeFilter.MYID;
+    modalRef.componentInstance.filter = MemeFilter.BATL;
     modalRef.componentInstance.event.subscribe((meme) => {
       this.my = meme;
       this.resurrectAccept.show('Бросить вызов?');
@@ -78,6 +91,8 @@ export class MemeTypeIndividComponent implements OnInit {
   public battleError(error: any) {
     if (error.code === ErrorCode.BATTLE_REQUEST_ME) {
       this.loadMessage = 'Вы не можите бросить вызов своему мему';
+    } else if (error.code === ErrorCode.BATTLE_COOKIE) {
+      this.loadMessage = 'У вас должно быть ' + this.costBattle + ' печенек';
     } else {
       this.loadMessage = 'Ошибка вызова на битву';
     }

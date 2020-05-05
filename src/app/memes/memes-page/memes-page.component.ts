@@ -94,6 +94,7 @@ export class MemesPageComponent implements OnInit {
     if (this.fullChromosome(data)) { return; }
     if (this.isMemeDeath(data.page.meme)) { return; }
 
+    data.page.likes.firstChromosome = false;
     this.startTimerChromosome(data);
 
     data.chromosomeState = (data.chromosomeState === 'default' ? 'rotated' : 'default');
@@ -119,8 +120,6 @@ export class MemesPageComponent implements OnInit {
   }
 
   triggerLike(data: MemeData) {
-    if (this.isMemeDeath(data.page.meme)) { return; }
-
     data.likeState = (data.likeState === 'default' ? 'bounced' : 'default');
 
     data.page.likes.myLike = !data.page.likes.myLike;

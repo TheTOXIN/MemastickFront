@@ -1,14 +1,16 @@
 import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
-import {RedirectRootComponent} from './shared/redirect-root/redirect-root.component';
 import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 import {ShopComponent} from './shop/shop.component';
 import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.component';
+import {AppComponent} from './app.component';
+import {LaboratoryComponent} from './laboratory/laboratory.component';
+import {DonaterMessagesComponent} from './shared/donater-messages/donater-messages.component';
 
 export const rootRouterConfig: Routes = [
   {
     path: '',
-    component: RedirectRootComponent,
+    component: AppComponent,
     pathMatch: 'full'
   },
   {
@@ -33,12 +35,21 @@ export const rootRouterConfig: Routes = [
     loadChildren: './shop/shop.module#ShopModule'
   },
   {
+    path: 'lab',
+    component: LaboratoryComponent,
+    loadChildren: './laboratory/laboratory.module#LaboratoryModule'
+  },
+  {
     path: 'modal',
     component: ModalLinkComponent
   },
   {
-    path: 'donaters',
+    path: 'donaters/rating',
     component: DonaterRatingComponent
+  },
+  {
+    path: 'donaters/messages',
+    component: DonaterMessagesComponent
   },
   {
     path: '**',

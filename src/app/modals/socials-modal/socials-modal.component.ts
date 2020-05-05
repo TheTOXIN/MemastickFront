@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {TELEGRAMM, VK_GROUP} from '../../app.constants';
 
 @Component({
   selector: 'app-socials-modal',
@@ -11,11 +12,11 @@ export class SocialsModalComponent implements OnInit {
   public data = [{
     img: 'assets/images/social/vk.png',
     txt: 'ВКОНТАКТЕ',
-    ref: 'https://vk.com/memastick'
+    ref: VK_GROUP
   }, {
     img: 'assets/images/social/telegram.png',
     txt: 'ТЕЛЕГРАММ',
-    ref: 'https://telegram.me/memastick'
+    ref: TELEGRAMM
   }];
 
   constructor(

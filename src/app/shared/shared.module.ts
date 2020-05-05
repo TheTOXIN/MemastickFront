@@ -10,7 +10,6 @@ import {LandingFixService} from './services/landing-fix.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoaderComponent} from './loader/loader.component';
-import {RedirectRootComponent} from './redirect-root/redirect-root.component';
 import {SpinnerComponent} from './spinner/spinner.component';
 import {MemLogoComponent} from './mem-logo/mem-logo.component';
 import {NotificationComponent} from './notification/notification.component';
@@ -25,6 +24,17 @@ import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
 import {VkChatComponent} from './vk-chat/vk-chat.component';
+import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
+import {RankLevelComponent} from './rank-level/rank-level.component';
+import {DnaLineComponent} from './dna-line/dna-line.component';
+import {TemplateModalComponent} from './template-modal/template-modal.component';
+import {StatisticComponent} from './statistic/statistic.component';
+import {DnaCountComponent} from './dna-count/dna-count.component';
+import {LohRadarComponent} from './loh-radar/loh-radar.component';
+import {ChartsModule} from 'ng2-charts';
+import {CommentsComponent} from '../comments/comments.component';
+import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
+import {CounterComponent} from './counter/counter.component';
 
 @NgModule({
   exports: [
@@ -32,7 +42,6 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent,
     SpinnerComponent,
     MemLogoComponent,
     NotificationComponent,
@@ -43,7 +52,17 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent
+    VkChatComponent,
+    PreviewScreenComponent,
+    RankLevelComponent,
+    DnaLineComponent,
+    TemplateModalComponent,
+    StatisticComponent,
+    DnaCountComponent,
+    LohRadarComponent,
+    CommentsComponent,
+    DonaterMessagesComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule,
@@ -54,14 +73,14 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     FormsModule,
     ParticlesModule,
     OwlModule,
-    AngularFittextModule
+    AngularFittextModule,
+    ChartsModule
   ],
   declarations: [
     SpinnerComponent,
     HeaderComponent,
     FooterComponent,
     LoaderComponent,
-    RedirectRootComponent,
     MemLogoComponent,
     NotificationComponent,
     TimerComponent,
@@ -71,7 +90,17 @@ import {VkChatComponent} from './vk-chat/vk-chat.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent
+    VkChatComponent,
+    PreviewScreenComponent,
+    RankLevelComponent,
+    DnaLineComponent,
+    TemplateModalComponent,
+    StatisticComponent,
+    DnaCountComponent,
+    LohRadarComponent,
+    CommentsComponent,
+    DonaterMessagesComponent,
+    CounterComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

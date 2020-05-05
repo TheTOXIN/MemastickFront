@@ -10,7 +10,7 @@ export class ErrorHandlerService {
     } else if (status === ErrorCode.TOKEN_SELF) {
       return 'Это ваш мем!';
     } else {
-      return 'Ошибка применения токена!';
+      return 'Ошибка токена!';
     }
   }
 }

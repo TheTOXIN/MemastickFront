@@ -10,15 +10,28 @@ const PUSH_ASK = 'PUSH_ASK';
 const BATTLE_RULE = 'BATTLE_RULE';
 const START_INFO = 'START_INFO';
 const EVOLVE_INFO = 'EVOLVE_INFO';
+const CREATE_INFO = 'CREATE_INFO';
 const ME = 'ME';
+const PUSH_TOKEN = 'PUSH_TOKEN';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
+const PEVIEW = 'PEVIEW';
+const LAB_MEM = 'LAB_MEM';
+const HOME_MSG = 'HOME_MSG';
 
 @Injectable()
 export class StorageService {
+
+  public setHomeMessage(msg: string) {
+    sessionStorage.setItem(HOME_MSG, msg);
+  }
+
+  public getHomeMessage() {
+    return sessionStorage.getItem(HOME_MSG);
+  }
 
   public getPushAsk(): boolean {
     let value: number = +localStorage.getItem(PUSH_ASK);
@@ -90,6 +103,10 @@ export class StorageService {
     return this.checkerItem(EVOLVE_INFO);
   }
 
+  public showCreateInfo() {
+    return this.checkerItem(CREATE_INFO);
+  }
+
   public showStartInfo(): boolean {
     return this.checkerItem(START_INFO);
   }
@@ -109,6 +126,32 @@ export class StorageService {
 
   public isTWA() {
     return sessionStorage.getItem(TWA) === TWA;
+  }
+
+  public isPreview(): boolean {
+    const wasPreview = sessionStorage.getItem(PEVIEW) === PEVIEW;
+
+    if (!wasPreview) {
+      sessionStorage.setItem(PEVIEW, PEVIEW);
+    }
+
+    return !wasPreview;
+  }
+
+  public saveLabMeme(meme: any) {
+    sessionStorage.setItem(LAB_MEM, meme);
+  }
+
+  public loadLabMeme(): any {
+    return sessionStorage.getItem(LAB_MEM);
+  }
+
+  public setPushToken(token: any) {
+    localStorage.setItem(PUSH_TOKEN, token);
+  }
+
+  public getPushToken(): any {
+    return localStorage.getItem(PUSH_TOKEN);
   }
 
   public clearLogOut() {

@@ -3,7 +3,8 @@ export class Registration {
     public invite: string,
     public login: string,
     public password: string,
-    public passwordRepeat: string
+    public passwordRepeat: string,
+    public creedAgree: boolean
   ) {
   }
 }

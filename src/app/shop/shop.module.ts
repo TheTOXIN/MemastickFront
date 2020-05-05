@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ShopRoutingModules} from './shop-routing.modules';
 import {SharedModule} from '../shared/shared.module';
-import {ShopAllowanceComponent} from './shop-allowance/shop-allowance.component';
 import {ShopGrantsComponent} from './shop-grants/shop-grants.component';
 import {ShopMemotypesComponent} from './shop-memotypes/shop-memotypes.component';
 import {ShopPickaxeComponent} from './shop-pickaxe/shop-pickaxe.component';
@@ -18,7 +17,7 @@ import {MemesModule} from '../memes/memes.module';
 import {MemotypeModule} from '../memotype/memotype.module';
 import {OwlModule} from 'ngx-owl-carousel';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {BrowserModule} from '@angular/platform-browser';
+import {ShopTokensComponent} from './shop-tokens/shop-tokens.component';
 
 @NgModule({
   imports: [
@@ -38,12 +37,12 @@ import {BrowserModule} from '@angular/platform-browser';
     ShopMemeComponent,
     ShopCoockiesComponent,
     ShopMemotypesComponent,
-    ShopAllowanceComponent,
     ShopGrantsComponent,
     ShopPickaxeComponent,
     ShopResurrectionComponent,
     ShopNickComponent,
-    ShopPublishComponent
+    ShopPublishComponent,
+    ShopTokensComponent
   ]
 })
 export class ShopModule {

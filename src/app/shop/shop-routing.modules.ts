@@ -2,12 +2,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {ShopCoockiesComponent} from './shop-coockies/shop-coockies.component';
 import {ShopMemotypesComponent} from './shop-memotypes/shop-memotypes.component';
-import {ShopAllowanceComponent} from './shop-allowance/shop-allowance.component';
 import {ShopGrantsComponent} from './shop-grants/shop-grants.component';
 import {ShopPickaxeComponent} from './shop-pickaxe/shop-pickaxe.component';
 import {ShopResurrectionComponent} from './shop-resurrection/shop-resurrection.component';
 import {ShopNickComponent} from './shop-nick/shop-nick.component';
 import {ShopPublishComponent} from './shop-publish/shop-publish.component';
+import {ShopTokensComponent} from './shop-tokens/shop-tokens.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,8 +18,8 @@ const routes: Routes = [{
       path: 'memotypes',
       component: ShopMemotypesComponent
     }, {
-      path: 'allowance',
-      component: ShopAllowanceComponent
+      path: 'tokens',
+      component: ShopTokensComponent
     }, {
       path: 'grants',
       component: ShopGrantsComponent

@@ -5,6 +5,12 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
+import {TokenAccept} from '../../model/tokens/TokenAccept';
+import {ErrorHandlerService} from '../../services/error-handler-service';
+import {MemeComment} from '../../model/meme/MemeComment';
+import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
+import {ValidConst} from '../../consts/ValidConst';
+import {CommentsComponent} from '../../comments/comments.component';
 
 @Component({
   selector: 'app-evolve-mutation',
@@ -14,6 +20,7 @@ import {TokenType} from '../../consts/TokenType';
 export class EvolveMutationComponent implements OnInit {
 
   @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
+  @ViewChild(CommentsComponent) memeComments: CommentsComponent;
 
   public status;
   public message;
@@ -23,8 +30,14 @@ export class EvolveMutationComponent implements OnInit {
   @Input()
   public evolve: EvolveMeme;
 
+  public myComment: string;
+
+  validComment = false;
+
+  commentMsg = 'Оставь комментарий первым 😉 Лучший комментарий будет закреплен за мемом 😱';
+
   constructor(
-    private tokenAcceptApi: TokenAcceptApiService
+    private tokenAcceptApi: TokenAcceptApiService,
   ) {
     this.type = TokenType.MUTAGEN;
     this.status = LoaderStatus.NONE;
@@ -35,7 +48,47 @@ export class EvolveMutationComponent implements OnInit {
   ngOnInit() {
   }
 
-  acceptTokenResult(accept: boolean) {
+  mutation() {
+    if (!this.commentValid()) { return; }
 
+    this.status = LoaderStatus.LOAD;
+    this.message = 'Мутировать комментарием?';
+    this.tokenAccept.show();
+  }
+
+  checkValid() {
+    this.validComment = this.commentValid();
+  }
+
+  commentValid() {
+    return this.myComment != null && this.myComment !== '' && this.myComment.length <= ValidConst.MAX_MEME_TEXT;
+  }
+
+  acceptTokenResult(accept: boolean) {
+    if (accept) {
+      this.makeMutation();
+    } else {
+      this.status = LoaderStatus.NONE;
+    }
+  }
+
+  makeMutation() {
+    const body = new TokenAccept(null, this.myComment);
+    this.tokenAcceptApi.accept(this.evolve.memeId, this.type, body).subscribe(
+      () => this.successMutation(),
+      (error) => this.errorMutation(error)
+    );
+  }
+
+  successMutation() {
+    this.evolve.canApplyToken = false;
+    this.memeComments.initComments();
+    this.message = 'Мем мутирован!';
+    this.status = LoaderStatus.DONE;
+  }
+
+  errorMutation(error: any) {
+    this.message = ErrorHandlerService.tokenError(error.error.code);
+    this.status = LoaderStatus.ERROR;
   }
 }

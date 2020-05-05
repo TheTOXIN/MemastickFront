@@ -20,5 +20,4 @@ export class MemeLikeApiService {
   public chromosome(memeId: UUID, count: number) {
     this.http.patch(API.MEME_LIKES_CHROMOSOME + '/' + memeId + '/' + count, {}).toPromise();
   }
-
 }

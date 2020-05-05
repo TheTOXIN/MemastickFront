@@ -25,8 +25,8 @@ export class InviteApiService {
   }
 
   public sendInvite(code: string) {
-    this.http
+    return this.http
       .patch(API.INVITE_SEND, '' + code + '')
-      .toPromise();
+      .pipe();
   }
 }

@@ -25,6 +25,12 @@ import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin
 import {StartInfoModalComponent} from './start-info-modal/start-info-modal.component';
 import {UserDataModalComponent} from './user-data-modal/user-data-modal.component';
 import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/donater-message-info-modal.component';
+import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
+import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
+import {TokenModule} from '../token/token.module';
+import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
+import {CreedModalComponent} from './creed-modal/creed-modal.component';
+import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
 
 @NgModule({
   exports: [
@@ -46,7 +52,12 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent
+    DonaterMessageInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
+    MemetickStatsModalComponent,
+    CreedModalComponent,
+    MemeCreateModalComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +67,8 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
     ReactiveFormsModule,
     FormsModule,
     PinchZoomModule,
-    SharedModule
+    SharedModule,
+    TokenModule
   ],
   declarations: [
     IntroModalComponent,
@@ -77,7 +89,12 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent
+    DonaterMessageInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
+    MemetickStatsModalComponent,
+    CreedModalComponent,
+    MemeCreateModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -98,7 +115,12 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent
+    DonaterMessageInfoModalComponent,
+    RankTypesModalComponent,
+    RankTokensModalComponent,
+    MemetickStatsModalComponent,
+    CreedModalComponent,
+    MemeCreateModalComponent
   ]
 })
 export class ModalsModule {

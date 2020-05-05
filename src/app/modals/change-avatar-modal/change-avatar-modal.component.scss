@@ -34,6 +34,12 @@
   opacity: 0;
 }
 
+.avatar-preview {
+  img {
+    max-height: 300px;
+  }
+}
+
 .button-check {
   color: darkgreen;
 }

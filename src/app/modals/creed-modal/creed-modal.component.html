@@ -1,0 +1,23 @@
+<div class="creed-modal">
+  <div class="creed-modal-title">
+    📜 КОДЕКС МЕМАСТИКА 📜
+  </div>
+  <p>Внимательно прочитайте правила кодекса ⚠️</p>
+  <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
+  <div class="creed-modal-rules">
+    <ul><li *ngFor="let rule of creedRules; let i = index">
+        {{i + 1}}. {{rule}}
+    </li></ul>
+  </div>
+  <img alt="title-line" class="img-fluid line" src="assets/images/title-line.png">
+  <p>За нарушение правил вы можете получить бан ⛔️</p>
+  <div class="creed-modal-agree">
+    <button class="btn-theme" [disabled]="!accessAgree" *ngIf="!alreadyAgree">
+      <div *ngIf="!accessAgree">{{secondsAgree}} СЕК...</div>
+      <div *ngIf="accessAgree" (click)="close()">ПРИНИМАЮ<i class="fa fa-check"></i></div>
+    </button>
+    <button class="btn-theme" *ngIf="alreadyAgree" (click)="close()">
+      ЗАКРЫТЬ<i class="fa fa-close"></i>
+    </button>
+  </div>
+</div>

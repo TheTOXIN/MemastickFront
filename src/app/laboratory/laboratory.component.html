@@ -1,0 +1,278 @@
+<app-laboratory-warn-screen></app-laboratory-warn-screen>
+<div class="lab-meme-logo animated rubberBand">
+  <img (click)="redirecter()" src="assets/images/lab_mem_logo.png">
+</div>
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="lab-footer">
+        <button data-toggle="tooltip" data-placement="bottom" title="Скачать изображение" type="button"
+                class="btn btn-primary" (click)="saver();">
+          <i class="fa fa-download" aria-hidden="true"></i> Сохранить
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Посмотреть итоговое" type="button"
+                class="btn btn-warning" (click)="viewer();">
+          <i class="fa fa-eye" aria-hidden="true"></i> Посмотреть
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Создать на Мемастике" type="button"
+                class="btn btn-success" (click)="creator();">
+          <i class="fa fa-globe" aria-hidden="true"></i> Создать
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Очистить холст" type="button"
+                class="btn btn-danger" (click)="cleaner();">
+          <i class="fa fa-ban" aria-hidden="true"></i> Очистить
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Помощь по лаборатории" type="button"
+                class="btn btn-info" (click)="helper();">
+          <i class="fa fa-info" aria-hidden="true"></i> Помощь
+        </button>
+        <button data-toggle="tooltip" data-placement="bottom" title="Вернуться домой" type="button"
+                class="btn btn-secondary" (click)="redirecter();">
+          <i class="fa fa-home" aria-hidden="true"></i> Домой
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3">
+      <div class="card lab-card">
+        <div class="card-header">Размер</div>
+        <div class="card-body lab-card-body">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" [(ngModel)]="size.width" (keyup)="changeSize()">
+              <div class="input-group-append">
+                <span class="input-group-text lab-input-size">
+                  Ширина
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" [(ngModel)]="size.height" (keyup)="changeSize()">
+              <div class="input-group-append">
+                <span class="input-group-text lab-input-size">
+                  Высота
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card lab-card">
+        <div class="card-header">Текст</div>
+        <div class="card-body">
+          <div class="input-group lab-input-text">
+            <input type="text" class="form-control" [(ngModel)]="textString">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <button id="add-text" data-toggle="tooltip" data-placement="bottom" title="Добавить"
+                        class="btn btn-primary" (click)="addText()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card lab-card">
+        <div class="card-header">Изображение</div>
+        <div class="card-body text-center">
+          <div class="lab-file-border">
+            <input type="file" class="lab-file-input" (change)="readUrl($event);" accept=".png,.jpg">
+            <button title="Добавить" class="btn btn-primary" *ngIf="!loadFile">Загрузить</button>
+            <i class="fa fa-circle-o-notch fa-spin lab-spinner" *ngIf="loadFile"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card lab-card">
+        <div class="card-header">Фигуры</div>
+        <div class="card-body text-center max-height">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary" (click)="addFigure('square');">
+              <i class="fa fa-square"></i>
+            </button>
+            <button type="button" class="btn btn-primary" (click)="addFigure('circle');">
+              <i class="fa fa-circle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 canvas-container-wrap">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="col-xl-3">
+      <div class="card lab-card">
+        <div class="card-header">Опции</div>
+        <div class="card-body text-center">
+          <div class="btn-group" role="group" aria-label="...">
+            <button data-toggle="tooltip" data-placement="bottom" title="Удалить обьект" type="button"
+                    class="btn btn-outline-danger" [disabled]="!selected"
+                    (click)="removeSelected();">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+            <button data-toggle="tooltip" data-placement="bottom" title="Переместить назад" type="button"
+                    class="btn btn-outline-primary" [disabled]="!selected"
+                    (click)="sendToBack();">
+              <i class="fa fa-level-down" aria-hidden="true"></i>
+            </button>
+            <button data-toggle="tooltip" data-placement="bottom" title="Переместить вперед" type="button"
+                    class="btn btn-outline-primary" [disabled]="!selected"
+                    (click)="bringToFront();">
+              <i class="fa fa-level-up" aria-hidden="true"></i>
+            </button>
+            <button data-toggle="tooltip" data-placement="bottom" title="Клонировать обьект" type="button"
+                    class="btn btn-outline-primary" [disabled]="!selected || selected.type == groupType"
+                    (click)="clone();">
+              <i class="fa fa-clone" aria-hidden="true"></i>
+            </button>
+            <button data-toggle="tooltip" data-placement="bottom" title="Убрать выделение" type="button"
+                    class="btn btn-outline-primary" [disabled]="!selected"
+                    (click)="cleanSelect()">
+              <i class="fa fa-remove" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card lab-card " *ngIf="!selected">
+        <div class="card-header">Холст</div>
+        <div class="card-body">
+          <div class="custom-item" *ngIf="!props.canvasImage">
+            <div class="custom-item-title">Цвет фона</div>
+            <div class="custom-item-body">
+              <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.canvasFill"
+                     [style.background]="props.canvasFill"
+                     [value]="props.canvasFill" (colorPickerChange)="setCanvasFill()">
+            </div>
+          </div>
+          <div class="custom-item">
+            <div class="custom-item-title">Задний фон</div>
+            <div class="custom-item-body">
+              <div class="lab-file-border">
+                <input type="file" class="lab-file-input-back" (change)="setCanvasImage($event);" accept=".jpg">
+                <button title="Открыть" class="btn btn-primary">Открыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card lab-card">
+        <div class="card-header">Обьект</div>
+        <div class="card-body">
+          <div class="custom-item" *ngIf="selected  && selected.type == groupType">Выбрано несколько</div>
+          <div class="custom-item" *ngIf="!selected">Ничего не выбрано</div>
+          <div class="custom-item" *ngIf="selected && selected.type != groupType">
+            <div class="custom-item-title">Прозрачность</div>
+            <div class="custom-item-body">
+              <input type="range" [(ngModel)]="props.opacity" (change)="setOpacity()">{{props.opacity}}</div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor || selected && figureEditor">
+            <div class="custom-item-title">Заливка</div>
+            <div class="custom-item-body">
+              <input type="text" class="form-control" [cpPosition]="'bottom'" [(colorPicker)]="props.fill"
+                     [style.background]="props.fill"
+                     [value]="props.fill" (colorPickerChange)="setFill()">
+            </div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Шрифт</div>
+            <div class="custom-item-body">
+              <label>
+                <select [(ngModel)]="props.fontFamily" class="form-control" (change)="setFontFamily()">
+                  <option value="Arial" style="font-family: Arial,serif">Arial</option>
+                  <option value="Futurica" style="font-family: Futurica,serif">Futurica</option>
+                  <option value="FuturaRound" style="font-family: FuturaRound,serif">FuturaRound</option>
+                  <option value="MontHeavy" style="font-family: MontHeavy,serif">MontHeavy</option>
+                  <option value="verdana" style="font-family: verdana,serif">Verdana</option>
+                  <option value="courier" style="font-family: courier,serif">Courier</option>
+                  <option value="Roboto" style="font-family: Roboto,serif">Roboto</option>
+                  <option value="Lato" style="font-family: Lato,serif">Lato</option>
+                  <option value="Gost" style="font-family: Gost,serif">Gost</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Текст шрфита</div>
+            <div class="custom-item-body text-center">
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary" [ngClass]="{'active': props.textAlign == 'left' }"
+                        (click)="setTextAlign('left')">
+                  <i class="fa fa-align-left"></i>
+                </button>
+                <button type="button" class="btn btn-primary" [ngClass]="{'active': props.textAlign == 'center' }"
+                        (click)="setTextAlign('center')">
+                  <i class="fa fa-align-center"></i>
+                </button>
+                <button type="button" class="btn btn-primary" [ngClass]="{'active': props.textAlign == 'right' }"
+                        (click)="setTextAlign('right')">
+                  <i class="fa fa-align-right"></i>
+                </button>
+                <button type="button" class="btn btn-primary" [ngClass]="{'active': props.textAlign == 'justify' }"
+                        (click)="setTextAlign('justify')">
+                  <i class="fa fa-align-justify"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Стиль шрфита</div>
+            <div class="custom-item-body text-center">
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'active': props.fontWeight }"
+                        (click)="setBold()">
+                  <i class="fa fa-bold"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'active': props.fontStyle }"
+                        (click)="setFontStyle()">
+                  <i class="fa fa-italic"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm"
+                        [ngClass]="{'active': hasTextDecoration('underline') }"
+                        (click)="setTextDecoration('underline')">
+                  <i class="fa fa-underline"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm"
+                        [ngClass]="{'active': hasTextDecoration('overline') }"
+                        (click)="setTextDecoration('overline')">
+                  <i class="fa fa-underline fa-flip-vertical"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm"
+                        [ngClass]="{'active': hasTextDecoration('line-through') }"
+                        (click)="setTextDecoration('line-through')">
+                  <i class="fa fa-strikethrough"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Размер шрфита</div>
+            <div class="custom-item-body">
+              <input type="range" [(ngModel)]="props.fontSize" (change)="setFontSize()" step="1" min="1"
+                     max="120">{{props.fontSize}}</div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Отступы строк</div>
+            <div class="custom-item-body">
+              <input type="range" [(ngModel)]="props.lineHeight" (change)="setLineHeight()" step="0.1" min="0"
+                     max="10">{{props.lineHeight}}</div>
+          </div>
+          <div class="custom-item" *ngIf="selected && textEditor">
+            <div class="custom-item-title">Ширина пробелов</div>
+            <div class="custom-item-body">
+              <input type="range" [(ngModel)]="props.charSpacing" (change)="setCharSpacing()" step="10" min="-200"
+                     max="800">{{props.charSpacing}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="lab-cop">
+  <span (click)="redirecter()">Лаборатрия Мемастика (ver: {{labVer}}) Powerd by Toxin</span>
+</div>
+<div class="mem-back"></div>

@@ -15,10 +15,18 @@
           СМЕНИТЬ НИК
           <i class="fa fa-edit"></i>
         </button>
+        <button class="settings-button btn-theme" (click)="following()">
+          ПОДПИСКИ
+          <i class="fa fa-eye"></i>
+        </button>
         <button class="settings-button btn-theme" (click)="pushNotification()">
           УВЕДОМЛЕНИЯ
           <i *ngIf="setting.pushWork" class="fa fa-bell"></i>
           <i *ngIf="!setting.pushWork" class="fa fa-bell-slash"></i>
+        </button>
+        <button class="settings-button btn-theme" (click)="showCreed()">
+          КОДЕКС
+          <i class="fa fa-book"></i>
         </button>
         <button class="settings-button btn-theme" (click)="logOut()">
           ВЫЙТИ

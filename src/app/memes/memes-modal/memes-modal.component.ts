@@ -7,6 +7,7 @@ import {Meme} from '../../model/Meme';
 import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemePaginationConfig} from '../../iface/MemePaginationConfig';
+import {BattleConst} from '../../consts/BattleConst';
 
 @Component({
   selector: 'app-memes-modal',
@@ -32,6 +33,8 @@ export class MemesModalComponent implements OnInit {
 
   isEmpty = false;
   isLoad = true;
+
+  costBattle = BattleConst.MAX_PVP;
 
   private config: MemePaginationConfig;
 

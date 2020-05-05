@@ -19,6 +19,6 @@ export class FooterComponent implements OnInit {
   }
 
   toDonaters() {
-    this.router.navigateByUrl('/donaters');
+    this.router.navigateByUrl('/donaters/rating');
   }
 }

@@ -3,9 +3,9 @@
 .memetick-container {
   background: whitesmoke;
   border-radius: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
   box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.5);
 }
 
@@ -15,10 +15,10 @@
 
 .memetick-avatar {
   border-style: solid;
-  border-color: $color_saffron_approx;
   border-radius: 100%;
   border-width: 5px;
   width: 96px;
+  cursor: pointer;
 }
 
 .memetick-stats {
@@ -41,9 +41,11 @@
 .memetick-nick {
   font-family: Gost, serif;
   font-size: 32px;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   i {
+    cursor: pointer;
     font-size: 30px;
     margin-left: 10px;
     color: $primary_color;
@@ -65,9 +67,7 @@
 .memetick-coins {
   text-align: center;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
+  margin: 15px auto;
 
   border-style: dotted;
   border-radius: 15px;
@@ -122,7 +122,7 @@
   }
   @media(max-width: 767px) {
     font-size: 16px;
-    margin-top: 15px;
+    margin-top: 5px;
     font-family: FuturaRound, serif;
     border-radius: 30px;
     width: 250px;
@@ -135,4 +135,15 @@
 
 .my-button-close {
   margin: auto auto 10px;
+}
+
+.memetick-rank {
+  color: $dark_color;
+  font-size: 20px;
+  font-family: MontHeavy, serif;
+  display: flex;
+  justify-content: center;
+  div {
+    margin-left: 5px;
+  }
 }

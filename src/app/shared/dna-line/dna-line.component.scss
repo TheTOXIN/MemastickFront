@@ -1,0 +1,56 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.home-memetick-dna-line {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative;
+
+  img {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  @media(max-width: 767px) {
+    margin-top: 0;
+    img {
+      max-width: 300px;
+    }
+  }
+
+  #dna_line_1 {
+    opacity: 0.33;
+  }
+
+  #dna_line_2 {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+.dna_percent {
+  position: absolute;
+  bottom: 0;
+  font-size: 15px;
+  color: white;
+  background-color: $primary_color;
+  border-radius: 30px;
+  font-family: Gost, serif;
+  box-shadow: 0 0 1px 0 black;
+  left: 91%;
+  height: 115%;
+  width: 5px;
+  top: -2px;
+  margin-left: -5px;
+
+  @media(max-width: 767px) {
+    height: 103%;
+    width: 3px;
+    top: 2px;
+    margin-left: -2px;
+  }
+}

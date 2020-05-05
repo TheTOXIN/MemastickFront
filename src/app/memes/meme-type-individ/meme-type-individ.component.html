@@ -1,13 +1,15 @@
 <div>
-  <div class="meme-research-img">
-    <img src="assets/images/icon/1.png">
-  </div>
-  <div class="meme-research-title">
-    <p>мем прошел отбор и стал особью</p>
+  <div class="content-research">
+    <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
+    <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
+    <app-comments [memeId]="meme.id" [sort]="'point'"></app-comments>
   </div>
   <div class="main-research-control">
-    <button class="btn-theme" (click)="battle()">БИТВА</button>
-    <br/><span>Вы можете вызывать его на битву, выбрав свой мем</span>
+    <button class="btn-theme" (click)="battle()">
+      БИТВА <img src="assets/images/icon/battle.png">
+    </button>
+    <br/><span>Вы можете вызывать мем на битву, выбрав свою особь.</span>
+    <br/><span>Залог за вызов на битву = {{costBattle}}<img src="assets/images/icon/cookie.png"></span>
   </div>
 </div>
 <app-loader [message]="loadMessage" [status]="loadStatus"></app-loader>

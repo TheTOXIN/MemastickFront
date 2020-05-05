@@ -1,6 +1,6 @@
 export enum ValidConst {
   MAX_AVATAR_SIZE = 1048576,
-  MAX_MEME_SIZE = 2048576,
+  MAX_MEME_SIZE = 3145728,
 
   MIN_LEN_NCK = 3,
   MAX_LEN_NCK = 16,

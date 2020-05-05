@@ -1,8 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
 import {NotifyType} from '../../consts/NotifyType';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ModalsModule} from '../../modals/modals.module';
+import {RankTokensModalComponent} from '../../modals/rank-tokens-modal/rank-tokens-modal.component';
 
 @Component({
   selector: 'app-allowance-modal',
@@ -20,6 +22,7 @@ export class TokenAllowanceModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
+    private modalService: NgbModal,
     public allowanceApi: TokenAllowanceApiService
   ) {
 
@@ -40,6 +43,10 @@ export class TokenAllowanceModalComponent implements OnInit {
       });
       this.counter = 0;
     }
+  }
+
+  showRankTokens() {
+    this.modalService.open(RankTokensModalComponent, {'centered': true});
   }
 
   close() {

@@ -1,34 +1,3 @@
-.meme-resurrect-msg {
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 5px;
-  text-align: center;
-
-  img {
-    width: 32px;
-    margin-top: -10px;
-  }
-
-  span {
-    font-size: 24px;
-  }
-
-  @media(max-width: 767px) {
-    span {
-      font-size: 18px;
-    }
-  }
-}
-
-.meme-research-title {
-  text-align: center;
-}
-
-.meme-research-img {
-  text-align: center;
-  img {
-    animation: spinMemeType 2s linear infinite;
-    width: 164px;
-    padding: 15px;
-  }
+.main-research-control {
+  margin-top: 15px;
 }

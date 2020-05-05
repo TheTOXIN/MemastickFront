@@ -7,6 +7,7 @@ import {PushService} from './services/push-service';
 import {StorageService} from './services/storage-service';
 import {MemeFilter} from './consts/MemeFilter';
 import {ANDROID_URL} from './app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,19 +19,27 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   public controlWork = false;
+  public showPreview = false;
+  public textPreview: string;
 
   constructor(
     private socket: WebSocketService,
     private push: PushService,
     private oauth: OauthApiService,
     private storage: StorageService,
-    private pwa: PwaService
+    private pwa: PwaService,
+    private router: Router
   ) {
 
   }
 
   ngOnInit(): void {
-    if (this.oauth.checkTokens()) {
+    const isAuth = this.oauth.checkTokens();
+
+    this.previewer(isAuth);
+    this.redirecter(isAuth);
+
+    if (isAuth) {
       this.me();
       this.update();
       this.notify();
@@ -82,6 +91,21 @@ export class AppComponent implements OnInit, OnDestroy {
   public checkTWA() {
     if (document.referrer.startsWith(ANDROID_URL)) {
       this.storage.asTWA();
+    }
+  }
+
+  public previewer(isAuth: boolean) {
+    this.showPreview = this.storage.isPreview();
+    this.textPreview = isAuth ? 'С возвращением!' : 'Добро пожаловать!';
+  }
+
+  private redirecter(isAuth: boolean) {
+    if (location.pathname !== '/') { return; }
+
+    if (isAuth) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/start');
     }
   }
 }

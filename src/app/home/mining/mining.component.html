@@ -35,7 +35,8 @@
       <div [@bounceAnim]='cache'>
         <span>{{cache}}</span><img [src]="'assets/images/icon/memecoin.png'">
       </div>
-      <button class="btn-theme" (click)="flush()">ЗАКОНЧИТЬ</button>
+      <button class="btn-theme" (click)="flush()" *ngIf="!isDone">ЗАКОНЧИТЬ</button>
+      <button class="btn-theme" (click)="toHome()" *ngIf="isDone">ВЫЙТИ</button>
     </div>
     <div *ngIf="!loadPickaxe">
       <div>

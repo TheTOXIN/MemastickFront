@@ -1,0 +1,124 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.home-memetick {
+
+}
+
+.home-memetick-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 69px;
+
+  @media(max-width: 767px) {
+    height: 54px;
+  }
+}
+
+.home-memetick-ava {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  img {
+    width: 72px;
+    height: 72px;
+
+    max-height: 100%;
+
+    border-radius: 50%;
+    border: 5px solid;
+
+    cursor: pointer;
+  }
+
+  @media(max-width: 767px) {
+    img {
+      border-width: 3px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.home-memetick-txt {
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @media(max-width: 767px) {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+  }
+}
+
+.home-memetick-nick {
+  font-size: 32px;
+  font-family: Futurica, serif;
+
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.home-memetick-rank {
+  color: $dark_color;
+  font-size: 20px;
+  font-family: MontHeavy, serif;
+  margin-top: -5px;
+
+  @media(max-width: 767px) {
+    margin-top: -2px;
+    font-size: 16px;
+  }
+}
+
+.home-memetick-lvl {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .lvl {
+    text-align: center;
+    font-size: 28px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 10px double white;
+    color: white;
+    cursor: pointer;
+
+    div {
+      font-size: 14px;
+      margin-top: -14px;
+    }
+  }
+
+  @media(max-width: 767px) {
+    .lvl {
+      width: 54px;
+      height: 54px;
+      font-size: 20px;
+      border-width: 7px;
+
+      div {
+        font-size: 11px;
+        margin-top: -9px;
+      }
+    }
+  }
+}
+
+.home-memetick-dna-count {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: -18px;
+}

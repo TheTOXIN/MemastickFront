@@ -30,12 +30,8 @@ export class ControlMenuComponent implements OnInit {
     this.navigate('/home/memetick/me');
   }
 
-  following() {
-    this.modalService.open(FollowingModalComponent, {'centered': true});
-  }
-
   donaters() {
-    this.navigate('/donaters');
+    this.navigate('/donaters/rating');
   }
 
   settings() {

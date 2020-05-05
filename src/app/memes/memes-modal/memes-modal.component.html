@@ -8,7 +8,11 @@
       <app-spinner></app-spinner>
     </div>
     <div *ngIf="!isLoad">
-    <div *ngFor="let meme of memes">
+      <span *ngIf="filter == 'BATL'">
+        Залог за вызов на битву = {{costBattle}} печенек
+        <img style="width: 32px" src="assets/images/icon/cookie.png">
+      </span>
+      <div *ngFor="let meme of memes">
       <div class="meme-modal-row">
         <div class="meme-modal-epi text-strong-middle">
           <div>№: {{meme.epi.evolution}}</div>

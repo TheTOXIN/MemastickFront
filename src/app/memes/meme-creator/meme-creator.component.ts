@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
 import {LoaderStatus} from '../../consts/LoaderStatus';
@@ -11,6 +11,12 @@ import {MemeTextInputComponent} from '../meme-text-input/meme-text-input.compone
 import {EPI} from '../../model/EPI';
 import {StorageService} from '../../services/storage-service';
 import {MemeFilter} from '../../consts/MemeFilter';
+import {GlobalConst} from '../../consts/GlobalConst';
+import {ImageUtils} from '../../utils/image-utils';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
+import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
+import {MemeCreateModalComponent} from '../../modals/meme-create-modal/meme-create-modal.component';
 
 @Component({
   selector: 'app-meme-creator',
@@ -31,6 +37,7 @@ export class MemeCreatorComponent implements OnInit {
   public firePath: string;
 
   public stateCell: number;
+  public dnaCombo: number;
   public epiCell: EPI;
 
   public stateTitle;
@@ -45,22 +52,29 @@ export class MemeCreatorComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private memeApi: MemeApiService,
     private tokenApi: TokenApiService,
     private inventoryApi: MemetickInventoryApiService,
-    private storage: StorageService
+    private storage: StorageService,
+    private modalService: NgbModal,
   ) {
     this.status = LoaderStatus.NONE;
     this.message = '';
   }
 
   ngOnInit(): void {
+    this.checkInfo();
+
     this.inventoryApi.stateCell().subscribe(data => {
       this.stateCell = data.state;
+      this.dnaCombo = data.combo;
       this.epiCell = data.epi;
 
-      if (this.stateCell === 100) {
-        this.stateText = 'КЛЕТКА ГОТОВА';
+      if (this.stateCell === GlobalConst.CELL_SATE) {
+        this.checkLab();
+
+        this.stateText = 'ДНК комбо = x' + this.dnaCombo;
         this.stateTitle = 'ПЕРЕТАЩИ ИЛИ НАЖМИ';
       } else {
         this.stateText = 'СОСТОЯНИЕ = ' + this.stateCell + '%';
@@ -69,9 +83,31 @@ export class MemeCreatorComponent implements OnInit {
     });
   }
 
+  checkInfo() {
+    if (this.storage.showCreateInfo()) {
+      this.info();
+    }
+  }
+
+  checkLab() {
+    this.route.queryParams.subscribe(params => {
+      if (!params.lab) { return; }
+
+      const labMeme = this.storage.loadLabMeme();
+      const fileName = 'MemeLab_' +  new Date().valueOf() + '.png';
+      const imageBlob = ImageUtils.dataURLtoBlob(labMeme);
+
+      if (imageBlob == null) { return; }
+
+      this.imageFile = new File([imageBlob], fileName, { type: 'image/png' });
+      this.imgURL = 'data:image/png;base64,' + labMeme;
+      this.isPreview = true;
+    });
+  }
+
+
   toggleHover(event: boolean) {
     this.isHovering = event;
-    console.log('test');
   }
 
   uploadDrop(event) {
@@ -90,7 +126,7 @@ export class MemeCreatorComponent implements OnInit {
 
     this.status = LoaderStatus.LOAD;
 
-    if (this.stateCell === 100) {
+    if (this.stateCell === GlobalConst.CELL_SATE) {
       this.show(files);
     } else {
       this.error('Клетка не выросла!');
@@ -99,6 +135,8 @@ export class MemeCreatorComponent implements OnInit {
 
   create() {
     if (!this.isPreview || this.isCreate) { return; }
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.status = LoaderStatus.LOAD;
 
     this.fireId = UUID.UUID();
@@ -162,7 +200,17 @@ export class MemeCreatorComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  lab() {
+    this.router.navigateByUrl('/lab');
+  }
+
+  info() {
+    this.modalService.open(MemeCreateModalComponent, {'centered': true});
+  }
+
   cancel() {
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.imageFile = null;
     this.imgURL = null;
 
@@ -170,6 +218,8 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   showText() {
+    if (this.status === LoaderStatus.LOAD) { return; }
+
     this.textInput.show(this.textMeme);
   }
 

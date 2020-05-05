@@ -125,7 +125,7 @@ export class ControlItemsComponent implements OnInit {
   }
 
   tokenInfo(token: TokenData) {
-    const modalRef = this.modalService.open(TokenInfoModalComponent);
+    const modalRef = this.modalService.open(TokenInfoModalComponent, {'centered': true});
     modalRef.componentInstance.token = token;
   }
 

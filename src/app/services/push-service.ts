@@ -4,6 +4,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import * as firebase from 'firebase';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
+import {StorageService} from './storage-service';
 
 @Injectable()
 export class PushService {
@@ -12,7 +13,8 @@ export class PushService {
   private currentMessage;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private storage: StorageService
   ) {
     try {
       this.messaging = firebase.messaging();
@@ -21,6 +23,7 @@ export class PushService {
     }
 
     this.currentMessage = new BehaviorSubject(null);
+    this.messaging.onTokenRefresh(() => this.refresher());
   }
 
   requester() {
@@ -37,10 +40,26 @@ export class PushService {
     this.messaging.getToken().then((token) => {
       if (token == null) { return; }
       console.log('Push token register - ' + token);
+      this.storage.setPushToken(token);
 
       this.http.post(
         API.NOTIFY_PUSH_REGISTER,
         token
+      ).toPromise();
+    });
+  }
+
+  refresher() {
+    if (!this.work()) { return; }
+
+    this.messaging.getToken().then((refreshToken) => {
+      const prevToken = this.storage.getPushToken();
+      console.log('Push token refresher - ' + refreshToken);
+      if (prevToken == null) { return; }
+
+      this.http.put(
+        API.NOTIFY_PUSH_REFRESHER + '/' + prevToken,
+        refreshToken
       ).toPromise();
     });
   }

@@ -1,4 +1,4 @@
-<div *ngIf="isLoad">
+<div *ngIf="isLoad"  style="padding: 15px">
   <app-spinner></app-spinner>
 </div>
 <div *ngIf="!isLoad" class="donate-msg-content">
@@ -16,7 +16,7 @@
       © {{donater.name}}
     </div>
   </div>
-  <div class="donate-inf">
+  <div class="donate-inf" *ngIf="info">
     <i class="fa fa-question-circle" (click)="messageInfo()"></i>
   </div>
 </div>

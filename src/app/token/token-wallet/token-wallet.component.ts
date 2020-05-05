@@ -25,6 +25,7 @@ export class TokenWalletComponent implements OnInit {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
   ) {
+
   }
 
   ngOnInit() {

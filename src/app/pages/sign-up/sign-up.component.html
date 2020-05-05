@@ -50,8 +50,13 @@
                  [formControl]="signForm.controls['passwordRepeat']"
                  (click)="message = 'Введите ваш пароль еще раз для подтверждения'">
         </div>
+        <div class="form-check sign-up-creed">
+          <input class="form-check-input" type="checkbox" id="creed-check"
+                 [checked]="creedAgree" [disabled]="creedAgree" (click)="showCreed()">
+          <label class="form-check-label" for="creed-check">Я принимаю: "Кодекс Мемастика"</label>
+        </div>
         <div class="form-group sign-button">
-          <button [disabled]="!signForm.valid" class="btn submit" type="submit">ГОТОВО</button>
+          <button [disabled]="!signForm.valid || !creedAgree" class="btn submit" type="submit">ГОТОВО</button>
         </div>
       </form>
     </div>
