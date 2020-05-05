@@ -7,13 +7,14 @@
 <div *ngIf="!isLoad">
 
   <div *ngIf="!isLogin">
-    <div class="logo">
-      <img class="img-fluid" src="assets/images/mem-logo.png">
+    <div class="logo title-logo animated slideInDown" (click)="toStart()">
+      <img src="assets/images/footer-logo.png">
     </div>
-    <div class=" image flex-center-absolute">
+
+    <div class="image flex-center-absolute">
       <img [src]="memeURL || ''">
     </div>
-    <div class="meme-share-button" (click)="toStart()">
+    <div class="meme-share-button animated slideInUp" (click)="toStart()">
       <button class="btn-theme-inverse">🤔 А ГДЕ ЭТО Я ?</button>
     </div>
   </div>

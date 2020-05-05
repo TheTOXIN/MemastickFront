@@ -7,6 +7,31 @@
   padding: 0 !important;
 }
 
+.title-logo {
+  cursor: pointer;
+  border-radius: 0 0 30px 30px;
+  width: 300px;
+  height: 72px;
+  background: linear-gradient(to right, #6b25fc 0%, #9647db 100%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  img {
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 300px;
+    height: auto;
+  }
+  @media(max-width: 767px) {
+    width: 200px;
+    height: 54px;
+    img {
+      max-width: 200px;
+    }
+  }
+}
+
 .dnt-rating-title {
   text-align: center;
 
