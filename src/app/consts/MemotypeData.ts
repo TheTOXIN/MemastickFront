@@ -5,7 +5,7 @@ export const memotypeColors = [];
 memotypeColors[MemotypeRarity.CLASSIC] = '#28a745';
 memotypeColors[MemotypeRarity.RARE] = '#007bff';
 memotypeColors[MemotypeRarity.EPIC] = '#8136ec';
-memotypeColors[MemotypeRarity.LEGENDARY] = '#ffc107';
+memotypeColors[MemotypeRarity.LEGENDARY] = '#eab000';
 memotypeColors[MemotypeRarity.INCREDIBLE] = '#dc3545';
 
 export const memotypeNames = [];

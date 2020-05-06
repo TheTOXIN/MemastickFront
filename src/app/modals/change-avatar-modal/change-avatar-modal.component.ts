@@ -59,7 +59,7 @@ export class ChangeAvatarModalComponent implements OnInit {
     this.avatarApi.uploadAvatar(this.avatarPreviewIMG).subscribe(
       () => {
         this.activeModal.dismiss('Cross click');
-        this.router.navigateByUrl('/home/memetick/me');
+        this.router.navigateByUrl('/home');
       },
       () => {
         this.message = 'НЕПРАВИЛЬНЫЙ ФОРМАТ';
