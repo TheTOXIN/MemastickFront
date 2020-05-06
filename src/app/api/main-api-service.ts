@@ -10,6 +10,12 @@ export class MainApiService {
 
   constructor(private http: HttpClient) {}
 
+  public hello(): Observable<string> {
+    return this.http
+      .get(API.HELLO, {responseType: 'text'})
+      .pipe();
+  }
+
   public home(): Observable<Home> {
     return this.http
       .get<Home>(API.HOME)

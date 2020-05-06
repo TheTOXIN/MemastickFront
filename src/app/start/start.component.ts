@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HelloApiService} from '../api/hello-api-service';
-import {OauthApiService} from '../services/oauth-api-service';
 import {AppComponent} from '../app.component';
 
 @Component({
@@ -11,7 +9,6 @@ import {AppComponent} from '../app.component';
 export class StartComponent implements OnInit {
 
   constructor(
-    private hello: HelloApiService,
     public app: AppComponent
   ) {
 
@@ -19,6 +16,5 @@ export class StartComponent implements OnInit {
 
   ngOnInit() {
     this.app.control(false);
-    this.hello.sendHello();
   }
 }

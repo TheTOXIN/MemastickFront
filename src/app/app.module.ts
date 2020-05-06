@@ -6,7 +6,6 @@ import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
 import {NgModule} from '@angular/core';
 import {InviteApiService} from './api/invite-api-service';
-import {HelloApiService} from './api/hello-api-service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -97,7 +96,6 @@ firebase.initializeApp(environment.firebase);
   providers: [
     AppComponent,
     InviteApiService,
-    HelloApiService,
     OauthApiService,
     MemetickApiService,
     PasswordApiService,

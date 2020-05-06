@@ -1,4 +1,5 @@
 <app-preview-screen *ngIf="showPreview" [text]="textPreview"></app-preview-screen>
+<app-preview-update *ngIf="showUpdater" [vers]="versUpdater"></app-preview-update>
 <app-control *ngIf="controlWork"></app-control>
 <app-notification></app-notification>
 <router-outlet></router-outlet>

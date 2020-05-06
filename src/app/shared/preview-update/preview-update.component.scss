@@ -1,0 +1,41 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.preview-update {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
+    width: 150px;
+    height: 150px;
+    animation: spin 30s linear infinite;
+  }
+
+  div {
+    color: black;
+    font-family: FuturaRound, serif;
+    font-size: 22px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+  }
+}
+
+@keyframes spin-update {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

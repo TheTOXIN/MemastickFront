@@ -35,6 +35,7 @@ import {ChartsModule} from 'ng2-charts';
 import {CommentsComponent} from '../comments/comments.component';
 import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
 import {CounterComponent} from './counter/counter.component';
+import {PreviewUpdateComponent} from './preview-update/preview-update.component';
 
 @NgModule({
   exports: [
@@ -62,7 +63,8 @@ import {CounterComponent} from './counter/counter.component';
     LohRadarComponent,
     CommentsComponent,
     DonaterMessagesComponent,
-    CounterComponent
+    CounterComponent,
+    PreviewUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +102,8 @@ import {CounterComponent} from './counter/counter.component';
     LohRadarComponent,
     CommentsComponent,
     DonaterMessagesComponent,
-    CounterComponent
+    CounterComponent,
+    PreviewUpdateComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

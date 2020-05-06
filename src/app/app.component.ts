@@ -6,8 +6,9 @@ import {PwaService} from './services/pwa-service';
 import {PushService} from './services/push-service';
 import {StorageService} from './services/storage-service';
 import {MemeFilter} from './consts/MemeFilter';
-import {ANDROID_URL} from './app.constants';
+import {ANDROID_URL, VERSION} from './app.constants';
 import {Router} from '@angular/router';
+import {MainApiService} from './api/main-api-service';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,19 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild(NotificationComponent) notification: NotificationComponent;
 
   public controlWork = false;
+
   public showPreview = false;
   public textPreview: string;
+
+  public showUpdater = false;
+  public versUpdater: string;
 
   constructor(
     private socket: WebSocketService,
     private push: PushService,
     private oauth: OauthApiService,
     private storage: StorageService,
+    private mainApi: MainApiService,
     private pwa: PwaService,
     private router: Router
   ) {
@@ -40,6 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.redirecter(isAuth);
 
     if (isAuth) {
+      this.hello();
       this.me();
       this.update();
       this.notify();
@@ -56,6 +63,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  public hello() {
+    this.mainApi.hello().subscribe(data => {
+      this.showUpdater = data !== VERSION;
+      this.versUpdater = data;
+    });
+  }
+
   public me() {
     if (!this.storage.getMe()) {
       this.oauth.loadMe();
@@ -65,7 +79,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public update() {
     this.pwa.checkUpdate(() => {
       alert('Мемастик обновился, подтвердите чтобы обновить');
-      document.location.reload();
+      this.showUpdater = false;
     });
   }
 
