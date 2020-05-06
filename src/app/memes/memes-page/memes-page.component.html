@@ -21,7 +21,7 @@
   </div>
   <div class="memes-image animated zoomIn slow">
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
-         [class.blur]="isMemeDeath(data.page.meme)">
+         [class.blur]="data.page?.meme.type === 'DEAD'">
   </div>
   <div class="meme-page-comment" *ngIf="data.page?.meme.comment != null">
     <app-meme-best-comment [comment]="data.page?.meme.comment"></app-meme-best-comment>
@@ -34,7 +34,7 @@
              (click)="triggerChromosome(data)"
              [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
              [class.firstChromosome]="data.page?.likes.firstChromosome"
-             [class.full]="fullChromosome(data)">
+             [class.full]="data.page?.likes.myChromosomes >= 100">
         <div class="chromosome-counter">
           <div [@counterState]='data.counterState' class="counter">
             <span>{{data.page?.likes.myChromosomes}}</span>
