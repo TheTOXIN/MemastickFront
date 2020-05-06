@@ -2,11 +2,11 @@ import {MemotypeRarity} from './MemotypeRarity';
 
 export const memotypeColors = [];
 
-memotypeColors[MemotypeRarity.CLASSIC] = '#268D3E';
-memotypeColors[MemotypeRarity.RARE] = '#2675F6';
-memotypeColors[MemotypeRarity.EPIC] = '#7745C8';
-memotypeColors[MemotypeRarity.LEGENDARY] = '#D19705';
-memotypeColors[MemotypeRarity.INCREDIBLE] = '#910809';
+memotypeColors[MemotypeRarity.CLASSIC] = '#28a745';
+memotypeColors[MemotypeRarity.RARE] = '#007bff';
+memotypeColors[MemotypeRarity.EPIC] = '#8136ec';
+memotypeColors[MemotypeRarity.LEGENDARY] = '#ffc107';
+memotypeColors[MemotypeRarity.INCREDIBLE] = '#dc3545';
 
 export const memotypeNames = [];
 

@@ -8,7 +8,7 @@
     </div>
     <app-spinner *ngIf="isLoad"></app-spinner>
     <div class="letter-open animated zoomIn" *ngIf="isTake">
-      <app-token-wallet [wallet]="wallet"></app-token-wallet>
+      <app-token-wallet [wallet]="wallet" [showMax]="false"></app-token-wallet>
     </div>
     <div class="letter-image" (mouseup)="take()" *ngIf="!isTake">
       <div class="animated-mail">

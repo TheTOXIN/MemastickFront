@@ -15,6 +15,9 @@ export class TokenWalletComponent implements OnInit {
   @Input()
   public wallet: any;
 
+  @Input()
+  public showMax = true;
+
   public tokens: TokenData[];
 
   public egg = 0;
