@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import {HomeRoutingModule} from './home-routing.modules';
 import {MemetickComponent} from './memetick/memetick.component';
-import {ParticlesModule} from 'angular-particle';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
@@ -19,7 +18,6 @@ import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ParticlesModule,
     SharedModule,
     ModalsModule,
     ControlModule,

@@ -25,7 +25,6 @@ import {MemesModalComponent} from './memes-modal/memes-modal.component';
 import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
 import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
 import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
-import {ParticlesModule} from 'angular-particle';
 import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
 
@@ -40,8 +39,7 @@ import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link
     MemesRoutingModules,
     TokenModule,
     FormsModule,
-    AngularFittextModule,
-    ParticlesModule
+    AngularFittextModule
   ],
   exports: [
     MemesPageComponent,

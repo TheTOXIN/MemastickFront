@@ -21,16 +21,12 @@ export class DonaterRatingComponent implements OnInit {
   donatHref = DONAT;
   msgsHref = '/donaters/messages';
 
-  myStyle: object = {};
-  myParams: object = {};
-
   public donatersCarousel: any;
   public rating: any;
 
   constructor(
     private donaterApi: DonaterApiService
   ) {
-    this.initParticles();
     this.initCarousel();
     this.initSiquence();
   }
@@ -67,130 +63,6 @@ export class DonaterRatingComponent implements OnInit {
       autoplayHoverPause: true,
       center: true,
       margin: 10
-    };
-  }
-
-  private initParticles() {
-    this.myStyle = {
-      'position': 'fixed',
-      'width': '100%',
-      'height': '100%',
-      'z-index': -1,
-      'top': 0,
-      'left': 0,
-      'right': 0,
-      'bottom': 0,
-    };
-
-    this.myParams = {
-      'particles': {
-        'number': {
-          'value': 15,
-          'density': {
-            'enable': true,
-            'value_area': 500
-          }
-        },
-        'color': {
-          'value': ['#268D3E', '#2675F6', '#7745C8', '#D19705', '#910809']
-        },
-        'shape': {
-          'type': 'circle',
-            'stroke': {
-            'width': 0,
-              'color': '#fff'
-          },
-          'polygon': {
-            'nb_sides': 5
-          },
-          'image': {
-            'src': 'img/github.svg',
-              'width': 100,
-              'height': 100
-          }
-        },
-        'opacity': {
-          'value': 1,
-            'random': true,
-            'anim': {
-            'enable': true,
-              'speed': 0.3,
-              'opacity_min': 0,
-              'sync': false
-          }
-        },
-        'size': {
-          'value': 42,
-            'random': true,
-            'anim': {
-            'enable': true,
-              'speed': 2,
-              'size_min': 5,
-              'sync': false
-          }
-        },
-        'line_linked': {
-          'enable': false,
-            'distance': 150,
-            'color': '#ffffff',
-            'opacity': 0.5,
-            'width': 1
-        },
-        'move': {
-          'enable': true,
-            'speed': 1,
-            'direction': 'top',
-            'random': true,
-            'straight': false,
-            'out_mode': 'out',
-            'bounce': false,
-            'attract': {
-            'enable': false,
-              'rotateX': 600,
-              'rotateY': 600
-          }
-        }
-      },
-      'interactivity': {
-        'detect_on': 'canvas',
-          'events': {
-          'onhover': {
-            'enable': false,
-              'mode': 'bubble'
-          },
-          'onclick': {
-            'enable': false,
-              'mode': 'repulse'
-          },
-          'resize': true
-        },
-        'modes': {
-          'grab': {
-            'distance': 400,
-              'line_linked': {
-              'opacity': 0.5
-            }
-          },
-          'bubble': {
-            'distance': 250,
-              'size': 0,
-              'duration': 2,
-              'opacity': 0,
-              'speed': 3
-          },
-          'repulse': {
-            'distance': 400,
-              'duration': 0.4
-          },
-          'push': {
-            'particles_nb': 4
-          },
-          'remove': {
-            'particles_nb': 2
-          }
-        }
-      },
-      'retina_detect': true
     };
   }
 }

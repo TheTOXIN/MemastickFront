@@ -15,7 +15,6 @@ import {BattleViewLinkComponent} from './battle-view-link/battle-view-link.compo
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {OwlModule} from 'ngx-owl-carousel';
 import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
-import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   imports: [
@@ -24,7 +23,6 @@ import {ParticlesModule} from 'angular-particle';
     MemesModule,
     NgbModule,
     OwlModule,
-    ParticlesModule,
     AngularSvgIconModule,
     BattleRoutingModules
   ],

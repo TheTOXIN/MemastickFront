@@ -19,7 +19,6 @@ import {AcceptComponent} from './accpet/accept.component';
 import {GroupByPipe} from './pipes/GroupByPipe';
 import {DonaterRatingComponent} from './donater-rating/donater-rating.component';
 import {DonaterMessageComponent} from './donater-message/donater-message.component';
-import {ParticlesModule} from 'angular-particle';
 import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
@@ -73,7 +72,6 @@ import {PreviewUpdateComponent} from './preview-update/preview-update.component'
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    ParticlesModule,
     OwlModule,
     AngularFittextModule,
     ChartsModule
