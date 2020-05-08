@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
 
   showCreed() {
     if (!this.home.creedAgree) {
-      const modalRef = this.modalService.open(CreedModalComponent, {'centered': true});
+      const modalRef = this.modalService.open(CreedModalComponent, {'centered': true, backdrop: 'static'});
       modalRef.componentInstance.needAgree = true;
     }
   }
