@@ -16,15 +16,15 @@
       <img [src]="typeIcons[data.page?.meme?.type]">
     </div>
   </div>
-  <div class="meme-page-text-view" *ngIf="data.page?.meme?.text != null">
+  <div class="meme-page-text-view" *ngIf="data.page?.meme?.text">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
   </div>
   <div class="memes-image animated zoomIn slow">
     <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
          [class.blur]="data.page?.meme.type === 'DEAD'">
   </div>
-  <div class="meme-page-comment" *ngIf="data.page?.meme.comment != null">
-    <app-meme-best-comment [comment]="data.page?.meme.comment"></app-meme-best-comment>
+  <div class="meme-page-comment" *ngIf="data.page?.comment">
+    <app-meme-best-comment [comment]="data.page?.comment"></app-meme-best-comment>
   </div>
   <div class="memes-likes">
     <div class="like-icon-1">

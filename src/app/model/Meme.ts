@@ -9,7 +9,6 @@ export class Meme {
     public type: string,
     public likes: number,
     public chromosomes: number,
-    public comment: string,
     public epi: EPI
   ) {
 

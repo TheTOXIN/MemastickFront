@@ -1,7 +1,19 @@
 <div class="meme-best-comment">
-  <div class="meme-best-comment-wrap">
-    <div class="text-strong-middle meme-best-comment-content">
-      <div fittext [minFontSize]="16" [maxFontSize]="64">„{{comment}}“</div>
-    </div>
+    <div class="meme-best-comment-row">
+      <div class="meme-best-comment-image" (click)="memetickView()">
+        <img [src]="avatar">
+      </div>
+      <div class="meme-best-comment-text">
+        <div fittext [minFontSize]="minText" [maxFontSize]="maxText">{{comment.comment}}</div>
+      </div>
+      <div class="meme-best-comment-point">
+        {{comment.point}}
+      </div>
+      <div class="meme-best-comment-icon" (click)="commentsView()">
+        <div>
+          <i class="fa fa-angle-up"></i>
+          <i class="fa fa-angle-down"></i>
+        </div>
+      </div>
   </div>
 </div>
