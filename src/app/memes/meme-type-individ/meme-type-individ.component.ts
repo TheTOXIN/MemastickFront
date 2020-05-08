@@ -27,26 +27,19 @@ export class MemeTypeIndividComponent implements OnInit {
 
   public my: Meme;
 
-  public loh: MemeLoh;
-  public lohLoad = false;
-
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
 
   constructor(
     private battleApi: BattleApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
-    private memeLohApi: MemeLohApiService
+    private modalService: NgbModal
   ) {
 
   }
 
   ngOnInit() {
-    this.memeLohApi.read(this.meme.id).subscribe(data => {
-      this.loh = data;
-      this.lohLoad = true;
-    });
+
   }
 
   battle() {

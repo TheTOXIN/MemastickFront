@@ -4,6 +4,8 @@ import {Color, Label} from 'ng2-charts';
 import {MemeLoh} from '../../model/meme/MemeLoh';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {ScreenUtils} from '../../utils/screen-utils';
+import {UUID} from 'angular2-uuid';
+import {MemeLohApiService} from '../../api/meme-loh-api-service';
 
 @Component({
   selector: 'app-loh-radar',
@@ -13,7 +15,9 @@ import {ScreenUtils} from '../../utils/screen-utils';
 export class LohRadarComponent implements OnInit {
 
   @Input()
-  public loh: MemeLoh;
+  public memeId: UUID;
+
+  public loh: MemeLoh = new MemeLoh(0 , 0, 0);
 
   public radarChartOptions: ChartOptions;
   public radarChartColors: Color[];
@@ -21,20 +25,33 @@ export class LohRadarComponent implements OnInit {
   public radarChartData: ChartDataSets[] = [{data: [0, 0, 0]}];
   public radarChartType: ChartType = 'radar';
 
-  constructor() {
+  isLoad = false;
+
+  constructor(
+    private memeLohApi: MemeLohApiService
+  ) {
   }
 
   ngOnInit() {
+    this.initLoh();
     this.initData(this.loh);
     this.initChart();
   }
 
-  updateData(loh: MemeLoh) {
+  public updateData(loh: MemeLoh) {
     this.initData(new MemeLoh(
       loh.lol + this.loh.lol,
       loh.omg + this.loh.omg,
       loh.hmm + this.loh.hmm
     ));
+  }
+
+  private initLoh() {
+    this.memeLohApi.read(this.memeId).subscribe(data => {
+      this.loh = data;
+      this.initData(data);
+      this.isLoad = true;
+    });
   }
 
   private initData(loh: MemeLoh) {

@@ -28,9 +28,7 @@ export class EvolveFitnessComponent implements OnInit {
   public img;
 
   public lohPoints = 10;
-  public loh: MemeLoh;
-  public myLoh: MemeLoh = new MemeLoh(0, 0, 0);
-  public lohLoad = false;
+  public myLoh: MemeLoh = new MemeLoh(0 , 0, 0);
 
   @Input()
   public evolve: EvolveMeme;
@@ -45,7 +43,6 @@ export class EvolveFitnessComponent implements OnInit {
 
   constructor(
     private tokenAcceptApi: TokenAcceptApiService,
-    private memeLohApi: MemeLohApiService
   ) {
     this.type = TokenType.SCOPE;
     this.status = LoaderStatus.NONE;
@@ -54,10 +51,7 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memeLohApi.read(this.evolve.memeId).subscribe(data => {
-      this.loh = data;
-      this.lohLoad = true;
-    });
+
   }
 
   sliderEvent() {

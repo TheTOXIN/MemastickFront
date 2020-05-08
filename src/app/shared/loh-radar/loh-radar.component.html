@@ -6,4 +6,7 @@
           [labels]="radarChartLabels"
           [chartType]="radarChartType">
   </canvas>
+  <div *ngIf="!isLoad">
+    <app-spinner></app-spinner>
+  </div>
 </div>

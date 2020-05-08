@@ -1,6 +1,5 @@
 <div class="evolve-fitness">
-  <app-loh-radar [loh]="loh" *ngIf="lohLoad; else lohNotLoad"></app-loh-radar>
-  <ng-template #lohNotLoad><app-spinner></app-spinner></ng-template>
+  <app-loh-radar [memeId]="evolve?.memeId"></app-loh-radar>
   <div *ngIf="evolve?.canApplyToken">
     <p *ngIf="lohPoints > 0" [style.color]="'#495057'">Распределите очки оценки: {{lohPoints}}</p>
     <p *ngIf="lohPoints == 0" [style.color]="'#28a745'">Готово! Нажмите оценить.</p>
