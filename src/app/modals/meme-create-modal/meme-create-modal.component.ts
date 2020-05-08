@@ -9,7 +9,6 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class MemeCreateModalComponent implements OnInit {
 
   constructor(
-    public activeModal: NgbActiveModal
   ) {
 
   }

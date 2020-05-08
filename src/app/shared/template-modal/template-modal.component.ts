@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-template-modal',
@@ -14,6 +15,7 @@ export class TemplateModalComponent implements OnInit {
   public closer = new EventEmitter<null>();
 
   constructor(
+    public activeModal: NgbActiveModal
   ) {
 
   }
@@ -22,6 +24,7 @@ export class TemplateModalComponent implements OnInit {
   }
 
   public close() {
+    this.activeModal.close();
     this.closer.emit(null);
   }
 }

@@ -31,6 +31,9 @@ export class CommentsComponent implements OnInit {
   public sort: string;
 
   @Input()
+  public withTitle: boolean = true;
+
+  @Input()
   public emptyText = 'Без комментариев 🤐';
 
   public commentsLoad = false;

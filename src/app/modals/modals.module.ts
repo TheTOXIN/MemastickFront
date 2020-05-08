@@ -31,6 +31,7 @@ import {TokenModule} from '../token/token.module';
 import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
 import {CreedModalComponent} from './creed-modal/creed-modal.component';
 import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
+import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal.component';
 
 @NgModule({
   exports: [
@@ -57,7 +58,8 @@ import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.co
     RankTokensModalComponent,
     MemetickStatsModalComponent,
     CreedModalComponent,
-    MemeCreateModalComponent
+    MemeCreateModalComponent,
+    CommentViewModalComponent
   ],
   imports: [
     CommonModule,
@@ -94,7 +96,8 @@ import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.co
     RankTokensModalComponent,
     MemetickStatsModalComponent,
     CreedModalComponent,
-    MemeCreateModalComponent
+    MemeCreateModalComponent,
+    CommentViewModalComponent
   ],
   entryComponents: [
     IntroModalComponent,
@@ -120,7 +123,8 @@ import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.co
     RankTokensModalComponent,
     MemetickStatsModalComponent,
     CreedModalComponent,
-    MemeCreateModalComponent
+    MemeCreateModalComponent,
+    CommentViewModalComponent
   ]
 })
 export class ModalsModule {

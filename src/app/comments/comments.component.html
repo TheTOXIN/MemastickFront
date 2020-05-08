@@ -1,4 +1,4 @@
-<div class="comment-title">Комментарии:</div>
+<div class="comment-title" *ngIf="withTitle">Комментарии:</div>
 <div class="comment-wrap my-scroll">
   <div *ngIf="commentsLoad; else commentNotLoad">
     <div *ngFor="let comment of comments">
