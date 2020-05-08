@@ -10,7 +10,7 @@
     $size: random(10) + 10 + px;
     height: $size;
     width: $size;
-    opacity: random(10) / 10;
+    opacity: random(7) / 10;
     animation-delay: -$i * .1s;
     background: #ffa807;
     transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
