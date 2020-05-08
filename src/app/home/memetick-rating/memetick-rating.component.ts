@@ -24,12 +24,6 @@ export class MemetickRatingComponent implements OnInit {
   public filter = MemetickRatingFilter.DNA;
   public rating: MemetickRating;
 
-  public ratingAvatars = [];
-  public rarityAvatars = [];
-
-  public myAvatar: string;
-  public myRarity: string;
-
   constructor(
     public memetickApi: MemetickApiService,
     private avatrApi: MemetickAvatarApiService,
@@ -43,15 +37,6 @@ export class MemetickRatingComponent implements OnInit {
   ngOnInit() {
     this.memetickApi.rating(this.filter).subscribe(data => {
       this.rating = data;
-
-      for (const mr of this.rating.top) {
-        this.ratingAvatars[mr.preview.id + ''] = this.getAvatar(mr.preview);
-        this.rarityAvatars[mr.preview.id + ''] = ColorUtils.getRarityColor(mr.preview.lvl);
-      }
-
-      this.myAvatar = this.getAvatar(this.rating.me.preview);
-      this.myRarity = ColorUtils.getRarityColor(this.rating.me.preview.lvl);
-
       this.isLoad = false;
     });
   }
@@ -72,14 +57,6 @@ export class MemetickRatingComponent implements OnInit {
 
   ratingCHR() {
     this.reload(MemetickRatingFilter.CHR);
-  }
-
-  getAvatar(memetick: MemetickPreview) {
-    return this.avatrApi.dowloadAvatar(memetick.id);
-  }
-
-  memetickView(memetickId: UUID) {
-    this.router.navigate(['/home/memetick', memetickId]);
   }
 
   toHome() {

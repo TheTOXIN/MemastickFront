@@ -4,26 +4,13 @@
 
   <div class="rating-text">ТОП-10 МЕМЕТИКОВ</div>
 
-  <div *ngFor="let memetick of rating.top">
+  <div *ngFor="let data of rating.top">
     <div class="memetick-container">
       <div class="memetick-number">
-        <p class="number">{{memetick.pos}}</p>
+        <p>{{data.pos}}</p>
       </div>
-      <div class="memetick-tablet">
-        <div class="memetick-avatar">
-          <img [src]="ratingAvatars[memetick.preview.id] || ''"
-               (click)="memetickView(memetick.preview.id)"
-               [style.border-color]="rarityAvatars[memetick.preview.id]">
-        </div>
-        <div class="memetick-nick">
-          {{memetick.preview.nick}}
-        </div>
-        <div class="memetick-dna-img">
-          <img [src]=icons[filter]>
-        </div>
-        <div class="memetick-dna-count">
-          <p>{{memetick.rate}}</p>
-        </div>
+      <div class="memetick-row">
+        <app-memetick-row [memetick]="data.preview" [count]="data.rate" [image]="icons[filter]"></app-memetick-row>
       </div>
     </div>
   </div>
@@ -34,21 +21,8 @@
     <div class="memetick-number">
       <p class="number">{{rating.me.pos}}</p>
     </div>
-    <div class="memetick-tablet">
-      <div class="memetick-avatar">
-        <img [src]="myAvatar || ''"
-             (click)="memetickView(rating.me.preview.id)"
-             [style.border-color]="myRarity">
-      </div>
-      <div class="memetick-nick">
-        {{rating.me.preview.nick}}
-      </div>
-      <div class="memetick-dna-img">
-        <img [src]=icons[filter]>
-      </div>
-      <div class="memetick-dna-count">
-        <p>{{rating.me.rate}}</p>
-      </div>
+    <div class="memetick-row">
+      <app-memetick-row [memetick]="rating.me.preview" [count]="rating.me.rate" [image]="icons[filter]"></app-memetick-row>
     </div>
   </div>
 

@@ -56,12 +56,10 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="memetick-control">
-          <div>
-            <button class="memetick-button btn-theme" (click)="stats()">
-              СТАТИСТИКА
-              <i class="fa fa-line-chart"></i>
-            </button>
-          </div>
+          <button class="memetick-button btn-theme" (click)="stats()">
+            СТАТИСТИКА
+            <i class="fa fa-line-chart"></i>
+           </button>
           <div *ngIf="!memetickMe">
             <button class="memetick-button btn-theme" (click)="follow()">
               <span *ngIf="memetick.follow" >ПОДПИСКА: <i class="fa fa-bell"></i></span>

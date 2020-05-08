@@ -14,6 +14,7 @@ import {TokenModule} from '../token/token.module';
 import {MiningComponent} from './mining/mining.component';
 import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 import {HomeParticlesComponent} from './home-particles/home-particles.component';
+import {MemetickRowComponent} from './memetick-row/memetick-row.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {HomeParticlesComponent} from './home-particles/home-particles.component'
     LibraryComponent,
     MiningComponent,
     HomeMemetickComponent,
-    HomeParticlesComponent
+    HomeParticlesComponent,
+    MemetickRowComponent
   ]
 })
 export class HomeModule {

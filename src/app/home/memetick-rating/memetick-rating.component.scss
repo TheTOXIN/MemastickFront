@@ -14,23 +14,10 @@
   }
 }
 
-.memetick-tablet {
-  height: 100px;
-  width: 90%;
-  background-color: whitesmoke;
-  border-radius: 50px;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  box-shadow: 0px 0px 10px 0px black;
-  @media(max-width: 767px) {
-    height: 69px;
-  }
-}
-
 .memetick-number {
   height: 100%;
   width: 10%;
+
   p {
     float: right;
     margin-right: 30%;
@@ -42,6 +29,7 @@
     margin-top: 24px;
     text-align: center;
   }
+
   @media(max-width: 767px) {
     margin-left: 5px;
     p {
@@ -52,70 +40,9 @@
   }
 }
 
-.memetick-avatar {
+.memetick-row {
   height: 100%;
-  width: 15%;
-  cursor: pointer;
-  img {
-    border-radius: 50px;
-    border: 5px solid orange;
-    height: 100px;
-    float: left;
-  }
-  @media(max-width: 767px) {
-    img {
-      height: 69px;
-    }
-  }
-}
-
-.memetick-nick {
-  height: 100%;
-  width: 40%;
-  text-align: center;
-  font-family: FuturaRound, serif;
-  font-size: 32px;
-  margin-top: 25px;
-  color: black;
-  margin-left: 15px;
-  @media(max-width: 767px) {
-    font-size: 16px;
-  }
-}
-
-.memetick-dna-img {
-  height: 100%;
-  width: 15%;
-  text-align: center;
-  img {
-    width: 64px;
-    height: 64px;
-    margin-top: 15px;
-  }
-  @media(max-width: 767px) {
-    img {
-      width: 48px;
-      height: 48px;
-      margin-top: 10px;
-    }
-  }
-}
-
-.memetick-dna-count {
-  height: 100%;
-  width: 30%;
-  text-align: center;
-  p {
-    font-family: Futurica, serif;
-    font-size: 24px;
-    margin-top: 42px;
-  }
-  @media(max-width: 767px) {
-    p {
-      font-size: 18px;
-      margin-top: 25px;
-    }
-  }
+  width: 90%;
 }
 
 .rating-text {
@@ -134,7 +61,7 @@
   align-items: flex-start;
   flex-wrap: nowrap;
   background-color: whitesmoke;
-  border-radius: 30px 30px 0 0 ;
+  border-radius: 30px 30px 0 0;
   padding: 5px;
   width: 300px;
   height: 69px;
@@ -147,9 +74,9 @@
   z-index: 1;
   text-align: center;
 
-  -webkit-box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
-  -moz-box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
-  box-shadow: 0px 10px 20px 5px rgba(0,0,0,1);
+  -webkit-box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 1);
+  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 1);
 
   @media(max-width: 767px) {
     width: 250px;
@@ -160,6 +87,7 @@
 .rating-panel-img {
   height: 100%;
   width: 32%;
+
   img {
     max-width: 100%;
     max-height: 100%;
