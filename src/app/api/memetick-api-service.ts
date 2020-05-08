@@ -29,6 +29,12 @@ export class MemetickApiService {
       .pipe();
   }
 
+  public list(): Observable<MemetickPreview[]> {
+    return this.http
+      .get<MemetickPreview[]>(API.MEMETICK_LIST)
+      .pipe();
+  }
+
   public changeNick(nick: String, force: boolean) {
     return this.http
       .put(API.MEMETICK_NICK_CHANE, {nick: nick, force: force})

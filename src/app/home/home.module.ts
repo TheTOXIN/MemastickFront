@@ -15,6 +15,7 @@ import {MiningComponent} from './mining/mining.component';
 import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 import {HomeParticlesComponent} from './home-particles/home-particles.component';
 import {MemetickRowComponent} from './memetick-row/memetick-row.component';
+import {MemetickListComponent} from './memetick-list/memetick-list.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {MemetickRowComponent} from './memetick-row/memetick-row.component';
     MiningComponent,
     HomeMemetickComponent,
     HomeParticlesComponent,
-    MemetickRowComponent
+    MemetickRowComponent,
+    MemetickListComponent
   ]
 })
 export class HomeModule {

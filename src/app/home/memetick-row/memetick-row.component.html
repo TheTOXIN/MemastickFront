@@ -5,10 +5,10 @@
   <div class="memetick-nick">
     {{memetick.nick}}
   </div>
-  <div class="memetick-dna-img" *ngIf="image !== null">
+  <div class="memetick-dna-img" *ngIf="image">
     <img [src]=image>
   </div>
-  <div class="memetick-dna-count" *ngIf="count !== null">
+  <div class="memetick-dna-count" *ngIf="count">
     <p>{{count}}</p>
   </div>
 </div>

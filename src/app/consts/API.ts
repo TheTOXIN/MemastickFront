@@ -9,6 +9,7 @@ export enum API {
 
   MEMETICK_VIEW_ME = '/memeticks/view/me',
   MEMETICK_VIEW = '/memeticks/view',
+  MEMETICK_LIST = '/memeticks/list',
 
   STATS_MEMETICK = '/statistics/memetick',
   STATS_GLOBAL = '/statistics/global',

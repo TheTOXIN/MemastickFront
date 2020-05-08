@@ -56,6 +56,10 @@
   </table>
 </div>
 
+<div class="footer-control">
+  <button class="btn btn-warning" (click)="toMemeticks()">MEMETICKS</button>
+</div>
+
 <div class="admin-alert animated slideInUp" *ngIf="isAlert">
   <ngb-alert [type]="typeAlert" (close)="closeAlert()">{{ msgAlert }}</ngb-alert>
 </div>

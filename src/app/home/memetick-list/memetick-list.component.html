@@ -1,0 +1,11 @@
+<div *ngIf="isLoad; else memetickListLoad">
+  <div *ngFor="let memetick of memeticks">
+    <div class="memetick-list-row">
+      <app-memetick-row [memetick]="memetick"></app-memetick-row>
+    </div>
+  </div>
+</div>
+<ng-template #memetickListLoad>
+  <app-spinner class="flex-center-absolute"></app-spinner>
+</ng-template>
+<div class="mem-back"></div>

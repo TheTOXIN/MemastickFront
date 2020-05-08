@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 import {ColorUtils} from '../../utils/color-utils';
 
@@ -16,10 +15,10 @@ export class MemetickRowComponent implements OnInit {
   public memetick: MemetickPreview;
 
   @Input()
-  public count: number;
+  public count: number = null;
 
   @Input()
-  public image: string;
+  public image: string = null;
 
   constructor(
     private router: Router,

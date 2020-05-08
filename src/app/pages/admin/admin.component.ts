@@ -4,6 +4,7 @@ import {InviteApiService} from '../../api/invite-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AdminApiService} from '../../api/admin-api-service';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -25,7 +26,8 @@ export class AdminComponent implements OnInit {
   constructor(
     public inviteApi: InviteApiService,
     public adminApi: AdminApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
   ) {
 
   }
@@ -99,6 +101,10 @@ export class AdminComponent implements OnInit {
     }, () => {
       this.showErrorAlert();
     });
+  }
+
+  toMemeticks() {
+    this.router.navigateByUrl('/home/memetick/list');
   }
 
   closeAlert() {
