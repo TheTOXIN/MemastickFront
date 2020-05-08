@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Inject, Input, OnInit, Output} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {MemeType} from '../../consts/MemeType';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
@@ -6,6 +6,8 @@ import {EvolveMeme} from '../../model/EvolveMeme';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {evolveStepText, memeTypeText} from '../../consts/TextData';
+import {DOCUMENT} from '@angular/common';
+import {WINDOW} from '../../shared/services/windows.service';
 
 @Component({
   selector: 'app-meme-research',

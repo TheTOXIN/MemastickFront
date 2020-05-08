@@ -1,11 +1,18 @@
+.meme-research-wrap {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  position: fixed;
+}
 .meme-research-container {
-  height: 99vh;
-  padding: 30px;
-  margin: 15px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 30px 30px 100px;
   border-radius: 50px;
   background-color: whitesmoke;
-  box-shadow: 0 0 91px -6px rgba(0, 0, 0, 0.5);
 
   &::-webkit-scrollbar-track {
     margin-top: 32px;
@@ -126,16 +133,12 @@
 }
 
 .research-close {
-  top: -42px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  position: absolute;
-  margin-bottom: 5px;
-}
-
-.research-close-wrap {
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 15px;
 }
 
 .meme-research-ban {
