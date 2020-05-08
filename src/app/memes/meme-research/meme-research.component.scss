@@ -2,10 +2,16 @@
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
   position: fixed;
+
+  @media(max-width: 767px) {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+  }
 }
 .meme-research-container {
   width: 100%;
@@ -108,14 +114,12 @@
   font-size: 22px;
   text-align: center;
   font-family: FuturaRound, serif;
-
   img {
     width: 36px;
   }
 
   @media(max-width: 767px) {
     font-size: 16px;
-
     img {
       width: 28px;
     }
