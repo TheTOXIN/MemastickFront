@@ -4,7 +4,6 @@ import {BattleApiService} from '../../api/battle-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {PriceConst} from '../../consts/PriceConst';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {BattleRequest} from '../../model/battle/BattleRequest';
@@ -33,8 +32,6 @@ export class MemeTypeIndividComponent implements OnInit {
 
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
-
-  costBattle = BattleConst.MAX_PVP;
 
   constructor(
     private battleApi: BattleApiService,
@@ -92,7 +89,7 @@ export class MemeTypeIndividComponent implements OnInit {
     if (error.code === ErrorCode.BATTLE_REQUEST_ME) {
       this.loadMessage = 'Вы не можите бросить вызов своему мему';
     } else if (error.code === ErrorCode.BATTLE_COOKIE) {
-      this.loadMessage = 'У вас должно быть ' + this.costBattle + ' печенек';
+      this.loadMessage = 'У вас должно быть ' + BattleConst.MAX_PVP + ' печенек';
     } else {
       this.loadMessage = 'Ошибка вызова на битву';
     }

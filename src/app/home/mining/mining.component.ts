@@ -45,6 +45,7 @@ const shajs = require('sha.js');
 export class MiningComponent implements OnInit {
 
   private audio = new Audio();
+  
   private tapMax = 1;
   private tapCount = 0;
 

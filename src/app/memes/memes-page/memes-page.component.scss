@@ -184,8 +184,17 @@
   cursor: pointer;
 
   img {
+    transition: 0.2s ease-in-out;
     margin-top: 8px;
     width: 55px;
+  }
+
+  &:hover {
+    img {
+      background-color: #dbdbdb;
+      border-radius: 15px;
+      padding: 3px;
+    }
   }
 }
 

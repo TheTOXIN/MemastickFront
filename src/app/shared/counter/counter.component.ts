@@ -1,9 +1,22 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.scss']
+  styleUrls: ['./counter.component.scss'],
+  animations: [
+    trigger('bouncedState', [
+      transition('* => *', [
+        style({transform: 'scale(1)'}),
+        animate(200, keyframes([
+          style({transform: 'scale(1)', offset: 0}),
+          style({transform: 'scale(1.3)', offset: 0.3}),
+          style({transform: 'scale(1)', offset: 1})
+        ]))
+      ])
+    ])
+  ]
 })
 export class CounterComponent implements OnInit {
 
@@ -18,7 +31,11 @@ export class CounterComponent implements OnInit {
   @Output()
   public changeEvent = new EventEmitter<number>();
 
-  constructor() { }
+  plusState = false;
+  minusState = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
     if (this.min != null) {
@@ -27,6 +44,8 @@ export class CounterComponent implements OnInit {
   }
 
   plusCount() {
+    this.plusState = !this.plusState;
+
     if (this.max != null && this.max === this.count) {
       return;
     }
@@ -36,6 +55,8 @@ export class CounterComponent implements OnInit {
   }
 
   minusCount() {
+    this.minusState = !this.minusState;
+
     if (this.min != null && this.min === this.count) {
       return;
     }

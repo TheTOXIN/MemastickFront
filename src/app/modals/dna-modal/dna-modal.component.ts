@@ -11,14 +11,14 @@ import {RankTypesModalComponent} from '../rank-types-modal/rank-types-modal.comp
 export class DnaModalComponent implements OnInit {
 
   public data = [{
-      text: 'За хромосомы',
+      text: 'За первые хромосомы',
       count: '0-100',
     }, {
       text: 'Использование токена',
       count: '100-500',
     }, {
       text: 'Создание мема',
-      count: '500-1000',
+      count: '100 x КОМБО',
     }, {
       text: 'Голосование в битвах',
       count: '10 x КОМБО',
