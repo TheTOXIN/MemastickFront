@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DonaterApiService} from '../../api/donater-api-service';
 import {DonaterMessage} from '../../model/donaters/DonaterMessage';
 import {DONAT} from '../../app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-donater-messages',
@@ -10,13 +11,13 @@ import {DONAT} from '../../app.constants';
 })
 export class DonaterMessagesComponent implements OnInit {
 
-  public isLoad = false;
   public messages: DonaterMessage[] = [];
 
-  ratingHref = '/donaters/rating';
+  isLoad = false;
   donatHref = DONAT;
 
   constructor(
+    private router: Router,
     private donaterApi: DonaterApiService
   ) {
 
@@ -29,11 +30,15 @@ export class DonaterMessagesComponent implements OnInit {
     });
   }
 
+  toRate() {
+    this.router.navigateByUrl('/donaters/rating');
+  }
+
   toDonat() {
     window.open(this.donatHref, '_blank');
   }
 
   close() {
-    window.history.back();
+    this.router.navigateByUrl('/home');
   }
 }

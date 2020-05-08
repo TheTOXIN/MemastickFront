@@ -100,15 +100,21 @@ export class MemetickComponent implements OnInit {
   }
 
   memecoinHistory() {
-    this.modalService.open(MemeCoinHistoryModalComponent, {'centered': true});
+    if (this.memetickMe) {
+      this.modalService.open(MemeCoinHistoryModalComponent, {'centered': true});
+    }
   }
 
   changeAvatar() {
-    this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
+    if (this.memetickMe) {
+      this.modalService.open(ChangeAvatarModalComponent, {'centered': true});
+    }
   }
 
   changeNick() {
-    this.modalService.open(ChangeNickModalComponent, {'centered': true});
+    if (this.memetickMe) {
+      this.modalService.open(ChangeNickModalComponent, {'centered': true});
+    }
   }
 
   back() {

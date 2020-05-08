@@ -25,7 +25,7 @@ export class DonaterMessageInfoModalComponent implements OnInit {
   }
 
   toDonaters() {
-    this.router.navigateByUrl(this.msgsHref);
+    this.router.navigateByUrl(this.ratingHref);
     this.close();
   }
 

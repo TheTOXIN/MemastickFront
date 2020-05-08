@@ -3,6 +3,7 @@ import {DonaterApiService} from '../../api/donater-api-service';
 import {DONAT} from '../../app.constants';
 import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-donater-rating',
@@ -19,12 +20,12 @@ export class DonaterRatingComponent implements OnInit {
 
   isLoad = true;
   donatHref = DONAT;
-  msgsHref = '/donaters/messages';
 
   public donatersCarousel: any;
   public rating: any;
 
   constructor(
+    private router: Router,
     private donaterApi: DonaterApiService
   ) {
     this.initCarousel();
@@ -36,6 +37,10 @@ export class DonaterRatingComponent implements OnInit {
       this.rating = data;
       this.isLoad = false;
     });
+  }
+
+  toMsgs() {
+    this.router.navigateByUrl('/donaters/messages');
   }
 
   toDonat() {

@@ -17,6 +17,11 @@
   }
 }
 
+#particle-container {
+  position: fixed;
+  z-index: -1;
+}
+
 .particle {
   position: absolute;
   border-radius: 50%;
