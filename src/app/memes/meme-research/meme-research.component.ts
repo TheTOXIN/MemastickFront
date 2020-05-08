@@ -17,7 +17,7 @@ import {WINDOW} from '../../shared/services/windows.service';
 export class MemeResearchComponent implements OnInit {
 
   @Input()
-  public meme: Meme;
+  public meme: Meme; // TODO ЮЗАТЬ ДАННЫЕ ОТСЮДА ВМЕСТО EVOLVE
   public evolve: EvolveMeme;
 
   public typeIcons;

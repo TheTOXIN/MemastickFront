@@ -7,6 +7,7 @@ export class EvolveMeme {
     public memeId: UUID,
     public epi: EPI,
     public step: EvolveStep,
+    public myMeme: boolean,
     public canApplyToken: boolean,
     public immunity: boolean,
     public adaptation: number,

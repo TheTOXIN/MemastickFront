@@ -117,11 +117,19 @@
   img {
     width: 36px;
   }
+  span {
+    font-family: Lato, serif;
+    font-size: 16px;
+    display: block;
+  }
 
   @media(max-width: 767px) {
     font-size: 16px;
     img {
       width: 28px;
+    }
+    span {
+      font-size: 12px;
     }
   }
 }
