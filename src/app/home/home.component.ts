@@ -52,23 +52,25 @@ export class HomeComponent implements OnInit {
     @Inject(WINDOW) private window
   ) {
     this.role = this.storage.getRole();
-    this.message = this.storage.getHomeMessage();
     this.isMesg = this.message != null;
   }
 
   ngOnInit() {
-    this.initMe();
+    this.initHome();
     this.initControl();
     this.initStarter();
   }
 
-  private initMe() {
+  private initHome() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
       this.isLoad = false;
+
+      this.message = this.home.message;
+      this.isMesg = true;
+
       this.askPush();
       this.showCreed();
-      this.homeMessage();
     });
   }
 
@@ -79,14 +81,6 @@ export class HomeComponent implements OnInit {
   private initStarter() {
     if (this.storage.showStartInfo()) {
       this.modalService.open(StartInfoModalComponent, {'centered': true});
-    }
-  }
-
-  homeMessage() {
-    if (!this.isMesg) {
-      this.message = this.home.message;
-      this.isMesg = true;
-      this.storage.setHomeMessage(this.message);
     }
   }
 

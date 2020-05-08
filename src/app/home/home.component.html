@@ -3,12 +3,14 @@
   <div class="version-message">{{versionMessage}}</div>
 </div>
 
-<div class="home-container container">
+<div class="home-message">
+  <p *ngIf="isMesg; else homeMsgDef">{{message}}</p>
+  <ng-template #homeMsgDef><p>...</p></ng-template>
+</div>
 
-  <div class="home-message">
-    <p *ngIf="isMesg; else homeMsgDef">{{message}}</p>
-    <ng-template #homeMsgDef><p>ЗагрузОчка...</p></ng-template>
-  </div>
+<app-home-particles></app-home-particles>
+
+<div class="home-container container">
 
   <div class="row">
     <div class="col-md-12 text-center">
