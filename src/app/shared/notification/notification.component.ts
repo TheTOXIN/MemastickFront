@@ -42,6 +42,7 @@ export class NotificationComponent implements OnInit {
     this.notifyInf[NotifyType.ALLOWANCE] = '+';
     this.notifyInf[NotifyType.ADMIN] = '!!!';
     this.notifyInf[NotifyType.MEME_COIN] = null;
+    this.notifyImg[NotifyType.NEXT_EVOLVE] = null;
     this.notifyInf[NotifyType.BATTLE_REQUEST] = '->';
     this.notifyInf[NotifyType.BATTLE_RESPONSE] = '<-';
     this.notifyInf[NotifyType.BATTLE_COMPLETE] = 'END';
@@ -53,8 +54,10 @@ export class NotificationComponent implements OnInit {
     this.notifyImg[NotifyType.ALLOWANCE] = 'assets/images/icon/allowance.png';
     this.notifyImg[NotifyType.ADMIN] = null;
     this.notifyImg[NotifyType.MEME_COIN] = 'assets/images/icon/memecoin.png';
+    this.notifyImg[NotifyType.NEXT_EVOLVE] = 'assets/images/icon/world.png';
     this.notifyImg[NotifyType.BATTLE_REQUEST] = 'assets/images/icon/sword.png';
     this.notifyImg[NotifyType.BATTLE_RESPONSE] = 'assets/images/icon/shield.png';
+    this.notifyImg[NotifyType.BATTLE_COMPLETE] = 'assets/images/icon/battle.png';
     this.notifyImg[NotifyType.BATTLE_COMPLETE] = 'assets/images/icon/battle.png';
 
     this.tokenIcons = tokenIcons;

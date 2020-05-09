@@ -1,4 +1,7 @@
-<div *ngIf="isShow" class="notification animated fast bounceInDown" (click)="event()" [ngClass]="{'bounceOutUp': isHide}">
+<div class="notification animated fast bounceInDown"
+     *ngIf="isShow"
+     (click)="event()"
+     [ngClass]="{'bounceOutUp': isHide}">
   <div class="notification-img">
     <img [src]="img">
   </div>
