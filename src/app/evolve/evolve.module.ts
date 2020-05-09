@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ModalsModule} from '../modals/modals.module';
-import {HomeModule} from '../home/home.module';
 import {SharedModule} from '../shared/shared.module';
 import {TokenModule} from '../token/token.module';
 import {EvolveFitnessComponent} from './evolve-fitness/evolve-fitness.component';
@@ -11,13 +10,14 @@ import {EvolveMutationComponent} from './evolve-mutation/evolve-mutation.compone
 import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.component';
 import {Ng5SliderModule} from 'ng5-slider';
 import {FormsModule} from '@angular/forms';
+import {MemetickModule} from '../memetick/memetick.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ModalsModule,
-    HomeModule,
+    MemetickModule,
     SharedModule,
     TokenModule,
     FormsModule,

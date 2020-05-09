@@ -28,7 +28,6 @@ import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/don
 import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
 import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
 import {TokenModule} from '../token/token.module';
-import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
 import {CreedModalComponent} from './creed-modal/creed-modal.component';
 import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
 import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal.component';
@@ -56,7 +55,6 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
-    MemetickStatsModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
     CommentViewModalComponent
@@ -94,7 +92,6 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
-    MemetickStatsModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
     CommentViewModalComponent
@@ -121,7 +118,6 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
-    MemetickStatsModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
     CommentViewModalComponent

@@ -17,8 +17,8 @@ import {SettingApiService} from '../../api/setting-api-service';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 import {MemotypeReadModalComponent} from '../../memotype/memotype-read-modal/memotype-read-modal.component';
-import {MemetickStatsModalComponent} from '../../modals/memetick-stats-modal/memetick-stats-modal.component';
 import {ColorUtils} from '../../utils/color-utils';
+import {MemetickStatsModalComponent} from '../memetick-stats-modal/memetick-stats-modal.component';
 
 @Component({
   selector: 'app-memetick',

@@ -65,6 +65,7 @@ import {AcceptService} from './services/accept-service';
 import {AcceptDirective} from './directivies/accept-directive';
 import {AcceptState} from './state/accept-state';
 import {LoaderService} from './services/loader-service';
+import {MemetickModule} from './memetick/memetick.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -87,6 +88,7 @@ firebase.initializeApp(environment.firebase);
     EvolveModule,
     ControlModule,
     MemotypeModule,
+    MemetickModule,
     BattleModule,
     LaboratoryModule,
     HttpClientModule,

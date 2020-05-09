@@ -1,11 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MemeApiService} from '../../api/meme-api-service';
 import {Meme} from '../../model/Meme';
-import {API} from '../../consts/API';
-import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemetickComponent} from '../../home/memetick/memetick.component';
 import {ShareModalComponent} from '../../modals/share-modal/share-modal.component';
 
 @Component({

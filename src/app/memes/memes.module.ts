@@ -11,7 +11,6 @@ import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {MemesRoutingModules} from './memes-routing.modules';
 import {MemesShareComponent} from './memes-share/memes-share.component';
-import {HomeModule} from '../home/home.module';
 import {MemeResearchComponent} from './meme-research/meme-research.component';
 import {EvolveModule} from '../evolve/evolve.module';
 import {TokenModule} from '../token/token.module';
@@ -27,13 +26,14 @@ import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.compo
 import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
 import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
+import {MemetickModule} from '../memetick/memetick.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     ModalsModule,
-    HomeModule,
+    MemetickModule,
     EvolveModule,
     PinchZoomModule,
     MemesRoutingModules,
