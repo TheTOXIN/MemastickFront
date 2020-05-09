@@ -4,22 +4,11 @@
     <i></i>
     <i></i>
   </div>
-  <div #modalText style="display: none">
-    Алгоритм создан на основе генетическиого алгоритма.
-    После создания мем начинает цикл эволюции.
-    Всего 5 этапов: АДАПТАЦИЯ, ОЦЕНКА, МУТАЦИЯ, СКРЕЩИВАНИЕ, ВЫЖИВАНИЕ.
-    Каждый этап алгоритма длится 1 час.
-    Мемы которые создаются в один и тот же час, считаются мемами одной популяции.
-    Каждая популяция проходит весь цикл алгоритма.
-    В конце дня в 00:00 по utc, выживает половина мемов.
-    После чего начинается новый день эволюции.
-  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="section-title">
-          <h2 class="text-white">МЕМИТИЧЕСКИЙ АЛГОРИТМ</h2>
-          <app-open-intro-modal [content]="modalText.textContent" [title]="'АЛГОРИТМ'"></app-open-intro-modal>
+          <h2 class="text-white">СКРИНШОТЫ</h2>
           <img alt="title-line" class="img-fluid" src="assets/images/white-line.png">
         </div>
       </div>
@@ -28,25 +17,9 @@
       <div class="col-sm-12">
         <div class="swiper-screenshots-container-1 swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <!--<p class="evo-alg-msg">Меметики создают свои мемы</p>-->
-              <img alt="1" src="assets/images/ss/1.png">
-            </div>
-            <div class="swiper-slide">
-              <!--<p class="evo-alg-msg">Начинается оценка мемов</p>-->
-              <img alt="2" src="assets/images/ss/2.png">
-            </div>
-            <div class="swiper-slide">
-              <!--<p class="evo-alg-msg">Происходит мутация мемов</p>-->
-              <img alt="3" src="assets/images/ss/3.png">
-            </div>
-            <div class="swiper-slide">
-              <!--<p class="evo-alg-msg">Мемы можно скрещивать</p>-->
-              <img alt="4" src="assets/images/ss/4.png">
-            </div>
-            <div class="swiper-slide">
-              <!--<p class="evo-alg-msg">Выживают 50% лучших мемов</p>-->
-              <img alt="5" src="assets/images/ss/5.png">
+            <div class="swiper-slide" *ngFor="let s of screens; let i = index">
+              <div class="swiper-slide-title">{{s}}</div>
+              <img  class="swiper-slide-image" alt="1" [src]="'assets/images/ss/' + (i + 1) + '.png'">
             </div>
           </div>
         </div>

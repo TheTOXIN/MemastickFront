@@ -7,10 +7,20 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ScreenshotComponent implements OnInit {
 
+  public screens = [
+    'Дом',
+    'Битвы',
+    'Меню',
+    'Лента',
+    'Создание',
+    'Майнинг',
+    'Профиль',
+    'Мемотипы'
+  ];
+
   constructor() {
   }
 
   ngOnInit() {
   }
-
 }
