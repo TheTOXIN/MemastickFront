@@ -55,13 +55,15 @@ import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
-import {MetrikaModule} from 'ng-yandex-metrika';
 import {DonaterApiService} from './api/donater-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
 import {AdminApiService} from './api/admin-api-service';
 import {MemeLohApiService} from './api/meme-loh-api-service';
 import {MemeCommentApiService} from './api/meme-comment-api.-service';
+import {AcceptService} from './services/accept-service';
+import {AcceptDirective} from './directivies/accept-directive';
+import {AcceptState} from './state/accept-state';
 
 firebase.initializeApp(environment.firebase);
 
@@ -70,6 +72,7 @@ firebase.initializeApp(environment.firebase);
     AppComponent,
     ShopComponent,
     BlogComponent,
+    AcceptDirective,
     ErrorPageComponent
   ],
   imports: [
@@ -131,6 +134,8 @@ firebase.initializeApp(environment.firebase);
     AdminApiService,
     MemeLohApiService,
     MemeCommentApiService,
+    AcceptService,
+    AcceptState,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

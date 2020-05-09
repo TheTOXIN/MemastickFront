@@ -7,6 +7,17 @@
   padding: 0 !important;
 }
 
+.accept-modal-content {
+  .modal-content {
+    background-color: transparent;
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    border: none;
+  }
+}
+
 .title-logo {
   cursor: pointer;
   border-radius: 0 0 30px 30px;

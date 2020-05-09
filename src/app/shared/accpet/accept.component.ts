@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AcceptOptions} from '../../options/accept-options';
+import {AcceptState} from '../../state/accept-state';
 
 @Component({
   selector: 'app-accept',
@@ -16,8 +18,15 @@ export class AcceptComponent implements OnInit {
   public text: string;
   public isShow = false;
 
-  constructor() {
+  options: AcceptOptions;
 
+  constructor(
+    private state: AcceptState
+  ) {
+    this.options = state.options;
+    this.isShow = true;
+    this.img = this.options.img;
+    this.text = this.options.text;
   }
 
   ngOnInit() {
@@ -30,10 +39,12 @@ export class AcceptComponent implements OnInit {
   }
 
   yes() {
+    this.state.modal.close('confirmed');
     this.acceptEvent(true);
   }
 
   no() {
+    this.state.modal.dismiss('not confirmed');
     this.acceptEvent(false);
   }
 
