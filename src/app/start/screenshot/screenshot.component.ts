@@ -9,13 +9,13 @@ export class ScreenshotComponent implements OnInit {
 
   public screens = [
     'Дом',
+    'Лента',
     'Битвы',
     'Меню',
-    'Лента',
-    'Создание',
+    'Мемотипы',
+    'Создние',
     'Майнинг',
-    'Профиль',
-    'Мемотипы'
+    'Профиль'
   ];
 
   constructor() {

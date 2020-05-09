@@ -1,11 +1,15 @@
-.img-fluid {
-  max-width: 40%;
-}
-
 .btn-donater {
   font-size: 20px;
 
   @media(max-width: 767px) {
     font-size: 14px;
+  }
+}
+
+.footer-evolve-image {
+  max-width: 200px;
+  width: 100%;
+  @media(max-width: 767px) {
+    max-width: 150px;
   }
 }
