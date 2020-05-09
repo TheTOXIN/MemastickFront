@@ -26,8 +26,7 @@
       <div *ngIf="!isLoading">
         <div class="meme-research">
           <div *ngIf="meme.type === typeMeme.EVLV">
-            <app-evolve-adaptation [evolve]="evolve"
-                                   *ngIf="evolve.step === stepEvlv.ADAPTATION"></app-evolve-adaptation>
+            <app-evolve-adaptation [evolve]="evolve" *ngIf="evolve.step === stepEvlv.ADAPTATION"></app-evolve-adaptation>
             <app-evolve-fitness [evolve]="evolve" *ngIf="evolve.step === stepEvlv.FITNESS"></app-evolve-fitness>
             <app-evolve-mutation [evolve]="evolve" *ngIf="evolve.step === stepEvlv.MUTATION"></app-evolve-mutation>
             <app-evolve-crossing [evolve]="evolve" *ngIf="evolve.step === stepEvlv.CROSSING"></app-evolve-crossing>

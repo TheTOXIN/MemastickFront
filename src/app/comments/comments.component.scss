@@ -77,7 +77,7 @@
   width: 15%;
   height: 64px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   font-size: 32px;
   font-family: Gost, serif;
@@ -89,6 +89,7 @@
 .comment-vote {
   width: 15%;
   height: 64px;
+  text-align: center;
   i {
     font-size: 32px;
     cursor: pointer;
