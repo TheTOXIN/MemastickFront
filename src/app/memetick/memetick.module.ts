@@ -9,6 +9,8 @@ import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
 import {TokenModule} from '../token/token.module';
+import {MemetickProfileComponent} from './memetick-profile/memetick-profile.component';
+import {MemetickCardComponent} from './memetick-card/memetick-card.component';
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import {TokenModule} from '../token/token.module';
     MemetickRoutingModule
   ],
   exports: [
+    MemetickProfileComponent,
+    MemetickCardComponent,
     MemetickStatsModalComponent
   ],
   declarations: [
@@ -26,7 +30,9 @@ import {TokenModule} from '../token/token.module';
     MemetickListComponent,
     MemetickComponent,
     MemetickRatingComponent,
-    MemetickStatsModalComponent
+    MemetickStatsModalComponent,
+    MemetickProfileComponent,
+    MemetickCardComponent
   ],
   entryComponents: [
     MemetickStatsModalComponent

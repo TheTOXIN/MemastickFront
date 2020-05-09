@@ -1,0 +1,135 @@
+@import "src/assets/scss/base/_variable.scss";
+
+.memetick-info {
+  text-align: center;
+}
+
+.memetick-avatar {
+  border-style: solid;
+  border-radius: 100%;
+  border-width: 5px;
+  width: 96px;
+  cursor: pointer;
+}
+
+.memetick-stats {
+  border-color: black;
+  border-style: outset;
+  border-radius: 50px;
+  width: 330px;
+  box-shadow: 0px 0px 20px 5px #7e7e7e;
+  background-color: white;
+  margin: 5px auto 15px;
+  @media(max-width: 767px) {
+    width: 280px;
+  }
+}
+
+.memetick-control {
+  text-align: center;
+  button {
+    display: inline-block;
+  }
+}
+
+.memetick-nick {
+  font-family: Gost, serif;
+  font-size: 32px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  i {
+    cursor: pointer;
+    font-size: 30px;
+    margin-left: 10px;
+    color: $primary_color;
+  }
+
+  &:hover {
+    i {
+      color: $color_saffron_approx;
+    }
+  }
+}
+
+.memetick-online {
+  font-family: FuturaRound, serif;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.memetick-coins {
+  text-align: center;
+
+  margin: 15px auto;
+
+  border-style: dotted;
+  border-radius: 15px;
+  border-width: 3px;
+
+  width: 200px;
+
+  div {
+    display: inline-block;
+    font-size: 32px;
+    font-family: Gost, serif;
+  }
+
+  img {
+    width: 36px;
+    margin-left: 5px;
+  }
+
+  i {
+    margin-left: 10px;
+    font-size: 24px;
+
+    &:hover {
+      color: #6b25fc;
+    }
+  }
+}
+
+.memetick-cookie {
+  margin-left: auto;
+  margin-right: auto;
+
+  div {
+    font-size: 20px;
+  }
+
+  img {
+    padding: 5px;
+    width: 54px;
+  }
+}
+
+.memetick-button {
+  font-size: 20px;
+  margin: 10px;
+  font-family: FuturaRound, serif;
+  border-radius: 30px;
+  width: 300px;
+  i {
+    margin-left: 5px;
+    font-size: 20px;
+  }
+  @media(max-width: 767px) {
+    font-size: 16px;
+    margin-top: 5px;
+    font-family: FuturaRound, serif;
+    border-radius: 30px;
+    width: 250px;
+  }
+}
+
+.memetick-rank {
+  color: $dark_color;
+  font-size: 20px;
+  font-family: MontHeavy, serif;
+  display: flex;
+  justify-content: center;
+  div {
+    margin-left: 5px;
+  }
+}

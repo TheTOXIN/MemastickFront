@@ -1,82 +1,10 @@
 <div class="super-main-title">
   ПРОФИЛЬ МЕМЕТИКА
 </div>
+
 <div class="memetick-container container">
   <div *ngIf='memetickLoad; else loaderMemetick'>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="memetick-info">
-          <p class="memetick-nick">{{memetick?.nick}}<i class="fa fa-pencil-square" (click)="changeNick()" *ngIf="memetickMe" aria-hidden="true"></i></p>
-          <img class="img-fluid memetick-avatar animated heartBeat" (click)="changeAvatar()" [src]="avatarURL || ''" [style.border-color]="colorRarity">
-        </div>
-        <div class="memetick-rank">
-          <div>{{memetick?.rank?.name}}</div>
-          <div><app-rank-level [lvl]="memetick?.rank?.lvl"></app-rank-level></div>
-        </div>
-        <app-dna-line [rank]="memetick?.rank"></app-dna-line>
-        <app-dna-count [rank]="memetick?.rank"></app-dna-count>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="memetick-online">
-          <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
-          <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="memetick-coins text-strong-middle">
-          <div>{{memetick?.memecoins}}</div>
-          <img src="assets/images/icon/memecoin.png">
-          <div *ngIf="memetickMe" (click)="memecoinHistory()"><i class="fa fa-list pointer"></i></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <app-token-wallet [wallet]="wallet" [style.margin-top]="5"></app-token-wallet>
-      </div>
-    </div>
-
-    <div *ngIf="memetickMe" class="row">
-      <div class="col-md-12 text-center">
-        <div class="memetick-cookie text-strong-middle">
-          <div>Печеньки:</div>
-          <img [src]="'assets/images/icon/cookie.png'">
-          <div>{{memetick.cookies}}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="memetick-control">
-          <button class="memetick-button btn-theme" (click)="stats()">
-            СТАТИСТИКА
-            <i class="fa fa-line-chart"></i>
-           </button>
-          <div *ngIf="!memetickMe">
-            <button class="memetick-button btn-theme" (click)="follow()">
-              <span *ngIf="memetick.follow" >ПОДПИСКА: <i class="fa fa-bell"></i></span>
-              <span *ngIf="!memetick.follow">ОТПИСКА: <i class="fa fa-bell-slash"></i></span>
-            </button>
-            <button class="memetick-button btn-theme" (click)="memotypes()">
-              МЕМОТИПЫ:
-              <i class="fa fa-image"></i>
-            </button>
-            <button class="memetick-button btn-theme" (click)="memes()">
-              МЕМАСИКИ
-              <i class="fa fa-list"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-memetick-profile [memetick]="memetick" [memetickMe]="memetickMe" [wallet]="wallet"></app-memetick-profile>
   </div>
   <ng-template #loaderMemetick>
     <app-spinner></app-spinner>
