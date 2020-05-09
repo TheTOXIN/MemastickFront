@@ -13,6 +13,7 @@ import {ValidConst} from '../../consts/ValidConst';
 import {CommentsComponent} from '../../comments/comments.component';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-evolve-mutation',
@@ -22,8 +23,6 @@ import {LoaderState} from '../../state/loader-state';
 export class EvolveMutationComponent implements OnInit {
 
   @ViewChild(CommentsComponent) memeComments: CommentsComponent;
-
-  public loader: LoaderState = new LoaderState();
 
   public type;
   public img;
@@ -39,6 +38,7 @@ export class EvolveMutationComponent implements OnInit {
 
   constructor(
     private acceptService: AcceptService,
+    private loaderService: LoaderService,
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
     this.type = TokenType.MUTAGEN;
@@ -51,12 +51,11 @@ export class EvolveMutationComponent implements OnInit {
   mutation() {
     if (!this.commentValid()) { return; }
 
-    this.loader.status = LoaderStatus.LOAD;
-    this.loader.message = 'Мутировать комментарием?';
+    this.loaderService.setLoad('Мутировать комментарием?');
 
     this.acceptService.accept({img: this.img}).then(
       () => this.makeMutation(),
-      () => this.loader.status = LoaderStatus.NONE
+      () => this.loaderService.setNone()
     );
   }
 
@@ -79,12 +78,12 @@ export class EvolveMutationComponent implements OnInit {
   successMutation() {
     this.evolve.canApplyToken = false;
     this.memeComments.initComments();
-    this.loader.message = 'Мем мутирован!';
-    this.loader.status = LoaderStatus.DONE;
+    this.loaderService.setDone('Мем мутирован!');
   }
 
   errorMutation(error: any) {
-    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
-    this.loader.status = LoaderStatus.ERROR;
+    this.loaderService.setError(
+      ErrorHandlerService.tokenError(error.error.code)
+    );
   }
 }

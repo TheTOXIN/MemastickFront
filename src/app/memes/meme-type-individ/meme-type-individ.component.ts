@@ -14,6 +14,7 @@ import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {BattleConst} from '../../consts/BattleConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-meme-type-individ',
@@ -25,9 +26,10 @@ export class MemeTypeIndividComponent implements OnInit {
   @Input()
   public meme: Meme;
 
-  public loader: LoaderState = new LoaderState();
+  isBattle = false;
 
   constructor(
+    public loaderService: LoaderService,
     private acceptService: AcceptService,
     private battleApi: BattleApiService,
     private _sanitizer: DomSanitizer,
@@ -58,12 +60,8 @@ export class MemeTypeIndividComponent implements OnInit {
   }
 
   battleAccept(myMeme: any) {
-    if (this.loader.status === LoaderStatus.LOAD) {
-      return;
-    }
-
-    this.loader.status = LoaderStatus.LOAD;
-    this.loader.message = 'Вызываем меметика на битву';
+    this.loaderService.setLoad('Вызываем меметика на битву');
+    this.isBattle = true;
 
     const request = new BattleRequest(
       myMeme.id,
@@ -72,23 +70,26 @@ export class MemeTypeIndividComponent implements OnInit {
 
     this.battleApi.request(request).subscribe(
       () => this.battleDone(),
-      (data) => this.battleError(data.error)
+      (data) => this.battleError(data.error),
+      () => this.isBattle = false
     );
   }
 
   public battleDone() {
-    this.loader.message = 'Вызов отправлен, ждите ответа';
-    this.loader.status = LoaderStatus.DONE;
+    this.loaderService.setDone('Вызов отправлен, ждите ответа');
   }
 
   public battleError(error: any) {
+    let message;
+
     if (error.code === ErrorCode.BATTLE_REQUEST_ME) {
-      this.loader.message = 'Вы не можите бросить вызов своему мему';
+      message = 'Вы не можите бросить вызов своему мему';
     } else if (error.code === ErrorCode.BATTLE_COOKIE) {
-      this.loader.message = 'У вас должно быть ' + BattleConst.MAX_PVP + ' печенек';
+      message = 'У вас должно быть ' + BattleConst.MAX_PVP + ' печенек';
     } else {
-      this.loader.message = 'Ошибка вызова на битву';
+      message = 'Ошибка вызова на битву';
     }
-    this.loader.status = LoaderStatus.ERROR;
+
+    this.loaderService.setError(message);
   }
 }

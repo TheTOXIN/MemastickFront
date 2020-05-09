@@ -41,11 +41,10 @@ export class LoaderComponent implements OnInit {
   }
 
   action() {
-    if (this.state.event == null) {
-      this.clear();
-    } else {
+    if (this.state.event) {
       this.state.event.apply();
     }
+    this.clear();
   }
 
   clear() {

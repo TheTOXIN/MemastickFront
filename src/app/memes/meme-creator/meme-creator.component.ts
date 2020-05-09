@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {UUID} from 'angular2-uuid';
-import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {TokenApiService} from '../../api/token-api-service';
 import {ValidConst} from '../../consts/ValidConst';
@@ -14,10 +13,8 @@ import {MemeFilter} from '../../consts/MemeFilter';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {ImageUtils} from '../../utils/image-utils';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
-import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
 import {MemeCreateModalComponent} from '../../modals/meme-create-modal/meme-create-modal.component';
-import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-meme-creator',
@@ -27,8 +24,6 @@ import {LoaderState} from '../../state/loader-state';
 export class MemeCreatorComponent implements OnInit {
 
   @ViewChild(MemeTextInputComponent) textInput: MemeTextInputComponent;
-
-  public loader: LoaderState = new LoaderState();
 
   public imageFile: File;
   public imgURL: any;
@@ -58,6 +53,7 @@ export class MemeCreatorComponent implements OnInit {
     private inventoryApi: MemetickInventoryApiService,
     private storage: StorageService,
     private modalService: NgbModal,
+    private loaderService: LoaderService
   ) {
 
   }
@@ -123,7 +119,7 @@ export class MemeCreatorComponent implements OnInit {
     if (files[0].type.match(/image\/*/) == null) { return; }
     if (files[0].size > ValidConst.MAX_MEME_SIZE) { return; }
 
-    this.loader.status = LoaderStatus.LOAD;
+    this.loaderService.setLoad('Скачиваем ваш мем');
 
     if (this.stateCell === GlobalConst.CELL_SATE) {
       this.show(files);
@@ -134,9 +130,8 @@ export class MemeCreatorComponent implements OnInit {
 
   create() {
     if (!this.isPreview || this.isCreate) { return; }
-    if (this.loader.status === LoaderStatus.LOAD) { return; }
 
-    this.loader.status = LoaderStatus.LOAD;
+    this.loaderService.setLoad('Загружаем ваш мем');
 
     this.fireId = UUID.UUID();
     this.firePath = `memes/${this.fireId}`;
@@ -158,8 +153,7 @@ export class MemeCreatorComponent implements OnInit {
 
   createDone() {
     this.isCreate = true;
-    this.loader.status = LoaderStatus.DONE;
-    this.loader.message = 'МЕМ создан!';
+    this.loaderService.setDone('МЕМ создан!');
     this.storage.remMemePage(MemeFilter.POOL);
   }
 
@@ -183,12 +177,11 @@ export class MemeCreatorComponent implements OnInit {
     reader.onload = () => this.imgURL = reader.result;
 
     this.isPreview = true;
-    this.loader.status = LoaderStatus.NONE;
+    this.loaderService.setNone();
   }
 
   error(message: string) {
-    this.loader.message = message;
-    this.loader.status = LoaderStatus.ERROR;
+    this.loaderService.setError(message);
   }
 
   memes() {
@@ -208,8 +201,6 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   cancel() {
-    if (this.loader.status === LoaderStatus.LOAD) { return; }
-
     this.imageFile = null;
     this.imgURL = null;
 
@@ -217,8 +208,6 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   showText() {
-    if (this.loader.status === LoaderStatus.LOAD) { return; }
-
     this.textInput.show(this.textMeme);
   }
 

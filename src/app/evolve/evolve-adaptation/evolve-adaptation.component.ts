@@ -8,6 +8,7 @@ import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -15,8 +16,6 @@ import {LoaderState} from '../../state/loader-state';
   styleUrls: ['./evolve-adaptation.component.scss']
 })
 export class EvolveAdaptationComponent implements OnInit {
-
-  public loader: LoaderState = new LoaderState();
 
   public type;
   public img;
@@ -26,7 +25,8 @@ export class EvolveAdaptationComponent implements OnInit {
 
   constructor(
     private acceptService: AcceptService,
-    private tokenAcceptApi: TokenAcceptApiService
+    private tokenAcceptApi: TokenAcceptApiService,
+    private loaderService: LoaderService
   ) {
     this.type = TokenType.TUBE;
     this.img = tokenIcons[this.type];
@@ -36,12 +36,11 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   adaptation() {
-    this.loader.status = LoaderStatus.LOAD;
-    this.loader.message = 'Применить пробирку?';
+    this.loaderService.setLoad('Применить пробирку?');
 
     this.acceptService.accept({img: this.img}).then(
       () => this.increaseAdaptation(),
-      () => this.loader.status = LoaderStatus.NONE
+      () => this.loaderService.setNone()
     );
   }
 
@@ -55,12 +54,12 @@ export class EvolveAdaptationComponent implements OnInit {
   successAdaptation() {
     this.evolve.canApplyToken = false;
     this.evolve.adaptation++;
-    this.loader.message = 'Мем адаптировался!';
-    this.loader.status = LoaderStatus.DONE;
+    this.loaderService.setDone('Мем адаптировался!');
   }
 
   errorAdaptation(error: any) {
-    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
-    this.loader.status = LoaderStatus.ERROR;
+    this.loaderService.setError(
+      ErrorHandlerService.tokenError(error.error.code)
+    );
   }
 }

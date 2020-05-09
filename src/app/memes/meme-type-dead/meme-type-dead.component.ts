@@ -7,6 +7,7 @@ import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {PriceConst} from '../../consts/PriceConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 @Component({
   selector: 'app-meme-type-dead',
@@ -20,9 +21,8 @@ export class MemeTypeDeadComponent implements OnInit {
 
   public resurrectPrice = PriceConst.RESSURECTION;
 
-  public loader: LoaderState = new LoaderState();
-
   constructor(
+    private loaderService: LoaderService,
     private acceptService: AcceptService,
     private memeApi: MemeApiService
   ) {
@@ -44,8 +44,7 @@ export class MemeTypeDeadComponent implements OnInit {
   }
 
   resurrectAccept() {
-    this.loader.status = LoaderStatus.LOAD;
-    this.loader.message = 'Воскрешаем';
+    this.loaderService.setLoad('Воскрешаем');
     this.memeApi.memeResurrect(this.meme.id).subscribe(
       () => this.resurrectDone(),
       (data) => this.resurrectError(data)
@@ -53,17 +52,18 @@ export class MemeTypeDeadComponent implements OnInit {
   }
 
   public resurrectDone() {
-    this.loader.status = LoaderStatus.DONE;
-    this.loader.message = 'Мем в отобре';
+    this.loaderService.setDone('Мем в отобре');
   }
 
   public resurrectError(data: any) {
+    let message;
+
     if (data.error.code === ErrorCode.MEME_COIN_ENOUGH) {
-      this.loader.message = 'Не хватает мемкойнов';
+      message = 'Не хватает мемкойнов';
     } else {
-      this.loader.message = 'Ошибка воскрешения';
+      message = 'Ошибка воскрешения';
     }
 
-    this.loader.status = LoaderStatus.ERROR;
+    this.loaderService.setError(message);
   }
 }

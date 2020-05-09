@@ -8,6 +8,7 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {Pickaxe} from '../../model/Pickaxe';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
 import {LoaderState} from '../../state/loader-state';
+import {LoaderService} from '../../services/loader-service';
 
 const shajs = require('sha.js');
 
@@ -50,8 +51,6 @@ export class MiningComponent implements OnInit {
   private tapMax = 1;
   private tapCount = 0;
 
-  public loader: LoaderState = new LoaderState();
-
   public pickaxe: Pickaxe;
   public loadPickaxe: boolean;
 
@@ -71,10 +70,12 @@ export class MiningComponent implements OnInit {
   isMine = false;
   isBroke = false;
   isDone = false;
+  isFlush = false;
 
   BLOCK_NONCE = GlobalConst.BLOCK_NONCE;
 
   constructor(
+    private loaderService: LoaderService,
     private blockApi: BlockCoinsApiService,
     private inventoryApi: MemetickInventoryApiService,
     private router: Router
@@ -82,7 +83,6 @@ export class MiningComponent implements OnInit {
     this.audio.src = '../../../assets/audio/stone.wav';
     this.audio.load();
 
-    this.loader.event = () => this.toHome();
     this.loadPickaxe = false;
 
     this.nonce = 0;
@@ -155,17 +155,24 @@ export class MiningComponent implements OnInit {
 
   public flush() {
     if (this.cache === 0) { this.toHome(); return; }
-    if (this.loader.status === LoaderStatus.LOAD) { return; }
+    if (this.isFlush) { return; }
 
-    this.loader.message = 'Подтверждение транзакции';
-    this.loader.status = LoaderStatus.LOAD;
+    this.loaderService.setLoad('Подтверждение транзакции');
+    this.isFlush = true;
+
     this.blockApi.flushBlock(this.pickaxe.token).subscribe(
-      () => {
-        this.loader.message = 'Успешно!';
-        this.loader.status = LoaderStatus.DONE;
-        this.isDone = true;
-      }, (data) => this.error(data.error, 'Ошибка транзакции')
+      () => this.flushSuccess(),
+      (data) => this.error(data.error, 'Ошибка транзакции'),
+      () => this.isFlush = true
     );
+  }
+
+  flushSuccess() {
+    this.loaderService.setDoneEvent(
+      'Успешно!',
+      () => this.toHome()
+    );
+    this.isDone = true;
   }
 
   private broke() {
@@ -178,8 +185,7 @@ export class MiningComponent implements OnInit {
 
   error(error: any, txt: string) {
     if (error.code === ErrorCode.MINE_FAIL) {
-      this.loader.status = LoaderStatus.ERROR;
-      this.loader.message = txt;
+      this.loaderService.setError(txt);
     } else if (error.code === ErrorCode.MINE_END) {
       this.broke();
     }

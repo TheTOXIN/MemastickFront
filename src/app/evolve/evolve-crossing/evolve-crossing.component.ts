@@ -21,8 +21,6 @@ export class EvolveCrossingComponent implements OnInit {
   public type;
   public img;
 
-  public loader: LoaderState = new LoaderState();
-
   constructor(
     private acceptService: AcceptService,
     private tokenAcceptApi: TokenAcceptApiService

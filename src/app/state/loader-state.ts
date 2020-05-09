@@ -2,17 +2,17 @@ import {LoaderStatus} from '../consts/LoaderStatus';
 
 export class LoaderState {
 
-  public message: String;
   public status: LoaderStatus;
+  public message?: String;
   public event?: any;
 
   constructor(
-    message: String = '',
     status: LoaderStatus = LoaderStatus.NONE,
+    message?: String,
     event?: any,
   ) {
-    this.message = message;
     this.status = status;
+    this.message = message;
     this.event = event;
   }
 }
