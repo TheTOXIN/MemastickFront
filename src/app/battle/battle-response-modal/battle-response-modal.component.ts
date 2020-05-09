@@ -7,6 +7,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {BattleResponse} from '../../model/battle/BattleResponse';
 import {FRONT_URL} from '../../app.constants';
 import {Router} from '@angular/router';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-battle-response-modal',
@@ -23,9 +24,7 @@ export class BattleResponseModalComponent implements OnInit {
   public pvpList: number[] = [];
   public pvpCurrent: number = 5;
 
-  loadStatus: LoaderStatus;
-  loadMessage: string;
-  loadEvent: any;
+  public loader: LoaderState = new LoaderState();
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -40,14 +39,12 @@ export class BattleResponseModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadMessage = '';
-    this.loadStatus = LoaderStatus.NONE;
-    this.loadEvent = () => this.close();
+    this.loader.event = () => this.close();
   }
 
   response(accept: boolean) {
-    this.loadStatus = LoaderStatus.LOAD;
-    this.loadMessage = 'Отправляем...';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Отправляем...';
 
     const api = new BattleResponse(
       this.battleId,
@@ -57,11 +54,11 @@ export class BattleResponseModalComponent implements OnInit {
 
     this.battleApi.response(api).subscribe(
       () => {
-        this.loadStatus = LoaderStatus.DONE;
-        this.loadMessage = 'ГОТОВО';
+        this.loader.status = LoaderStatus.DONE;
+        this.loader.message = 'ГОТОВО';
       }, () => {
-        this.loadStatus = LoaderStatus.ERROR;
-        this.loadMessage = 'ОШИБКА';
+        this.loader.status = LoaderStatus.ERROR;
+        this.loader.message = 'ОШИБКА';
       }
     );
   }

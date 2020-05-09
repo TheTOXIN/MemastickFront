@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoaderStatus} from '../../consts/LoaderStatus';
 import {Router} from '@angular/router';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-loader',
@@ -10,13 +11,7 @@ import {Router} from '@angular/router';
 export class LoaderComponent implements OnInit {
 
   @Input()
-  public event: any;
-
-  @Input()
-  public message: String;
-
-  @Input()
-  public status: LoaderStatus;
+  public state: LoaderState = new LoaderState();
 
   constructor() {
     this.clear();
@@ -26,37 +21,37 @@ export class LoaderComponent implements OnInit {
   }
 
   isLoad() {
-    return this.status === LoaderStatus.LOAD;
+    return this.state.status === LoaderStatus.LOAD;
   }
 
   isDone() {
-    return this.status === LoaderStatus.DONE;
+    return this.state.status === LoaderStatus.DONE;
   }
 
   isError() {
-    return this.status === LoaderStatus.ERROR;
+    return this.state.status === LoaderStatus.ERROR;
   }
 
   isShow() {
-    return this.status !== LoaderStatus.NONE;
+    return this.state.status !== LoaderStatus.NONE;
   }
 
   isMessage() {
-    return this.message !== '' && this.message != null;
+    return this.state.message !== '' && this.state.message != null;
   }
 
   action() {
-    if (this.event == null) {
+    if (this.state.event == null) {
       this.clear();
     } else  {
-      this.event.apply();
+      this.state.event.apply();
     }
   }
 
   clear() {
-    if (this.status === LoaderStatus.DONE || this.status === LoaderStatus.ERROR) {
-      this.message = '';
-      this.status = LoaderStatus.NONE;
+    if (this.state.status === LoaderStatus.DONE || this.state.status === LoaderStatus.ERROR) {
+      this.state.message = '';
+      this.state.status = LoaderStatus.NONE;
     }
   }
 }

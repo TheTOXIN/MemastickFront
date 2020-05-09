@@ -12,6 +12,7 @@ import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {ValidConst} from '../../consts/ValidConst';
 import {CommentsComponent} from '../../comments/comments.component';
 import {AcceptService} from '../../services/accept-service';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-evolve-mutation',
@@ -22,8 +23,8 @@ export class EvolveMutationComponent implements OnInit {
 
   @ViewChild(CommentsComponent) memeComments: CommentsComponent;
 
-  public status;
-  public message;
+  public loader: LoaderState = new LoaderState();
+
   public type;
   public img;
 
@@ -41,8 +42,6 @@ export class EvolveMutationComponent implements OnInit {
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
     this.type = TokenType.MUTAGEN;
-    this.status = LoaderStatus.NONE;
-    this.message = '';
     this.img = tokenIcons[this.type];
   }
 
@@ -52,12 +51,12 @@ export class EvolveMutationComponent implements OnInit {
   mutation() {
     if (!this.commentValid()) { return; }
 
-    this.status = LoaderStatus.LOAD;
-    this.message = 'Мутировать комментарием?';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Мутировать комментарием?';
 
     this.acceptService.accept({img: this.img}).then(
       () => this.makeMutation(),
-      () => this.status = LoaderStatus.NONE
+      () => this.loader.status = LoaderStatus.NONE
     );
   }
 
@@ -80,12 +79,12 @@ export class EvolveMutationComponent implements OnInit {
   successMutation() {
     this.evolve.canApplyToken = false;
     this.memeComments.initComments();
-    this.message = 'Мем мутирован!';
-    this.status = LoaderStatus.DONE;
+    this.loader.message = 'Мем мутирован!';
+    this.loader.status = LoaderStatus.DONE;
   }
 
   errorMutation(error: any) {
-    this.message = ErrorHandlerService.tokenError(error.error.code);
-    this.status = LoaderStatus.ERROR;
+    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
+    this.loader.status = LoaderStatus.ERROR;
   }
 }

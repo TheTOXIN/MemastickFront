@@ -12,6 +12,7 @@ import {TokenAccept} from '../../model/tokens/TokenAccept';
 import {Options} from 'ng5-slider';
 import {LohRadarComponent} from '../../shared/loh-radar/loh-radar.component';
 import {AcceptService} from '../../services/accept-service';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-evolve-fitness',
@@ -22,8 +23,8 @@ export class EvolveFitnessComponent implements OnInit {
 
   @ViewChild(LohRadarComponent) lohRadar: LohRadarComponent;
 
-  public status;
-  public message;
+  public loader: LoaderState = new LoaderState();
+
   public type;
   public img;
 
@@ -46,8 +47,6 @@ export class EvolveFitnessComponent implements OnInit {
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
     this.type = TokenType.SCOPE;
-    this.status = LoaderStatus.NONE;
-    this.message = '';
     this.img = tokenIcons[this.type];
   }
 
@@ -66,12 +65,12 @@ export class EvolveFitnessComponent implements OnInit {
   fitness() {
     if (this.lohPoints !== 0) { return; }
 
-    this.status = LoaderStatus.LOAD;
-    this.message = 'Подтвердить оценку?';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Подтвердить оценку?';
 
     this.acceptService.accept({img: this.img}).then(
       () => this.makeFitness(),
-      () => this.status = LoaderStatus.NONE
+      () => this.loader.status = LoaderStatus.NONE
     );
   }
 
@@ -84,12 +83,12 @@ export class EvolveFitnessComponent implements OnInit {
 
   successFitness() {
     this.evolve.canApplyToken = false;
-    this.message = 'Мем оценен!';
-    this.status = LoaderStatus.DONE;
+    this.loader.message = 'Мем оценен!';
+    this.loader.status = LoaderStatus.DONE;
   }
 
   errorFitness(error: any) {
-    this.message = ErrorHandlerService.tokenError(error.error.code);
-    this.status = LoaderStatus.ERROR;
+    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
+    this.loader.status = LoaderStatus.ERROR;
   }
 }

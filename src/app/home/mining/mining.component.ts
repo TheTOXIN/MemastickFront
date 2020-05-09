@@ -7,6 +7,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {Pickaxe} from '../../model/Pickaxe';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
+import {LoaderState} from '../../state/loader-state';
 
 const shajs = require('sha.js');
 
@@ -45,13 +46,11 @@ const shajs = require('sha.js');
 export class MiningComponent implements OnInit {
 
   private audio = new Audio();
-  
+
   private tapMax = 1;
   private tapCount = 0;
 
-  public loadMessage: string;
-  public loadStatus: LoaderStatus;
-  public loadEvent: any;
+  public loader: LoaderState = new LoaderState();
 
   public pickaxe: Pickaxe;
   public loadPickaxe: boolean;
@@ -83,10 +82,7 @@ export class MiningComponent implements OnInit {
     this.audio.src = '../../../assets/audio/stone.wav';
     this.audio.load();
 
-    this.loadStatus = LoaderStatus.NONE;
-    this.loadMessage = '';
-    this.loadEvent = () => this.toHome();
-
+    this.loader.event = () => this.toHome();
     this.loadPickaxe = false;
 
     this.nonce = 0;
@@ -159,14 +155,14 @@ export class MiningComponent implements OnInit {
 
   public flush() {
     if (this.cache === 0) { this.toHome(); return; }
-    if (this.loadStatus === LoaderStatus.LOAD) { return; }
+    if (this.loader.status === LoaderStatus.LOAD) { return; }
 
-    this.loadMessage = 'Подтверждение транзакции';
-    this.loadStatus = LoaderStatus.LOAD;
+    this.loader.message = 'Подтверждение транзакции';
+    this.loader.status = LoaderStatus.LOAD;
     this.blockApi.flushBlock(this.pickaxe.token).subscribe(
       () => {
-        this.loadMessage = 'Успешно!';
-        this.loadStatus = LoaderStatus.DONE;
+        this.loader.message = 'Успешно!';
+        this.loader.status = LoaderStatus.DONE;
         this.isDone = true;
       }, (data) => this.error(data.error, 'Ошибка транзакции')
     );
@@ -182,8 +178,8 @@ export class MiningComponent implements OnInit {
 
   error(error: any, txt: string) {
     if (error.code === ErrorCode.MINE_FAIL) {
-      this.loadStatus = LoaderStatus.ERROR;
-      this.loadMessage = txt;
+      this.loader.status = LoaderStatus.ERROR;
+      this.loader.message = txt;
     } else if (error.code === ErrorCode.MINE_END) {
       this.broke();
     }

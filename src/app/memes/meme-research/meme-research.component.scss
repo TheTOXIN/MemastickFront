@@ -17,7 +17,7 @@
   width: 100%;
   height: 100%;
   padding: 30px 30px 100px;
-  border-radius: 50px;
+  border-radius: 50px 50px 0px 0px;
   background-color: whitesmoke;
 
   &::-webkit-scrollbar-track {
@@ -149,7 +149,7 @@
   margin-left: auto;
   margin-right: auto;
   left: 0;
-  right: 0;
+  right: 7px;
   bottom: 15px;
   z-index: 54;
 }

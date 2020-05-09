@@ -7,6 +7,7 @@ import {ErrorHandlerService} from '../../services/error-handler-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {AcceptService} from '../../services/accept-service';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -15,8 +16,8 @@ import {AcceptService} from '../../services/accept-service';
 })
 export class EvolveSurvivalComponent implements OnInit {
 
-  public status;
-  public message;
+  public loader: LoaderState = new LoaderState();
+
   public type;
   public img;
 
@@ -28,8 +29,6 @@ export class EvolveSurvivalComponent implements OnInit {
     private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.type = TokenType.ANTIBIOTIC;
-    this.status = LoaderStatus.NONE;
-    this.message = '';
     this.img = tokenIcons[this.type];
   }
 
@@ -37,12 +36,12 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   chance() {
-    this.status = LoaderStatus.LOAD;
-    this.message = 'Применить антибиотик?';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Применить антибиотик?';
 
     this.acceptService.accept({img: this.img}).then(
       () => this.increaseChance(),
-      () => this.status = LoaderStatus.NONE
+      () => this.loader.status = LoaderStatus.NONE
     );
   }
 
@@ -56,12 +55,12 @@ export class EvolveSurvivalComponent implements OnInit {
   successChance() {
     this.evolve.canApplyToken = false;
     this.evolve.immunity = true;
-    this.message = 'Иммунитет увеличен!';
-    this.status = LoaderStatus.DONE;
+    this.loader.message = 'Иммунитет увеличен!';
+    this.loader.status = LoaderStatus.DONE;
   }
 
   errorChance(error: any) {
-    this.message = ErrorHandlerService.tokenError(error.error.code);
-    this.status = LoaderStatus.ERROR;
+    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
+    this.loader.status = LoaderStatus.ERROR;
   }
 }

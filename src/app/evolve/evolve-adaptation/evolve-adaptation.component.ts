@@ -7,6 +7,7 @@ import {ErrorHandlerService} from '../../services/error-handler-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {AcceptService} from '../../services/accept-service';
+import {LoaderState} from '../../state/loader-state';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -15,8 +16,8 @@ import {AcceptService} from '../../services/accept-service';
 })
 export class EvolveAdaptationComponent implements OnInit {
 
-  public status;
-  public message;
+  public loader: LoaderState = new LoaderState();
+
   public type;
   public img;
 
@@ -28,8 +29,6 @@ export class EvolveAdaptationComponent implements OnInit {
     private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.type = TokenType.TUBE;
-    this.status = LoaderStatus.NONE;
-    this.message = '';
     this.img = tokenIcons[this.type];
   }
 
@@ -37,12 +36,12 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   adaptation() {
-    this.status = LoaderStatus.LOAD;
-    this.message = 'Применить пробирку?';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Применить пробирку?';
 
     this.acceptService.accept({img: this.img}).then(
       () => this.increaseAdaptation(),
-      () => this.status = LoaderStatus.NONE
+      () => this.loader.status = LoaderStatus.NONE
     );
   }
 
@@ -56,12 +55,12 @@ export class EvolveAdaptationComponent implements OnInit {
   successAdaptation() {
     this.evolve.canApplyToken = false;
     this.evolve.adaptation++;
-    this.message = 'Мем адаптировался!';
-    this.status = LoaderStatus.DONE;
+    this.loader.message = 'Мем адаптировался!';
+    this.loader.status = LoaderStatus.DONE;
   }
 
   errorAdaptation(error: any) {
-    this.message = ErrorHandlerService.tokenError(error.error.code);
-    this.status = LoaderStatus.ERROR;
+    this.loader.message = ErrorHandlerService.tokenError(error.error.code);
+    this.loader.status = LoaderStatus.ERROR;
   }
 }

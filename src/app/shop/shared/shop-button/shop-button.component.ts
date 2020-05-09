@@ -3,6 +3,7 @@ import {ErrorCode} from '../../../consts/ErrorCode';
 import {LoaderStatus} from '../../../consts/LoaderStatus';
 import {AcceptComponent} from '../../../shared/accpet/accept.component';
 import {AcceptService} from '../../../services/accept-service';
+import {LoaderState} from '../../../state/loader-state';
 
 @Component({
   selector: 'app-shop-button',
@@ -23,8 +24,7 @@ export class ShopButtonComponent implements OnInit {
   @Output()
   public event = new EventEmitter<any>();
 
-  loadMessage = '';
-  loadStatus = LoaderStatus.NONE;
+  public loader: LoaderState = new LoaderState();
 
   constructor(
     private acceptService: AcceptService,
@@ -51,25 +51,25 @@ export class ShopButtonComponent implements OnInit {
   }
 
   buyStart() {
-    this.loadStatus = LoaderStatus.LOAD;
-    this.loadMessage = 'Обработка...';
+    this.loader.status = LoaderStatus.LOAD;
+    this.loader.message = 'Обработка...';
     this.event.emit(null);
   }
 
   buyDone() {
-    this.loadStatus = LoaderStatus.DONE;
-    this.loadMessage = 'Покупка совершена';
+    this.loader.status = LoaderStatus.DONE;
+    this.loader.message = 'Покупка совершена';
   }
 
   buyError(data: any) {
     if (data.error.code === ErrorCode.MEME_COIN_ENOUGH) {
-      this.loadMessage = 'Не хватает мемкойнов';
+      this.loader.message = 'Не хватает мемкойнов';
     } else if (data.error.code === ErrorCode.TOO_MUCH) {
-      this.loadMessage = 'Слишком много';
+      this.loader.message = 'Слишком много';
     } else {
-      this.loadMessage = 'Ошибка покупки';
+      this.loader.message = 'Ошибка покупки';
     }
 
-    this.loadStatus = LoaderStatus.ERROR;
+    this.loader.status = LoaderStatus.ERROR;
   }
 }
