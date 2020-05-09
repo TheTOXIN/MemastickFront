@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoaderStatus} from '../../consts/LoaderStatus';
-import {Router} from '@angular/router';
 import {LoaderState} from '../../state/loader-state';
 
 @Component({
@@ -20,30 +19,31 @@ export class LoaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  isLoad() {
+  get isLoad() {
     return this.state.status === LoaderStatus.LOAD;
   }
 
-  isDone() {
+  get isDone() {
     return this.state.status === LoaderStatus.DONE;
   }
 
-  isError() {
+  get isError() {
     return this.state.status === LoaderStatus.ERROR;
   }
 
-  isShow() {
+  get isShow() {
     return this.state.status !== LoaderStatus.NONE;
   }
 
-  isMessage() {
-    return this.state.message !== '' && this.state.message != null;
+  get isMessage() {
+    return this.state.message !== '' &&
+      this.state.message != null;
   }
 
   action() {
     if (this.state.event == null) {
       this.clear();
-    } else  {
+    } else {
       this.state.event.apply();
     }
   }

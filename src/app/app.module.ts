@@ -64,6 +64,7 @@ import {MemeCommentApiService} from './api/meme-comment-api.-service';
 import {AcceptService} from './services/accept-service';
 import {AcceptDirective} from './directivies/accept-directive';
 import {AcceptState} from './state/accept-state';
+import {LoaderService} from './services/loader-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -136,6 +137,7 @@ firebase.initializeApp(environment.firebase);
     MemeCommentApiService,
     AcceptService,
     AcceptState,
+    LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

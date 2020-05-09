@@ -1,6 +1,7 @@
-<ng-template appAccept><app-accept></app-accept></ng-template>
 <app-preview-screen *ngIf="showPreview" [text]="textPreview"></app-preview-screen>
 <app-preview-update *ngIf="showUpdater" [vers]="versUpdater"></app-preview-update>
+<ng-template appAccept><app-accept></app-accept></ng-template>
 <app-control *ngIf="controlWork"></app-control>
+<app-loader [state]="state"></app-loader>
 <app-notification></app-notification>
 <router-outlet></router-outlet>

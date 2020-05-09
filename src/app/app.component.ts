@@ -9,6 +9,8 @@ import {MemeFilter} from './consts/MemeFilter';
 import {ANDROID_URL, VERSION} from './app.constants';
 import {Router} from '@angular/router';
 import {MainApiService} from './api/main-api-service';
+import {LoaderState} from './state/loader-state';
+import {LoaderService} from './services/loader-service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +20,8 @@ import {MainApiService} from './api/main-api-service';
 export class AppComponent implements OnInit, OnDestroy {
 
   @ViewChild(NotificationComponent) notification: NotificationComponent;
+
+  public state: LoaderState = new LoaderState();
 
   public controlWork = false;
 
@@ -30,6 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private socket: WebSocketService,
     private push: PushService,
+    private loaderService: LoaderService,
     private oauth: OauthApiService,
     private storage: StorageService,
     private mainApi: MainApiService,
@@ -51,6 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.update();
       this.notify();
       this.clear();
+      this.loader();
       this.control(true);
     }
 
@@ -97,6 +103,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public clear() {
     this.storage.remMemePage(MemeFilter.POOL);
+  }
+
+  public loader() {
+    this.loaderService.get().subscribe(state => {
+      this.state = state;
+    });
   }
 
   public control(val: boolean) {
