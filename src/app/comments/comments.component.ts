@@ -78,10 +78,10 @@ export class CommentsComponent implements OnInit {
 
   voteComment(comment: MemeComment, vote: boolean) {
     if (comment.vote === vote) { return; }
-    comment.vote = vote;
+    if (comment.vote !== null) { return; }
 
-    const point = vote ? 1 : -1;
-    comment.point += point;
+    comment.vote = vote;
+    comment.point += vote ? 1 : -1;
 
     this.commentApi.voteComment(comment.commentId, vote);
   }

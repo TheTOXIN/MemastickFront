@@ -6,7 +6,7 @@ export class MemeComment {
     public memetickId: UUID,
     public comment: string,
     public point: number,
-    public vote: boolean
+    public vote: Boolean
   ) {
 
   }
