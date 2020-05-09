@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EpiModalComponent} from '../epi-modal/epi-modal.component';
 
 @Component({
   selector: 'app-meme-create-modal',
@@ -9,10 +10,15 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class MemeCreateModalComponent implements OnInit {
 
   constructor(
+    private modalService: NgbModal
   ) {
 
   }
 
   ngOnInit() {
+  }
+
+  showEpi() {
+    this.modalService.open(EpiModalComponent, {'centered': true});
   }
 }
