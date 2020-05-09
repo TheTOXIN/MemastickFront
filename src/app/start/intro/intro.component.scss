@@ -4,3 +4,23 @@
   position: absolute;
   opacity: 0.25;
 }
+
+.profile-msg-text {
+  position: absolute;
+  font-size: 16px;
+  font-family: FuturaRound, serif;
+  z-index: 1;
+  top: 20px;
+  left: 69px;
+  color: black;
+}
+
+.awesome-text {
+  position: absolute;
+  font-size: 16px;
+  font-family: FuturaRound, serif;
+  z-index: 1;
+  top: 20px;
+  left: 20px;
+  color: white;
+}

@@ -571,10 +571,7 @@ section {
   position: absolute;
   top: 41%;
   left: -25px;
-
-  img {
-    animation: movebounce 2.1s linear infinite;
-  }
+  animation: movebounce 2.1s linear infinite;
 }
 
 @keyframes movebounce {
@@ -605,10 +602,7 @@ section {
   position: absolute;
   top: 56%;
   right: 25px;
-
-  img {
-    animation: moveleftbounce 2.1s linear infinite;
-  }
+  animation: moveleftbounce 2.1s linear infinite;
 }
 
 .profile-1 {
