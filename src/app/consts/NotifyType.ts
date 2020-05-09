@@ -4,6 +4,7 @@ export enum NotifyType {
   CELL = 'CELL',
   TOKEN = 'TOKEN',
   ADMIN = 'ADMIN',
+  DNA_LVL = 'DNA_LVL',
   CREATING = 'CREATING',
   ALLOWANCE = 'ALLOWANCE',
   MEME_COIN = 'MEME_COIN',

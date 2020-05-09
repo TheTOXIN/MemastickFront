@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NotifyType} from '../../consts/NotifyType';
 import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
@@ -6,6 +6,7 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {tokenIcons} from '../../model/TokenData';
 import {FRONT_URL} from '../../app.constants';
 import {Router} from '@angular/router';
+import {notifyImg, notifyInf} from 'src/app/consts/NotifyData';
 
 @Component({
   selector: 'app-notification',
@@ -35,30 +36,8 @@ export class NotificationComponent implements OnInit {
   ) {
     this.audio.src = '../../../assets/audio/nice.wav';
 
-    this.notifyInf[NotifyType.DNA] = null;
-    this.notifyInf[NotifyType.CELL] = '!';
-    this.notifyInf[NotifyType.TOKEN] = 'T';
-    this.notifyInf[NotifyType.CREATING] = 'NEW';
-    this.notifyInf[NotifyType.ALLOWANCE] = '+';
-    this.notifyInf[NotifyType.ADMIN] = '!!!';
-    this.notifyInf[NotifyType.MEME_COIN] = null;
-    this.notifyImg[NotifyType.NEXT_EVOLVE] = null;
-    this.notifyInf[NotifyType.BATTLE_REQUEST] = '->';
-    this.notifyInf[NotifyType.BATTLE_RESPONSE] = '<-';
-    this.notifyInf[NotifyType.BATTLE_COMPLETE] = 'END';
-
-    this.notifyImg[NotifyType.DNA] = 'assets/images/icon/3.png';
-    this.notifyImg[NotifyType.CELL] = 'assets/images/icon/cell.png';
-    this.notifyImg[NotifyType.TOKEN] = null;
-    this.notifyImg[NotifyType.CREATING] = null;
-    this.notifyImg[NotifyType.ALLOWANCE] = 'assets/images/icon/allowance.png';
-    this.notifyImg[NotifyType.ADMIN] = null;
-    this.notifyImg[NotifyType.MEME_COIN] = 'assets/images/icon/memecoin.png';
-    this.notifyImg[NotifyType.NEXT_EVOLVE] = 'assets/images/icon/world.png';
-    this.notifyImg[NotifyType.BATTLE_REQUEST] = 'assets/images/icon/sword.png';
-    this.notifyImg[NotifyType.BATTLE_RESPONSE] = 'assets/images/icon/shield.png';
-    this.notifyImg[NotifyType.BATTLE_COMPLETE] = 'assets/images/icon/battle.png';
-    this.notifyImg[NotifyType.BATTLE_COMPLETE] = 'assets/images/icon/battle.png';
+    this.notifyImg = notifyImg;
+    this.notifyInf = notifyInf;
 
     this.tokenIcons = tokenIcons;
   }
