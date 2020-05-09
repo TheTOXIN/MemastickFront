@@ -1,4 +1,4 @@
-@for $i from 1 through 30 {
+@for $i from 1 through 25 {
   @keyframes particle-animation-#{$i} {
     100% {
       transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));

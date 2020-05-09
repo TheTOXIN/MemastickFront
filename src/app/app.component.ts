@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 import {MainApiService} from './api/main-api-service';
 import {LoaderState} from './state/loader-state';
 import {LoaderService} from './services/loader-service';
+import {LoaderStatus} from './consts/LoaderStatus';
 
 @Component({
   selector: 'app-root',
@@ -57,10 +58,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.notify();
       this.clear();
       this.loader();
-      this.control(true);
+      this.control();
     }
 
     this.checkTWA();
+    this.routerEvent();
   }
 
   ngOnDestroy(): void {
@@ -111,7 +113,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public control(val: boolean) {
+  public control(val: boolean = true) {
     this.controlWork = val;
   }
 
@@ -134,5 +136,13 @@ export class AppComponent implements OnInit, OnDestroy {
     } else {
       this.router.navigateByUrl('/start');
     }
+  }
+
+  private routerEvent() {
+    this.router.events.subscribe((val) => {
+      this.state.status = LoaderStatus.NONE;
+      this.state.message = '';
+      this.state.event = null;
+    });
   }
 }
