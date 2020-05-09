@@ -31,7 +31,7 @@ export class MemetickRowComponent implements OnInit {
   }
 
   memetickView() {
-    this.router.navigate(['/home/memetick', this.memetick.id]);
+    this.router.navigate(['/memetick', this.memetick.id]);
   }
 
   get downloadAvatar() {

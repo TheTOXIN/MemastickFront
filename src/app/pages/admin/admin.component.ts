@@ -104,7 +104,7 @@ export class AdminComponent implements OnInit {
   }
 
   toMemeticks() {
-    this.router.navigateByUrl('/home/memetick/list');
+    this.router.navigateByUrl('/memetick/list');
   }
 
   closeAlert() {

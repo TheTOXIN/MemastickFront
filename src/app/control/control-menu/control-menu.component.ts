@@ -27,7 +27,7 @@ export class ControlMenuComponent implements OnInit {
   }
 
   profile() {
-    this.navigate('/home/memetick/me');
+    this.navigate('/memetick/me');
   }
 
   donaters() {

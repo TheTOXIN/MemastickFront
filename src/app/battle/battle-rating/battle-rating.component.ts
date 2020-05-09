@@ -68,7 +68,7 @@ export class BattleRatingComponent implements OnInit {
   }
 
   memetickView(memetick: MemetickPreview) {
-    this.router.navigate(['/home/memetick', memetick.id]);
+    this.router.navigate(['/memetick', memetick.id]);
   }
 
   toBattle() {

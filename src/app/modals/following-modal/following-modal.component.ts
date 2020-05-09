@@ -41,7 +41,7 @@ export class FollowingModalComponent implements OnInit {
 
   memetickView(memetickId: UUID) {
     this.close();
-    this.router.navigate(['/home/memetick', memetickId]);
+    this.router.navigate(['/memetick', memetickId]);
   }
 
   close() {

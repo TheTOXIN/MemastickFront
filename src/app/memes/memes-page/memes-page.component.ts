@@ -138,7 +138,7 @@ export class MemesPageComponent implements OnInit {
   }
 
   memetickView(memetickId: UUID) {
-    this.router.navigate(['/home/memetick', memetickId]);
+    this.router.navigate(['/memetick', memetickId]);
   }
 
   isMemeDeath(meme: Meme) {

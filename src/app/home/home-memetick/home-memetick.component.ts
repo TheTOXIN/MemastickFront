@@ -38,6 +38,6 @@ export class HomeMemetickComponent implements OnInit {
   }
 
   memetick() {
-    this.router.navigateByUrl('/home/memetick/me');
+    this.router.navigateByUrl('/memetick/me');
   }
 }

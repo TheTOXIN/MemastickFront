@@ -87,6 +87,6 @@ export class CommentsComponent implements OnInit {
   }
 
   toMemetick(memetickId: UUID) {
-    this.router.navigate(['/home/memetick', memetickId]);
+    this.router.navigate(['/memetick', memetickId]);
   }
 }

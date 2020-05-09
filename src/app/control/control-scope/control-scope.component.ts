@@ -34,7 +34,7 @@ export class ControlScopeComponent implements OnInit {
   }
 
   rating() {
-    this.navigate('/home/memetick/rating');
+    this.navigate('/memetick/rating');
   }
 
   library() {

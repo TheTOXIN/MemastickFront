@@ -45,7 +45,7 @@ export class ChangeNickModalComponent implements OnInit {
     ).subscribe(
       () => {
         this.activeModal.dismiss('Cross click');
-        this.router.navigateByUrl('/home/memetick/me');
+        this.router.navigateByUrl('/memetick/me');
       },
       (data) => {
         if (data.error.code === ErrorCode.EXPIRE_NICK) {

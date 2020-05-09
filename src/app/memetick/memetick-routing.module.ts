@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'memetick',
     children: [
       {
+        path: 'list',
+        component: MemetickListComponent
+      },
+      {
         path: 'me',
         component: MemetickComponent
       },
@@ -19,10 +23,6 @@ const routes: Routes = [
       {
         path: 'rating',
         component: MemetickRatingComponent
-      },
-      {
-        path: 'list',
-        component: MemetickListComponent
       },
     ]
   }

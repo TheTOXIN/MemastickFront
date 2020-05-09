@@ -46,6 +46,6 @@ export class MemeBestCommentComponent implements OnInit {
   }
 
   memetickView() {
-    this.router.navigate(['/home/memetick', this.comment.memetickId]);
+    this.router.navigate(['/memetick', this.comment.memetickId]);
   }
 }
