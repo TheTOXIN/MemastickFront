@@ -6,6 +6,7 @@ import {TokenType} from '../../consts/TokenType';
 import {ErrorHandlerService} from '../../services/error-handler-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-evolve-adaptation',
@@ -13,8 +14,6 @@ import {tokenIcons} from '../../model/TokenData';
   styleUrls: ['./evolve-adaptation.component.scss']
 })
 export class EvolveAdaptationComponent implements OnInit {
-
-  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
 
   public status;
   public message;
@@ -25,6 +24,7 @@ export class EvolveAdaptationComponent implements OnInit {
   public evolve: EvolveMeme;
 
   constructor(
+    private acceptService: AcceptService,
     private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.type = TokenType.TUBE;
@@ -39,15 +39,11 @@ export class EvolveAdaptationComponent implements OnInit {
   adaptation() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить пробирку?';
-    this.tokenAccept.show();
-  }
 
-  acceptTokenResult(accept: boolean) {
-    if (accept) {
-      this.increaseAdaptation();
-    } else {
-      this.status = LoaderStatus.NONE;
-    }
+    this.acceptService.accept({img: this.img}).then(
+      () => this.increaseAdaptation(),
+      () => this.status = LoaderStatus.NONE
+    );
   }
 
   increaseAdaptation() {

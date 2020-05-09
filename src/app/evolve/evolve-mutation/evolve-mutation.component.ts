@@ -11,6 +11,7 @@ import {MemeComment} from '../../model/meme/MemeComment';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {ValidConst} from '../../consts/ValidConst';
 import {CommentsComponent} from '../../comments/comments.component';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-evolve-mutation',
@@ -19,7 +20,6 @@ import {CommentsComponent} from '../../comments/comments.component';
 })
 export class EvolveMutationComponent implements OnInit {
 
-  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
   @ViewChild(CommentsComponent) memeComments: CommentsComponent;
 
   public status;
@@ -37,6 +37,7 @@ export class EvolveMutationComponent implements OnInit {
   commentMsg = 'Оставь комментарий первым 😉 Лучший комментарий будет закреплен за мемом 😱';
 
   constructor(
+    private acceptService: AcceptService,
     private tokenAcceptApi: TokenAcceptApiService,
   ) {
     this.type = TokenType.MUTAGEN;
@@ -53,7 +54,11 @@ export class EvolveMutationComponent implements OnInit {
 
     this.status = LoaderStatus.LOAD;
     this.message = 'Мутировать комментарием?';
-    this.tokenAccept.show();
+
+    this.acceptService.accept({img: this.img}).then(
+      () => this.makeMutation(),
+      () => this.status = LoaderStatus.NONE
+    );
   }
 
   checkValid() {
@@ -62,14 +67,6 @@ export class EvolveMutationComponent implements OnInit {
 
   commentValid() {
     return this.myComment != null && this.myComment !== '' && this.myComment.length <= ValidConst.MAX_MEME_TEXT;
-  }
-
-  acceptTokenResult(accept: boolean) {
-    if (accept) {
-      this.makeMutation();
-    } else {
-      this.status = LoaderStatus.NONE;
-    }
   }
 
   makeMutation() {

@@ -6,6 +6,7 @@ import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {ErrorHandlerService} from '../../services/error-handler-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-evolve-survival',
@@ -13,8 +14,6 @@ import {tokenIcons} from '../../model/TokenData';
   styleUrls: ['./evolve-survival.component.scss']
 })
 export class EvolveSurvivalComponent implements OnInit {
-
-  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
 
   public status;
   public message;
@@ -25,6 +24,7 @@ export class EvolveSurvivalComponent implements OnInit {
   public evolve: EvolveMeme;
 
   constructor(
+    private acceptService: AcceptService,
     private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.type = TokenType.ANTIBIOTIC;
@@ -39,15 +39,11 @@ export class EvolveSurvivalComponent implements OnInit {
   chance() {
     this.status = LoaderStatus.LOAD;
     this.message = 'Применить антибиотик?';
-    this.tokenAccept.show();
-  }
 
-  acceptTokenResult(accpet: boolean) {
-    if (accpet) {
-      this.increaseChance();
-    } else {
-      this.status = LoaderStatus.NONE;
-    }
+    this.acceptService.accept({img: this.img}).then(
+      () => this.increaseChance(),
+      () => this.status = LoaderStatus.NONE
+    );
   }
 
   increaseChance() {

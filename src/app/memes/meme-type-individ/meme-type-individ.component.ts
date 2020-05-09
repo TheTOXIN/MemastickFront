@@ -12,6 +12,7 @@ import {MemesModalComponent} from '../memes-modal/memes-modal.component';
 import {MemeLoh} from '../../model/meme/MemeLoh';
 import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {BattleConst} from '../../consts/BattleConst';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-meme-type-individ',
@@ -20,17 +21,14 @@ import {BattleConst} from '../../consts/BattleConst';
 })
 export class MemeTypeIndividComponent implements OnInit {
 
-  @ViewChild(AcceptComponent) resurrectAccept: AcceptComponent;
-
   @Input()
   public meme: Meme;
-
-  public my: Meme;
 
   loadMessage = '';
   loadStatus = LoaderStatus.NONE;
 
   constructor(
+    private acceptService: AcceptService,
     private battleApi: BattleApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal
@@ -44,33 +42,38 @@ export class MemeTypeIndividComponent implements OnInit {
 
   battle() {
     const modalRef = this.modalService.open(MemesModalComponent);
+
     modalRef.componentInstance.title = 'ВЫБЕРЕТЕ СВОЙ МЕМ';
     modalRef.componentInstance.filter = MemeFilter.BATL;
+
     modalRef.componentInstance.event.subscribe((meme) => {
-      this.my = meme;
-      this.resurrectAccept.show('Бросить вызов?');
+      this.acceptService.accept({
+        img: 'assets/images/icon/battle.png',
+        text: 'Бросить вызов?'
+      }).then(
+        () => this.battleAccept(meme),
+        () => {}
+      );
     });
   }
 
-  battleAcceptResult(accept: boolean) {
-    if (accept) {
-      if (this.loadStatus === LoaderStatus.LOAD) {
-        return;
-      }
-
-      this.loadStatus = LoaderStatus.LOAD;
-      this.loadMessage = 'Вызываем меметика на битву';
-
-      const request = new BattleRequest(
-        this.my.id,
-        this.meme.id
-      );
-
-      this.battleApi.request(request).subscribe(
-        () => this.battleDone(),
-        (data) => this.battleError(data.error)
-      );
+  battleAccept(myMeme: any) {
+    if (this.loadStatus === LoaderStatus.LOAD) {
+      return;
     }
+
+    this.loadStatus = LoaderStatus.LOAD;
+    this.loadMessage = 'Вызываем меметика на битву';
+
+    const request = new BattleRequest(
+      myMeme.id,
+      this.meme.id
+    );
+
+    this.battleApi.request(request).subscribe(
+      () => this.battleDone(),
+      (data) => this.battleError(data.error)
+    );
   }
 
   public battleDone() {

@@ -5,6 +5,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {MemeApiService} from '../../api/meme-api-service';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {PriceConst} from '../../consts/PriceConst';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-meme-type-dead',
@@ -12,8 +13,6 @@ import {PriceConst} from '../../consts/PriceConst';
   styleUrls: ['./meme-type-dead.component.scss']
 })
 export class MemeTypeDeadComponent implements OnInit {
-
-  @ViewChild(AcceptComponent) resurrectAccept: AcceptComponent;
 
   @Input()
   public meme: Meme;
@@ -24,6 +23,7 @@ export class MemeTypeDeadComponent implements OnInit {
   loadStatus = LoaderStatus.NONE;
 
   constructor(
+    private acceptService: AcceptService,
     private memeApi: MemeApiService
   ) {
 
@@ -34,18 +34,22 @@ export class MemeTypeDeadComponent implements OnInit {
   }
 
   resurrect() {
-    this.resurrectAccept.show('-' + this.resurrectPrice);
+    this.acceptService.accept({
+      img: 'assets/images/icon/memecoin.png',
+      text: '-' + this.resurrectPrice
+    }).then(
+      () => this.resurrectAccept(),
+      () => {}
+    );
   }
 
-  resurrectAcceptResult(accept: boolean) {
-    if (accept) {
-      this.loadStatus = LoaderStatus.LOAD;
-      this.loadMessage = 'Воскрешаем';
-      this.memeApi.memeResurrect(this.meme.id).subscribe(
-        () => this.resurrectDone(),
-        (data) => this.resurrectError(data)
-      );
-    }
+  resurrectAccept() {
+    this.loadStatus = LoaderStatus.LOAD;
+    this.loadMessage = 'Воскрешаем';
+    this.memeApi.memeResurrect(this.meme.id).subscribe(
+      () => this.resurrectDone(),
+      (data) => this.resurrectError(data)
+    );
   }
 
   public resurrectDone() {

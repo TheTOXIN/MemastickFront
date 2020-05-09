@@ -7,6 +7,7 @@ import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {FRONT_URL} from '../../app.constants';
 import {TranslatorApiService} from '../../api/translator-api-service';
 import {MemeApiService} from '../../api/meme-api-service';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-share-modal',
@@ -15,16 +16,14 @@ import {MemeApiService} from '../../api/meme-api-service';
 })
 export class ShareModalComponent implements OnInit {
 
-  @ViewChild(AcceptComponent) accept: AcceptComponent;
-
   @Input()
   public memeId: UUID;
   public memeURL;
 
   public role = RoleType.USER;
-  public accpeter = () => console.log('accept');
 
   constructor(
+    private acceptService: AcceptService,
     public activeModal: NgbActiveModal,
     public storage: StorageService,
     public translatorApi: TranslatorApiService,
@@ -52,19 +51,23 @@ export class ShareModalComponent implements OnInit {
   }
 
   translateAdmin() {
-    this.accpeter = () => this.translatorApi.adminPublish(this.memeId);
-    this.accept.show('ПУБЛИКОВАТЬ');
+    this.acceptService.accept({
+      img: 'assets/images/tokens/tmp.png',
+      text: 'ПУБЛИКОВАТЬ'
+    }).then(
+      () => this.translatorApi.adminPublish(this.memeId),
+      () => {}
+    );
   }
 
   banMeme() {
-    this.accpeter = () => this.memeApi.memeBan(this.memeId);
-    this.accept.show('ЗАБАНИТЬ');
-  }
-
-  acceptTranslate(accept: boolean) {
-    if (accept) {
-      this.accpeter();
-    }
+    this.acceptService.accept({
+      img: 'assets/images/tokens/tmp.png',
+      text: 'ЗАБАНИТЬ'
+    }).then(
+      () => this.memeApi.memeBan(this.memeId),
+      () => {}
+    );
   }
 
   share(source: string) {

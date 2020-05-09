@@ -5,6 +5,7 @@ import {LoaderStatus} from '../../consts/LoaderStatus';
 import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
+import {AcceptService} from '../../services/accept-service';
 
 @Component({
   selector: 'app-evolve-crossing',
@@ -12,8 +13,6 @@ import {TokenType} from '../../consts/TokenType';
   styleUrls: ['./evolve-crossing.component.scss']
 })
 export class EvolveCrossingComponent implements OnInit {
-
-  @ViewChild(AcceptComponent) tokenAccept: AcceptComponent;
 
   public status;
   public message;
@@ -24,6 +23,7 @@ export class EvolveCrossingComponent implements OnInit {
   public evolve: EvolveMeme;
 
   constructor(
+    private acceptService: AcceptService,
     private tokenAcceptApi: TokenAcceptApiService
   ) {
     this.type = TokenType.CROSSOVER;
@@ -33,9 +33,5 @@ export class EvolveCrossingComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  acceptTokenResult(accept: boolean) {
-
   }
 }

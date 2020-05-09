@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {ErrorCode} from '../../../consts/ErrorCode';
 import {LoaderStatus} from '../../../consts/LoaderStatus';
 import {AcceptComponent} from '../../../shared/accpet/accept.component';
+import {AcceptService} from '../../../services/accept-service';
 
 @Component({
   selector: 'app-shop-button',
@@ -9,8 +10,6 @@ import {AcceptComponent} from '../../../shared/accpet/accept.component';
   styleUrls: ['./shop-button.component.scss']
 })
 export class ShopButtonComponent implements OnInit {
-
-  @ViewChild(AcceptComponent) coinAccept: AcceptComponent;
 
   @Input()
   public text: string;
@@ -28,6 +27,7 @@ export class ShopButtonComponent implements OnInit {
   loadStatus = LoaderStatus.NONE;
 
   constructor(
+    private acceptService: AcceptService,
   ) {
 
   }
@@ -40,15 +40,20 @@ export class ShopButtonComponent implements OnInit {
 
   buyAccept() {
     if (this.price <= 0) { return; }
-    this.coinAccept.show('-' + this.price);
+
+    this.acceptService.accept({
+      img: 'assets/images/icon/memecoin.png',
+      text: '-' + this.price
+    }).then(
+      () => this.buyStart(),
+      () => {}
+    );
   }
 
-  buyStart(accept: boolean) {
-    if (accept) {
-      this.loadStatus = LoaderStatus.LOAD;
-      this.loadMessage = 'Обработка...';
-      this.event.emit(null);
-    }
+  buyStart() {
+    this.loadStatus = LoaderStatus.LOAD;
+    this.loadMessage = 'Обработка...';
+    this.event.emit(null);
   }
 
   buyDone() {
