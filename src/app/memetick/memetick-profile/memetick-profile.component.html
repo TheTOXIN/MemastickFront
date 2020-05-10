@@ -58,7 +58,7 @@
           СТАТИСТИКА
           <i class="fa fa-line-chart"></i>
         </button>
-        <div *ngIf="!memetickMe">
+        <div *ngIf="!memetickMe" class="memetick-not-me-control">
           <button class="memetick-button btn-theme" (click)="follow()">
             <span *ngIf="memetick.follow">ПОДПИСКА: <i class="fa fa-bell"></i></span>
             <span *ngIf="!memetick.follow">ОТПИСКА: <i class="fa fa-bell-slash"></i></span>

@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Memetick} from '../../model/Memetick';
-import {TokenApiService} from '../../api/token-api-service';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SettingApiService} from '../../api/setting-api-service';
@@ -25,7 +24,7 @@ export class MemetickProfileComponent implements OnInit {
   public memetick: Memetick;
 
   @Input()
-  public memetickMe = false;
+  public memetickMe: boolean;
 
   @Input()
   public wallet: any;

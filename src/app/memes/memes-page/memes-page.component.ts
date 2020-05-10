@@ -15,6 +15,7 @@ import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/
 import {MemeType} from '../../consts/MemeType';
 import {ValidConst} from '../../consts/ValidConst';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
+import {MemetickPreview} from '../../model/MemetickPreview';
 
 @Component({
   selector: 'app-memes-page',
@@ -58,6 +59,9 @@ export class MemesPageComponent implements OnInit {
   @Output()
   public researcher = new EventEmitter<Meme>();
 
+  @Output()
+  public memeticker = new EventEmitter<MemetickPreview>();
+
   private timerChromosome;
   private counterChromosome = 0;
 
@@ -73,13 +77,16 @@ export class MemesPageComponent implements OnInit {
     this.researcher.emit(meme);
   }
 
+  memetickerEvent(memetick: MemetickPreview) {
+    this.memeticker.emit(memetick);
+  }
+
   constructor(
     public pagination: MemesPaginationService,
     private likeApi: MemeLikeApiService,
     private memeApi: MemeApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
-    private router: Router
+    private modalService: NgbModal
   ) {
     this.stepIcons = evolveIcons;
     this.typeIcons = memeIcons;
@@ -135,10 +142,6 @@ export class MemesPageComponent implements OnInit {
   evolveStepInfo(step: EvolveStep) {
     const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
     modalRef.componentInstance.step = step;
-  }
-
-  memetickView(memetickId: UUID) {
-    this.router.navigate(['/memetick', memetickId]);
   }
 
   isMemeDeath(meme: Meme) {

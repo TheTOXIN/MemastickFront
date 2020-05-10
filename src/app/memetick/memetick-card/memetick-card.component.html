@@ -1,0 +1,15 @@
+<div *ngIf="isShow">
+  <div class="card-warp">
+    <div class="card-content my-scroll animated fadeInUpBig faster">
+      <div *ngIf="isLoad; else memetickLoadId">
+        <app-memetick-profile [memetick]="memetick"></app-memetick-profile>
+      </div>
+      <ng-template #memetickLoadId>
+        <app-spinner></app-spinner>
+      </ng-template>
+    </div>
+  </div>
+  <div class="card-close main-button-close" (click)="cardClose()">
+    <i class="fa fa-close"></i>
+  </div>
+</div>

@@ -9,6 +9,8 @@ import {GlobalConst} from '../../consts/GlobalConst';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {StorageService} from '../../services/storage-service';
 import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
+import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
+import {MemetickPreview} from '../../model/MemetickPreview';
 
 @Component({
   selector: 'app-memes',
@@ -19,6 +21,7 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
+  @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 
   public showPanel = true;
   public modePanel: MemeFilter;
@@ -86,5 +89,9 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   memeResearch(meme: Meme) {
     this.research.researchShow(meme);
+  }
+
+  memetickCard(memetick: MemetickPreview) {
+    this.card.showCard(memetick);
   }
 }

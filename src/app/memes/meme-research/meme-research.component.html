@@ -1,6 +1,6 @@
 <div *ngIf="isPreview">
-  <div class="meme-research-wrap">
-    <div class="meme-research-container my-scroll animated fadeInUpBig faster">
+  <div class="card-warp">
+    <div class="card-content my-scroll animated fadeInUpBig faster">
       <div class="meme-type-title">
         <p>{{typesText[meme.type]}}</p>
       </div>
@@ -53,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="research-close main-button-close" (click)="researchClose()">
+    <div class="card-close main-button-close" (click)="researchClose()">
       <i class="fa fa-close"></i>
     </div>
   </div>
