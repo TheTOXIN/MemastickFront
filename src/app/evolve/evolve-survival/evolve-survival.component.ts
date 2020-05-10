@@ -36,8 +36,6 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   chance() {
-    this.loaderService.setLoad('Применить антибиотик?');
-
     this.acceptService.accept({img: this.img}).then(
       () => this.increaseChance(),
       () => this.loaderService.setNone()
@@ -45,6 +43,8 @@ export class EvolveSurvivalComponent implements OnInit {
   }
 
   increaseChance() {
+    this.loaderService.setLoad('Лечим антибиотиком');
+
     this.tokenAcceptApi.accept(this.evolve.memeId, this.type).subscribe(
       () => this.successChance(),
       (error) => this.errorChance(error)

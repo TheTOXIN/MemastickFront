@@ -36,8 +36,6 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   adaptation() {
-    this.loaderService.setLoad('Применить пробирку?');
-
     this.acceptService.accept({img: this.img}).then(
       () => this.increaseAdaptation(),
       () => this.loaderService.setNone()
@@ -45,6 +43,7 @@ export class EvolveAdaptationComponent implements OnInit {
   }
 
   increaseAdaptation() {
+    this.loaderService.setLoad('Применяем пробирку...');
     this.tokenAcceptApi.accept(this.evolve.memeId, this.type).subscribe(
       () => this.successAdaptation(),
       (error) => this.errorAdaptation(error)

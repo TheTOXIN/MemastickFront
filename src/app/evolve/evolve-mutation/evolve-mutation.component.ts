@@ -46,8 +46,6 @@ export class EvolveMutationComponent implements OnInit {
   mutation() {
     if (!this.commentValid()) { return; }
 
-    this.loaderService.setLoad('Мутировать комментарием?');
-
     this.acceptService.accept({img: this.img}).then(
       () => this.makeMutation(),
       () => this.loaderService.setNone()
@@ -63,6 +61,8 @@ export class EvolveMutationComponent implements OnInit {
   }
 
   makeMutation() {
+    this.loaderService.setLoad('Вводим мутаген');
+
     const body = new TokenAccept(null, this.myComment);
     this.tokenAcceptApi.accept(this.evolve.memeId, this.type, body).subscribe(
       () => this.successMutation(),

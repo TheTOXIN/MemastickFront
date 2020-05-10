@@ -65,8 +65,6 @@ export class EvolveFitnessComponent implements OnInit {
   fitness() {
     if (this.lohPoints !== 0) { return; }
 
-    this.loaderService.setLoad('Подтвердить оценку?');
-
     this.acceptService.accept({img: this.img}).then(
       () => this.makeFitness(),
       () => this.loaderService.setNone()
@@ -74,6 +72,8 @@ export class EvolveFitnessComponent implements OnInit {
   }
 
   makeFitness() {
+    this.loaderService.setLoad('Записываем оценку');
+
     this.tokenAcceptApi.acceptLoh(this.evolve.memeId, this.type, this.myLoh).subscribe(
       () => this.successFitness(),
       (error) => this.errorFitness(error)
