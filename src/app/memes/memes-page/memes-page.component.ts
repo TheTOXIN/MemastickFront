@@ -60,7 +60,7 @@ export class MemesPageComponent implements OnInit {
   public researcher = new EventEmitter<Meme>();
 
   @Output()
-  public memeticker = new EventEmitter<MemetickPreview>();
+  public memeticker = new EventEmitter<UUID>();
 
   private timerChromosome;
   private counterChromosome = 0;
@@ -77,8 +77,8 @@ export class MemesPageComponent implements OnInit {
     this.researcher.emit(meme);
   }
 
-  memetickerEvent(memetick: MemetickPreview) {
-    this.memeticker.emit(memetick);
+  memetickerEvent(memetickId: UUID) {
+    this.memeticker.emit(memetickId);
   }
 
   constructor(

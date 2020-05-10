@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemeComment} from '../model/meme/MemeComment';
-import {MemeCommentApiService} from '../api/meme-comment-api.-service';
 import {UUID} from 'angular2-uuid';
-import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {MemeComment} from '../../model/meme/MemeComment';
+import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
+import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 
 @Component({
   selector: 'app-comments',

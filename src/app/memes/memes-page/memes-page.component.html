@@ -1,7 +1,7 @@
 <div class="memes-table animated zoomIn">
   <div class="memes-info">
     <div class="memes-info-avatar">
-      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickerEvent(data.page?.memetick)">
+      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickerEvent(data.page?.memetick.id)">
     </div>
     <div class="memes-info-nick text-strong-middle">
       <div fittext [minFontSize]="16" [maxFontSize]="28"> {{data.page?.memetick?.nick}} </div>
@@ -24,7 +24,7 @@
          [class.blur]="data.page?.meme.type === 'DEAD'">
   </div>
   <div class="meme-page-comment" *ngIf="data.page?.comment">
-    <app-meme-best-comment [comment]="data.page?.comment"></app-meme-best-comment>
+    <app-meme-best-comment [comment]="data.page?.comment" (memeticker)="memetickerEvent($event)"></app-meme-best-comment>
   </div>
   <div class="memes-likes">
     <div class="like-icon-1">

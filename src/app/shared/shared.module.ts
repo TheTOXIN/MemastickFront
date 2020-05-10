@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
-
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {WINDOW_PROVIDERS} from './services/windows.service';
@@ -31,10 +30,10 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {DnaCountComponent} from './dna-count/dna-count.component';
 import {LohRadarComponent} from './loh-radar/loh-radar.component';
 import {ChartsModule} from 'ng2-charts';
-import {CommentsComponent} from '../comments/comments.component';
 import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
 import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
+import {CommentsComponent} from './comments/comments.component';
 
 @NgModule({
   exports: [

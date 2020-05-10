@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MemetickPreview} from '../../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
@@ -26,10 +25,10 @@ export class MemetickCardComponent implements OnInit {
 
   }
 
-  public showCard(memetick: MemetickPreview) {
+  public showCard(memetickId: UUID) {
     this.isLoad = false;
 
-    this.memetickApi.view(memetick.id).subscribe(data => {
+    this.memetickApi.view(memetickId).subscribe(data => {
       this.memetick = data;
       this.isLoad = true;
     });

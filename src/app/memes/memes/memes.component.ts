@@ -11,6 +11,7 @@ import {StorageService} from '../../services/storage-service';
 import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {MemetickPreview} from '../../model/MemetickPreview';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-memes',
@@ -91,7 +92,7 @@ export class MemesComponent implements OnInit, OnDestroy {
     this.research.researchShow(meme);
   }
 
-  memetickCard(memetick: MemetickPreview) {
-    this.card.showCard(memetick);
+  memetickCard(memetickId: UUID) {
+    this.card.showCard(memetickId);
   }
 }

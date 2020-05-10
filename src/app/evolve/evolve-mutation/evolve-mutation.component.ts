@@ -1,19 +1,14 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
-import {LoaderStatus} from '../../consts/LoaderStatus';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAccept} from '../../model/tokens/TokenAccept';
 import {ErrorHandlerService} from '../../services/error-handler-service';
-import {MemeComment} from '../../model/meme/MemeComment';
-import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {ValidConst} from '../../consts/ValidConst';
-import {CommentsComponent} from '../../comments/comments.component';
 import {AcceptService} from '../../services/accept-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
+import {CommentsComponent} from '../../shared/comments/comments.component';
 
 @Component({
   selector: 'app-evolve-mutation',
