@@ -7,6 +7,7 @@ import {OauthApiService} from '../../services/oauth-api-service';
 import {securityStatuses} from '../../consts/SecurityStatus';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CreedModalComponent} from '../../modals/creed-modal/creed-modal.component';
+import {FRONT_URL} from '../../app.constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -88,7 +89,7 @@ export class SignUpComponent implements OnInit {
       this.signForm.value.login,
       this.signForm.value.password
     ).subscribe(
-      () => this.router.navigateByUrl('/home'),
+      () => window.location.href = FRONT_URL + '/home',
       () => this.router.navigateByUrl('/pages/sign-in'),
     );
   }
