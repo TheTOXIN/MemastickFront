@@ -140,9 +140,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private routerEvent() {
     this.router.events.subscribe((val) => {
-      this.state.status = LoaderStatus.NONE;
-      this.state.message = '';
-      this.state.event = null;
+      if (this.state.status !== LoaderStatus.NONE) {
+        this.state.status = LoaderStatus.NONE;
+        this.state.message = '';
+        this.state.event = null;
+      }
     });
   }
 }

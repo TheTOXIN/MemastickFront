@@ -13,16 +13,16 @@ const routes: Routes = [
         component: MemetickListComponent
       },
       {
+        path: 'rating',
+        component: MemetickRatingComponent
+      },
+      {
         path: 'me',
         component: MemetickComponent
       },
       {
         path: ':id',
         component: MemetickComponent
-      },
-      {
-        path: 'rating',
-        component: MemetickRatingComponent
       },
     ]
   }

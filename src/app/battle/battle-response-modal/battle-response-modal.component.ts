@@ -43,7 +43,7 @@ export class BattleResponseModalComponent implements OnInit {
   }
 
   response(accept: boolean) {
-    this.loaderService.setLoad('Отправляем...');
+    this.activeModal.dismiss('Cross click');
 
     const api = new BattleResponse(
       this.battleId,
@@ -52,13 +52,16 @@ export class BattleResponseModalComponent implements OnInit {
     );
 
     this.battleApi.response(api).subscribe(
-      () => this.loaderService.setDoneEvent('ГОТОВО', () => this.close()),
-      () => this.loaderService.setErrorEvent('ОШИБКА', () => this.close())
+      () => this.loaderService.setDoneEvent('ГОТОВО', () => this.toView()),
+      () => this.loaderService.setErrorEvent('ОШИБКА', () => this.toView())
     );
   }
 
-  close() {
-    this.activeModal.dismiss('Cross click');
+  toView() {
     this.router.navigateByUrl('/battle/view/' + this.battleId);
+  }
+
+  toClose() {
+    this.loaderService.setLoad('Отправляем...');
   }
 }

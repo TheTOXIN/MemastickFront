@@ -1,12 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemeCommentBest} from '../../model/meme/MemeCommentBest';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {Router} from '@angular/router';
 import {ScreenUtils} from '../../utils/screen-utils';
-import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 import {CommentViewModalComponent} from '../../modals/comment-view-modal/comment-view-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-meme-best-comment',
@@ -24,7 +21,6 @@ export class MemeBestCommentComponent implements OnInit {
   maxText = 16;
 
   constructor(
-    private router: Router,
     private modalService: NgbModal,
     private avatarApi: MemetickAvatarApiService
   ) {
@@ -43,9 +39,5 @@ export class MemeBestCommentComponent implements OnInit {
   commentsView() {
     const modalRef = this.modalService.open(CommentViewModalComponent, {'centered': true});
     modalRef.componentInstance.memeId = this.comment.memeId;
-  }
-
-  memetickView() {
-    this.router.navigate(['/memetick', this.comment.memetickId]);
   }
 }
