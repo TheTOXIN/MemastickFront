@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {EvolveStep} from '../../consts/EvolveStep';
+import {evolveIcons} from '../../consts/IconsData';
+import {evolveStepDescription, evolveStepText} from '../../consts/TextData';
 
 @Component({
   selector: 'app-evolve-step-info-modal',
@@ -12,15 +14,16 @@ export class EvolveStepInfoModalComponent {
   @Input()
   public step: EvolveStep;
 
-  public evolveInfos = [];
+  public evolveIcons = [];
+  public evolveText = [];
+  public evolveDesc = [];
 
   constructor(
     public activeModal: NgbActiveModal
   ) {
-    this.evolveInfos[EvolveStep.ADAPTATION] = 'assets/images/ss/1.png';
-    this.evolveInfos[EvolveStep.FITNESS] = 'assets/images/ss/2.png';
-    this.evolveInfos[EvolveStep.MUTATION] = 'assets/images/ss/3.png';
-    this.evolveInfos[EvolveStep.CROSSING] = 'assets/images/ss/4.png';
-    this.evolveInfos[EvolveStep.SURVIVAL] = 'assets/images/ss/5.png';
+    this.evolveIcons = evolveIcons;
+    this.evolveText = evolveStepText;
+    this.evolveDesc = evolveStepDescription;
+
   }
 }

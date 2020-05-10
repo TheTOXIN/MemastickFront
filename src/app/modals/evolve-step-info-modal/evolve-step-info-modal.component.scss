@@ -1,9 +1,12 @@
-.step-title {
-  font-size: 22px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.step-img {
-  width: 50%;
+.evolve-step-info {
+  img {
+    width: 100px;
+  }
+  div {
+    font-size: 24px;
+    font-family: FuturaRound, serif;
+  }
+  p {
+    margin-top: 5px;
+  }
 }

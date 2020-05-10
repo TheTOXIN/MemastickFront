@@ -2,8 +2,10 @@
   <div class="modal-header modal-section">
     <span class="modal-title step-title">ЭТАП ЭВОЛЮЦИИ</span>
   </div>
-  <div class="modal-body">
-    <img class="step-img" [src]="evolveInfos[step]">
+  <div class="modal-body evolve-step-info">
+    <img [src]="evolveIcons[step]">
+    <div>{{evolveText[step]}}</div>
+    <p>{{evolveDesc[step]}}</p>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
