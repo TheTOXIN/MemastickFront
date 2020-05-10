@@ -31,6 +31,7 @@ import {TokenModule} from '../token/token.module';
 import {CreedModalComponent} from './creed-modal/creed-modal.component';
 import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
 import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal.component';
+import {ImageModalComponent} from './image-modal/image-modal.component';
 
 @NgModule({
   exports: [
@@ -57,7 +58,9 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent
+    CommentViewModalComponent,
+    IntroModalComponent,
+    ImageModalComponent
   ],
   imports: [
     CommonModule,
@@ -94,10 +97,11 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent
+    CommentViewModalComponent,
+    IntroModalComponent,
+    ImageModalComponent
   ],
   entryComponents: [
-    IntroModalComponent,
     LogoutModalComponent,
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
@@ -120,7 +124,9 @@ import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent
+    CommentViewModalComponent,
+    IntroModalComponent,
+    ImageModalComponent
   ]
 })
 export class ModalsModule {

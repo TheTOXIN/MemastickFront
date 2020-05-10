@@ -19,7 +19,9 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide" *ngFor="let s of screens; let i = index">
               <div class="swiper-slide-title">{{s}}</div>
-              <img  class="swiper-slide-image" alt="1" [src]="'assets/images/ss/' + (i + 1) + '.png'">
+              <img  class="swiper-slide-image"
+                    (click)="openModal(s, 'assets/images/ss/' + (i + 1) + '.png')"
+                    [src]="'assets/images/ss/' + (i + 1) + '.png'">
             </div>
           </div>
         </div>
