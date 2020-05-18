@@ -9,10 +9,14 @@ import {Router} from '@angular/router';
 export class DownloadComponent implements OnInit {
 
   constructor(
-
+    private router: Router,
   ) {
   }
 
   ngOnInit() {
+  }
+
+  toLab() {
+    this.router.navigateByUrl('/lab');
   }
 }
