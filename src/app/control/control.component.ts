@@ -1,10 +1,10 @@
-import {Component, HostListener, Inject, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
 import {NotifyCount} from '../model/NotifyCount';
-import {WebSocketService} from '../services/web-socket-service';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {BellCounterService} from '../services/bell-counter-service';
 
 @Component({
   selector: 'app-control',
@@ -40,8 +40,8 @@ export class ControlComponent implements OnInit {
   public showCountItems = false;
 
   constructor(
+    private counterService: BellCounterService,
     private mainApi: MainApiService,
-    private socket: WebSocketService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -55,8 +55,8 @@ export class ControlComponent implements OnInit {
       this.showCountItems = this.counter.countItems !== 0;
     });
 
-    this.socket.counterObservable.subscribe((counter) => {
-      if (counter != null) {
+    this.counterService.subscribeCounter().subscribe((counter) => {
+      if (counter) {
         this.counter.countBells++;
         this.showCountBells = true;
         this.hide = false;

@@ -66,6 +66,7 @@ import {AcceptDirective} from './directivies/accept-directive';
 import {AcceptState} from './state/accept-state';
 import {LoaderService} from './services/loader-service';
 import {MemetickModule} from './memetick/memetick.module';
+import {BellCounterService} from './services/bell-counter-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -139,6 +140,7 @@ firebase.initializeApp(environment.firebase);
     AcceptService,
     AcceptState,
     LoaderService,
+    BellCounterService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

@@ -16,17 +16,11 @@ export class WebSocketService {
   public notiferBehavior: BehaviorSubject<Notify>;
   public notiferObservable: Observable<Notify>;
 
-  public counterBehavior: BehaviorSubject<string>;
-  public counterObservable: Observable<string>;
-
   constructor(
     private http: HttpClient
   ) {
     this.notiferBehavior = new BehaviorSubject(null);
     this.notiferObservable = this.notiferBehavior.asObservable();
-
-    this.counterBehavior = new BehaviorSubject(null);
-    this.counterObservable = this.counterBehavior.asObservable();
   }
 
   public connect() {
@@ -40,7 +34,6 @@ export class WebSocketService {
       this.register(id);
 
       this.notifer();
-      this.counter();
     });
   }
 
@@ -60,13 +53,6 @@ export class WebSocketService {
     this.stomp.subscribe(
       '/user/queue/notify',
       data => this.notiferBehavior.next(<Notify>JSON.parse(data.body))
-    );
-  }
-
-  public counter() {
-    this.stomp.subscribe(
-      '/user/queue/count',
-      data => this.counterBehavior.next(data.body)
     );
   }
 }

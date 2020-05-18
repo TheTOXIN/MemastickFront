@@ -6,7 +6,8 @@ export class Notify {
     public title: string,
     public text: string,
     public data: string,
-    public event: string
+    public event: string,
+    public bell: boolean
   ) {
 
   }
