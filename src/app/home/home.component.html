@@ -26,11 +26,10 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="button-big home-table" (click)="memes(filters.POOL)">
-        <p *ngIf="home">(новых мемов: {{home?.memes}})</p>
+        <p *ngIf="home">День эволюции: {{home?.day}}</p>
         <div class="button-biп-content">
+          <span>МЕМАСИКИ</span>
           <img src="assets/images/icon/world.png" class="spin-anim-evolution">
-          <span>ЭВОЛЮЦИЯ</span>
-          <span>#{{home?.day}}</span>
         </div>
         <app-timer *ngIf="home" [text]="'Отбор через'" [time]="home.selectTimer"></app-timer>
       </div>

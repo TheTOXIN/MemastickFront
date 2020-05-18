@@ -7,7 +7,6 @@ export class Home {
     public rank: MemetickRank,
     public message: string,
     public day: number,
-    public memes: number,
     public creedAgree: boolean,
     public selectTimer: string,
   ) {

@@ -52,7 +52,7 @@ export class MemeTypeDeadComponent implements OnInit {
   }
 
   public resurrectDone() {
-    this.loaderService.setDone('Мем в отобре');
+    this.loaderService.setDone('Мем стал особью');
   }
 
   public resurrectError(data: any) {
