@@ -147,6 +147,10 @@
 
 .create-preview {
   margin: auto;
+  max-width: 500px;
+  text-align: center;
+  background-color: whitesmoke;
+
   img {
     max-height: 400px;
     max-width: 100%;
