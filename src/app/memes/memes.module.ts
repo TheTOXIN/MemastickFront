@@ -27,6 +27,7 @@ import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.co
 import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
 import {MemetickModule} from '../memetick/memetick.module';
+import {MemesSwiperComponent} from './memes-swiper/memes-swiper.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import {MemetickModule} from '../memetick/memetick.module';
     MemeTypeIndividComponent,
     MemeTypeDeadComponent,
     MemeBestCommentComponent,
-    MemeResearchLinkComponent
+    MemeResearchLinkComponent,
+    MemesSwiperComponent
   ],
   entryComponents: [
     MemesModalComponent

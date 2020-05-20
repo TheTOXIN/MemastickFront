@@ -1,0 +1,7 @@
+<div class="memes-swiper-wrap">
+  <div *ngFor="let card of cards">
+    <div class="memes-swiper-card" [style.background-color]="card.color">
+      {{card.number}}
+    </div>
+  </div>
+</div>

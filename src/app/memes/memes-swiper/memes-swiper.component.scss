@@ -1,0 +1,30 @@
+.memes-swiper-wrap {
+  height: 100vh;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  scroll-snap-type: y proximity;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  @media(max-width: 767px) {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+.memes-swiper-card {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  color: white;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
