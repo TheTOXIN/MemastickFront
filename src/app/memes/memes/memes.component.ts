@@ -24,7 +24,6 @@ export class MemesComponent implements OnInit, OnDestroy {
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 
-  public showPanel = true;
   public modePanel: MemeFilter;
 
   constructor(
@@ -77,10 +76,6 @@ export class MemesComponent implements OnInit, OnDestroy {
   scrollHandler(e) {
     if (e === 'bottom') {
       this.pagination.more();
-    } else if (e === 'up') {
-      this.showPanel = true;
-    } else if (e === 'down') {
-      this.showPanel = false;
     }
   }
 

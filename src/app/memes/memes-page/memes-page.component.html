@@ -19,9 +19,9 @@
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
   </div>
-  <div class="memes-image animated zoomIn slow">
-    <img *ngIf="data.page?.meme.url" (click)='viewerEvent(data.page?.meme)' [src]="data.page?.meme.url || ''"
-         [class.blur]="data.page?.meme.type === 'DEAD'">
+  <div class="memes-image animated zoomIn slow"
+       (click)='viewerEvent(data.page?.meme)'
+       [style.background-image]="'url(' + data.page?.meme.url + ')'">
   </div>
   <div class="meme-page-comment" *ngIf="data.page?.comment">
     <app-meme-best-comment [comment]="data.page?.comment" (memeticker)="memetickerEvent($event)"></app-meme-best-comment>
