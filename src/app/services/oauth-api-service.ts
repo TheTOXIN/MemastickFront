@@ -94,8 +94,6 @@ export class OauthApiService {
     } else {
       this.logoutProcess();
     }
-
-    this.socket.disconnect();
   }
 
   private logoutProcess() {
