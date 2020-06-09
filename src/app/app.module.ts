@@ -67,6 +67,8 @@ import {AcceptState} from './state/accept-state';
 import {LoaderService} from './services/loader-service';
 import {MemetickModule} from './memetick/memetick.module';
 import {BellCounterService} from './services/bell-counter-service';
+import {ChatModule} from './chat/chat.module';
+import {ChatService} from './services/chat-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -91,6 +93,7 @@ firebase.initializeApp(environment.firebase);
     MemotypeModule,
     MemetickModule,
     BattleModule,
+    ChatModule,
     LaboratoryModule,
     HttpClientModule,
     AngularFittextModule,
@@ -141,6 +144,7 @@ firebase.initializeApp(environment.firebase);
     AcceptState,
     LoaderService,
     BellCounterService,
+    ChatService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

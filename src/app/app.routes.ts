@@ -6,6 +6,7 @@ import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.com
 import {AppComponent} from './app.component';
 import {LaboratoryComponent} from './laboratory/laboratory.component';
 import {DonaterMessagesComponent} from './shared/donater-messages/donater-messages.component';
+import {ChatComponent} from './chat/chat.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -38,6 +39,11 @@ export const rootRouterConfig: Routes = [
     path: 'lab',
     component: LaboratoryComponent,
     loadChildren: './laboratory/laboratory.module#LaboratoryModule'
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    loadChildren: './chat/chat.module#ChatModule'
   },
   {
     path: 'modal',
