@@ -7,6 +7,7 @@ import {Notify} from '../model/Notify';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {BACK_URL} from '../app.constants';
+import {ChatMessage} from '../model/chat/ChatMessage';
 
 @Injectable()
 export class WebSocketService {
@@ -16,11 +17,17 @@ export class WebSocketService {
   public notiferBehavior: BehaviorSubject<Notify>;
   public notiferObservable: Observable<Notify>;
 
+  public chaterBehavior: BehaviorSubject<ChatMessage>;
+  public chaterObservable: Observable<ChatMessage>;
+
   constructor(
     private http: HttpClient
   ) {
     this.notiferBehavior = new BehaviorSubject(null);
     this.notiferObservable = this.notiferBehavior.asObservable();
+
+    this.chaterBehavior = new BehaviorSubject(null);
+    this.chaterObservable = this.chaterBehavior.asObservable();
   }
 
   public connect() {
@@ -34,6 +41,7 @@ export class WebSocketService {
       this.register(id);
 
       this.notifer();
+      this.chater();
     });
   }
 
@@ -54,5 +62,16 @@ export class WebSocketService {
       '/user/queue/notify',
       data => this.notiferBehavior.next(<Notify>JSON.parse(data.body))
     );
+  }
+
+  public chater() {
+    this.stomp.subscribe(
+      '/chat/main',
+      data => this.chaterBehavior.next(<ChatMessage>JSON.parse(data.body))
+    );
+  }
+
+  public send(path: string, data: ChatMessage) {
+    this.stomp.send('/app' + path, {}, JSON.stringify(data));
   }
 }
