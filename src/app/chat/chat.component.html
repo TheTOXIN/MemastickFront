@@ -1,3 +1,25 @@
-<div class="flex-center-absolute">
-  <button class="btn-theme" (click)="test()">TEST</button>
+<div class="chat-head-panel head-panel">
+  <img class="img-fluid" src="assets/images/footer-logo.png">
 </div>
+
+<div class="chat my-scroll">
+  <div style="margin-top: 100px"></div>
+  <div *ngFor="let msg of messages">
+    <p class="align-center">{{msg.nick}}: {{msg.text}}</p>
+  </div>
+  <div style="margin-bottom: 100px"></div>
+</div>
+
+<div class="chat-input">
+  <input #inputChat [(ngModel)]="text" type="text" placeholder="Писать тут..."  autofocus (keyup.enter)="send()">
+</div>
+
+<div class="chat-foot-panel foot-panel">
+  <div (click)="home()"><i class="fa fa-home"></i></div>
+  <div class="chat-send" (click)="send()">
+    <i *ngIf="!loadSend" class="fa fa-paper-plane animated bounceIn" style="color: #007bff"></i>
+    <i *ngIf="loadSend" class="fa fa-circle-o-notch fa-spin" style="color: darkorange"></i>
+  </div>
+  <div (click)="stick()"><i class="fa fa-smile-o"></i></div>
+</div>
+

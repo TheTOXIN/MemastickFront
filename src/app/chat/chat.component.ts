@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
-import {UUID} from 'angular2-uuid';
 import {ChatMessageMode} from '../consts/ChatMessageMode';
+import {Router} from '@angular/router';
+import {StorageService} from '../services/storage-service';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-chat',
@@ -12,29 +14,64 @@ import {ChatMessageMode} from '../consts/ChatMessageMode';
 })
 export class ChatComponent implements OnInit {
 
-  constructor(
-    private socket: WebSocketService,
-    private chatService: ChatService
-  ) {
+  @ViewChild('inputChat') inputChat: ElementRef;
 
+  public messages: ChatMessage[] = [];
+
+  public text: string;
+  public memetickId: UUID;
+
+  public mode: ChatMessageMode = ChatMessageMode.TEXT;
+
+  loadSend = false;
+
+  constructor(
+    private router: Router,
+    private socket: WebSocketService,
+    private chatService: ChatService,
+    private storage: StorageService
+  ) {
+    this.memetickId = this.storage.getMe().memetickId;
   }
 
   ngOnInit() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
-        console.log(data);
+        if (data.my) {
+          this.loadSend = false;
+        }
+
+        this.messages.push(data);
       }
     });
   }
 
-  test() {
+  send() {
+    this.inputChat.nativeElement.focus();
+
+    if (this.text == null || this.text.trim() === '' || this.loadSend) {
+      return null;
+    }
+
+    this.loadSend = true;
+
     const message = new ChatMessage();
 
-    message.text = 'TEST';
-    message.nick = 'TEST';
-    message.memetickId = UUID.UUID();
-    message.mode = ChatMessageMode.TEXT;
+    message.my = true;
+    message.text = this.text;
+    message.mode = this.mode;
+    message.memetickId = this.memetickId;
 
     this.socket.send('/chat/send', message);
+
+    this.text = null;
+  }
+
+  stick() {
+    alert('TEST');
+  }
+
+  home() {
+    this.router.navigateByUrl('/home');
   }
 }
