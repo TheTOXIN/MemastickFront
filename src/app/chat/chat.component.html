@@ -3,11 +3,11 @@
 </div>
 
 <div #mainChat [scrollTop]="mainChat.scrollHeight" class="chat my-scroll">
-  <div style="height: 75px"></div>
+  <div id="topChat"></div>
   <div *ngFor="let message of messages">
     <app-chat-message [message]="message"></app-chat-message>
   </div>
-  <div style="height: 165px"></div>
+  <div id="bottomChat"></div>
 </div>
 
 <div class="chat-input">
