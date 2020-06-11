@@ -1,0 +1,12 @@
+<div class="chat-message animated faster"
+     [ngClass]="!message.my ? 'chat-message-direct fadeInLeft' : 'fadeInRight'">
+  <div class="chat-message-warp">
+    <div class="chat-message-avatar">
+      <img [src]="avatar" alt="..."/>
+    </div>
+    <div class="chat-message-content">
+      <div class="chat-message-nick">{{message.nick}}</div>
+      <div class="chat-message-text">{{message.text}}</div>
+    </div>
+  </div>
+</div>

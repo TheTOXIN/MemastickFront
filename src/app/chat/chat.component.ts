@@ -6,6 +6,7 @@ import {ChatMessageMode} from '../consts/ChatMessageMode';
 import {Router} from '@angular/router';
 import {StorageService} from '../services/storage-service';
 import {UUID} from 'angular2-uuid';
+import {ValidConst} from '../consts/ValidConst';
 
 @Component({
   selector: 'app-chat',
@@ -14,7 +15,8 @@ import {UUID} from 'angular2-uuid';
 })
 export class ChatComponent implements OnInit {
 
-  @ViewChild('inputChat') inputChat: ElementRef;
+  @ViewChild('inputChat') private inputChat: ElementRef;
+  @ViewChild('mainChat') private mainChat: ElementRef;
 
   public messages: ChatMessage[] = [];
 
@@ -24,6 +26,7 @@ export class ChatComponent implements OnInit {
   public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
   loadSend = false;
+  maxLenText = ValidConst.MAX_MEME_TEXT;
 
   constructor(
     private router: Router,
@@ -35,8 +38,14 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.watcher();
+  }
+
+  watcher() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
+        data.my = data.memetickId === this.memetickId;
+
         if (data.my) {
           this.loadSend = false;
         }
