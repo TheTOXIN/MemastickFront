@@ -12,6 +12,13 @@
     height: 48px;
     border-radius: 50%;
   }
+
+  @media(max-width: 767px) {
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
 }
 
 .chat-message-warp {
@@ -28,23 +35,42 @@
   margin-top: 15px;
   margin-left: auto;
   margin-right: 0;
+
+  @media(max-width: 767px) {
+    margin-top: 10px;
+    border-width: 3px;
+  }
 }
 
 .chat-message-content {
   padding-right: 54px;
   padding-left: 54px;
+
+  @media(max-width: 767px) {
+    padding-right: 42px;
+    padding-left: 42px;
+  }
 }
 
 .chat-message-nick {
   font-family: Gost, serif;
   font-size: 22px;
+
+  @media(max-width: 767px) {
+    font-size: 18px;
+  }
 }
 
 .chat-message-text {
   font-family: FuturaRound, serif;
   font-size: 18px;
+
   word-wrap: break-word;
   white-space: pre-wrap;
+
+  @media(max-width: 767px) {
+    font-size: 16px;
+  }
 }
 
 .chat-message-direct {
