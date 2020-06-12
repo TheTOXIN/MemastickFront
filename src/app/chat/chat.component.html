@@ -4,15 +4,18 @@
 
 <div #mainChat [scrollTop]="mainChat.scrollHeight" class="chat my-scroll">
   <div id="topChat"></div>
-  <div *ngFor="let message of messages">
-    <app-chat-message [message]="message"></app-chat-message>
+  <div *ngFor="let message of messages; let i = index">
+    <app-chat-message
+      [withDelete]="canDelete"
+      (whenDelete)="delete($event, i)"
+      [message]="message">
+    </app-chat-message>
   </div>
   <div id="bottomChat"></div>
 </div>
 
 <div class="chat-input">
-  <input #inputChat
-         [(ngModel)]="text"
+  <input [(ngModel)]="text"
          (keyup.enter)="send()"
          [maxLength]="maxLenText"
          type="text"

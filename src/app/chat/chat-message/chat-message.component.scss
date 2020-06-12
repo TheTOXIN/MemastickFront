@@ -9,6 +9,7 @@
 
 .chat-message-avatar {
   float: left;
+  cursor: pointer;
 
   img {
     width: 48px;
@@ -17,6 +18,8 @@
   }
 
   @media(max-width: 767px) {
+    padding: 3px;
+
     img {
       width: 36px;
       height: 36px;
@@ -40,6 +43,7 @@
   margin-right: 0;
 
   @media(max-width: 767px) {
+    padding: 5px;
     margin-top: 10px;
     border-width: 3px;
   }
@@ -78,6 +82,17 @@
   }
 }
 
+.chat-message-delete {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+
+  i {
+    cursor: pointer;
+    color: #be3b31;
+  }
+}
+
 .chat-message-direct {
   text-align: left;
 
@@ -98,5 +113,10 @@
 
   .chat-message-content {
     text-align: right;
+  }
+
+  .chat-message-delete {
+    right: 0;
+    left: 5px;
   }
 }

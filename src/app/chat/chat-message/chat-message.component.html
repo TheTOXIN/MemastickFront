@@ -8,5 +8,8 @@
       <div class="chat-message-nick">{{message.nick}}</div>
       <div class="chat-message-text">{{message.text}}</div>
     </div>
+    <div class="chat-message-delete" *ngIf="withDelete" (click)="delete()">
+      <i class="fa fa-trash"></i>
+    </div>
   </div>
 </div>

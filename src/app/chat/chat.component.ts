@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {StorageService} from '../services/storage-service';
 import {UUID} from 'angular2-uuid';
 import {ValidConst} from '../consts/ValidConst';
+import {RoleType} from '../consts/RoleType';
 
 @Component({
   selector: 'app-chat',
@@ -15,9 +16,6 @@ import {ValidConst} from '../consts/ValidConst';
 })
 export class ChatComponent implements OnInit {
 
-  @ViewChild('inputChat') private inputChat: ElementRef;
-  @ViewChild('mainChat') private mainChat: ElementRef;
-
   public messages: ChatMessage[] = [];
 
   public text: string;
@@ -25,7 +23,9 @@ export class ChatComponent implements OnInit {
 
   public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
+  canDelete = false;
   loadSend = false;
+
   maxLenText = ValidConst.MAX_MEME_TEXT;
 
   constructor(
@@ -34,7 +34,10 @@ export class ChatComponent implements OnInit {
     private chatService: ChatService,
     private storage: StorageService
   ) {
-    this.memetickId = this.storage.getMe().memetickId;
+    const me = this.storage.getMe();
+
+    this.memetickId = me.memetickId;
+    this.canDelete = me.role === RoleType.ADMIN;
   }
 
   ngOnInit() {
@@ -56,8 +59,6 @@ export class ChatComponent implements OnInit {
   }
 
   send() {
-    this.inputChat.nativeElement.focus();
-
     if (this.text == null || this.text.trim() === '' || this.loadSend) {
       return null;
     }
@@ -74,6 +75,11 @@ export class ChatComponent implements OnInit {
     this.socket.send('/chat/send', message);
 
     this.text = null;
+  }
+
+  delete(number: number, index: number) {
+    this.chatService.delete(number);
+    this.messages.splice(index, 1);
   }
 
   stick() {
