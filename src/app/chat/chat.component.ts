@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
@@ -8,6 +8,7 @@ import {StorageService} from '../services/storage-service';
 import {UUID} from 'angular2-uuid';
 import {ValidConst} from '../consts/ValidConst';
 import {RoleType} from '../consts/RoleType';
+import {MemetickCardComponent} from '../memetick/memetick-card/memetick-card.component';
 
 @Component({
   selector: 'app-chat',
@@ -15,6 +16,8 @@ import {RoleType} from '../consts/RoleType';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+
+  @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 
   public messages: ChatMessage[] = [];
 
@@ -80,6 +83,10 @@ export class ChatComponent implements OnInit {
   delete(number: number, index: number) {
     this.chatService.delete(number);
     this.messages.splice(index, 1);
+  }
+
+  memetickCard(memetickId: UUID) {
+    this.card.showCard(memetickId);
   }
 
   stick() {

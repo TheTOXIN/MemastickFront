@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ChatMessage} from '../../model/chat/ChatMessage';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-chat-message',
@@ -18,6 +19,9 @@ export class ChatMessageComponent implements OnInit {
   @Output()
   public whenDelete = new EventEmitter<Number>();
 
+  @Output()
+  public showMemetick = new EventEmitter<UUID>();
+
   constructor(
     private avatarService: MemetickAvatarApiService,
   ) {
@@ -27,9 +31,13 @@ export class ChatMessageComponent implements OnInit {
   ngOnInit() {
   }
 
+  memetick() {
+    this.showMemetick.emit(this.message.memetickId);
+  }
+
   delete() {
     if (confirm('DELETE ?')) {
-      this.whenDelete.next(this.message.number);
+      this.whenDelete.emit(this.message.number);
     }
   }
 

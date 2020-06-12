@@ -8,6 +8,7 @@
     <app-chat-message
       [withDelete]="canDelete"
       (whenDelete)="delete($event, i)"
+      (showMemetick)="memetickCard($event)"
       [message]="message">
     </app-chat-message>
   </div>
@@ -31,5 +32,7 @@
   </div>
   <div (click)="stick()"><i class="fa fa-smile-o"></i></div>
 </div>
+
+<app-memetick-card></app-memetick-card>
 
 <div class="mem-back"></div>
