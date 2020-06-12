@@ -2,8 +2,11 @@
   <img class="img-fluid" src="assets/images/footer-logo.png">
 </div>
 
-<div #mainChat [scrollTop]="mainChat.scrollHeight" class="chat my-scroll">
+<div #mainChat [scrollTop]="mainChat.scrollHeight" class="chat my-scroll" appScrollable (scrollPosition)="scroller($event)">
   <div id="topChat"></div>
+  <div *ngIf="isLoad" style="margin-top: 10px">
+    <app-spinner></app-spinner>
+  </div>
   <div *ngFor="let message of messages; let i = index">
     <app-chat-message
       [withDelete]="canDelete"

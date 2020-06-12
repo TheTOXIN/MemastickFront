@@ -14,6 +14,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemotypeReadModalComponent} from '../memotype/memotype-read-modal/memotype-read-modal.component';
 import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
+import {User} from '../model/User';
+import {OauthApiService} from '../services/oauth-api-service';
 
 @Component({
   selector: 'app-chat',
@@ -31,10 +33,14 @@ export class ChatComponent implements OnInit {
   public memetickId: UUID;
   public memotype: Memotype;
 
+  public chatPage: number = 0;
   public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
   canDelete = false;
   loadSend = false;
+
+  isConnect = false;
+  isLoad = false;
 
   modes = ChatMessageMode;
   maxLenText = ValidConst.MAX_MEME_TEXT;
@@ -46,15 +52,29 @@ export class ChatComponent implements OnInit {
     private storage: StorageService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    private oauthApi: OauthApiService
   ) {
     const me = this.storage.getMe();
 
+    if (me == null) {
+      this.oauthApi.readMe().subscribe(data => this.initMe(data));
+    } else {
+      this.initMe(me);
+    }
+  }
+
+  ngOnInit() {
+    this.connect();
+    this.watcher();
+  }
+
+  initMe(me: User) {
     this.memetickId = me.memetickId;
     this.canDelete = me.role === RoleType.ADMIN;
   }
 
-  ngOnInit() {
-    this.watcher();
+  connect() {
+    this.load();
   }
 
   watcher() {
@@ -68,6 +88,18 @@ export class ChatComponent implements OnInit {
 
         this.messages.push(data);
       }
+    });
+  }
+
+  load() {
+    this.isLoad = true;
+
+    this.chatService.read(this.chatPage++).subscribe(data => {
+      for (const msg of data) {
+        msg.my = msg.memetickId === this.memetickId;
+        this.messages.unshift(msg);
+      }
+      this.isLoad = false;
     });
   }
 
@@ -138,5 +170,11 @@ export class ChatComponent implements OnInit {
 
   home() {
     this.router.navigateByUrl('/home');
+  }
+
+  scroller(e) {
+    if (e === 'top') {
+      this.load();
+    }
   }
 }

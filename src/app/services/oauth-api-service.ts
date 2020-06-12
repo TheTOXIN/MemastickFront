@@ -143,10 +143,14 @@ export class OauthApiService {
   }
 
   public loadMe() {
-    this.http.get<User>(API.USER_ME).subscribe(data => {
+    this.readMe().subscribe(data => {
       this.storageService.setMe(data);
       console.log(data);
     });
+  }
+
+  public readMe(): Observable<User> {
+    return this.http.get<User>(API.USER_ME).pipe();
   }
 
   public loadData(): Observable<UserData> {

@@ -27,6 +27,7 @@ import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.co
 import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
 import {MemetickModule} from '../memetick/memetick.module';
+import {DirectivesModule} from '../directivies/directives.module';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {MemetickModule} from '../memetick/memetick.module';
     MemesRoutingModules,
     TokenModule,
     FormsModule,
-    AngularFittextModule
+    AngularFittextModule,
+    DirectivesModule
   ],
   exports: [
     MemesPageComponent,
@@ -47,8 +49,6 @@ import {MemetickModule} from '../memetick/memetick.module';
     MemeViewComponent
   ],
   declarations: [
-    ScrollableDirective,
-    DropZoneDirective,
     MemesComponent,
     MemesPageComponent,
     MemeViewComponent,

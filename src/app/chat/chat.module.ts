@@ -6,6 +6,8 @@ import {ChatMessageComponent} from './chat-message/chat-message.component';
 import {MemetickModule} from '../memetick/memetick.module';
 import {ModalsModule} from '../modals/modals.module';
 import {MemotypeModule} from '../memotype/memotype.module';
+import {DirectivesModule} from '../directivies/directives.module';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import {MemotypeModule} from '../memotype/memotype.module';
     FormsModule,
     MemetickModule,
     ModalsModule,
-    MemotypeModule
+    MemotypeModule,
+    DirectivesModule,
+    SharedModule
   ],
   declarations: [
     ChatComponent,

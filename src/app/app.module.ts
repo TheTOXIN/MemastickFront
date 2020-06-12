@@ -62,13 +62,13 @@ import {AdminApiService} from './api/admin-api-service';
 import {MemeLohApiService} from './api/meme-loh-api-service';
 import {MemeCommentApiService} from './api/meme-comment-api.-service';
 import {AcceptService} from './services/accept-service';
-import {AcceptDirective} from './directivies/accept-directive';
 import {AcceptState} from './state/accept-state';
 import {LoaderService} from './services/loader-service';
 import {MemetickModule} from './memetick/memetick.module';
 import {BellCounterService} from './services/bell-counter-service';
 import {ChatModule} from './chat/chat.module';
 import {ChatService} from './services/chat-service';
+import {DirectivesModule} from './directivies/directives.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -77,7 +77,6 @@ firebase.initializeApp(environment.firebase);
     AppComponent,
     ShopComponent,
     BlogComponent,
-    AcceptDirective,
     ErrorPageComponent
   ],
   imports: [
@@ -93,6 +92,7 @@ firebase.initializeApp(environment.firebase);
     MemotypeModule,
     MemetickModule,
     BattleModule,
+    DirectivesModule,
     ChatModule,
     LaboratoryModule,
     HttpClientModule,
