@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
@@ -27,6 +27,8 @@ export class ChatComponent implements OnInit {
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
   @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
 
+  @ViewChild('mainChat') public viewportRef: ElementRef;
+
   public messages: ChatMessage[] = [];
 
   public text: string;
@@ -39,8 +41,8 @@ export class ChatComponent implements OnInit {
   canDelete = false;
   loadSend = false;
 
-  isConnect = false;
   isLoad = false;
+  isScroll = false;
 
   modes = ChatMessageMode;
   maxLenText = ValidConst.MAX_MEME_TEXT;
@@ -52,7 +54,8 @@ export class ChatComponent implements OnInit {
     private storage: StorageService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private oauthApi: OauthApiService
+    private oauthApi: OauthApiService,
+    private changeDetectionRef: ChangeDetectorRef
   ) {
     const me = this.storage.getMe();
 
@@ -64,8 +67,8 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.connect();
-    this.watcher();
+    this.load();
+    this.watch();
   }
 
   initMe(me: User) {
@@ -73,33 +76,45 @@ export class ChatComponent implements OnInit {
     this.canDelete = me.role === RoleType.ADMIN;
   }
 
-  connect() {
-    this.load();
+  load() {
+    this.isLoad = true;
+    this.chatService.read(this.chatPage++).subscribe(data => {
+      for (const msg of data) {
+        msg.my = msg.memetickId === this.memetickId;
+
+        const bsh = this.viewportRef.nativeElement.scrollHeight;
+
+        this.messages.unshift(msg);
+        this.changeDetectionRef.detectChanges();
+
+        const ash = this.viewportRef.nativeElement.scrollHeight;
+        const ast = this.viewportRef.nativeElement.scrollTop;
+
+        this.viewportRef.nativeElement.scrollTop = (ash - bsh) + ast;
+      }
+      this.isLoad = false;
+    });
   }
 
-  watcher() {
+  watch() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
         data.my = data.memetickId === this.memetickId;
 
         if (data.my) {
           this.loadSend = false;
+          this.isScroll = true;
         }
 
+        const bsh = this.viewportRef.nativeElement.scrollHeight;
+
         this.messages.push(data);
-      }
-    });
-  }
+        this.changeDetectionRef.detectChanges();
 
-  load() {
-    this.isLoad = true;
-
-    this.chatService.read(this.chatPage++).subscribe(data => {
-      for (const msg of data) {
-        msg.my = msg.memetickId === this.memetickId;
-        this.messages.unshift(msg);
+        if (this.isScroll) {
+          this.viewportRef.nativeElement.scrollTop = bsh;
+        }
       }
-      this.isLoad = false;
     });
   }
 
@@ -175,6 +190,10 @@ export class ChatComponent implements OnInit {
   scroller(e) {
     if (e === 'top') {
       this.load();
+    } else if (e === 'bottom') {
+      this.isScroll = true;
+    } else if (e === 'up') {
+      this.isScroll = false;
     }
   }
 }
