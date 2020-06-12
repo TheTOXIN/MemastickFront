@@ -6,7 +6,12 @@
     </div>
     <div class="chat-message-content">
       <div class="chat-message-nick">{{message.nick}}</div>
-      <div class="chat-message-text">{{message.text}}</div>
+      <div class="chat-message-text" *ngIf="message.mode == modes.TEXT">
+        {{message.text}}
+      </div>
+      <div class="chat-message-sticker" *ngIf="message.mode == modes.STICKER" (click)="memotpye()">
+        <img [src]="message.sticker">
+      </div>
     </div>
     <div class="chat-message-delete" *ngIf="withDelete" (click)="delete()">
       <i class="fa fa-trash"></i>

@@ -84,6 +84,7 @@ export enum API {
 
   MEMOTYPE_COLLECTION = '/memotype-set/collection',
   MEMOTYPE_READ = '/memotype-memetick/read',
+  MEMOTYPE_READ_ONE = '/memotype/read',
   MEMOTYPE_ALL = '/memotype/all',
   MEMOTYPE_BUY = '/memotype-memetick/buy',
 

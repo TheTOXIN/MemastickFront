@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
 import {MemotypeApiService} from '../../api/memotype-api-service';
@@ -7,6 +7,7 @@ import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Memotype} from '../../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
+import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-memotype-read-modal',
@@ -20,30 +21,59 @@ export class MemotypeReadModalComponent implements OnInit {
   @Input()
   public memetickId: UUID;
 
+  @Input()
+  public selectMode: boolean = false;
+
+  @Output()
+  public selectEvent = new EventEmitter<Memotype>();
+
   public collection: MemotypeSet[] = [];
 
   public memotypeColors;
   public memotypeNames;
 
   isLoad = true;
+  memotypesCarousel: any;
 
   constructor(
     public activeModal: NgbActiveModal,
-    private memotypeApi: MemotypeApiService
+    private memotypeApi: MemotypeApiService,
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
   }
 
   ngOnInit() {
+    this.initCarousel();
+
     this.memotypeApi.read(this.memetickId).subscribe(data => {
       this.collection = data.content;
       this.isLoad = false;
     });
   }
 
-  viewMemotype(memotype: Memotype) {
+  clickMemotype(memotype: Memotype) {
     if (memotype.count === 0) { return; }
+
+    if (this.selectMode) {
+      this.selectEvent.emit(memotype);
+      this.activeModal.close();
+
+      return;
+    }
+
     this.view.viewShow(memotype);
+  }
+
+  initCarousel() {
+    this.memotypesCarousel = {
+      loop: true,
+      nav: false,
+      dots: true,
+      rewindNav: false,
+      autoHeight: false,
+      lazyLoad: true,
+      items: 1
+    };
   }
 }

@@ -9,6 +9,7 @@
       [withDelete]="canDelete"
       (whenDelete)="delete($event, i)"
       (showMemetick)="memetickCard($event)"
+      (viewMemotype)="memotypeLoad($event)"
       [message]="message">
     </app-chat-message>
   </div>
@@ -16,12 +17,19 @@
 </div>
 
 <div class="chat-input">
-  <input [(ngModel)]="text"
-         (keyup.enter)="send()"
-         [maxLength]="maxLenText"
-         type="text"
-         placeholder="Писать тут..."
-         autofocus="autofocus">
+  <input
+    *ngIf="mode == modes.TEXT"
+    [(ngModel)]="text"
+    (keyup.enter)="send()"
+    [maxLength]="maxLenText"
+    type="text"
+    placeholder="Писать тут..."
+    autofocus="autofocus">
+  <img
+    (click)="memotypeView()"
+    *ngIf="mode == modes.STICKER"
+    [src]="memotype.image"
+    class="img-fluid">
 </div>
 
 <div class="chat-foot-panel foot-panel">
@@ -30,9 +38,15 @@
     <i *ngIf="!loadSend" class="fa fa-paper-plane animated bounceIn" style="color: #007bff"></i>
     <i *ngIf="loadSend" class="fa fa-circle-o-notch fa-spin" style="color: darkorange"></i>
   </div>
-  <div (click)="stick()"><i class="fa fa-smile-o"></i></div>
+  <div (click)="stick()" *ngIf="mode == modes.TEXT">
+    <i class="fa fa-smile-o"></i>
+  </div>
+  <div (click)="texter()" *ngIf="mode == modes.STICKER">
+    <i class="fa fa-times-circle"></i>
+  </div>
 </div>
 
 <app-memetick-card></app-memetick-card>
+<app-memotype-view></app-memotype-view>
 
 <div class="mem-back"></div>

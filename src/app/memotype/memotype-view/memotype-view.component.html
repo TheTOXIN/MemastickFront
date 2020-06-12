@@ -1,5 +1,5 @@
 <div *ngIf="isPreview" class="memotype-view animated slideInUp faster">
-  <div class="memotype-view-conent">
+  <div class="memotype-view-conent" *ngIf="!isLoad; else memotypeLoad">
     <div class="memotype-view-title">
       {{memotype?.title}}
     </div>
@@ -20,4 +20,9 @@
       <i class="fa fa-times"></i>
     </div>
   </div>
+  <ng-template #memotypeLoad>
+    <div class="flex-center-absolute">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
 </div>

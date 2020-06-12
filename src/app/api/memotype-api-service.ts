@@ -4,6 +4,7 @@ import {API} from '../consts/API';
 import {UUID} from 'angular2-uuid';
 import {MemotypeMemetick} from '../model/memotype/MemotypeMemetick';
 import {Observable} from 'rxjs/Observable';
+import {Memotype} from '../model/memotype/Memotype';
 
 @Injectable()
 export class MemotypeApiService {
@@ -12,6 +13,12 @@ export class MemotypeApiService {
     private http: HttpClient
   ) {
 
+  }
+
+  public readOne(memotypeId: UUID): Observable<Memotype> {
+    return this.http
+      .get<Memotype>(`${API.MEMOTYPE_READ_ONE}/${memotypeId}`)
+      .pipe();
   }
 
   public all(): Observable<MemotypeMemetick> {

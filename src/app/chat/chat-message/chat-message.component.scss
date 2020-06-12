@@ -82,6 +82,22 @@
   }
 }
 
+.chat-message-sticker {
+  img {
+    cursor: pointer;
+
+    width: 100px;
+    height: 100px;
+  }
+
+  @media(max-width: 767px) {
+    img {
+      width: 69px;
+      height: 69px;
+    }
+  }
+}
+
 .chat-message-delete {
   position: absolute;
   top: 20px;

@@ -69,20 +69,14 @@
 
   @media(max-width: 767px) {
     &:hover {
-      animation: scaleTwo 0.5s;
+      animation: scaling 0.5s;
       animation-fill-mode: forwards;
     }
   }
 }
 
-@keyframes scale {
+@keyframes scaling {
   100% {
     transform: scale(1.5);
-  }
-}
-
-@keyframes scaleTwo {
-  100% {
-    transform: scale(2);
   }
 }
