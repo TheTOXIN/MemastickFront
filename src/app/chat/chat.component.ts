@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
@@ -22,7 +22,7 @@ import {OauthApiService} from '../services/oauth-api-service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
   @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
@@ -67,13 +67,30 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.connect();
     this.load();
     this.watch();
+  }
+
+  ngOnDestroy(): void {
+    this.socket.unsubscribe('chatId');
   }
 
   initMe(me: User) {
     this.memetickId = me.memetickId;
     this.canDelete = me.role === RoleType.ADMIN;
+  }
+
+  connect() {
+    if (this.socket.isConnect) {
+      this.socket.chater();
+    } else {
+      this.socket.connectEvent.subscribe(data => {
+        if (data) {
+          this.socket.chater();
+        }
+      });
+    }
   }
 
   load() {

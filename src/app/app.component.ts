@@ -7,7 +7,7 @@ import {PushService} from './services/push-service';
 import {StorageService} from './services/storage-service';
 import {MemeFilter} from './consts/MemeFilter';
 import {ANDROID_URL, VERSION} from './app.constants';
-import {Router} from '@angular/router';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {MainApiService} from './api/main-api-service';
 import {LoaderState} from './state/loader-state';
 import {LoaderService} from './services/loader-service';
@@ -94,6 +94,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public notify() {
     this.push.register();
+
+    this.socket.connectEvent.subscribe(data => {
+      if (data) {
+        this.socket.notifer();
+      }
+    });
+
     this.socket.connect();
 
     this.socket.notiferObservable.subscribe((notify) => {
@@ -139,7 +146,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private routerEvent() {
-    this.router.events.subscribe((val) => {
+    this.router.events.subscribe((val: any) => {
       if (this.state.status !== LoaderStatus.NONE) {
         this.state.status = LoaderStatus.NONE;
         this.state.message = '';
