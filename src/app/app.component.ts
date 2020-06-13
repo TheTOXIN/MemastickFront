@@ -95,7 +95,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.pwa.checkUpdate(() => {
       alert('Мемастик обновился, подтвердите чтобы обновить');
       this.showUpdater = false;
-      document.location.reload();
+      window.location.reload();
     });
   }
 
