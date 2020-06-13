@@ -8,12 +8,12 @@
 }
 
 .chat-message-avatar {
-  float: left;
   cursor: pointer;
 
   img {
     width: 48px;
     height: 48px;
+
     border-radius: 50%;
   }
 
@@ -28,9 +28,10 @@
 }
 
 .chat-message-warp {
-  display: inline-block;
+  display: inline-flex;
+
   background-color: white;
-  border-radius: 50px 0 0 50px;
+  border-radius: 30px 0 0 30px;
   border-width: 5px;
   border-color: $primary_color;
   border-style: solid;
@@ -50,14 +51,14 @@
 }
 
 .chat-message-content {
-  padding-right: 54px;
-  padding-left: 54px;
+  padding-right: 5px;
+  padding-left: 5px;
 
   text-align: left;
 
   @media(max-width: 767px) {
-    padding-right: 42px;
-    padding-left: 42px;
+    padding-right: 3px;
+    padding-left: 3px;
   }
 }
 
@@ -75,7 +76,6 @@
   font-size: 18px;
 
   word-break: break-word;
-  white-space: pre-wrap;
 
   @media(max-width: 767px) {
     font-size: 16px;
@@ -99,9 +99,7 @@
 }
 
 .chat-message-delete {
-  position: absolute;
-  top: 20px;
-  right: 5px;
+  padding: 3px;
 
   i {
     cursor: pointer;
@@ -115,11 +113,8 @@
   padding-left: 0;
   padding-right: 10px;
 
-  .chat-message-avatar {
-    float: right;
-  }
-
   .chat-message-warp {
+    flex-direction: row-reverse;
     margin-right: auto;
     margin-left: 0;
     border-right-style: solid;
@@ -129,10 +124,5 @@
 
   .chat-message-content {
     text-align: right;
-  }
-
-  .chat-message-delete {
-    right: 0;
-    left: 5px;
   }
 }
