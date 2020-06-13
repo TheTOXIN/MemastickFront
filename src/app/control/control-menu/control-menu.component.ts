@@ -30,6 +30,10 @@ export class ControlMenuComponent implements OnInit {
     this.navigate('/memetick/me');
   }
 
+  donaters() {
+    this.navigate('/donaters/rating');
+  }
+
   lab() {
     this.navigate('/lab');
   }

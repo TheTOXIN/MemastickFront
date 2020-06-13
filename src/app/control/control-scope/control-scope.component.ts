@@ -57,6 +57,14 @@ export class ControlScopeComponent implements OnInit {
     this.navigate('/memotype/collection');
   }
 
+  lab() {
+    this.navigate('/lab');
+  }
+
+  chat() {
+    this.navigate('/chat');
+  }
+
   navigate(url: string) {
     this.closeEvent.emit(null);
     this.router.navigateByUrl(url);
