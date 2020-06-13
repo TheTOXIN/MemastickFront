@@ -37,11 +37,10 @@ export class MemotypeViewComponent implements OnInit {
 
   viewLoad(memotypeId: UUID) {
     this.isLoad = true;
+    this.isPreview = true;
 
     this.memotypeApi.readOne(memotypeId).subscribe(data => {
       this.memotype = data;
-
-      this.isPreview = true;
       this.isLoad = false;
     });
   }
