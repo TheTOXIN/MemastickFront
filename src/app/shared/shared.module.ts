@@ -21,7 +21,6 @@ import {DonaterMessageComponent} from './donater-message/donater-message.compone
 import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
-import {VkChatComponent} from './vk-chat/vk-chat.component';
 import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
 import {RankLevelComponent} from './rank-level/rank-level.component';
 import {DnaLineComponent} from './dna-line/dna-line.component';
@@ -52,7 +51,6 @@ import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent,
     PreviewScreenComponent,
     RankLevelComponent,
     DnaLineComponent,
@@ -91,7 +89,6 @@ import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
     DonaterRatingComponent,
     DonaterMessageComponent,
     GpBtnComponent,
-    VkChatComponent,
     PreviewScreenComponent,
     RankLevelComponent,
     DnaLineComponent,

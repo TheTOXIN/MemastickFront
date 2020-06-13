@@ -13,6 +13,7 @@ import {MiningComponent} from './mining/mining.component';
 import {HomeParticlesComponent} from './home-particles/home-particles.component';
 import {MemetickModule} from '../memetick/memetick.module';
 import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
+import {HomeChatComponent} from './home-chat/home-chat.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
     LibraryComponent,
     MiningComponent,
     HomeParticlesComponent,
-    HomeMemetickComponent
+    HomeMemetickComponent,
+    HomeChatComponent
   ]
 })
 export class HomeModule { }
