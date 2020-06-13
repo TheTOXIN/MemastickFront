@@ -51,6 +51,14 @@ export class ChatMessageComponent implements OnInit {
     }
   }
 
+  get getClasses() {
+    return {
+      'chat-message-direct fadeInLeft': this.message.direct,
+      'animated faster': this.message.anim,
+      'fadeInRight': !this.message.direct
+    };
+  }
+
   get avatar() {
     return this.avatarService.dowloadAvatar(this.message.memetickId);
   }

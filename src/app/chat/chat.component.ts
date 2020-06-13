@@ -27,7 +27,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
   @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
 
-  @ViewChild('mainChat') public viewportRef: ElementRef;
+  @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
 
   public messages: ChatMessage[] = [];
 
@@ -36,6 +36,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   public memotype: Memotype;
 
   public chatPage: number = 0;
+  public chatSize: number = 10;
+
   public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
   canDelete = false;
@@ -58,7 +60,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef
   ) {
-
+    this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, 100);
   }
 
   ngOnInit() {
@@ -96,22 +98,19 @@ export class ChatComponent implements OnInit, OnDestroy {
     }
   }
 
-  load() {
+  load(init: boolean = true) {
     this.isLoad = true;
-    this.chatService.read(this.chatPage++).subscribe(data => {
+    this.chatService.read(this.chatPage++, this.chatSize).subscribe(data => {
       for (const msg of data) {
-        ChatUtils.prepare(msg,  this.messages, this.memetickId, false);
-
-        const bsh = this.viewportRef.nativeElement.scrollHeight;
-
+        ChatUtils.prepare(msg, this.messages, this.memetickId, false);
         this.messages.unshift(msg);
-        this.changeDetectionRef.detectChanges();
-
-        const ash = this.viewportRef.nativeElement.scrollHeight;
-        const ast = this.viewportRef.nativeElement.scrollTop;
-
-        this.viewportRef.nativeElement.scrollTop = (ash - bsh) + ast;
       }
+
+      if (init) {
+        this.changeDetectionRef.detectChanges();
+        this.scrollBottom();
+      }
+
       this.isLoad = false;
     });
   }
@@ -127,9 +126,9 @@ export class ChatComponent implements OnInit, OnDestroy {
         }
 
         this.messages.push(data);
-        this.changeDetectionRef.detectChanges();
 
         if (this.isScroll) {
+          this.changeDetectionRef.detectChanges();
           this.scrollBottom();
         }
       }
@@ -210,13 +209,17 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/home');
   }
 
+  scrollTop() {
+    this.chat.nativeElement.scrollTop = 0;
+  }
+
   scrollBottom() {
-    this.viewportRef.nativeElement.scrollTop = this.viewportRef.nativeElement.scrollHeight;
+    this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight;
   }
 
   scroller(e) {
-    if (e === 'top') {
-      this.load();
+    if (e === 'preUp') {
+      this.load(false);
     } else if (e === 'bottom') {
       this.isScroll = true;
     } else if (e === 'up') {

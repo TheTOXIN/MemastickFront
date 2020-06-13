@@ -23,6 +23,7 @@
   position: fixed;
   left: 0;
   right: 0;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar-track {
     margin-top: 30px;

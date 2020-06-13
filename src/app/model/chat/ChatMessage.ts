@@ -12,7 +12,8 @@ export class ChatMessage {
     public mode?: ChatMessageMode,
     public creating?: Date,
     public my?: boolean,
-    public direct?: boolean
+    public anim?: boolean,
+    public direct?: boolean,
   ) {
 
   }

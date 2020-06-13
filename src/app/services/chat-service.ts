@@ -13,7 +13,7 @@ export class ChatService {
 
   }
 
-  public read(page: number, size: number = 25): Observable<ChatMessage[]> {
+  public read(page: number, size: number): Observable<ChatMessage[]> {
     const params = new HttpParams()
       .set('sort', 'creating,desc')
       .set('page', page + '')

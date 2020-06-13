@@ -11,6 +11,7 @@ export class ChatUtils {
   ) {
     msg.my = msg.memetickId === memetickId;
     msg.direct = true;
+    msg.anim = isNew;
 
     if (msg.my) {
       msg.direct = false;
