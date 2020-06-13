@@ -8,6 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {Memotype} from '../../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
 import {Meme} from '../../model/Meme';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-memotype-read-modal',
@@ -38,6 +39,7 @@ export class MemotypeReadModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private memotypeApi: MemotypeApiService,
+    private router: Router
   ) {
     this.memotypeColors = memotypeColors;
     this.memotypeNames = memotypeNames;
@@ -63,6 +65,11 @@ export class MemotypeReadModalComponent implements OnInit {
     }
 
     this.view.viewShow(memotype);
+  }
+
+  toShop() {
+    this.router.navigateByUrl('/shop/memotypes');
+    this.activeModal.close();
   }
 
   initCarousel() {

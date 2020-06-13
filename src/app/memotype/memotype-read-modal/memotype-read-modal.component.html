@@ -1,10 +1,10 @@
 <app-template-modal [title]="'МЕМОТИПЫ'">
   <div *ngIf="!isLoad; else memotypeLoad">
-    <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme owl-dots-top']"[options]="memotypesCarousel">
+    <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme owl-dots-top']" [options]="memotypesCarousel">
     <div *ngFor="let set of collection" class="memotype-wrap">
       <app-memotype-set-head [set]="set" [showInfo]="false" [showCount]="false"></app-memotype-set-head>
       <div class="memotype-delimer"></div>
-      <div class="memotype-list">
+      <div class="memotype-list my-scroll">
         <div *ngFor="let memotype of set.memotypes">
           <app-memotype-element
             [memotype]="memotype"
@@ -16,6 +16,7 @@
       </div>
     </div>
     </owl-carousel>
+    <button class="btn-theme" (click)="toShop()">КУПИТЬ<i class="fa fa-shopping-cart"></i></button>
   </div>
   <ng-template #memotypeLoad>
     <div style="margin: 30px">
