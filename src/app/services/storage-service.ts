@@ -45,6 +45,9 @@ export class StorageService {
 
   public getMe(): User {
     const value = localStorage.getItem(ME);
+    if (value == null) {
+      return null;
+    }
     return <User>JSON.parse(value);
   }
 

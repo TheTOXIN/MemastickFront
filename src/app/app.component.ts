@@ -85,7 +85,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public me() {
     if (!this.storage.getMe()) {
-      this.oauth.loadMe();
+      console.log(
+        this.oauth.readMe()
+      );
     }
   }
 

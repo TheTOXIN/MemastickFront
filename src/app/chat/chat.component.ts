@@ -56,19 +56,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     private storage: StorageService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
-    private oauthApi: OauthApiService,
+    private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef
   ) {
-    const me = this.storage.getMe();
 
-    if (me == null) {
-      this.oauthApi.readMe().subscribe(data => this.initMe(data));
-    } else {
-      this.initMe(me);
-    }
   }
 
   ngOnInit() {
+    this.initMe();
     this.connect();
     this.load();
     this.watch();
@@ -78,9 +73,11 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.socket.unsubscribe('chatId');
   }
 
-  initMe(me: User) {
-    this.memetickId = me.memetickId;
-    this.canDelete = me.role === RoleType.ADMIN;
+  initMe() {
+    this.oauth.readMe().then(res => {
+      this.memetickId = res.memetickId;
+      this.canDelete = res.role === RoleType.ADMIN;
+    });
   }
 
   connect() {

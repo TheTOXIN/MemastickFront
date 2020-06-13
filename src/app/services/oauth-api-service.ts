@@ -139,20 +139,20 @@ export class OauthApiService {
     return Cookie.check(ACCESS_TOKEN_KEY) || Cookie.check(REFRESH_TOKEN_KEY);
   }
 
-  public loadMe() {
-    this.readMe().subscribe(data => {
+  public async readMe(): Promise<User> {
+    const me = this.storageService.getMe();
+
+    if (me != null) {
+      return await me;
+    }
+
+    return await this.http.get<User>(API.USER_ME).toPromise().then(data => {
       this.storageService.setMe(data);
-      console.log(data);
+      return data;
     });
   }
 
-  public readMe(): Observable<User> {
-    return this.http.get<User>(API.USER_ME).pipe();
-  }
-
   public loadData(): Observable<UserData> {
-    return this.http
-      .get<UserData>(API.USER_DATA)
-      .pipe();
+    return this.http.get<UserData>(API.USER_DATA).pipe();
   }
 }

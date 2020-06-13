@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ChatUtils} from '../../utils/chat-utils';
 import {UUID} from 'angular2-uuid';
 import {StorageService} from '../../services/storage-service';
+import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({
   selector: 'app-home-chat',
@@ -22,12 +23,17 @@ export class HomeChatComponent implements OnInit {
   constructor(
     private chatService: ChatService,
     private router: Router,
-    private storage: StorageService
+    private storage: StorageService,
+    private oauth: OauthApiService
   ) {
-    this.memetickId = storage.getMe().memetickId;
+
   }
 
   ngOnInit() {
+    this.oauth.readMe().then(res => {
+      this.memetickId = res.memetickId;
+    });
+
     this.chatService.read(0, 5).subscribe(data => {
       for (const msg of data) {
         ChatUtils.prepare(msg,  data, this.memetickId, false);
