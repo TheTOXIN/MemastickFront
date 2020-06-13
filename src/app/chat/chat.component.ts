@@ -38,6 +38,9 @@ export class ChatComponent implements OnInit, OnDestroy {
   public chatPage: number = 0;
   public chatSize: number = 10;
 
+  private soundSend = new Audio();
+  private soundReceive = new Audio();
+
   public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
   canDelete = false;
@@ -61,11 +64,15 @@ export class ChatComponent implements OnInit, OnDestroy {
     private changeDetectionRef: ChangeDetectorRef
   ) {
     this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, 100);
+
+    this.soundSend.src = '../../../assets/audio/chat_send.wav';
+    this.soundReceive.src = '../../../assets/audio/chat_receive.wav';
   }
 
   ngOnInit() {
-    this.initMe();
+    this.user();
     this.connect();
+    this.sounds();
     this.load();
     this.watch();
   }
@@ -74,7 +81,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.socket.unsubscribe('chatId');
   }
 
-  initMe() {
+  user() {
     this.oauth.readMe().then(res => {
       this.memetickId = res.memetickId;
       this.canDelete = res.role === RoleType.ADMIN;
@@ -96,6 +103,11 @@ export class ChatComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  sounds() {
+    this.soundSend.load();
+    this.soundReceive.load();
   }
 
   load(init: boolean = true) {
@@ -131,6 +143,8 @@ export class ChatComponent implements OnInit, OnDestroy {
           this.changeDetectionRef.detectChanges();
           this.scrollBottom();
         }
+
+        this.sound(data);
       }
     });
   }
@@ -168,6 +182,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.mode = ChatMessageMode.TEXT;
 
     this.socket.send('/chat/send', message);
+  }
+
+  sound(message: ChatMessage) {
+    if (message.my) {
+      this.soundSend.play();
+    } else {
+      this.soundReceive.play();
+    }
   }
 
   delete(number: number, index: number) {
