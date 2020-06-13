@@ -80,7 +80,7 @@ export class ChatComponent implements OnInit {
     this.isLoad = true;
     this.chatService.read(this.chatPage++).subscribe(data => {
       for (const msg of data) {
-        msg.my = msg.memetickId === this.memetickId;
+        this.prepare(msg, false);
 
         const bsh = this.viewportRef.nativeElement.scrollHeight;
 
@@ -99,7 +99,7 @@ export class ChatComponent implements OnInit {
   watch() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
-        data.my = data.memetickId === this.memetickId;
+        this.prepare(data, true);
 
         if (data.my) {
           this.loadSend = false;
@@ -116,6 +116,19 @@ export class ChatComponent implements OnInit {
         }
       }
     });
+  }
+
+  prepare(data: ChatMessage, isNew: boolean) {
+    data.my = data.memetickId === this.memetickId;
+
+    if (data.my) {
+      data.direct = false;
+    } else if (this.messages.length !== 0) {
+      const prevIndex = isNew ? this.messages.length - 1 : 0;
+      const prev = this.messages[prevIndex];
+
+      data.direct = prev.direct === (data.memetickId === prev.memetickId);
+    }
   }
 
   send() {
@@ -144,8 +157,9 @@ export class ChatComponent implements OnInit {
     message.memetickId = this.memetickId;
 
     this.loadSend = true;
-    this.socket.send('/chat/send', message);
     this.mode = ChatMessageMode.TEXT;
+
+    this.socket.send('/chat/send', message);
   }
 
   delete(number: number, index: number) {

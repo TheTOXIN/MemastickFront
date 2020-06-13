@@ -11,7 +11,8 @@ export class ChatMessage {
     public memotypeId?: UUID,
     public mode?: ChatMessageMode,
     public creating?: Date,
-    public my?: boolean
+    public my?: boolean,
+    public direct?: boolean
   ) {
 
   }
