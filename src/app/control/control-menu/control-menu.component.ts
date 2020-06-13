@@ -46,6 +46,10 @@ export class ControlMenuComponent implements OnInit {
     this.navigate('/home');
   }
 
+  chat() {
+    this.navigate('/chat');
+  }
+
   navigate(url: string) {
     this.closeEvent.emit(null);
     this.router.navigateByUrl(url);

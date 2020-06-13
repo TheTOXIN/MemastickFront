@@ -19,7 +19,7 @@ export class OpenIntroModalComponent {
   public title: string;
 
   open() {
-    const modalRef = this.modalService.open(IntroModalComponent);
+    const modalRef = this.modalService.open(IntroModalComponent, {'centered': true});
 
     modalRef.componentInstance.content = this.content;
     modalRef.componentInstance.title = this.title;

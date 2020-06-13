@@ -65,6 +65,10 @@ export class ControlScopeComponent implements OnInit {
     this.navigate('/chat');
   }
 
+  replicators() {
+    alert('РЕПЛИКАТОРЫ В РАЗРАБОТКЕ');
+  }
+
   navigate(url: string) {
     this.closeEvent.emit(null);
     this.router.navigateByUrl(url);

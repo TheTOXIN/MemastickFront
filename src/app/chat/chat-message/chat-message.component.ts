@@ -15,6 +15,9 @@ export class ChatMessageComponent implements OnInit {
   public message: ChatMessage;
 
   @Input()
+  public fullWidth: boolean = false;
+
+  @Input()
   public withDelete: boolean = false;
 
   @Output()
@@ -56,6 +59,13 @@ export class ChatMessageComponent implements OnInit {
       'chat-message-direct fadeInLeft': this.message.direct,
       'animated faster': this.message.anim,
       'fadeInRight': !this.message.direct
+    };
+  }
+
+  get getClassesWarp() {
+    return {
+      'chat-message-inverse': this.message.my,
+      'chat-message-full': this.fullWidth,
     };
   }
 

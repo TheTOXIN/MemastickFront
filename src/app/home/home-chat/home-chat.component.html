@@ -1,18 +1,20 @@
-<div class="home-chat-title">
-  МЕМ ЧАТ<i class="fa fa-sign-in" aria-hidden="true" (click)="toChat()"></i>
+<div class="home-chat-title" (click)="toChat()">
+  МЕМ ЧАТ<i class="fa fa-commenting" aria-hidden="true"></i>
+</div>
+<div class="home-chat-wrap">
+<div class="home-chat-btn animated fadeInUp faster" *ngIf="isBtn">
+  <button class="btn-theme" (click)="toChat()">
+    ПОДКЛЮЧИТЬСЯ <i class="fa fa-sign-in" aria-hidden="true"></i>
+  </button>
 </div>
 <div class="home-chat-container my-scroll margin-center" appScrollable (scrollPosition)="scroller($event)">
   <div *ngIf="!isLoad; else homeChatLoad">
     <div *ngFor="let msg of messages">
-      <app-chat-message [message]="msg"></app-chat-message>
+      <app-chat-message [fullWidth]="true" [message]="msg"></app-chat-message>
     </div>
   </div>
   <ng-template #homeChatLoad>
     <app-spinner></app-spinner>
   </ng-template>
-  <div class="home-chat-btn animated fadeInUp faster" *ngIf="isBtn">
-    <button class="btn-theme" (click)="toChat()">
-      Подключиться <i class="fa fa-sign-in" aria-hidden="true"></i>
-    </button>
-  </div>
+</div>
 </div>
