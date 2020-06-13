@@ -465,6 +465,7 @@ export class LaboratoryComponent implements OnInit {
 
     activeObjects.forEach((object) => {
       object.bringToFront();
+      this.cleanSelect();
     });
   }
 
@@ -473,6 +474,7 @@ export class LaboratoryComponent implements OnInit {
 
     activeObjects.forEach((object) => {
       object.sendToBack();
+      this.cleanSelect();
     });
   }
 
