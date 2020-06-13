@@ -126,3 +126,15 @@
     text-align: right;
   }
 }
+
+.chat-message-inverse {
+  background-color: $middle_color;
+  border-color: white;
+  color: white;
+
+  .chat-message-delete {
+    i {
+      color: white;
+    }
+  }
+}
