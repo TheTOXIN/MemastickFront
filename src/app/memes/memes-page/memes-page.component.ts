@@ -144,6 +144,10 @@ export class MemesPageComponent implements OnInit {
     modalRef.componentInstance.step = step;
   }
 
+  loadMeme(data: MemeData) {
+    data.loadState = true;
+  }
+
   isMemeDeath(meme: Meme) {
     return meme.type === MemeType.DEAD;
   }

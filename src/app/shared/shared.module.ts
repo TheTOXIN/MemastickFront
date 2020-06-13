@@ -34,6 +34,7 @@ import {DonaterMessagesComponent} from './donater-messages/donater-messages.comp
 import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
 import {CommentsComponent} from './comments/comments.component';
+import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
 
 @NgModule({
   exports: [
@@ -62,7 +63,8 @@ import {CommentsComponent} from './comments/comments.component';
     CommentsComponent,
     DonaterMessagesComponent,
     CounterComponent,
-    PreviewUpdateComponent
+    PreviewUpdateComponent,
+    DnaSpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +102,8 @@ import {CommentsComponent} from './comments/comments.component';
     CommentsComponent,
     DonaterMessagesComponent,
     CounterComponent,
-    PreviewUpdateComponent
+    PreviewUpdateComponent,
+    DnaSpinnerComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

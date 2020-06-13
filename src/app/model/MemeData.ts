@@ -12,5 +12,5 @@ export class MemeData {
   counterState = 'default';
   chromosomeState = 'default';
   likeState = 'default';
-
+  loadState = false;
 }
