@@ -4,7 +4,7 @@ import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
 import {NotifyCount} from '../model/NotifyCount';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
-import {BellCounterService} from '../services/bell-counter-service';
+import {NotifyCounterService} from '../services/notify-counter.service';
 
 @Component({
   selector: 'app-control',
@@ -34,13 +34,14 @@ export class ControlComponent implements OnInit {
 
   private predYOffset = 0;
 
-  public counter: NotifyCount;
+  public countItems: number = 0;
+  public countBells: number = 0;
 
-  public showCountBells = false;
   public showCountItems = false;
+  public showCountBells = false;
 
   constructor(
-    private counterService: BellCounterService,
+    private counterService: NotifyCounterService,
     private mainApi: MainApiService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
@@ -49,17 +50,31 @@ export class ControlComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mainApi.notifyCount().subscribe(data => {
-      this.counter = data;
-      this.showCountBells = this.counter.countBells !== 0;
-      this.showCountItems = this.counter.countItems !== 0;
+    this.counterService.subscribeItemCounter().subscribe((counter) => {
+      if (counter !== 0) {
+        if (this.countItems === 0) {
+          this.countItems = counter;
+          this.showCountItems = this.countItems !== 0;
+        } else {
+          this.countItems += counter;
+          this.showCountItems = true;
+
+          this.hide = false;
+        }
+      }
     });
 
-    this.counterService.subscribeCounter().subscribe((counter) => {
-      if (counter) {
-        this.counter.countBells++;
-        this.showCountBells = true;
-        this.hide = false;
+    this.counterService.subscribeBellCounter().subscribe((counter) => {
+      if (counter !== 0) {
+        if (this.countBells === 0) {
+          this.countBells = counter;
+          this.showCountBells = this.countBells !== 0;
+        } else {
+          this.countBells += counter;
+          this.showCountBells = true;
+
+          this.hide = false;
+        }
       }
     });
   }

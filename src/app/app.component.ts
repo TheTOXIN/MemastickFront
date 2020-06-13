@@ -12,6 +12,7 @@ import {MainApiService} from './api/main-api-service';
 import {LoaderState} from './state/loader-state';
 import {LoaderService} from './services/loader-service';
 import {LoaderStatus} from './consts/LoaderStatus';
+import {NotifyCounterService} from './services/notify-counter.service';
 
 @Component({
   selector: 'app-root',
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private socket: WebSocketService,
     private push: PushService,
     private loaderService: LoaderService,
+    private counterService: NotifyCounterService,
     private oauth: OauthApiService,
     private storage: StorageService,
     private mainApi: MainApiService,
@@ -52,8 +54,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.redirecter(isAuth);
 
     if (isAuth) {
-      this.hello();
       this.me();
+      this.init();
       this.update();
       this.notify();
       this.clear();
@@ -71,10 +73,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public hello() {
-    this.mainApi.hello().subscribe(data => {
-      this.showUpdater = data !== VERSION;
-      this.versUpdater = data;
+  public init() {
+    this.mainApi.init().subscribe(data => {
+      this.showUpdater = data.version !== VERSION;
+      this.versUpdater = data.version;
+
+      this.counterService.triggerBellCounter(data.notifyCount.countBells);
+      this.counterService.triggerItemCounter(data.notifyCount.countItems);
     });
   }
 

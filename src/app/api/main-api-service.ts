@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Home} from '../model/Home';
 import {API} from '../consts/API';
 import {NotifyCount} from '../model/NotifyCount';
+import {Init} from '../model/Init';
 
 @Injectable()
 export class MainApiService {
@@ -22,9 +23,9 @@ export class MainApiService {
       .pipe();
   }
 
-  public notifyCount(): Observable<NotifyCount> {
+  public init(): Observable<Init> {
     return this.http
-      .get<NotifyCount>(API.NOTIFY_COUNT)
+      .get<Init>(API.INIT)
       .pipe();
   }
 }

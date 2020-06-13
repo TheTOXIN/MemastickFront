@@ -7,7 +7,7 @@ import {tokenIcons} from '../../model/TokenData';
 import {FRONT_URL} from '../../app.constants';
 import {Router} from '@angular/router';
 import {notifyImg, notifyInf} from 'src/app/consts/NotifyData';
-import {BellCounterService} from '../../services/bell-counter-service';
+import {NotifyCounterService} from '../../services/notify-counter.service';
 
 @Component({
   selector: 'app-notification',
@@ -32,7 +32,7 @@ export class NotificationComponent implements OnInit {
   private tokenIcons = [];
 
   constructor(
-    private counterService: BellCounterService,
+    private counterService: NotifyCounterService,
     private avatarApi: MemetickAvatarApiService,
     private router: Router
   ) {
@@ -61,7 +61,7 @@ export class NotificationComponent implements OnInit {
 
   check(notify: Notify) {
     if (notify.bell) {
-      this.counterService.triggerCounter();
+      this.counterService.triggerBellCounter(1);
     }
   }
 

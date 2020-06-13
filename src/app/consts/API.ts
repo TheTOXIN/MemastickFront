@@ -1,8 +1,10 @@
 export enum API {
   OAUTH_TOKEN = '/oauth/token',
+  REGISTRATION = '/registration',
+
   HELLO = '/hello',
   HOME = '/home',
-  REGISTRATION = '/registration',
+  INIT = '/init',
 
   PASSWORD_RESET_TAKE = '/password-reset/take',
   PASSWORD_RESET_SEND = '/password-reset/send',
@@ -57,7 +59,6 @@ export enum API {
   NOTIFY_BELL_READ = '/notify/bell/read',
   NOTIFY_BELL_CLEAR = '/notify/bell/clear',
   NOTIFY_BELL_MARK = '/notify/bell/mark',
-  NOTIFY_COUNT = '/notify-count',
 
   SEETING_ME = '/setting-users/me',
   SEETING_PUSH = '/setting-users/push',
