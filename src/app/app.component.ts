@@ -33,6 +33,8 @@ export class AppComponent implements OnInit, OnDestroy {
   public showUpdater = false;
   public versUpdater: string;
 
+  private soundNotify = new Audio();
+
   constructor(
     private socket: WebSocketService,
     private push: PushService,
@@ -64,7 +66,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     this.checkTWA();
+    this.loadSound();
     this.routerEvent();
+
   }
 
   ngOnDestroy(): void {
@@ -160,5 +164,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.state.event = null;
       }
     });
+  }
+
+  private loadSound() {
+    this.soundNotify.src = '../../../assets/audio/nice.wav';
+    this.soundNotify.load();
   }
 }

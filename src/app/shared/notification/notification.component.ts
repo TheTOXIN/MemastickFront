@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NotifyType} from '../../consts/NotifyType';
 import {Notify} from '../../model/Notify';
 import { timer } from 'rxjs';
@@ -24,19 +24,19 @@ export class NotificationComponent implements OnInit {
   public inf: string;
   public url: string;
 
-  private audio = new Audio();
-
   private notifyImg: any[] = [];
   private notifyInf: any[] = [];
 
   private tokenIcons = [];
+
+  @Input()
+  private sound = new Audio();
 
   constructor(
     private counterService: NotifyCounterService,
     private avatarApi: MemetickAvatarApiService,
     private router: Router
   ) {
-    this.audio.src = '../../../assets/audio/nice.wav';
 
     this.notifyImg = notifyImg;
     this.notifyInf = notifyInf;
@@ -45,7 +45,7 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.audio.load();
+
   }
 
   show(notify: Notify) {
@@ -55,7 +55,7 @@ export class NotificationComponent implements OnInit {
     this.isHide = false;
     this.isShow = true;
 
-    this.audio.play();
+    this.sound.play();
     this.destroy();
   }
 
