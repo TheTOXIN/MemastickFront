@@ -25,13 +25,13 @@
 <div class="chat-input">
   <input
     *ngIf="mode == modes.TEXT"
+    (click)="scrollBottom()"
     [(ngModel)]="text"
     (keyup.enter)="send()"
     [maxLength]="maxLenText"
     [placeholder]="isConnect ? 'Писать тут...' : 'Подключение...'"
     [disabled]="!isConnect"
-    type="text"
-    autofocus="autofocus">
+    type="text">
   <img
     (click)="memotypeView()"
     *ngIf="mode == modes.STICKER"

@@ -14,7 +14,6 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemotypeReadModalComponent} from '../memotype/memotype-read-modal/memotype-read-modal.component';
 import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
-import {User} from '../model/User';
 import {OauthApiService} from '../services/oauth-api-service';
 import {ChatUtils} from '../utils/chat-utils';
 
@@ -127,13 +126,11 @@ export class ChatComponent implements OnInit, OnDestroy {
           this.isScroll = true;
         }
 
-        const bsh = this.viewportRef.nativeElement.scrollHeight;
-
         this.messages.push(data);
         this.changeDetectionRef.detectChanges();
 
         if (this.isScroll) {
-          this.viewportRef.nativeElement.scrollTop = bsh;
+          this.scrollBottom();
         }
       }
     });
@@ -211,6 +208,10 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   home() {
     this.router.navigateByUrl('/home');
+  }
+
+  scrollBottom() {
+    this.viewportRef.nativeElement.scrollTop = this.viewportRef.nativeElement.scrollHeight;
   }
 
   scroller(e) {

@@ -23,7 +23,7 @@
 
 .home-chat-container {
   width: 69%;
-
+  position: relative;
   overflow-y: scroll;
   max-height: 333px;
   border-style: solid;
@@ -44,7 +44,7 @@
 .home-chat-btn {
   text-align: center;
   position: absolute;
-  bottom: 150px;
+  bottom: -75px;
   left: 0;
   right: 0;
 }
