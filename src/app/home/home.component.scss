@@ -108,11 +108,11 @@
   }
 }
 
-.bounce-anim-battle {
-  animation: pulseBattle 3s infinite;
+.bounce-anim-create {
+  animation: pulseCreate 3s infinite;
 }
 
-@keyframes pulseBattle {
+@keyframes pulseCreate {
   0% {
     transform: scale(1.0);
   }

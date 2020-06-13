@@ -118,8 +118,8 @@ export class HomeComponent implements OnInit {
     this.modalService.open(SocialsModalComponent, {'centered': true});
   }
 
-  toBattle() {
-    this.router.navigateByUrl('/battle');
+  toCreate() {
+    this.router.navigateByUrl('/memes/create');
   }
 
   toLab() {
