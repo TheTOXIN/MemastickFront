@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   isLoad = false;
   isScroll = false;
+  isConnect = false;
 
   modes = ChatMessageMode;
   maxLenText = ValidConst.MAX_MEME_TEXT;
@@ -82,12 +83,17 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   connect() {
-    if (this.socket.isConnect) {
+    const onConnect = () => {
       this.socket.chater();
+      this.isConnect = true;
+    };
+
+    if (this.socket.isConnect) {
+      onConnect();
     } else {
       this.socket.connectEvent.subscribe(data => {
         if (data) {
-          this.socket.chater();
+          onConnect();
         }
       });
     }
@@ -149,6 +155,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   send() {
+    if (!this.isConnect) {
+      return;
+    }
+
     const message = new ChatMessage();
 
     if (this.mode === ChatMessageMode.STICKER) {

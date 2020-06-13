@@ -16,6 +16,9 @@
       [message]="message">
     </app-chat-message>
   </div>
+  <div *ngIf="!isConnect" class="chat-connect">
+    <app-dna-spinner></app-dna-spinner>
+  </div>
   <div id="bottomChat"></div>
 </div>
 
@@ -25,8 +28,9 @@
     [(ngModel)]="text"
     (keyup.enter)="send()"
     [maxLength]="maxLenText"
+    [placeholder]="isConnect ? 'Писать тут...' : 'Подключение...'"
+    [disabled]="!isConnect"
     type="text"
-    placeholder="Писать тут..."
     autofocus="autofocus">
   <img
     (click)="memotypeView()"
