@@ -86,19 +86,16 @@ export class OauthApiService {
   public logout() {
     console.log('SECURITY_LOGOUT');
 
+    this.toStart();
+
     if (this.push.work()) {
       this.push.tokener().then(token => {
         this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
-        this.logoutProcess();
+        this.clearData();
       });
     } else {
-      this.logoutProcess();
+      this.clearData();
     }
-  }
-
-  private logoutProcess() {
-    this.clearData();
-    this.toStart();
   }
 
   private clearData() {
