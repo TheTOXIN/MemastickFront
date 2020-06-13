@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public showUpdater = false;
   public versUpdater: string;
 
-  private soundNotify = new Audio();
+  public soundNotify = new Audio();
 
   constructor(
     private socket: WebSocketService,
