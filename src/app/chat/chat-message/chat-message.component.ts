@@ -15,7 +15,7 @@ export class ChatMessageComponent implements OnInit {
   public message: ChatMessage;
 
   @Input()
-  public withDelete: boolean;
+  public withDelete: boolean = false;
 
   @Output()
   public whenDelete = new EventEmitter<Number>();

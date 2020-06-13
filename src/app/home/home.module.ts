@@ -14,6 +14,8 @@ import {HomeParticlesComponent} from './home-particles/home-particles.component'
 import {MemetickModule} from '../memetick/memetick.module';
 import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 import {HomeChatComponent} from './home-chat/home-chat.component';
+import {ChatModule} from '../chat/chat.module';
+import {DirectivesModule} from '../directivies/directives.module';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import {HomeChatComponent} from './home-chat/home-chat.component';
     ControlModule,
     StartModule,
     TokenModule,
-    MemetickModule
+    MemetickModule,
+    ChatModule,
+    DirectivesModule
   ],
   declarations: [
     HomeComponent,

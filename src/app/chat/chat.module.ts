@@ -23,5 +23,8 @@ import {SharedModule} from '../shared/shared.module';
     ChatComponent,
     ChatMessageComponent
   ],
+  exports: [
+    ChatMessageComponent
+  ]
 })
 export class ChatModule { }

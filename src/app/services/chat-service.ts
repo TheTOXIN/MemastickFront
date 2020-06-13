@@ -13,11 +13,11 @@ export class ChatService {
 
   }
 
-  public read(page: number): Observable<ChatMessage[]> {
+  public read(page: number, size: number = 25): Observable<ChatMessage[]> {
     const params = new HttpParams()
       .set('sort', 'creating,desc')
       .set('page', page + '')
-      .set('size', '25');
+      .set('size', size + '');
 
     const headers = new HttpHeaders()
       .set('Accept', 'application/json')

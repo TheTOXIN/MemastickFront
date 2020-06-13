@@ -16,6 +16,7 @@ import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
 import {User} from '../model/User';
 import {OauthApiService} from '../services/oauth-api-service';
+import {ChatUtils} from '../utils/chat-utils';
 
 @Component({
   selector: 'app-chat',
@@ -103,7 +104,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.isLoad = true;
     this.chatService.read(this.chatPage++).subscribe(data => {
       for (const msg of data) {
-        this.prepare(msg, false);
+        ChatUtils.prepare(msg,  this.messages, this.memetickId, false);
 
         const bsh = this.viewportRef.nativeElement.scrollHeight;
 
@@ -122,7 +123,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   watch() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
-        this.prepare(data, true);
+        ChatUtils.prepare(data, this.messages, this.memetickId, true);
 
         if (data.my) {
           this.loadSend = false;
@@ -139,19 +140,6 @@ export class ChatComponent implements OnInit, OnDestroy {
         }
       }
     });
-  }
-
-  prepare(data: ChatMessage, isNew: boolean) {
-    data.my = data.memetickId === this.memetickId;
-
-    if (data.my) {
-      data.direct = false;
-    } else if (this.messages.length !== 0) {
-      const prevIndex = isNew ? this.messages.length - 1 : 0;
-      const prev = this.messages[prevIndex];
-
-      data.direct = prev.direct === (data.memetickId === prev.memetickId);
-    }
   }
 
   send() {
