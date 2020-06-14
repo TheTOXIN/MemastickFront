@@ -168,6 +168,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private loadSound() {
     this.soundNotify.src = '../../../assets/audio/nice.wav';
+    this.soundNotify.volume = 0.75;
     this.soundNotify.load();
   }
 }

@@ -67,6 +67,9 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     this.soundSend.src = '../../../assets/audio/chat_send.wav';
     this.soundReceive.src = '../../../assets/audio/chat_receive.wav';
+
+    this.soundSend.volume = 0.5;
+    this.soundReceive.volume = 0.5;
   }
 
   ngOnInit() {
