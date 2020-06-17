@@ -16,6 +16,7 @@ import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
 import {OauthApiService} from '../services/oauth-api-service';
 import {ChatUtils} from '../utils/chat-utils';
+import {GlobalConst} from '../consts/GlobalConst';
 
 @Component({
   selector: 'app-chat',
@@ -63,7 +64,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef
   ) {
-    this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, 100);
+    this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, GlobalConst.CHAT_SIZE);
 
     this.soundSend.src = '../../../assets/audio/chat_send.wav';
     this.soundReceive.src = '../../../assets/audio/chat_receive.wav';
@@ -141,14 +142,13 @@ export class ChatComponent implements OnInit, OnDestroy {
           this.isScroll = true;
         }
 
+        this.sound(data);
         this.messages.push(data);
 
         if (this.isScroll) {
           this.changeDetectionRef.detectChanges();
           this.scrollBottom();
         }
-
-        this.sound(data);
       }
     });
   }
@@ -156,6 +156,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   send() {
     if (!this.isConnect) {
       return;
+    }
+
+    if (this.messages.length > GlobalConst.CHAT_SIZE) {
+      this.messages.splice(GlobalConst.CHAT_SIZE);
     }
 
     const message = new ChatMessage();

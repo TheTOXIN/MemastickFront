@@ -6,5 +6,6 @@ export enum GlobalConst {
   CELL_SATE = 100,
   LVL_COF = 10,
   MAX_LVL = 50,
-  MOBILE_WIDTH = 767
+  MOBILE_WIDTH = 767,
+  CHAT_SIZE = 100
 }

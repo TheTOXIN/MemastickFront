@@ -10,7 +10,7 @@
 <div class="home-chat-container my-scroll margin-center" appScrollable (scrollPosition)="scroller($event)">
   <div *ngIf="!isLoad; else homeChatLoad">
     <div *ngFor="let msg of messages">
-      <app-chat-message [fullWidth]="true" [message]="msg"></app-chat-message>
+      <app-chat-message [minWidth]="true" [message]="msg"></app-chat-message>
     </div>
   </div>
   <ng-template #homeChatLoad>

@@ -15,7 +15,7 @@ export class ChatMessageComponent implements OnInit {
   public message: ChatMessage;
 
   @Input()
-  public fullWidth: boolean = false;
+  public minWidth: boolean = false;
 
   @Input()
   public withDelete: boolean = false;
@@ -52,21 +52,6 @@ export class ChatMessageComponent implements OnInit {
     if (confirm('DELETE ?')) {
       this.whenDelete.emit(this.message.number);
     }
-  }
-
-  get getClasses() {
-    return {
-      'chat-message-direct fadeInLeft': this.message.direct,
-      'animated faster': this.message.anim,
-      'fadeInRight': !this.message.direct
-    };
-  }
-
-  get getClassesWarp() {
-    return {
-      'chat-message-inverse': this.message.my,
-      'chat-message-full': this.fullWidth,
-    };
   }
 
   get avatar() {

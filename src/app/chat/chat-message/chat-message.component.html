@@ -1,5 +1,5 @@
-<div class="chat-message" [ngClass]="getClasses">
-  <div class="chat-message-warp" [ngClass]="getClassesWarp">
+<div class="chat-message" [ngClass]="{'chat-message-direct fadeInLeft': this.message.direct, 'fadeInRight': !this.message.direct, 'animated faster': this.message.anim}">
+  <div class="chat-message-warp" [ngClass]="{'chat-message-inverse': this.message.my, 'chat-message-full': this.minWidth}">
     <div class="chat-message-avatar" (click)="memetick()">
       <img [src]="avatar" alt="..."/>
     </div>
