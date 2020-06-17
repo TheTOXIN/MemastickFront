@@ -32,8 +32,8 @@
     [(ngModel)]="text"
     (keyup.enter)="send()"
     [maxLength]="maxLenText"
-    [placeholder]="isConnect ? 'Писать тут...' : 'Подключение...'"
-    [disabled]="!isConnect"
+    [placeholder]="inputText"
+    [disabled]="!isConnect || isBlock"
     type="text">
   <img
     (click)="memotypeView()"
@@ -45,8 +45,9 @@
 <div class="chat-foot-panel foot-panel">
   <div (click)="home()"><i class="fa fa-home"></i></div>
   <div class="chat-send" (click)="send()">
-    <i *ngIf="!loadSend" class="fa fa-paper-plane animated bounceIn" style="color: #007bff"></i>
-    <i *ngIf="loadSend" class="fa fa-circle-o-notch fa-spin" style="color: darkorange"></i>
+    <i *ngIf="!loadSend && !isBlock" class="fa fa-paper-plane animated bounceIn" style="color: #007bff"></i>
+    <i *ngIf="loadSend && !isBlock" class="fa fa-circle-o-notch fa-spin" style="color: #ffc107"></i>
+    <i *ngIf="isBlock" class="fa fa-clock-o fa-spin" style="color: #dc3545"></i>
   </div>
   <div (click)="stick()" *ngIf="mode == modes.TEXT">
     <i class="fa fa-smile-o"></i>

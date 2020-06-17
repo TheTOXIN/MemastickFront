@@ -17,6 +17,7 @@ import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.com
 import {OauthApiService} from '../services/oauth-api-service';
 import {ChatUtils} from '../utils/chat-utils';
 import {GlobalConst} from '../consts/GlobalConst';
+import {interval, Observable, timer} from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -33,21 +34,26 @@ export class ChatComponent implements OnInit, OnDestroy {
   public messages: ChatMessage[] = [];
 
   public text: string;
+  public inputText: string;
+
   public memetickId: UUID;
   public memotype: Memotype;
+  public mode: ChatMessageMode;
 
   public chatPage: number = 0;
   public chatSize: number = 10;
 
+  public blockSeconds: number = 5;
+  public blockCounter: number = 0;
+
   private soundSend = new Audio();
   private soundReceive = new Audio();
-
-  public mode: ChatMessageMode = ChatMessageMode.TEXT;
 
   canDelete = false;
   loadSend = false;
 
   isLoad = false;
+  isBlock = false;
   isScroll = false;
   isConnect = false;
 
@@ -65,6 +71,9 @@ export class ChatComponent implements OnInit, OnDestroy {
     private changeDetectionRef: ChangeDetectorRef
   ) {
     this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, GlobalConst.CHAT_SIZE);
+
+    this.mode = ChatMessageMode.TEXT;
+    this.inputText = 'Подключение...';
 
     this.soundSend.src = '../../../assets/audio/chat_send.wav';
     this.soundReceive.src = '../../../assets/audio/chat_receive.wav';
@@ -97,6 +106,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     const onConnect = () => {
       this.socket.chater();
       this.isConnect = true;
+      this.inputText = 'Писать тут...';
     };
 
     if (this.socket.isConnect) {
@@ -140,6 +150,8 @@ export class ChatComponent implements OnInit, OnDestroy {
         if (data.my) {
           this.loadSend = false;
           this.isScroll = true;
+
+          this.blocking();
         }
 
         this.sound(data);
@@ -154,7 +166,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   send() {
-    if (!this.isConnect) {
+    if (!this.isConnect || this.isBlock || this.loadSend) {
       return;
     }
 
@@ -187,9 +199,27 @@ export class ChatComponent implements OnInit, OnDestroy {
     message.memetickId = this.memetickId;
 
     this.loadSend = true;
-    this.mode = ChatMessageMode.TEXT;
+    this.isBlock = true;
 
+    this.mode = ChatMessageMode.TEXT;
     this.socket.send('/chat/send', message);
+  }
+
+  blocking() {
+    this.blockCounter = this.blockSeconds;
+    this.inputText = `Защита от спама: ${this.blockCounter}сек`;
+
+    const blockTimer = interval(1000).subscribe((tik) => {
+      if (this.blockCounter <= 0) {
+        blockTimer.unsubscribe();
+
+        this.inputText = 'Введите сообщение...';
+        this.isBlock = false;
+      } else {
+        this.blockCounter--;
+        this.inputText = `Защита от спама: ${this.blockCounter}сек`;
+       }
+    });
   }
 
   scroll(delta: number = 0) {
