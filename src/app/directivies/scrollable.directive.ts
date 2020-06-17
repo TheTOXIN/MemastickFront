@@ -34,12 +34,6 @@ export class ScrollableDirective {
         this.scrollPosition.emit('up');
       }
 
-      if (top < this.predTop) {
-        if (top < (height / 10)) {
-          this.scrollPosition.emit('preUp');
-        }
-      }
-
       this.predTop = top;
 
     } catch (err) {}

@@ -2,7 +2,10 @@
   <img class="img-fluid" src="assets/images/chat-logo.png">
 </div>
 
-<div #mainChat class="chat my-scroll" appScrollable (scrollPosition)="scroller($event)">
+<div #mainChat
+     class="chat my-scroll"
+     appScrollable (scrollPosition)="scroller($event)"
+     [style.scroll-behavior]="isScroll ? 'smooth' : 'auto'">
   <div id="topChat"></div>
   <div *ngIf="isLoad" style="margin-top: 10px">
     <app-spinner></app-spinner>
@@ -25,7 +28,7 @@
 <div class="chat-input">
   <input
     *ngIf="mode == modes.TEXT"
-    (click)="scrollBottom()"
+    (click)="scroll()"
     [(ngModel)]="text"
     (keyup.enter)="send()"
     [maxLength]="maxLenText"

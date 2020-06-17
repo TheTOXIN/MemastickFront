@@ -118,15 +118,15 @@ export class ChatComponent implements OnInit, OnDestroy {
   load(init: boolean = true) {
     this.isLoad = true;
     this.chatService.read(this.chatPage++, this.chatSize).subscribe(data => {
+      const prevHeight = init ? 0 : this.chat.nativeElement.scrollHeight;
+
       for (const msg of data) {
         ChatUtils.prepare(msg, this.messages, this.memetickId, false);
         this.messages.unshift(msg);
       }
 
-      if (init) {
-        this.changeDetectionRef.detectChanges();
-        this.scrollBottom();
-      }
+      this.changeDetectionRef.detectChanges();
+      this.scroll(prevHeight);
 
       this.isLoad = false;
     });
@@ -147,7 +147,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
         if (this.isScroll) {
           this.changeDetectionRef.detectChanges();
-          this.scrollBottom();
+          this.scroll();
         }
       }
     });
@@ -190,6 +190,10 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.mode = ChatMessageMode.TEXT;
 
     this.socket.send('/chat/send', message);
+  }
+
+  scroll(delta: number = 0) {
+    this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight - delta;
   }
 
   sound(message: ChatMessage) {
@@ -239,16 +243,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/home');
   }
 
-  scrollTop() {
-    this.chat.nativeElement.scrollTop = 0;
-  }
-
-  scrollBottom() {
-    this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight;
-  }
-
   scroller(e) {
-    if (e === 'preUp') {
+    if (e === 'top') {
       this.load(false);
     } else if (e === 'bottom') {
       this.isScroll = true;
