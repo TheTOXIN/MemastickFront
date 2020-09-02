@@ -12,7 +12,7 @@ import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-mo
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
-import {BottomSheetService} from '../../services/bottom-sheet-service';
+import {CardService} from '../../services/card-service';
 
 @Component({
   selector: 'app-memes',
@@ -33,7 +33,7 @@ export class MemesComponent implements OnInit, OnDestroy {
     private router: Router,
     private modalService: NgbModal,
     private storage: StorageService,
-    private cardService: BottomSheetService
+    private cardService: CardService
   ) {
 
   }

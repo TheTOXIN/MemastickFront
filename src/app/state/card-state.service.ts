@@ -1,11 +1,11 @@
 import {Injectable, TemplateRef} from '@angular/core';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {BottomSheetOptions} from '../options/bottom-sheet-options';
+import {CardOptions} from '../options/card-options';
 
 @Injectable()
-export class BottomSheetState {
+export class CardState {
 
   modal: NgbModalRef;
   template: TemplateRef<any>;
-  options: BottomSheetOptions;
+  options: CardOptions;
 }
