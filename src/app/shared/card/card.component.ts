@@ -25,10 +25,15 @@ export class CardComponent implements OnInit {
     const ref: any = this.ctr.createComponent(factory);
 
     ref.instance.options = this.state.options;
+
+    if (ref.instance.closer != null) {
+      ref.instance.closer.subscribe(() => {
+        this.close();
+      });
+    }
   }
 
   close() {
     this.state.modal.close();
-    this.ctr.clear();
   }
 }

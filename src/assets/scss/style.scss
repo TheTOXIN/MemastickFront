@@ -74,6 +74,20 @@
   }
 }
 
+.my-container {
+  background: whitesmoke;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.my-button-close {
+  margin: auto auto 10px;
+}
+
 .title-logo {
   cursor: pointer;
   border-radius: 0 0 30px 30px;

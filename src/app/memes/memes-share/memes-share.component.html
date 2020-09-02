@@ -22,10 +22,10 @@
     <app-memes-page
       (viewer)="memeView($event)"
       (researcher)="memeResearch($event)"
+      (memeticker)="memetickCard($event)"
       [data]="memeData">
     </app-memes-page>
 
-    <app-meme-research class="super-absolute"></app-meme-research>
     <app-meme-view class="super-absolute"></app-meme-view>
 
     <div class="share-button main-button-close" (click)="toHome()">

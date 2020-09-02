@@ -8,6 +8,7 @@ import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemePaginationConfig} from '../../iface/MemePaginationConfig';
 import {BattleConst} from '../../consts/BattleConst';
+import {CardService} from '../../services/card-service';
 
 @Component({
   selector: 'app-memes-modal',
@@ -17,7 +18,6 @@ import {BattleConst} from '../../consts/BattleConst';
 export class MemesModalComponent implements OnInit {
 
   @ViewChild(MemeViewComponent) viewComponent: MemeViewComponent;
-  @ViewChild(MemeResearchComponent) researchComponent: MemeResearchComponent;
 
   @Input()
   public filter: MemeFilter;
@@ -40,7 +40,8 @@ export class MemesModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private memeApi: MemeApiService
+    private memeApi: MemeApiService,
+    private cardService: CardService
   ) {
     this.event = new EventEmitter();
   }
@@ -70,7 +71,10 @@ export class MemesModalComponent implements OnInit {
   }
 
   research(meme: Meme) {
-    this.researchComponent.researchShow(meme);
+    this.cardService.open({
+      content: MemeResearchComponent,
+      meme: meme
+    });
   }
 
   choose(meme: Meme) {

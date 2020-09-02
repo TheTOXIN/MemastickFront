@@ -67,7 +67,8 @@ import {DirectivesModule} from '../directivies/directives.module';
     MemeResearchLinkComponent
   ],
   entryComponents: [
-    MemesModalComponent
+    MemesModalComponent,
+    MemeResearchComponent
   ]
 })
 export class MemesModule {

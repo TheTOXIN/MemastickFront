@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {BattleApiService} from '../../api/battle-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -23,6 +23,9 @@ export class MemeTypeIndividComponent implements OnInit {
 
   isBattle = false;
 
+  @Output()
+  public battler = new EventEmitter();
+
   constructor(
     public loaderService: LoaderService,
     private acceptService: AcceptService,
@@ -38,6 +41,8 @@ export class MemeTypeIndividComponent implements OnInit {
   }
 
   battle() {
+    this.battler.emit();
+
     const modalRef = this.modalService.open(MemesModalComponent, {'centered': true});
 
     modalRef.componentInstance.title = 'ВЫБЕРЕТЕ СВОЙ МЕМ';

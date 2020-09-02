@@ -22,7 +22,6 @@ import {CardService} from '../../services/card-service';
 export class MemesComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
-  @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
   public showPanel = true;
   public modePanel: MemeFilter;
@@ -90,7 +89,10 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   memeResearch(meme: Meme) {
-    this.research.researchShow(meme);
+    this.cardService.open({
+      content: MemeResearchComponent,
+      meme: meme
+    });
   }
 
   memetickCard(memetickId: UUID) {
