@@ -12,6 +12,7 @@ import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-mo
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
+import {BottomSheetService} from '../../services/bottom-sheet-service';
 
 @Component({
   selector: 'app-memes',
@@ -22,7 +23,6 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
   @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
-  @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 
   public showPanel = true;
   public modePanel: MemeFilter;
@@ -32,7 +32,8 @@ export class MemesComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal,
-    private storage: StorageService
+    private storage: StorageService,
+    private cardService: BottomSheetService
   ) {
 
   }
@@ -93,6 +94,9 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   memetickCard(memetickId: UUID) {
-    this.card.showCard(memetickId);
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: memetickId
+    });
   }
 }

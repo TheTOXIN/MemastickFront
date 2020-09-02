@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
+import {BottomSheetOptions} from '../../options/bottom-sheet-options';
 
 @Component({
   selector: 'app-memetick-card',
@@ -10,9 +11,10 @@ import {Memetick} from '../../model/Memetick';
 })
 export class MemetickCardComponent implements OnInit {
 
-  public memetick: Memetick;
+  @Input()
+  public options: BottomSheetOptions;
 
-  isShow = false;
+  memetick: Memetick;
   isLoad = false;
 
   constructor(
@@ -22,22 +24,9 @@ export class MemetickCardComponent implements OnInit {
   }
 
   ngOnInit() {
-
-  }
-
-  public showCard(memetickId: UUID) {
-    this.isLoad = false;
-
-    this.memetickApi.view(memetickId).subscribe(data => {
+    this.memetickApi.view(this.options.memetickId).subscribe(data => {
       this.memetick = data;
       this.isLoad = true;
     });
-
-    this.isShow = true;
-  }
-
-  public cardClose() {
-    this.memetick = null;
-    this.isShow = false;
   }
 }

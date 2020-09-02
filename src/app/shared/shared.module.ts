@@ -34,6 +34,7 @@ import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
 import {CommentsComponent} from './comments/comments.component';
 import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
+import {BottomSheetComponent} from './bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   exports: [
@@ -62,7 +63,8 @@ import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
     DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
-    DnaSpinnerComponent
+    DnaSpinnerComponent,
+    BottomSheetComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +102,11 @@ import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
     DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
-    DnaSpinnerComponent
+    DnaSpinnerComponent,
+    BottomSheetComponent
+  ],
+  entryComponents: [
+    BottomSheetComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

@@ -20,7 +20,7 @@
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
   </div>
   <div class="memes-image animated zoomIn slow">
-    <img *ngIf="data?.loadState"
+    <img *ngIf="data.page?.meme.url"
          (click)='viewerEvent(data.page?.meme)'
          [src]="data.page?.meme.url || ''"
          (load)="loadMeme(data)"

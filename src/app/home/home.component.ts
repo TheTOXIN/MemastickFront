@@ -18,6 +18,7 @@ import {AppComponent} from '../app.component';
 import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
+import {BottomSheetService} from '../services/bottom-sheet-service';
 
 @Component({
   selector: 'app-home',

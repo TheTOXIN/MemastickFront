@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {StorageService} from '../../services/storage-service';
 import {RoleType} from '../../consts/RoleType';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {FRONT_URL} from '../../app.constants';
 import {TranslatorApiService} from '../../api/translator-api-service';
 import {MemeApiService} from '../../api/meme-api-service';

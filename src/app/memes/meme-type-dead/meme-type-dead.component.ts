@@ -1,12 +1,9 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {ErrorCode} from '../../consts/ErrorCode';
-import {LoaderStatus} from '../../consts/LoaderStatus';
 import {MemeApiService} from '../../api/meme-api-service';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {PriceConst} from '../../consts/PriceConst';
 import {AcceptService} from '../../services/accept-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 @Component({

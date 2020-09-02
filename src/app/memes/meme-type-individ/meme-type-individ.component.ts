@@ -3,17 +3,12 @@ import {Meme} from '../../model/Meme';
 import {BattleApiService} from '../../api/battle-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {LoaderStatus} from '../../consts/LoaderStatus';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {BattleRequest} from '../../model/battle/BattleRequest';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {MemesModalComponent} from '../memes-modal/memes-modal.component';
-import {MemeLoh} from '../../model/meme/MemeLoh';
-import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {BattleConst} from '../../consts/BattleConst';
 import {AcceptService} from '../../services/accept-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 @Component({

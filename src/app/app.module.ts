@@ -69,6 +69,8 @@ import {NotifyCounterService} from './services/notify-counter.service';
 import {ChatModule} from './chat/chat.module';
 import {ChatService} from './services/chat-service';
 import {DirectivesModule} from './directivies/directives.module';
+import {BottomSheetService} from './services/bottom-sheet-service';
+import {BottomSheetState} from './state/bottom-sheet-state';
 
 firebase.initializeApp(environment.firebase);
 
@@ -145,6 +147,8 @@ firebase.initializeApp(environment.firebase);
     LoaderService,
     NotifyCounterService,
     ChatService,
+    BottomSheetService,
+    BottomSheetState,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
