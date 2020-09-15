@@ -1,6 +1,6 @@
 <div class="card-warp">
-  <div class="card-content my-scroll" [@cardAnim]="animState" (@cardAnim.done)="endClose()" [style.top.px]="cardPos">
-    <div class="for-mobile card-drag" (pan)="onDrag($event)"><div></div></div>
+  <div class="card-content my-scroll" [@cardAnim]="animState" (@cardAnim.done)="endClose()">
+    <div class="for-mobile card-drag" (click)="startClose()"><div></div></div>
     <ng-container #content></ng-container>
   </div>
   <div class="card-close main-button-close" (click)="startClose()">

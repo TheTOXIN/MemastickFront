@@ -1,5 +1,4 @@
 import './polyfills';
-import 'hammerjs';
 
 import './assets/pace/pace.min.js';
 import './assets/js/loader-scripts.js';
