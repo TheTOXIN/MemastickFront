@@ -1,6 +1,8 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {CardState} from '../../state/card-state.service';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import * as Hammer from 'hammerjs';
+import {ScreenUtils} from '../../utils/screen-utils';
 
 const slideInUp  = [
   style({visibility: 'visible', transform: 'translate3d(0, 100%, 0)'}),
@@ -26,14 +28,19 @@ const slideOutDown  = [
 export class CardComponent implements OnInit {
 
   @ViewChild('content', {read: ViewContainerRef}) ctr: ViewContainerRef;
+  @ViewChild('drag') drag: ElementRef;
 
   animState;
+  cardPos;
+  cardPosClose;
 
   constructor(
     private cardState: CardState,
     private resolve: ComponentFactoryResolver
   ) {
     this.animState = 'open';
+    this.cardPos = ScreenUtils.isMobileScreen() ? 100 : 25;
+    this.cardPosClose = window.innerHeight - (window.innerHeight / 2);
   }
 
   ngOnInit() {
@@ -49,6 +56,22 @@ export class CardComponent implements OnInit {
         this.close();
       });
     }
+
+    this.dragInit();
+  }
+
+  dragInit() {
+    const mc = new Hammer(this.drag.nativeElement);
+    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    mc.on('panleft panright panup pandown tap press', (event) => {
+      const y = event.center.y;
+      if (y >= 0) {
+        this.cardPos = event.center.y;
+        if (this.cardPos > this.cardPosClose) {
+          this.startClose();
+        }
+      }
+    });
   }
 
   startClose() {

@@ -1,5 +1,5 @@
 import {RouterModule} from '@angular/router';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {rootRouterConfig} from './app.routes';
@@ -71,6 +71,7 @@ import {ChatService} from './services/chat-service';
 import {DirectivesModule} from './directivies/directives.module';
 import {CardService} from './services/card-service';
 import {CardState} from './state/card-state.service';
+import {MyHammerConfig} from './configs/my-hammer-config';
 
 firebase.initializeApp(environment.firebase);
 
@@ -149,7 +150,8 @@ firebase.initializeApp(environment.firebase);
     ChatService,
     CardService,
     CardState,
-    { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
   bootstrap: [AppComponent]
 })
