@@ -15,6 +15,7 @@ export const environment = {
   accessTokenTime: 3600,
   refreshTokenTime: 2592000,
   vkChat: false,
-  metrika: false
+  metrika: false,
+  varenv: 'TEST'
 };
 

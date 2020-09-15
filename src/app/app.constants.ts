@@ -15,3 +15,5 @@ export const REFRESH_TOKEN_KEY = 'refresh_token_meme';
 export const DONAT = 'https://donate.stream/memastick';
 export const VK_GROUP = 'https://vk.com/memastick';
 export const TELEGRAMM = 'https://teleg.run/memastick';
+
+export const YEP = environment.varenv;

@@ -15,7 +15,7 @@ import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 import {RoleType} from '../consts/RoleType';
 import {AppComponent} from '../app.component';
-import {VERSION} from '../app.constants';
+import {VERSION, YEP} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
 
@@ -127,6 +127,7 @@ export class HomeComponent implements OnInit {
   }
 
   toStart() {
+    alert(YEP);
     this.router.navigateByUrl('/start');
   }
 

@@ -15,5 +15,6 @@ export const environment = {
   accessTokenTime: 3600,
   refreshTokenTime: 2592000,
   vkChat: true,
-  metrika: true
+  metrika: true,
+  varenv: process.env.VAR_ENV
 };
