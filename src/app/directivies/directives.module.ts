@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {AcceptDirective} from './accept-directive';
 import {DropZoneDirective} from './drop-zone.directive';
 import {ScrollableDirective} from './scrollable.directive';
+import {CardDirective} from './card.directive';
 
 @NgModule({
   imports: [
@@ -11,12 +12,14 @@ import {ScrollableDirective} from './scrollable.directive';
   declarations: [
     AcceptDirective,
     DropZoneDirective,
-    ScrollableDirective
+    ScrollableDirective,
+    CardDirective
   ],
   exports: [
     AcceptDirective,
     DropZoneDirective,
-    ScrollableDirective
+    ScrollableDirective,
+    CardDirective
   ]
 })
 export class DirectivesModule {

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Inject, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {MemeType} from '../../consts/MemeType';
 import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
@@ -6,8 +6,8 @@ import {EvolveMeme} from '../../model/EvolveMeme';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {evolveStepText, memeTypeText} from '../../consts/TextData';
-import {DOCUMENT} from '@angular/common';
-import {WINDOW} from '../../shared/services/windows.service';
+import {CardOptions} from '../../options/card-options';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-meme-research',
@@ -17,7 +17,11 @@ import {WINDOW} from '../../shared/services/windows.service';
 export class MemeResearchComponent implements OnInit {
 
   @Input()
-  public meme: Meme; // TODO ЮЗАТЬ ДАННЫЕ ОТСЮДА ВМЕСТО EVOLVE
+  public options: CardOptions;
+
+  @Input()
+  public meme: Meme;
+
   public evolve: EvolveMeme;
 
   public typeIcons;
@@ -33,7 +37,7 @@ export class MemeResearchComponent implements OnInit {
   public isLoading = true;
 
   @Output()
-  public closer = new EventEmitter<null>();
+  public closer = new EventEmitter();
 
   constructor(
     private evolveApi: EvolveMemeApiService
@@ -46,16 +50,14 @@ export class MemeResearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.options != null) {
+      this.meme = this.options.meme;
+    }
+
     if (this.meme != null) {
       this.isPreview = true;
       this.initEvolve();
     }
-  }
-
-  researchShow(meme: Meme) {
-    this.meme = meme;
-    this.isPreview = true;
-    this.initEvolve();
   }
 
   initEvolve() {
@@ -63,13 +65,5 @@ export class MemeResearchComponent implements OnInit {
       this.evolve = evolve;
       this.isLoading = false;
     });
-  }
-
-  researchClose() {
-    this.closer.emit(null);
-    this.meme = null;
-    this.evolve = null;
-    this.isLoading = true;
-    this.isPreview = false;
   }
 }

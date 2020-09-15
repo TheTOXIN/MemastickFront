@@ -1,9 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ErrorCode} from '../../../consts/ErrorCode';
-import {LoaderStatus} from '../../../consts/LoaderStatus';
-import {AcceptComponent} from '../../../shared/accpet/accept.component';
 import {AcceptService} from '../../../services/accept-service';
-import {LoaderState} from '../../../state/loader-state';
 import {LoaderService} from '../../../services/loader-service';
 
 @Component({

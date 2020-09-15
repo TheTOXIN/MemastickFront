@@ -1,7 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {LoaderStatus} from '../../../consts/LoaderStatus';
-import {AcceptComponent} from '../../../shared/accpet/accept.component';
-import {ErrorCode} from '../../../consts/ErrorCode';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-shop-price',

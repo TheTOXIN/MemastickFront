@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ShopApiService} from '../../api/shop-api-service';
 import {PriceConst} from '../../consts/PriceConst';
-import {Error} from 'tslint/lib/error';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
 
 @Component({

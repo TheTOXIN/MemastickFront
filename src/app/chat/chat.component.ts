@@ -18,6 +18,7 @@ import {OauthApiService} from '../services/oauth-api-service';
 import {ChatUtils} from '../utils/chat-utils';
 import {GlobalConst} from '../consts/GlobalConst';
 import {interval, Observable, timer} from 'rxjs';
+import {CardService} from '../services/card-service';
 
 @Component({
   selector: 'app-chat',
@@ -26,7 +27,6 @@ import {interval, Observable, timer} from 'rxjs';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
   @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
 
   @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
@@ -68,7 +68,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private oauth: OauthApiService,
-    private changeDetectionRef: ChangeDetectorRef
+    private changeDetectionRef: ChangeDetectorRef,
+    private cardService: CardService
   ) {
     this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, GlobalConst.CHAT_SIZE);
 
@@ -240,7 +241,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   memetickCard(memetickId: UUID) {
-    this.card.showCard(memetickId);
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: memetickId
+    });
   }
 
   memotypeView() {

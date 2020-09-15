@@ -1,18 +1,13 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
-import {LoaderStatus} from '../../consts/LoaderStatus';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {TokenType} from '../../consts/TokenType';
 import {MemeLoh} from '../../model/meme/MemeLoh';
-import {MemeLohApiService} from '../../api/meme-loh-api-service';
 import {ErrorHandlerService} from '../../services/error-handler-service';
-import {TokenAccept} from '../../model/tokens/TokenAccept';
 import {Options} from 'ng5-slider';
 import {LohRadarComponent} from '../../shared/loh-radar/loh-radar.component';
 import {AcceptService} from '../../services/accept-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 @Component({

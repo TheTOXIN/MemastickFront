@@ -1,7 +1,18 @@
-<ng-template #memeResearchLinkLoad>
-  <app-spinner class="flex-center-absolute"></app-spinner>
-</ng-template>
-<div *ngIf="!isLoad; else memeResearchLinkLoad">
-  <app-meme-research class="super-absolute" [meme]="memeData?.page?.meme" (closer)="toHome()"></app-meme-research>
+<div class="super-main-title">
+  ИССЛЕДОВАНИЕ МЕМА
 </div>
+
+<div class="my-container container">
+  <div *ngIf="!isLoad; else memeResearchLinkLoad">
+    <app-meme-research [meme]="memeData?.page?.meme"></app-meme-research>
+  </div>
+  <ng-template #memeResearchLinkLoad>
+    <app-spinner></app-spinner>
+  </ng-template>
+</div>
+
+<div class="my-button-close main-button-close" (click)="toHome()">
+  <i class="fa fa-close"></i>
+</div>
+
 <div class="mem-back"></div>

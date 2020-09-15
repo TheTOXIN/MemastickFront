@@ -35,7 +35,8 @@ import {MemetickCardComponent} from './memetick-card/memetick-card.component';
     MemetickCardComponent
   ],
   entryComponents: [
-    MemetickStatsModalComponent
+    MemetickStatsModalComponent,
+    MemetickCardComponent
   ],
 })
 export class MemetickModule { }

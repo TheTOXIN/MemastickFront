@@ -1,13 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
-import {LoaderStatus} from '../../consts/LoaderStatus';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';
 import {ErrorHandlerService} from '../../services/error-handler-service';
-import {AcceptComponent} from '../../shared/accpet/accept.component';
 import {tokenIcons} from '../../model/TokenData';
 import {AcceptService} from '../../services/accept-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 @Component({

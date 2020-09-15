@@ -8,6 +8,9 @@ import {Meme} from '../../model/Meme';
 import {MemeData} from '../../model/MemeData';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Meta} from '@angular/platform-browser';
+import {CardService} from '../../services/card-service';
+import {UUID} from 'angular2-uuid';
+import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 
 @Component({
   selector: 'app-memes-share',
@@ -23,7 +26,6 @@ export class MemesShareComponent implements OnInit {
   isLogin = true;
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
-  @ViewChild(MemeResearchComponent) research: MemeResearchComponent;
 
   constructor(
     private router: Router,
@@ -31,7 +33,8 @@ export class MemesShareComponent implements OnInit {
     private memeApi: MemeApiService,
     public avatrApi: MemetickAvatarApiService,
     public ouath: OauthApiService,
-    private meta: Meta
+    private meta: Meta,
+    private cardService: CardService
   ) {
   }
 
@@ -76,6 +79,16 @@ export class MemesShareComponent implements OnInit {
   }
 
   memeResearch(meme: Meme) {
-    this.research.researchShow(meme);
+    this.cardService.open({
+      content: MemeResearchComponent,
+      meme: meme
+    });
+  }
+
+  memetickCard(memetickId: UUID) {
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: memetickId
+    });
   }
 }
