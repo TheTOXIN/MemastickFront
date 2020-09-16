@@ -6,6 +6,8 @@ import {CommentViewModalComponent} from '../../modals/comment-view-modal/comment
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {UUID} from 'angular2-uuid';
+import {CardService} from '../../services/card-service';
+import {CommentsComponent} from '../../shared/comments/comments.component';
 
 @Component({
   selector: 'app-meme-best-comment',
@@ -19,17 +21,14 @@ export class MemeBestCommentComponent implements OnInit {
   @Input()
   public comment: MemeCommentBest;
 
-  @Output()
-  public memeticker = new EventEmitter<UUID>();
-
   public avatar: string;
 
   minText = 8;
   maxText = 16;
 
   constructor(
-    private modalService: NgbModal,
-    private avatarApi: MemetickAvatarApiService
+    private cardService: CardService,
+    private avatarApi: MemetickAvatarApiService,
   ) {
     if (!ScreenUtils.isMobileScreen()) {
       this.minText = 14;
@@ -43,14 +42,17 @@ export class MemeBestCommentComponent implements OnInit {
     );
   }
 
-  commentsView() {
-    const modalRef = this.modalService.open(CommentViewModalComponent, {'centered': true});
-    modalRef.componentInstance.memeId = this.comment.memeId;
+  commentsCard() {
+    this.cardService.open({
+      content: CommentsComponent,
+      memeId: this.comment.memeId
+    });
   }
 
   memetickCard() {
-    this.memeticker.emit(
-      this.comment.memetickId
-    );
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: this.comment.memetickId
+    });
   }
 }

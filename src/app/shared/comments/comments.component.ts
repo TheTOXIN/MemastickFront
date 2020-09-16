@@ -5,6 +5,7 @@ import {animate, keyframes, style, transition, trigger} from '@angular/animation
 import {MemeComment} from '../../model/meme/MemeComment';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
+import {CardOptions} from '../../options/card-options';
 
 @Component({
   selector: 'app-comments',
@@ -28,13 +29,16 @@ export class CommentsComponent implements OnInit {
   public memeId: UUID;
 
   @Input()
-  public sort: string;
+  public sort: string = 'point';
 
   @Input()
   public withTitle: boolean = true;
 
   @Input()
   public emptyText = 'Без комментариев 🤐';
+
+  @Input()
+  public options: CardOptions;
 
   public commentsLoad = false;
   public comments: MemeComment[] = [];
@@ -46,11 +50,16 @@ export class CommentsComponent implements OnInit {
     private commentApi: MemeCommentApiService,
     private router: Router
   ) {
-
   }
 
   ngOnInit() {
-    this.initComments();
+    if (this.options != null) {
+      this.memeId = this.options.memeId;
+    }
+
+    if (this.memeId != null) {
+      this.initComments();
+    }
   }
 
   initComments() {

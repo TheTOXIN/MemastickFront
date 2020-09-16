@@ -106,7 +106,8 @@ import {CardComponent} from './card/card.component';
     CardComponent
   ],
   entryComponents: [
-    CardComponent
+    CardComponent,
+    CommentsComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

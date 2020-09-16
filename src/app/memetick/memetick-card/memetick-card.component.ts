@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UUID} from 'angular2-uuid';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {CardOptions} from '../../options/card-options';
