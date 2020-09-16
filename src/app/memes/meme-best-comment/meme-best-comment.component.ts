@@ -1,13 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MemeCommentBest} from '../../model/meme/MemeCommentBest';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ScreenUtils} from '../../utils/screen-utils';
-import {CommentViewModalComponent} from '../../modals/comment-view-modal/comment-view-modal.component';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
-import {UUID} from 'angular2-uuid';
 import {CardService} from '../../services/card-service';
-import {CommentsComponent} from '../../shared/comments/comments.component';
+import {CommentsComponent} from '../../comments/comments/comments.component';
 
 @Component({
   selector: 'app-meme-best-comment',

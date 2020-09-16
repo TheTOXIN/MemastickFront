@@ -5,9 +5,7 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {SharedModule} from '../shared/shared.module';
 import {MemeViewComponent} from './meme-view/meme-view.component';
 import {MemesComponent} from './memes/memes.component';
-import {ScrollableDirective} from '../directivies/scrollable.directive';
 import {ModalsModule} from '../modals/modals.module';
-import {DropZoneDirective} from '../directivies/drop-zone.directive';
 import {MemeCreatorComponent} from './meme-creator/meme-creator.component';
 import {MemesRoutingModules} from './memes-routing.modules';
 import {MemesShareComponent} from './memes-share/memes-share.component';
@@ -28,6 +26,7 @@ import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.co
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
 import {MemetickModule} from '../memetick/memetick.module';
 import {DirectivesModule} from '../directivies/directives.module';
+import {CommentsModule} from '../comments/comments.module';
 
 @NgModule({
   imports: [
@@ -41,7 +40,8 @@ import {DirectivesModule} from '../directivies/directives.module';
     TokenModule,
     FormsModule,
     AngularFittextModule,
-    DirectivesModule
+    DirectivesModule,
+    CommentsModule
   ],
   exports: [
     MemesPageComponent,

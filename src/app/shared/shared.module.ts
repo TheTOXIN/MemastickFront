@@ -32,7 +32,6 @@ import {ChartsModule} from 'ng2-charts';
 import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
 import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
-import {CommentsComponent} from './comments/comments.component';
 import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
 import {CardComponent} from './card/card.component';
 
@@ -59,7 +58,6 @@ import {CardComponent} from './card/card.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    CommentsComponent,
     DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
@@ -98,7 +96,6 @@ import {CardComponent} from './card/card.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    CommentsComponent,
     DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
@@ -107,7 +104,6 @@ import {CardComponent} from './card/card.component';
   ],
   entryComponents: [
     CardComponent,
-    CommentsComponent
   ],
   providers: [
     WINDOW_PROVIDERS,

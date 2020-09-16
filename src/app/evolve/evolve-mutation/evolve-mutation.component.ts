@@ -8,7 +8,7 @@ import {ErrorHandlerService} from '../../services/error-handler-service';
 import {ValidConst} from '../../consts/ValidConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderService} from '../../services/loader-service';
-import {CommentsComponent} from '../../shared/comments/comments.component';
+import {CommentsComponent} from '../../comments/comments/comments.component';
 
 @Component({
   selector: 'app-evolve-mutation',

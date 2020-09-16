@@ -11,6 +11,7 @@ import {EvolveSurvivalComponent} from './evolve-survival/evolve-survival.compone
 import {Ng5SliderModule} from 'ng5-slider';
 import {FormsModule} from '@angular/forms';
 import {MemetickModule} from '../memetick/memetick.module';
+import {CommentsModule} from '../comments/comments.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MemetickModule} from '../memetick/memetick.module';
     SharedModule,
     TokenModule,
     FormsModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    CommentsModule
   ],
   exports: [
     EvolveAdaptationComponent,

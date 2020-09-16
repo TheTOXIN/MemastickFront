@@ -72,6 +72,7 @@ import {DirectivesModule} from './directivies/directives.module';
 import {CardService} from './services/card-service';
 import {CardState} from './state/card-state.service';
 import {MyHammerConfig} from './configs/my-hammer-config';
+import {CommentsModule} from './comments/comments.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -97,6 +98,7 @@ firebase.initializeApp(environment.firebase);
     BattleModule,
     DirectivesModule,
     ChatModule,
+    CommentsModule,
     LaboratoryModule,
     HttpClientModule,
     AngularFittextModule,

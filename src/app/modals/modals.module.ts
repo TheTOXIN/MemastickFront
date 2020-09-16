@@ -30,7 +30,6 @@ import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.co
 import {TokenModule} from '../token/token.module';
 import {CreedModalComponent} from './creed-modal/creed-modal.component';
 import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
-import {CommentViewModalComponent} from './comment-view-modal/comment-view-modal.component';
 import {ImageModalComponent} from './image-modal/image-modal.component';
 import {OwlModule} from 'ngx-owl-carousel';
 
@@ -59,7 +58,6 @@ import {OwlModule} from 'ngx-owl-carousel';
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent,
     IntroModalComponent,
     ImageModalComponent
   ],
@@ -99,7 +97,6 @@ import {OwlModule} from 'ngx-owl-carousel';
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent,
     IntroModalComponent,
     ImageModalComponent
   ],
@@ -126,7 +123,6 @@ import {OwlModule} from 'ngx-owl-carousel';
     RankTokensModalComponent,
     CreedModalComponent,
     MemeCreateModalComponent,
-    CommentViewModalComponent,
     IntroModalComponent,
     ImageModalComponent
   ]
