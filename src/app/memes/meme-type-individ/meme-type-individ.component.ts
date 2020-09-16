@@ -10,6 +10,11 @@ import {MemesModalComponent} from '../memes-modal/memes-modal.component';
 import {BattleConst} from '../../consts/BattleConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderService} from '../../services/loader-service';
+import {MemeLoh} from '../../model/meme/MemeLoh';
+import {MemeComment} from '../../model/meme/MemeComment';
+import {EpiModalComponent} from '../../modals/epi-modal/epi-modal.component';
+import {EvolveMutationComponent} from '../../evolve/evolve-mutation/evolve-mutation.component';
+import {EvolveMeme} from '../../model/EvolveMeme';
 
 @Component({
   selector: 'app-meme-type-individ',
@@ -20,6 +25,9 @@ export class MemeTypeIndividComponent implements OnInit {
 
   @Input()
   public meme: Meme;
+
+  @Input()
+  public evolve: EvolveMeme;
 
   isBattle = false;
 

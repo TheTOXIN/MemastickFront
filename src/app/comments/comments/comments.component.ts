@@ -17,6 +17,12 @@ export class CommentsComponent implements OnInit {
   public memeId: UUID;
 
   @Input()
+  public options: CardOptions;
+
+  @Input()
+  public comments: MemeComment[];
+
+  @Input()
   public sort: string = 'point';
 
   @Input()
@@ -25,12 +31,8 @@ export class CommentsComponent implements OnInit {
   @Input()
   public maxHeight = 'auto';
 
-  @Input()
-  public options: CardOptions;
-
   footText: boolean;
 
-  public comments: MemeComment[] = [];
   public commentsLoad = false;
   public memetickAvatars = [];
 
@@ -48,18 +50,29 @@ export class CommentsComponent implements OnInit {
       this.footText = true;
     }
 
+    if (this.comments == null) {
+      this.comments = [];
+    }
+
     if (this.memeId != null) {
+      this.loadComments();
+    } else  {
       this.initComments();
     }
   }
 
-  initComments() {
+  loadComments() {
     this.commentsLoad = false;
+
     this.commentApi.readComments(this.memeId, this.sort).subscribe(data => {
       this.comments = data;
-      this.initAvatars();
-      this.commentsLoad = true;
+      this.initComments();
     });
+  }
+
+  initComments() {
+    this.initAvatars();
+    this.commentsLoad = true;
   }
 
   initAvatars() {

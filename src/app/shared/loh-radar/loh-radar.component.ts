@@ -17,7 +17,8 @@ export class LohRadarComponent implements OnInit {
   @Input()
   public memeId: UUID;
 
-  public loh: MemeLoh = new MemeLoh(0 , 0, 0);
+  @Input()
+  public loh: MemeLoh;
 
   public radarChartOptions: ChartOptions;
   public radarChartColors: Color[];
@@ -30,11 +31,11 @@ export class LohRadarComponent implements OnInit {
   constructor(
     private memeLohApi: MemeLohApiService
   ) {
+
   }
 
   ngOnInit() {
     this.initLoh();
-    this.initData(this.loh);
     this.initChart();
   }
 
@@ -47,11 +48,21 @@ export class LohRadarComponent implements OnInit {
   }
 
   private initLoh() {
-    this.memeLohApi.read(this.memeId).subscribe(data => {
-      this.loh = data;
-      this.initData(data);
+    if (this.memeId != null) {
+      this.memeLohApi.read(this.memeId).subscribe(data => {
+        this.loh = data;
+
+        this.initData(this.loh);
+        this.isLoad = true;
+      });
+    } else {
+      if (this.loh == null) {
+        this.loh = new MemeLoh(0, 0, 0);
+      }
+
+      this.initData(this.loh);
       this.isLoad = true;
-    });
+    }
   }
 
   private initData(loh: MemeLoh) {

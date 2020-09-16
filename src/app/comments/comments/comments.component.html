@@ -7,9 +7,7 @@
       <app-comment-row [comment]="comment" [avatar]="memetickAvatars[comment.memetickId]"></app-comment-row>
       <div class="comment-del"></div>
     </div>
-    <div class="comment-empty" *ngIf="comments.length == 0">
-      {{emptyText}}
-    </div>
+    <div class="comment-empty" *ngIf="comments.length == 0">{{emptyText}}</div>
   </div>
   <ng-template #commentNotLoad>
     <app-spinner></app-spinner>

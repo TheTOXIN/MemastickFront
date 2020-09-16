@@ -4,7 +4,7 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ScreenUtils} from '../../utils/screen-utils';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {CardService} from '../../services/card-service';
-import {CommentsComponent} from '../../comments/comments/comments.component';
+import {CommentsComponent} from '../comments/comments.component';
 
 @Component({
   selector: 'app-comment-best',

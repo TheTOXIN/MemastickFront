@@ -34,7 +34,7 @@
         <app-meme-type-select [meme]="meme"></app-meme-type-select>
       </div>
       <div *ngIf="meme.type === typeMeme.INDV">
-        <app-meme-type-individ [meme]="meme" (battler)="closer.emit()"></app-meme-type-individ>
+        <app-meme-type-individ [meme]="meme" [evolve]="evolve" (battler)="closer.emit()"></app-meme-type-individ>
       </div>
       <div *ngIf="meme.type === typeMeme.DEAD">
         <app-meme-type-dead [meme]="meme"></app-meme-type-dead>

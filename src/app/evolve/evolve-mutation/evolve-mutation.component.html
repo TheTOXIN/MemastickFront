@@ -10,7 +10,14 @@
   <div *ngIf="evolve?.canApplyToken">
     <div class="evolve-my-comment">
       <label for="textCommentId">Комментарий для мутации: (до 256 символов)</label>
-      <textarea class="form-control my-scroll" rows="5" id="textCommentId" [(ngModel)]="myComment" (ngModelChange)="checkValid()" autofocus></textarea>
+      <textarea
+        class="form-control my-scroll"
+        id="textCommentId"
+        rows="5"
+        (ngModelChange)="checkValid()"
+        [(ngModel)]="myComment"
+        autofocus>
+      </textarea>
     </div>
     <div class="main-research-control">
       <button class="btn-theme" (click)="mutation()" [disabled]="!validComment">

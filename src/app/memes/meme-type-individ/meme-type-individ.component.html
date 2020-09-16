@@ -1,7 +1,7 @@
 <div>
   <div class="content-research">
-    <app-loh-radar [memeId]="meme.id"></app-loh-radar>
-    <app-comments [memeId]="meme.id"></app-comments>
+    <app-loh-radar [loh]="evolve?.loh"></app-loh-radar>
+    <app-comment-best [comment]="evolve?.comment"></app-comment-best>
   </div>
   <div class="main-research-control">
     <button class="btn-theme" (click)="battle()" [disabled]="isBattle">
