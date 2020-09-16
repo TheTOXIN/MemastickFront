@@ -1,8 +1,8 @@
-.meme-best-comment {
+.best-comment {
   background-color: white;
 }
 
-.meme-best-comment-row {
+.best-comment-row {
   height: 69px;
   width: 100%;
 
@@ -15,7 +15,7 @@
   }
 }
 
-.meme-best-comment-image {
+.best-comment-image {
   height: 100%;
   width: 15%;
   padding: 10px;
@@ -34,7 +34,7 @@
   }
 }
 
-.meme-best-comment-text {
+.best-comment-text {
   height: 100%;
   width: 65%;
 
@@ -50,7 +50,7 @@
   padding-left: 5px;
 }
 
-.meme-best-comment-point {
+.best-comment-point {
   height: 100%;
   width: 15%;
 
@@ -67,7 +67,17 @@
   }
 }
 
-.meme-best-comment-icon {
+.best-comment-warp {
+  border-radius: 15px;
+  border-width: 5px;
+  border-color: #6e28fa;
+  border-style: solid;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.best-comment-icon {
   height: 100%;
   width: 10%;
 
@@ -77,6 +87,7 @@
   transition: 0.3s ease;
 
   i {
+    text-align: center;
     color: #343a40;
     font-size: 28px;
     display: block;

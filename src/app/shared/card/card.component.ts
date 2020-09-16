@@ -2,7 +2,6 @@ import {Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild, View
 import {CardState} from '../../state/card-state.service';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import * as Hammer from 'hammerjs';
-import {ScreenUtils} from '../../utils/screen-utils';
 
 const slideInUp  = [
   style({visibility: 'visible', transform: 'translate3d(0, 100%, 0)'}),
@@ -53,12 +52,6 @@ export class CardComponent implements OnInit {
     const ref: any = this.ctr.createComponent(factory);
 
     ref.instance.options = this.cardState.options;
-
-    if (ref.instance.closer != null) {
-      ref.instance.closer.subscribe(() => {
-        this.close();
-      });
-    }
 
     this.dragInit();
   }

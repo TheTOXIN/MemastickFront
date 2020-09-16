@@ -16,7 +16,10 @@ export class CommentBestComponent implements OnInit {
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 
   @Input()
-  public comment: MemeCommentBest;
+  public comment: MemeCommentBest; // TODO GET FROM MEME PAGE
+
+  @Input()
+  public withWarp = false;
 
   public avatar: string;
 
@@ -34,9 +37,11 @@ export class CommentBestComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.avatar = this.avatarApi.dowloadAvatar(
-      this.comment.memetickId
-    );
+    if (this.comment != null) {
+      this.avatar = this.avatarApi.dowloadAvatar(
+        this.comment.memetickId
+      );
+    }
   }
 
   commentsCard() {

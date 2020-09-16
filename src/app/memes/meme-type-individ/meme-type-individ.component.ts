@@ -31,9 +31,6 @@ export class MemeTypeIndividComponent implements OnInit {
 
   isBattle = false;
 
-  @Output()
-  public battler = new EventEmitter();
-
   constructor(
     public loaderService: LoaderService,
     private acceptService: AcceptService,
@@ -49,8 +46,6 @@ export class MemeTypeIndividComponent implements OnInit {
   }
 
   battle() {
-    this.battler.emit();
-
     const modalRef = this.modalService.open(MemesModalComponent, {'centered': true});
 
     modalRef.componentInstance.title = 'ВЫБЕРЕТЕ СВОЙ МЕМ';

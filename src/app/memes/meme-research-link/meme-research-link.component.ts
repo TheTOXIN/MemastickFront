@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {MemeData} from '../../model/MemeData';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {MemeResearchComponent} from '../meme-research/meme-research.component';
 
 @Component({
   selector: 'app-meme-research-link',
@@ -19,7 +18,7 @@ export class MemeResearchLinkComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private memeApi: MemeApiService,
-    public avatrApi: MemetickAvatarApiService,
+    public avatarApi: MemetickAvatarApiService,
   ) {
 
   }
@@ -28,7 +27,7 @@ export class MemeResearchLinkComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.memeApi.memePage(params['id']).subscribe(page => {
           this.memeData = new MemeData(page);
-          this.memeData.avatar = this.avatrApi.dowloadAvatar(page.memetick.id);
+          this.memeData.avatar = this.avatarApi.dowloadAvatar(page.memetick.id);
           this.isLoad = false;
         },
         () => this.router.navigateByUrl('error')

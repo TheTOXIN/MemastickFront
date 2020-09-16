@@ -4,7 +4,6 @@ import {MemeComment} from '../../model/meme/MemeComment';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {CardOptions} from '../../options/card-options';
-import {CardState} from '../../state/card-state.service';
 
 @Component({
   selector: 'app-comments',
@@ -37,7 +36,6 @@ export class CommentsComponent implements OnInit {
   public memetickAvatars = [];
 
   constructor(
-    private cardState: CardState,
     private avatarApi: MemetickAvatarApiService,
     private commentApi: MemeCommentApiService,
   ) {

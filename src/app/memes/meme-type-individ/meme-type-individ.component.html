@@ -1,7 +1,7 @@
 <div>
   <div class="content-research">
     <app-loh-radar [loh]="evolve?.loh"></app-loh-radar>
-    <app-comment-best [comment]="evolve?.comment"></app-comment-best>
+    <app-comment-best [comment]="evolve?.comment" [withWarp]="true"></app-comment-best>
   </div>
   <div class="main-research-control">
     <button class="btn-theme" (click)="battle()" [disabled]="isBattle">

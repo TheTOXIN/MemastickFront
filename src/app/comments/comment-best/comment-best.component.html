@@ -1,15 +1,15 @@
-<div class="meme-best-comment">
-    <div class="meme-best-comment-row">
-      <div class="meme-best-comment-image" (click)="memetickCard()">
+<div class="best-comment" [ngClass]="{'best-comment-warp': withWarp}" *ngIf="comment">
+    <div class="best-comment-row">
+      <div class="best-comment-image" (click)="memetickCard()">
         <img [src]="avatar">
       </div>
-      <div class="meme-best-comment-text" (click)="commentsCard()">
+      <div class="best-comment-text" (click)="commentsCard()">
         <div fittext [minFontSize]="minText" [maxFontSize]="maxText">{{comment.comment}}</div>
       </div>
-      <div class="meme-best-comment-point">
+      <div class="best-comment-point">
         {{comment.point}}
       </div>
-      <div class="meme-best-comment-icon" (click)="commentsCard()">
+      <div class="best-comment-icon" (click)="commentsCard()">
         <div>
           <i class="fa fa-angle-up"></i>
           <i class="fa fa-angle-down"></i>

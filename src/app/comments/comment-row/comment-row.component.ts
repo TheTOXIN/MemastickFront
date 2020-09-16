@@ -31,7 +31,6 @@ export class CommentRowComponent implements OnInit {
   public avatar: string;
 
   constructor(
-    private cardState: CardState,
     private commentApi: MemeCommentApiService,
     private cardService: CardService
   ) {
@@ -61,8 +60,6 @@ export class CommentRowComponent implements OnInit {
   }
 
   memetickCard() {
-    this.cardState.modal.close();
-
     this.cardService.open({
       content: MemetickCardComponent,
       memetickId: this.comment.memetickId
