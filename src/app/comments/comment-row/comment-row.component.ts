@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MemeComment} from '../../model/meme/MemeComment';
-import {UUID} from 'angular2-uuid';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
-import {Router} from '@angular/router';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {CardService} from '../../services/card-service';
+import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
+import {CardState} from '../../state/card-state.service';
 
 @Component({
   selector: 'app-comment-row',
@@ -30,8 +31,9 @@ export class CommentRowComponent implements OnInit {
   public avatar: string;
 
   constructor(
+    private cardState: CardState,
     private commentApi: MemeCommentApiService,
-    private router: Router
+    private cardService: CardService
   ) {
 
   }
@@ -58,7 +60,12 @@ export class CommentRowComponent implements OnInit {
     this.commentApi.voteComment(comment.commentId, vote);
   }
 
-  toMemetick(memetickId: UUID) {
-    this.router.navigate(['/memetick', memetickId]);
+  memetickCard() {
+    this.cardState.modal.close();
+
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: this.comment.memetickId
+    });
   }
 }
