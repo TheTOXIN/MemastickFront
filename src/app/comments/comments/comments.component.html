@@ -1,5 +1,7 @@
-<div class="comment-title" *ngIf="withTitle">Комментарии:</div>
-<div class="comment-wrap my-scroll">
+<div class="comment-title">
+  <i class="fa fa-comments-o"></i>Комментарии:
+</div>
+<div class="comment-wrap my-scroll" [style.max-height]="maxHeight">
   <div *ngIf="commentsLoad; else commentNotLoad">
     <div *ngFor="let comment of comments">
       <app-comment-row [comment]="comment" [avatar]="memetickAvatars[comment.memetickId]"></app-comment-row>

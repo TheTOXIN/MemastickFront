@@ -19,10 +19,10 @@ export class CommentsComponent implements OnInit {
   public sort: string = 'point';
 
   @Input()
-  public withTitle: boolean = true;
+  public emptyText = 'Без комментариев 🤐';
 
   @Input()
-  public emptyText = 'Без комментариев 🤐';
+  public maxHeight = 'auto';
 
   @Input()
   public options: CardOptions;
@@ -35,6 +35,7 @@ export class CommentsComponent implements OnInit {
     private avatarApi: MemetickAvatarApiService,
     private commentApi: MemeCommentApiService,
   ) {
+
   }
 
   ngOnInit() {

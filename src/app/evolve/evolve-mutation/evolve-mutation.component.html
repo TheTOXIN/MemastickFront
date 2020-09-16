@@ -1,6 +1,11 @@
 <div class="evolve-mutation">
   <div class="evolve-comments">
-    <app-comments [memeId]="evolve.memeId" [sort]="'creating'" [emptyText]="commentMsg"></app-comments>
+    <app-comments
+      [memeId]="evolve.memeId"
+      [sort]="'creating'"
+      [emptyText]="commentMsg"
+      [maxHeight]="'250px'">
+    </app-comments>
   </div>
   <div *ngIf="evolve?.canApplyToken">
     <div class="evolve-my-comment">
