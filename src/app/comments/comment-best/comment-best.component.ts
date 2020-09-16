@@ -7,11 +7,11 @@ import {CardService} from '../../services/card-service';
 import {CommentsComponent} from '../../comments/comments/comments.component';
 
 @Component({
-  selector: 'app-meme-best-comment',
-  templateUrl: './meme-best-comment.component.html',
-  styleUrls: ['./meme-best-comment.component.scss']
+  selector: 'app-comment-best',
+  templateUrl: './comment-best.component.html',
+  styleUrls: ['./comment-best.component.scss']
 })
-export class MemeBestCommentComponent implements OnInit {
+export class CommentBestComponent implements OnInit {
 
   @ViewChild(MemetickCardComponent) card: MemetickCardComponent;
 

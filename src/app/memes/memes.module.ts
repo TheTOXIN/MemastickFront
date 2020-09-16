@@ -22,7 +22,6 @@ import {MemesModalComponent} from './memes-modal/memes-modal.component';
 import {MemeTypeDeadComponent} from './meme-type-dead/meme-type-dead.component';
 import {MemeTypeSelectComponent} from './meme-type-select/meme-type-select.component';
 import {MemeTypeIndividComponent} from './meme-type-individ/meme-type-individ.component';
-import {MemeBestCommentComponent} from './meme-best-comment/meme-best-comment.component';
 import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link.component';
 import {MemetickModule} from '../memetick/memetick.module';
 import {DirectivesModule} from '../directivies/directives.module';
@@ -63,7 +62,6 @@ import {CommentsModule} from '../comments/comments.module';
     MemeTypeSelectComponent,
     MemeTypeIndividComponent,
     MemeTypeDeadComponent,
-    MemeBestCommentComponent,
     MemeResearchLinkComponent
   ],
   entryComponents: [
