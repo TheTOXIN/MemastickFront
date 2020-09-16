@@ -31,16 +31,19 @@ export class CardComponent implements OnInit {
   @ViewChild('drag') drag: ElementRef;
 
   animState;
-  cardPos;
-  cardPosClose;
+  cardHeight;
+
+  readonly windowHeight;
+  readonly cardPosClose;
 
   constructor(
     private cardState: CardState,
     private resolve: ComponentFactoryResolver
   ) {
     this.animState = 'open';
-    this.cardPos = ScreenUtils.isMobileScreen() ? 100 : 25;
-    this.cardPosClose = window.innerHeight - (window.innerHeight / 2);
+    this.windowHeight = window.innerHeight;
+    this.cardPosClose = this.windowHeight / 2;
+    this.cardHeight = this.windowHeight / 100 * 85;
   }
 
   ngOnInit() {
@@ -62,14 +65,21 @@ export class CardComponent implements OnInit {
 
   dragInit() {
     const mc = new Hammer(this.drag.nativeElement);
-    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    mc.on('panleft panright panup pandown tap press', (event) => {
+
+    mc.get('pan').set({
+      direction: Hammer.DIRECTION_ALL
+    });
+
+    mc.on('panup pandown', (event) => {
       const y = event.center.y;
       if (y >= 0) {
-        this.cardPos = event.center.y;
-        if (this.cardPos > this.cardPosClose) {
-          this.startClose();
-        }
+        this.cardHeight = this.windowHeight - event.center.y;
+      }
+    });
+
+    mc.on('panend', () => {
+      if (this.cardHeight < this.cardPosClose) {
+        this.startClose();
       }
     });
   }
