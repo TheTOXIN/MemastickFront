@@ -33,9 +33,9 @@ export class MemesShareComponent implements OnInit {
     private memeApi: MemeApiService,
     public avatrApi: MemetickAvatarApiService,
     public ouath: OauthApiService,
-    private meta: Meta,
-    private cardService: CardService
+    private meta: Meta
   ) {
+
   }
 
   ngOnInit() {
@@ -76,19 +76,5 @@ export class MemesShareComponent implements OnInit {
 
   memeView(meme: Meme) {
     this.view.viewShow(meme);
-  }
-
-  memeResearch(meme: Meme) {
-    this.cardService.open({
-      content: MemeResearchComponent,
-      meme: meme
-    });
-  }
-
-  memetickCard(memetickId: UUID) {
-    this.cardService.open({
-      content: MemetickCardComponent,
-      memetickId: memetickId
-    });
   }
 }

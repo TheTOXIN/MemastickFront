@@ -16,6 +16,9 @@ import {MemeType} from '../../consts/MemeType';
 import {ValidConst} from '../../consts/ValidConst';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
 import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemeResearchComponent} from '../meme-research/meme-research.component';
+import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
+import {CardService} from '../../services/card-service';
 
 @Component({
   selector: 'app-memes-page',
@@ -56,37 +59,19 @@ export class MemesPageComponent implements OnInit {
   @Output()
   public viewer = new EventEmitter<Meme>();
 
-  @Output()
-  public researcher = new EventEmitter<Meme>();
-
-  @Output()
-  public memeticker = new EventEmitter<UUID>();
-
   private timerChromosome;
   private counterChromosome = 0;
 
   private stepIcons;
   private typeIcons;
 
-  viewerEvent(meme: Meme) {
-    if (this.isMemeDeath(meme)) { return; }
-    this.viewer.emit(meme);
-  }
-
-  researcherEvent(meme: Meme) {
-    this.researcher.emit(meme);
-  }
-
-  memetickerEvent(memetickId: UUID) {
-    this.memeticker.emit(memetickId);
-  }
-
   constructor(
     public pagination: MemesPaginationService,
     private likeApi: MemeLikeApiService,
     private memeApi: MemeApiService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private cardService: CardService
   ) {
     this.stepIcons = evolveIcons;
     this.typeIcons = memeIcons;
@@ -150,5 +135,24 @@ export class MemesPageComponent implements OnInit {
 
   isMemeDeath(meme: Meme) {
     return meme.type === MemeType.DEAD;
+  }
+
+  memeResearch() {
+    this.cardService.open({
+      content: MemeResearchComponent,
+      meme: this.data.page.meme
+    });
+  }
+
+  memetickCard() {
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: this.data.page.memetick.id
+    });
+  }
+
+  viewerEvent(meme: Meme) {
+    if (this.isMemeDeath(meme)) { return; }
+    this.viewer.emit(meme);
   }
 }

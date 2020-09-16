@@ -3,12 +3,7 @@
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
 
     <div *ngFor="let data of pagination.data | async">
-      <app-memes-page
-        [data]="data"
-        (viewer)="memeView($event)"
-        (researcher)="memeResearch($event)"
-        (memeticker)="memetickCard($event)">
-      </app-memes-page>
+      <app-memes-page [data]="data" (viewer)="memeView($event)"></app-memes-page>
     </div>
 
     <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>

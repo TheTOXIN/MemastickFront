@@ -31,8 +31,7 @@ export class MemesComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal,
-    private storage: StorageService,
-    private cardService: CardService
+    private storage: StorageService
   ) {
 
   }
@@ -86,19 +85,5 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   memeView(meme: Meme) {
     this.view.viewShow(meme);
-  }
-
-  memeResearch(meme: Meme) {
-    this.cardService.open({
-      content: MemeResearchComponent,
-      meme: meme
-    });
-  }
-
-  memetickCard(memetickId: UUID) {
-    this.cardService.open({
-      content: MemetickCardComponent,
-      memetickId: memetickId
-    });
   }
 }

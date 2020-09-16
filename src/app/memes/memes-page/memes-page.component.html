@@ -1,7 +1,7 @@
 <div class="memes-table animated zoomIn">
   <div class="memes-info">
     <div class="memes-info-avatar">
-      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickerEvent(data.page?.memetick.id)">
+      <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickCard()">
     </div>
     <div class="memes-info-nick text-strong-middle">
       <div fittext [minFontSize]="16" [maxFontSize]="28"> {{data.page?.memetick?.nick}} </div>
@@ -51,7 +51,7 @@
     <div class="like-count-1">
       <span class="likes-count">{{data.page?.meme.chromosomes}}</span>
     </div>
-    <div class="likes-delimer" (click)="researcherEvent(data.page?.meme)">
+    <div class="likes-delimer" (click)="memeResearch()">
       <img class="img-fluid select-none" src="assets/images/icon/research.png">
     </div>
     <div class="like-count-2">
