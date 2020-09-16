@@ -2,8 +2,9 @@
   <div class="comment-image">
     <img (click)="toMemetick(comment.memetickId)" [src]="avatar">
   </div>
-  <div class="comment-text">
-    <div>{{comment.comment}}</div>
+  <div class="comment-content">
+    <div class="comment-nick">{{comment.nick}}</div>
+    <div class="comment-text">{{comment.comment}}</div>
   </div>
   <div class="comment-point" [@pointState]="comment.point">{{comment.point}}</div>
   <div class="comment-vote">
