@@ -58,3 +58,16 @@
     margin-bottom: 5px;
   }
 }
+
+.comment-footer {
+  p {
+    text-align: center;
+    margin-top: 5px;
+  };
+
+  @media(max-width: 767px) {
+    p {
+      font-size: 14px;
+    }
+  }
+}

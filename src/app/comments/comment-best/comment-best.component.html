@@ -3,7 +3,7 @@
       <div class="meme-best-comment-image" (click)="memetickCard()">
         <img [src]="avatar">
       </div>
-      <div class="meme-best-comment-text">
+      <div class="meme-best-comment-text" (click)="commentsCard()">
         <div fittext [minFontSize]="minText" [maxFontSize]="maxText">{{comment.comment}}</div>
       </div>
       <div class="meme-best-comment-point">

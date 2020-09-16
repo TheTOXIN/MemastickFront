@@ -27,6 +27,8 @@ export class CommentsComponent implements OnInit {
   @Input()
   public options: CardOptions;
 
+  footText: boolean;
+
   public comments: MemeComment[] = [];
   public commentsLoad = false;
   public memetickAvatars = [];
@@ -35,12 +37,13 @@ export class CommentsComponent implements OnInit {
     private avatarApi: MemetickAvatarApiService,
     private commentApi: MemeCommentApiService,
   ) {
-
+    this.footText = false;
   }
 
   ngOnInit() {
     if (this.options != null) {
       this.memeId = this.options.memeId;
+      this.footText = true;
     }
 
     if (this.memeId != null) {
