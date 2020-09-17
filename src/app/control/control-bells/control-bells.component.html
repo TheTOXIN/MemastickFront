@@ -1,5 +1,5 @@
 <div class="control-content-wrap">
-  <div class="control-content-empty" style="height: 60px"></div>
+  <div class="control-content-empty"></div>
 
   <app-spinner *ngIf="loader"></app-spinner>
 
@@ -7,15 +7,17 @@
 
     <div *ngFor="let bell of bells; let i = index">
       <div class="control-bells-row">
-      <div class="control-bells-txt text-strong-center" [style.background-color]="bell.read ? '#c3c3c3' : ''" (click)="event(bell, i)">
-        <div>{{bell.text}}</div>
-      </div>
-      <div  class="control-bells-btn">
-        <div>
-          <i *ngIf="!bell.read" class="fa fa-check control-bells-btn-mark" (click)="mark(bell, i)"></i>
-          <i *ngIf="bell.read" class="fa fa-close control-bells-btn-clear" (click)="clear(bell, i)"></i>
+        <div class="control-bells-btn">
+          <div>
+            <i *ngIf="!bell.read" class="fa fa-check control-bells-btn-mark" (click)="mark(bell, i)"></i>
+            <i *ngIf="bell.read" class="fa fa-close control-bells-btn-clear" (click)="clear(bell, i)"></i>
+          </div>
         </div>
-      </div>
+        <div class="control-bells-txt"
+             [style.background-color]="bell.read ? '#c3c3c3' : ''"
+             (click)="event(bell, i)">
+          <div>{{bell.text}}</div>
+        </div>
       </div>
     </div>
 

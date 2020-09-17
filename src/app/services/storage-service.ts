@@ -13,12 +13,12 @@ const EVOLVE_INFO = 'EVOLVE_INFO';
 const CREATE_INFO = 'CREATE_INFO';
 const ME = 'ME';
 const PUSH_TOKEN = 'PUSH_TOKEN';
+const PEVIEW = 'PEVIEW';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
-const PEVIEW = 'PEVIEW';
 const LAB_MEM = 'LAB_MEM';
 
 @Injectable()
@@ -132,13 +132,16 @@ export class StorageService {
   }
 
   public isPreview(): boolean {
-    const wasPreview = sessionStorage.getItem(PEVIEW) === PEVIEW;
+    const nowDay = new Date().getDate() + '';
+    const strDay = localStorage.getItem(PEVIEW);
 
-    if (!wasPreview) {
-      sessionStorage.setItem(PEVIEW, PEVIEW);
+    const preview = nowDay !== strDay;
+
+    if (preview) {
+      localStorage.setItem(PEVIEW,  nowDay);
     }
 
-    return !wasPreview;
+    return preview;
   }
 
   public saveLabMeme(meme: any) {

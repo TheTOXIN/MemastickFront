@@ -16,7 +16,7 @@
   margin: 10px;
   padding: 10px;
   border-radius: 50px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   @media(max-width: 767px) {
     border-radius: 30px;
     margin: 5px;
@@ -33,10 +33,21 @@
   height: 72px;
   width: 100%;
   cursor: pointer;
+  transition: all 0.2s ease 0s;
+
   @media(max-width: 767px) {
     height: 36px;
     margin-right: 5px;
     margin-left: 5px;
+  }
+
+  &:hover {
+    .items-name {
+      div {
+        color: white;
+        background-color: $primary_color;
+      }
+    }
   }
 }
 
@@ -45,6 +56,7 @@
   width: 20%;
   text-align: center;
   img {
+    transition: all 0.2s ease 0s;
     max-width: 100%;
     max-height: 100%;
     padding: 5px;
@@ -65,13 +77,7 @@
     color: #343a40;
     font-family: Futurica, serif;
     border-radius: 30px;
-    transition: 0.2s;
-  }
-  &:hover {
-    div {
-      color: white;
-      background-color: $primary_color;
-    }
+    transition: all 0.2s ease 0s;
   }
   @media(max-width: 767px) {
     div {

@@ -68,7 +68,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.checkTWA();
     this.loadSound();
     this.routerEvent();
-
   }
 
   ngOnDestroy(): void {

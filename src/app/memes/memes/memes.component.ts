@@ -74,7 +74,7 @@ export class MemesComponent implements OnInit, OnDestroy {
   }
 
   scrollHandler(e) {
-    if (e === 'bottom') {
+    if (e === 'more') {
       this.pagination.more();
     } else if (e === 'up') {
       this.showPanel = true;

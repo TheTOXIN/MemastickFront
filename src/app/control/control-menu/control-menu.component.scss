@@ -2,7 +2,6 @@
   text-align: center;
 
   button {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
     text-align: center;
     font-family: FuturaRound, serif;
     border-radius: 30px;
@@ -10,15 +9,19 @@
     padding-left: 1px;
     padding-right: 1px;
     width: 90%;
-    
-    &:hover {
-      box-shadow: 0 0 5px 5px #ffa807;
-    }
   }
 
   @media(max-width: 767px) {
     button {
       font-size: 16px;
     }
+  }
+}
+
+.control-content-empty {
+  height: 24px;
+
+  @media (max-width: 767px) {
+    height: 42px;
   }
 }
