@@ -23,12 +23,13 @@ export class MemotypeReadModalComponent implements OnInit {
   public memetickId: UUID;
 
   @Input()
+  public collection: MemotypeSet[];
+
+  @Input()
   public selectMode: boolean = false;
 
   @Output()
   public selectEvent = new EventEmitter<Memotype>();
-
-  public collection: MemotypeSet[] = [];
 
   public memotypeColors;
   public memotypeNames;
@@ -46,7 +47,15 @@ export class MemotypeReadModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initMemotypes();
     this.initCarousel();
+  }
+
+  initMemotypes() {
+    if (this.collection != null) {
+      this.isLoad = false;
+      return;
+    }
 
     this.memotypeApi.read(this.memetickId).subscribe(data => {
       this.collection = data.content;

@@ -19,6 +19,8 @@ import {ChatUtils} from '../utils/chat-utils';
 import {GlobalConst} from '../consts/GlobalConst';
 import {interval, Observable, timer} from 'rxjs';
 import {CardService} from '../services/card-service';
+import {MemotypeApiService} from '../api/memotype-api-service';
+import {MemotypeSet} from '../model/memotype/MemotypeSet';
 
 @Component({
   selector: 'app-chat',
@@ -32,13 +34,14 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
 
   public messages: ChatMessage[] = [];
+  public mode: ChatMessageMode;
 
   public text: string;
   public inputText: string;
 
   public memetickId: UUID;
   public memotype: Memotype;
-  public mode: ChatMessageMode;
+  public memotypeSet: MemotypeSet[];
 
   public chatPage: number = 0;
   public chatSize: number = 10;
@@ -69,7 +72,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     private modalService: NgbModal,
     private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef,
-    private cardService: CardService
+    private cardService: CardService,
+    private memotypeApi: MemotypeApiService,
   ) {
     this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, GlobalConst.CHAT_SIZE);
 
@@ -100,6 +104,14 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.oauth.readMe().then(res => {
       this.memetickId = res.memetickId;
       this.canDelete = res.role === RoleType.ADMIN;
+
+      this.memotypes();
+    });
+  }
+
+  memotypes() {
+    this.memotypeApi.read(this.memetickId).subscribe(data => {
+      this.memotypeSet = data.content;
     });
   }
 
@@ -259,6 +271,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
 
     modalRef.componentInstance.memetickId = this.memetickId;
+    modalRef.componentInstance.collection = this.memotypeSet;
     modalRef.componentInstance.selectMode = true;
 
     modalRef.componentInstance.selectEvent.subscribe((result: Memotype) => {
