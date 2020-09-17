@@ -19,8 +19,8 @@ const slideOutDown  = [
   styleUrls: ['./card.component.scss'],
   animations: [
     trigger('cardAnim', [
-      transition('* => open', animate(228, keyframes(slideInUp))),
-      transition('* => close', animate(228, keyframes(slideOutDown)))
+      transition('* => open', animate(150, keyframes(slideInUp))),
+      transition('* => close', animate(150, keyframes(slideOutDown)))
     ])
   ]
 })
