@@ -9,7 +9,6 @@
   border-radius: 100%;
   border-width: 5px;
   width: 96px;
-  cursor: pointer;
 }
 
 .memetick-stats {
@@ -39,16 +38,31 @@
   margin-bottom: 5px;
 
   i {
-    cursor: pointer;
-    font-size: 30px;
     margin-left: 10px;
-    color: $primary_color;
   }
+}
+
+.memetick-icon {
+  cursor: pointer;
+  font-size: 30px;
+  color: $primary_color;
+  transition: 0.1s;
 
   &:hover {
-    i {
-      color: $color_saffron_approx;
-    }
+    color: $color_saffron_approx;
+  }
+}
+
+.memetick-icon-photo {
+  position: absolute;
+  bottom: 100px;
+  background-color: whitesmoke;
+  border-radius: 30px;
+  left: 300px;
+
+  @media(max-width: 767px) {
+    bottom: 80px;
+    left: 170px;
   }
 }
 

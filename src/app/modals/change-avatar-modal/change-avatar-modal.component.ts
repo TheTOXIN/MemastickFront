@@ -15,7 +15,7 @@ export class ChangeAvatarModalComponent implements OnInit {
   public avatarPreviewIMG: File;
 
   public isPreview = false;
-  public message = 'ФОРМАТ JPG ИЛИ PNG';
+  public message = 'JPG ИЛИ PNG ДО 1 МБ';
 
   constructor(
     public avatarApi: MemetickAvatarApiService,
