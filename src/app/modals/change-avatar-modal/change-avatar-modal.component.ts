@@ -16,6 +16,8 @@ export class ChangeAvatarModalComponent implements OnInit {
   public avatarCropped: Blob;
 
   public isPreview = false;
+  public isUpload = false;
+
   public message = 'JPG ИЛИ PNG ДО 5 МБ';
 
   constructor(
@@ -46,7 +48,9 @@ export class ChangeAvatarModalComponent implements OnInit {
 
   uploadAvatar() {
     if (!this.isPreview) { return; }
+    if (this.isUpload) { return; }
 
+    this.isUpload = true;
     this.avatarApi.uploadAvatar(this.avatarCropped).subscribe(
       () => {
         this.activeModal.dismiss('Cross click');
@@ -55,6 +59,9 @@ export class ChangeAvatarModalComponent implements OnInit {
       () => {
         this.message = 'НЕПРАВИЛЬНЫЙ ФОРМАТ';
         this.isPreview = false;
+      },
+      () => {
+        this.isUpload = false;
       }
     );
   }
