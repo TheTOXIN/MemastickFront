@@ -7,6 +7,7 @@
       <image-cropper
         [imageChangedEvent]="avatarEvent"
         [cropperMinWidth]="128"
+        [resizeToWidth]="128"
         (imageCropped)="croppedAvatar($event)"
         (imageLoaded)="previewAvatar()">
       </image-cropper>
