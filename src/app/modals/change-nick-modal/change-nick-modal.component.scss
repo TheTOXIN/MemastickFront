@@ -1,3 +1,5 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .my-header {
   p {
     width: 100%;
@@ -22,7 +24,13 @@
   p {
     font-family: FuturaRound, serif;
     font-size: 20px;
-    color: darkorange;
+    color: $color_saffron_approx;
+  }
+
+  @media(max-width: 767px) {
+    p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -39,17 +47,14 @@
   margin: 25px;
 }
 
-.button-check {
-  color: darkgreen;
-}
-
-.button-close {
-  color: darkred;
-}
-
 .modal-nick-ps {
   text-align: center;
-  font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
+
+  @media(max-width: 767px) {
+    p {
+      font-size: 12px;
+    }
+  }
 }
