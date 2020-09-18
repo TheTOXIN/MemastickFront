@@ -4,7 +4,7 @@
        *ngFor="let token of tokens"
        (click)="showInfo(token)">
     <img class="token-img" [src]="token?.image">
-    <p [style.color]="wallet[token?.type] == 10 && showMax ? 'red' : ''">{{wallet[token?.type]}}</p>
+    <p [style.color]="wallet[token?.type] == 10 && showMax ? 'red' : ''">{{wallet[token?.type]}}{{blya}}</p>
   </div>
 </div>
 

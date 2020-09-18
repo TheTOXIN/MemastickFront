@@ -3,10 +3,11 @@
     <span class="modal-title">УРОВНИ ПОСОБИЙ</span>
   </div>
   <div class="modal-body intro-modal">
+    <p>Кол-во токенов в пособоии случайно, шанс выпадения токена от 1 до N🎲, в зависимости от вашего уровня.</p>
     <div class="rank-modal my-scroll" *ngIf="!isLoad; else spinnerRankType">
       <div *ngFor="let d of data">
         <app-rank-level [lvl]="d.lvl"></app-rank-level>
-        <app-token-wallet [wallet]="d.tokens"></app-token-wallet>
+        <app-token-wallet [wallet]="d.tokens" [blya]="'🎲'"></app-token-wallet>
       </div>
     </div>
     <ng-template #spinnerRankType> <app-spinner *ngIf="isLoad"></app-spinner> </ng-template>
