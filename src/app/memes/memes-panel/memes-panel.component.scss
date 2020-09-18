@@ -1,20 +1,18 @@
-.step-panel-check {
-  height: 100%;
-  width: 8%;
-  i {
-    margin-top: 20px;
-    margin-left: 10px;
-    font-size: 20px;
-    color: black;
-  }
-}
+@import "src/assets/scss/base/_variable.scss";
 
 .step-panel-name {
   height: 100%;
   width: 60%;
-  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   span {
     font-size: 20px;
+  }
+  @media(max-width: 767px) {
+    span {
+      font-size: 16px;
+    }
   }
 }
 
@@ -40,7 +38,9 @@
 .step-panel-img {
   cursor: pointer;
   height: 100%;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     max-height: 100%;
     max-width: 100%;
@@ -66,6 +66,16 @@
   margin-right: auto;
   margin-left: auto;
   padding: 5px 5px 69px;
+  height: 500px;
+
+  &::-webkit-scrollbar-track {
+    margin-top: 30px;
+  }
+
+  @media(max-width: 767px) {
+    width: 228px;
+    height: 400px;
+  }
 }
 
 .step-panel-row {
@@ -76,9 +86,29 @@
   padding: 5px;
   text-align: center;
   cursor: pointer;
+  transition: 0.2s;
 
   &:hover {
     border-radius: 30px;
     background-color: #bababa;
+  }
+
+  @media(max-width: 767px) {
+    height: 54px;
+  }
+}
+
+.meme-panel-del {
+  margin: 5px auto;
+  background-color: #495057;
+  border-radius: 30px;
+  height: 5px;
+  width: 90%;
+}
+
+.step-panel-img-filter {
+  img {
+    max-height: 90%;
+    max-width: 90%;
   }
 }

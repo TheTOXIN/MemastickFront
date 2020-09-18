@@ -6,6 +6,8 @@ import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {StorageService} from '../../services/storage-service';
 import {evolveIcons, filterIcons} from '../../consts/IconsData';
+import {evolveStepText, memeTypeText} from '../../consts/TextData';
+import {MemeType} from '../../consts/MemeType';
 
 @Component({
   selector: 'app-memes-panel',
@@ -17,30 +19,50 @@ export class MemesPanelComponent implements OnInit {
   @Input() public showPanel = true;
   @Input() public modePanel: MemeFilter;
 
-  public needStepList = false;
-  public showStepList = false;
+  public needPanelList = false;
+  public showPanelList = false;
 
-  private evolveIcons = [];
-  private filterIcons = [];
+  private readonly evolveIcons = [];
+  private readonly filterIcons = [];
 
   currentStep: any = null;
+  currentFilter: any = null;
+
   isUpdate = false;
+  panelImage = filterIcons[MemeFilter.POOL];
 
   steps = [{
-    name: 'Адаптация',
+    name: evolveStepText[EvolveStep.ADAPTATION],
     step: EvolveStep.ADAPTATION
   }, {
-    name: 'Оценка',
+    name: evolveStepText[EvolveStep.FITNESS],
     step: EvolveStep.FITNESS
   }, {
-    name: 'Мутация',
+    name: evolveStepText[EvolveStep.MUTATION],
     step: EvolveStep.MUTATION
   }, {
-    name: 'Скрещивание',
+    name: evolveStepText[EvolveStep.CROSSING],
     step: EvolveStep.CROSSING
   }, {
-    name: 'Выживание',
+    name: evolveStepText[EvolveStep.SURVIVAL],
     step: EvolveStep.SURVIVAL
+  }];
+
+  filters = [{
+    name: 'Эволюция',
+    filter: MemeFilter.POOL,
+  }, {
+    name: 'Индивиды',
+    filter: MemeFilter.INDV,
+  }, {
+    name: 'Отбор',
+    filter: MemeFilter.SLCT,
+  }, {
+    name: 'Свои',
+    filter: MemeFilter.SELF,
+  }, {
+    name: 'Лайки',
+    filter: MemeFilter.LIKE,
   }];
 
   constructor(
@@ -55,7 +77,7 @@ export class MemesPanelComponent implements OnInit {
 
   ngOnInit() {
     if (this.modePanel === MemeFilter.POOL) {
-      this.needStepList = true;
+      this.needPanelList = true;
     }
 
     if (this.storage.getMemePage(this.modePanel) !== 0) {
@@ -66,12 +88,13 @@ export class MemesPanelComponent implements OnInit {
   update() {
     this.isUpdate = false;
     this.storage.remMemePage(this.modePanel);
+
     window.location.reload();
   }
 
   show() {
-    if (this.needStepList) {
-      this.showStepList = !this.showStepList;
+    if (this.needPanelList) {
+      this.showPanelList = !this.showPanelList;
     }
   }
 
@@ -80,9 +103,20 @@ export class MemesPanelComponent implements OnInit {
   }
 
   memesByStep(step: any) {
-    this.showStepList = false;
+    this.showPanelList = false;
+
     this.currentStep = step;
+    this.panelImage = this.evolveIcons[step.step];
 
     this.router.navigate(['/memes'], {queryParams: {step: step.step}});
+  }
+
+  memesByFilter(filter: any) {
+    this.showPanelList = false;
+
+    this.currentFilter = filter;
+    this.panelImage = this.filterIcons[filter.filter];
+
+    this.router.navigate(['/memes'], {queryParams: {filter: filter.filter}});
   }
 }

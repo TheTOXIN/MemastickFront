@@ -1,9 +1,7 @@
-<div class="step-panel-list animated slideInUp faster" *ngIf="showStepList">
+<div class="step-panel-list my-scroll animated slideInUp faster" *ngIf="showPanelList">
+
   <div *ngFor="let step of steps">
     <div class="step-panel-row" (click)="memesByStep(step)">
-      <div class="step-panel-check" *ngIf="step == currentStep">
-        <i class="fa fa-check"></i>
-      </div>
       <div class="step-panel-img">
         <img [src]="evolveIcons[step.step]">
       </div>
@@ -12,6 +10,20 @@
       </div>
     </div>
   </div>
+
+  <div class="meme-panel-del"></div>
+
+  <div *ngFor="let filter of filters">
+    <div class="step-panel-row" (click)="memesByFilter(filter)">
+      <div class="step-panel-img step-panel-img-filter">
+        <img [src]="filterIcons[filter.filter]">
+      </div>
+      <div class="step-panel-name">
+        <span>{{filter.name}}</span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div *ngIf="showPanel">
@@ -20,7 +32,7 @@
       <i class="fa fa-retweet" [style.color]="!isUpdate ? '#495057' : ''"></i>
     </div>
     <div class="step-panel-img hover-evolve" (click)="show()">
-      <img [src]="filterIcons[modePanel]">
+      <img [src]="panelImage">
     </div>
     <div class="step-panel-icon" (click)="home()">
       <i class="fa fa-home"></i>
