@@ -7,26 +7,26 @@ import {MemotypeViewComponent} from './memotype-view/memotype-view.component';
 import {MemotypeSetModalComponent} from './memotype-set-modal/memotype-set-modal.component';
 import {MemotypeSetHeadComponent} from './memotype-set-head/memotype-set-head.component';
 import {MemotypeElementComponent} from './memotype-element/memotype-element.component';
-import {MemotypeReadModalComponent} from './memotype-read-modal/memotype-read-modal.component';
 import {MemotypeRaritiesComponent} from './memotype-rarities/memotype-rarities.component';
 import {MemotypeRarityModalComponent} from './memotype-rarity-modal/memotype-rarity-modal.component';
 import {OwlModule} from 'ngx-owl-carousel';
+import {MemotypesReadComponent} from './memotypes-read/memotypes-read.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     OwlModule,
-    MemotypeRoutingModule
+    MemotypeRoutingModule,
   ],
   exports: [
     MemotypeSetModalComponent,
     MemotypeSetHeadComponent,
     MemotypeElementComponent,
-    MemotypeReadModalComponent,
     MemotypeRaritiesComponent,
     MemotypeRarityModalComponent,
     MemotypeViewComponent,
+    MemotypesReadComponent,
   ],
   declarations: [
     MemotypeCollectionComponent,
@@ -34,14 +34,16 @@ import {OwlModule} from 'ngx-owl-carousel';
     MemotypeSetModalComponent,
     MemotypeSetHeadComponent,
     MemotypeElementComponent,
-    MemotypeReadModalComponent,
     MemotypeRaritiesComponent,
-    MemotypeRarityModalComponent
+    MemotypeRarityModalComponent,
+    MemotypesReadComponent,
   ],
   entryComponents: [
+    MemotypesReadComponent,
     MemotypeSetModalComponent,
-    MemotypeReadModalComponent,
-    MemotypeRarityModalComponent
+    MemotypeRarityModalComponent,
   ]
 })
-export class MemotypeModule { }
+export class MemotypeModule {
+
+}

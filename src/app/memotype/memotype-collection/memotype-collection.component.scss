@@ -10,13 +10,6 @@
   text-align: center;
 }
 
-.memotype-head {
-  margin-left: 69px;
-  @media(max-width: 767px) {
-    margin-left: 30px;
-  }
-}
-
 .memotype-body {
   display: flex;
   align-items: flex-start;

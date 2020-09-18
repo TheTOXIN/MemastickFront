@@ -1,5 +1,6 @@
-<div class="memotype-set text-strong-middle">
+<div class="memotype-set">
   <div class="memotype-set-name">{{set.name}}</div>
   <div class="memotype-set-count" *ngIf="showCount">({{set.count}}/{{set.size}})</div>
-  <div class="memotype-set-info" *ngIf="showInfo" (click)="setModal(set)"><i class="fa fa-question-circle"></i></div>
+  <div class="memotype-set-info" *ngIf="true" (click)="setModal(set)"><i class="fa fa-question-circle"></i></div>
+  <div class="memotype-set-buy"><button class="btn-theme" (click)="toShop()"><i class="fa fa-shopping-cart"></i></button></div>
 </div>

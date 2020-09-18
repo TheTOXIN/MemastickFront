@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, EventEmitter, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WebSocketService} from '../services/web-socket-service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
@@ -11,16 +11,17 @@ import {RoleType} from '../consts/RoleType';
 import {MemetickCardComponent} from '../memetick/memetick-card/memetick-card.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemotypeReadModalComponent} from '../memotype/memotype-read-modal/memotype-read-modal.component';
 import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
 import {OauthApiService} from '../services/oauth-api-service';
 import {ChatUtils} from '../utils/chat-utils';
 import {GlobalConst} from '../consts/GlobalConst';
-import {interval, Observable, timer} from 'rxjs';
+import {interval} from 'rxjs';
 import {CardService} from '../services/card-service';
 import {MemotypeApiService} from '../api/memotype-api-service';
 import {MemotypeSet} from '../model/memotype/MemotypeSet';
+import {MemotypesReadComponent} from '../memotype/memotypes-read/memotypes-read.component';
+import {MemotypeOptions} from '../options/MemotypeOptions';
 
 @Component({
   selector: 'app-chat',
@@ -69,7 +70,6 @@ export class ChatComponent implements OnInit, OnDestroy {
     private chatService: ChatService,
     private storage: StorageService,
     private _sanitizer: DomSanitizer,
-    private modalService: NgbModal,
     private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef,
     private cardService: CardService,
@@ -268,17 +268,25 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   stick() {
-    const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
+    const event = new EventEmitter<Memotype>();
 
-    modalRef.componentInstance.memetickId = this.memetickId;
-    modalRef.componentInstance.collection = this.memotypeSet;
-    modalRef.componentInstance.selectMode = true;
-
-    modalRef.componentInstance.selectEvent.subscribe((result: Memotype) => {
+    event.subscribe(result => {
       if (result != null) {
         this.mode = ChatMessageMode.STICKER;
         this.memotype = result;
       }
+    });
+
+    const options: MemotypeOptions = {
+      memetickId: this.memetickId,
+        collection: this.memotypeSet,
+        selectMode: true,
+        selectEvent: event
+    };
+
+    this.cardService.open({
+      content: MemotypesReadComponent,
+      memotypes: options
     });
   }
 

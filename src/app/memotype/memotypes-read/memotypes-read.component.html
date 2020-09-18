@@ -1,0 +1,33 @@
+<div *ngIf="!isLoad; else memotypeLoad" style="margin-top: 15px">
+  <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme owl-dots-top']" [options]="memotypesCarousel">
+    <div *ngFor="let set of collection" class="memotype-wrap">
+      <app-memotype-set-head [set]="set" [showInfo]="false" [showCount]="false"></app-memotype-set-head>
+      <div class="memotype-delimer"></div>
+      <div class="memotype-list my-scroll">
+        <div *ngFor="let memotype of set.memotypes">
+          <app-memotype-element
+            [memotype]="memotype"
+            [showCount]="false"
+            [showTitle]="false"
+            (click)="clickMemotype(memotype)"
+            (press)="pressMemotype(memotype)">
+          </app-memotype-element>
+        </div>
+      </div>
+    </div>
+  </owl-carousel>
+  <div *ngIf="isEmpty">
+    <div class="memotype-buy">
+      <p>У ВАС НЕТУ МЕМОТИПОВ 🙄</p>
+      <button class="btn-theme" (click)="toShop()">КУПИТЬ<i class="fa fa-shopping-cart"></i></button>
+    </div>
+  </div>
+</div>
+
+<ng-template #memotypeLoad>
+  <div style="margin: 30px">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>
+
+<app-memotype-view></app-memotype-view>

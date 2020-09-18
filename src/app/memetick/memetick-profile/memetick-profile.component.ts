@@ -6,7 +6,6 @@ import {SettingApiService} from '../../api/setting-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemeFilter} from '../../consts/MemeFilter';
-import {MemotypeReadModalComponent} from '../../memotype/memotype-read-modal/memotype-read-modal.component';
 import {MemetickStatsModalComponent} from '../memetick-stats-modal/memetick-stats-modal.component';
 import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-modal/meme-coin-history-modal.component';
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
@@ -58,8 +57,8 @@ export class MemetickProfileComponent implements OnInit {
   }
 
   memotypes() {
-    const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
-    modalRef.componentInstance.memetickId = this.memetick.id;
+    // const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
+    // modalRef.componentInstance.memetickId = this.memetick.id;
   }
 
   stats() {

@@ -2,24 +2,20 @@
 
 .memotype-set {
   margin-left: 15px;
-  div {
-    margin-left: 15px;
-    display: inline-block;
-  }
+  display: flex;
+  align-items: center;
+
   @media(max-width: 767px) {
     margin-left: 5px;
-    div {
-      margin-left: 5px;
-    }
   }
 }
 
 .memotype-set-name {
-  font-size: 32px;
+  font-size: 28px;
   font-family: Futurica, serif;
   color: black;
   @media(max-width: 767px) {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
 
@@ -27,12 +23,15 @@
   font-size: 28px;
   font-family: Gost, serif;
   color: #495057;
+  margin-left: 10px;
   @media(max-width: 767px) {
+    margin-left: 5px;
     font-size: 20px;
   }
 }
 
 .memotype-set-info {
+  margin-left: 10px;
   i {
     font-size: 32px;
     color: #eab000;
@@ -44,8 +43,25 @@
     }
   }
   @media(max-width: 767px) {
+    margin-left: 5px;
     i {
       font-size: 24px;
+    }
+  }
+}
+
+.memotype-set-buy {
+  margin-left: auto;
+  margin-right: 10px;
+
+  button {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  @media(max-width: 767px) {
+    button {
+      font-size: 15px;
     }
   }
 }

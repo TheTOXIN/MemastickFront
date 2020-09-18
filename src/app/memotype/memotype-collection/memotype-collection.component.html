@@ -12,9 +12,7 @@
     <div class="container">
       <div class="row">
         <div class="memotype-set">
-          <div class="memotype-head">
-            <app-memotype-set-head [set]="set"></app-memotype-set-head>
-          </div>
+          <app-memotype-set-head [set]="set"></app-memotype-set-head>
           <div class="memotype-delimer"></div>
           <div *ngFor="let map of set.memotypes | groupBy:'rarity'">
             <div class="memotype-body" [style.border-color]="memotypeColors[map.key]">
@@ -28,7 +26,6 @@
               </div>
             </div>
           </div>
-          <button class="btn-theme" (click)="toShop(set)">КУПИТЬ<i class="fa fa-shopping-cart"></i></button>
         </div>
       </div>
     </div>
