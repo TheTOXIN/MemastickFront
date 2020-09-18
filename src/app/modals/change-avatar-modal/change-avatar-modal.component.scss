@@ -31,13 +31,17 @@
   width: 100%;
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   opacity: 0;
 }
 
+.avatar-choose input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
 .avatar-preview {
-  img {
-    max-height: 300px;
-  }
+  height: 500px;
+  display: flex;
+  align-items: center;
 }
 

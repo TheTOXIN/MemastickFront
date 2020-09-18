@@ -55,14 +55,15 @@
 
 .memetick-icon-photo {
   position: absolute;
-  bottom: 100px;
   background-color: whitesmoke;
   border-radius: 30px;
-  left: 300px;
+  bottom: 100px;
+  left: auto;
+  right: auto;
+  margin-left: -100px;
 
   @media(max-width: 767px) {
     bottom: 80px;
-    left: 170px;
   }
 }
 

@@ -32,6 +32,7 @@ import {CreedModalComponent} from './creed-modal/creed-modal.component';
 import {MemeCreateModalComponent} from './meme-create-modal/meme-create-modal.component';
 import {ImageModalComponent} from './image-modal/image-modal.component';
 import {OwlModule} from 'ngx-owl-carousel';
+import {ImageCropperModule} from 'ngx-image-cropper';
 
 @NgModule({
   exports: [
@@ -71,7 +72,8 @@ import {OwlModule} from 'ngx-owl-carousel';
     PinchZoomModule,
     SharedModule,
     TokenModule,
-    OwlModule
+    OwlModule,
+    ImageCropperModule
   ],
   declarations: [
     IntroModalComponent,

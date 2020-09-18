@@ -25,7 +25,7 @@ export class MemetickAvatarApiService {
     return url;
   }
 
-  public uploadAvatar(file: File) {
+  public uploadAvatar(file: Blob) {
     const uploadData = new FormData();
 
     uploadData.append('file', file);

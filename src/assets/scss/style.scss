@@ -36,7 +36,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
-  box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 91px -6px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -53,6 +53,7 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+
   img {
     padding-top: 5px;
     padding-left: 10px;
@@ -60,6 +61,7 @@
     max-width: 300px;
     height: auto;
   }
+
   @media(max-width: 767px) {
     width: 200px;
     height: 54px;
@@ -134,11 +136,13 @@
     font-size: 42px;
     font-family: MontHeavy, serif;
   }
+
   div {
     font-size: 18px;
     font-family: FuturaRound, serif;
     line-height: 20px;
   }
+
   button {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -164,7 +168,7 @@
   background-color: whitesmoke;
   margin-top: 30px;
   border-radius: 50px;
-  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 .sign-button {
@@ -229,7 +233,7 @@
 }
 
 .battle-back {
-  background: linear-gradient(to right, rgba(220,53,69,1) 0%, rgba(129,54,236,1) 40%, rgba(129,54,236,1) 60%, rgba(49,54,195,1) 100%);
+  background: linear-gradient(to right, rgba(220, 53, 69, 1) 0%, rgba(129, 54, 236, 1) 40%, rgba(129, 54, 236, 1) 60%, rgba(49, 54, 195, 1) 100%);
   position: fixed;
   top: 0;
   left: 0;
@@ -252,6 +256,7 @@
   font-family: Arial, sans-serif;
   font-size: 16px;
   cursor: pointer;
+
   &:hover {
     color: #6b25fc;
   }
@@ -261,7 +266,10 @@
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  &::-webkit-scrollbar {width:0;}
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .control-content-empty {
@@ -278,15 +286,17 @@
   height: 72px;
   background-color: whitesmoke;
   border-radius: 30px;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
   z-index: 69;
   text-align: center;
   cursor: pointer;
+
   i {
     color: #8136EC;
     font-size: 64px;
     margin-top: 2px;
   }
+
   &:hover {
     i {
       color: #dc3545;
@@ -297,6 +307,7 @@
 .main-research-control {
   text-align: center;
   margin-bottom: 10px;
+
   button {
     font-size: 20px;
     max-width: 100%;
@@ -304,16 +315,19 @@
     font-family: FuturaRound, serif;
     border-radius: 30px;
   }
+
   span {
     font-size: 18px;
     margin: 5px;
     font-family: FuturaRound, serif;
+
     img {
       width: 32px;
     }
   }
+
   @media(max-width: 767px) {
-    button{
+    button {
       font-size: 14px;
       padding: 5px 20px;
     }
@@ -363,27 +377,33 @@
     font-size: 72px;
     color: $primary_color;
   }
+
   img {
     width: 72px;
     height: 72px;
   }
+
   p {
     font-family: Futurica, serif;
     font-size: 24px;
     margin-bottom: 0;
   }
+
   &:hover {
     img {
       animation: scaleMove 0.5s;
       animation-fill-mode: forwards;
     }
+
     p {
       opacity: 0;
     }
+
     i {
       color: #333333;
     }
   }
+
   @media(max-width: 767px) {
     img {
       width: 48px;
@@ -423,11 +443,13 @@
     width: 54px;
     height: 54px;
   }
+
   span {
     vertical-align: middle;
     font-size: 30px;
     margin-left: 5px;
   }
+
   p {
     font-size: 18px;
     padding-bottom: 0;
@@ -484,9 +506,11 @@
 .super-main-logo {
   margin-top: 10px;
   text-align: center;
+
   img {
     width: 350px;
   }
+
   @media(max-width: 767px) {
     img {
       width: 300px;
@@ -518,14 +542,17 @@
   &::-webkit-scrollbar {
     width: 10px;
   }
+
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
   }
+
   &::-webkit-scrollbar-thumb {
     background: $middle_color;
     border-radius: 10px;
   }
+
   &::-webkit-scrollbar-thumb:hover {
     background: $primary_color;
   }
@@ -586,4 +613,14 @@
 
 .button-close {
   color: #dc3545;
+}
+
+.cropper {
+  .resize {
+    .square {
+      background: #007bff !important;
+      width: 10px !important;;
+      height: 10px !important;;
+    }
+  }
 }

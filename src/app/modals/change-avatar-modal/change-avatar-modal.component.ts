@@ -3,6 +3,7 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ValidConst} from '../../consts/ValidConst';
 import {Router} from '@angular/router';
+import {base64ToFile, ImageCroppedEvent} from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-change-avatar-modal',
@@ -11,11 +12,11 @@ import {Router} from '@angular/router';
 })
 export class ChangeAvatarModalComponent implements OnInit {
 
-  public avatarPreviewURL: any;
-  public avatarPreviewIMG: File;
+  public avatarEvent: any;
+  public avatarCropped: Blob;
 
   public isPreview = false;
-  public message = 'JPG ИЛИ PNG ДО 1 МБ';
+  public message = 'JPG ИЛИ PNG ДО 5 МБ';
 
   constructor(
     public avatarApi: MemetickAvatarApiService,
@@ -28,35 +29,25 @@ export class ChangeAvatarModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  showAvatar(event) {
-    const files = event.target.files;
-
-    if (files.length !== 1) {
-      this.message = 'НУЖЕН ТОЛЬКО 1 ФАЙЛ';
-      return;
+  loadAvatar(event) {
+    if (this.validAvatar(event)) {
+      this.avatarEvent = event;
     }
+  }
 
-    if (files[0].size > ValidConst.MAX_AVATAR_SIZE) {
-      this.message = 'МАКСИМУМ 1 МБ';
-      return;
-    }
-
-    const mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) { return; }
-
-    this.avatarPreviewIMG = files[0];
-
-    const reader = new FileReader();
-    reader.readAsDataURL(files[0]);
-    reader.onload = () => this.avatarPreviewURL = reader.result;
-
+  previewAvatar() {
     this.isPreview = true;
+  }
+
+  croppedAvatar(event: ImageCroppedEvent) {
+    const data = event.base64;
+    this.avatarCropped = base64ToFile(data);
   }
 
   uploadAvatar() {
     if (!this.isPreview) { return; }
 
-    this.avatarApi.uploadAvatar(this.avatarPreviewIMG).subscribe(
+    this.avatarApi.uploadAvatar(this.avatarCropped).subscribe(
       () => {
         this.activeModal.dismiss('Cross click');
         this.router.navigateByUrl('/home');
@@ -66,5 +57,26 @@ export class ChangeAvatarModalComponent implements OnInit {
         this.isPreview = false;
       }
     );
+  }
+
+  private validAvatar(event): boolean {
+    const files = event.target.files;
+
+    if (files.length !== 1) {
+      this.message = 'НУЖЕН ТОЛЬКО 1 ФАЙЛ';
+      return false;
+    }
+
+    if (files[0].size > ValidConst.MAX_AVATAR_SIZE) {
+      this.message = 'МАКСИМУМ 5 МБ';
+      return false;
+    }
+
+    if (files[0].type.match(/image\/*/) == null) {
+      this.message = 'ОШИБКА ЗАГРУЗКИ';
+      return false;
+    }
+
+    return true;
   }
 }
