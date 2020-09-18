@@ -52,7 +52,7 @@ export class MemesPanelComponent implements OnInit {
     name: 'Эволюция',
     filter: MemeFilter.POOL,
   }, {
-    name: 'Индивиды',
+    name: 'Особь',
     filter: MemeFilter.INDV,
   }, {
     name: 'Отбор',

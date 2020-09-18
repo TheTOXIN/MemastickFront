@@ -1,9 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MemeData} from '../../model/MemeData';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {UUID} from 'angular2-uuid';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Router} from '@angular/router';
 import {MemesPaginationService} from '../../services/memes-pagination.service';
 import {MemeLikeApiService} from '../../api/meme-like-api-service';
 import {MemeApiService} from '../../api/meme-api-service';
@@ -11,14 +9,13 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {Meme} from '../../model/Meme';
 import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {EvolveStep} from '../../consts/EvolveStep';
-import {EvolveStepInfoModalComponent} from '../../modals/evolve-step-info-modal/evolve-step-info-modal.component';
 import {MemeType} from '../../consts/MemeType';
 import {ValidConst} from '../../consts/ValidConst';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
-import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {CardService} from '../../services/card-service';
+import {MemeStateInfoModalComponent} from '../meme-state-info-modal/meme-state-info-modal.component';
 
 @Component({
   selector: 'app-memes-page',
@@ -125,8 +122,13 @@ export class MemesPageComponent implements OnInit {
   }
 
   evolveStepInfo(step: EvolveStep) {
-    const modalRef = this.modalService.open(EvolveStepInfoModalComponent, {'centered': true});
+    const modalRef = this.modalService.open(MemeStateInfoModalComponent, {'centered': true});
     modalRef.componentInstance.step = step;
+  }
+
+  memeTypeInfo(type: MemeType) {
+    const modalRef = this.modalService.open(MemeStateInfoModalComponent, {'centered': true});
+    modalRef.componentInstance.type = type;
   }
 
   loadMeme(data: MemeData) {

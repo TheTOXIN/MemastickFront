@@ -5,7 +5,7 @@ import {EvolveMemeApiService} from '../../api/evolve-meme-api-service';
 import {EvolveMeme} from '../../model/EvolveMeme';
 import {evolveIcons, memeIcons} from '../../consts/IconsData';
 import {EvolveStep} from '../../consts/EvolveStep';
-import {evolveStepText, memeTypeText} from '../../consts/TextData';
+import {evolveStepDescription, evolveStepText, memeTypeDescription, memeTypeText} from '../../consts/TextData';
 import {CardOptions} from '../../options/card-options';
 
 @Component({
@@ -35,6 +35,9 @@ export class MemeResearchComponent implements OnInit {
   public isPreview = false;
   public isLoading = true;
 
+  readonly typeDescription;
+  readonly stepDescription;
+
   constructor(
     private evolveApi: EvolveMemeApiService
   ) {
@@ -43,6 +46,9 @@ export class MemeResearchComponent implements OnInit {
 
     this.stepIcons = evolveIcons;
     this.stepText = evolveStepText;
+
+    this.typeDescription = memeTypeDescription;
+    this.stepDescription = evolveStepDescription;
   }
 
   ngOnInit(): void {

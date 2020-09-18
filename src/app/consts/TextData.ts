@@ -4,6 +4,7 @@ import {MemeType} from './MemeType';
 export const evolveStepDescription = [];
 export const evolveStepText = [];
 export const memeTypeText = [];
+export const memeTypeDescription = [];
 export const creedRules = [];
 
 export class TextData {}
@@ -25,6 +26,12 @@ memeTypeText[MemeType.SLCT] = 'ОТБОР';
 memeTypeText[MemeType.DEAD] = 'МЁРТВ';
 memeTypeText[MemeType.INDV] = 'ОСОБЬ';
 memeTypeText[MemeType.BAAN] = 'БАН';
+
+memeTypeDescription[MemeType.EVLV] = 'Мем проходит этапы эволюции';
+memeTypeDescription[MemeType.SLCT] = 'Мем участвует в отборе';
+memeTypeDescription[MemeType.DEAD] = 'Мем не выжил при отборе и умер';
+memeTypeDescription[MemeType.INDV] = 'Мем прошел весь цикл эволюции и стал особью';
+memeTypeDescription[MemeType.BAAN] = 'Мем был забанен за нарушения кодекса Мемастика';
 
 creedRules[0] = '💩 Нельзя воровать и создавать мемы с других источников';
 creedRules[1] = '😢 Мемы не должны оскорблять чувства других людей';

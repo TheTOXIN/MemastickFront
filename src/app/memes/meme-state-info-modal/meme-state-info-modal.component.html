@@ -1,11 +1,11 @@
 <div>
   <div class="modal-header modal-section">
-    <span class="modal-title step-title">ЭТАП ЭВОЛЮЦИИ</span>
+    <span class="modal-title step-title">{{titl}}</span>
   </div>
   <div class="modal-body evolve-step-info">
-    <img [src]="evolveIcons[step]">
-    <div>{{evolveText[step]}}</div>
-    <p>{{evolveDesc[step]}}</p>
+    <img [src]="icon">
+    <div>{{text}}</div>
+    <p>{{desc}}</p>
   </div>
   <div class="modal-footer modal-section">
     <button type="button" class="modal-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
@@ -13,3 +13,4 @@
     </button>
   </div>
 </div>
+<!--ADD TEMPLATE-->

@@ -9,14 +9,13 @@
     <p>{{meme.chromosomes}}<img src="assets/images/icon/2.png"></p>
   </div>
   <div class="meme-description">
-    <div *ngIf="meme.type === typeMeme.EVLV">
+    <div *ngIf="meme.type === typeMeme.EVLV; else typeDesc">
       Этап эволюции: <img [src]="stepIcons[evolve?.step]"> {{stepText[evolve?.step]}}
       <span *ngIf="evolve?.myMeme">Нельзя использовать токены на своих мемах ⛔️</span>
     </div>
-    <div *ngIf="meme.type === typeMeme.SLCT">Мем ожидает результаты отбора</div>
-    <div *ngIf="meme.type === typeMeme.INDV">Мем прошел отбор и стал особью</div>
-    <div *ngIf="meme.type === typeMeme.DEAD">Мем не выжел при отборе и умер</div>
-    <div *ngIf="meme.type === typeMeme.BAAN">МЕМ БЫЛ ЗАБАНЕН, НЕ СОЗДАВАЙТЕ БОЛЬШЕ ТАКИЕ МЕМЫ</div>
+    <ng-template #typeDesc>
+      <div>{{typeDescription[meme.type]}}</div>
+    </ng-template>
   </div>
   <div *ngIf="isLoading" style="margin-top: 50px">
     <app-spinner></app-spinner>

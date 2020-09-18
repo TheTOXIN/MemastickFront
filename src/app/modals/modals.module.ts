@@ -11,7 +11,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from './team-modal/team-modal.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
-import {EvolveStepInfoModalComponent} from './evolve-step-info-modal/evolve-step-info-modal.component';
 import {ShareModalComponent} from './share-modal/share-modal.component';
 import {AlgorithmModalComponent} from './algorithm-modal/algorithm-modal.component';
 import {FollowingModalComponent} from './following-modal/following-modal.component';
@@ -42,7 +41,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     ChangeNickModalComponent,
     ChangeAvatarModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
     FollowingModalComponent,
@@ -82,7 +80,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     ChangeAvatarModalComponent,
     TeamModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
     FollowingModalComponent,
@@ -108,7 +105,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     ChangeAvatarModalComponent,
     TeamModalComponent,
     TokenInfoModalComponent,
-    EvolveStepInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
     FollowingModalComponent,

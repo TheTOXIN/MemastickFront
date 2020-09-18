@@ -26,6 +26,7 @@ import {MemeResearchLinkComponent} from './meme-research-link/meme-research-link
 import {MemetickModule} from '../memetick/memetick.module';
 import {DirectivesModule} from '../directivies/directives.module';
 import {CommentsModule} from '../comments/comments.module';
+import {MemeStateInfoModalComponent} from './meme-state-info-modal/meme-state-info-modal.component';
 
 @NgModule({
   imports: [
@@ -62,11 +63,13 @@ import {CommentsModule} from '../comments/comments.module';
     MemeTypeSelectComponent,
     MemeTypeIndividComponent,
     MemeTypeDeadComponent,
-    MemeResearchLinkComponent
+    MemeResearchLinkComponent,
+    MemeStateInfoModalComponent
   ],
   entryComponents: [
     MemesModalComponent,
-    MemeResearchComponent
+    MemeResearchComponent,
+    MemeStateInfoModalComponent
   ]
 })
 export class MemesModule {
