@@ -107,7 +107,7 @@ export class MemotypesReadComponent implements OnInit {
       nav: true,
       dots: true,
       rewindNav: false,
-      autoHeight: true,
+      autoHeight: false,
       lazyLoad: true,
       items: 1
     };

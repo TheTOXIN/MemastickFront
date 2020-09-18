@@ -5,7 +5,7 @@ import {Memotype} from '../model/memotype/Memotype';
 
 export interface MemotypeOptions {
   memetickId: UUID;
-  collection: MemotypeSet[];
-  selectMode: boolean;
-  selectEvent: EventEmitter<Memotype>;
+  collection?: MemotypeSet[];
+  selectMode?: boolean;
+  selectEvent?: EventEmitter<Memotype>;
 }

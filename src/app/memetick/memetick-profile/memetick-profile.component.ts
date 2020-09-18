@@ -11,6 +11,8 @@ import {MemeCoinHistoryModalComponent} from '../../modals/meme-coin-history-moda
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 import {ColorUtils} from '../../utils/color-utils';
+import {CardService} from '../../services/card-service';
+import {MemotypesReadComponent} from '../../memotype/memotypes-read/memotypes-read.component';
 
 @Component({
   selector: 'app-memetick-profile',
@@ -37,6 +39,7 @@ export class MemetickProfileComponent implements OnInit {
     private settingApi: SettingApiService,
     private _sanitizer: DomSanitizer,
     private modalService: NgbModal,
+    private cardService: CardService,
     public memetickAvatarsApi: MemetickAvatarApiService,
   ) {
 
@@ -57,8 +60,12 @@ export class MemetickProfileComponent implements OnInit {
   }
 
   memotypes() {
-    // const modalRef = this.modalService.open(MemotypeReadModalComponent, {'centered': true});
-    // modalRef.componentInstance.memetickId = this.memetick.id;
+    this.cardService.open({
+      content: MemotypesReadComponent,
+      memotypes: {
+        memetickId: this.memetick.id
+      }
+    });
   }
 
   stats() {

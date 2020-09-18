@@ -279,9 +279,9 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     const options: MemotypeOptions = {
       memetickId: this.memetickId,
-        collection: this.memotypeSet,
-        selectMode: true,
-        selectEvent: event
+      collection: this.memotypeSet,
+      selectMode: true,
+      selectEvent: event
     };
 
     this.cardService.open({
