@@ -20,6 +20,7 @@ const MEME_PAGE = 'MEME_PAGE_';
 const DONATER_MESSAGE = 'DONATER_MESSAGE';
 const TWA = 'TWA';
 const LAB_MEM = 'LAB_MEM';
+const METRIC_EVENT = 'METRIC_EVENT';
 
 @Injectable()
 export class StorageService {
@@ -112,6 +113,10 @@ export class StorageService {
     } else {
       return false;
     }
+  }
+
+  public isMetricEvent(): boolean {
+    return this.checkerItemSession(METRIC_EVENT);
   }
 
   private checkerItemSession(key: string): boolean {

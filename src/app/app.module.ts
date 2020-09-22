@@ -73,6 +73,7 @@ import {CardService} from './services/card-service';
 import {CardState} from './state/card-state.service';
 import {MyHammerConfig} from './configs/my-hammer-config';
 import {CommentsModule} from './comments/comments.module';
+import {FireMetricService} from './services/fire-metric-service';
 
 firebase.initializeApp(environment.firebase);
 
@@ -152,6 +153,7 @@ firebase.initializeApp(environment.firebase);
     ChatService,
     CardService,
     CardState,
+    FireMetricService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],

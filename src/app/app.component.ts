@@ -13,6 +13,7 @@ import {LoaderState} from './state/loader-state';
 import {LoaderService} from './services/loader-service';
 import {LoaderStatus} from './consts/LoaderStatus';
 import {NotifyCounterService} from './services/notify-counter.service';
+import {FireMetricService} from './services/fire-metric-service';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private socket: WebSocketService,
     private push: PushService,
     private loaderService: LoaderService,
+    private metric: FireMetricService,
     private counterService: NotifyCounterService,
     private oauth: OauthApiService,
     private storage: StorageService,
@@ -68,6 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.checkTWA();
     this.loadSound();
     this.routerEvent();
+    this.metricEvent(isAuth);
   }
 
   ngOnDestroy(): void {
@@ -152,6 +155,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.router.navigateByUrl('/home');
     } else {
       this.router.navigateByUrl('/start');
+    }
+  }
+
+  private metricEvent(isAuth: boolean) {
+    if (isAuth) {
+      this.metric.event('auth');
+    } else {
+      this.metric.event('anon');
     }
   }
 
