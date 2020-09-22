@@ -1,6 +1,6 @@
 <div class="chat-head-panel head-panel">
   <img class="img-fluid" src="assets/images/chat-logo.png">
-  <app-chat-online [online]="online"></app-chat-online>
+  <app-chat-online></app-chat-online>
 </div>
 
 <div #mainChat
@@ -37,7 +37,7 @@
     [disabled]="!isConnect || isBlock"
     type="text">
   <img
-    (click)="memotypeView()"
+    (click)="memotypeViewer()"
     *ngIf="mode == modes.STICKER"
     [src]="memotype.image"
     class="img-fluid">

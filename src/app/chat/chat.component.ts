@@ -20,6 +20,7 @@ import {CardService} from '../services/card-service';
 import {MemotypeSet} from '../model/memotype/MemotypeSet';
 import {MemotypesReadComponent} from '../memotype/memotypes-read/memotypes-read.component';
 import {MemotypeOptions} from '../options/MemotypeOptions';
+import {ChatOnlineComponent} from './chat-online/chat-online.component';
 
 @Component({
   selector: 'app-chat',
@@ -28,12 +29,12 @@ import {MemotypeOptions} from '../options/MemotypeOptions';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  @ViewChild(MemotypeViewComponent) view: MemotypeViewComponent;
-
   @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
 
+  @ViewChild(MemotypeViewComponent) memotypeView: MemotypeViewComponent;
+  @ViewChild(ChatOnlineComponent) countOnline: ChatOnlineComponent;
+
   public messages: ChatMessage[] = [];
-  public online: UUID[] = [];
 
   public text: string;
   public inputText: string;
@@ -105,7 +106,6 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.chatService.connect().subscribe(data => {
         this.socket.chater();
 
-        this.online = data.online;
         this.memetickId = data.id;
         this.memotypes = data.memotypes;
         this.canDelete = data.role === RoleType.ADMIN;
@@ -113,6 +113,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         this.isConnect = true;
         this.inputText = 'Писать тут...';
 
+        this.countOnline.init(data.online);
         this.connection(ChatMessageMode.CONNECT);
       });
     };
@@ -234,19 +235,12 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   connector(msg: ChatMessage) {
-    if (msg.memetickId == null || msg.memetickId === this.memetickId) {
-      return;
-    }
-
-    if (msg.mode === ChatMessageMode.CONNECT) {
-      this.online.push(msg.memetickId);
-    }
-
-    if (msg.mode === ChatMessageMode.DISCONNECT) {
-      for (let i = 0; i < this.online.length; i++) {
-        if (this.online[i] === msg.memetickId) {
-          this.online.splice(i, 1);
-        }
+    if (msg.memetickId != null && msg.memetickId !== this.memetickId) {
+      if (msg.mode === ChatMessageMode.CONNECT) {
+        this.countOnline.add(msg.memetickId);
+      }
+      if (msg.mode === ChatMessageMode.DISCONNECT) {
+        this.countOnline.min(msg.memetickId);
       }
     }
   }
@@ -288,12 +282,12 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
   }
 
-  memotypeView() {
-    this.view.viewShow(this.memotype);
+  memotypeViewer() {
+    this.memotypeView.viewShow(this.memotype);
   }
 
   memotypeLoad(memotypeId: UUID) {
-    this.view.viewLoad(memotypeId);
+    this.memotypeView.viewLoad(memotypeId);
   }
 
   stick() {
