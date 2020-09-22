@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {API} from '../consts/API';
 import {Observable} from 'rxjs';
 import {ChatMessage} from '../model/chat/ChatMessage';
+import {ChatConnect} from '../model/chat/ChatConnect';
 
 @Injectable()
 export class ChatService {
@@ -11,6 +12,10 @@ export class ChatService {
     private http: HttpClient
   ) {
 
+  }
+
+  public connect(): Observable<ChatConnect> {
+    return this.http.get<ChatConnect>(API.CHAT_CONNECT).pipe();
   }
 
   public read(page: number, size: number): Observable<ChatMessage[]> {

@@ -10,7 +10,6 @@ import {ValidConst} from '../consts/ValidConst';
 import {RoleType} from '../consts/RoleType';
 import {MemetickCardComponent} from '../memetick/memetick-card/memetick-card.component';
 import {DomSanitizer} from '@angular/platform-browser';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Memotype} from '../model/memotype/Memotype';
 import {MemotypeViewComponent} from '../memotype/memotype-view/memotype-view.component';
 import {OauthApiService} from '../services/oauth-api-service';
@@ -18,7 +17,6 @@ import {ChatUtils} from '../utils/chat-utils';
 import {GlobalConst} from '../consts/GlobalConst';
 import {interval} from 'rxjs';
 import {CardService} from '../services/card-service';
-import {MemotypeApiService} from '../api/memotype-api-service';
 import {MemotypeSet} from '../model/memotype/MemotypeSet';
 import {MemotypesReadComponent} from '../memotype/memotypes-read/memotypes-read.component';
 import {MemotypeOptions} from '../options/MemotypeOptions';
@@ -35,14 +33,16 @@ export class ChatComponent implements OnInit, OnDestroy {
   @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
 
   public messages: ChatMessage[] = [];
-  public mode: ChatMessageMode;
+  public online: UUID[] = [];
 
   public text: string;
   public inputText: string;
 
+  public mode: ChatMessageMode;
   public memetickId: UUID;
+
   public memotype: Memotype;
-  public memotypeSet: MemotypeSet[];
+  public memotypes: MemotypeSet[];
 
   public chatPage: number = 0;
   public chatSize: number = 10;
@@ -72,8 +72,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     private _sanitizer: DomSanitizer,
     private oauth: OauthApiService,
     private changeDetectionRef: ChangeDetectorRef,
-    private cardService: CardService,
-    private memotypeApi: MemotypeApiService,
+    private cardService: CardService
   ) {
     this.chatSize = Math.min(Math.round(window.innerHeight / 100) * 2, GlobalConst.CHAT_SIZE);
 
@@ -88,47 +87,41 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.user();
     this.connect();
     this.sounds();
-    this.load();
     this.watch();
+    this.load();
   }
 
   ngOnDestroy(): void {
     this.socket.unsubscribe('chatId');
     this.socket.chaterBehavior.next(null);
-  }
 
-  user() {
-    this.oauth.readMe().then(res => {
-      this.memetickId = res.memetickId;
-      this.canDelete = res.role === RoleType.ADMIN;
-
-      this.memotypes();
-    });
-  }
-
-  memotypes() {
-    this.memotypeApi.read(this.memetickId).subscribe(data => {
-      this.memotypeSet = data.content;
-    });
+    this.connection(ChatMessageMode.DISCONNECT);
   }
 
   connect() {
     const onConnect = () => {
-      this.socket.chater();
-      this.isConnect = true;
-      this.inputText = 'Писать тут...';
+      this.chatService.connect().subscribe(data => {
+        this.socket.chater();
+
+        this.online = data.online;
+        this.memetickId = data.id;
+        this.memotypes = data.memotypes;
+        this.canDelete = data.role === RoleType.ADMIN;
+
+        this.isConnect = true;
+        this.inputText = 'Писать тут...';
+
+        this.connection(ChatMessageMode.CONNECT);
+      });
     };
 
     if (this.socket.isConnect) {
       onConnect();
     } else {
       this.socket.connectEvent.subscribe(data => {
-        if (data) {
-          onConnect();
-        }
+        if (data) { onConnect(); }
       });
     }
   }
@@ -158,6 +151,11 @@ export class ChatComponent implements OnInit, OnDestroy {
   watch() {
     this.socket.chaterObservable.subscribe(data => {
       if (data != null) {
+        if (this.isConnectionMode(data)) {
+          this.connector(data);
+          return;
+        }
+
         ChatUtils.prepare(data, this.messages, this.memetickId, true);
 
         if (data.my) {
@@ -235,6 +233,33 @@ export class ChatComponent implements OnInit, OnDestroy {
     });
   }
 
+  connector(msg: ChatMessage) {
+    if (msg.memetickId == null || msg.memetickId === this.memetickId) {
+      return;
+    }
+
+    if (msg.mode === ChatMessageMode.CONNECT) {
+      this.online.push(msg.memetickId);
+    }
+
+    if (msg.mode === ChatMessageMode.DISCONNECT) {
+      for (let i = 0; i < this.online.length; i++) {
+        if (this.online[i] === msg.memetickId) {
+          this.online.splice(i, 1);
+        }
+      }
+    }
+  }
+
+  connection(mode: ChatMessageMode) {
+    const message = new ChatMessage();
+
+    message.mode = mode;
+    message.memetickId = this.memetickId;
+
+    this.socket.send('/chat/send', message);
+  }
+
   scroll(delta: number = 0) {
     this.chat.nativeElement.scrollTop = this.chat.nativeElement.scrollHeight - delta;
   }
@@ -250,6 +275,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   delete(number: number, index: number) {
     this.chatService.delete(number);
     this.messages.splice(index, 1);
+  }
+
+  public isConnectionMode(msg: ChatMessage): boolean {
+    return msg.mode === ChatMessageMode.CONNECT || msg.mode === ChatMessageMode.DISCONNECT;
   }
 
   memetickCard(memetickId: UUID) {
@@ -279,7 +308,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     const options: MemotypeOptions = {
       memetickId: this.memetickId,
-      collection: this.memotypeSet,
+      collection: this.memotypes,
       selectMode: true,
       selectEvent: event
     };

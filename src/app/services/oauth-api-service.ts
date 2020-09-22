@@ -49,6 +49,7 @@ export class OauthApiService {
       .post(API.OAUTH_TOKEN, params.toString(), options)
       .pipe(tap(data => {
         this.saveToken(data);
+        this.checkMe(username);
       }));
   }
 
@@ -134,14 +135,26 @@ export class OauthApiService {
     return Cookie.check(ACCESS_TOKEN_KEY) || Cookie.check(REFRESH_TOKEN_KEY);
   }
 
+  public checkMe(login: string) {
+    const me = this.storageService.getMe();
+
+    if (me == null || me.login !== login) {
+      this.loadMe().then();
+    }
+  }
+
   public async readMe(): Promise<User> {
     const me = this.storageService.getMe();
 
     if (me != null) {
       return await me;
+    } else {
+      return await this.loadMe();
     }
+  }
 
-    return await this.http.get<User>(API.USER_ME).toPromise().then(data => {
+  private loadMe() {
+    return this.http.get<User>(API.USER_ME).toPromise().then(data => {
       this.storageService.setMe(data);
       return data;
     });

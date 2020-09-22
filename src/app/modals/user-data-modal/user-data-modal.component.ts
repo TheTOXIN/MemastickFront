@@ -23,6 +23,6 @@ export class UserDataModalComponent implements OnInit {
     this.oauthApi.loadData().subscribe(data => {
       this.data = data;
       this.isLoad = true;
-    })
+    });
   }
 }

@@ -106,6 +106,6 @@ export enum API {
   ADMIN_MESSAGE = '/admin-message',
   ADMIN_NOTFY = '/admin-notify',
 
-  CHAT = '/chat',
+  CHAT_CONNECT = '/chat/connect',
   CHAT_MESSAGES = '/chat-messages'
 }

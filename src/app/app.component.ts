@@ -58,7 +58,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.redirecter(isAuth);
 
     if (isAuth) {
-      this.me();
       this.init();
       this.update();
       this.notify();
@@ -81,20 +80,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public init() {
     this.mainApi.init().subscribe(data => {
+      this.oauth.checkMe(data.login);
+
       this.showUpdater = data.version !== VERSION;
       this.versUpdater = data.version;
 
       this.counterService.triggerBellCounter(data.notifyCount.countBells);
       this.counterService.triggerItemCounter(data.notifyCount.countItems);
     });
-  }
-
-  public me() {
-    if (!this.storage.getMe()) {
-      console.log(
-        this.oauth.readMe()
-      );
-    }
   }
 
   public update() {
