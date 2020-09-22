@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyDTkeBmdNaZzFkFxYVUjJeCZQ0Vg9qbHT8',
+    apiKey: 'AIzaSyDTkeBmdNaZzFkFxYVUjJeCZQ0Vg9qbHT8', // SECURED BY CORS
     authDomain: 'memastick-d525f.firebaseapp.com',
     databaseURL: 'https://memastick-d525f.firebaseio.com',
     projectId: 'memastick-d525f',
