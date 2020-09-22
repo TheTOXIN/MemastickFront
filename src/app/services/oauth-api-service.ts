@@ -98,6 +98,8 @@ export class OauthApiService {
   }
 
   public logoutProcess() {
+    console.log('LOGOUT PROCESS');
+
     Cookie.delete(ACCESS_TOKEN_KEY);
     Cookie.delete(REFRESH_TOKEN_KEY);
 

@@ -51,11 +51,11 @@ export class MyHttpInterceptor implements HttpInterceptor {
       catchError(error => {
         if (error.status === 401) {
           if (req.url.includes(API.OAUTH_TOKEN)) {
-            this.oauthApi.logoutProcess();
+            return throwError(new Error('REFRESH LOGOUT'));
           }
           return this.refresher(req, next);
         } else {
-          if (req.url.includes(API.SECURITY_LOGOUT)) {
+          if (req.url.includes(API.OAUTH_TOKEN) || req.url.includes(API.SECURITY_LOGOUT)) {
             this.oauthApi.logoutProcess();
           }
           return throwError(error);
@@ -75,9 +75,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
-          if (!req.url.includes(API.SECURITY_LOGOUT)) {
-            this.oauthApi.logout();
-          }
+          this.oauthApi.logoutProcess();
           return throwError(err);
         }),
         finalize(() => {
