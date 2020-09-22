@@ -624,3 +624,18 @@
     }
   }
 }
+
+.meme-research-p {
+  text-align: center;
+
+  p {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  @media(max-width: 767px) {
+    p {
+      font-size: 14px;
+    }
+  }
+}

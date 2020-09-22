@@ -2,64 +2,33 @@
 
 .meme-epi {
   text-align: center;
+  font-size: 24px;
+  font-family: Futurica, serif;
 
-  p {
+  i {
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 32px;
+    color: $color_saffron_approx;
+    display: inline-block;
+    margin-left: 5px;
+  }
+  &:hover {
     i {
-      font-size: 32px;
-      color: $color_saffron_approx;
-      display: inline-block;
-    }
-
-    &:hover {
-      i {
-        color: $primary_color;
-      }
+      color: $primary_color;
     }
   }
-
   @media(max-width: 767px) {
-    p {
-      i {
-        font-size: 24px;
-      }
+    i {
+      font-size: 24px;
     }
   }
-}
-
-.meme-epi-content {
-  border: 2px solid #495057;
-  width: 50%;
-  border-radius: 50px;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
-
-  @media(max-width: 767px) {
-    width: 90%;
-    padding: 5px;
-  }
-}
-
-.meme-epi-title {
-  font-size: 32px;
-  font-family: Futurica, serif;
-  color: black;
-  margin-bottom: 10px;
-  @media(max-width: 767px) {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-}
-
-.meme-epi-list {
-  font-size: 18px;
-  font-family: Futurica, serif;
 }
 
 .meme-epi-value {
   font-size: 24px;
   display: inline-block;
-  font-family: Arial, serif;
+  font-family: Lato, serif;
 }
 
 #meme-epi-value-e {

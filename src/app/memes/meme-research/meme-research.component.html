@@ -45,8 +45,11 @@
     <div class="meme-epi">
       <app-meme-epi [epi]="evolve.epi">;-(</app-meme-epi>
     </div>
-    <div *ngIf="meme.type === typeMeme.EVLV" class="meme-research-timer">
+    <div class="meme-research-timer" *ngIf="meme.type === typeMeme.EVLV">
       <app-timer [time]="evolve.nextTimer" [text]="'След.этап чрез'"></app-timer>
+    </div>
+    <div class="meme-research-p">
+      <p>Мем родился: {{meme.creating | date:'yyyy-dd-MM HH:mm:ss'}}</p>
     </div>
   </div>
 </div>

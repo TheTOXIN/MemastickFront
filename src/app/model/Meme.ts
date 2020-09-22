@@ -10,6 +10,7 @@ export class Meme {
     public type: MemeType,
     public likes: number,
     public chromosomes: number,
+    public creating: Date,
     public epi: EPI
   ) {
 

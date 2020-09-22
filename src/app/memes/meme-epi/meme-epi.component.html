@@ -1,13 +1,6 @@
 <div class="meme-epi">
-  <p class="meme-epi-title">
-    ЭПИ
-    <i class="fa fa-question-circle" (click)="epiModal()"></i>
-  </p>
-  <div class="meme-epi-content">
-    <ul class="meme-epi-list">
-      <li>эволюция - <div class="meme-epi-value" id="meme-epi-value-e">{{epi.evolution}}</div></li>
-      <li>популяция - <div class="meme-epi-value" id="meme-epi-value-p">{{epi.population}}</div></li>
-      <li>индексация - <div class="meme-epi-value" id="meme-epi-value-i">{{epi.individuation}}</div></li>
-    </ul>
-  </div>
+  Э:<div class="meme-epi-value" id="meme-epi-value-e">{{epi.evolution}}</div>
+  П:<div class="meme-epi-value" id="meme-epi-value-p">{{epi.population}}</div>
+  И:<div class="meme-epi-value" id="meme-epi-value-i">{{epi.individuation}}</div>
+  <i class="fa fa-question-circle" (click)="epiModal()"></i>
 </div>
