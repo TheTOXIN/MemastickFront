@@ -13,8 +13,8 @@ export class FireMetricService {
 
   }
 
-  public event(type: string) {
-    if (this.storage.isMetricEvent()) {
+  public launch(type: string) {
+    if (this.storage.isMetricLaunch()) {
       const me = this.storage.getMe();
       const user = me != null ? me.memetickId + '' : UUID.UUID();
 

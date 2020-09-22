@@ -70,7 +70,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.checkTWA();
     this.loadSound();
     this.routerEvent();
-    this.metricEvent(isAuth);
+    this.metricLaunch(isAuth);
   }
 
   ngOnDestroy(): void {
@@ -158,11 +158,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  private metricEvent(isAuth: boolean) {
+  private metricLaunch(isAuth: boolean) {
     if (isAuth) {
-      this.metric.event('auth');
+      this.metric.launch('auth');
     } else {
-      this.metric.event('anon');
+      this.metric.launch('anon');
     }
   }
 
