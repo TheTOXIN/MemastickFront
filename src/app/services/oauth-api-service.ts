@@ -20,14 +20,13 @@ export class OauthApiService {
     private router: Router,
     private http: HttpClient,
     private push: PushService,
-    private storageService: StorageService,
-    private socket: WebSocketService
+    private storageService: StorageService
   ) {
 
   }
 
   public login(username, password) {
-    console.log('TOKEN');
+    console.log('LOGIN');
 
     const params = new URLSearchParams();
 
@@ -54,17 +53,17 @@ export class OauthApiService {
   }
 
   public refresh() {
-    console.log('REFRESH');
-
     const refreshToken = Cookie.get(REFRESH_TOKEN_KEY);
 
-    if (refreshToken === null) {
+    if (refreshToken == null || refreshToken === '') {
       return throwError(new Error('REFRESH IS NULL'));
     }
 
+    console.log('REFRESH');
+
     const params = new URLSearchParams();
 
-    params.append('refresh_token', refreshToken);
+    params.append('refresh_token',  refreshToken);
     params.append('grant_type', 'refresh_token');
     params.append('client_id', 'memastick-client');
 
@@ -81,23 +80,24 @@ export class OauthApiService {
       API.OAUTH_TOKEN,
       params.toString(),
       options
-    );
+    ).pipe();
   }
 
   public logout() {
-    console.log('SECURITY_LOGOUT');
+    console.log('LOGOUT');
 
     if (this.push.work()) {
       this.push.tokener().then(token => {
-        this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).toPromise();
-        this.logoutProcess();
+        this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).subscribe(
+          () => this.logoutProcess()
+        );
       });
     } else {
       this.logoutProcess();
     }
   }
 
-  private logoutProcess() {
+  public logoutProcess() {
     Cookie.delete(ACCESS_TOKEN_KEY);
     Cookie.delete(REFRESH_TOKEN_KEY);
 

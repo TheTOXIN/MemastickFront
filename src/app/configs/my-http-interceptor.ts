@@ -35,6 +35,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
   constructor(
     private oauthApi: OauthApiService
   ) {
+
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -49,8 +50,14 @@ export class MyHttpInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError(error => {
         if (error.status === 401) {
+          if (req.url.includes(API.OAUTH_TOKEN)) {
+            this.oauthApi.logoutProcess();
+          }
           return this.refresher(req, next);
         } else {
+          if (req.url.includes(API.SECURITY_LOGOUT)) {
+            this.oauthApi.logoutProcess();
+          }
           return throwError(error);
         }
       })
@@ -68,7 +75,9 @@ export class MyHttpInterceptor implements HttpInterceptor {
           return next.handle(this.oauthApi.addAuthorization(req, data.access_token));
         }),
         catchError(err => {
-          if (!req.url.includes(API.SECURITY_LOGOUT)) { this.oauthApi.logout(); }
+          if (!req.url.includes(API.SECURITY_LOGOUT)) {
+            this.oauthApi.logout();
+          }
           return throwError(err);
         }),
         finalize(() => {
