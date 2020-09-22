@@ -1,6 +1,6 @@
 <div class="memetick-tablet">
   <div class="memetick-avatar">
-    <img [src]="downloadAvatar" (click)="memetickView()" [style.border-color]="getRarityAvatar">
+    <img [src]="downloadAvatar" (click)="memetickCard()" [style.border-color]="getRarityAvatar">
   </div>
   <div class="memetick-nick">
     {{memetick.nick}}
@@ -8,7 +8,7 @@
   <div class="memetick-dna-img" *ngIf="image">
     <img [src]=image>
   </div>
-  <div class="memetick-dna-count" *ngIf="count">
-    <p>{{count}}</p>
+  <div class="memetick-dna-count" *ngIf="count != null">
+    {{count}}
   </div>
 </div>

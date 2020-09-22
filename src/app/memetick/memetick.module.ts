@@ -11,6 +11,9 @@ import {ModalsModule} from '../modals/modals.module';
 import {TokenModule} from '../token/token.module';
 import {MemetickProfileComponent} from './memetick-profile/memetick-profile.component';
 import {MemetickCardComponent} from './memetick-card/memetick-card.component';
+import {MemetickListPageComponent} from './memetick-list-page/memetick-list-page.component';
+import {MemetickListModalComponent} from './memetick-list-modal/memetick-list-modal.component';
+import {MemetickFollowModalComponent} from './memetick-follow-modal/memetick-follow-modal.component';
 
 @NgModule({
   imports: [
@@ -23,7 +26,10 @@ import {MemetickCardComponent} from './memetick-card/memetick-card.component';
   exports: [
     MemetickProfileComponent,
     MemetickCardComponent,
-    MemetickStatsModalComponent
+    MemetickStatsModalComponent,
+    MemetickListModalComponent,
+    MemetickListComponent,
+    MemetickFollowModalComponent
   ],
   declarations: [
     MemetickRowComponent,
@@ -32,11 +38,16 @@ import {MemetickCardComponent} from './memetick-card/memetick-card.component';
     MemetickRatingComponent,
     MemetickStatsModalComponent,
     MemetickProfileComponent,
-    MemetickCardComponent
+    MemetickCardComponent,
+    MemetickListPageComponent,
+    MemetickListModalComponent,
+    MemetickFollowModalComponent
   ],
   entryComponents: [
     MemetickStatsModalComponent,
-    MemetickCardComponent
+    MemetickCardComponent,
+    MemetickListModalComponent,
+    MemetickFollowModalComponent
   ],
 })
 export class MemetickModule { }

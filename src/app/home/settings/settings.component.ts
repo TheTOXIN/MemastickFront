@@ -10,8 +10,7 @@ import {SettingApiService} from '../../api/setting-api-service';
 import {Setting} from '../../model/Setting';
 import {PushRequestModalComponent} from '../../modals/push-request-modal/push-request-modal.component';
 import {UserDataModalComponent} from '../../modals/user-data-modal/user-data-modal.component';
-import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
-import {CreedModalComponent} from '../../modals/creed-modal/creed-modal.component';
+import {MemetickFollowModalComponent} from '../../memetick/memetick-follow-modal/memetick-follow-modal.component';
 
 @Component({
   selector: 'app-settings',
@@ -51,16 +50,11 @@ export class SettingsComponent implements OnInit {
   }
 
   following() {
-    this.modalService.open(FollowingModalComponent, {'centered': true});
+    this.modalService.open(MemetickFollowModalComponent, {'centered': true});
   }
 
   logOut() {
     this.modalService.open(LogoutModalComponent, {'centered': true});
-  }
-
-  showCreed() {
-    const modalRef = this.modalService.open(CreedModalComponent, {'centered': true});
-    modalRef.componentInstance.alreadyAgree = true;
   }
 
   pushWork() {

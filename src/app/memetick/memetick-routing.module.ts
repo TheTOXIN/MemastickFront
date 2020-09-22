@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {MemetickComponent} from './memetick/memetick.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
 import {MemetickListComponent} from './memetick-list/memetick-list.component';
+import {MemetickListPageComponent} from './memetick-list-page/memetick-list-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: MemetickListComponent
+        component: MemetickListPageComponent
       },
       {
         path: 'rating',

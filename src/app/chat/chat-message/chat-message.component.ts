@@ -38,6 +38,7 @@ export class ChatMessageComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   memetick() {

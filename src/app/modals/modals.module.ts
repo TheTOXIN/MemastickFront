@@ -13,7 +13,6 @@ import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {TokenInfoModalComponent} from './token-info-modal/token-info-modal.component';
 import {ShareModalComponent} from './share-modal/share-modal.component';
 import {AlgorithmModalComponent} from './algorithm-modal/algorithm-modal.component';
-import {FollowingModalComponent} from './following-modal/following-modal.component';
 import {PushRequestModalComponent} from './push-request-modal/push-request-modal.component';
 import {EpiModalComponent} from './epi-modal/epi-modal.component';
 import {SocialsModalComponent} from './socials-modal/socials-modal.component';
@@ -43,7 +42,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     TokenInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent,
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,
@@ -82,7 +80,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     TokenInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent,
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,
@@ -107,7 +104,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     TokenInfoModalComponent,
     ShareModalComponent,
     AlgorithmModalComponent,
-    FollowingModalComponent,
     PushRequestModalComponent,
     SocialsModalComponent,
     EpiModalComponent,

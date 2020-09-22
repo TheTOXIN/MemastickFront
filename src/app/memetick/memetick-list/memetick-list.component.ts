@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {MemetickPreview} from '../../model/MemetickPreview';
+import {UUID} from 'angular2-uuid';
 
 @Component({
   selector: 'app-memetick-list',
@@ -9,7 +10,12 @@ import {MemetickPreview} from '../../model/MemetickPreview';
 })
 export class MemetickListComponent implements OnInit {
 
-  public memeticks: MemetickPreview[] = [];
+  @Input()
+  public memetickIds: UUID[] = [];
+
+  @Input()
+  public memeticks: MemetickPreview[];
+
   public isLoad = false;
 
   constructor(
@@ -19,9 +25,13 @@ export class MemetickListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.memetickApi.list().subscribe(data => {
-      this.memeticks = data;
+    if (this.memeticks == null) {
+      this.memetickApi.list(this.memetickIds).subscribe(data => {
+        this.memeticks = data;
+        this.isLoad = true;
+      });
+    } else {
       this.isLoad = true;
-    });
+    }
   }
 }

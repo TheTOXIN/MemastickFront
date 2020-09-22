@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FollowingModalComponent} from '../../modals/following-modal/following-modal.component';
+import {CreedModalComponent} from '../../modals/creed-modal/creed-modal.component';
 
 @Component({
   selector: 'app-control-menu',
@@ -57,5 +57,10 @@ export class ControlMenuComponent implements OnInit {
   
   exit() {
     this.modalService.open(LogoutModalComponent, {'centered': true});
+  }
+
+  creed() {
+    const modalRef = this.modalService.open(CreedModalComponent, {'centered': true});
+    modalRef.componentInstance.alreadyAgree = true;
   }
 }

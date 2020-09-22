@@ -8,6 +8,7 @@ import {ModalsModule} from '../modals/modals.module';
 import {MemotypeModule} from '../memotype/memotype.module';
 import {DirectivesModule} from '../directivies/directives.module';
 import {SharedModule} from '../shared/shared.module';
+import {ChatOnlineComponent} from './chat-online/chat-online.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {SharedModule} from '../shared/shared.module';
   ],
   declarations: [
     ChatComponent,
-    ChatMessageComponent
+    ChatMessageComponent,
+    ChatOnlineComponent
   ],
   exports: [
     ChatMessageComponent

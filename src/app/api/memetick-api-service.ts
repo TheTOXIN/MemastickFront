@@ -29,9 +29,9 @@ export class MemetickApiService {
       .pipe();
   }
 
-  public list(): Observable<MemetickPreview[]> {
+  public list(memetickIds: UUID[]): Observable<MemetickPreview[]> {
     return this.http
-      .get<MemetickPreview[]>(API.MEMETICK_LIST)
+      .post<MemetickPreview[]>(API.MEMETICK_LIST, memetickIds)
       .pipe();
   }
 

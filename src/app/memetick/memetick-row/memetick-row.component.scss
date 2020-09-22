@@ -1,12 +1,17 @@
+@import "src/assets/scss/base/_variable.scss";
+
 .memetick-tablet {
-  height: 100px;
+  height: 90px;
   width: 100%;
   background-color: whitesmoke;
   border-radius: 50px;
   display: flex;
   align-items: flex-start;
   flex-wrap: nowrap;
-  box-shadow: 0px 0px 10px 0px black;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-color: $primary_color;
+  border-width: 3px;
   @media(max-width: 767px) {
     height: 69px;
   }
@@ -16,28 +21,25 @@
   height: 100%;
   width: 15%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   img {
     border-radius: 50px;
     border: 5px solid orange;
-    height: 100px;
-    float: left;
-  }
-  @media(max-width: 767px) {
-    img {
-      height: 69px;
-    }
+    max-height: 100%;
+    height: auto;
   }
 }
 
 .memetick-nick {
   height: 100%;
-  width: 40%;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: FuturaRound, serif;
   font-size: 32px;
-  margin-top: 25px;
   color: black;
-  margin-left: 15px;
   @media(max-width: 767px) {
     font-size: 16px;
   }
@@ -46,34 +48,25 @@
 .memetick-dna-img {
   height: 100%;
   width: 15%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
   img {
-    width: 64px;
-    height: 64px;
-    margin-top: 15px;
-  }
-  @media(max-width: 767px) {
-    img {
-      width: 48px;
-      height: 48px;
-      margin-top: 10px;
-    }
+    max-height: 100%;
+    height: auto;
   }
 }
 
 .memetick-dna-count {
   height: 100%;
   width: 30%;
-  text-align: center;
-  p {
-    font-family: Futurica, serif;
-    font-size: 24px;
-    margin-top: 42px;
-  }
+  display: flex;
+  align-items: center;
+  font-family: Futurica, serif;
+  font-size: 24px;
+  color: #495057;
   @media(max-width: 767px) {
-    p {
-      font-size: 18px;
-      margin-top: 25px;
-    }
+    font-size: 18px;
   }
 }
