@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PasswordApiService} from '../../api/password-api-service';
 import {OauthApiService} from '../../services/oauth-api-service';
 import {securityStatuses} from '../../consts/SecurityStatus';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-forget-password',
@@ -13,7 +14,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   private messages = [
     'Мы отправим тебе код для восстановления пароля',
-    'Подтверди код восстановления ',
+    'Подтверди код восстановления',
     'Введите новый пароль',
     'Постарайся больше не забывать пароли :)',
     'Говорят грецкие орехи улучшают память'
@@ -31,6 +32,7 @@ export class ForgetPasswordComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private reset: PasswordApiService,
+    private route: ActivatedRoute,
     private oauth: OauthApiService
   ) {
     this.sendForm = new FormGroup({});
@@ -50,6 +52,15 @@ export class ForgetPasswordComponent implements OnInit {
     this.changeForm = this.fb.group({
       password: ['', Validators.required],
       passwordRepeat: ['', Validators.required],
+    });
+
+    this.route.queryParams.subscribe(params => {
+      const code = params.code;
+      if (code != null) {
+        this.nextStep();
+        this.onAccept();
+        this.acceptForm.controls['code'].setValue(code);
+      }
     });
   }
 
