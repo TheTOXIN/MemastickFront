@@ -115,13 +115,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="home-table">
-        <app-donater-message [info]="true"></app-donater-message>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div *ngIf="!isLoad">
@@ -135,7 +128,7 @@
 <div class="home-copyright margin-home">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>
 
 <div class="margin-center home-support">
-  <button class="btn-theme btn-donater" type="submit" (click)="toDonaters()">
+  <button class="btn-theme btn-donate" type="submit" (click)="toDonate()">
     ПОДДЕРЖАТЬ <i class="fa fa-rocket" aria-hidden="true"></i>
   </button>
 </div>

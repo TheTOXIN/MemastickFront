@@ -30,8 +30,8 @@ export class ControlMenuComponent implements OnInit {
     this.navigate('/memetick/me');
   }
 
-  donaters() {
-    this.navigate('/donaters/rating');
+  donate() {
+    this.navigate('/donate');
   }
 
   lab() {

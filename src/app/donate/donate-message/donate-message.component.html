@@ -3,17 +3,17 @@
 </div>
 <div *ngIf="!isLoad" class="donate-msg-content">
   <div class="donate-img">
-    <img [src]="donater.avatar">
+    <img [src]="donate.avatar">
   </div>
   <div class="donate-msg">
     <div class="donate-msg-number">
-      МЕССЕДЖ #{{donater.number}}
+      МЕССЕДЖ #{{donate.number}}
     </div>
     <div class="donate-msg-message">
-      „ {{donater.message}} “
+      „ {{donate.message}} “
     </div>
     <div class="donate-msg-name">
-      © {{donater.name}}
+      © {{donate.name}}
     </div>
   </div>
   <div class="donate-inf" *ngIf="info">

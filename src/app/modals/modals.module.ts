@@ -18,11 +18,9 @@ import {EpiModalComponent} from './epi-modal/epi-modal.component';
 import {SocialsModalComponent} from './socials-modal/socials-modal.component';
 import {DnaModalComponent} from './dna-modal/dna-modal.component';
 import {SharedModule} from '../shared/shared.module';
-import {DonatModalComponent} from './donat-modal/donat-modal.component';
 import {MemeCoinHistoryModalComponent} from './meme-coin-history-modal/meme-coin-history-modal.component';
 import {StartInfoModalComponent} from './start-info-modal/start-info-modal.component';
 import {UserDataModalComponent} from './user-data-modal/user-data-modal.component';
-import {DonaterMessageInfoModalComponent} from './donater-message-info-modal/donater-message-info-modal.component';
 import {RankTypesModalComponent} from './rank-types-modal/rank-types-modal.component';
 import {RankTokensModalComponent} from './rank-tokens-modal/rank-tokens-modal.component';
 import {TokenModule} from '../token/token.module';
@@ -46,11 +44,9 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
     CreedModalComponent,
@@ -84,11 +80,9 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
     CreedModalComponent,
@@ -108,11 +102,9 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     SocialsModalComponent,
     EpiModalComponent,
     DnaModalComponent,
-    DonatModalComponent,
     MemeCoinHistoryModalComponent,
     StartInfoModalComponent,
     UserDataModalComponent,
-    DonaterMessageInfoModalComponent,
     RankTypesModalComponent,
     RankTokensModalComponent,
     CreedModalComponent,

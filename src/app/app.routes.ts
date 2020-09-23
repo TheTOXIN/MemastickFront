@@ -2,10 +2,8 @@ import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 import {ShopComponent} from './shop/shop.component';
-import {DonaterRatingComponent} from './shared/donater-rating/donater-rating.component';
 import {AppComponent} from './app.component';
 import {LaboratoryComponent} from './laboratory/laboratory.component';
-import {DonaterMessagesComponent} from './shared/donater-messages/donater-messages.component';
 import {ChatComponent} from './chat/chat.component';
 
 export const rootRouterConfig: Routes = [
@@ -48,14 +46,6 @@ export const rootRouterConfig: Routes = [
   {
     path: 'modal',
     component: ModalLinkComponent
-  },
-  {
-    path: 'donaters/rating',
-    component: DonaterRatingComponent
-  },
-  {
-    path: 'donaters/messages',
-    component: DonaterMessagesComponent
   },
   {
     path: '**',

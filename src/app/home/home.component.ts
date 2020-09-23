@@ -134,7 +134,7 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/pages/admin');
   }
 
-  toDonaters() {
-    this.router.navigateByUrl('/donaters/rating');
+  toDonate() {
+    this.router.navigateByUrl('/donate');
   }
 }

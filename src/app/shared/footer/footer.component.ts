@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  toDonaters() {
-    this.router.navigateByUrl('/donaters/rating');
+  toDonate() {
+    this.router.navigateByUrl('/donate');
   }
 }

@@ -16,8 +16,6 @@ import {TimerComponent} from './timer/timer.component';
 import {ModalLinkComponent} from './modal-link/modal-link.component';
 import {AcceptComponent} from './accpet/accept.component';
 import {GroupByPipe} from './pipes/GroupByPipe';
-import {DonaterRatingComponent} from './donater-rating/donater-rating.component';
-import {DonaterMessageComponent} from './donater-message/donater-message.component';
 import {OwlModule} from 'ngx-owl-carousel';
 import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
@@ -29,7 +27,6 @@ import {StatisticComponent} from './statistic/statistic.component';
 import {DnaCountComponent} from './dna-count/dna-count.component';
 import {LohRadarComponent} from './loh-radar/loh-radar.component';
 import {ChartsModule} from 'ng2-charts';
-import {DonaterMessagesComponent} from './donater-messages/donater-messages.component';
 import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
 import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
@@ -48,8 +45,6 @@ import {CardComponent} from './card/card.component';
     ModalLinkComponent,
     AcceptComponent,
     GroupByPipe,
-    DonaterRatingComponent,
-    DonaterMessageComponent,
     GpBtnComponent,
     PreviewScreenComponent,
     RankLevelComponent,
@@ -58,7 +53,6 @@ import {CardComponent} from './card/card.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
     DnaSpinnerComponent,
@@ -86,8 +80,6 @@ import {CardComponent} from './card/card.component';
     ModalLinkComponent,
     AcceptComponent,
     GroupByPipe,
-    DonaterRatingComponent,
-    DonaterMessageComponent,
     GpBtnComponent,
     PreviewScreenComponent,
     RankLevelComponent,
@@ -96,7 +88,6 @@ import {CardComponent} from './card/card.component';
     StatisticComponent,
     DnaCountComponent,
     LohRadarComponent,
-    DonaterMessagesComponent,
     CounterComponent,
     PreviewUpdateComponent,
     DnaSpinnerComponent,

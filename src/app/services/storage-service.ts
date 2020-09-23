@@ -3,7 +3,7 @@ import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
 import {GlobalConst} from '../consts/GlobalConst';
-import {DonaterMessage} from '../model/donaters/DonaterMessage';
+import {DonateMessage} from '../model/donate/DonateMessage';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
@@ -13,11 +13,11 @@ const EVOLVE_INFO = 'EVOLVE_INFO';
 const CREATE_INFO = 'CREATE_INFO';
 const ME = 'ME';
 const PUSH_TOKEN = 'PUSH_TOKEN';
-const PEVIEW = 'PEVIEW';
+const PREVIEW = 'PREVIEW';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
-const DONATER_MESSAGE = 'DONATER_MESSAGE';
+const DONATE_MESSAGE = 'DONATE_MESSAGE';
 const TWA = 'TWA';
 const LAB_MEM = 'LAB_MEM';
 const METRIC_LAUNCH = 'METRIC_LAUNCH';
@@ -80,14 +80,14 @@ export class StorageService {
     sessionStorage.removeItem(MEME_PAGE + filter);
   }
 
-  public getDonaterMessage(): DonaterMessage {
-    const value = sessionStorage.getItem(DONATER_MESSAGE);
-    return value == null ? null : <DonaterMessage>JSON.parse(value);
+  public getDonateMessage(): DonateMessage {
+    const value = sessionStorage.getItem(DONATE_MESSAGE);
+    return value == null ? null : <DonateMessage>JSON.parse(value);
   }
 
-  public setDonaterMessage(data: DonaterMessage) {
+  public setDonateMessage(data: DonateMessage) {
     const value = JSON.stringify(data);
-    sessionStorage.setItem(DONATER_MESSAGE, value);
+    sessionStorage.setItem(DONATE_MESSAGE, value);
   }
 
   public battleRule(): boolean {
@@ -138,12 +138,12 @@ export class StorageService {
 
   public isPreview(): boolean {
     const nowDay = new Date().getDate() + '';
-    const strDay = localStorage.getItem(PEVIEW);
+    const strDay = localStorage.getItem(PREVIEW);
 
     const preview = nowDay !== strDay;
 
     if (preview) {
-      localStorage.setItem(PEVIEW,  nowDay);
+      localStorage.setItem(PREVIEW,  nowDay);
     }
 
     return preview;

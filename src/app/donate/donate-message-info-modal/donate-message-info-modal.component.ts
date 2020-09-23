@@ -4,15 +4,15 @@ import {Router} from '@angular/router';
 import {DONAT} from '../../app.constants';
 
 @Component({
-  selector: 'app-donater-message-info-modal',
-  templateUrl: './donater-message-info-modal.component.html',
-  styleUrls: ['./donater-message-info-modal.component.scss']
+  selector: 'app-donate-message-info-modal',
+  templateUrl: './donate-message-info-modal.component.html',
+  styleUrls: ['./donate-message-info-modal.component.scss']
 })
-export class DonaterMessageInfoModalComponent implements OnInit {
+export class DonateMessageInfoModalComponent implements OnInit {
 
   donatHref = DONAT;
-  msgsHref = '/donaters/messages';
-  ratingHref = '/donaters/rating';
+  msgsHref = '/donate';
+  ratingHref = '/donate';
 
   constructor(
     public activeModal: NgbActiveModal,

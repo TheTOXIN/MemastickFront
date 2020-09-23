@@ -19,13 +19,13 @@ export class AdminApiService {
 
   public notifyAll(text: string): Observable<any> {
     return this.http
-      .patch(API.ADMIN_NOTFY, text)
+      .patch(API.ADMIN_NOTIFY, text)
       .pipe();
   }
 
   public notifyUser(text: string, uuid: string): Observable<any> {
     return this.http
-      .patch(API.ADMIN_NOTFY + '/' + uuid, text)
+      .patch(API.ADMIN_NOTIFY + '/' + uuid, text)
       .pipe();
   }
 }

@@ -99,12 +99,12 @@ export enum API {
   BATTLE_RATING_MY = '/battle-rating/my',
   BATTLE_RATING_MAIN = '/battle-rating/main',
 
-  DONATER_READ_MESSAGE = '/donater-messages/read',
-  DONATER_RANDOM_MESSAGE = '/donater-messages/random',
-  DONATER_READ_RATING = '/donater-ratings/read',
+  DONATE_READ_MESSAGE = '/donate-messages/read',
+  DONATE_RANDOM_MESSAGE = '/donate-messages/random',
+  DONATE_READ_RATING = '/donate-ratings/read',
 
   ADMIN_MESSAGE = '/admin-message',
-  ADMIN_NOTFY = '/admin-notify',
+  ADMIN_NOTIFY = '/admin-notify',
 
   CHAT_CONNECT = '/chat/connect',
   CHAT_MESSAGES = '/chat-messages'

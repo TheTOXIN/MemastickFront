@@ -55,7 +55,7 @@ import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
 import {BlogComponent} from './blog/blog.component';
-import {DonaterApiService} from './api/donater-api-service';
+import {DonateApiService} from './api/donate-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
 import {AdminApiService} from './api/admin-api-service';
@@ -74,6 +74,7 @@ import {CardState} from './state/card-state.service';
 import {MyHammerConfig} from './configs/my-hammer-config';
 import {CommentsModule} from './comments/comments.module';
 import {FireMetricService} from './services/fire-metric-service';
+import {DonateModule} from './donate/donate.module';
 
 firebase.initializeApp(environment.firebase);
 
@@ -99,6 +100,7 @@ firebase.initializeApp(environment.firebase);
     BattleModule,
     DirectivesModule,
     ChatModule,
+    DonateModule,
     CommentsModule,
     LaboratoryModule,
     HttpClientModule,
@@ -141,7 +143,7 @@ firebase.initializeApp(environment.firebase);
     TranslatorApiService,
     MemotypeApiService,
     BattleApiService,
-    DonaterApiService,
+    DonateApiService,
     RankApiService,
     AdminApiService,
     MemeLohApiService,

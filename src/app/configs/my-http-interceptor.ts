@@ -28,8 +28,8 @@ export class MyHttpInterceptor implements HttpInterceptor {
     API.REGISTRATION,
     API.PASSWORD_RESET_SEND,
     API.PASSWORD_RESET_TAKE,
-    API.DONATER_READ_RATING,
-    API.DONATER_READ_MESSAGE
+    API.DONATE_READ_RATING,
+    API.DONATE_READ_MESSAGE
   ];
 
   constructor(

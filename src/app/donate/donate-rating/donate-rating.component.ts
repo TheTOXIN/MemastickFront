@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {DonaterApiService} from '../../api/donater-api-service';
+import {DonateApiService} from '../../api/donate-api-service';
 import {DONAT} from '../../app.constants';
 import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-donater-rating',
-  templateUrl: './donater-rating.component.html',
-  styleUrls: ['./donater-rating.component.scss']
+  selector: 'app-donate-rating',
+  templateUrl: './donate-rating.component.html',
+  styleUrls: ['./donate-rating.component.scss']
 })
-export class DonaterRatingComponent implements OnInit {
+export class DonateRatingComponent implements OnInit {
 
   raritySiquence = [];
 
@@ -21,26 +21,26 @@ export class DonaterRatingComponent implements OnInit {
   isLoad = true;
   donatHref = DONAT;
 
-  public donatersCarousel: any;
+  public donatesCarousel: any;
   public rating: any;
 
   constructor(
     private router: Router,
-    private donaterApi: DonaterApiService
+    private donateApi: DonateApiService
   ) {
     this.initCarousel();
     this.initSiquence();
   }
 
   ngOnInit() {
-    this.donaterApi.readRating().subscribe(data => {
+    this.donateApi.readRating().subscribe(data => {
       this.rating = data;
       this.isLoad = false;
     });
   }
 
   toMsgs() {
-    this.router.navigateByUrl('/donaters/messages');
+    this.router.navigateByUrl('/donate');
   }
 
   toDonat() {
@@ -60,7 +60,7 @@ export class DonaterRatingComponent implements OnInit {
   }
 
   private initCarousel() {
-    this.donatersCarousel = {
+    this.donatesCarousel = {
       loop: true,
       dots: false,
       autoplay: false,
