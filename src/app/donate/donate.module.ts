@@ -12,6 +12,7 @@ import {DonateMessagesComponent} from './donate-messages/donate-messages.compone
 import {DonateRatingsComponent} from './donate-ratings/donate-ratings.component';
 import {DonateRatingTabComponent} from './donate-rating-tab/donate-rating-tab.component';
 import {DonateWrapPageComponent} from './donate-wrap-page/donate-wrap-page.component';
+import {DonateRatingRowComponent} from './donate-rating-row/donate-rating-row.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {DonateWrapPageComponent} from './donate-wrap-page/donate-wrap-page.compo
     DonateRatingComponent,
     DonateRatingsComponent,
     DonateRatingTabComponent,
+    DonateRatingRowComponent,
     DonateMessageComponent,
     DonateMessagesComponent,
     DonateMessageInfoComponent,

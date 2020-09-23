@@ -16,8 +16,8 @@ export class DonateComponent implements OnInit {
   public message: DonateMessage;
   public rating: Map<MemotypeRarity, DonateRating[]>;
 
-  isLoad = false;
   readonly donateHref = DONAT;
+  isLoad = false;
 
   constructor(
     private donateApi: DonateApiService,

@@ -54,8 +54,8 @@
     border: solid white;
     border-radius: 50%;
 
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
   }
 
   @media(max-width: 767px) {
@@ -81,7 +81,7 @@
   border: dotted $primary_color;
 
   @media(max-width: 767px) {
-    width: 300px;
+    width: 100%;
     padding: 3px;
   }
 }
@@ -95,7 +95,7 @@
   cursor: pointer;
 
   i {
-    font-size: 64px;
+    font-size: 80px;
     color: #eab000;
     display: inline-block;
     background-color: white;

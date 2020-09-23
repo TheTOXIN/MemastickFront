@@ -1,20 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="donate-table dnt-rating-title">
-        <span>🏆 ТОП ДОНАТОВ 🚀</span>
-        <div>💸 Поддержи Мемастик
-          <a [href]="donateHref" target="_blank"> донатом </a>
-          и ты станешь одним из этих сверхлюдей ❗️</div>
-        <div class="donate-control">
-          <div class="mini-btn" (click)="toMessages()">все месседжи</div>
-          <div class="mini-btn" (click)="toRatings()">весь рейтинг</div>
-        </div>
-        <button class="btn-theme" type="submit" (click)="toDonate()">
-          ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
-        </button>
-      </div>
+<div class="donate-container">
+  <div class="for-mobile" style="height: 25px"></div>
+  <div class="donate-table dnt-rating-title">
+    <span>🏆 ТОП ДОНАТОВ 🚀</span>
+    <div>💸 Поддержи Мемастик
+      <a [href]="donateHref" target="_blank"> донатом </a>
+      и ты станешь одним из этих сверхлюдей ❗️
     </div>
+    <div class="donate-control">
+      <div class="mini-btn" (click)="toMessages()">все месседжи</div>
+      <div class="mini-btn" (click)="toRatings()">весь рейтинг</div>
+    </div>
+    <button class="btn-theme" type="submit" (click)="toDonate()">
+      ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
+    </button>
   </div>
   <div *ngIf="isLoad; else donateLoad">
     <app-donate-message [message]="message" [info]="true" [head]="true"></app-donate-message>

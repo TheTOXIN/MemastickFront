@@ -1,20 +1,19 @@
 <div *ngIf="isLoad; else donateRatingLoad">
-  <div class="container">
-    <div *ngFor="let rarity of raritySiquence">
-      <div class="donate-table donate-rarity-head">
-        <i class="fa fa-circle" [style.color]="memotypeColors[rarity]"></i>
-        <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
-        <div>{{memotypeLvl[rarity] * 100}}руб</div>
+  <div *ngFor="let rarity of raritySiquence">
+    <div class="donate-table donate-rarity-head">
+      <i class="fa fa-circle" [style.color]="memotypeColors[rarity]"></i>
+      <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
+      <div>{{memotypeLvl[rarity] * 100}}руб</div>
+    </div>
+    <owl-carousel [carouselClasses]="['owl-carousel owl-theme']"
+                  [options]="{ dots: false, margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">
+      <div *ngFor="let donate of rating[rarity]">
+        <app-donate-rating-tab [donate]="donate" [color]="memotypeColors[rarity]"></app-donate-rating-tab>
       </div>
-      <owl-carousel [carouselClasses]="['owl-carousel owl-theme']" [options]="{ dots: false, margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">
-        <div *ngFor="let donate of rating[rarity]">
-          <app-donate-rating-tab [donate]="donate" [color]="memotypeColors[rarity]"></app-donate-rating-tab>
-        </div>
-      </owl-carousel>
-    </div>
-    <div class="donate-table dnt-footer-msg">
-      <div>*сначала отображаются новые донаты рейтинга, списки можно свайпать, чтобы посмотреть более старые*</div>
-    </div>
+    </owl-carousel>
+  </div>
+  <div class="donate-table dnt-footer-msg">
+    <div>*сначала отображаются новые донаты рейтинга, списки можно свайпать, чтобы посмотреть более старые*</div>
   </div>
 </div>
 <ng-template #donateRatingLoad>

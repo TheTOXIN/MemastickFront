@@ -16,17 +16,16 @@ export class DonateRatingComponent implements OnInit {
   @Input()
   public rating: Map<MemotypeRarity, DonateRating[]>;
 
-  public memotypeColors = memotypeColors;
-  public memotypeLvl = memotypeLvl;
-  public memotypeNames = memotypeNames;
+  readonly memotypeColors = memotypeColors;
+  readonly memotypeLvl = memotypeLvl;
+  readonly memotypeNames = memotypeNames;
 
   raritySiquence = [];
   donatesCarousel: any;
 
   isLoad = false;
 
-  constructor(
-  ) {
+  constructor() {
     this.initCarousel();
     this.initSequence();
   }
