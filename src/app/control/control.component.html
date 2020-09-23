@@ -2,7 +2,7 @@
 <div class="control-menu btn-panel animated slideInLeft"
      [ngClass]="{'slideOutLeft': hide, 'control-panel-inverse': !hideContentMenu}"
      (click)="close = true; hideContentMenu = false">
-  <i class="fa fa-bars"></i>
+  <i class="control-icon fa fa-bars"></i>
 </div>
 <div class="control-menu-content control-content animated faster slideInLeft" *ngIf="!hideContentMenu">
   <app-control-menu (closeEvent)="hideAll()"></app-control-menu>
@@ -12,7 +12,7 @@
 <div class="control-bells btn-panel animated slideInDown"
      [ngClass]="{'slideOutUp': hide, 'control-panel-inverse': !hideContentBells}"
      (click)="close = true; hideContentBells = false;">
-  <i class="fa fa-bell"></i>
+  <i class="control-icon fa fa-bell"></i>
   <div *ngIf="showCountBells && hideContentBells" [@counterState]="countBells" class="control-counter">{{countBells}}</div>
 </div>
 <div class="control-bells-content control-content animated faster slideInDown" *ngIf="!hideContentBells">
@@ -23,7 +23,7 @@
 <div class="control-scope btn-panel animated slideInRight"
      [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentScope}"
      (click)="close = true; hideContentScope = false">
-  <i class="fa fa-th-large"></i>
+  <i class="control-icon fa fa-th-large"></i>
 </div>
 <div class="control-scope-content control-content animated faster slideInRight" *ngIf="!hideContentScope">
   <app-control-scope (closeEvent)="hideAll()"></app-control-scope>
@@ -33,8 +33,8 @@
 <div class="control-items btn-panel animated slideInUp"
      [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
      (click)="close = true; hideContentItems = false;">
-  <i class="fa fa-archive" ></i>
-  <div *ngIf="showCountItems && hideContentItems" [@counterState]="countItems" class="control-counter">{{countItems}}</div>
+  <i class="control-icon fa fa-archive" ></i>
+  <div *ngIf="showCountItems && hideContentItems" [@counterState]="countItems" class="control-counter"><i class="fa fa-exclamation"></i></div>
 </div>
 <div class="control-items-content control-content animated faster slideInUp" *ngIf="!hideContentItems">
   <app-control-items (closeEvent)="hideAll()"></app-control-items>

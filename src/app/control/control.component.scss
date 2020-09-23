@@ -5,7 +5,7 @@
 .control-panel-inverse {
   background: whitesmoke;
   box-shadow: 0 0 0 3px rgba(129, 54, 236, 0.7);
-  i {
+  .control-icon {
     color: #8136EC;
   }
   &:hover {
@@ -17,7 +17,7 @@
   bottom: 0;
   right: 0;
   border-radius: 50px 0 0 0;
-  i {
+  .control-icon {
     bottom: 5px;
     right: 10px;
   }
@@ -27,7 +27,7 @@
   top: 0;
   left: 0;
   border-radius: 0 0 50px 0;
-  i {
+  .control-icon {
     top: 7px;
     left: 9px;
   }
@@ -37,7 +37,7 @@
   top: 0;
   right: 0;
   border-radius: 0 0 0 50px;
-  i {
+  .control-icon {
     top: 5px;
     right: 5px;
   }
@@ -58,7 +58,7 @@
   left: 0;
   border-radius: 0 50px 0 0;
 
-  i {
+  .control-icon {
     bottom: 5px;
     left: 7px;
   }
@@ -112,19 +112,27 @@
 }
 
 .control-counter {
-  //box-shadow: 2px -2px 4px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px -1px 1px 1px rgba(0, 0, 0, 0.3);
   background-color: #dc3545;
   font-size: 20px;
   color: whitesmoke;
   border-radius: 100%;
-  text-align: center;
   width: 32px;
   height: 32px;
   vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i {
+    font-size: 20px;
+  }
   @media(max-width: 767px) {
     width: 25px;
     height: 25px;
     font-size: 16px;
+    i {
+      font-size: 16px;
+    }
   }
 }
 
