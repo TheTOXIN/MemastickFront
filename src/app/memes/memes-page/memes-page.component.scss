@@ -2,8 +2,8 @@
   border-radius: 50px;
   text-align: center;
   background: whitesmoke;
-  box-shadow: 0 0 20px 3px #000000ab;
-  margin-top: 30px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -21,96 +21,87 @@
   }
   @media(max-width: 767px) {
     width: 100%;
+
+    border-radius: 30px;
+    margin-top: 15px;
   }
 }
 
 .memes-info {
-  height: 70px;
+  height: 64px;
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+  @media(max-width: 767px) {
+    height: 54px;
+  }
 }
 
 .memes-info-avatar {
   height: 100%;
-  width: 20%;
+  width: 15%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   img {
-    float: left;
-    max-width: 100%;
     max-height: 100%;
+    height: auto;
     cursor: pointer;
   }
 }
 
 .memes-info-nick {
   height: 100%;
-  width: 50%;
-  text-align: left;
+  width: 70%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
   div {
-    padding-left: 5px;
+    font-size: 28px;
     font-family: Futurica, serif;
     color: #212529;
+  }
+  @media(max-width: 767px) {
+    div {
+      margin-left: 5px;
+      font-size: 20px;
+    }
   }
 }
 
 .memes-info-indexer {
   height: 100%;
-  width: 15%;
   color: black;
-  span {
-    float: right;
-    margin-top: 12px;
-    font-size: 32px;
-  }
+  font-size: 32px;
+  display: flex;
+  align-items: center;
   @media(max-width: 767px) {
-    span {
-      margin-top: 12px;
-      font-size: 28px;
-    }
+    font-size: 28px;
   }
 }
 
 .memes-info-step {
   height: 100%;
   width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     cursor: pointer;
-    float: right;
-    max-width: 100%;
     max-height: 100%;
-  }
-  @media(max-width: 767px) {
-    img {
-      float: left;
-      width: 64px;
-      height: 64px;
-      max-width: none;
-      max-height: none;
-    }
+    height: auto;
   }
 }
 
 .memes-info-type {
   height: 100%;
-  width: 30%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
+    padding: 3px;
     cursor: pointer;
-    margin-top: 0;
-    padding: 5px;
-    float: right;
-    max-width: 100%;
     max-height: 100%;
-  }
-  @media(max-width: 767px) {
-    img {
-      padding: 0;
-      margin-top: 5px;
-      width: 54px;
-      height: 54px;
-      max-width: none;
-      max-height: none;
-    }
+    height: auto;
   }
 }
 
@@ -129,80 +120,53 @@
 }
 
 .memes-likes {
-  height: 70px;
+  height: 64px;
   display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+  @media(max-width: 767px) {
+    height: 54px;
+  }
 }
 
-.like-icon-1 {
-  width: 80%;
+.like-icon {
+  width: 15%;
   height: 100%;
-  margin-left: 15px;
-}
-
-.like-img-1 {
-  float: left;
-  width: 54px;
-  margin-top: 8px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
   img {
+    max-height: 100%;
+    height: auto;
     cursor: pointer;
   }
 }
 
-.like-icon-2 {
-  width: 80%;
+.like-count {
   height: 100%;
-  margin-right: 15px;
-}
-
-.like-img-2 {
-  float: right;
-  width: 54px;
-  margin-top: 8px;
-
-  img {
-    cursor: pointer;
-  }
-}
-
-.like-count-1 {
-  height: 100%;
-  width: 100%;
-}
-
-.like-count-2 {
-  height: 100%;
-  width: 100%;
-}
-
-.likes-count {
+  width: 25%;
   color: black;
   font-family: FuturaRound, serif;
-  font-size: 25px;
-  margin-top: 15px;
-  display: inline-block;
-  vertical-align: middle;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .likes-delimer {
   height: 100%;
-  width: 100%;
-
+  width: 20%;
   cursor: pointer;
-
   img {
     transition: 0.2s ease-in-out;
-    margin-top: 8px;
-    width: 55px;
+    max-height: 100%;
+    height: auto;
+    padding: 3px;
   }
-
   &:hover {
     img {
       background-color: #dbdbdb;
       border-radius: 15px;
-      padding: 3px;
+      padding: 5px;
     }
   }
 }
@@ -236,17 +200,21 @@
 
 .counter {
   position: absolute;
-  margin-left: 11px;
   opacity: 0;
-  margin-top: -80px;
   width: 32px;
   height: 32px;
   background-color: darkgreen;
   border-radius: 100%;
-  span {
-    padding-top: 4px;
-    font-size: 20px;
-    color: whitesmoke;
+  font-size: 20px;
+  color: whitesmoke;
+  left: -42px;
+  bottom: 62px;
+  @media(max-width: 767px) {
+    font-size: 18px;
+    left: -36px;
+    bottom: 52px;
+    width: 28px;
+    height: 28px;
   }
 }
 

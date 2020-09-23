@@ -3,18 +3,18 @@
     <div class="memes-info-avatar">
       <img *ngIf="data.avatar" [src]="data.avatar || ''" (click)="memetickCard()">
     </div>
-    <div class="memes-info-nick text-strong-middle">
-      <div fittext [minFontSize]="16" [maxFontSize]="28"> {{data.page?.memetick?.nick}} </div>
+    <div class="memes-info-nick">
+      <div>{{data.page?.memetick?.nick}} </div>
     </div>
-    <div class="memes-info-indexer" *ngIf="data.page?.meme?.type === 'EVLV'">
-      <span>#{{data.page?.meme.epi.individuation}}</span>
-    </div>
-    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'">
+    <div class="memes-info-step" *ngIf="data.page?.meme?.type === 'EVLV'; else memeInfoType">
+      <div class="memes-info-indexer">#{{data.page?.meme.epi.individuation}}</div>
       <img [src]="stepIcons[data.page?.step]" (click)="evolveStepInfo(data.page?.step)">
     </div>
-    <div class="memes-info-type" *ngIf="data.page?.meme?.type !== 'EVLV'">
-      <img [src]="typeIcons[data.page?.meme?.type]" (click)="memeTypeInfo(data.page?.meme?.type)">
-    </div>
+    <ng-template #memeInfoType>
+      <div class="memes-info-type">
+        <img [src]="typeIcons[data.page?.meme?.type]" (click)="memeTypeInfo(data.page?.meme?.type)">
+      </div>
+    </ng-template>
   </div>
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
@@ -33,37 +33,29 @@
     <app-comment-best [comment]="data.page?.comment"></app-comment-best>
   </div>
   <div class="memes-likes">
-    <div class="like-icon-1">
-      <div class="like-img-1">
-        <img class="img-fluid select-none" src="assets/images/icon/2.png"
-             [@rotatedState]='data.chromosomeState'
-             (click)="triggerChromosome(data)"
-             [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
-             [class.firstChromosome]="data.page?.likes.firstChromosome"
-             [class.full]="data.page?.likes.myChromosomes >= 100">
-        <div class="chromosome-counter">
-          <div [@counterState]='data.counterState' class="counter">
-            <span>{{data.page?.likes.myChromosomes}}</span>
-          </div>
+    <div class="like-icon">
+      <img class="img-fluid select-none" src="assets/images/icon/2.png"
+           [@rotatedState]='data.chromosomeState'
+           (click)="triggerChromosome(data)"
+           [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
+           [class.firstChromosome]="data.page?.likes.firstChromosome"
+           [class.full]="data.page?.likes.myChromosomes >= 100">
+      <div class="chromosome-counter">
+        <div [@counterState]='data.counterState' class="counter">
+          {{data.page?.likes.myChromosomes}}
         </div>
       </div>
     </div>
-    <div class="like-count-1">
-      <span class="likes-count">{{data.page?.meme.chromosomes}}</span>
-    </div>
+    <div class="like-count">{{data.page?.meme.chromosomes}}</div>
     <div class="likes-delimer" (click)="memeResearch()">
       <img class="img-fluid select-none" src="assets/images/icon/research.png">
     </div>
-    <div class="like-count-2">
-      <span class="likes-count">{{data.page?.meme.likes}}</span>
-    </div>
-    <div class="like-icon-2">
-      <div class="like-img-2">
-        <img class="img-fluid select-none"
-             [@bouncedState]='data.likeState'
-             (click)="triggerLike(data)"
-             [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
-      </div>
+    <div class="like-count">{{data.page?.meme.likes}}</div>
+    <div class="like-icon">
+      <img class="img-fluid select-none"
+           [@bouncedState]='data.likeState'
+           (click)="triggerLike(data)"
+           [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
     </div>
   </div>
 </div>

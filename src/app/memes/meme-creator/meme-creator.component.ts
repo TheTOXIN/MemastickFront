@@ -208,6 +208,7 @@ export class MemeCreatorComponent implements OnInit {
   }
 
   showText() {
+    this.textMeme = null;
     this.textInput.show(this.textMeme);
   }
 

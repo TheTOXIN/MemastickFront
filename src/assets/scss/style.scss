@@ -400,7 +400,8 @@
     }
 
     i {
-      color: #333333;
+      animation: scaleMove 0.5s;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -417,6 +418,9 @@
     }
     &:hover {
       img {
+        animation: scale 0.5s;
+      }
+      i {
         animation: scale 0.5s;
       }
     }

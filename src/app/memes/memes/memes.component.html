@@ -1,6 +1,7 @@
 <div class="mem-back">
 
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
+    <div class="for-mobile" style="height: 30px"></div>
 
     <div *ngFor="let data of pagination.data | async">
       <app-memes-page [data]="data" (viewer)="memeView($event)"></app-memes-page>
@@ -12,11 +13,9 @@
       <p>МЕМОВ НЕТ</p>
       <img src="https://i.giphy.com/media/jcxtvm2bsZDH2/giphy.webp"/>
     </div>
-
   </div>
 
 </div>
 
 <app-memes-panel [modePanel]="modePanel" [showPanel]="showPanel"></app-memes-panel>
-
 <app-meme-view></app-meme-view>
