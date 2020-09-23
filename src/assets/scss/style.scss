@@ -38,6 +38,12 @@
   padding: 20px;
   box-shadow: 0px 0px 91px -6px rgba(0, 0, 0, 0.5);
   text-align: center;
+  @media(max-width: 767px) {
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
 }
 
 .my-button-close {
@@ -500,7 +506,7 @@
   font-size: 42px;
   color: whitesmoke;
   margin-top: 15px;
-  font-family: FuturaRound, serif;
+  font-family: Lato, serif;
   text-align: center;
   @media(max-width: 767px) {
     font-size: 24px;

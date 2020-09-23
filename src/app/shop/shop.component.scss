@@ -1,21 +1,5 @@
 @import "src/assets/scss/base/_variable.scss";
 
-.shop-container {
-  background: whitesmoke;
-  border-radius: 30px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0px 0px 9-px -5px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  color: #212529;
-  i {
-    color: $primary_color;
-  }
-  @media(max-width: 767px) {
-    padding: 10px;
-  }
-}
 
 .shop-product {
   padding: 10px;

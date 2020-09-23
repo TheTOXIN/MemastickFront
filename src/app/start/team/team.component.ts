@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TeamModalComponent} from '../../modals/team-modal/team-modal.component';
@@ -9,6 +9,9 @@ import {TeamModalComponent} from '../../modals/team-modal/team-modal.component';
   styleUrls: ['./team.component.scss']
 })
 export class TeamComponent {
+
+  @Input()
+  public withTitle = true;
 
   public team = [ {
     image: 'assets/images/info/1.png',

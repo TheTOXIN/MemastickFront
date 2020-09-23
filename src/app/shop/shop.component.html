@@ -1,6 +1,8 @@
-<div class="shop-container container">
-  <div class="shop-title"><i class="fa fa-shopping-cart"></i> МАГАЗИН</div>
+<div class="super-main-title">
+  <i class="fa fa-shopping-cart"></i> МАГАЗИН
+</div>
 
+<div class="my-container container">
   <div class="product-container" *ngIf="isMain">
     <div *ngFor="let p of products">
       <div class="product-content" (click)="choose(p)">
