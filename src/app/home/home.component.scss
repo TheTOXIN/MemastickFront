@@ -98,47 +98,13 @@
 }
 
 .spin-anim-evolution {
-  animation: spin 30s linear infinite;
+  animation: spin 60s linear infinite;
 }
 
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  }
-}
-
-.bounce-anim-create {
-  animation: pulseCreate 3s infinite;
-}
-
-@keyframes pulseCreate {
-  0% {
-    transform: scale(1.0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  1000% {
-    transform: scale(1.0);
-  }
-}
-
-.rotate-anim-lab {
-  width: 48px;
-  height: 48px;
-  animation: rotateLab 3s linear infinite;
-}
-
-@keyframes rotateLab {
-  0% {
-    transform: rotate(-15deg);
-  }
-  50% {
-    transform: rotate(15deg);
-  }
-  100% {
-    transform: rotate(-15deg);
   }
 }
 

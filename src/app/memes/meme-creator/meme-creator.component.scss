@@ -100,23 +100,18 @@
   width: 100%;
   text-align: center;
   p {
+    margin-bottom: 0;
     font-size: 16px;
     color: #ffffff;
   }
 }
 
 .create-help-up {
-  margin-top: -150px;
-  @media(max-width: 767px) {
-    margin-top: -130px;
-  }
+  margin-top: -200px;
 }
 
 .create-help-down {
-  margin-top: 170px;
-  @media(max-width: 767px) {
-    margin-top: 150px;
-  }
+  margin-top: 200px;
 }
 
 .create-button {

@@ -16,6 +16,7 @@ import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 import {HomeChatComponent} from './home-chat/home-chat.component';
 import {ChatModule} from '../chat/chat.module';
 import {DirectivesModule} from '../directivies/directives.module';
+import {HomeCreateBtnComponent} from './home-create-btn/home-create-btn.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {DirectivesModule} from '../directivies/directives.module';
     MiningComponent,
     HomeParticlesComponent,
     HomeMemetickComponent,
-    HomeChatComponent
+    HomeChatComponent,
+    HomeCreateBtnComponent
   ]
 })
 export class HomeModule { }

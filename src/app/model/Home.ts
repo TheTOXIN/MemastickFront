@@ -8,6 +8,7 @@ export class Home {
     public message: string,
     public day: number,
     public creedAgree: boolean,
+    public cellState: number,
     public selectTimer: string,
   ) {
 

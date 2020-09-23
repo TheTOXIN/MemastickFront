@@ -2,31 +2,6 @@
   position: absolute;
 }
 
-.control-panel {
-  cursor: pointer;
-  width: 72px;
-  height: 72px;
-  background: #8136EC;
-  position: fixed;
-  z-index: 69;
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
-  i {
-    color: whitesmoke;
-    position: absolute;
-    font-size: 48px;
-  }
-  @media(max-width: 767px) {
-    width: 54px;
-    height: 54px;
-    i {
-      font-size: 28px;
-    }
-  }
-  &:hover {
-    background: #6b25fc;
-  }
-}
-
 .control-panel-inverse {
   background: whitesmoke;
   box-shadow: 0 0 0 3px rgba(129, 54, 236, 0.7);

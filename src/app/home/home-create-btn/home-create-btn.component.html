@@ -1,0 +1,7 @@
+<div class="home-create-btn btn-panel animated slideInUp"
+     [ngClass]="{'slideOutDown': hide}"
+     (click)="toCreate()">
+  <img src="assets/images/icon/cell_ico.png"
+       [ngClass]="{'hcb-ready': ready, 'hcb-not-ready': !ready}">
+  <div class="hcb-state" *ngIf="!ready">{{state}}%</div>
+</div>

@@ -71,10 +71,10 @@
 
   <div class="row">
     <div class="col-md-6 text-center">
-      <div class="button-big home-table" (click)="toCreate()">
+      <div class="button-big home-table" (click)="toBattle()">
         <div class="button-biп-content">
-          <span>СОЗДАТЬ</span>
-          <img src="assets/images/icon/cell.png" class="bounce-anim-create" style="padding: 3px">
+          <span>БИТВЫ</span>
+          <img src="assets/images/icon/battle.png">
         </div>
       </div>
     </div>
@@ -82,28 +82,25 @@
       <div class="button-big home-table" (click)="toLab()">
         <div class="button-biп-content">
           <span>ЛАБОРАТОРИЯ</span>
-          <img src="assets/images/icon/lab.png" class="rotate-anim-lab">
+          <img src="assets/images/icon/lab.png">
         </div>
       </div>
     </div>
   </div>
 
   <div class="row">
-
     <div class="col-3 text-center col-picker">
       <div class="home-table button-picker" (click)="algorithm()">
         <img src="assets/images/icon/algorithm_icon.png">
         <p>АЛГОРИТМ</p>
       </div>
     </div>
-
     <div class="col-3 text-center col-picker">
       <div class="home-table button-picker" (click)="allowance()">
         <img src="assets/images/icon/allowance.png">
         <p>ПОСОБИЕ</p>
       </div>
     </div>
-
     <div class="col-3 text-center col-picker">
       <div class="home-table button-picker" (click)="docDna()">
         <img src="assets/images/icon/dna_doc.png">
@@ -116,7 +113,6 @@
         <p>СОЦ.СЕТИ</p>
       </div>
     </div>
-
   </div>
 
   <div class="row">
@@ -126,6 +122,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="!isLoad">
+  <app-home-create-btn [state]="home.cellState"></app-home-create-btn>
 </div>
 
 <div class="margin-home">
