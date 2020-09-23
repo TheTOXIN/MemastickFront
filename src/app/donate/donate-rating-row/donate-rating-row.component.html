@@ -1,0 +1,11 @@
+<div class="donate-table dnt-rate-row">
+  <div class="dnt-rate-row-avatar">
+    <img [src]="donate.avatar" [style.border-color]="memotypeColors[donate.rarity]">
+  </div>
+  <div class="dnt-rate-row-name">
+    <div>{{donate.name}}</div>
+  </div>
+  <div class="dnt-rate-row-cost" [style.color]="memotypeColors[donate.rarity]">
+    {{memotypeLvl[donate.rarity] * 100}}руб
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.dnt-rate-row {
+  height: 80px;
+  width: 100%;
+
+  display: flex;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  @media(max-width: 767px) {
+    height: 70px;
+  }
+}
+
+.dnt-rate-row-avatar {
+  height: 100%;
+  width: 20%;
+
+  img {
+    height: auto;
+    max-height: 100%;
+    border-radius: 50%;
+    border: 5px solid;
+  }
+}
+
+.dnt-rate-row-name {
+  height: 100%;
+  width: 60%;
+
+  text-align: center;
+  align-items: center;
+  word-break: break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  font-family: FuturaRound, serif;
+  font-size: 42px;
+  margin-left: 5px;
+
+  @media(max-width: 767px) {
+    font-size: 24px;
+  }
+}
+
+.dnt-rate-row-cost {
+  height: 100%;
+  width: 20%;
+
+  font-family: Gost, serif;
+  font-size: 38px;
+  margin-right: 5px;
+
+  @media(max-width: 767px) {
+    font-size: 20px;
+  }
+}
