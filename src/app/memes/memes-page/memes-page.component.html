@@ -34,7 +34,8 @@
   </div>
   <div class="memes-likes">
     <div class="like-icon">
-      <img class="img-fluid select-none" src="assets/images/icon/2.png"
+      <img class="img-fluid select-none"
+           src="assets/images/icon/2.png"
            [@rotatedState]='data.chromosomeState'
            (click)="triggerChromosome(data)"
            [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
