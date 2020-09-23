@@ -3,13 +3,13 @@
 .home-create-btn {
   left: 0;
   right: 0;
-  bottom: -3px;
+  bottom: -2px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 100% 100% 0 0;
-  padding: 7px;
-  width: 85px;
-  height: 85px;
+  padding: 6px;
+  width: 80px;
+  height: 80px;
   text-align: center;
   img {
     max-height: 100%;
@@ -17,10 +17,8 @@
   }
 
   @media(max-width: 767px) {
-    width: 64px;
-    height: 64px;
-    padding: 6px;
-    bottom: -2px;
+    width: 62px;
+    height: 62px;
   }
 }
 
