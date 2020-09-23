@@ -50,12 +50,7 @@
 
 .home-buttons {
   padding-top: 15px;
-  padding-bottom: 5px;
-
-  @media(max-width: 767px) {
-    padding-top: 10px;
-    padding-bottom: 1px;
-  }
+  padding-bottom: 2px;
 }
 
 .home-button {
@@ -67,7 +62,6 @@
     width: 250px;
   }
   @media(max-width: 767px) {
-    margin-bottom: 10px;
     button {
       padding: 5px;
     }
@@ -152,6 +146,14 @@
 
   @media(max-width: 767px) {
     font-size: 12px;
+  }
+}
+
+.margin-home-chat {
+  margin-top: 20px;
+
+  @media(max-width: 767px) {
+    margin-top: 15px;
   }
 }
 

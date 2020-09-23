@@ -1,5 +1,4 @@
-<app-spinner [style.display]="isLoading ? 'none' : 'block'"></app-spinner>
-<div class="stats-table" [style.display]="isLoading ? 'block' : 'none'">
+<div class="stats-table" *ngIf="isLoading; else loadStats">
   <div class="stats-info">
     <span class="stats-title">ОСОБЕЙ</span>
     <span class="stats-img animated"> <img class="img-fluid hover-idv" src="assets/images/icon/1.png"></span>
@@ -16,3 +15,8 @@
     <span class="stats-value">{{stats?.dna}}</span>
   </div>
 </div>
+<ng-template #loadStats>
+  <div style="padding: 10px">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>
