@@ -1,50 +1,5 @@
-.modal-following-wrp {
-  height: 300px;
-  overflow-y: scroll;
-}
-
-.modal-following-row {
-  height: 64px;
-  width: 90%;
-  margin: auto;
-  background-color: whitesmoke;
-  border-radius: 50px;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+.follow-list {
+  max-height: 500px;
   margin-top: 10px;
-}
-
-.modal-following-img {
-  height: 100%;
-  width: 20%;
-  img {
-    padding: 10px;
-    max-height: 100%;
-  }
-}
-
-.modal-following-nck {
-  height: 100%;
-  width: 60%;
-  div {
-    font-size: 42px;
-    font-family: Gost, serif;
-  }
-  @media(max-width: 767px) {
-    div {
-      font-size: 28px;
-    }
-  }
-}
-
-.modal-following-dlt {
-  height: 100%;
-  width: 20%;
-  i {
-    margin-top: 10px;
-    font-size: 42px;
-    color: #d85040;
-  }
+  margin-bottom: 10px;
 }

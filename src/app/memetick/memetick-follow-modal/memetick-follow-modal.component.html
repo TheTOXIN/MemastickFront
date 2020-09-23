@@ -1,8 +1,10 @@
 <app-template-modal [title]="'ПОДПИСКИ'">
-  <div *ngIf="!isLoad; else loadFollow" >
-    <app-memetick-list [memeticks]="memeticks"></app-memetick-list>
+  <div class="my-scroll follow-list">
+    <div *ngIf="!isLoad; else loadFollow">
+      <app-memetick-list [memeticks]="memeticks"></app-memetick-list>
+    </div>
+    <ng-template #loadFollow>
+      <app-spinner></app-spinner>
+    </ng-template>
   </div>
-  <ng-template #loadFollow>
-    <app-spinner></app-spinner>
-  </ng-template>
 </app-template-modal>
