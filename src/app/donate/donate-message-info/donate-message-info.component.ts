@@ -22,11 +22,6 @@ export class DonateMessageInfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  toDonate() {
-    window.open(this.donateHref, '_blank');
-    this.close();
-  }
-
   toMessages() {
     this.router.navigateByUrl('/donate/messages');
     this.close();

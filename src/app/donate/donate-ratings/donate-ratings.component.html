@@ -1,7 +1,7 @@
 <app-donate-wrap-page
   [isLoad]="isLoad"
   [title]="'ДОНАТЫ РЕЙТИНГА 🏅 '"
-  [description]="'🚀 За поддержку донатом (от 100р-500р) 💸 ты попадешь в рейтинг топ донатов! 😎'">
+  [description]="'🚀 За донат от 100р-500р 💸 ты попадешь в рейтинг топ донатов! 😎'">
   <div *ngFor="let rate of ratings">
     <app-donate-rating-tab [donate]="rate" [color]="memotypeColors[rate.rarity]"></app-donate-rating-tab>
   </div>
