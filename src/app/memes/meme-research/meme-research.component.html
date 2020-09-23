@@ -48,7 +48,7 @@
     <div class="meme-research-timer" *ngIf="meme.type === typeMeme.EVLV">
       <app-timer [time]="evolve.nextTimer" [text]="'След.этап чрез'"></app-timer>
     </div>
-    <div class="meme-research-p">
+    <div class="meme-research-p" *ngIf="meme.type === typeMeme.INDV">
       <p>Мем родился: {{meme.creating | date:'yyyy-dd-MM HH:mm:ss'}}</p>
     </div>
   </div>
