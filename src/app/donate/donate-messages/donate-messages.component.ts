@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DonateApiService} from '../../api/donate-api-service';
-import {DonateMessage} from '../../model/donate/DonateMessage';
 import {DONAT} from '../../app.constants';
 import {Router} from '@angular/router';
+import {DonateMessage} from '../model/DonateMessage';
 
 @Component({
   selector: 'app-donate-messages',

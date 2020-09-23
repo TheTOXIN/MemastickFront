@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DonateApiService} from '../api/donate-api-service';
 
 @Component({
   selector: 'app-donate',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private donateApi: DonateApiService
+  ) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.donateApi.read().subscribe(data => {
+      console.log(data);
+    });
+  }
 }

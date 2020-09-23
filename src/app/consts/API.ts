@@ -100,8 +100,8 @@ export enum API {
   BATTLE_RATING_MAIN = '/battle-rating/main',
 
   DONATE_READ_MESSAGE = '/donate-messages/read',
-  DONATE_RANDOM_MESSAGE = '/donate-messages/random',
   DONATE_READ_RATING = '/donate-ratings/read',
+  DONATE_READ = '/donate/read',
 
   ADMIN_MESSAGE = '/admin-message',
   ADMIN_NOTIFY = '/admin-notify',

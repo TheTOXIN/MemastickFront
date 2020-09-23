@@ -3,7 +3,6 @@ import {User} from '../model/User';
 import {MemeFilter} from '../consts/MemeFilter';
 import {RoleType} from '../consts/RoleType';
 import {GlobalConst} from '../consts/GlobalConst';
-import {DonateMessage} from '../model/donate/DonateMessage';
 
 // LOCAL
 const PUSH_ASK = 'PUSH_ASK';
@@ -17,7 +16,6 @@ const PREVIEW = 'PREVIEW';
 
 // SESSION
 const MEME_PAGE = 'MEME_PAGE_';
-const DONATE_MESSAGE = 'DONATE_MESSAGE';
 const TWA = 'TWA';
 const LAB_MEM = 'LAB_MEM';
 const METRIC_LAUNCH = 'METRIC_LAUNCH';
@@ -78,16 +76,6 @@ export class StorageService {
 
   public remMemePage(filter: MemeFilter) {
     sessionStorage.removeItem(MEME_PAGE + filter);
-  }
-
-  public getDonateMessage(): DonateMessage {
-    const value = sessionStorage.getItem(DONATE_MESSAGE);
-    return value == null ? null : <DonateMessage>JSON.parse(value);
-  }
-
-  public setDonateMessage(data: DonateMessage) {
-    const value = JSON.stringify(data);
-    sessionStorage.setItem(DONATE_MESSAGE, value);
   }
 
   public battleRule(): boolean {

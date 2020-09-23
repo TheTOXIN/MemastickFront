@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {DonateMessage} from '../model/donate/DonateMessage';
 import {API} from '../consts/API';
+import {DonateRating} from '../donate/model/DonateRating';
+import {DonateMessage} from '../donate/model/DonateMessage';
+import {Donate} from '../donate/model/Donate';
 
 @Injectable()
 export class DonateApiService {
@@ -13,15 +15,15 @@ export class DonateApiService {
 
   }
 
-  public readRating(): Observable<any> {
+  public read(): Observable<Donate> {
     return this.http
-      .get<any>(API.DONATE_READ_RATING)
+      .get<Donate>(API.DONATE_READ)
       .pipe();
   }
 
-  public randomMessage(): Observable<DonateMessage> {
+  public readRating(): Observable<DonateRating[]> {
     return this.http
-      .get<DonateMessage>(API.DONATE_RANDOM_MESSAGE)
+      .get<any>(API.DONATE_READ_RATING)
       .pipe();
   }
 
