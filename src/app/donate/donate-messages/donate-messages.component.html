@@ -1,34 +1,9 @@
-<ng-template #donterMessagesLoad>
-  <app-spinner class="flex-center-absolute"></app-spinner>
-</ng-template>
-<div class="container" *ngIf="isLoad; else donterMessagesLoad">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="dnt-rating-table dnt-rating-title">
-        <span>СУПЕР МЕССЕДЖИ 🔥</span>
-        <div>
-          🚀Поддержи Мемастик
-          <a [href]="donatHref" target="_blank"> донатом </a> (от 1000 руб) 💸
-          и твой месседж бдует случайно отображаться на домащней странице! 😎
-        </div>
-        <button class="btn-theme" type="submit" (click)="toDonat()">
-          ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
-        </button>
-        <div class="mini-btn" (click)="toRate()">Рейтинг донатов</div>
-      </div>
-    </div>
-  </div>
+<app-donate-wrap-page
+  [isLoad]="isLoad"
+  [title]="'ДОНАТЫ МЕССЕДЖИ 🔥'"
+  [description]="'🚀 За поддержку донатом от 1000р 💸 твой месседж бдует случайно отображаться в топе донатов! 😎'">
   <div *ngFor="let msg of messages">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="dnt-rating-table">
-          <app-donate-message [donate]="msg"></app-donate-message>
-        </div>
-      </div>
-    </div>
+    <app-donate-message [message]="msg"></app-donate-message>
   </div>
-  <div class="main-button-close" style="margin: 30px auto" (click)="close()">
-    <i class="fa fa-close"></i>
-  </div>
-</div>
-<div class="mem-back"></div>
+</app-donate-wrap-page>
+

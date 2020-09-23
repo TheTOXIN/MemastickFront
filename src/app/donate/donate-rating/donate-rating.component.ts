@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DonateApiService} from '../../api/donate-api-service';
 import {DONAT} from '../../app.constants';
 import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 import {Router} from '@angular/router';
+import {DonateRating} from '../model/DonateRating';
 
 @Component({
   selector: 'app-donate-rating',
@@ -12,46 +13,35 @@ import {Router} from '@angular/router';
 })
 export class DonateRatingComponent implements OnInit {
 
-  raritySiquence = [];
+  @Input()
+  public rating: Map<MemotypeRarity, DonateRating[]>;
 
   public memotypeColors = memotypeColors;
   public memotypeLvl = memotypeLvl;
   public memotypeNames = memotypeNames;
 
-  isLoad = true;
-  donatHref = DONAT;
+  raritySiquence = [];
+  donatesCarousel: any;
 
-  public donatesCarousel: any;
-  public rating: any;
+  isLoad = false;
 
   constructor(
-    private router: Router,
-    private donateApi: DonateApiService
   ) {
     this.initCarousel();
-    this.initSiquence();
+    this.initSequence();
   }
 
   ngOnInit() {
-    this.donateApi.readRating().subscribe(data => {
-      this.rating = data;
-      this.isLoad = false;
-    });
-  }
-
-  toMsgs() {
-    this.router.navigateByUrl('/donate');
-  }
-
-  toDonat() {
-    window.open(this.donatHref, '_blank');
+    if (this.rating != null) {
+      this.isLoad = true;
+    }
   }
 
   close() {
     window.history.back();
   }
 
-  public initSiquence() {
+  public initSequence() {
     this.raritySiquence[0] = MemotypeRarity.INCREDIBLE;
     this.raritySiquence[1] = MemotypeRarity.LEGENDARY;
     this.raritySiquence[2] = MemotypeRarity.EPIC;

@@ -1,8 +1,8 @@
 import {RouterModule, Routes} from '@angular/router';
-import {DonateRatingComponent} from './donate-rating/donate-rating.component';
 import {DonateMessagesComponent} from './donate-messages/donate-messages.component';
 import {NgModule} from '@angular/core';
 import {DonateComponent} from './donate.component';
+import {DonateRatingsComponent} from './donate-ratings/donate-ratings.component';
 
 const routes: Routes = [{
   path: 'donate',
@@ -10,8 +10,8 @@ const routes: Routes = [{
     path: '',
     component: DonateComponent
   }, {
-    path: 'rating',
-    component: DonateRatingComponent
+    path: 'ratings',
+    component: DonateRatingsComponent
   }, {
     path: 'messages',
     component: DonateMessagesComponent

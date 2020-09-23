@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {DonateApiService} from '../api/donate-api-service';
+import {DonateMessage} from './model/DonateMessage';
+import {MemotypeRarity} from '../consts/MemotypeRarity';
+import {DonateRating} from './model/DonateRating';
+import {DONAT} from '../app.constants';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-donate',
@@ -8,15 +13,41 @@ import {DonateApiService} from '../api/donate-api-service';
 })
 export class DonateComponent implements OnInit {
 
+  public message: DonateMessage;
+  public rating: Map<MemotypeRarity, DonateRating[]>;
+
+  isLoad = false;
+  readonly donateHref = DONAT;
+
   constructor(
-    private donateApi: DonateApiService
+    private donateApi: DonateApiService,
+    private router: Router
   ) {
 
   }
 
   ngOnInit() {
     this.donateApi.read().subscribe(data => {
-      console.log(data);
+      this.message = data.message;
+      this.rating = data.rating;
+
+      this.isLoad = true;
     });
+  }
+
+  toMessages() {
+    this.router.navigateByUrl('/donate/messages');
+  }
+
+  toRatings() {
+    this.router.navigateByUrl('/donate/ratings');
+  }
+
+  toDonate() {
+    window.open(this.donateHref, '_blank');
+  }
+
+  toBack() {
+    window.history.back();
   }
 }

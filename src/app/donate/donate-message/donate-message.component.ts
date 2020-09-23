@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DonateApiService} from '../../api/donate-api-service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {DonateMessageInfoModalComponent} from '../donate-message-info-modal/donate-message-info-modal.component';
+import {DonateMessageInfoComponent} from '../donate-message-info/donate-message-info.component';
 import {DonateMessage} from '../model/DonateMessage';
 
 @Component({
@@ -11,13 +11,16 @@ import {DonateMessage} from '../model/DonateMessage';
 })
 export class DonateMessageComponent implements OnInit {
 
-  isLoad = true;
-
   @Input()
-  public donate: DonateMessage;
+  public message: DonateMessage;
 
   @Input()
   public info = false;
+
+  @Input()
+  public head = false;
+
+  isLoad = false;
 
   constructor(
     private donateApi: DonateApiService,
@@ -27,27 +30,12 @@ export class DonateMessageComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.donate == null) {
-      this.initRandom();
-    } else {
-      this.isLoad = false;
+    if (this.message != null) {
+      this.isLoad = true;
     }
   }
 
-  initRandom() {
-    // if (donateMessage == null) {
-    //   this.donateApi.randomMessage().subscribe(data => {
-    //     this.donate = data;
-    //     this.isLoad = false;
-    //     this.storage.setDonateMessage(data);
-    //   });
-    // } else {
-    //   this.donate = donateMessage;
-    //   this.isLoad = false;
-    // }
-  }
-
   messageInfo() {
-    this.modalService.open(DonateMessageInfoModalComponent, {'centered': true});
+    this.modalService.open(DonateMessageInfoComponent, {'centered': true});
   }
 }

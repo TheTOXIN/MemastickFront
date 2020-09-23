@@ -1,22 +1,29 @@
-<div *ngIf="isLoad"  style="padding: 15px">
-  <app-spinner></app-spinner>
+<div class="donate-table donate-rarity-head" *ngIf="head">
+  🔥 <div style="color: #e05a0b">СУПЕР МЕССЕДЖ</div> 1000руб
 </div>
-<div *ngIf="!isLoad" class="donate-msg-content">
-  <div class="donate-img">
-    <img [src]="donate.avatar">
-  </div>
-  <div class="donate-msg">
-    <div class="donate-msg-number">
-      МЕССЕДЖ #{{donate.number}}
+<div class="donate-table" *ngIf="isLoad; else donateMsgLoad">
+  <div class="donate-msg-content">
+    <div class="donate-img">
+      <img [src]="message.avatar">
     </div>
-    <div class="donate-msg-message">
-      „ {{donate.message}} “
+    <div class="donate-msg">
+      <div class="donate-msg-number">
+        МЕССЕДЖ #{{message.number}}
+      </div>
+      <div class="donate-msg-message">
+        „ {{message.message}} “
+      </div>
+      <div class="donate-msg-name">
+        © {{message.name}}
+      </div>
     </div>
-    <div class="donate-msg-name">
-      © {{donate.name}}
+    <div class="donate-inf" *ngIf="info">
+      <i class="fa fa-question-circle" (click)="messageInfo()"></i>
     </div>
-  </div>
-  <div class="donate-inf" *ngIf="info">
-    <i class="fa fa-question-circle" (click)="messageInfo()"></i>
   </div>
 </div>
+<ng-template #donateMsgLoad>
+  <div style="padding: 15px">
+    <app-spinner></app-spinner>
+  </div>
+</ng-template>

@@ -1,1 +1,32 @@
-DONATE
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="donate-table dnt-rating-title">
+        <span>🏆 ТОП ДОНАТОВ 🚀</span>
+        <div>💸 Поддержи Мемастик
+          <a [href]="donateHref" target="_blank"> донатом </a>
+          и ты станешь одним из этих сверхлюдей ❗️</div>
+        <div class="donate-control">
+          <div class="mini-btn" (click)="toMessages()">все месседжи</div>
+          <div class="mini-btn" (click)="toRatings()">весь рейтинг</div>
+        </div>
+        <button class="btn-theme" type="submit" (click)="toDonate()">
+          ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoad; else donateLoad">
+    <app-donate-message [message]="message" [info]="true" [head]="true"></app-donate-message>
+    <app-donate-rating [rating]="rating"></app-donate-rating>
+  </div>
+  <ng-template #donateLoad>
+    <div class="flex-center-absolute">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
+</div>
+<div class="main-button-close" style="margin: 30px auto" (click)="toBack()">
+  <i class="fa fa-close"></i>
+</div>
+<div class="mem-back"></div>

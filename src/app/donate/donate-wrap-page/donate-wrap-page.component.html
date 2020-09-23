@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="donate-table dnt-rating-title">
+        <span>{{title}}</span>
+        <div> {{description}}</div>
+        <div class="mini-btn" (click)="toTop()" style="margin-top: 10px">топ донатов</div>
+        <button class="btn-theme" type="submit" (click)="toDonate()">
+          ЗАДОНАТИТЬ <img src="assets/images/icon/memecoin.png"/>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoad; else donatePageLoad">
+    <ng-content></ng-content>
+  </div>
+  <ng-template #donatePageLoad>
+    <div style="margin: 30px">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
+</div>
+<div class="mem-back"></div>

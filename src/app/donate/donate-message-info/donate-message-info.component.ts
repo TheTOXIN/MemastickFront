@@ -5,14 +5,12 @@ import {DONAT} from '../../app.constants';
 
 @Component({
   selector: 'app-donate-message-info-modal',
-  templateUrl: './donate-message-info-modal.component.html',
-  styleUrls: ['./donate-message-info-modal.component.scss']
+  templateUrl: './donate-message-info.component.html',
+  styleUrls: ['./donate-message-info.component.scss']
 })
-export class DonateMessageInfoModalComponent implements OnInit {
+export class DonateMessageInfoComponent implements OnInit {
 
-  donatHref = DONAT;
-  msgsHref = '/donate';
-  ratingHref = '/donate';
+  readonly donateHref = DONAT;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -24,8 +22,13 @@ export class DonateMessageInfoModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  toDonaters() {
-    this.router.navigateByUrl(this.ratingHref);
+  toDonate() {
+    window.open(this.donateHref, '_blank');
+    this.close();
+  }
+
+  toMessages() {
+    this.router.navigateByUrl('/donate/messages');
     this.close();
   }
 
