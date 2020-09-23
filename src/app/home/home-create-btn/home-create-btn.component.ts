@@ -28,6 +28,7 @@ export class HomeCreateBtnComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.state = 50;
     this.ready = this.state === GlobalConst.CELL_SATE;
   }
 
