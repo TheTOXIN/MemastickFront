@@ -2,12 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {BlockCoinsApiService} from '../../api/block-coins-api-service';
 import {GlobalConst} from '../../consts/GlobalConst';
 import {Router} from '@angular/router';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {LoaderStatus} from '../../consts/LoaderStatus';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {Pickaxe} from '../../model/Pickaxe';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 const shajs = require('sha.js');

@@ -15,7 +15,7 @@ import {ComingSoonComponent} from './coming-soon/coming-soon.component';
 import {RequestFormComponent} from './request-form/request-form.component';
 import {ModalsModule} from '../modals/modals.module';
 import {AdminComponent} from './admin/admin.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [

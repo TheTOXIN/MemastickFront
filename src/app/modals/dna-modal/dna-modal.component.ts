@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {RankTokensModalComponent} from '../rank-tokens-modal/rank-tokens-modal.component';
 import {RankTypesModalComponent} from '../rank-types-modal/rank-types-modal.component';
 
 @Component({

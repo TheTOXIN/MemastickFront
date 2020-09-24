@@ -1,8 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {API} from '../consts/API';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import {HttpClient} from '@angular/common/http';
 import {Notify} from '../model/Notify';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MemotypeCollectionComponent} from './memotype-collection/memotype-collection.component';
 import {MemotypeRoutingModule} from './memotype-routing.module';
 import {SharedModule} from '../shared/shared.module';

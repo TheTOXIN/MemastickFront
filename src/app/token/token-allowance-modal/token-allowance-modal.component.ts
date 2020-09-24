@@ -1,9 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TokenAllowanceApiService} from '../../api/token-allowance-api-service';
-import {NotifyType} from '../../consts/NotifyType';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ModalsModule} from '../../modals/modals.module';
 import {RankTokensModalComponent} from '../../modals/rank-tokens-modal/rank-tokens-modal.component';
 
 @Component({

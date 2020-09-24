@@ -2,7 +2,6 @@ import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
-import {NotifyCount} from '../model/NotifyCount';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import {NotifyCounterService} from '../services/notify-counter.service';
 

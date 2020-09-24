@@ -1,10 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
-import {DomSanitizer} from '@angular/platform-browser';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemeFilter} from '../../consts/MemeFilter';
-import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
-import {Meme} from '../../model/Meme';
 
 @Component({
   selector: 'app-control-scope',

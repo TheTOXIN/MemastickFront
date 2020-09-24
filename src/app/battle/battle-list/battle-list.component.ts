@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BattleView} from '../../model/battle/BattleView';
-import {BattleStatus} from '../../consts/BattleStatus';
 
 @Component({
   selector: 'app-battle-list',

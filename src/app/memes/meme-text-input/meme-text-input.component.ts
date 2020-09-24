@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {ValidConst} from '../../consts/ValidConst';
 
 @Component({

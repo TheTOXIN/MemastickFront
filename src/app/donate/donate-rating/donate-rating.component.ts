@@ -1,9 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DonateApiService} from '../../api/donate-api-service';
-import {DONAT} from '../../app.constants';
 import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
-import {Router} from '@angular/router';
 import {DonateRating} from '../model/DonateRating';
 import {GlobalConst} from '../../consts/GlobalConst';
 

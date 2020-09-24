@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InviteCode} from '../../model/InviteCode';
 import {InviteApiService} from '../../api/invite-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';

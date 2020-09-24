@@ -4,8 +4,6 @@ import {ChatMessage} from '../../model/chat/ChatMessage';
 import {Router} from '@angular/router';
 import {ChatUtils} from '../../utils/chat-utils';
 import {UUID} from 'angular2-uuid';
-import {StorageService} from '../../services/storage-service';
-import {OauthApiService} from '../../services/oauth-api-service';
 
 @Component({
   selector: 'app-home-chat',

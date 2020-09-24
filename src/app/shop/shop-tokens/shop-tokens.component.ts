@@ -1,12 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TokenData, tokensData} from '../../model/TokenData';
-import {MemotypeSet} from '../../model/memotype/MemotypeSet';
 import {PriceConst} from '../../consts/PriceConst';
 import {ShopApiService} from '../../api/shop-api-service';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {StartInfoModalComponent} from '../../modals/start-info-modal/start-info-modal.component';
 
 @Component({
   selector: 'app-shop-tokens',

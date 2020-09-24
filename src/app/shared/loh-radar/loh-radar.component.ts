@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 import {MemeLoh} from '../../model/meme/MemeLoh';
-import {GlobalConst} from '../../consts/GlobalConst';
 import {ScreenUtils} from '../../utils/screen-utils';
 import {UUID} from 'angular2-uuid';
 import {MemeLohApiService} from '../../api/meme-loh-api-service';

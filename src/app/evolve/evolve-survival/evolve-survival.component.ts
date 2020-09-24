@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {EvolveMeme} from '../../model/EvolveMeme';
 import {TokenType} from '../../consts/TokenType';
 import {TokenAcceptApiService} from '../../api/token-accept-api.service';

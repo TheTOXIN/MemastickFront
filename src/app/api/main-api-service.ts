@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Home} from '../model/Home';
 import {API} from '../consts/API';
-import {NotifyCount} from '../model/NotifyCount';
 import {Init} from '../model/Init';
 
 @Injectable()

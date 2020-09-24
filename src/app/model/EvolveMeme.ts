@@ -2,7 +2,6 @@ import {EvolveStep} from '../consts/EvolveStep';
 import {UUID} from 'angular2-uuid';
 import {EPI} from './EPI';
 import {MemeLoh} from './meme/MemeLoh';
-import {MemeComment} from './meme/MemeComment';
 import {MemeCommentBest} from './meme/MemeCommentBest';
 
 export class EvolveMeme {

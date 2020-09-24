@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ShopRoutingModules} from './shop-routing.modules';
 import {SharedModule} from '../shared/shared.module';
 import {ShopGrantsComponent} from './shop-grants/shop-grants.component';

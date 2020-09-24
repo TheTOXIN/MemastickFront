@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Meme} from '../../model/Meme';
 import {BattleApiService} from '../../api/battle-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -10,10 +10,6 @@ import {MemesModalComponent} from '../memes-modal/memes-modal.component';
 import {BattleConst} from '../../consts/BattleConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderService} from '../../services/loader-service';
-import {MemeLoh} from '../../model/meme/MemeLoh';
-import {MemeComment} from '../../model/meme/MemeComment';
-import {EpiModalComponent} from '../../modals/epi-modal/epi-modal.component';
-import {EvolveMutationComponent} from '../../evolve/evolve-mutation/evolve-mutation.component';
 import {EvolveMeme} from '../../model/EvolveMeme';
 
 @Component({

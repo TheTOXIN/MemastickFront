@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {RankType} from '../../model/rank/RankType';
 import {RankToken} from '../../model/rank/RankToken';
 import {RankApiService} from '../../api/rank-api-service';
 

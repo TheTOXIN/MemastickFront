@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InviteApiService} from '../../api/invite-api-service';
-import {ValidConst} from '../../consts/ValidConst';
 import {ErrorCode} from '../../consts/ErrorCode';
 import {Router} from '@angular/router';
 

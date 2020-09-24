@@ -1,7 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Memotype} from '../../model/memotype/Memotype';
-import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
-import {Meme} from '../../model/Meme';
 import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 
 @Component({

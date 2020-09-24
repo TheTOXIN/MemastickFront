@@ -6,8 +6,7 @@ import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {StorageService} from '../../services/storage-service';
 import {evolveIcons, filterIcons} from '../../consts/IconsData';
-import {evolveStepText, memeTypeText} from '../../consts/TextData';
-import {MemeType} from '../../consts/MemeType';
+import {evolveStepText} from '../../consts/TextData';
 
 @Component({
   selector: 'app-memes-panel',

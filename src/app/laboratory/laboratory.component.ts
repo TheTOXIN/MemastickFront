@@ -1,15 +1,13 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 
 import 'fabric';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {OauthApiService} from '../services/oauth-api-service';
-import {TokenAllowanceModalComponent} from '../token/token-allowance-modal/token-allowance-modal.component';
 import {LaboratoryInfoModalComponent} from './laboratory-info-modal/laboratory-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
 import {FRONT_URL} from '../app.constants';
 import {MemetickInventoryApiService} from '../api/memetick-inventory-api-service';
-import {GlobalConst} from '../consts/GlobalConst';
 import {StorageService} from '../services/storage-service';
 
 declare const fabric: any;

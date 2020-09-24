@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {OauthApiService} from '../../services/oauth-api-service';
-import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-logout-modal',

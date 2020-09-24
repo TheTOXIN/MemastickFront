@@ -1,10 +1,8 @@
 import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
 import {WINDOW} from '../services/windows.service';
 import {Router} from '@angular/router';
 import {VERSION} from '../../app.constants';
-
-declare var $: any;
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +22,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    $.getScript('./assets/js/script.js');
-    $.getScript('./assets/js/tilt.jquery.js');
+
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    let number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
     if (number >= 60) {
       this.darkHeader = true;
     } else {
@@ -41,5 +38,4 @@ export class HeaderComponent implements OnInit {
   toHome() {
     this.router.navigateByUrl('/home');
   }
-
 }

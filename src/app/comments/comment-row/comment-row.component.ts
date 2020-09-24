@@ -1,10 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MemeComment} from '../../model/meme/MemeComment';
 import {MemeCommentApiService} from '../../api/meme-comment-api.-service';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import {CardService} from '../../services/card-service';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
-import {CardState} from '../../state/card-state.service';
 
 @Component({
   selector: 'app-comment-row',

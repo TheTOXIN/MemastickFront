@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NotifyType} from '../../consts/NotifyType';
 import {Notify} from '../../model/Notify';
-import { timer } from 'rxjs';
+import {timer} from 'rxjs';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {tokenIcons} from '../../model/TokenData';
 import {FRONT_URL} from '../../app.constants';

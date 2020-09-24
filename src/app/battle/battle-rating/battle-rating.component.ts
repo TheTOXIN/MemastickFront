@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BattleRating} from '../../model/battle/BattleRating';
 import {BattleApiService} from '../../api/battle-api-service';
 import {BattleConst} from '../../consts/BattleConst';
 import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {UUID} from 'angular2-uuid';
 import {Router} from '@angular/router';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {fakeAsync} from '@angular/core/testing';
 
 @Component({
   selector: 'app-battle-rating',

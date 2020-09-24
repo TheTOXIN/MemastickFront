@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BattleApiService} from '../api/battle-api-service';
 import {BattleView} from '../model/battle/BattleView';
 import {Router} from '@angular/router';

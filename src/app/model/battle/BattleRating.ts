@@ -1,5 +1,4 @@
 import {MemetickPreview} from '../MemetickPreview';
-import {MemetickRating} from '../MemetickRating';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 
 export class BattleRating {

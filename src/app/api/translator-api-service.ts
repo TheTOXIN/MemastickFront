@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {UUID} from 'angular2-uuid';
-import {pipe} from 'rxjs';
-import {toPromise} from 'rxjs-compat/operator/toPromise';
 
 @Injectable()
 export class TranslatorApiService {

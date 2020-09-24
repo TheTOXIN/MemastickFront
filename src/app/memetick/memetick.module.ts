@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MemetickRoutingModule} from './memetick-routing.module';
 import {MemetickListComponent} from './memetick-list/memetick-list.component';
 import {MemetickRowComponent} from './memetick-row/memetick-row.component';

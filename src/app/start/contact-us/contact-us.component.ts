@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {InviteApiService} from '../../api/invite-api-service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',

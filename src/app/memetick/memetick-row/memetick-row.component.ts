@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemetickPreview} from '../../model/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
-import {Router} from '@angular/router';
 import {ColorUtils} from '../../utils/color-utils';
 import {CardService} from '../../services/card-service';
 import {MemetickCardComponent} from '../memetick-card/memetick-card.component';

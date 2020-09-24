@@ -3,11 +3,8 @@ import {NgbActiveModal, NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 import {UUID} from 'angular2-uuid';
 import {BattleConst} from '../../consts/BattleConst';
 import {BattleApiService} from '../../api/battle-api-service';
-import {LoaderStatus} from '../../consts/LoaderStatus';
 import {BattleResponse} from '../../model/battle/BattleResponse';
-import {FRONT_URL} from '../../app.constants';
 import {Router} from '@angular/router';
-import {LoaderState} from '../../state/loader-state';
 import {LoaderService} from '../../services/loader-service';
 
 @Component({

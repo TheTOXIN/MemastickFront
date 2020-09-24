@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemetickListModalComponent} from '../../memetick/memetick-list-modal/memetick-list-modal.component';

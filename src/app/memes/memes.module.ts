@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {MemesPageComponent} from './memes-page/memes-page.component';
 import {PinchZoomModule} from 'ngx-pinch-zoom';
 import {SharedModule} from '../shared/shared.module';

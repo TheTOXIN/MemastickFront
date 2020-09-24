@@ -4,7 +4,6 @@ import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ColorUtils} from '../../utils/color-utils';
-import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {RankTypesModalComponent} from '../../modals/rank-types-modal/rank-types-modal.component';
 
 @Component({

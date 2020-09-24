@@ -1,12 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MemotypeApiService} from '../../api/memotype-api-service';
 import {MemotypeSet} from '../../model/memotype/MemotypeSet';
-import {memotypeColors} from '../../consts/MemotypeData';
-import {memotypeNames} from '../../consts/MemotypeData';
-import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {MemotypeSetModalComponent} from '../memotype-set-modal/memotype-set-modal.component';
-import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
+import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
 import {MemotypeViewComponent} from '../memotype-view/memotype-view.component';
 import {Memotype} from '../../model/memotype/Memotype';
 import {Router} from '@angular/router';

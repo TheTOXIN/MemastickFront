@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemeCoinsApiService} from '../../api/meme-coins-api-service';
 import {MemeCoin} from '../../model/MemeCoin';
-import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({

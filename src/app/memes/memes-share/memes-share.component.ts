@@ -2,15 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MemeApiService} from '../../api/meme-api-service';
 import {OauthApiService} from '../../services/oauth-api-service';
-import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemeViewComponent} from '../meme-view/meme-view.component';
 import {Meme} from '../../model/Meme';
 import {MemeData} from '../../model/MemeData';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Meta} from '@angular/platform-browser';
-import {CardService} from '../../services/card-service';
-import {UUID} from 'angular2-uuid';
-import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 
 @Component({
   selector: 'app-memes-share',

@@ -8,8 +8,6 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from '../api/meme-api-service';
 import {MemeData} from '../model/MemeData';
 import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
-import {MemeFilter} from '../consts/MemeFilter';
-import {UUID} from 'angular2-uuid';
 import {GlobalConst} from '../consts/GlobalConst';
 import {StorageService} from './storage-service';
 import {MemePaginationConfig} from '../iface/MemePaginationConfig';

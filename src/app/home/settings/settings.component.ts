@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChangeNickModalComponent} from '../../modals/change-nick-modal/change-nick-modal.component';
 import {LogoutModalComponent} from '../../modals/logout-modal/logout-modal.component';
 import {ChangeAvatarModalComponent} from '../../modals/change-avatar-modal/change-avatar-modal.component';

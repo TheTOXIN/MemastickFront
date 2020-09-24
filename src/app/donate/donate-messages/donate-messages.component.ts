@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DonateApiService} from '../../api/donate-api-service';
 import {DonateMessage} from '../model/DonateMessage';
 import {GlobalConst} from '../../consts/GlobalConst';

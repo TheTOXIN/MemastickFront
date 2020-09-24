@@ -3,7 +3,6 @@ import {MemotypeSet} from '../../model/memotype/MemotypeSet';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemotypeSetModalComponent} from '../memotype-set-modal/memotype-set-modal.component';
 import {CardState} from '../../state/card-state.service';
-import {MemotypeApiService} from '../../api/memotype-api-service';
 import {Router} from '@angular/router';
 
 @Component({
