@@ -445,10 +445,6 @@
 }
 
 @media(max-width: 991px) {
-  .for-mobile {
-    display: block;
-  }
-
   .work {
     .row {
       .col-lg-4 {
@@ -741,6 +737,10 @@
 }
 
 @media(max-width: 767px) {
+  .for-mobile {
+    display: block;
+  }
+
   .auth-card {
     width: 280px;
     padding-left: 15px;
