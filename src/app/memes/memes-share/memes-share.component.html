@@ -18,6 +18,8 @@
   </div>
 
   <div *ngIf="isLogin" class="meme-share-login-warp">
+    <div class="for-mobile" style="height: 42px"></div>
+
     <app-memes-page (viewer)="memeView($event)" [data]="memeData"></app-memes-page>
     <app-meme-view class="super-absolute"></app-meme-view>
 
