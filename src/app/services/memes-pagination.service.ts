@@ -4,7 +4,6 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/take';
-import {AngularFirestore} from '@angular/fire/firestore';
 import {MemeApiService} from '../api/meme-api-service';
 import {MemeData} from '../model/MemeData';
 import {MemetickAvatarApiService} from '../api/memetick-avatar-api-service';
@@ -27,7 +26,6 @@ export class MemesPaginationService {
   public data: Observable<MemeData[]>;
 
   constructor(
-    private afs: AngularFirestore,
     private memeApi: MemeApiService,
     private avatarApi: MemetickAvatarApiService,
     private storage: StorageService

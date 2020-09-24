@@ -18,7 +18,7 @@ import {RegistrationApiService} from './api/registration-api-service';
 import {AngularFireModule} from '@angular/fire';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {AngularFireStorage} from '@angular/fire/storage';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {MemesPaginationService} from './services/memes-pagination.service';
 import {StatisticApiService} from './api/statistic-api-service';
 import {MemetickAvatarApiService} from './api/memetick-avatar-api-service';
@@ -109,6 +109,7 @@ firebase.initializeApp(environment.firebase);
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
+    AngularFirestoreModule, // WTF DEPLOY
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
