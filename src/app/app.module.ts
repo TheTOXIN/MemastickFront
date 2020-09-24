@@ -17,7 +17,7 @@ import {PasswordApiService} from './api/password-api-service';
 import {RegistrationApiService} from './api/registration-api-service';
 import {AngularFireModule} from '@angular/fire';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
-import {AngularFireStorage} from '@angular/fire/storage';
+import {AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {MemesPaginationService} from './services/memes-pagination.service';
 import {StatisticApiService} from './api/statistic-api-service';
@@ -75,7 +75,7 @@ import {CommentsModule} from './comments/comments.module';
 import {FireMetricService} from './services/fire-metric-service';
 import {DonateModule} from './donate/donate.module';
 import {ShopModule} from './shop/shop.module';
-import {AngularFireMessaging} from '@angular/fire/messaging';
+import {AngularFireMessaging, AngularFireMessagingModule} from '@angular/fire/messaging';
 import firebase from '@firebase/app';
 
 firebase.initializeApp(environment.firebase);
@@ -109,7 +109,9 @@ firebase.initializeApp(environment.firebase);
     HttpClientModule,
     AngularFittextModule,
     OAuthModule.forRoot(),
-    AngularFirestoreModule, // WTF DEPLOY
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireMessagingModule, // WTF DEPLOY
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(rootRouterConfig, {useHash: false, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
