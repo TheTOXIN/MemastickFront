@@ -1,44 +1,36 @@
-<div>
-  <div class="modal-header modal-section">
-    <span class="modal-title">ПОСОБИЕ</span>
+<app-template-modal [title]="'ПОСОБИЕ'">
+  <div class="title-allowance">
+    <p *ngIf="allowance">нажмите 2 раза на конверт, чтобы забрать токены</p>
+    <p *ngIf="!allowance">в конверте пусто, пособие начисляют ежедневно в 12:00 по UTC</p>
   </div>
-  <div class="modal-body modal-allowance">
-    <div class="title-allowance" *ngIf="!isLoad">
-      <p>нажмите 2 раза на конверт, чтобы забрать токены</p>
+  <div class="modal-allowance">
+    <div *ngIf="!isLoad">
+      <div class="letter-open animated zoomIn" *ngIf="isTake">
+        <app-token-wallet [wallet]="wallet" [showMax]="false"></app-token-wallet>
+      </div>
+      <div class="letter-image" (mouseup)="take()" *ngIf="!isTake">
+        <div class="animated-mail">
+          <div class="back-fold"></div>
+          <div class="letter" *ngIf="allowance">
+            <div class="letter-border"></div>
+            <div class="letter-title"></div>
+            <div class="letter-context"></div>
+            <div class="letter-stamp">
+              <div class="letter-stamp-inner"></div>
+            </div>
+          </div>
+          <div class="top-fold"></div>
+          <div class="body"></div>
+          <div class="left-fold"></div>
+        </div>
+        <div class="letter-shadow"></div>
+      </div>
     </div>
     <app-spinner *ngIf="isLoad"></app-spinner>
-    <div class="letter-open animated zoomIn" *ngIf="isTake">
-      <app-token-wallet [wallet]="wallet" [showMax]="false"></app-token-wallet>
-    </div>
-    <div class="letter-image" (mouseup)="take()" *ngIf="!isTake">
-      <div class="animated-mail">
-        <div class="back-fold"></div>
-        <div class="letter" *ngIf="allowance">
-          <div class="letter-border"></div>
-          <div class="letter-title"></div>
-          <div class="letter-context"></div>
-          <div class="letter-stamp">
-            <div class="letter-stamp-inner"></div>
-          </div>
-        </div>
-        <div class="top-fold"></div>
-        <div class="body"></div>
-        <div class="left-fold"></div>
-      </div>
-      <div class="letter-shadow"></div>
-    </div>
-    <div class="message-allowance">
-      <p>пособие начисляют ежедневно в 12:00 по UTC</p>
-    </div>
   </div>
   <div class="my-margin-bot align-center">
     <button class="btn-theme" (click)="showRankTokens()">
       УРОВНИ ПОСОБИЙ
     </button>
   </div>
-  <div class="modal-footer modal-section">
-    <button type="button" class="modal-close" aria-label="Close" (click)="close()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</div>
+</app-template-modal>

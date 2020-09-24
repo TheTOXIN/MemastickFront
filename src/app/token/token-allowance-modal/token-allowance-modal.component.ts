@@ -16,7 +16,7 @@ export class TokenAllowanceModalComponent implements OnInit {
   public isLoad = false;
   public isTake = false;
 
-  public allowance = false;
+  public allowance = true;
   public counter = 0;
   public wallet: any;
 
@@ -29,19 +29,25 @@ export class TokenAllowanceModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.allowanceApi.have().subscribe(() => this.allowance = true);
+    this.allowanceApi.have().subscribe(
+      () => this.allowance = true,
+      () => this.allowance = false
+    );
   }
 
   take() {
-    this.counter++;
-    if (this.counter >= 2) {
-      this.isLoad = true;
-      this.allowanceApi.take().subscribe(data => {
-        this.wallet = data.wallet;
-        this.isTake = true;
-        this.isLoad = false;
-      });
-      this.counter = 0;
+    if (this.allowance) {
+      this.counter++;
+      if (this.counter >= 2) {
+        this.isLoad = true;
+        this.allowance = false;
+        this.allowanceApi.take().subscribe(data => {
+          this.wallet = data.wallet;
+          this.isTake = true;
+          this.isLoad = false;
+        });
+        this.counter = 0;
+      }
     }
   }
 

@@ -1,11 +1,19 @@
 .modal-allowance {
+  height: 230px;
+  display: flex;
   text-align: center;
-  height: 360px;
+  align-items: center;
+  justify-content: center;
 }
 
 .title-allowance {
   p {
     font-size: 20px;
+  }
+  @media(max-width: 767px) {
+    p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -20,19 +28,24 @@
 }
 
 .letter-open {
-  margin-top: 100px;
+
+}
+
+.modal-letter {
+
 }
 
 .letter-image {
+  cursor: pointer;
   position: absolute;
-  top: 42%;
-  left: 50%;
   width: 200px;
   height: 200px;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   cursor: pointer;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .animated-mail {
