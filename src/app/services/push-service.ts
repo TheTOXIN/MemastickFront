@@ -38,7 +38,7 @@ export class PushService {
   changer() {
     this.fireMessaging.tokenChanges.subscribe(token => {
       if (token != null) {
-        console.log('TOKEN CHANGE', token);
+        console.log('TOKEN PUSH CHANGE', token);
         this.refresher(token);
       }
     });
@@ -59,7 +59,7 @@ export class PushService {
   private register() {
     this.fireMessaging.getToken.subscribe(token => {
       if (token != null) {
-        console.log('Push token register - ' + token);
+        console.log('REG PUSH TOKEN' + token);
         this.storage.setPushToken(token);
         this.http.post(
           API.NOTIFY_PUSH_REGISTER,
@@ -71,7 +71,8 @@ export class PushService {
 
   private refresher(refreshToken) {
     const prevToken = this.storage.getPushToken();
-    if (prevToken != null) {
+    if (prevToken !== refreshToken) {
+      this.storage.setPushToken(refreshToken);
       this.http.put(
         API.NOTIFY_PUSH_REFRESHER + '/' + prevToken,
         refreshToken

@@ -15,16 +15,14 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <div class="swiper-screenshots-container-1 swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let s of screens; let i = index">
-              <div class="swiper-slide-title">{{s}}</div>
-              <img  class="swiper-slide-image"
-                    (click)="openModal(s, 'assets/images/ss/' + (i + 1) + '.png')"
-                    [src]="'assets/images/ss/' + (i + 1) + '.png'">
-            </div>
+        <owl-carousel [carouselClasses]="['team-slider owl-carousel owl-theme']" [options]="screenCarousel">
+          <div class="swiper-slide-wrap" *ngFor="let s of screens; let i = index">
+            <div class="swiper-slide-title">{{s}}</div>
+            <img  class="swiper-slide-image"
+                  (click)="openModal(s, 'assets/images/ss/' + (i + 1) + '.png')"
+                  [src]="'assets/images/ss/' + (i + 1) + '.png'">
           </div>
-        </div>
+        </owl-carousel>
       </div>
     </div>
   </div>
