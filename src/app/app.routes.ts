@@ -1,7 +1,6 @@
 import {Routes} from '@angular/router';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
 import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
-import {ShopComponent} from './shop/shop.component';
 import {AppComponent} from './app.component';
 import {LaboratoryComponent} from './laboratory/laboratory.component';
 import {ChatComponent} from './chat/chat.component';
@@ -30,7 +29,6 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: 'shop',
-    component: ShopComponent,
     loadChildren: './shop/shop.module#ShopModule'
   },
   {

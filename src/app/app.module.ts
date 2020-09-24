@@ -39,7 +39,6 @@ import {TokenModule} from './token/token.module';
 import {SocketService} from './services/socket.service';
 import {TokenAcceptApiService} from './api/token-accept-api.service';
 import {PushService} from './services/push-service';
-import * as firebase from 'firebase';
 import {NotifyBellApiService} from './api/notify-bell-api-service';
 import {SettingApiService} from './api/setting-api-service';
 import {StorageService} from './services/storage-service';
@@ -75,6 +74,9 @@ import {MyHammerConfig} from './configs/my-hammer-config';
 import {CommentsModule} from './comments/comments.module';
 import {FireMetricService} from './services/fire-metric-service';
 import {DonateModule} from './donate/donate.module';
+import {ShopModule} from './shop/shop.module';
+import {AngularFireMessaging} from '@angular/fire/messaging';
+import firebase from '@firebase/app';
 
 firebase.initializeApp(environment.firebase);
 
@@ -101,6 +103,7 @@ firebase.initializeApp(environment.firebase);
     DirectivesModule,
     ChatModule,
     DonateModule,
+    ShopModule,
     CommentsModule,
     LaboratoryModule,
     HttpClientModule,
@@ -118,6 +121,7 @@ firebase.initializeApp(environment.firebase);
     PasswordApiService,
     StatisticApiService,
     RegistrationApiService,
+    AngularFireMessaging,
     AngularFireStorage,
     AngularFirestore,
     MemesPaginationService,

@@ -67,19 +67,15 @@ export class SettingsComponent implements OnInit {
   }
 
   pushNotification() {
-    if (this.pushService.work()) {
-      this.pushService.tokener().then(token => {
-        if (token != null) {
-          this.pushWork();
-        } else {
-          this.requestPush();
-        }
-      }).catch(() => {
+    this.pushService.tokener().subscribe(token => {
+      if (token != null) {
+        this.pushWork();
+      } else {
         this.requestPush();
-      });
-    } else {
-      this.pushWork();
-    }
+      }
+    }, () => {
+      this.requestPush();
+    });
   }
 
   back() {

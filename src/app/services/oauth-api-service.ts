@@ -85,15 +85,13 @@ export class OauthApiService {
   public logout() {
     console.log('LOGOUT');
 
-    if (this.push.work()) {
-      this.push.tokener().then(token => {
-        this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).subscribe(
-          () => this.logoutProcess()
-        );
-      });
-    } else {
+    this.push.tokener().subscribe((token) => {
+      this.http.post(API.SECURITY_LOGOUT, {deviceToken: token}).subscribe(
+        () => this.logoutProcess()
+      );
+    }, () => {
       this.logoutProcess();
-    }
+    });
   }
 
   public logoutProcess() {

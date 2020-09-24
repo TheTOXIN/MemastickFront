@@ -8,34 +8,38 @@ import {ShopResurrectionComponent} from './shop-resurrection/shop-resurrection.c
 import {ShopNickComponent} from './shop-nick/shop-nick.component';
 import {ShopPublishComponent} from './shop-publish/shop-publish.component';
 import {ShopTokensComponent} from './shop-tokens/shop-tokens.component';
+import {ShopComponent} from './shop.component';
 
 const routes: Routes = [{
   path: '',
   children: [{
-      path: 'cookies',
-      component: ShopCoockiesComponent
-    }, {
-      path: 'memotypes',
-      component: ShopMemotypesComponent
-    }, {
-      path: 'tokens',
-      component: ShopTokensComponent
-    }, {
-      path: 'grants',
-      component: ShopGrantsComponent
-    }, {
-      path: 'pickaxe',
-      component: ShopPickaxeComponent
-    }, {
-      path: 'resurrection',
-      component: ShopResurrectionComponent
-    }, {
-      path: 'nick',
-      component: ShopNickComponent
-    }, {
-      path: 'publish',
-      component: ShopPublishComponent
-    },
+    path: '',
+    component: ShopComponent,
+  }, {
+    path: 'cookies',
+    component: ShopCoockiesComponent
+  }, {
+    path: 'memotypes',
+    component: ShopMemotypesComponent
+  }, {
+    path: 'tokens',
+    component: ShopTokensComponent
+  }, {
+    path: 'grants',
+    component: ShopGrantsComponent
+  }, {
+    path: 'pickaxe',
+    component: ShopPickaxeComponent
+  }, {
+    path: 'resurrection',
+    component: ShopResurrectionComponent
+  }, {
+    path: 'nick',
+    component: ShopNickComponent
+  }, {
+    path: 'publish',
+    component: ShopPublishComponent
+  },
   ]
 }];
 

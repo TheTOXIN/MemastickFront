@@ -1,75 +1,81 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
-import * as firebase from 'firebase';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {StorageService} from './storage-service';
 
+import {AngularFireMessaging} from '@angular/fire/messaging';
+import {BehaviorSubject} from 'rxjs';
+
 @Injectable()
 export class PushService {
 
-  private messaging;
-  private currentMessage;
+  public currentMessage = new BehaviorSubject(null);
 
   constructor(
     private http: HttpClient,
-    private storage: StorageService
+    private storage: StorageService,
+    private fireMessaging: AngularFireMessaging
   ) {
-    try {
-      this.messaging = firebase.messaging();
-    } catch (e) {
-      console.log('Push not supported' + e);
-    }
+    this.fireMessaging.messaging.subscribe((_messaging) => {
+      _messaging.onMessage = _messaging.onMessage.bind(_messaging);
+      _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+    });
 
-    this.currentMessage = new BehaviorSubject(null);
-    this.messaging.onTokenRefresh(() => this.refresher());
+    this.receiver();
+    this.changer();
   }
 
-  requester() {
-    if (!this.work()) { return; }
-
-    return this.messaging.requestPermission()
-      .then(() => { this.register(); })
-      .catch(() => alert('PUSH уведомления заблокированы'));
-  }
-
-  register() {
-    if (!this.work()) { return; }
-
-    this.messaging.getToken().then((token) => {
-      if (token == null) { return; }
-      console.log('Push token register - ' + token);
-      this.storage.setPushToken(token);
-
-      this.http.post(
-        API.NOTIFY_PUSH_REGISTER,
-        token
-      ).toPromise();
+  receiver() {
+    this.fireMessaging.messages.subscribe((payload) => {
+      if (payload != null) {
+        console.log('GET NEW PUSH', payload);
+        this.currentMessage.next(payload);
+      }
     });
   }
 
-  refresher() {
-    if (!this.work()) { return; }
+  changer() {
+    this.fireMessaging.tokenChanges.subscribe(token => {
+      if (token != null) {
+        console.log('TOKEN CHANGE', token);
+        this.refresher(token);
+      }
+    });
+  }
 
-    this.messaging.getToken().then((refreshToken) => {
-      const prevToken = this.storage.getPushToken();
-      console.log('Push token refresher - ' + refreshToken);
-      if (prevToken == null) { return; }
+  public requester() {
+    this.fireMessaging.requestPermission.subscribe(() => {
+      this.register();
+    }, () => {
+      alert('PUSH уведомления заблокированы');
+    });
+  }
 
+  public tokener() {
+    return this.fireMessaging.getToken.pipe();
+  }
+
+  private register() {
+    this.fireMessaging.getToken.subscribe(token => {
+      if (token != null) {
+        console.log('Push token register - ' + token);
+        this.storage.setPushToken(token);
+        this.http.post(
+          API.NOTIFY_PUSH_REGISTER,
+          token
+        ).toPromise();
+      }
+    });
+  }
+
+  private refresher(refreshToken) {
+    const prevToken = this.storage.getPushToken();
+    if (prevToken != null) {
       this.http.put(
         API.NOTIFY_PUSH_REFRESHER + '/' + prevToken,
         refreshToken
       ).toPromise();
-    });
-  }
-
-  tokener() {
-    if (!this.work()) { return null; }
-    return this.messaging.getToken();
-  }
-
-  work() {
-    return this.messaging != null;
+    }
   }
 }
