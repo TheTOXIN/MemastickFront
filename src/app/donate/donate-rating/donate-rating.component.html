@@ -3,7 +3,7 @@
     <div class="donate-table donate-rarity-head">
       <i class="fa fa-circle" [style.color]="memotypeColors[rarity]"></i>
       <div [style.color]="memotypeColors[rarity]">{{memotypeNames[rarity]}}</div>
-      <div>{{memotypeLvl[rarity] * 100}}руб</div>
+      <div>{{memotypeLvl[rarity] * cost}}руб</div>
     </div>
     <owl-carousel [carouselClasses]="['owl-carousel owl-theme']"
                   [options]="{ dots: false, margin: 5, items: 5 - memotypeLvl[rarity] + 1 }">

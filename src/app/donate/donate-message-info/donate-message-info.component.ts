@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 import {DONAT} from '../../app.constants';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-donate-message-info-modal',
@@ -11,6 +12,7 @@ import {DONAT} from '../../app.constants';
 export class DonateMessageInfoComponent implements OnInit {
 
   readonly donateHref = DONAT;
+  readonly cost = GlobalConst.DONATE_MESG + 'руб';
 
   constructor(
     public activeModal: NgbActiveModal,

@@ -5,6 +5,7 @@ import {memotypeColors, memotypeLvl, memotypeNames} from '../../consts/MemotypeD
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
 import {Router} from '@angular/router';
 import {DonateRating} from '../model/DonateRating';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-donate-rating',
@@ -19,6 +20,8 @@ export class DonateRatingComponent implements OnInit {
   readonly memotypeColors = memotypeColors;
   readonly memotypeLvl = memotypeLvl;
   readonly memotypeNames = memotypeNames;
+
+  readonly cost = GlobalConst.DONATE_RATE;
 
   raritySiquence = [];
   donatesCarousel: any;

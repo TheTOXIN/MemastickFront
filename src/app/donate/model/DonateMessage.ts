@@ -7,7 +7,8 @@ export class DonateMessage {
     public name: string,
     public avatar: string,
     public message: string,
-    public number: number
+    public amount: number,
+    public number: number,
   ) {
 
   }

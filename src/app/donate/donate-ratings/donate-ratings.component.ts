@@ -4,6 +4,7 @@ import {DONAT} from '../../app.constants';
 import {DonateApiService} from '../../api/donate-api-service';
 import {DonateRating} from '../model/DonateRating';
 import {memotypeColors} from '../../consts/MemotypeData';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-donate-ratings',
@@ -17,6 +18,8 @@ export class DonateRatingsComponent implements OnInit {
 
   isLoad = false;
   donatHref = DONAT;
+
+  readonly cost = GlobalConst.DONATE_RATE + 'руб-' + (GlobalConst.DONATE_RATE * 5) + 'руб';
 
   constructor(
     private router: Router,

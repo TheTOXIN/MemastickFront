@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DonateApiService} from '../../api/donate-api-service';
 import {DonateMessage} from '../model/DonateMessage';
+import {GlobalConst} from '../../consts/GlobalConst';
 
 @Component({
   selector: 'app-donate-messages',
@@ -11,6 +12,8 @@ export class DonateMessagesComponent implements OnInit {
 
   public messages: DonateMessage[] = [];
   public isLoad = false;
+
+  readonly cost = GlobalConst.DONATE_MESG + 'руб';
 
   constructor(
     private donateApi: DonateApiService

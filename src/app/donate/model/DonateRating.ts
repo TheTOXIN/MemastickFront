@@ -8,6 +8,7 @@ export class DonateRating {
     public name: string,
     public avatar: string,
     public time: string,
+    public amount: number,
     public rarity: MemotypeRarity
   ) {
 

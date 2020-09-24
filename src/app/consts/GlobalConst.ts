@@ -7,5 +7,7 @@ export enum GlobalConst {
   LVL_COF = 10,
   MAX_LVL = 50,
   MOBILE_WIDTH = 767,
-  CHAT_SIZE = 100
+  CHAT_SIZE = 100,
+  DONATE_RATE = 100,
+  DONATE_MESG = 1000,
 }

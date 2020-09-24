@@ -20,6 +20,9 @@
     <div class="donate-inf" *ngIf="info">
       <i class="fa fa-question-circle" (click)="messageInfo()"></i>
     </div>
+    <div class="donate-amount" *ngIf="!info">
+      <div>{{message.amount}}руб</div>
+    </div>
   </div>
 </div>
 <ng-template #donateMsgLoad>
