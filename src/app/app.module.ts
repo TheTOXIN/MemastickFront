@@ -76,9 +76,6 @@ import {FireMetricService} from './services/fire-metric-service';
 import {DonateModule} from './donate/donate.module';
 import {ShopModule} from './shop/shop.module';
 import {AngularFireMessaging, AngularFireMessagingModule} from '@angular/fire/messaging';
-import firebase from '@firebase/app';
-
-firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
