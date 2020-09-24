@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {WebSocketService} from './services/web-socket-service';
+import {SocketService} from './services/socket.service';
 import {NotificationComponent} from './shared/notification/notification.component';
 import {OauthApiService} from './services/oauth-api-service';
 import {PwaService} from './services/pwa-service';
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public soundNotify = new Audio();
 
   constructor(
-    private socket: WebSocketService,
+    private socket: SocketService,
     private push: PushService,
     private loaderService: LoaderService,
     private metric: FireMetricService,
@@ -60,7 +60,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (isAuth) {
       this.init();
       this.update();
-      this.notify();
       this.clear();
       this.loader();
       this.control();
@@ -87,6 +86,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
       this.counterService.triggerBellCounter(data.notifyCount.countBells);
       this.counterService.triggerItemCounter(data.notifyCount.countItems);
+
+      this.socketer(data.login);
+    });
+  }
+
+  public socketer(login: string) {
+    this.socket.connect(login);
+
+    this.socket.connectEvent.subscribe(data => {
+      if (data) {
+        this.socket.notifer();
+      }
+    });
+
+    this.socket.notiferObservable.subscribe((notify) => {
+      if (notify != null) {
+        this.notification.show(notify);
+      }
     });
   }
 
@@ -95,24 +112,6 @@ export class AppComponent implements OnInit, OnDestroy {
       alert('Мемастик обновился, подтвердите чтобы обновить');
       this.showUpdater = false;
       window.location.reload();
-    });
-  }
-
-  public notify() {
-    this.push.register();
-
-    this.socket.connectEvent.subscribe(data => {
-      if (data) {
-        this.socket.notifer();
-      }
-    });
-
-    this.socket.connect();
-
-    this.socket.notiferObservable.subscribe((notify) => {
-      if (notify != null) {
-        this.notification.show(notify);
-      }
     });
   }
 

@@ -36,7 +36,7 @@ import {PwaService} from './services/pwa-service';
 import {ControlModule} from './control/control.module';
 import {MemetickInventoryApiService} from './api/memetick-inventory-api-service';
 import {TokenModule} from './token/token.module';
-import {WebSocketService} from './services/web-socket-service';
+import {SocketService} from './services/socket.service';
 import {TokenAcceptApiService} from './api/token-accept-api.service';
 import {PushService} from './services/push-service';
 import * as firebase from 'firebase';
@@ -131,7 +131,7 @@ firebase.initializeApp(environment.firebase);
     PwaService,
     MemetickInventoryApiService,
     TokenAcceptApiService,
-    WebSocketService,
+    SocketService,
     PushService,
     NotifyBellApiService,
     SettingApiService,

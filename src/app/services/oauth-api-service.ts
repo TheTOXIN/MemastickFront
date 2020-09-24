@@ -7,7 +7,6 @@ import {tap} from 'rxjs/operators';
 import {PushService} from './push-service';
 import {StorageService} from './storage-service';
 import {User} from '../model/User';
-import {WebSocketService} from './web-socket-service';
 import {UserData} from '../model/UserData';
 import {Observable} from 'rxjs/Observable';
 import {throwError} from 'rxjs';

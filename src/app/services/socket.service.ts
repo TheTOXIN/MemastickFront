@@ -10,7 +10,7 @@ import {BACK_URL} from '../app.constants';
 import {ChatMessage} from '../model/chat/ChatMessage';
 
 @Injectable()
-export class WebSocketService {
+export class SocketService {
 
   public connectEvent: EventEmitter<Boolean>;
 
@@ -23,9 +23,7 @@ export class WebSocketService {
   private stomp: any;
   public isConnect: boolean = false;
 
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor() {
     this.connectEvent = new EventEmitter(false);
 
     this.notiferBehavior = new BehaviorSubject(null);
@@ -37,14 +35,8 @@ export class WebSocketService {
     this.stomp = Stomp.over(new SockJS(BACK_URL + `/socket`));
   }
 
-  public connect() {
-    this.stomp.connect({}, () => {
-      const url = this.stomp.ws._transport.url;
-      const array = url.split('/');
-
-      const id = array[array.length - 2];
-      this.register(id);
-
+  public connect(username: string) {
+    this.stomp.connect({username: username}, () => {
       this.isConnect = true;
       this.connectEvent.emit(true);
     });
@@ -63,12 +55,6 @@ export class WebSocketService {
 
   public send(path: string, data: ChatMessage) {
     this.stomp.send('/app' + path, {}, JSON.stringify(data));
-  }
-
-  public register(id: string) {
-    this.http
-      .put(API.NOTIFY_WEB_REGISTER, id)
-      .toPromise();
   }
 
   public notifer() {

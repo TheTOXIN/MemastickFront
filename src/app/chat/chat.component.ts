@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, ElementRef, EventEmitter, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {WebSocketService} from '../services/web-socket-service';
+import {SocketService} from '../services/socket.service';
 import {ChatService} from '../services/chat-service';
 import {ChatMessage} from '../model/chat/ChatMessage';
 import {ChatMessageMode} from '../consts/ChatMessageMode';
@@ -67,7 +67,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private socket: WebSocketService,
+    private socket: SocketService,
     private chatService: ChatService,
     private storage: StorageService,
     private _sanitizer: DomSanitizer,
