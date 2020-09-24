@@ -1,21 +1,25 @@
-<div class="mem-back">
+<div class="title-logo" (click)="toStart()">
+  <img src="assets/images/footer-logo.png">
+</div>
 
+<div class="mem-back">
   <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
-    <div class="for-mobile" style="height: 30px"></div>
+    <div class="for-mobile memes-empty-up"></div>
 
     <div *ngFor="let data of pagination.data | async">
       <app-memes-page [data]="data" (viewer)="memeView($event)"></app-memes-page>
     </div>
 
-    <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
+    <div style="margin: 30px">
+      <app-spinner *ngIf="(pagination.loading) | async"></app-spinner>
+    </div>
 
     <div class="meme-empty" *ngIf="(pagination.empty) | async">
       <p>МЕМОВ НЕТ</p>
       <img src="https://i.giphy.com/media/jcxtvm2bsZDH2/giphy.webp"/>
     </div>
   </div>
-
 </div>
 
-<app-memes-panel [modePanel]="modePanel" [showPanel]="showPanel"></app-memes-panel>
+<app-memes-panel [modePanel]="modePanel" [showPanel]="true"></app-memes-panel>
 <app-meme-view></app-meme-view>

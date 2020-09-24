@@ -23,7 +23,6 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
 
-  public showPanel = true;
   public modePanel: MemeFilter;
 
   constructor(
@@ -76,14 +75,14 @@ export class MemesComponent implements OnInit, OnDestroy {
   scrollHandler(e) {
     if (e === 'more') {
       this.pagination.more();
-    } else if (e === 'up') {
-      this.showPanel = true;
-    } else if (e === 'down') {
-      this.showPanel = false;
     }
   }
 
   memeView(meme: Meme) {
     this.view.viewShow(meme);
+  }
+
+  toStart() {
+    this.router.navigateByUrl('/start');
   }
 }

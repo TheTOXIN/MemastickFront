@@ -15,7 +15,7 @@ export class ControlBellsComponent implements OnInit {
   public closeEvent = new EventEmitter<any>();
 
   public bells: NotifyBell[] = [];
-  public loader = true;
+  public isLoad = false;
 
   constructor(
     private bellApi: NotifyBellApiService,
@@ -31,7 +31,7 @@ export class ControlBellsComponent implements OnInit {
   readAll() {
     this.bellApi.readAll().subscribe(data => {
       this.bells = data;
-      this.loader = false;
+      this.isLoad = true;
     });
   }
 

@@ -28,4 +28,9 @@
   }
 }
 
-
+.memes-empty-up {
+  height: 50px;
+  @media(max-width: 767px) {
+    height: 40px;
+  }
+}

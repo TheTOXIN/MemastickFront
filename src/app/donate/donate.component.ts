@@ -5,6 +5,7 @@ import {MemotypeRarity} from '../consts/MemotypeRarity';
 import {DonateRating} from './model/DonateRating';
 import {DONAT} from '../app.constants';
 import {Router} from '@angular/router';
+import {OauthApiService} from '../services/oauth-api-service';
 
 @Component({
   selector: 'app-donate',
@@ -21,6 +22,7 @@ export class DonateComponent implements OnInit {
 
   constructor(
     private donateApi: DonateApiService,
+    private oauthApi: OauthApiService,
     private router: Router
   ) {
 
@@ -48,6 +50,10 @@ export class DonateComponent implements OnInit {
   }
 
   toBack() {
-    window.history.back();
+    if (this.oauthApi.checkTokens()) {
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/start');
+    }
   }
 }

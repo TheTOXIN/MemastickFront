@@ -1,7 +1,7 @@
 <div class="donate-table donate-rarity-head" *ngIf="head">
   🔥 <div style="color: #e05a0b">СУПЕР МЕССЕДЖ</div> 1000руб
 </div>
-<div class="donate-table" *ngIf="isLoad; else donateMsgLoad">
+<div class="donate-table" style="position: relative" *ngIf="isLoad; else donateMsgLoad">
   <div class="donate-msg-content">
     <div class="donate-img">
       <img [src]="message.avatar">
@@ -20,9 +20,9 @@
     <div class="donate-inf" *ngIf="info">
       <i class="fa fa-question-circle" (click)="messageInfo()"></i>
     </div>
-    <div class="donate-amount" *ngIf="!info">
-      <div>{{message.amount}}руб</div>
-    </div>
+  </div>
+  <div class="donate-amount" *ngIf="!info">
+    <div>{{message.amount}}руб</div>
   </div>
 </div>
 <ng-template #donateMsgLoad>

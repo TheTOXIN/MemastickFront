@@ -1,10 +1,7 @@
 <div class="control-content-wrap">
   <div class="control-content-empty"></div>
 
-  <app-spinner *ngIf="loader"></app-spinner>
-
-  <div *ngIf="!loader">
-
+  <div *ngIf="isLoad; else loadBells">
     <div *ngFor="let bell of bells; let i = index">
       <div class="control-bells-row">
         <div class="control-bells-btn">
@@ -20,14 +17,17 @@
         </div>
       </div>
     </div>
-
     <div class="control-bells-clear" (click)="clearAll()">
       <button class="btn-theme-inverse">
         <i class="fa fa-trash"></i>
       </button>
     </div>
-
   </div>
+  <ng-template #loadBells>
+    <div class="flex-center-absolute">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
 
   <div class="control-content-empty"></div>
 </div>

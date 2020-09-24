@@ -1,10 +1,7 @@
 <div class="control-content-wrap">
   <div class="control-content-empty"></div>
 
-  <app-spinner *ngIf="loader"></app-spinner>
-
-  <div *ngIf="!loader">
-
+  <div *ngIf="isLoad; else loadItems">
     <div class="items-title">ИНВЕНТАРЬ</div>
     <div class="items-body">
       <div *ngFor="let item of inventory">
@@ -29,8 +26,12 @@
         <div class="item-separate"></div>
       </div>
     </div>
-
   </div>
+  <ng-template #loadItems>
+    <div class="flex-center-absolute">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
 
   <div style="height: 30px"></div>
 </div>

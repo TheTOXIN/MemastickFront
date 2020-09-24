@@ -36,6 +36,7 @@
     <div class="like-icon">
       <img class="img-fluid select-none"
            src="assets/images/icon/2.png"
+           style="margin-left: 15px"
            [@rotatedState]='data.chromosomeState'
            (click)="triggerChromosome(data)"
            [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
@@ -54,6 +55,7 @@
     <div class="like-count">{{data.page?.meme.likes}}</div>
     <div class="like-icon">
       <img class="img-fluid select-none"
+           style="margin-right: 15px"
            [@bouncedState]='data.likeState'
            (click)="triggerLike(data)"
            [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">

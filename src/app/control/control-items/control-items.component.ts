@@ -31,7 +31,7 @@ export class ControlItemsComponent implements OnInit {
   @Output()
   public closeEvent = new EventEmitter<any>();
 
-  public loader = true;
+  public isLoad = false;
   public data: MemetickInventory;
 
   public inventory: Item[] = [];
@@ -53,7 +53,7 @@ export class ControlItemsComponent implements OnInit {
       this.initInventory();
       this.initTokens();
 
-      this.loader = false;
+      this.isLoad = true;
     });
   }
 
