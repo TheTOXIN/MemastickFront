@@ -3,12 +3,12 @@
 </div>
 <div class="home-chat-wrap">
 <div class="home-chat-btn animated fadeInUp faster" *ngIf="isBtn">
-  <button class="btn-theme" (click)="toChat()">
+  <div class="mini-btn" (click)="toChat()">
     ПОДКЛЮЧИТЬСЯ <i class="fa fa-sign-in" aria-hidden="true"></i>
-  </button>
+  </div>
 </div>
 <div class="home-chat-container my-scroll margin-center" appScrollable (scrollPosition)="scroller($event)">
-  <div *ngIf="!isLoad; else homeChatLoad">
+  <div *ngIf="isLoad; else homeChatLoad">
     <div *ngFor="let msg of messages">
       <app-chat-message [minWidth]="true" [message]="msg"></app-chat-message>
     </div>

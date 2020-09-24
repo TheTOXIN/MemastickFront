@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   filters = MemeFilter;
   roles = RoleType;
 
-  isLoad = true;
+  isLoad = false;
   isMesg = false;
 
   public message: string;
@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
   private initHome() {
     this.mainApi.home().subscribe(home => {
       this.home = home;
-      this.isLoad = false;
+      this.isLoad = true;
 
       this.message = this.home.message;
       this.isMesg = true;

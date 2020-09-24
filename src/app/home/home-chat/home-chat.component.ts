@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ChatService} from '../../services/chat-service';
 import {ChatMessage} from '../../model/chat/ChatMessage';
 import {Router} from '@angular/router';
@@ -14,34 +14,29 @@ import {OauthApiService} from '../../services/oauth-api-service';
 })
 export class HomeChatComponent implements OnInit {
 
-  public messages: ChatMessage[] = [];
+  @Input()
+  public messages: ChatMessage[];
+
+  @Input()
   public memetickId: UUID;
 
-  isLoad = true;
+  isLoad = false;
   isBtn = false;
 
   constructor(
     private chatService: ChatService,
-    private router: Router,
-    private storage: StorageService,
-    private oauth: OauthApiService
+    private router: Router
   ) {
 
   }
 
   ngOnInit() {
-    this.oauth.readMe().then(res => {
-      this.memetickId = res.memetickId;
-    });
-
-    this.chatService.read(0, 5).subscribe(data => {
-      for (const msg of data) {
-        ChatUtils.prepare(msg,  data, this.memetickId, false);
+    if (this.messages != null && this.memetickId != null) {
+      for (const msg of this.messages) {
+        ChatUtils.prepare(msg, this.messages, this.memetickId, false);
       }
-
-      this.messages = data;
-      this.isLoad = false;
-    });
+      this.isLoad = true;
+    }
   }
 
   scroller(e: any) {
