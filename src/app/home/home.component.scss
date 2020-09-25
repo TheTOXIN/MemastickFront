@@ -33,6 +33,13 @@
   margin-top: 30px !important;
 }
 
+.home-table-main-layout {
+  height: 110px;
+  @media(max-width: 767px) {
+    height: 80px;
+  }
+}
+
 .home-table {
   margin-top: 20px;
   border-radius: 50px;
@@ -75,6 +82,7 @@
 }
 
 .home-stats {
+  height: 288px;
   p {
     font-family: Futurica, serif, serif;
     font-size: 32px;

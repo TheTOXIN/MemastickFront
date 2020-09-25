@@ -17,7 +17,9 @@
       <div class="home-table-main home-table">
         <app-home-memetick [home]="home" *ngIf="isLoad; else spinnerTableMain"></app-home-memetick>
         <ng-template #spinnerTableMain>
-          <app-spinner></app-spinner>
+          <div class="home-table-main-layout flex-center">
+            <app-spinner></app-spinner>
+          </div>
         </ng-template>
       </div>
     </div>
@@ -120,8 +122,8 @@
   <app-home-create-btn [state]="home.cellState"></app-home-create-btn>
 </div>
 
-<div *ngIf="isLoad" class="margin-home-chat">
-  <app-home-chat [memetickId]="home.memetick.id" [messages]="home.chat"></app-home-chat>
+<div class="margin-home-chat" *ngIf="isLoad">
+  <app-home-chat [memetickId]="home?.memetick?.id" [messages]="home?.chat"></app-home-chat>
 </div>
 
 <div class="home-copyright margin-home">© {{today | date:'y'}} Copyright by Memastick Powered by Toxin</div>

@@ -9,6 +9,12 @@
   100% {transform: scale(1)}
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .flex-center-full {
   height: 100%;
   width: 100%;
