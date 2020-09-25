@@ -17,8 +17,8 @@ import {PasswordApiService} from './api/password-api-service';
 import {RegistrationApiService} from './api/registration-api-service';
 import {AngularFireModule} from '@angular/fire';
 import {ErrorPageComponent} from './pages/error-page/error-page.component';
-import {AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
-import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {MemesPaginationService} from './services/memes-pagination.service';
 import {StatisticApiService} from './api/statistic-api-service';
 import {MemetickAvatarApiService} from './api/memetick-avatar-api-service';
@@ -47,13 +47,11 @@ import {AngularFittextModule} from 'angular-fittext';
 import {MemeCoinsApiService} from './api/meme-coins-api-service';
 import {ShopApiService} from './api/shop-api-service';
 import {BlockCoinsApiService} from './api/block-coins-api-service';
-import {ShopComponent} from './shop/shop.component';
 import {TranslatorApiService} from './api/translator-api-service';
 import {MemotypeModule} from './memotype/memotype.module';
 import {MemotypeApiService} from './api/memotype-api-service';
 import {BattleModule} from './battle/battle.module';
 import {BattleApiService} from './api/battle-api-service';
-import {BlogComponent} from './blog/blog.component';
 import {DonateApiService} from './api/donate-api-service';
 import {LaboratoryModule} from './laboratory/laboratory.module';
 import {RankApiService} from './api/rank-api-service';
@@ -75,13 +73,13 @@ import {CommentsModule} from './comments/comments.module';
 import {FireMetricService} from './services/fire-metric-service';
 import {DonateModule} from './donate/donate.module';
 import {ShopModule} from './shop/shop.module';
-import {AngularFireMessaging, AngularFireMessagingModule} from '@angular/fire/messaging';
+import {AngularFireMessagingModule} from '@angular/fire/messaging';
+import {ShopComponent} from './shop/shop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShopComponent,
-    BlogComponent,
     ErrorPageComponent
   ],
   imports: [
@@ -121,9 +119,6 @@ import {AngularFireMessaging, AngularFireMessagingModule} from '@angular/fire/me
     PasswordApiService,
     StatisticApiService,
     RegistrationApiService,
-    AngularFireMessaging,
-    AngularFireStorage,
-    AngularFirestore,
     MemesPaginationService,
     MemetickAvatarApiService,
     MemeApiService,

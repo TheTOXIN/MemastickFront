@@ -13,9 +13,6 @@ import {ShopComponent} from './shop.component';
 const routes: Routes = [{
   path: '',
   children: [{
-    path: '',
-    component: ShopComponent,
-  }, {
     path: 'cookies',
     component: ShopCoockiesComponent
   }, {

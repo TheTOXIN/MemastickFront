@@ -4,6 +4,7 @@ import {ModalLinkComponent} from './shared/modal-link/modal-link.component';
 import {AppComponent} from './app.component';
 import {LaboratoryComponent} from './laboratory/laboratory.component';
 import {ChatComponent} from './chat/chat.component';
+import {ShopComponent} from './shop/shop.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -29,6 +30,7 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: 'shop',
+    component: ShopComponent,
     loadChildren: './shop/shop.module#ShopModule'
   },
   {
