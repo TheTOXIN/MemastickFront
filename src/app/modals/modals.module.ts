@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {LogoutModalComponent} from './logout-modal/logout-modal.component';
 import {ChangeNickModalComponent} from './change-nick-modal/change-nick-modal.component';
 import {ChangeAvatarModalComponent} from './change-avatar-modal/change-avatar-modal.component';
@@ -57,7 +56,6 @@ import {ImageCropperModule} from 'ngx-image-cropper';
   imports: [
     CommonModule,
     RouterModule,
-    NgxPageScrollModule,
     NgbModule,
     ReactiveFormsModule,
     FormsModule,

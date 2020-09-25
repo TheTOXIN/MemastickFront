@@ -18,7 +18,6 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
 import {FaqComponent} from './faq/faq.component';
 import {DownloadComponent} from './download/download.component';
 import {NewsLetterComponent} from './news-letter/news-letter.component';
-import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {OpenIntroModalComponent} from './open-intro-modal/open-intro-modal.component';
 import {ModalsModule} from '../modals/modals.module';
@@ -32,7 +31,6 @@ import {ModalsModule} from '../modals/modals.module';
     ModalsModule,
     FormsModule,
     OwlModule,
-    NgxPageScrollModule,
     NgbModule
   ],
   exports: [

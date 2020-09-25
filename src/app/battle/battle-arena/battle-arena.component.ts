@@ -8,7 +8,6 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {BattleVote} from '../../model/battle/BattleVote';
-import * as randomEmoji from 'random-emoji';
 
 @Component({
   selector: 'app-battle-arena',
@@ -33,7 +32,6 @@ export class BattleArenaComponent implements OnInit {
   public battleResult: BattleResult;
 
   public message: string;
-  public emoji: any;
 
   forwardWin = false;
   defenderWin = false;
@@ -50,7 +48,7 @@ export class BattleArenaComponent implements OnInit {
     public battleApi: BattleApiService,
     public router: Router
   ) {
-    this.emoji = randomEmoji.random({count: 1})[0].character;
+
   }
 
   ngOnInit() {
