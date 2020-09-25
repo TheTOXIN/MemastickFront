@@ -17,22 +17,22 @@ export class PushService {
     private storage: StorageService,
     private fireMessaging: AngularFireMessaging
   ) {
-    // this.fireMessaging.messaging.subscribe((_messaging) => {
-    //   _messaging.onMessage = _messaging.onMessage.bind(_messaging);
-    //   _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
-    // });
+    this.fireMessaging.messaging.subscribe((_messaging) => {
+      _messaging.onMessage = _messaging.onMessage.bind(_messaging);
+      _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+    });
 
     this.receiver();
     this.changer();
   }
 
   receiver() {
-    // this.fireMessaging.messages.subscribe((payload) => {
-    //   if (payload != null) {
-    //     console.log('GET NEW PUSH', payload);
-    //     this.currentMessage.next(payload);
-    //   }
-    // });
+    this.fireMessaging.messages.subscribe((payload) => {
+      if (payload != null) {
+        console.log('GET NEW PUSH', payload);
+        this.currentMessage.next(payload);
+      }
+    });
   }
 
   changer() {
