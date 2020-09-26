@@ -9,6 +9,7 @@ import {Options} from 'ng5-slider';
 import {LohRadarComponent} from '../../shared/loh-radar/loh-radar.component';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderService} from '../../services/loader-service';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-evolve-fitness',

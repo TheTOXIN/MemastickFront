@@ -4,6 +4,7 @@ import {PriceConst} from '../../consts/PriceConst';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ValidConst} from '../../consts/ValidConst';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-shop-nick',

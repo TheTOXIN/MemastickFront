@@ -8,6 +8,7 @@ import {GlobalConst} from '../../consts/GlobalConst';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {StorageService} from '../../services/storage-service';
 import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-memes',

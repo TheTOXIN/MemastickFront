@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ShopApiService} from '../../api/shop-api-service';
 import {PriceConst} from '../../consts/PriceConst';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-shop-coockies',

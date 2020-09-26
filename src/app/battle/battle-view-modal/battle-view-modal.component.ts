@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {BattleResponseModalComponent} from '../battle-response-modal/battle-response-modal.component';
 import {MemeApiService} from '../../api/meme-api-service';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-battle-view-modal',

@@ -7,7 +7,6 @@ import {MemeLikeApiService} from '../../api/meme-like-api-service';
 import {MemeApiService} from '../../api/meme-api-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Meme} from '../../model/Meme';
-import {TimerObservable} from 'rxjs-compat/observable/TimerObservable';
 import {EvolveStep} from '../../consts/EvolveStep';
 import {MemeType} from '../../consts/MemeType';
 import {ValidConst} from '../../consts/ValidConst';
@@ -16,6 +15,7 @@ import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
 import {CardService} from '../../services/card-service';
 import {MemeStateInfoModalComponent} from '../meme-state-info-modal/meme-state-info-modal.component';
+import {Observable, timer} from 'rxjs';
 
 @Component({
   selector: 'app-memes-page',
@@ -96,7 +96,7 @@ export class MemesPageComponent implements OnInit {
 
   startTimerChromosome(data: MemeData) {
     if (this.timerChromosome !== undefined) { this.timerChromosome.unsubscribe(); }
-    this.timerChromosome = TimerObservable.create(666, 1000).subscribe(() => {
+    this.timerChromosome = timer(666, 1000).subscribe(() => {
       this.pushChromosome(data);
       this.timerChromosome.unsubscribe();
     });

@@ -15,6 +15,7 @@ import {ImageUtils} from '../../utils/image-utils';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {MemeCreateModalComponent} from '../../modals/meme-create-modal/meme-create-modal.component';
 import {LoaderService} from '../../services/loader-service';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-meme-creator',

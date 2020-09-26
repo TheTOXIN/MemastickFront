@@ -7,6 +7,7 @@ import {Meme} from '../../model/Meme';
 import {MemeData} from '../../model/MemeData';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Meta} from '@angular/platform-browser';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-memes-share',

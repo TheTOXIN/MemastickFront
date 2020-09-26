@@ -2,6 +2,7 @@ import {Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild, View
 import {CardState} from '../../state/card-state.service';
 import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 import * as Hammer from 'hammerjs';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 const slideInUp  = [
   style({visibility: 'visible', transform: 'translate3d(0, 100%, 0)'}),
@@ -26,7 +27,7 @@ const slideOutDown  = [
 })
 export class CardComponent implements OnInit {
 
-  @ViewChild('content', {read: ViewContainerRef}) ctr: ViewContainerRef;
+  @ViewChild('content', { read: ViewContainerRef }) ctr: ViewContainerRef;
   @ViewChild('drag') drag: ElementRef;
 
   animState;

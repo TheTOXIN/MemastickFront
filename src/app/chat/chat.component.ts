@@ -29,7 +29,7 @@ import {ChatOnlineComponent} from './chat-online/chat-online.component';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  @ViewChild('mainChat', {read: ElementRef}) public chat: ElementRef<any>;
+  @ViewChild('mainChat', { read: ElementRef }) public chat: ElementRef<any>;
 
   @ViewChild(MemotypeViewComponent) memotypeView: MemotypeViewComponent;
   @ViewChild(ChatOnlineComponent) countOnline: ChatOnlineComponent;

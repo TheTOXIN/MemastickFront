@@ -9,6 +9,7 @@ import {MemeResearchComponent} from '../meme-research/meme-research.component';
 import {MemePaginationConfig} from '../../iface/MemePaginationConfig';
 import {BattleConst} from '../../consts/BattleConst';
 import {CardService} from '../../services/card-service';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-memes-modal',

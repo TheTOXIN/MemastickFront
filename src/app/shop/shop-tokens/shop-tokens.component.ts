@@ -5,6 +5,7 @@ import {ShopApiService} from '../../api/shop-api-service';
 import {ShopButtonComponent} from '../shared/shop-button/shop-button.component';
 import {TokenInfoModalComponent} from '../../modals/token-info-modal/token-info-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-shop-tokens',

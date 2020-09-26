@@ -9,6 +9,7 @@ import {ValidConst} from '../../consts/ValidConst';
 import {AcceptService} from '../../services/accept-service';
 import {LoaderService} from '../../services/loader-service';
 import {CommentsComponent} from '../../comments/comments/comments.component';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-evolve-mutation',

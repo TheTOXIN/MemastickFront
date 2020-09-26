@@ -8,6 +8,7 @@ import {ErrorCode} from '../../consts/ErrorCode';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {BattleVote} from '../../model/battle/BattleVote';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-battle-arena',

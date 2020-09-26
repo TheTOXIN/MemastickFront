@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {WINDOW_PROVIDERS} from './services/windows.service';
@@ -17,7 +16,6 @@ import {ModalLinkComponent} from './modal-link/modal-link.component';
 import {AcceptComponent} from './accpet/accept.component';
 import {GroupByPipe} from './pipes/GroupByPipe';
 import {OwlModule} from 'ngx-owl-carousel';
-import {AngularFittextModule} from 'angular-fittext';
 import {GpBtnComponent} from './gp-btn/gp-btn.component';
 import {PreviewScreenComponent} from './preview-screen/preview-screen.component';
 import {RankLevelComponent} from './rank-level/rank-level.component';
@@ -31,6 +29,7 @@ import {CounterComponent} from './counter/counter.component';
 import {PreviewUpdateComponent} from './preview-update/preview-update.component';
 import {DnaSpinnerComponent} from './dna-spinner/dna-spinner.component';
 import {CardComponent} from './card/card.component';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
 
 @NgModule({
   exports: [
@@ -66,7 +65,7 @@ import {CardComponent} from './card/card.component';
     ReactiveFormsModule,
     FormsModule,
     OwlModule,
-    AngularFittextModule,
+    // AngularFittextModule,
     ChartsModule
   ],
   declarations: [

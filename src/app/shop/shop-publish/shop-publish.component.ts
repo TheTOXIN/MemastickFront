@@ -4,6 +4,7 @@ import {PriceConst} from '../../consts/PriceConst';
 import {MemeFilter} from '../../consts/MemeFilter';
 import {UUID} from 'angular2-uuid';
 import {TranslatorApiService} from '../../api/translator-api-service';
+import {MemotypeViewComponent} from '../../memotype/memotype-view/memotype-view.component';
 
 @Component({
   selector: 'app-shop-publish',

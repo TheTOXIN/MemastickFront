@@ -14,34 +14,34 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: 'start',
-    loadChildren: './start/start.module#StartModule'
+    loadChildren: () => import('./start/start.module').then(m => m.StartModule)
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'memes',
-    loadChildren: './memes/memes.module#MemesModule'
+    loadChildren: () => import('./memes/memes.module').then(m => m.MemesModule)
   },
   {
     path: 'pages',
-    loadChildren: './pages/pages.module#PagesModule'
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
   {
     path: 'shop',
     component: ShopComponent,
-    loadChildren: './shop/shop.module#ShopModule'
+    loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)
   },
   {
     path: 'lab',
     component: LaboratoryComponent,
-    loadChildren: './laboratory/laboratory.module#LaboratoryModule'
+    loadChildren: () => import('./laboratory/laboratory.module').then(m => m.LaboratoryModule)
   },
   {
     path: 'chat',
     component: ChatComponent,
-    loadChildren: './chat/chat.module#ChatModule'
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
   },
   {
     path: 'modal',
