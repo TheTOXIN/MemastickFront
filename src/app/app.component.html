@@ -4,7 +4,7 @@
 <ng-template appAccept><app-accept></app-accept></ng-template>
 <ng-template appCard><app-card></app-card></ng-template>
 
-<app-control *ngIf="controlWork"></app-control>
+<app-control [show]="controlWork"></app-control>
 <app-loader [state]="state"></app-loader>
 <app-notification [sound]="soundNotify"></app-notification>
 

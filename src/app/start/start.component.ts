@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AppComponent} from '../app.component';
+import {ControlService} from '../services/control-service';
 
 @Component({
   selector: 'app-start',
@@ -9,12 +9,12 @@ import {AppComponent} from '../app.component';
 export class StartComponent implements OnInit {
 
   constructor(
-    public app: AppComponent
+    private controlService: ControlService,
   ) {
 
   }
 
   ngOnInit() {
-    this.app.control(false);
+    this.controlService.hide();
   }
 }

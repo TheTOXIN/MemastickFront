@@ -1,3 +1,4 @@
+<div *ngIf="show">
 <!--MENU-->
 <div class="control-menu btn-panel"
      [ngClass]="{'control-panel-inverse': !hideContentMenu}"
@@ -43,4 +44,5 @@
 <!--CLOSE-->
 <div class="control-closer main-button-close animated rotateIn" (click)="hideAll()" *ngIf="close">
     <i class="fa fa-close"></i>
+</div>
 </div>

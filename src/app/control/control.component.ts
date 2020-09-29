@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
@@ -23,6 +23,10 @@ import {NotifyCounterService} from '../services/notify-counter.service';
 })
 export class ControlComponent implements OnInit {
 
+  @Input()
+  public show = true;
+  public close = false;
+
   public hideContentScope = true;
   public hideContentMenu = true;
   public hideContentBells = true;
@@ -33,8 +37,6 @@ export class ControlComponent implements OnInit {
 
   public showCountItems = false;
   public showCountBells = false;
-
-  public close = false;
 
   constructor(
     private counterService: NotifyCounterService

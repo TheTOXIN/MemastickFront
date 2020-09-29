@@ -14,11 +14,11 @@ import {PushRequestModalComponent} from '../modals/push-request-modal/push-reque
 import {DnaModalComponent} from '../modals/dna-modal/dna-modal.component';
 import {SocialsModalComponent} from '../modals/socials-modal/socials-modal.component';
 import {RoleType} from '../consts/RoleType';
-import {AppComponent} from '../app.component';
 import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
 import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
+import {ControlService} from '../services/control-service';
 
 @Component({
   selector: 'app-home',
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private storage: StorageService,
-    private app: AppComponent,
+    private controlService: ControlService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
   ) {
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
   }
 
   private initControl() {
-    this.app.control(true);
+    this.controlService.show();
   }
 
   private initStarter() {

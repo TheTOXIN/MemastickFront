@@ -14,6 +14,7 @@ import {LoaderService} from './services/loader-service';
 import {LoaderStatus} from './consts/LoaderStatus';
 import {NotifyCounterService} from './services/notify-counter.service';
 import {FireMetricService} from './services/fire-metric-service';
+import {ControlService} from './services/control-service';
 
 @Component({
   selector: 'app-root',
@@ -37,14 +38,15 @@ export class AppComponent implements OnInit, OnDestroy {
   public soundNotify = new Audio();
 
   constructor(
-    private socket: SocketService,
-    private push: PushService,
+    private counterService: NotifyCounterService,
+    private controlService: ControlService,
     private loaderService: LoaderService,
     private metric: FireMetricService,
-    private counterService: NotifyCounterService,
-    private oauth: OauthApiService,
     private storage: StorageService,
     private mainApi: MainApiService,
+    private oauth: OauthApiService,
+    private socket: SocketService,
+    private push: PushService,
     private pwa: PwaService,
     private router: Router
   ) {
@@ -62,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.update();
       this.clear();
       this.loader();
-      this.control();
+      this.controller();
     }
 
     this.checkTWA();
@@ -77,7 +79,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public init() {
+  private init() {
     this.mainApi.init().subscribe(data => {
       this.oauth.checkMe(data.login);
 
@@ -91,7 +93,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public socketer(login: string) {
+  private socketer(login: string) {
     this.socket.connect(login);
 
     this.socket.connectEvent.subscribe(data => {
@@ -107,7 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public update() {
+  private update() {
     this.pwa.checkUpdate(() => {
       alert('Мемастик обновился, подтвердите чтобы обновить');
       this.showUpdater = false;
@@ -115,27 +117,29 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  public clear() {
+  private clear() {
     this.storage.remMemePage(MemeFilter.POOL);
   }
 
-  public loader() {
+  private loader() {
     this.loaderService.get().subscribe(state => {
       this.state = state;
     });
   }
 
-  public control(val: boolean = true) {
-    this.controlWork = val;
+  private controller() {
+    this.controlService.watch().subscribe(val => {
+      this.controlWork = val;
+    });
   }
 
-  public checkTWA() {
+  private checkTWA() {
     if (document.referrer.startsWith(ANDROID_URL)) {
       this.storage.asTWA();
     }
   }
 
-  public previewer(isAuth: boolean) {
+  private previewer(isAuth: boolean) {
     this.showPreview = this.storage.isPreview();
     this.textPreview = isAuth ? 'С возвращением!' : 'Добро пожаловать!';
   }

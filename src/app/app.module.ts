@@ -75,6 +75,7 @@ import {DonateModule} from './donate/donate.module';
 import {ShopModule} from './shop/shop.module';
 import {AngularFireMessagingModule} from '@angular/fire/messaging';
 import {ShopComponent} from './shop/shop.component';
+import {ControlService} from './services/control-service';
 
 @NgModule({
   declarations: [
@@ -155,6 +156,7 @@ import {ShopComponent} from './shop/shop.component';
     CardService,
     CardState,
     FireMetricService,
+    ControlService,
     { provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true },
     { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
