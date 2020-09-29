@@ -14,9 +14,9 @@ export class StatisticComponent implements OnInit {
   @Input()
   public memetickId: UUID;
 
-  public stats: Statistic;
-
-  public isLoading = false;
+  public stats: Statistic = new Statistic(
+    0, 0, 0
+  );
 
   constructor(
     private statisticApi: StatisticApiService
@@ -28,12 +28,10 @@ export class StatisticComponent implements OnInit {
     if (this.memetickId != null) {
       this.statisticApi.memetick(this.memetickId).subscribe(data =>  {
         this.stats = data;
-        this.isLoading = true;
       });
     } else {
       this.statisticApi.global().subscribe(data => {
         this.stats = data;
-        this.isLoading = true;
       });
     }
   }

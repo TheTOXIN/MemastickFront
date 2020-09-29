@@ -1,22 +1,17 @@
-<div class="stats-table" *ngIf="isLoading; else loadStats">
+<div class="stats-table">
   <div class="stats-info">
     <span class="stats-title">ОСОБЕЙ</span>
     <span class="stats-img animated"> <img class="img-fluid hover-idv" src="assets/images/icon/1.png"></span>
-    <span class="stats-value">{{stats?.individual}}</span>
+    <span class="stats-value">{{stats.individual}}</span>
   </div>
   <div class="stats-info">
     <span class="stats-title">ХРОМОСОМ</span>
     <span class="stats-img animated"><img class="img-fluid hover-crs" src="assets/images/icon/2.png"></span>
-    <span class="stats-value">{{stats?.chromosome}}</span>
+    <span class="stats-value">{{stats.chromosome}}</span>
   </div>
   <div class="stats-info">
     <span class="stats-title">ДНК</span>
     <span class="stats-img animated"> <img class="img-fluid hover-dna" src="assets/images/icon/3.png"></span>
-    <span class="stats-value">{{stats?.dna}}</span>
+    <span class="stats-value">{{stats.dna}}</span>
   </div>
 </div>
-<ng-template #loadStats>
-  <div class="flex-center" style="padding: 10px">
-    <app-spinner></app-spinner>
-  </div>
-</ng-template>

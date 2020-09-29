@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
@@ -18,6 +18,7 @@ import {AppComponent} from '../app.component';
 import {VERSION} from '../app.constants';
 import {StartInfoModalComponent} from '../modals/start-info-modal/start-info-modal.component';
 import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
+import {HomeMemetickComponent} from './home-memetick/home-memetick.component';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,8 @@ import {CreedModalComponent} from '../modals/creed-modal/creed-modal.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  @ViewChild(HomeMemetickComponent) homeMemetick: HomeMemetickComponent;
 
   public home: Home;
 
@@ -63,6 +66,8 @@ export class HomeComponent implements OnInit {
 
   private initHome() {
     this.mainApi.home().subscribe(home => {
+      this.homeMemetick.init(home);
+
       this.home = home;
       this.isLoad = true;
 

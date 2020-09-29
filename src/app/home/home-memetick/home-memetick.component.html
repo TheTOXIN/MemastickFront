@@ -1,22 +1,22 @@
 <div class="home-memetick">
   <div class="home-memetick-row">
-    <div class="home-memetick-ava" (click)="memetick()">
+    <div class="home-memetick-ava" (click)="toMe()">
       <img [src]="memetickAvatar || ''" [style.border-color]="colorRarity">
     </div>
     <div class="home-memetick-txt">
-      <div class="home-memetick-nick">{{home?.memetick?.nick}}</div>
-      <div class="home-memetick-rank">{{home?.rank?.name}}</div>
+      <div class="home-memetick-nick">{{memetick.nick}}</div>
+      <div class="home-memetick-rank">{{rank.name}}</div>
     </div>
     <div class="home-memetick-lvl" (click)="showLvls()">
       <div class="lvl" [style.background-color]="colorRarity">
-        {{home?.rank?.lvl}} <div>lvl</div>
+        {{rank.lvl}} <div>lvl</div>
       </div>
     </div>
   </div>
   <div>
-    <app-dna-line [rank]="home?.rank"></app-dna-line>
+    <app-dna-line [rank]="rank"></app-dna-line>
   </div>
   <div class="home-memetick-dna-count">
-    <app-dna-count [rank]="home?.rank"></app-dna-count>
+    <app-dna-count [rank]="rank"></app-dna-count>
   </div>
 </div>
