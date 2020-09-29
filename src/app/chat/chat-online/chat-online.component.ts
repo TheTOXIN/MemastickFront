@@ -34,8 +34,10 @@ export class ChatOnlineComponent implements OnInit {
   }
 
   onlineList() {
-    const ref = this.modalService.open(MemetickListModalComponent, {'centered': true});
-    ref.componentInstance.memetickIds = this.online;
+    if (this.online.length > 0) {
+      const ref = this.modalService.open(MemetickListModalComponent, {'centered': true});
+      ref.componentInstance.memetickIds = this.online;
+    }
   }
 
   public init(online: UUID[]) {

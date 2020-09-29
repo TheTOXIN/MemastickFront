@@ -29,14 +29,20 @@ export class SocketService {
 
     this.chaterBehavior = new BehaviorSubject(null);
     this.chaterObservable = this.chaterBehavior.asObservable();
-
-    this.stomp = Stomp.over(new SockJS(BACK_URL + `/socket`));
   }
 
   public connect(username: string) {
+    if (this.isConnect || username == null) {
+      return;
+    }
+
+    this.stomp = Stomp.over(new SockJS(BACK_URL + `/socket`));
+
     this.stomp.connect({username: username}, () => {
       this.isConnect = true;
       this.connectEvent.emit(true);
+    }, (err) => {
+      console.log('SOCKET ERROR', err);
     });
   }
 
