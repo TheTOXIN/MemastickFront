@@ -1,4 +1,4 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {WINDOW} from '../shared/services/windows.service';
 import {MainApiService} from '../api/main-api-service';
@@ -23,15 +23,10 @@ import {NotifyCounterService} from '../services/notify-counter.service';
 })
 export class ControlComponent implements OnInit {
 
-  public hide = false;
-  public close = false;
-
   public hideContentScope = true;
   public hideContentMenu = true;
   public hideContentBells = true;
   public hideContentItems = true;
-
-  private predYOffset = 0;
 
   public countItems: number = 0;
   public countBells: number = 0;
@@ -39,11 +34,10 @@ export class ControlComponent implements OnInit {
   public showCountItems = false;
   public showCountBells = false;
 
+  public close = false;
+
   constructor(
-    private counterService: NotifyCounterService,
-    private mainApi: MainApiService,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(WINDOW) private window
+    private counterService: NotifyCounterService
   ) {
 
   }
@@ -57,8 +51,6 @@ export class ControlComponent implements OnInit {
         } else {
           this.countItems += counter;
           this.showCountItems = true;
-
-          this.hide = false;
         }
       }
     });
@@ -71,18 +63,9 @@ export class ControlComponent implements OnInit {
         } else {
           this.countBells += counter;
           this.showCountBells = true;
-
-          this.hide = false;
         }
       }
     });
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const offset = window.pageYOffset - this.predYOffset;
-    this.hide = offset >= 0;
-    this.predYOffset = this.window.pageYOffset;
   }
 
   hideAll() {

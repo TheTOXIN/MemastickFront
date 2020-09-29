@@ -1,6 +1,6 @@
 <!--MENU-->
-<div class="control-menu btn-panel animated slideInLeft"
-     [ngClass]="{'slideOutLeft': hide, 'control-panel-inverse': !hideContentMenu}"
+<div class="control-menu btn-panel"
+     [ngClass]="{'control-panel-inverse': !hideContentMenu}"
      (click)="close = true; hideContentMenu = false">
   <i class="control-icon fa fa-bars"></i>
 </div>
@@ -9,8 +9,8 @@
 </div>
 
 <!--BELLS-->
-<div class="control-bells btn-panel animated slideInDown"
-     [ngClass]="{'slideOutUp': hide, 'control-panel-inverse': !hideContentBells}"
+<div class="control-bells btn-panel"
+     [ngClass]="{'control-panel-inverse': !hideContentBells}"
      (click)="close = true; hideContentBells = false;">
   <i class="control-icon fa fa-bell"></i>
   <div *ngIf="showCountBells && hideContentBells" [@counterState]="countBells" class="control-counter">{{countBells}}</div>
@@ -20,8 +20,8 @@
 </div>
 
 <!--SCOPE-->
-<div class="control-scope btn-panel animated slideInRight"
-     [ngClass]="{'slideOutRight': hide, 'control-panel-inverse': !hideContentScope}"
+<div class="control-scope btn-panel"
+     [ngClass]="{'control-panel-inverse': !hideContentScope}"
      (click)="close = true; hideContentScope = false">
   <i class="control-icon fa fa-th-large"></i>
 </div>
@@ -30,8 +30,8 @@
 </div>
 
 <!--ITEMS-->
-<div class="control-items btn-panel animated slideInUp"
-     [ngClass]="{'slideOutDown': hide, 'control-panel-inverse': !hideContentItems}"
+<div class="control-items btn-panel"
+     [ngClass]="{'control-panel-inverse': !hideContentItems}"
      (click)="close = true; hideContentItems = false;">
   <i class="control-icon fa fa-archive" ></i>
   <div *ngIf="showCountItems && hideContentItems" [@counterState]="countItems" class="control-counter"><i class="fa fa-exclamation"></i></div>

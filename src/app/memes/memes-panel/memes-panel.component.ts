@@ -82,6 +82,8 @@ export class MemesPanelComponent implements OnInit {
     if (this.storage.getMemePage(this.modePanel) !== 0) {
       this.isUpdate = true;
     }
+
+    this.panelImage = filterIcons[this.modePanel];
   }
 
   update() {
