@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
 import {MemeViewComponent} from '../../memes/meme-view/meme-view.component';
 import {BattleResponseModalComponent} from '../battle-response-modal/battle-response-modal.component';
 import {MemeApiService} from '../../api/meme-api-service';
+import {MemetickCardComponent} from '../../memetick/memetick-card/memetick-card.component';
+import {CardService} from '../../services/card-service';
 
 @Component({
   selector: 'app-battle-view-modal',
@@ -39,7 +41,8 @@ export class BattleViewModalComponent implements OnInit {
     private avatarApi: MemetickAvatarApiService,
     private memeApi: MemeApiService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private cardService: CardService
   ) {
     this.titles[BattleStatus.WAIT] = 'ОЖИДАНИЕ ЗАЯВКИ';
     this.titles[BattleStatus.START] = 'БИТВА НАЧАЛАСЬ';
@@ -66,8 +69,10 @@ export class BattleViewModalComponent implements OnInit {
   }
 
   toMemetick(memetickId: UUID) {
-    this.router.navigate(['/memetick', memetickId]);
-    this.close();
+    this.cardService.open({
+      content: MemetickCardComponent,
+      memetickId: memetickId
+    });
   }
 
   response() {

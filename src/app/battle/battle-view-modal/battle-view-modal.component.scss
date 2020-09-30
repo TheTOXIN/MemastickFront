@@ -9,6 +9,7 @@
   flex-wrap: nowrap;
   height: 50px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .battle-members-avatar {
@@ -16,6 +17,7 @@
   width: 40%;
 
   img {
+    cursor: pointer;
     max-width: 100%;
     max-height: 100%;
     border-radius: 50%;
@@ -43,6 +45,7 @@
 .battle-memes-img {
   height: 100%;
   width: 45%;
+  cursor: pointer;
 
   img {
     max-width: 100%;
