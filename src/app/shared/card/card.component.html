@@ -2,8 +2,10 @@
   <div class="card" [@cardAnim]="animState" (@cardAnim.done)="endClose()" [style.height.px]="cardHeight">
     <div #drag class="for-mobile card-drag"><div></div></div>
     <div class="card-content my-scroll">
-      <ng-container #content></ng-container>
-      <div class="card-down"></div>
+      <div [hidden]="hiddenContent">
+        <ng-container #content></ng-container>
+        <div class="card-down"></div>
+      </div>
     </div>
   </div>
   <div class="card-close main-button-close" (click)="startClose()">

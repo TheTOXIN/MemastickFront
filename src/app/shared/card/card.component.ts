@@ -35,6 +35,8 @@ export class CardComponent implements OnInit {
   readonly windowHeight;
   readonly cardPosClose;
 
+  public hiddenContent: boolean = true;
+
   constructor(
     private cardState: CardState,
     private resolve: ComponentFactoryResolver
@@ -78,12 +80,17 @@ export class CardComponent implements OnInit {
   }
 
   startClose() {
+    this.hiddenContent = true;
     this.animState = 'close';
   }
 
   endClose() {
     if (this.animState === 'close') {
       this.close();
+    }
+
+    if (this.animState === 'open') {
+      this.hiddenContent = false;
     }
   }
 
