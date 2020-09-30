@@ -6,5 +6,6 @@ export enum MemeFilter {
   LIKE = 'LIKE',
   SELF = 'SELF',
   BATL = 'BATL',
-  USER = 'USER'
+  USER = 'USER',
+  STEP = 'STEP'
 }

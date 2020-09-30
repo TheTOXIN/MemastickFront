@@ -1,6 +1,6 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {EvolveStep} from '../../consts/EvolveStep';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WINDOW} from '../../shared/services/windows.service';
 import {DOCUMENT} from '@angular/common';
 import {MemeFilter} from '../../consts/MemeFilter';
@@ -15,17 +15,16 @@ import {evolveStepText} from '../../consts/TextData';
 })
 export class MemesPanelComponent implements OnInit {
 
-  @Input() public showPanel = true;
-  @Input() public modePanel: MemeFilter;
+  @Input()
+  public currentFilter: MemeFilter = MemeFilter.POOL;
+  @Input()
+  public currentStep: EvolveStep = EvolveStep.ADAPTATION;
 
   public needPanelList = false;
   public showPanelList = false;
 
   private readonly evolveIcons = [];
   private readonly filterIcons = [];
-
-  currentStep: any = null;
-  currentFilter: any = null;
 
   isUpdate = false;
   panelImage = filterIcons[MemeFilter.POOL];
@@ -66,6 +65,7 @@ export class MemesPanelComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private storage: StorageService,
     @Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window
@@ -75,20 +75,22 @@ export class MemesPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.modePanel === MemeFilter.POOL) {
-      this.needPanelList = true;
-    }
-
-    if (this.storage.getMemePage(this.modePanel) !== 0) {
+    if (this.storage.getMemePage(this.currentFilter) !== 0) {
       this.isUpdate = true;
     }
 
-    this.panelImage = filterIcons[this.modePanel];
+    this.panelImage = filterIcons[this.currentFilter];
+
+    if (this.currentFilter === MemeFilter.STEP) {
+      this.panelImage = evolveIcons[this.currentStep];
+    }
+
+    this.needPanelList = true;
   }
 
   update() {
     this.isUpdate = false;
-    this.storage.remMemePage(this.modePanel);
+    this.storage.remMemePage(this.currentFilter);
 
     window.location.reload();
   }
@@ -109,7 +111,7 @@ export class MemesPanelComponent implements OnInit {
     this.currentStep = step;
     this.panelImage = this.evolveIcons[step.step];
 
-    this.router.navigate(['/memes'], {queryParams: {step: step.step}});
+    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.STEP, step: step.step}});
   }
 
   memesByFilter(filter: any) {

@@ -8,6 +8,7 @@ import {GlobalConst} from '../../consts/GlobalConst';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {StorageService} from '../../services/storage-service';
 import {AlgorithmModalComponent} from '../../modals/algorithm-modal/algorithm-modal.component';
+import {EvolveStep} from '../../consts/EvolveStep';
 
 @Component({
   selector: 'app-memes',
@@ -18,7 +19,8 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   @ViewChild(MemeViewComponent) view: MemeViewComponent;
 
-  public modePanel: MemeFilter;
+  public filter: MemeFilter;
+  public step: EvolveStep;
 
   constructor(
     public pagination: MemesPaginationService,
@@ -32,21 +34,25 @@ export class MemesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      let filter: MemeFilter = params.filter;
-
       const memetick = params.memetick;
-      const step = params.step;
-      const sort = 'creating';
+
+      let filter: MemeFilter = params.filter;
+      let step: EvolveStep = null;
 
       if (filter === undefined || filter == null) {
         filter = MemeFilter.POOL;
       }
 
-      this.modePanel = filter;
+      if (filter === MemeFilter.STEP) {
+        step = params.step;
+      }
+
+      this.filter = filter;
+      this.step = step;
 
       this.pagination.init(
         GlobalConst.MEME_BATCH,
-        sort,
+        'creating',
         true,
         filter,
         step,
