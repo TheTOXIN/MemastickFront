@@ -5,7 +5,7 @@
 
 <div class="home-message">
   <p *ngIf="isMesg; else homeMsgDef">{{message}}</p>
-  <ng-template #homeMsgDef><p>...</p></ng-template>
+  <ng-template #homeMsgDef><p>ЗАГРУЗКА</p></ng-template>
 </div>
 
 <app-home-particles></app-home-particles>
@@ -15,7 +15,10 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="home-table-main home-table">
-        <app-home-memetick></app-home-memetick>
+        <app-home-memetick [home]="home" *ngIf="isLoad; else spinnerTableMain"></app-home-memetick>
+        <ng-template #spinnerTableMain>
+          <div class="home-table-main-layout flex-center"><app-spinner></app-spinner></div>
+        </ng-template>
       </div>
     </div>
   </div>

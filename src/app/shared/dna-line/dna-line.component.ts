@@ -24,10 +24,6 @@ export class DnaLineComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.init();
-  }
-
-  init() {
     this.initDnaCrop();
     this.interval = setInterval(() => this.incrementDna(), 10);
   }
