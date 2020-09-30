@@ -28,3 +28,5 @@ filterIcons[MemeFilter.LIKE] = 'assets/images/icon/like_push.png';
 filterIcons[MemeFilter.USER] = 'assets/images/review.png';
 filterIcons[MemeFilter.DEAD] = 'assets/images/icon/dead.png';
 filterIcons[MemeFilter.BATL] = 'assets/images/icon/battle.png';
+filterIcons[MemeFilter.MEIN] = 'assets/images/icon/1.png';
+

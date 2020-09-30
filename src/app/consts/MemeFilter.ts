@@ -5,6 +5,7 @@ export enum MemeFilter {
   DEAD = 'DEAD',
   LIKE = 'LIKE',
   SELF = 'SELF',
+  MEIN = 'MEIN',
   BATL = 'BATL',
   USER = 'USER',
   STEP = 'STEP'

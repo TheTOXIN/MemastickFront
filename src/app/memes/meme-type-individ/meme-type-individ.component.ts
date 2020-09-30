@@ -45,7 +45,7 @@ export class MemeTypeIndividComponent implements OnInit {
     const modalRef = this.modalService.open(MemesModalComponent, {'centered': true});
 
     modalRef.componentInstance.title = 'ВЫБЕРЕТЕ СВОЙ МЕМ';
-    modalRef.componentInstance.filter = MemeFilter.BATL;
+    modalRef.componentInstance.filter = MemeFilter.MEIN;
 
     modalRef.componentInstance.event.subscribe((meme) => {
       this.acceptService.accept({

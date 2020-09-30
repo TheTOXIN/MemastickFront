@@ -7,6 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {BattleRuleModalComponent} from './battle-rule-modal/battle-rule-modal.component';
 import {StorageService} from '../services/storage-service';
 import {OauthApiService} from '../services/oauth-api-service';
+import {MemeFilter} from '../consts/MemeFilter';
 
 @Component({
   selector: 'app-battle',
@@ -77,16 +78,16 @@ export class BattleComponent implements OnInit {
     this.router.navigateByUrl('/battle/rating');
   }
 
-  toMemes() {
-    this.router.navigateByUrl('/memes?filter=INDV');
-  }
-
   toHome() {
     this.router.navigateByUrl('/home');
   }
 
   toStart() {
     this.router.navigateByUrl('/start');
+  }
+
+  toMemes() {
+    this.router.navigate(['/memes'], {queryParams: {filter: MemeFilter.BATL}});
   }
 
   toInfo() {

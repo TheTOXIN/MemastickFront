@@ -1,90 +1,91 @@
-<div *ngIf="isOauth">
+<div *ngIf="isOauth; else notOauthPage">
+  <div class="battle-head-panel head-panel">
+    <img src="assets/images/battle_logo_min.png">
+  </div>
 
-<div class="super-main-logo animated slideInDown">
-  <img [src]="'assets/images/battle-logo.png'">
-</div>
-<div class="battle-container container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="battle-table arena">
-        <div class="button-big" (click)="toArena()">
-        <div class="button-biп-content">
-          <span>АРЕНА</span>
-          <img src="assets/images/icon/arena.png">
+  <div class="battle-empty"></div>
+
+  <div class="battle-container container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="battle-table arena">
+          <div class="button-big" (click)="toArena()">
+            <div class="button-biп-content">
+              <span>АРЕНА</span>
+              <img src="assets/images/icon/arena.png">
+            </div>
+            <p>(всего битв: {{battlesCount}})</p>
+          </div>
         </div>
-        <p>(всего битв: {{battlesCount}})</p>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="battle-table battle-table-list">
+          <app-battle-list *ngIf="!isLoad; else battleListFirst"
+                           [title]="'БИТВЫ'"
+                           [contentFirst]="battleStart"
+                           [contentSecond]="battleEnd">
+          </app-battle-list>
+          <ng-template #battleListFirst>
+            <app-spinner class="flex-center-full"></app-spinner>
+          </ng-template>
+        </div>
       </div>
+      <div class="col-md-6">
+        <div class="battle-table battle-table-list">
+          <app-battle-list *ngIf="!isLoad; else battleListSecond"
+                           [title]="'ЗАЯВКИ'"
+                           [contentFirst]="battleWait"
+                           [contentSecond]="battleCancel">
+          </app-battle-list>
+          <ng-template #battleListSecond>
+            <app-spinner class="flex-center-full"></app-spinner>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="battle-table">
+          <div class="button-big" (click)="toRating()">
+            <div class="button-biп-content">
+              <span>РЕЙТИНГ</span>
+              <img src="assets/images/icon/rating.png">
+            </div>
+            <p>(всего участников: {{membersCount}})</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="battle-hint animated fadeInUp">
+      {{battleHint}}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="battle-table battle-list">
-        <div *ngIf="isLoad">
-          <app-spinner></app-spinner>
-        </div>
-        <div *ngIf="!isLoad">
-          <app-battle-list [title]="'БИТВЫ'" [contentFirst]="battleStart" [contentSecond]="battleEnd"></app-battle-list>
-        </div>
+
+  <div class="battle-foot-panel foot-panel">
+    <div (click)="toHome()">
+      <i class="fa fa-home"></i>
+    </div>
+    <div (click)="toMemes()">
+      <div class="battle-battle">
+        <img src="assets/images/icon/battle.png">
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="battle-table battle-list">
-        <div *ngIf="isLoad">
-          <app-spinner></app-spinner>
-        </div>
-        <div *ngIf="!isLoad">
-          <app-battle-list [title]="'ЗАЯВКИ'" [contentFirst]="battleWait" [contentSecond]="battleCancel"></app-battle-list>
-        </div>
-      </div>
+    <div (click)="toInfo()">
+      <i class="fa fa-info-circle"></i>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="battle-table">
-        <div class="button-big" (click)="toRating()">
-        <div class="button-biп-content">
-          <span>РЕЙТИНГ</span>
-          <img src="assets/images/icon/rating.png">
-        </div>
-        <p>(всего участников: {{membersCount}})</p>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4 text-center col-picker">
-      <div class="battle-table button-picker" (click)="toMemes()">
-        <img src="assets/images/icon/1.png">
-        <p>ОСОБИ</p>
-      </div>
-    </div>
-    <div class="col-4 text-center col-picker">
-      <div class="battle-table button-picker" (click)="toHome()">
-        <i class="fa fa-home"></i>
-        <p>ДОМОЙ</p>
-      </div>
-    </div>
-    <div class="col-4 text-center col-picker">
-      <div class="battle-table button-picker" (click)="toInfo()">
-        <img src="assets/images/icon/quest.png">
-        <p>ПРАВИЛА</p>
-      </div>
-    </div>
-  </div>
-  <div class="battle-hint animated fadeInUp">
-    {{battleHint}}
   </div>
 </div>
 
-</div>
-<div *ngIf="!isOauth">
+<ng-template #notOauthPage>
   <img class="top-fixed animated slideInDown" [src]="'assets/images/mem-logo.png'" [width]="228">
-  <img class="flex-center-absolute img-fluid animated bounceIn fast" [width]="777" [src]="'assets/images/battle-logo.png'">
+  <img class="flex-center-absolute img-fluid animated bounceIn fast" [width]="777"
+       [src]="'assets/images/battle-logo.png'">
   <div class="bottom-fixed">
     <p class="animated fadeIn" [style.color]="'white'">ВАМ НУЖНО АВТОРИЗОВАТЬСЯ</p>
     <button class="btn-theme-inverse animated slideInUp" (click)="toStart()">😉ПОДРОБНЕЕ...</button>
   </div>
-</div>
+</ng-template>
 
 <div class="battle-back"></div>

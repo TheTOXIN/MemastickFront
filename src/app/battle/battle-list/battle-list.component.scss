@@ -9,14 +9,10 @@
 }
 
 .battle-list {
-  height: 250px;
+  height: 100%;
   overflow-y: auto;
   border-radius: 50px 50px 0 0;
   border: 5px solid #495057;
-
-  @media(max-width: 767px) {
-    height: 200px;
-  }
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -44,6 +40,7 @@
   user-select: none;
 
   div {
+    cursor: pointer;
     font-family: FuturaRound, serif;
     height: 100%;
     width: 50%;
@@ -66,6 +63,13 @@
 }
 
 .battle-list-empty {
-  font-size: 48px;
-  font-family: Gost, serif;
+  font-size: 36px;
+  font-family: ProximaNova, serif;
+}
+
+.battle-list-flex {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  display: flex;
 }
