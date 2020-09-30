@@ -176,8 +176,8 @@
 }
 
 .blur {
-  -webkit-filter: blur(10px);
-  filter: blur(10px);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 @keyframes slider {

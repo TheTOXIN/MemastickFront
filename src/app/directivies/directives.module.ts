@@ -4,6 +4,7 @@ import {AcceptDirective} from './accept-directive';
 import {DropZoneDirective} from './drop-zone.directive';
 import {ScrollableDirective} from './scrollable.directive';
 import {CardDirective} from './card.directive';
+import {MemeMoreDirective} from './meme-more-directive';
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import {CardDirective} from './card.directive';
     AcceptDirective,
     DropZoneDirective,
     ScrollableDirective,
+    MemeMoreDirective,
     CardDirective
   ],
   exports: [
     AcceptDirective,
     DropZoneDirective,
     ScrollableDirective,
+    MemeMoreDirective,
     CardDirective
   ]
 })

@@ -19,13 +19,12 @@
   <div class="meme-page-text-view" *ngIf="data.page?.meme?.text">
     <app-meme-text-view [textMeme]="data.page?.meme?.text"></app-meme-text-view>
   </div>
-  <div class="memes-image animated zoomIn slow">
-    <img *ngIf="data.page?.meme.url"
+  <div class="memes-image">
+    <img [src]="data.page?.meme.url"
          (click)='viewerEvent(data.page?.meme)'
-         [src]="data.page?.meme.url || ''"
          (load)="loadMeme(data)"
          [class.blur]="data.page?.meme.type === 'DEAD'">
-    <div *ngIf="!data?.loadState" class="memes-load">
+    <div class="memes-load" *ngIf="!data?.loadState">
       <app-dna-spinner></app-dna-spinner>
     </div>
   </div>
@@ -37,8 +36,8 @@
       <img class="img-fluid select-none"
            src="assets/images/icon/2.png"
            style="margin-left: 15px"
-           [@rotatedState]='data.chromosomeState'
            (click)="triggerChromosome(data)"
+           [@rotatedState]='data.chromosomeState'
            [class.notFirstChromosome]="!data.page?.likes.firstChromosome"
            [class.firstChromosome]="data.page?.likes.firstChromosome"
            [class.full]="data.page?.likes.myChromosomes >= 100">
@@ -56,8 +55,8 @@
     <div class="like-icon">
       <img class="img-fluid select-none"
            style="margin-right: 15px"
-           [@bouncedState]='data.likeState'
            (click)="triggerLike(data)"
+           [@bouncedState]='data.likeState'
            [src]="data.page?.likes.myLike ? 'assets/images/icon/like_push.png' : 'assets/images/icon/like.png'">
     </div>
   </div>

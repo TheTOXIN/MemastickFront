@@ -3,7 +3,7 @@
 </div>
 
 <div class="mem-back">
-  <div class="content-scroll" appScrollable (scrollPosition)="scrollHandler($event)">
+  <div class="content-scroll" appMemeMore (moreEvent)="moreHandler()">
     <div class="for-mobile memes-empty-up"></div>
 
     <div *ngFor="let data of pagination.data | async">

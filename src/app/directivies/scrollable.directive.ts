@@ -9,7 +9,9 @@ export class ScrollableDirective {
 
   private predTop = 0;
 
-  constructor(public el: ElementRef) { }
+  constructor(public el: ElementRef) {
+
+  }
 
   @HostListener('scroll', ['$event'])
   onScroll(event) {
@@ -17,10 +19,6 @@ export class ScrollableDirective {
       const top = event.target.scrollTop;
       const height = this.el.nativeElement.scrollHeight;
       const offset = this.el.nativeElement.offsetHeight;
-
-      if (top > height - offset - 300) {
-        this.scrollPosition.emit('more');
-      }
 
       if (top > height - offset - 1) {
         this.scrollPosition.emit('bottom');
@@ -40,6 +38,8 @@ export class ScrollableDirective {
 
       this.predTop = top;
 
-    } catch (err) {}
+    } catch (err) {
+
+    }
   }
 }

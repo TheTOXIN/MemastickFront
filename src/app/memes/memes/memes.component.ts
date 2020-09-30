@@ -73,10 +73,8 @@ export class MemesComponent implements OnInit, OnDestroy {
     this.pagination.destroy();
   }
 
-  scrollHandler(e) {
-    if (e === 'more') {
-      this.pagination.more();
-    }
+  moreHandler() {
+    this.pagination.more();
   }
 
   memeView(meme: Meme) {
