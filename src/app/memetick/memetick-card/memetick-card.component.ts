@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
 import {Memetick} from '../../model/Memetick';
 import {CardOptions} from '../../options/card-options';
+import {Router} from '@angular/router';
+import {CardState} from '../../state/card-state.service';
 
 @Component({
   selector: 'app-memetick-card',
@@ -17,6 +19,8 @@ export class MemetickCardComponent implements OnInit {
   isLoad = false;
 
   constructor(
+    private router: Router,
+    private state: CardState,
     private memetickApi: MemetickApiService
   ) {
 
@@ -27,5 +31,10 @@ export class MemetickCardComponent implements OnInit {
       this.memetick = data;
       this.isLoad = true;
     });
+  }
+
+  toMemetick() {
+    this.router.navigate(['/memetick', this.memetick.id]);
+    this.state.modal.close();
   }
 }
