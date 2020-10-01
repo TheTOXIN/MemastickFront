@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemetickPreview} from '../../model/memetick/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ColorUtils} from '../../utils/color-utils';
 import {CardService} from '../../services/card-service';

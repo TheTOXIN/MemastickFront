@@ -4,7 +4,7 @@
 
 <div class="my-container container">
   <div *ngIf='memetickLoad; else loaderMemetick'>
-    <app-memetick-profile [memetick]="memetick" [memetickMe]="memetickMe"></app-memetick-profile>
+    <app-memetick-profile [profile]="memetick" [memetickMe]="memetickMe"></app-memetick-profile>
   </div>
   <ng-template #loaderMemetick>
     <app-spinner></app-spinner>

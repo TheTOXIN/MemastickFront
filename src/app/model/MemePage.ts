@@ -1,8 +1,8 @@
 import {Meme} from './Meme';
 import {MemeStateLike} from './MemeStateLike';
-import {MemetickPreview} from './MemetickPreview';
 import {EvolveStep} from '../consts/EvolveStep';
 import {MemeCommentBest} from './meme/MemeCommentBest';
+import {MemetickPreview} from './memetick/MemetickPreview';
 
 export class MemePage {
   constructor(

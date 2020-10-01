@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemetickRank} from '../../model/MemetickRank';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MemetickRank} from '../../model/memetick/MemetickRank';
 
 @Component({
   selector: 'app-dna-line',

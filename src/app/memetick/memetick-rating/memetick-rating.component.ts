@@ -3,7 +3,7 @@ import {MemetickApiService} from '../../api/memetick-api-service';
 import {Router} from '@angular/router';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {MemetickRatingFilter} from '../../consts/MemetickRatingFilter';
-import {MemetickRating} from '../../model/MemetickRating';
+import {MemetickRating} from '../../model/memetick/MemetickRating';
 
 @Component({
   selector: 'app-memetick-rating',

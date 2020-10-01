@@ -3,7 +3,7 @@ import {BattleRating} from '../../model/battle/BattleRating';
 import {BattleApiService} from '../../api/battle-api-service';
 import {BattleConst} from '../../consts/BattleConst';
 import {memotypeColors, memotypeNames} from '../../consts/MemotypeData';
-import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemetickPreview} from '../../model/memetick/MemetickPreview';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {Router} from '@angular/router';
 import {IntroModalComponent} from '../../modals/intro-modal/intro-modal.component';

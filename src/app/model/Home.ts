@@ -1,6 +1,6 @@
-import {MemetickPreview} from './MemetickPreview';
-import {MemetickRank} from './MemetickRank';
 import {ChatMessage} from './chat/ChatMessage';
+import {MemetickRank} from './memetick/MemetickRank';
+import {MemetickPreview} from './memetick/MemetickPreview';
 
 export class Home {
   constructor (

@@ -1,7 +1,7 @@
 <div class="memetick-card">
   <div *ngIf="isLoad; else memetickLoadId">
     <div class="mini-btn" (click)="toMemetick()">ПРОФИЛЬ <i class="fa fa-user-circle"></i></div>
-    <app-memetick-profile [memetick]="memetick"></app-memetick-profile>
+    <app-memetick-profile [profile]="profile"></app-memetick-profile>
   </div>
   <ng-template #memetickLoadId>
     <div class="flex-center-absolute">

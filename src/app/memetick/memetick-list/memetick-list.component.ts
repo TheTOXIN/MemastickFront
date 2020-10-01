@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
-import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemetickPreview} from '../../model/memetick/MemetickPreview';
 import {UUID} from 'angular2-uuid';
 
 @Component({

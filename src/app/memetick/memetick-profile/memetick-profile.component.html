@@ -3,27 +3,27 @@
     <div class="col-md-12 text-center">
       <div class="memetick-info">
         <p class="memetick-nick">
-          {{memetick?.nick}}<i class="fa fa-pencil-square memetick-icon" (click)="changeNick()" *ngIf="memetickMe" aria-hidden="true"></i>
+          {{profile?.memetick?.nick}}<i class="fa fa-pencil-square memetick-icon" (click)="changeNick()" *ngIf="memetickMe" aria-hidden="true"></i>
         </p>
         <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''" [style.border-color]="colorRarity">
         <i class="fa fa-camera memetick-icon memetick-icon-photo" *ngIf="memetickMe" (click)="changeAvatar()"></i>
       </div>
       <div class="memetick-rank">
-        <div>{{memetick?.rank?.name}}</div>
+        <div>{{profile?.memetick?.rank?.name}}</div>
         <div>
-          <app-rank-level [lvl]="memetick?.rank?.lvl"></app-rank-level>
+          <app-rank-level [lvl]="profile?.memetick?.rank?.lvl"></app-rank-level>
         </div>
       </div>
-      <app-dna-line [rank]="memetick?.rank"></app-dna-line>
-      <app-dna-count [rank]="memetick?.rank"></app-dna-count>
+      <app-dna-line [rank]="profile?.memetick?.rank"></app-dna-line>
+      <app-dna-count [rank]="profile?.memetick?.rank"></app-dna-count>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-online">
-        <span *ngIf="memetick?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
-        <span *ngIf="!memetick?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
+        <span *ngIf="profile?.online"><i class="fa fa-circle" style="color: #28a745"></i> ОНЛАЙН</span>
+        <span *ngIf="!profile?.online"><i class="fa fa-circle" style="color: #dc3545"></i> ОФФЛАЙН</span>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-coins text-strong-middle">
-        <div>{{memetick?.memecoins}}</div>
+        <div>{{profile?.memecoins}}</div>
         <img src="assets/images/icon/memecoin.png">
         <div *ngIf="memetickMe" (click)="memecoinHistory()"><i class="fa fa-list pointer"></i></div>
       </div>
@@ -39,8 +39,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 text-center" *ngIf="memetick?.tokens.wallet">
-      <app-token-wallet [wallet]="memetick?.tokens.wallet" [style.margin-top]="5"></app-token-wallet>
+    <div class="col-md-12 text-center" *ngIf="profile?.tokens.wallet">
+      <app-token-wallet [wallet]="profile?.tokens.wallet" [style.margin-top]="5"></app-token-wallet>
     </div>
   </div>
 
@@ -49,7 +49,7 @@
       <div class="memetick-cookie text-strong-middle">
         <div>Печеньки:</div>
         <img [src]="'assets/images/icon/cookie.png'">
-        <div>{{memetick.cookies}}</div>
+        <div>{{profile.memetick?.cookies}}</div>
       </div>
     </div>
   </div>
@@ -63,8 +63,8 @@
         </button>
         <div *ngIf="!memetickMe" class="memetick-not-me-control">
           <button class="memetick-button btn-theme" (click)="follow()">
-            <span *ngIf="memetick.follow">ОТПИСКА: <i class="fa fa-bell"></i></span>
-            <span *ngIf="!memetick.follow">ПОДПИСКА: <i class="fa fa-bell-slash"></i></span>
+            <span *ngIf="profile.follow">ОТПИСКА: <i class="fa fa-bell"></i></span>
+            <span *ngIf="!profile.follow">ПОДПИСКА: <i class="fa fa-bell-slash"></i></span>
           </button>
           <button class="memetick-button btn-theme" (click)="memotypes()">
             МЕМОТИПЫ:

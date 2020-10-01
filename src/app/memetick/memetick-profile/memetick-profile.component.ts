@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemetickProfile} from '../../model/MemetickProfile';
+import {MemetickProfile} from '../../model/memetick/MemetickProfile';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SettingApiService} from '../../api/setting-api-service';
@@ -22,7 +22,7 @@ import {MemotypesReadComponent} from '../../memotype/memotypes-read/memotypes-re
 export class MemetickProfileComponent implements OnInit {
 
   @Input()
-  public memetick: MemetickProfile;
+  public profile: MemetickProfile;
 
   @Input()
   public memetickMe: boolean;
@@ -43,14 +43,14 @@ export class MemetickProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.avatarURL = this.memetickAvatarsApi.dowloadAvatar(this.memetick.id);
-    this.colorRarity = ColorUtils.getRarityColor(this.memetick.rank.lvl);
+    this.avatarURL = this.memetickAvatarsApi.dowloadAvatar(this.profile.memetick.id);
+    this.colorRarity = ColorUtils.getRarityColor(this.profile.memetick.rank.lvl);
   }
 
   memes() {
     this.router.navigate(['/memes'], {
       queryParams: {
-        memetick: this.memetick.id ,
+        memetick: this.profile.memetick.id ,
         filter: MemeFilter.USER
       }
     });
@@ -60,19 +60,19 @@ export class MemetickProfileComponent implements OnInit {
     this.cardService.open({
       content: MemotypesReadComponent,
       memotypes: {
-        memetickId: this.memetick.id
+        memetickId: this.profile.memetick.id
       }
     });
   }
 
   stats() {
     const modalRef = this.modalService.open(MemetickStatsModalComponent, {'centered': true});
-    modalRef.componentInstance.memetickId = this.memetick.id;
+    modalRef.componentInstance.memetickId = this.profile.memetick.id;
   }
 
   follow() {
-    this.memetick.follow = !this.memetick.follow;
-    this.settingApi.follow(this.memetick.id);
+    this.profile.follow = !this.profile.follow;
+    this.settingApi.follow(this.profile.memetick.id);
   }
 
   memecoinHistory() {

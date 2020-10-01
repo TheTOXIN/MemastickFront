@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
-import {MemetickInventory} from '../model/MemetickInventory';
 import {Observable} from 'rxjs/Observable';
 import {Cell} from '../model/Cell';
 import {Pickaxe} from '../model/Pickaxe';
+import {MemetickInventory} from '../model/memetick/MemetickInventory';
 
 @Injectable()
 export class MemetickInventoryApiService {

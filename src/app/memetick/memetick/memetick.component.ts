@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
-import {MemetickProfile} from '../../model/MemetickProfile';
+import {MemetickProfile} from '../../model/memetick/MemetickProfile';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TokenApiService} from '../../api/token-api-service';
 
@@ -33,9 +33,9 @@ export class MemetickComponent implements OnInit {
       let apiObservable;
 
       if (this.memetickMe) {
-        apiObservable = this.memetickApi.viewMe();
+        apiObservable = this.memetickApi.profileMe();
       } else {
-        apiObservable = this.memetickApi.view(memetickId);
+        apiObservable = this.memetickApi.profile(memetickId);
       }
 
       apiObservable.subscribe(memetick => {

@@ -1,5 +1,5 @@
-import {MemetickPreview} from '../MemetickPreview';
 import {MemotypeRarity} from '../../consts/MemotypeRarity';
+import {MemetickPreview} from '../memetick/MemetickPreview';
 
 export class BattleRating {
   constructor(

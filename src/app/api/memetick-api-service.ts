@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {Observable} from 'rxjs';
-import {MemetickProfile} from '../model/MemetickProfile';
-import {MemetickPreview} from '../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
 import {MemetickRatingFilter} from '../consts/MemetickRatingFilter';
-import {MemetickRating} from '../model/MemetickRating';
+import {Memetick} from '../model/memetick/Memetick';
+import {MemetickProfile} from '../model/memetick/MemetickProfile';
+import {MemetickPreview} from '../model/memetick/MemetickPreview';
+import {MemetickRating} from '../model/memetick/MemetickRating';
 
 
 @Injectable()
@@ -17,15 +18,21 @@ export class MemetickApiService {
   ) {
   }
 
-  public viewMe(): Observable<MemetickProfile> {
+  public read(id: UUID): Observable<Memetick> {
     return this.http
-      .get<MemetickProfile>(API.MEMETICK_VIEW_ME)
+      .get<Memetick>(API.MEMETICK_READ + '/' + id)
       .pipe();
   }
 
-  public view(id: UUID): Observable<MemetickProfile> {
+  public profileMe(): Observable<MemetickProfile> {
     return this.http
-      .get<MemetickProfile>(API.MEMETICK_VIEW + '/' + id)
+      .get<MemetickProfile>(API.MEMETICK_PROFILE_ME)
+      .pipe();
+  }
+
+  public profile(id: UUID): Observable<MemetickProfile> {
+    return this.http
+      .get<MemetickProfile>(API.MEMETICK_PROFILE + '/' + id)
       .pipe();
   }
 

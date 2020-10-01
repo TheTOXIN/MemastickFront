@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Setting} from '../model/Setting';
 import {API} from '../consts/API';
 import {UUID} from 'angular2-uuid';
-import {MemetickPreview} from '../model/MemetickPreview';
+import {MemetickPreview} from '../model/memetick/MemetickPreview';
 
 @Injectable()
 export class SettingApiService {

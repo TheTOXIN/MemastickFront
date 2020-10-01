@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MemetickInventoryApiService} from '../../api/memetick-inventory-api-service';
-import {MemetickInventory} from '../../model/MemetickInventory';
+import {MemetickInventory} from '../../model/memetick/MemetickInventory';
 import {TokenAllowanceModalComponent} from '../../token/token-allowance-modal/token-allowance-modal.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MemetickRank} from '../../model/MemetickRank';
+import {MemetickRank} from '../../model/memetick/MemetickRank';
 
 @Component({
   selector: 'app-dna-count',

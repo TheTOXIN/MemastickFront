@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MemetickPreview} from '../../model/MemetickPreview';
+import {MemetickPreview} from '../../model/memetick/MemetickPreview';
 import {SettingApiService} from '../../api/setting-api-service';
 
 @Component({
