@@ -5,11 +5,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TokenApiService} from '../../api/token-api-service';
 
 @Component({
-  selector: 'app-memetick',
-  templateUrl: './memetick.component.html',
-  styleUrls: ['./memetick.component.scss']
+  selector: 'app-memetick-page',
+  templateUrl: './memetick-page.component.html',
+  styleUrls: ['./memetick-page.component.scss']
 })
-export class MemetickComponent implements OnInit {
+export class MemetickPageComponent implements OnInit {
 
   public memetick: MemetickProfile;
 

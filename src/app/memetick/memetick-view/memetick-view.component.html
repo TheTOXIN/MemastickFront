@@ -1,0 +1,19 @@
+<div *ngIf="memetick">
+  <div class="memetick-info">
+    <p class="memetick-nick">
+      {{memetick?.nick}}<i class="memetick-icon fa fa-pencil-square" (click)="changeNick()" *ngIf="memetickMe" aria-hidden="true"></i>
+    </p>
+    <img class="memetick-avatar img-fluid animated heartBeat" [src]="avatarURL || ''" [style.border-color]="colorRarity">
+    <i class="memetick-icon memetick-icon-photo fa fa-camera" *ngIf="memetickMe" (click)="changeAvatar()"></i>
+  </div>
+  <div class="memetick-rank">
+    <div>{{memetick?.rank?.name}}</div>
+    <div>
+      <app-rank-level [lvl]="memetick?.rank?.lvl"></app-rank-level>
+    </div>
+  </div>
+  <div class="memetick-dna">
+    <app-dna-line [rank]="memetick?.rank"></app-dna-line>
+    <app-dna-count [rank]="memetick?.rank"></app-dna-count>
+  </div>
+</div>

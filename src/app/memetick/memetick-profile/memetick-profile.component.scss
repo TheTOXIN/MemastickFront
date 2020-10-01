@@ -1,16 +1,5 @@
 @import "src/assets/scss/base/_variable.scss";
 
-.memetick-info {
-  text-align: center;
-}
-
-.memetick-avatar {
-  border-style: solid;
-  border-radius: 100%;
-  border-width: 5px;
-  width: 96px;
-}
-
 .memetick-stats {
   border-color: black;
   border-style: outset;
@@ -21,49 +10,6 @@
   margin: 5px auto 15px;
   @media(max-width: 767px) {
     width: 280px;
-  }
-}
-
-.memetick-control {
-  text-align: center;
-  button {
-    display: inline-block;
-  }
-}
-
-.memetick-nick {
-  font-family: Gost, serif;
-  font-size: 32px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-
-  i {
-    margin-left: 10px;
-  }
-}
-
-.memetick-icon {
-  cursor: pointer;
-  font-size: 30px;
-  color: $primary_color;
-  transition: 0.1s;
-
-  &:hover {
-    color: $color_saffron_approx;
-  }
-}
-
-.memetick-icon-photo {
-  position: absolute;
-  background-color: whitesmoke;
-  border-radius: 30px;
-  bottom: 100px;
-  left: auto;
-  right: auto;
-  margin-left: -100px;
-
-  @media(max-width: 767px) {
-    bottom: 80px;
   }
 }
 
@@ -117,39 +63,4 @@
     padding: 5px;
     width: 54px;
   }
-}
-
-.memetick-button {
-  font-size: 20px;
-  margin: 10px;
-  font-family: FuturaRound, serif;
-  border-radius: 30px;
-  width: 300px;
-  i {
-    margin-left: 5px;
-    font-size: 20px;
-  }
-  @media(max-width: 767px) {
-    font-size: 16px;
-    margin-top: 5px;
-    font-family: FuturaRound, serif;
-    border-radius: 30px;
-    width: 250px;
-  }
-}
-
-.memetick-rank {
-  color: $dark_color;
-  font-size: 20px;
-  font-family: MontHeavy, serif;
-  display: flex;
-  justify-content: center;
-  div {
-    margin-left: 5px;
-  }
-}
-
-.memetick-not-me-control {
-  display: grid;
-  justify-content: center;
 }

@@ -9,9 +9,9 @@ export enum API {
   PASSWORD_RESET_TAKE = '/password-reset/take',
   PASSWORD_RESET_SEND = '/password-reset/send',
 
-  MEMETICK_READ = '/memeticks/read',
+  MEMETICK_READ = '/memeticks/',
   MEMETICK_PROFILE_ME = '/memeticks/profile/me',
-  MEMETICK_PROFILE = '/memeticks/profile',
+  MEMETICK_PROFILE = '/memeticks/profile/',
   MEMETICK_LIST = '/memeticks/list',
 
   STATS_MEMETICK = '/statistics/memetick',

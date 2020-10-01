@@ -4,7 +4,6 @@ import {MemetickRoutingModule} from './memetick-routing.module';
 import {MemetickListComponent} from './memetick-list/memetick-list.component';
 import {MemetickRowComponent} from './memetick-row/memetick-row.component';
 import {MemetickRatingComponent} from './memetick-rating/memetick-rating.component';
-import {MemetickComponent} from './memetick/memetick.component';
 import {MemetickStatsModalComponent} from './memetick-stats-modal/memetick-stats-modal.component';
 import {SharedModule} from '../shared/shared.module';
 import {ModalsModule} from '../modals/modals.module';
@@ -14,6 +13,8 @@ import {MemetickCardComponent} from './memetick-card/memetick-card.component';
 import {MemetickListPageComponent} from './memetick-list-page/memetick-list-page.component';
 import {MemetickListModalComponent} from './memetick-list-modal/memetick-list-modal.component';
 import {MemetickFollowModalComponent} from './memetick-follow-modal/memetick-follow-modal.component';
+import {MemetickViewComponent} from './memetick-view/memetick-view.component';
+import {MemetickPageComponent} from './memetick-page/memetick-page.component';
 
 @NgModule({
   imports: [
@@ -29,19 +30,21 @@ import {MemetickFollowModalComponent} from './memetick-follow-modal/memetick-fol
     MemetickStatsModalComponent,
     MemetickListModalComponent,
     MemetickListComponent,
-    MemetickFollowModalComponent
+    MemetickFollowModalComponent,
+    MemetickViewComponent
   ],
   declarations: [
     MemetickRowComponent,
     MemetickListComponent,
-    MemetickComponent,
+    MemetickPageComponent,
     MemetickRatingComponent,
     MemetickStatsModalComponent,
     MemetickProfileComponent,
     MemetickCardComponent,
     MemetickListPageComponent,
     MemetickListModalComponent,
-    MemetickFollowModalComponent
+    MemetickFollowModalComponent,
+    MemetickViewComponent
   ],
   entryComponents: [
     MemetickStatsModalComponent,

@@ -1,21 +1,7 @@
 <div class="memetick-profile">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="memetick-info">
-        <p class="memetick-nick">
-          {{profile?.memetick?.nick}}<i class="fa fa-pencil-square memetick-icon" (click)="changeNick()" *ngIf="memetickMe" aria-hidden="true"></i>
-        </p>
-        <img class="img-fluid memetick-avatar animated heartBeat" [src]="avatarURL || ''" [style.border-color]="colorRarity">
-        <i class="fa fa-camera memetick-icon memetick-icon-photo" *ngIf="memetickMe" (click)="changeAvatar()"></i>
-      </div>
-      <div class="memetick-rank">
-        <div>{{profile?.memetick?.rank?.name}}</div>
-        <div>
-          <app-rank-level [lvl]="profile?.memetick?.rank?.lvl"></app-rank-level>
-        </div>
-      </div>
-      <app-dna-line [rank]="profile?.memetick?.rank"></app-dna-line>
-      <app-dna-count [rank]="profile?.memetick?.rank"></app-dna-count>
+      <app-memetick-view [memetick]="profile?.memetick" [memetickMe]="memetickMe"></app-memetick-view>
     </div>
   </div>
 
@@ -57,24 +43,13 @@
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="memetick-control">
-        <button class="memetick-button btn-theme" (click)="stats()">
-          СТАТИСТИКА
-          <i class="fa fa-line-chart"></i>
+        <button class="btn-theme" (click)="memotypes()">МЕМОТИПЫ: <i class="fa fa-smile-o"></i></button>
+        <button class="btn-theme" (click)="memes()">МЕМАСИКИ: <i class="fa fa-list"></i></button>
+        <button class="btn-theme" (click)="stats()">СТАТИСТИКА: <i class="fa fa-line-chart"></i></button>
+        <button class="btn-theme" (click)="follow()" *ngIf="!memetickMe">
+          <span *ngIf="profile.follow">ОТПИСКА: <i class="fa fa-bell"></i></span>
+          <span *ngIf="!profile.follow">ПОДПИСКА: <i class="fa fa-bell-slash"></i></span>
         </button>
-        <div *ngIf="!memetickMe" class="memetick-not-me-control">
-          <button class="memetick-button btn-theme" (click)="follow()">
-            <span *ngIf="profile.follow">ОТПИСКА: <i class="fa fa-bell"></i></span>
-            <span *ngIf="!profile.follow">ПОДПИСКА: <i class="fa fa-bell-slash"></i></span>
-          </button>
-          <button class="memetick-button btn-theme" (click)="memotypes()">
-            МЕМОТИПЫ:
-            <i class="fa fa-smile-o"></i>
-          </button>
-          <button class="memetick-button btn-theme" (click)="memes()">
-            МЕМАСИКИ
-            <i class="fa fa-list"></i>
-          </button>
-        </div>
       </div>
     </div>
   </div>

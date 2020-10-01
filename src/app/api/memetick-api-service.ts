@@ -20,7 +20,7 @@ export class MemetickApiService {
 
   public read(id: UUID): Observable<Memetick> {
     return this.http
-      .get<Memetick>(API.MEMETICK_READ + '/' + id)
+      .get<Memetick>(API.MEMETICK_READ + id)
       .pipe();
   }
 
@@ -32,7 +32,7 @@ export class MemetickApiService {
 
   public profile(id: UUID): Observable<MemetickProfile> {
     return this.http
-      .get<MemetickProfile>(API.MEMETICK_PROFILE + '/' + id)
+      .get<MemetickProfile>(API.MEMETICK_PROFILE + id)
       .pipe();
   }
 

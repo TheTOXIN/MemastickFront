@@ -1,7 +1,12 @@
 <div class="memetick-card">
   <div *ngIf="isLoad; else memetickLoadId">
-    <div class="mini-btn" (click)="toMemetick()">ПРОФИЛЬ <i class="fa fa-user-circle"></i></div>
-    <app-memetick-profile [profile]="profile"></app-memetick-profile>
+    <app-memetick-view [memetick]="memetick"></app-memetick-view>
+
+    <div class="memetick-control" style="margin-top: 15px">
+      <button class="btn-theme" (click)="profile()">ПРОФИЛЬ: <i class="fa fa-user-circle"></i></button>
+      <button class="btn-theme" (click)="memotypes()">МЕМОТИПЫ: <i class="fa fa-smile-o"></i></button>
+      <button class="btn-theme" (click)="memes()">МЕМАСИКИ: <i class="fa fa-list"></i></button>
+    </div>
   </div>
   <ng-template #memetickLoadId>
     <div class="flex-center-absolute">
