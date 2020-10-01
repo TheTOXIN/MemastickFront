@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
-import {Memetick} from '../../model/Memetick';
+import {MemetickProfile} from '../../model/MemetickProfile';
 import {CardOptions} from '../../options/card-options';
 import {Router} from '@angular/router';
 import {CardState} from '../../state/card-state.service';
@@ -15,7 +15,7 @@ export class MemetickCardComponent implements OnInit {
   @Input()
   public options: CardOptions;
 
-  memetick: Memetick;
+  memetick: MemetickProfile;
   isLoad = false;
 
   constructor(

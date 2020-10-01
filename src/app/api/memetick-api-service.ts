@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../consts/API';
 import {Observable} from 'rxjs';
-import {Memetick} from '../model/Memetick';
+import {MemetickProfile} from '../model/MemetickProfile';
 import {MemetickPreview} from '../model/MemetickPreview';
 import {UUID} from 'angular2-uuid';
 import {MemetickRatingFilter} from '../consts/MemetickRatingFilter';
@@ -17,15 +17,15 @@ export class MemetickApiService {
   ) {
   }
 
-  public viewMe(): Observable<Memetick> {
+  public viewMe(): Observable<MemetickProfile> {
     return this.http
-      .get<Memetick>(API.MEMETICK_VIEW_ME)
+      .get<MemetickProfile>(API.MEMETICK_VIEW_ME)
       .pipe();
   }
 
-  public view(id: UUID): Observable<Memetick> {
+  public view(id: UUID): Observable<MemetickProfile> {
     return this.http
-      .get<Memetick>(API.MEMETICK_VIEW + '/' + id)
+      .get<MemetickProfile>(API.MEMETICK_VIEW + '/' + id)
       .pipe();
   }
 

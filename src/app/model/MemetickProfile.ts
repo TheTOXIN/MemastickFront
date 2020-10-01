@@ -1,6 +1,7 @@
 import {MemetickRank} from './MemetickRank';
+import {TokenWallet} from './tokens/TokenWallet';
 
-export class Memetick {
+export class MemetickProfile {
   constructor (
     public id: string,
     public nick: string,
@@ -8,7 +9,8 @@ export class Memetick {
     public online: boolean,
     public memecoins: number,
     public cookies: number,
-    public rank: MemetickRank
+    public rank: MemetickRank,
+    public tokens: TokenWallet
   ) {
 
   }

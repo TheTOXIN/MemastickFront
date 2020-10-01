@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MemetickApiService} from '../../api/memetick-api-service';
-import {Memetick} from '../../model/Memetick';
+import {MemetickProfile} from '../../model/MemetickProfile';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TokenApiService} from '../../api/token-api-service';
 
@@ -11,8 +11,7 @@ import {TokenApiService} from '../../api/token-api-service';
 })
 export class MemetickComponent implements OnInit {
 
-  public memetick: Memetick;
-  public wallet: any;
+  public memetick: MemetickProfile;
 
   memetickLoad = false;
   memetickMe = false;
@@ -41,10 +40,7 @@ export class MemetickComponent implements OnInit {
 
       apiObservable.subscribe(memetick => {
         this.memetick = memetick;
-        this.tokensApi.memetick(this.memetick.id).subscribe((data) => {
-          this.wallet = data.wallet;
-          this.memetickLoad = true;
-        });
+        this.memetickLoad = true;
       });
     });
   }

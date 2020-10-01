@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Memetick} from '../../model/Memetick';
+import {MemetickProfile} from '../../model/MemetickProfile';
 import {MemetickAvatarApiService} from '../../api/memetick-avatar-api-service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SettingApiService} from '../../api/setting-api-service';
@@ -22,13 +22,10 @@ import {MemotypesReadComponent} from '../../memotype/memotypes-read/memotypes-re
 export class MemetickProfileComponent implements OnInit {
 
   @Input()
-  public memetick: Memetick;
+  public memetick: MemetickProfile;
 
   @Input()
   public memetickMe: boolean;
-
-  @Input()
-  public wallet: any;
 
   public colorRarity: any;
   public avatarURL: string;

@@ -39,8 +39,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 text-center" *ngIf="wallet">
-      <app-token-wallet [wallet]="wallet" [style.margin-top]="5"></app-token-wallet>
+    <div class="col-md-12 text-center" *ngIf="memetick?.tokens.wallet">
+      <app-token-wallet [wallet]="memetick?.tokens.wallet" [style.margin-top]="5"></app-token-wallet>
     </div>
   </div>
 
