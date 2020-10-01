@@ -35,7 +35,6 @@ export class MemotypesReadComponent implements OnInit {
 
   isLoad = false;
   isEmpty = false;
-  memotypesCarousel: any;
 
   constructor(
     private cardState: CardState,
@@ -49,7 +48,6 @@ export class MemotypesReadComponent implements OnInit {
   ngOnInit() {
     this.initOptions();
     this.initMemotypes();
-    this.initCarousel();
   }
 
   initOptions() {
@@ -99,17 +97,5 @@ export class MemotypesReadComponent implements OnInit {
   toShop() {
     this.router.navigateByUrl('/shop/memotypes');
     this.cardState.modal.close();
-  }
-
-  initCarousel() {
-    this.memotypesCarousel = {
-      loop: true,
-      nav: true,
-      dots: true,
-      rewindNav: false,
-      autoHeight: false,
-      lazyLoad: true,
-      items: 1
-    };
   }
 }

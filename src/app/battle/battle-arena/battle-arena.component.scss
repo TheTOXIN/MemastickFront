@@ -23,6 +23,7 @@
 .battle-arena-meme {
   width: 100%;
   height: 45%;
+  cursor: pointer;
 
   text-align: center;
   position: relative;
@@ -100,9 +101,11 @@
 }
 
 .hover-vote {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
   &:hover {
-    animation: scaleVote 0.5s;
-    animation-fill-mode: forwards;
+    transform: scale(1.1);
   }
 }
 
@@ -149,12 +152,6 @@
 
 .blur {
   filter: blur(3px);
-}
-
-@keyframes scaleVote {
-  100% {
-    transform: scale(1.1);
-  }
 }
 
 @keyframes spinCookie {
