@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {OauthApiService} from '../../services/oauth-api-service';
+import {ControlService} from '../../services/control-service';
 
 @Component({
   selector: 'app-logout-modal',
@@ -10,12 +11,14 @@ import {OauthApiService} from '../../services/oauth-api-service';
 export class LogoutModalComponent {
 
   constructor(
+    public controlService: ControlService,
     public activeModal: NgbActiveModal,
     public oauth: OauthApiService,
   ) {
   }
 
   logout() {
+    this.controlService.hide();
     this.oauth.logout();
     this.close();
   }
