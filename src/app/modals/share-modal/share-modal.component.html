@@ -6,7 +6,7 @@
     <div class="share-input">
       <input type="text" [value]="memeURL" #input>
     </div>
-    <div  class="share-panel">
+    <div class="share-panel">
       <div class="share-type" (click)="cp(input)">
         <i class="fa fa-copy" style="color: #656565"></i>
         <p>Копировать</p>
@@ -19,13 +19,17 @@
         <i class="fa fa-vk" style="color: #4a76a8"></i>
         <p>Вконтакте</p>
       </div>
-      <div class="share-type" (click)="translateAdmin()" *ngIf="role == 'ADMIN'">
+      <div class="share-type" (click)="banMeme()" *ngIf="isAdmin">
+        <i class="fa fa-ban" style="color: #ce223b"></i>
+        <p>БАН</p>
+      </div>
+      <div class="share-type" (click)="translateDay()" *ngIf="isAdmin">
+        <i class="fa fa-bolt" style="color: #3ab63e"></i>
+        <p>МЕМ ДНЯ</p>
+      </div>
+      <div class="share-type" (click)="translateAdmin()" *ngIf="isAdmin">
         <i class="fa fa-globe" style="color: #6c26fc"></i>
         <p>АДМИН</p>
-      </div>
-      <div class="share-type" (click)="banMeme()" *ngIf="role == 'ADMIN'">
-        <i class="fa fa-ban" style="color: #a70d22"></i>
-        <p>БАН</p>
       </div>
     </div>
   </div>

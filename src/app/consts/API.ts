@@ -70,7 +70,8 @@ export enum API {
   USER_ME = '/user/me',
   USER_DATA = '/user/data',
 
-  ADMIN_TRANSALTE = '/translator/admin',
+  DAY_TRANSLATE = '/translator/day',
+  ADMIN_TRANSLATE = '/translator/admin',
   USER_TRANSLATE = '/translator/user',
 
   INVITE_READ = '/invites',

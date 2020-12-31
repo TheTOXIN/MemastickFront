@@ -20,6 +20,7 @@ export class ShareModalComponent implements OnInit {
   public memeURL;
 
   public role = RoleType.USER;
+  public isAdmin = false;
 
   constructor(
     private acceptService: AcceptService,
@@ -29,6 +30,7 @@ export class ShareModalComponent implements OnInit {
     public memeApi: MemeApiService
   ) {
     this.role = this.storage.getRole();
+    this.isAdmin = this.role === 'ADMIN';
   }
 
   ngOnInit() {
@@ -49,23 +51,21 @@ export class ShareModalComponent implements OnInit {
     this.share('https://vk.com/share.php?url=');
   }
 
+  translateDay() {
+    this.acceptService.accept({img: 'assets/images/tokens/tmp.png', text: 'МЕМ ДНЯ'}).then(
+      () => this.translatorApi.dayPublish(this.memeId), () => {}
+    );
+  }
+
   translateAdmin() {
-    this.acceptService.accept({
-      img: 'assets/images/tokens/tmp.png',
-      text: 'ПУБЛИКОВАТЬ'
-    }).then(
-      () => this.translatorApi.adminPublish(this.memeId),
-      () => {}
+    this.acceptService.accept({img: 'assets/images/tokens/tmp.png', text: 'ПУБЛИКОВАТЬ'}).then(
+      () => this.translatorApi.adminPublish(this.memeId), () => {}
     );
   }
 
   banMeme() {
-    this.acceptService.accept({
-      img: 'assets/images/tokens/tmp.png',
-      text: 'ЗАБАНИТЬ'
-    }).then(
-      () => this.memeApi.memeBan(this.memeId),
-      () => {}
+    this.acceptService.accept({img: 'assets/images/tokens/tmp.png', text: 'ЗАБАНИТЬ'}).then(
+      () => this.memeApi.memeBan(this.memeId), () => {}
     );
   }
 

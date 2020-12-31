@@ -9,11 +9,18 @@ export class TranslatorApiService {
   constructor(
     private http: HttpClient
   ) {
+
+  }
+
+  public dayPublish(memeId: UUID) {
+    this.http
+      .post(API.DAY_TRANSLATE, {id: memeId})
+      .toPromise();
   }
 
   public adminPublish(memeId: UUID) {
     this.http
-      .post(API.ADMIN_TRANSALTE ,{id: memeId})
+      .post(API.ADMIN_TRANSLATE, {id: memeId})
       .toPromise();
   }
 
