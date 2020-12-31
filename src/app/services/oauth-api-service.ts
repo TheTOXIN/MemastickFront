@@ -95,6 +95,7 @@ export class OauthApiService {
   }
 
   public logoutProcess() {
+    if (!this.checkTokens()) { return; }
     console.log('LOGOUT PROCESS');
 
     Cookie.delete(ACCESS_TOKEN_KEY);
