@@ -19,6 +19,7 @@ export class IntroComponent implements OnInit {
     'Одэмен петух',
     'Есть тут кто?',
     'Сиди дома дурак',
+    'Мемов не будет'
   ];
 
   private messagesTwo = [
@@ -32,6 +33,7 @@ export class IntroComponent implements OnInit {
     'Зачем ты так',
     'Аахаххааах',
     'Надеюсь на лучшее',
+    'Мемастик все...'
   ];
 
   public firstMessage = '';
