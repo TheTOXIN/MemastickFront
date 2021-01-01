@@ -1,11 +1,11 @@
 //Install express server
 const express = require('express');
-const sslRedirect = require('heroku-ssl-redirect');
+// const sslRedirect = require('heroku-ssl-redirect');
 const path = require('path');
 const app = express();
 
 //User redirect to https for heroku
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/frontmem'));
