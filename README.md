@@ -5,5 +5,5 @@
 https://memastick-front.herokuapp.com
 
 - ВК - https://vk.com/memastick
+- САЙТ - http://www.memastick.ru
 - ТЕЛЕГА - https://t.me/memastick
-- САЙТ - https://www.memastick.ru

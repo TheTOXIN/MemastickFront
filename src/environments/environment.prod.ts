@@ -10,7 +10,7 @@ export const environment = {
   },
   version: '0.8 beta',
   backUrl: 'https://memastick-back.herokuapp.com',
-  frontUrl: 'https://www.memastick.ru',
+  frontUrl: 'http://www.memastick.ru',
   androidUrl: 'android-app://xyz.appmaker.qkufdm',
   accessTokenTime: 86400,
   refreshTokenTime: 31536000,
